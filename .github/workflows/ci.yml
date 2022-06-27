@@ -52,7 +52,7 @@ jobs:
       - name: Check
         continue-on-error: true
         run: |
-          docker run -v $(pwd)/public:/public -v $(pwd)/.htmltest.yml:/.htmltest.yml --rm wjdp/htmltest -s /public -c /.htmltest.yml
+          echo $(docker run -v $(pwd)/public:/public -v $(pwd)/.htmltest.yml:/.htmltest.yml --rm wjdp/htmltest -s /public -c /.htmltest.yml) >> $GITHUB_STEP_SUMMARY
 
       # - name: Publish to GH Pages
       #   uses: peaceiris/actions-gh-pages@v3
