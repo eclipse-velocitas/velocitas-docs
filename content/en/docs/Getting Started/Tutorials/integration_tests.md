@@ -5,16 +5,16 @@ aliases:
   - /docs/integration_tests.md
 ---
 
-To be sure that a newly created _Vehicle App_ will run together with the _Vehicle Data Broker_ and potentially other dependant _Vehicle Services_ or _Vehicle Apps_, it's essential to write integration tests together with developing the app.
+To be sure that a newly created _Vehicle App_ will run together with the _Vehicle Data Broker_ and potentially other dependant _Vehicle Services_ or _Vehicle Apps_, it's essential to write integration tests along with developing the app.
 
 To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.
 
 ## Quickstart
 
-1. Make sure that local execution of runtime components is working and started
-2. Start application (Debugger or run as task)
-3. Extend test file `/test/integration_test.py` or create new test file
-4. Run/debug tests with Visual Studio Code Test runner
+1. Make sure that the local execution of runtime components is working and started.
+2. Start the application (Debugger or run as task).
+3. Extend the test file `/test/integration_test.py` or create a new test file.
+4. Run/debug tests with the Visual Studio Code Test runner.
 
 ## Runtime components
 
@@ -25,10 +25,10 @@ To be able to test the _Vehicle App_ in an integrated way, the following compone
 - Vehicle Data Broker
 - Vehicle Services
 
-We distinguish two environments for executing the _Vehicle App_ and the runtime components:
+We distinguish between two environments for executing the _Vehicle App_ and the runtime components:
 
 - **Local execution**: components are running locally in the development environment
-- **Kubernetes execution**: components (and application) are deployed and running in a Kubernetes control plane (e.g. K3D)
+- **Kubernetes execution**: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)
 
 ### Local Execution
 
@@ -67,16 +67,16 @@ To write an integration test, you should check the sample that comes with the te
 
     If the `responsecode` property should be checked for the value `10`, the path would be `["result", "responsecode]`, property value would be `10`. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string ("") is returned.
 
-  This class can be initialized with a given port. If no port is specified, the environment variable `MQTT_PORT` will be checked. If this is not possible either, the default value of `1883` will be used. **It's recommended to specify no port when initializing that class as it will locally use the default port `1883` and in CI the port set by the environment variable `MQTT_PORT`. This will prevent check-in in the wrong port from local development.**
+  This class can be initialized with a given port. If no port is specified, the environment variable `MQTT_PORT` will be checked. If this is not possible either, the default value of `1883` will be used. **It's recommended to specify no port when initializing that class as it will locally use the default port `1883` and in CI the port set by the environment variable `MQTT_PORT`. This will prevent a check-in in the wrong port from local development.**
 
 - `IntTestHelper`: this class provides functionality to interact with the _Vehicle Data Broker_.
 
   - `register_dapoint`: registers a new datapoint with given name and type
   - `set_..._datapoint`: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.
 
-  This class can be initialized with a given port. If no port is specified, the environment variable `VDB_PORT` will be checked. If this is not possible either, the default value of `55555` will be used. **It's recommended to specify no port when initializing that class as it will locally use the default port `55555` and in CI the port set by the environment variable `VDB_PORT` which is set. This will prevent check-in in the wrong port from local development.**
+  This class can be initialized with a given port. If no port is specified, the environment variable `VDB_PORT` will be checked. If this is not possible either, the default value of `55555` will be used. **It's recommended to specify no port when initializing that class as it will locally use the default port `55555` and in CI the port set by the environment variable `VDB_PORT` which is set. This will prevent a check-in in the wrong port from local development.**
 
-> **Please make sure that you don't checkin the test classes with using local ports as then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).**
+> **Please make sure that you don't check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).**
 
 ## Running Tests locally
 
@@ -90,37 +90,37 @@ The tests will be discovered and executed automatically in the [CI pipeline](htt
 
 ## Run test in local mode
 
-1. Make sure that the [tasks for the runtime components](/docs/run_runtime_services_kubernetes.md) are running (by checking the terminal view)
-2. Make sure that your application is running (via Debugger or task)
-3. Make sure that you are using the right ports for local execution of runtime components
-4. Run tests from test runner
+1. Make sure that the [tasks for the runtime components](/docs/run_runtime_services_kubernetes.md) are running (by checking the terminal view).
+2. Make sure that your application is running (via Debugger or task).
+3. Make sure that you are using the right ports for local execution of runtime components.
+4. Run tests from the test runner.
 
 ## Run tests in Kubernetes mode
 
-1. Make sure that K3D is up and running (by calling the scripts in the `scripts/k3d` folder, 01 - 04)
-2. Make sure the the tests are using the right ports for Kubernetes execution
-3. Run tests from test runner
+1. Make sure that K3D is up and running (by calling the scripts in the `scripts/k3d` folder, 01 - 04).
+2. Make sure that the tests are using the right ports for Kubernetes execution.
+3. Run tests from the test runner.
 
 ## Update application when running in Kubernetes mode
 
-1. Re-run the script `/scripts/k3d/04_deploy-apps.sh` that rebuilds and deploys the application to K3D
-2. Re-run tests from test runner
+1. Re-run the script `/scripts/k3d/04_deploy-apps.sh` that rebuilds and deploys the application to K3D.
+2. Re-run tests from the test runner. 
 
 # Troubleshooting
 
 ## Check if the services are registered correctly in Dapr
 
-- When running in local mode, call `dapr dashboard` in a terminal and open the given URL to see the Dapr dashboard in the browser
-- When running in Kubernetes mode, call `dapr dashboard -k` in a terminal and open the given URL to see the Dapr dashboard in the browser
+- When running in local mode, call `dapr dashboard` in a terminal and open the given URL to see the Dapr dashboard in the browser.
+- When running in Kubernetes mode, call `dapr dashboard -k` in a terminal and open the given URL to see the Dapr dashboard in the browser.
 
 ## Troubleshoot IntTestHelper
 
-- Make sure that the _Vehicle Data Broker_ is up and running by checking the task log
-- Make sure that you are using the right ports for local/Kubernetes execution
-- Make sure that you installed the correct version of the SDK (_SDV_-package)
+- Make sure that the _Vehicle Data Broker_ is up and running by checking the task log.
+- Make sure that you are using the right ports for local/Kubernetes execution.
+- Make sure that you installed the correct version of the SDK (_SDV_-package).
 
 ## Troubleshoot Mosquitto (MQTT Broker)
 
-- Make sure that the _Mosquitto_ up and running by checking the task log
-- Make sure that you are using the right ports for local/Kubernetes execution
-- Use VsMqtt extension to connect to MQTT broker (`localhost:1883` (local) or `localhost:31883` (Kubernetes)) to monitor topics in MQTT broker
+- Make sure that the _Mosquitto_ up and running by checking the task log.
+- Make sure that you are using the right ports for local/Kubernetes execution.
+- Use VsMqtt extension to connect to MQTT broker (`localhost:1883` (local) or `localhost:31883` (Kubernetes)) to monitor topics in MQTT broker.
