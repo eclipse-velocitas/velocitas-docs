@@ -8,7 +8,7 @@ aliases:
 ## GRPC Interface Style Guide
 
 This document provides a style guide for .proto files. By following these conventions, you'll make your protocol buffer message definitions and their corresponding classes consistent and easy to read.
-The style guide is unless otherwise mentioned based on the style guide from [google protocol-buffers style](https://developers.google.com/protocol-buffers/docs/style) under Apache 2.0 License & Creative Commons Attribution 4.0 License.
+Unless otherwise indicated, this style guide is based on the style guide from [google protocol-buffers style](https://developers.google.com/protocol-buffers/docs/style) under Apache 2.0 License & Creative Commons Attribution 4.0 License.
 
 Note that protocol buffer style can evolve over time, so it is likely that you will see .proto files written in different conventions or styles. Please respect the existing style when you modify these files. Consistency is key. However, it is best to adopt the current best style when you are creating a new .proto file.
 
@@ -120,7 +120,7 @@ A new major version of an API must not depend on a previous major version of the
 
 Different versions of the same API should preferably be able to work at the same time within a single client application for a reasonable transition period. This time period allows the client to transition smoothly to the newer version. An older version must go through a reasonable, well-communicated deprecation period before being shut down.
 
-For releases which have alpha or beta stability, APIs must append the stability level after the major version number in the protobuf package.
+For releases that have alpha or beta stability, APIs must append the stability level after the major version number in the protobuf package.
 
 #### Release-based versioning
 
@@ -164,7 +164,7 @@ The following changes are non-breaking at a gRPC protocol level, but the client 
 
 The following items are protocol and binary breaking changes:
 
-- Renaming a field - With Protobuf content, the field names are only used in generated code. The field number is used to identify fields on the network. Renaming a field isn't a protocol breaking change for Protobuf. However, if a server is using JSON content then renaming a field is a breaking change.
+- Renaming a field - With Protobuf content, the field names are only used in generated code. The field number is used to identify fields on the network. Renaming a field isn't a protocol breaking change for Protobuf. However, if a server is using JSON content, then renaming a field is a breaking change.
 - Changing a field data type - Changing a field's data type to an incompatible type will cause errors when deserializing the message. Even if the new data type is compatible, it's likely the client needs to be updated to support the new type if it upgrades to the latest contract.
 - Changing a field number - With Protobuf payloads, the field number is used to identify fields on the network.
 - Renaming a package, service or method - gRPC uses the package name, service name, and method name to build the URL. The client gets an UNIMPLEMENTED status from the server.
@@ -185,9 +185,9 @@ Adapted from [Versioning gRPC services](https://docs.microsoft.com/en-us/aspnet/
 
 ### gRPC error handling
 
-In gRPC a large set of error codes has been [defined](https://grpc.github.io/grpc/cpp/md_doc_statuscodes.html)
-SDV should as general rule use relevant gRPC error codes,
-like described in [this thread](https://stackoverflow.com/questions/59094839/whats-the-correct-way-to-return-a-not-found-response-from-a-grpc-c-server-i)
+In gRPC, a large set of error codes has been [defined](https://grpc.github.io/grpc/cpp/md_doc_statuscodes.html)
+As a general rule, SDV should use relevant gRPC error codes,
+as described in [this thread](https://stackoverflow.com/questions/59094839/whats-the-correct-way-to-return-a-not-found-response-from-a-grpc-c-server-i)
 
 ```cpp
    return grpc::Status(grpc::StatusCode::NOT_FOUND, "error details here");
@@ -201,7 +201,7 @@ Available constructor:
       const std::string & error_details
 ```
 
-Framework for crafting error messages could be useful as a later improvement. This could e.g. be used to specify which unit that created the error message and to assure same structure on all messages. The latter two may e.g. depend on debug settings, e.g. error details only in debug-builds to avoid that sensitive information leaks. A global function like below or similar could handle that and also possibly convert between internal error codes and gRPC codes.
+The framework for drafting error messages could be useful as a later improvement. This could e.g., be used to specify which unit created the error message and to assure the same structure on all messages. The latter two may e.g., depend on debug settings, e.g., error details only in debug-builds to avoid leaks of sensitive information. A global function like below or similar could handle that and also possibly convert between internal error codes and gRPC codes.
 
 ```cpp
    grpc::Status status = CreateStatusMessage(PERMISSION_DENIED,"DataBroker","Rule access rights violated");
@@ -228,28 +228,28 @@ VSC recently added errors to the [example service](https://github.com/COVESA/veh
 ```
 
 The errors come from a [standardized error list](https://github.com/COVESA/vehicle_service_catalog/blob/master/vsc-error.yml),
-and for each method in VSC a range clause can be used to specify which errors from that list that are applicable.
+and for each method in VSC, a range clause can be used to specify which errors from that list that are applicable.
 
-It in in VSC explicitly [specified](https://github.com/COVESA/vehicle_service_catalog#methods-list-object-error) that:
+It is in VSC explicitly [specified](https://github.com/COVESA/vehicle_service_catalog#methods-list-object-error) that:
 
-_Transport-layer issues arising from interrupted communication, services going down, etc, are handled on a language-binding level where each language library implements their own way of detecting, reporting, and recovering from network-related errors._
+_Transport-layer issues arising from interrupted communication, services going down, etc, are handled on a language-binding level where each language library implements its own way of detecting, reporting, and recovering from network-related errors._
 
-This means that VSC error messages intentionally covers a smaller subset than gRPC error messages. Unlike gRPC,
-there is in VSC currently no detailed documentation on when individual error codes shall be used, which could cause
+This means that VSC error messages intentionally cover a smaller subset than gRPC error messages. Unlike gRPC,
+there is currently no detailed documentation in VCS on when individual error codes shall be used, which could cause
 problems as some error codes are similar.
 
-### SDV error handling for gRPC interfaces e.g. VAL vehicles services
+### SDV error handling for gRPC interfaces (e.g., VAL vehicles services)
 
 - Use gRPC error codes as base
-- Document in proto files (as comments) which error codes that the service implementation can emit and the meaning of them. (Errors that only are emitted by the gRPC framework do not need to be listed)
-- Do not - unless there are special reasons - add explicit error/status fields to rpc return messages
-- Additional error information can be given by free text fields in gRPC error codes. Note however that sensitive information like `Given password ABCD does not match expected password EFGH` should not be passed in an unprotected/unencrypted manner.
+- Document in proto files (as comments) which error codes that the service implementation can emit and the meaning of them. (Errors that only are emitted by the gRPC framework do not need to be listed.)
+- Do not - unless there are special reasons - add explicit error/status fields to rpc return messages.
+- Additional error information can be given by free text fields in gRPC error codes. Note, however, that sensitive information like `Given password ABCD does not match expected password EFGH` should not be passed in an unprotected/unencrypted manner.
 
 ### SDV handling of gRPC error codes
 
-The table below gives for each gRPC error code guidelines on:
+The table below gives error code guidelines for each gRPC on:
 
-- If it is relevant for a client to retry the call or not if receiving the error code. Retry is only relevant if the error is of temporary nature.
+- If it is relevant for a client to retry the call or not when receiving the error code. Retry is only relevant if the error is of a temporary nature.
 - Which VSC error code matches the respective gRPC error code
 - When to use the error code when implementing a service.
 
@@ -277,25 +277,25 @@ The table below gives for each gRPC error code guidelines on:
       <td>UNKNOWN</td>
       <td>No</td>
       <td>other</td>
-      <td>To be used in default-statements when converting errors from e.g. Broker-errors to SDV/gRPC errors</td>
+      <td>To be used in default-statements when converting errors from e.g., Broker-errors to SDV/gRPC errors</td>
     </tr>
     <tr>
       <td>INVALID_ARGUMENT</td>
       <td>No</td>
       <td>invalid_argument</td>
-      <td>E.g. Rule syntax with errors</td>
+      <td>E.g., Rule syntax with errors</td>
     </tr>
     <tr>
       <td>DEADLINE_EXCEEDED</td>
       <td>Yes</td>
       <td>expired</td>
-      <td>Only applicable for asynchronous services, i.e. services which wait for completion before result is returned. Behavior if a VSC operation cannot finish within expected time must be defined. Two options exist. One is to return this error after e.g. X seconds. Another is that the server never gives up, but rather waits for the client to cancel the operation.</td>
+      <td>Only applicable for asynchronous services, i.e. services which wait for completion before the result is returned. The behavior if a VSC operation cannot finish within expected time must be defined. Two options exist. One is to return this error after e.g., X seconds. Another is that the server never gives up, but rather waits for the client to cancel the operation.</td>
     </tr>
     <tr>
       <td>NOT_FOUND</td>
       <td>No</td>
       <td>not_found</td>
-      <td>Long term situation that likely not will change within the near future. <br/> Example: SDV can not find the specified resource (e.g. no path to get data for specified seat) </td>
+      <td>Long term situation that likely not will change in the near future. <br/> Example: SDV can not find the specified resource (e.g., no path to get data for specified seat) </td>
     </tr>
     <tr>
       <td>ALREADY_EXISTS</td>
@@ -313,31 +313,31 @@ The table below gives for each gRPC error code guidelines on:
       <td>RESOURCE_EXHAUSTED</td>
       <td>Yes</td>
       <td>no_resource, busy</td>
-      <td>Possibly if e.g. malloc fails or similar errors.</td>
+      <td>Possibly if e.g., malloc fails or similar errors.</td>
     </tr>
     <tr>
       <td>FAILED_PRECONDITION</td>
       <td>Yes</td>
       <td>incorrect_state</td>
-      <td>Could be returned if e.g. operation is rejected due to safety reasons. (E.g. vehicle moving)</td>
+      <td>Could be returned if e.g., operation is rejected due to safety reasons. (E.g., vehicle moving)</td>
     </tr>
     <tr>
       <td>ABORTED</td>
       <td>Yes</td>
       <td>lost_arbitration</td>
-      <td>Could e.g. be returned if service does not support concurrent requests, and there either already is a related operation ongoing or the operation is aborted due to a newer request received. Could also be used if operation is aborted on user/driver request, e.g. physical button in vehicle pressed.</td>
+      <td>Could e.g., be returned if service does not support concurrent requests, and there is already either a related operation ongoing or the operation is aborted due to a newer request received. Could also be used if an operation is aborted on user/driver request, e.g., physical button in vehicle pressed.</td>
     </tr>
     <tr>
       <td>OUT_OF_RANGE</td>
       <td>No</td>
       <td>invalid_argument</td>
-      <td>E.g. Arguments out of range</td>
+      <td>E.g., Arguments out of range</td>
     </tr>
     <tr>
       <td>UNIMPLEMENTED</td>
       <td>No</td>
       <td>not_supported</td>
-      <td>To be used if certain use-cases of the service is not implemented, e.g. if recline cannot be adjusted</td>
+      <td>To be used if certain use-cases of the service are not implemented, e.g., if recline cannot be adjusted</td>
     </tr>
     <tr>
       <td>INTERNAL</td>
@@ -349,19 +349,19 @@ The table below gives for each gRPC error code guidelines on:
       <td>UNAVAILABLE</td>
       <td>Yes</td>
       <td>no_service</td>
-      <td>To be used if the service is temporarily unavailable, e.g. during system startup.</td>
+      <td>To be used if the service is temporarily unavailable, e.g., during system startup.</td>
     </tr>
     <tr>
       <td>DATA_LOSS</td>
       <td>No</td>
       <td>other</td>
-      <td>No explicit use case on server side in SDV identified. Out of scope of VSC.</td>
+      <td>No explicit use case identified on server side in SDV. Out of scope of VSC.</td>
     </tr>
     <tr>
       <td>UNAUTHENTICATED</td>
       <td>No</td>
       <td>other</td>
-      <td>No explicit use case on server side in SDV identified. Out of scope of VSC.</td>
+      <td>No explicit use case identified on server side in SDV. Out of scope of VSC.</td>
     </tr>
     <tr>
       <td>N/A</td>
@@ -371,15 +371,15 @@ The table below gives for each gRPC error code guidelines on:
     </tr>
 </table>
 
-As can be seen in the table above there is not always a 1:1 mapping between VSC errors and gRPC errors.
-Parts of this need to be sorted out in VSC context, e.g. difference between `ok` and `completed`.
+As can be seen in the table above, there is not always a 1:1 mapping between VSC errors and gRPC errors.
+Parts of this need to be sorted out in VSC context, e.g., difference between `ok` and `completed`.
 
 ### Proposed handling when implementing service defined in VSC
 
 The starting approach when implementing a service defined in VSC in a framework using gRPC errors is to only use gRPC errors that correspond to defined VSC errors.
-If a VSC method e.g. specifies only `ok` and `incorrect_state` as error codes,
-then an implementation using gRPC shall if possible only use the gRPC error codes `OK` and `FAILED_PRECONDITION`.
-If additional gRPC errors are relevant, then it shall be investigated if the specified VSC list of errors can be extended.
+If a VSC method e.g., specifies only `ok` and `incorrect_state` as error codes,
+then an implementation using gRPC shall, if possible, only use the gRPC error codes `OK` and `FAILED_PRECONDITION`.
+If additional gRPC errors are relevant, then it shall be investigated whether or not the specified VSC list of errors can be extended.
 
 ### Comparison on actual error code usage
 
