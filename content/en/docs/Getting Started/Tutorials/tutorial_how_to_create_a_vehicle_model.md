@@ -1,32 +1,29 @@
 ---
-title: "Tutorial to Create your first Python Vehicle Model"
+title: "Tutorial on how to create your first Python Vehicle Model"
 date: 2022-05-09T13:43:25+05:30
 weight: 5
 aliases:
   - /docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md
 ---
 
-# Create your first Python Vehicle Model
+In this short introduction, you´ll create a simple Python Vehicle Model with Visual Studio Code and the Python Vehicle App SDK.
 
-In this short introduction you´ll create a simple Python Vehicle Model with Visual Studio Code and the Python Vehicle App SDK.
-
-> We recommend to make yourself familiar with the [Python Vehicle App SDK Overview](/docs/python-sdk/python_vehicle_app_sdk_overview) first, before going through this tutorial.
+> We recommend that you make yourself familiar with the [Python Vehicle App SDK Overview](/docs/python-sdk//python_vehicle_app_sdk_overview.md) first, before going through this tutorial.
 
 This tutorial will show you how to:
 
-- Setup a Python Package
+- Set up a Python Package
 - Create a Python Vehicle Model
 - Add Vehicle Services
 - Distribute your Python Vehicle Model
 
 ## Prerequisites
 
-- [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) installed. For information about how to install extensions on Visual Studio Code, see [VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery).
+- [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) installed. For information on how to install extensions on Visual Studio Code, see [VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery).
 
 ## Create a Python Vehicle Model
 
-A Vehicle Model should be defined in its own Python Package. This allows to distribute the Vehicle Model later as a standalone package and to use it in different Vehicle App projects.
-
+A Vehicle Model should be defined in its own Python Package. This makes it possible to distribute the Vehicle Model later as a standalone package and to use it in different _Vehicle App_ projects.
 A Vehicle Model can be created in one of two ways.
 
 - ### Create a Python Vehicle Model from VSS specification
@@ -202,7 +199,7 @@ A Vehicle Model can be created in one of two ways.
 
 ## Add a Vehicle Service
 
-In this section we add the `SeatService` vehicle service to the Vehicle Model.
+In this section, we add the `SeatService` vehicle service to the Vehicle Model.
 
 1. Create a new folder `proto` under `my_vehicle_model/my_vehicle_model`.
 2. Create a new file `seats.proto` under `my_vehicle_model/my_vehicle_model/proto`:
@@ -372,7 +369,7 @@ If you want to distribute your Python Vehicle Model inside an organization and u
 
 1. Create new Git repository called `my_vehicle_model`
 2. Copy the content under `my_vehicle_model` to the repository.
-3. Release the vehicle model by creating a version tag, e.g. `v1.0.0`.
+3. Release the vehicle model by creating a version tag (e.g., `v1.0.0`).
 4. Install the Vehicle Model package to your Vehicle App:
 
    ```python
@@ -381,8 +378,8 @@ If you want to distribute your Python Vehicle Model inside an organization and u
 
 5. Import the package `my_vehicle_model` in your Vehicle App and use it as shown in the previous section.
 
-### Distribute publically as open source
+### Distribute publicly as open source
 
-If you want to distribute your Python Vehicle Model publically, you can do so by creating a Python package and distribute it on the [Python Package Index (PyPI)](https://pypi.org/). PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use `pip` command, you are alreaedy using PyPI.
+If you want to distribute your Python Vehicle Model publicly, you can do so by creating a Python package and distributing it on the [Python Package Index (PyPI)](https://pypi.org/). PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the `pip` command, you are already using PyPI.
 
-Detailed instructions how to make a Python package available on PyPI can be found [here](https://packaging.python.org/tutorials/packaging-projects/).
+Detailed instructions on how to make a Python package available on PyPI can be found [here](https://packaging.python.org/tutorials/packaging-projects/).
