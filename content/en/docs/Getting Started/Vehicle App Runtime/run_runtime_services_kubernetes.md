@@ -35,15 +35,18 @@ To check the status of your K3D instance (running pods, containers, logs, ...) y
 **Logging:** Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.
 
 ## Uploading files to persistentVolume
-Some applications (e.g. FeederCAN) might require to load custom files from mounted volume. For that reason persistentVolume is created in k3d cluster.
-All files that are located in ```deploy/runtime/k3d/volume``` will be uploaded to the k3d cluster dynamically. In order to mount files to the directory which is accessible by application, please refer to the deployment configuration file: [```deploy/runtime/k3d/helm/templates/bash.yaml```](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/scripts/k3d/helm/templates/persistentVolume.yaml).
+
+Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
+All the files that are located in ```deploy/runtime/k3d/volume``` will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: [```deploy/runtime/k3d/helm/templates/bash.yaml```](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/scripts/k3d/helm/templates/persistentVolume.yaml).
+
 Changes in ```deploy/runtime/k3d/volume``` are automatically reflected in PersistentVolume.
 
 ### Uploading custom candump file to FeederCAN
-FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however if necessary there is an option to upload custom file by:
 
-1. Create/Update candump file with with name ```candump``` in ```deploy/runtime/k3d/volume```
-1. Recreate feedercan pod: ```kubectl delete pods -l app=feedercan```
+FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:
+
+1. Creating/updating candump file with with name ```candump``` in ```deploy/runtime/k3d/volume```
+1. Recreating the feedercan pod: ```kubectl delete pods -l app=feedercan```
 
 More information about FeederCan can be found [here](https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders)
 

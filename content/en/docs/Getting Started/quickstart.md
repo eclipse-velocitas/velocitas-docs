@@ -8,15 +8,15 @@ aliases:
 
 ## Setup and Explore Development Environment
 
-The following information describes how to setup and configure the Development Container (DevContainer), and how to build, customize and test the sample Vehicle App that is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.
+The following information describes how to setup and configure the Development Container (DevContainer), and how to build, customize and test the sample Vehicle App, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.
 
-Once you have completed all steps you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own Vehicle App develpment project.
+Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own Vehicle App develpment project.
 
 ## Vehicle App Development with Visual Studio Code
 
-Visual Studio Code [Development Containers](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) allows to package a complete Vehicle App development environment including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development & testing tools into a container that is then started within your Visual Studio Code session.
+The Visual Studio Code [Development Containers](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development & testing tools into a container that is then started within your Visual Studio Code session.
 
-To be able to use the DevContainer, you have to make sure to fulfill the following prerequisites:
+To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:
 
 ### System prerequisites
 
@@ -47,23 +47,23 @@ ENV HTTP_PROXY="http://172.17.0.1:${PROXY_PORT:-3128}"
 - If your proxy is not available on `172.17.0.1` then you must modify `.devcontainer/Dockerfile.Proxy`.
 - If your proxy does not use 3128 as port you can set another port in the environment variable `DEVCONTAINER_PROXY_PORT`
 
-#### Windows
+#### Windows:
 
 1. Edit environment variables for your account
 2. Create an environment variable with name the `DEVCONTAINER_PROXY` and with the value `.Proxy` for your account
    - Don't forget (dot) in value of the environment variable
 3. If you are using a different Port than 3128 for your Proxy, you have to set another environment variable as follows:
    - DEVCONTAINER_PROXY_PORT=<PortNumber>
-4. Restart Visual Studio Code to pick up new environment variable
+4. Restart Visual Studio Code to pick up the new environment variable
 
-#### macOS & Linux
+#### macOS & Linux:
 
 ```
 echo "export DEVCONTAINER_PROXY=.Proxy" >> ~/.bash_profile
 source ~/.bash_profile
 ```
 
-#### Proxy Troubleshooting
+### Proxy Troubleshooting
 
 If you experience issues during initial DevContainer build and you want to start over, then you want to make sure you clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI to remove all volumes and containers.
 
@@ -89,13 +89,12 @@ In the following you will learn different possibilities to work with the repo. B
 With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
 
 1. Start Visual Studio Code
-1. Press <kbd>F1</kbd> and run the command `Remote-Containers: Clone Repository within Container Volume...`
-1. Select `Clone a repository from GitHub in a Container Volume` and choose the repository / branch to clone
-1. Enter the GitHub organization and repository name (e.g. `MyOrg/MyFirstVehicleApp`) and select the repository from the list
-1. Select the branch to clone from the list
+2. Press <kbd>F1</kbd> and run the command `Remote-Containers: Clone Repository within Container Volume...`
+3. Select `Clone a repository from GitHub in a Container Volume` and choose the repository / branch to clone
+4. Enter the GitHub organization and repository name (e.g. `MyOrg/MyFirstVehicleApp`) and select the repository from the list
+5. Select the branch to clone from the list
 
 The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.
-
 > When opening the DevContainer for the first time, the following steps are necessary:
 
 - A manual reload of the dapr extension is required, if the extension hasn´t been installed before (Note: the reload button appears next to Dapr extension in extension menue).
