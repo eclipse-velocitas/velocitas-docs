@@ -1,0 +1,63 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eclipse Velocitas – Use Case</title>
+    <link>/docs/use-case/</link>
+    <description>Recent content in Use Case on Eclipse Velocitas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="/docs/use-case/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Seat Adjuster</title>
+      <link>/docs/use-case/seat_adjuster_use_case/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/docs/use-case/seat_adjuster_use_case/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project &lt;strong&gt;Velocitas&lt;/strong&gt; in this way. The following chapter describes the data flow for the use cases.&lt;/p&gt;
+&lt;h2 id=&#34;requesting-new-seat-position&#34;&gt;Requesting new seat position&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;/assets/SeatAdjuster-dataflow-1.svg&#34; alt=&#34;Use Case&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;strong&gt;Customer&lt;/strong&gt; requests the change of the seat position as MQTT message on the topic &lt;code&gt;seatadjuster/setPosition/request&lt;/code&gt; with the payload:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;: 300&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; that has subscribed to this topic, receives the request to change the seat position as a MQTT message.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; gets the current vehicle speed from the data broker, which is fed by the &lt;strong&gt;Generic CAN Feeder&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;With the support of the &lt;strong&gt;Vehicle App SDK&lt;/strong&gt;, the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; triggers a seat adjustment command of the &lt;strong&gt;Seat Service&lt;/strong&gt; via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; moves the seat to the new position via CAN messages.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; returns OK or an error code as grpc status to the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;If everything went well, the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; returns a success message for the topic &lt;code&gt;seatadjuster/setPosition/response&lt;/code&gt; with the payload:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;Otherwise, an error message will be returned:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;requestId&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt;xyz&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;status&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;: 1, &amp;#34;&lt;/span&gt;message&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; = &amp;#34;&lt;/span&gt;&amp;lt;error message&amp;gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;This success or error message will be returned to the &lt;strong&gt;Customer&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;publishing-current-seat-position&#34;&gt;Publishing current seat position&lt;/h2&gt;
+
+&lt;img src=&#34;/assets/SeatAdjuster-dataflow-2.svg&#34; alt=&#34;Use Case&#34;/&gt;
+
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;If the seat position will be changed by the driver, the new seat position will be sent to the &lt;strong&gt;Seat Service&lt;/strong&gt; via CAN.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; streams the seat position via gRPC to the &lt;strong&gt;Vehicle Data Broker&lt;/strong&gt; since it was registered beforehand.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; that subscribed to the seat position receives the new seat position from the &lt;strong&gt;Vehicle Data Broker&lt;/strong&gt; as a result.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; publishes this on topic &lt;code&gt;seatadjuster/currentPosition&lt;/code&gt; with the payload:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;: 350&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Customer&lt;/strong&gt; who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
