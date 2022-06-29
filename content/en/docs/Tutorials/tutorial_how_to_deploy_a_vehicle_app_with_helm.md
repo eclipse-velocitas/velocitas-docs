@@ -1,5 +1,5 @@
 ---
-title: "Deploy your Python Vehicle App with Helm"
+title: "Deploy your Vehicle App with Helm"
 date: 2022-05-09T13:43:25+05:30
 weight: 15
 aliases:
