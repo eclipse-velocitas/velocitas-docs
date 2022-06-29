@@ -28,9 +28,9 @@ A Vehicle Model can be created in one of two ways.
 
 - ### Create a Python Vehicle Model from VSS specification
 
-  A Vehicle Model can be generated from the VSS spec. [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) creates a vehicle model from the given vspec specification and also generates a package for use in _Vehicle App_ projects.
+  A Vehicle Model can be generated from the VSS spec. [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) creates a Vehicle Model from the given vspec specification and also generates a package for use in _Vehicle App_ projects.
 
-  Follow the steps to generate a vehicle model.
+  Follow the steps to generate a Vehicle Model.
 
   1. Clone the [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository in a container volume.
 
@@ -129,7 +129,7 @@ A Vehicle Model can be created in one of two ways.
           Successfully installed sdv-0.4.0
           ```
 
-      Now it is time to add some vehicle models to the Python package. At the end of this section you will have a Vehicle Model, that contains a `Cabin` model, a `Seat`model and has the following tree structure:
+      Now it is time to add some Vehicle Models to the Python package. At the end of this section you will have a Vehicle Model, that contains a `Cabin` model, a `Seat`model and has the following tree structure:
 
           Vehicle
           └── Cabin
@@ -369,7 +369,7 @@ If you want to distribute your Python Vehicle Model inside an organization and u
 
 1. Create new Git repository called `my_vehicle_model`
 2. Copy the content under `my_vehicle_model` to the repository.
-3. Release the vehicle model by creating a version tag (e.g., `v1.0.0`).
+3. Release the Vehicle Model by creating a version tag (e.g., `v1.0.0`).
 4. Install the Vehicle Model package to your Vehicle App:
 
    ```python
