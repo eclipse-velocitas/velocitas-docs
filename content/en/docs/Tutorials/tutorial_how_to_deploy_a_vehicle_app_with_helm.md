@@ -1,5 +1,5 @@
 ---
-title: "Deploy your Vehicle App with Helm"
+title: "Vehicle App Deployment with Helm"
 date: 2022-05-09T13:43:25+05:30
 weight: 15
 aliases:

@@ -1,5 +1,5 @@
 ---
-title: "Create your first Python Vehicle Model"
+title: "Python Vehicle Model Creation"
 date: 2022-05-09T13:43:25+05:30
 weight: 5
 aliases:
