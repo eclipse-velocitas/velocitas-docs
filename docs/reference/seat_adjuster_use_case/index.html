@@ -18,23 +18,25 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
-<title>Velocitas | Eclipse Velocitas</title>
-<meta name="description" content="Background
-Traditionally, the automotive industry was and still is centered around vehicle hardware and the corresponding hardware development and …">
-<meta property="og:title" content="Velocitas" />
-<meta property="og:description" content="Background Traditionally, the automotive industry was and still is centered around vehicle hardware and the corresponding hardware development and life-cycle management. Software, however, is gaining more and more importance in vehicle development and over the entire vehicle lifetime. Thus, the vehicle and its value to the customer is increasingly defined by software. This transition towards what are termed as software-defined vehicles changes the way in which we innovate, code, deliver and work together." />
+<title>Seat Adjuster Use Case | Eclipse Velocitas</title>
+<meta name="description" content="The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and …">
+<meta property="og:title" content="Seat Adjuster Use Case" />
+<meta property="og:description" content="The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project Velocitas in this way. The following chapter describes the data flow for the use cases.
+Requesting new seat position  The Customer requests the change of the seat position as MQTT message on the topic seatadjuster/setPosition/request with the payload: {&#34;requestId&#34;: &#34;xyz&#34;, &#34;position&#34;: 300}  The Seat Adjuster Vehicle App that has subscribed to this topic, receives the request to change the seat position as a MQTT message." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/velocitas-docs/docs/velocitas/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2022-05-09T14:24:56+05:30" />
-<meta property="article:modified_time" content="2022-06-29T16:11:07+02:00" />
+<meta property="og:url" content="/velocitas-docs/docs/reference/seat_adjuster_use_case/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
+<meta property="article:modified_time" content="2022-06-29T16:11:29+02:00" />
 
-<meta itemprop="name" content="Velocitas">
-<meta itemprop="description" content="Background Traditionally, the automotive industry was and still is centered around vehicle hardware and the corresponding hardware development and life-cycle management. Software, however, is gaining more and more importance in vehicle development and over the entire vehicle lifetime. Thus, the vehicle and its value to the customer is increasingly defined by software. This transition towards what are termed as software-defined vehicles changes the way in which we innovate, code, deliver and work together."><meta itemprop="datePublished" content="2022-05-09T14:24:56+05:30" />
-<meta itemprop="dateModified" content="2022-06-29T16:11:07+02:00" />
-<meta itemprop="wordCount" content="647">
+<meta itemprop="name" content="Seat Adjuster Use Case">
+<meta itemprop="description" content="The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project Velocitas in this way. The following chapter describes the data flow for the use cases.
+Requesting new seat position  The Customer requests the change of the seat position as MQTT message on the topic seatadjuster/setPosition/request with the payload: {&#34;requestId&#34;: &#34;xyz&#34;, &#34;position&#34;: 300}  The Seat Adjuster Vehicle App that has subscribed to this topic, receives the request to change the seat position as a MQTT message."><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
+<meta itemprop="dateModified" content="2022-06-29T16:11:29+02:00" />
+<meta itemprop="wordCount" content="359">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Velocitas"/>
-<meta name="twitter:description" content="Background Traditionally, the automotive industry was and still is centered around vehicle hardware and the corresponding hardware development and life-cycle management. Software, however, is gaining more and more importance in vehicle development and over the entire vehicle lifetime. Thus, the vehicle and its value to the customer is increasingly defined by software. This transition towards what are termed as software-defined vehicles changes the way in which we innovate, code, deliver and work together."/>
+<meta name="twitter:title" content="Seat Adjuster Use Case"/>
+<meta name="twitter:description" content="The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project Velocitas in this way. The following chapter describes the data flow for the use cases.
+Requesting new seat position  The Customer requests the change of the seat position as MQTT message on the topic seatadjuster/setPosition/request with the payload: {&#34;requestId&#34;: &#34;xyz&#34;, &#34;position&#34;: 300}  The Seat Adjuster Vehicle App that has subscribed to this topic, receives the request to change the seat position as a MQTT message."/>
 
 
 
@@ -107,7 +109,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.f3bf38d90177ef5aa5500c66b5cf2c24.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7d242da88148e8e6822426011ffb6bad.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -130,7 +132,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.f3bf38d90177ef5aa5500c66b5cf2c24.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7d242da88148e8e6822426011ffb6bad.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -145,11 +147,7 @@ if (!doNotTrack) {
       <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitas-docsdocs-li">
   <a href="/velocitas-docs/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-velocitas-docsdocs"><span class="">Documentation</span></a>
   <ul class="ul-1">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-velocitas-docsdocsvelocitas-li">
-  <input type="checkbox" id="m-velocitas-docsdocsvelocitas-check" checked/>
-  <label for="m-velocitas-docsdocsvelocitas-check"><a href="/velocitas-docs/docs/velocitas/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsvelocitas"><span class="td-sidebar-nav-active-item">Velocitas</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsconcepts-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsconcepts-li">
   <input type="checkbox" id="m-velocitas-docsdocsconcepts-check"/>
   <label for="m-velocitas-docsdocsconcepts-check"><a href="/velocitas-docs/docs/concepts/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconcepts"><span class="">Concepts</span></a></label>
   
@@ -217,17 +215,6 @@ if (!doNotTrack) {
   </ul>
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocspython-sdk-li">
-  <input type="checkbox" id="m-velocitas-docsdocspython-sdk-check"/>
-  <label for="m-velocitas-docsdocspython-sdk-check"><a href="/velocitas-docs/docs/python-sdk/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocspython-sdk"><span class="">Python SDK</span></a></label>
-  
-  <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocspython-sdkpython_vehicle_app_sdk_overview-li">
-  <input type="checkbox" id="m-velocitas-docsdocspython-sdkpython_vehicle_app_sdk_overview-check"/>
-  <label for="m-velocitas-docsdocspython-sdkpython_vehicle_app_sdk_overview-check"><a href="/velocitas-docs/docs/python-sdk/python_vehicle_app_sdk_overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocspython-sdkpython_vehicle_app_sdk_overview"><span class="">Python Vehicle App SDK Overview</span></a></label>
-  
-</li>
-  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsval-li">
   <input type="checkbox" id="m-velocitas-docsdocsval-check"/>
   <label for="m-velocitas-docsdocsval-check"><a href="/velocitas-docs/docs/val/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsval"><span class="">Vehicle Abstraction Layer</span></a></label>
@@ -247,19 +234,8 @@ if (!doNotTrack) {
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsuse-case-li">
-  <input type="checkbox" id="m-velocitas-docsdocsuse-case-check"/>
-  <label for="m-velocitas-docsdocsuse-case-check"><a href="/velocitas-docs/docs/use-case/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsuse-case"><span class="">Use Case</span></a></label>
-  
-  <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsuse-caseseat_adjuster_use_case-li">
-  <input type="checkbox" id="m-velocitas-docsdocsuse-caseseat_adjuster_use_case-check"/>
-  <label for="m-velocitas-docsdocsuse-caseseat_adjuster_use_case-check"><a href="/velocitas-docs/docs/use-case/seat_adjuster_use_case/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsuse-caseseat_adjuster_use_case"><span class="">Seat Adjuster</span></a></label>
-  
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsreference-li">
-  <input type="checkbox" id="m-velocitas-docsdocsreference-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitas-docsdocsreference-li">
+  <input type="checkbox" id="m-velocitas-docsdocsreference-check" checked/>
   <label for="m-velocitas-docsdocsreference-check"><a href="/velocitas-docs/docs/reference/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsreference"><span class="">Reference</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -267,19 +243,20 @@ if (!doNotTrack) {
   <input type="checkbox" id="m-velocitas-docsdocsreferencerepository_overview-check"/>
   <label for="m-velocitas-docsdocsreferencerepository_overview-check"><a href="/velocitas-docs/docs/reference/repository_overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsreferencerepository_overview"><span class="">Eclipse Velocitas Overview</span></a></label>
   
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocscontributing-li">
-  <input type="checkbox" id="m-velocitas-docsdocscontributing-check"/>
-  <label for="m-velocitas-docsdocscontributing-check"><a href="/velocitas-docs/docs/contributing/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocscontributing"><span class="">Contributing</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsreferencepython_vehicle_app_sdk_overview-li">
+  <input type="checkbox" id="m-velocitas-docsdocsreferencepython_vehicle_app_sdk_overview-check"/>
+  <label for="m-velocitas-docsdocsreferencepython_vehicle_app_sdk_overview-check"><a href="/velocitas-docs/docs/reference/python_vehicle_app_sdk_overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsreferencepython_vehicle_app_sdk_overview"><span class="">Python Vehicle App SDK Overview</span></a></label>
   
-  <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocscontributingcontribution-li">
-  <input type="checkbox" id="m-velocitas-docsdocscontributingcontribution-check"/>
-  <label for="m-velocitas-docsdocscontributingcontribution-check"><a href="/velocitas-docs/docs/contributing/contribution/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocscontributingcontribution"><span class="">Contribution to Eclipse Velocitas</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-velocitas-docsdocsreferenceseat_adjuster_use_case-li">
+  <input type="checkbox" id="m-velocitas-docsdocsreferenceseat_adjuster_use_case-check" checked/>
+  <label for="m-velocitas-docsdocsreferenceseat_adjuster_use_case-check"><a href="/velocitas-docs/docs/reference/seat_adjuster_use_case/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsreferenceseat_adjuster_use_case"><span class="td-sidebar-nav-active-item">Seat Adjuster Use Case</span></a></label>
   
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocscontribution-li">
+  <input type="checkbox" id="m-velocitas-docsdocscontribution-check"/>
+  <label for="m-velocitas-docsdocscontribution-check"><a href="/velocitas-docs/docs/contribution/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocscontribution"><span class="">Contribution</span></a></label>
+  
 </li>
   </ul>
 </li>
@@ -291,12 +268,12 @@ if (!doNotTrack) {
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/eclipse-velocitas/velocitas-docs/tree/main/content/en/docs/velocitas.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/eclipse-velocitas/velocitas-docs/edit/main/content/en/docs/velocitas.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/eclipse-velocitas/velocitas-docs/new/main/content/en/docs/velocitas.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/eclipse-velocitas/velocitas-docs/issues/new?title=Velocitas" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/eclipse-velocitas/velocitas-docs/tree/main/content/en/docs/Reference/seat_adjuster_use_case.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/edit/main/content/en/docs/Reference/seat_adjuster_use_case.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/new/main/content/en/docs/Reference/seat_adjuster_use_case.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/issues/new?title=Seat%20Adjuster%20Use%20Case" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/eclipse-velocitas/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-  <a id="print" href="/velocitas-docs/docs/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+  <a id="print" href="/velocitas-docs/docs/reference/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
@@ -305,12 +282,8 @@ if (!doNotTrack) {
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#background">Background</a></li>
-    <li><a href="#goal">Goal</a></li>
-    <li><a href="#example-use-case">Example Use Case</a></li>
-    <li><a href="#quickstart-tutorials">Quickstart tutorials</a></li>
-    <li><a href="#references">References</a></li>
-    <li><a href="#community">Community</a></li>
+    <li><a href="#requesting-new-seat-position">Requesting new seat position</a></li>
+    <li><a href="#publishing-current-seat-position">Publishing current seat position</a></li>
   </ul>
 </nav></div>
 
@@ -354,14 +327,17 @@ if (!doNotTrack) {
   <li class="breadcrumb-item">
     <a href="/velocitas-docs/docs/">Documentation</a>
   </li>
+  <li class="breadcrumb-item">
+    <a href="/velocitas-docs/docs/reference/">Reference</a>
+  </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="/velocitas-docs/docs/velocitas/" aria-disabled="true" class="btn-link disabled">Velocitas</a>
+    <a href="/velocitas-docs/docs/reference/seat_adjuster_use_case/" aria-disabled="true" class="btn-link disabled">Seat Adjuster Use Case</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Velocitas</h1>
+	<h1>Seat Adjuster Use Case</h1>
 	
 	<header class="article-meta">
 		
@@ -380,78 +356,43 @@ if (!doNotTrack) {
 
 		
 	</header>    
-	<h2 id="background">Background</h2>
-<p>Traditionally, the automotive industry was and still is centered around vehicle hardware and the corresponding hardware development and life-cycle management. Software, however, is gaining more and more importance in vehicle development and over the entire vehicle lifetime. Thus, the vehicle and its value to the customer is increasingly defined by software. This transition towards what are termed as software-defined vehicles changes the way in which we innovate, code, deliver and work together. It is a change across the whole mobility value chain and life-cycle: from development and production to delivery and operations of the vehicle.</p>
-<h2 id="goal">Goal</h2>
-<p>The Eclipse project <em>Velocitas</em> aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (<em>Vehicle Apps</em>) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.</p>
-<p align="center">
-  <img src="/assets/devOps8.png" alt="DevOps Lifecycle" width="800"/>
-</p>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Vehicle App Project Template</a></td>
-<td>Quick setup of a <em>Vehicle App</em> project with the help of GitHub templates for the supported programming languages including a sample <em>Vehicle App</em> and GitHub Actions workflow, and comfortable setup of the development environment e.g. in Microsoft Visual Studio Code.</td>
-</tr>
-<tr>
-<td><a href="/docs/development-model.md">Vehicle App Programming Model</a></td>
-<td>Simplify coding and debugging of <em>Vehicle Apps</em> that accessing vehicle data points and modifying vehicle functions using the provided SDK for the different programming languages that delegates to the <em>Vehicle Abstraction Layer</em>.</td>
-</tr>
-<tr>
-<td><a href="docs/val/README.md">Vehicle Abstraction Layer</a></td>
-<td>Abstracts vehicle make &amp; model specific properties and capabilities to a common representation. This makes it possible for <em>Vehicle Apps</em> to be portable across different electric and electronic vehicle architectures e.g. the <em>Vehicle Apps</em> do not care whether the seat is controlled via CAN, LIN or some other physical interface.</td>
-</tr>
-<tr>
-<td><a href="/docs/concepts/vehicle_app_releases/#ci-workflow-ciyml">GitHub Actions Workflow Blueprint</a></td>
-<td>Providing ready-to-use GitHub workflows to check the <em>Vehicle App</em>, build images for multi architectures, scan it, execute integration tests and release the <em>Vehicle App</em> to allow the developer to focus on the development of the <em>Vehicle App</em>.</td>
-</tr>
-<tr>
-<td><a href="/docs/concepts/vehicle_app_releases/#release-workflow-releaseyml">Automated Release Process</a></td>
-<td>Providing a release workflow to generate release artifacts and documentation out of the CI workflow results and push it to a container registry to be used by a deployment system</td>
-</tr>
-<tr>
-<td><a href="docs/runtime-deployment-model.md">Runtime and Deployment Model</a></td>
-<td>Running and deploying <em>Vehicle App</em> as OCI-compliant container to increase the flexibility to support different programming languages and runtimes to accelerate innovation and development.</td>
-</tr>
-</tbody>
-</table>
-<p>The repositories of the Eclipse project <em>Velocitas</em> and their relations between each other can be found [<a href="docs/repository_overview.md">here</a>].</p>
-<h2 id="example-use-case">Example Use Case</h2>
-<p><em>Velocitas</em> contains implementations based on the example use case of adjusting the vehicle seat position to showcase the development toolchain of a comfort function (QM level - non-safety relevant).</p>
-<p>What could such a use case look like? Image a carsharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The carsharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle.</p>
-<p>That&rsquo;s where your implementation starts. The <em>Seat Adjuster VehicleApp</em> receives the seat position as a MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the <em>Seat Adjuster VehicleApp</em> subscribes to the seat position and receives the new seat position from the <em>Vehicle Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
-<p>A detailed description of the <em>Seat Adjuster</em> use case can be found <a href="docs/seat_adjuster_use_case.md">here</a>.</p>
-<p align="center">
-  <a href="/docs/seat_adjuster_use_case.md" alt="Use Case"><img src="/assets/SeatAdjuster-dataflow.svg" width="600"/></a>
-</p>
-<h2 id="quickstart-tutorials">Quickstart tutorials</h2>
+	<p>The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project <strong>Velocitas</strong> in this way. The following chapter describes the data flow for the use cases.</p>
+<h2 id="requesting-new-seat-position">Requesting new seat position</h2>
+<p><img src="/assets/SeatAdjuster-dataflow-1.svg" alt="Use Case"></p>
 <ol>
-<li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li><a href="/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md">Developing a Vehicle Model in Python</a></li>
-<li><a href="/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md">Developing a Vehicle App in Python</a></li>
-<li><a href="/docs/integration_tests.md">Run and develop integration tests for Vehicle Apps</a></li>
+<li>The <strong>Customer</strong> requests the change of the seat position as MQTT message on the topic <code>seatadjuster/setPosition/request</code> with the payload:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;position&#34;</span>: 300<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>The <strong>Seat Adjuster Vehicle App</strong> that has subscribed to this topic, receives the request to change the seat position as a MQTT message.</li>
+<li>The <strong>Seat Adjuster Vehicle App</strong> gets the current vehicle speed from the data broker, which is fed by the <strong>Generic CAN Feeder</strong>.</li>
+<li>With the support of the <strong>Vehicle App SDK</strong>, the <strong>Seat Adjuster Vehicle App</strong> triggers a seat adjustment command of the <strong>Seat Service</strong> via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.</li>
+<li>The <strong>Seat Service</strong> moves the seat to the new position via CAN messages.</li>
+<li>The <strong>Seat Service</strong> returns OK or an error code as grpc status to the <strong>Seat Adjuster Vehicle App</strong>.</li>
+<li>If everything went well, the <strong>Seat Adjuster Vehicle App</strong> returns a success message for the topic <code>seatadjuster/setPosition/response</code> with the payload:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;status&#34;</span>: <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div>Otherwise, an error message will be returned:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span>requestId<span style="color:#4e9a06">&#34;: &#34;</span>xyz<span style="color:#4e9a06">&#34;, &#34;</span>status<span style="color:#4e9a06">&#34;: 1, &#34;</span>message<span style="color:#4e9a06">&#34; = &#34;</span>&lt;error message&gt;<span style="color:#4e9a06">&#34; }
+</span></span></span></code></pre></div></li>
+<li>This success or error message will be returned to the <strong>Customer</strong>.</li>
 </ol>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://github.com/COVESA/vehicle_signal_specification">Vehicle Signal Specifications (VSS)</a></li>
-</ul>
-<h2 id="community">Community</h2>
-<ul>
-<li><a href="">GitHub Issues</a></li>
-<li><a href="">Mailing List</a></li>
-<li><a href="/docs/contributing/contribution">Contribution</a></li>
-</ul>
+<h2 id="publishing-current-seat-position">Publishing current seat position</h2>
+
+<img src="/assets/SeatAdjuster-dataflow-2.svg" alt="Use Case"/>
+
+<ol start="9">
+<li>If the seat position will be changed by the driver, the new seat position will be sent to the <strong>Seat Service</strong> via CAN.</li>
+<li>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>Vehicle Data Broker</strong> since it was registered beforehand.</li>
+<li>The <strong>Seat Adjuster Vehicle App</strong> that subscribed to the seat position receives the new seat position from the <strong>Vehicle Data Broker</strong> as a result.</li>
+<li>The <strong>Seat Adjuster Vehicle App</strong> publishes this on topic <code>seatadjuster/currentPosition</code> with the payload:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 350<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>The <strong>Customer</strong> who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.</li>
+</ol>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 29, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/ac32f66a65cfd8d75be88885cbeca7c2a721e545">Update _index.html (ac32f66)</a>
+  Last modified June 29, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/c4498b0db39906db9d99a5d6ebf2a22a05b18125">Change titel and position (c4498b0)</a>
 </div>
 
 </div>
