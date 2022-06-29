@@ -1,5 +1,5 @@
 ---
-title: "Tutorial on how to develop your own python Vehicle App"
+title: "Develop your own python Vehicle App"
 date: 2022-05-09T13:43:25+05:30
 weight: 10
 aliases:
