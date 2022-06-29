@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Velocitas – Vehicle Abstraction Layer</title>
-    <link>/velocitas-deocs/docs/val/</link>
+    <link>/velocitas-docs/docs/val/</link>
     <description>Recent content in Vehicle Abstraction Layer on Eclipse Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/velocitas-deocs/docs/val/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/velocitas-docs/docs/val/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Introduction to Vehicle Abstraction Layer</title>
-      <link>/velocitas-deocs/docs/val/val/</link>
+      <link>/velocitas-docs/docs/val/val/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/velocitas-deocs/docs/val/val/</guid>
+      <guid>/velocitas-docs/docs/val/val/</guid>
       <description>
         
         
@@ -29,8 +29,8 @@ to interact with signals and services in the vehicle.
 It currently consists of a data broker, a CAN feeder and a set of example services.
 More elaborate or completely differing implementations are the target of particular derived projects.&lt;/p&gt;
 &lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
-&lt;p&gt;The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the &lt;a href=&#34;/velocitas-deocs/docs/development-model.md&#34;&gt;Velocitas Development Model&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/velocitas-deocs/val/assets/val_architecture_overview.png&#34; alt=&#34;overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the &lt;a href=&#34;/velocitas-docs/docs/development-model.md&#34;&gt;Velocitas Development Model&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/velocitas-docs/val/assets/val_architecture_overview.png&#34; alt=&#34;overview&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-data-broker&#34;&gt;Vehicle Data Broker&lt;/h3&gt;
 &lt;p&gt;The &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Vehicle Data Broker&lt;/a&gt; is a gRPC service acting as a broker of vehicle data / data points / signals.
 It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;COVESA Vehicle Signal Specification (VSS)&lt;/a&gt; or others.
@@ -63,9 +63,9 @@ Services (like the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services
 The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals supported are currently limited by a &lt;a href=&#34;https://github.com/eclipse/kuksa.val/blob/master/kuksa_databroker/databroker/src/main.rs&#34;&gt;hard coded list&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Additional information on how data privacy is managed can be found in the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/v0.1.0#privacy-customer-information&#34;&gt;Vehicle Abstraction Layer repository&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;data-flow-when-a-vehicle-application-uses-the-vehicle-data-broker&#34;&gt;Data flow when a Vehicle Application uses the Vehicle Data Broker.&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;/velocitas-deocs/val/assets/dataflow_broker.png&#34; alt=&#34;Vehicle Data Broker information flow overview &#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/velocitas-docs/val/assets/dataflow_broker.png&#34; alt=&#34;Vehicle Data Broker information flow overview &#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;data-flow-when-a-vehicle-application-uses-a-vehicle-service&#34;&gt;Data flow when a Vehicle Application uses a Vehicle Service.&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;/velocitas-deocs/val/assets/dataflow_service.png&#34; alt=&#34;Vehicle Service information flow overview &#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/velocitas-docs/val/assets/dataflow_service.png&#34; alt=&#34;Vehicle Service information flow overview &#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;source-code&#34;&gt;Source Code&lt;/h2&gt;
 &lt;p&gt;Source code and build instructions are available in the &lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;kuksa.val repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;guidelines&#34;&gt;Guidelines&lt;/h2&gt;
@@ -79,10 +79,10 @@ The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals 
     
     <item>
       <title>Docs: Interface Design Guideline</title>
-      <link>/velocitas-deocs/docs/val/interface_guideline/</link>
+      <link>/velocitas-docs/docs/val/interface_guideline/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/velocitas-deocs/docs/val/interface_guideline/</guid>
+      <guid>/velocitas-docs/docs/val/interface_guideline/</guid>
       <description>
         
         
@@ -422,10 +422,10 @@ The existing VSC definitions shall preferably be extended with comments so that 
     
     <item>
       <title>Docs: Vehicle Service</title>
-      <link>/velocitas-deocs/docs/val/vehicle_service/</link>
+      <link>/velocitas-docs/docs/val/vehicle_service/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/velocitas-deocs/docs/val/vehicle_service/</guid>
+      <guid>/velocitas-docs/docs/val/vehicle_service/</guid>
       <description>
         
         
@@ -480,7 +480,7 @@ The existing VSC definitions shall preferably be extended with comments so that 
 &lt;h3 id=&#34;interface-guideline&#34;&gt;Interface guideline&lt;/h3&gt;
 &lt;p&gt;The &lt;a href=&#34;interface_guideline.md&#34;&gt;gRPC interface guideline&lt;/a&gt; provides you with help on how to specify the service interface.&lt;/p&gt;
 &lt;h3 id=&#34;error-codes&#34;&gt;Error codes&lt;/h3&gt;
-&lt;p&gt;The error codes and recommended usage is described in &lt;a href=&#34;/velocitas-deocs/docs/val/interface_guideline/#error-handling&#34;&gt;Error Handling&lt;/a&gt;. The errors implemented should be described in the gRPC interface description files (*.proto).&lt;/p&gt;
+&lt;p&gt;The error codes and recommended usage is described in &lt;a href=&#34;/velocitas-docs/docs/val/interface_guideline/#error-handling&#34;&gt;Error Handling&lt;/a&gt;. The errors implemented should be described in the gRPC interface description files (*.proto).&lt;/p&gt;
 &lt;h2 id=&#34;implement-a-vehicle-service&#34;&gt;Implement a vehicle service&lt;/h2&gt;
 &lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
 &lt;p&gt;For help on how to implement the vehicle service, see the example seat service or the &lt;a href=&#34;https://github.com/grpc/grpc/tree/master/examples&#34;&gt;gRPC examples&lt;/a&gt; in different languages.&lt;/p&gt;
