@@ -20,16 +20,16 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
-<title>Getting Started | Eclipse Velocitas</title>
+<title>Tutorials | Eclipse Velocitas</title>
 <meta name="description" content="">
-<meta property="og:title" content="Getting Started" />
+<meta property="og:title" content="Tutorials" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/" />
 
-<meta itemprop="name" content="Getting Started">
+<meta itemprop="name" content="Tutorials">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Getting Started"/>
+<meta name="twitter:title" content="Tutorials"/>
 <meta name="twitter:description" content=""/>
 
 
@@ -103,7 +103,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c136302e8c67fb08250e949fc680f21f.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.e1ce120f1795097862b95e99fce68ae9.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -132,7 +132,7 @@ This is the multi-page printable view of this section.
 
 
 
-<h1 class="title">Getting Started</h1>
+<h1 class="title">Tutorials</h1>
 
 
 
@@ -149,7 +149,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-3999eec4307d02364111550f29f4ea06">Create your first Python Vehicle Model</a></li>
+<li>1: <a href="#pg-836220d69d36433f11749c9a6b5b96eb">Quickstart</a></li>
 
 
     
@@ -157,7 +157,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-836220d69d36433f11749c9a6b5b96eb">Quickstart</a></li>
+<li>2: <a href="#pg-3999eec4307d02364111550f29f4ea06">Create your first Python Vehicle Model</a></li>
 
 
     
@@ -173,7 +173,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-f3e319d0b9b198af5c39068a78e57d4b">Deploy your Python Vehicle App with Helm</a></li>
+<li>4: <a href="#pg-f3e319d0b9b198af5c39068a78e57d4b">Deploy your Vehicle App with Helm</a></li>
 
 
     
@@ -181,7 +181,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-9d91984eb08cf20e39f25e171f5fb593">Vehicle App Runtime</a></li>
+<li>5: <a href="#pg-92434ff59ee018c09ee5056e41a30ded">Vehicle App Integration Testing</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-9d91984eb08cf20e39f25e171f5fb593">Vehicle App Runtime</a></li>
 
 
     
@@ -196,7 +204,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5.1: <a href="#pg-b8a7e76bb8b53cf7ffc3a8f82f85ba4c">Run runtime services in Kubernetes</a></li>
+<li>6.1: <a href="#pg-b8a7e76bb8b53cf7ffc3a8f82f85ba4c">Run runtime services in Kubernetes</a></li>
 
 
     
@@ -204,21 +212,13 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5.2: <a href="#pg-c17c8d2574e5368e139743922d9a9fc3">Run runtime services locally</a></li>
+<li>6.2: <a href="#pg-c17c8d2574e5368e139743922d9a9fc3">Run runtime services locally</a></li>
 
 
     
   
 
     </ul>
-    
-  
-    
-    
-	
-<li>6: <a href="#pg-92434ff59ee018c09ee5056e41a30ded">Vehicle App Integration Testing</a></li>
-
-
     
   
 
@@ -247,7 +247,263 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-3999eec4307d02364111550f29f4ea06">1 - Create your first Python Vehicle Model</h1>
+	<h1 id="pg-836220d69d36433f11749c9a6b5b96eb">1 - Quickstart</h1>
+    
+	<h2 id="setup-and-explore-development-environment">Setup and Explore Development Environment</h2>
+<p>The following information describes how to setup and configure the Development Container (DevContainer), and how to build, customize and test the sample Vehicle App, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.</p>
+<p>Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Template Repository</a> for your own Vehicle App develpment project.</p>
+<h2 id="vehicle-app-development-with-visual-studio-code">Vehicle App Development with Visual Studio Code</h2>
+<p>The Visual Studio Code <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20">Development Containers</a> makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development &amp; testing tools into a container that is then started within your Visual Studio Code session.</p>
+<p>To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:</p>
+<h3 id="system-prerequisites">System prerequisites</h3>
+<ul>
+<li>Install Docker Engine / <a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a></li>
+<li>Install <a href="https://code.visualstudio.com">Visual Studio Code</a></li>
+<li>Add <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote-Containers</a> extension via the marketplace or using the command line
+<pre tabindex="0"><code>code --install-extension ms-vscode-remote.remote-containers
+</code></pre></li>
+</ul>
+<h3 id="proxy-configuration">Proxy Configuration</h3>
+<p>A non proxy configuration is used by default.
+If you are working behind a corporate proxy you will need to specify proxy settings.</p>
+<details>
+<summary>Please expand for information on configuring proxy settings</summary>
+<p>A template configuration using proxies exists in <code>.devcontainer/Dockerfile.Proxy</code> and by setting the environment variable <code>DEVCONTAINER_PROXY</code> to <code>.Proxy</code> the file
+<code>.devcontainer/Dockerfile.Proxy</code> will be used instead of <code>.devcontainer/Dockerfile</code>.</p>
+<p>The template configuration uses the following default configuration:</p>
+<pre tabindex="0"><code>ENV HTTP_PROXY=&#34;http://172.17.0.1:${PROXY_PORT:-3128}&#34;
+</code></pre><ul>
+<li>If your proxy is not available on <code>172.17.0.1</code> then you must modify <code>.devcontainer/Dockerfile.Proxy</code>.</li>
+<li>If your proxy does not use 3128 as port you can set another port in the environment variable <code>DEVCONTAINER_PROXY_PORT</code></li>
+</ul>
+<h4 id="windows">Windows:</h4>
+<ol>
+<li>Edit environment variables for your account</li>
+<li>Create an environment variable with name the <code>DEVCONTAINER_PROXY</code> and with the value <code>.Proxy</code> for your account
+<ul>
+<li>Don&rsquo;t forget (dot) in value of the environment variable</li>
+</ul>
+</li>
+<li>If you are using a different Port than 3128 for your Proxy, you have to set another environment variable as follows:
+<ul>
+<li>DEVCONTAINER_PROXY_PORT=<PortNumber></li>
+</ul>
+</li>
+<li>Restart Visual Studio Code to pick up the new environment variable</li>
+</ol>
+<h4 id="macos--linux">macOS &amp; Linux:</h4>
+<pre tabindex="0"><code>echo &#34;export DEVCONTAINER_PROXY=.Proxy&#34; &gt;&gt; ~/.bash_profile
+source ~/.bash_profile
+</code></pre><h3 id="proxy-troubleshooting">Proxy Troubleshooting</h3>
+<p>If you experience issues during initial DevContainer build and you want to start over, then you want to make sure you clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI to remove all volumes and containers.</p>
+<p>Proxy settings in <code>~/.docker/config.json</code> will override settings in <code>.devcontainer/Dockerfile.Proxy</code>, which can cause problems.
+In case the DevContainer is still not working, check if proxy settings are set correctly in the Docker user profile (<code>~/.docker/config.json</code>), see <a href="https://docs.docker.com/network/proxy/">Docker Documentation</a> for more details.
+Verify that the <code>noProxy</code> setting in <code>~/.docker/config.json</code> (if existing) is compatible with the setting of <code>NO_PROXY</code> in <code>.devcontainer/Dockerfile.Proxy</code>.
+The development environment relies on communication to localhost (e.g. localhost, 127.0.0.1) and it is important that the proxy setting is correct so that connections to localhost are not forwarded to the proxy.</p>
+</details>
+<h2 id="use-template-repository">Use Template Repository</h2>
+<p>Create your own repository copy from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Template Repository</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches.</p>
+<p>The name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of document.</p>
+<p>For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">GitHub Tutorial</a></p>
+<p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces">GitHub Codespaces</a>.</p>
+<h3 id="visual-studio-code">Visual Studio Code</h3>
+<p>With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.</p>
+<ol>
+<li>Start Visual Studio Code</li>
+<li>Press <kbd>F1</kbd> and run the command <code>Remote-Containers: Clone Repository within Container Volume...</code></li>
+<li>Select <code>Clone a repository from GitHub in a Container Volume</code> and choose the repository / branch to clone</li>
+<li>Enter the GitHub organization and repository name (e.g. <code>MyOrg/MyFirstVehicleApp</code>) and select the repository from the list</li>
+<li>Select the branch to clone from the list</li>
+</ol>
+<p>The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.</p>
+<blockquote>
+<p>When opening the DevContainer for the first time, the following steps are necessary:</p>
+</blockquote>
+<ul>
+<li>A manual reload of the dapr extension is required, if the extension hasn´t been installed before (Note: the reload button appears next to Dapr extension in extension menue).</li>
+</ul>
+<details>
+<summary>Please expand for information on troubleshooting</summary>
+<blockquote>
+<p>If Visual Studio Code fails to directly clone your repository you can also use a workaround:</p>
+<ol>
+<li>clone the repo locally using your favorite Git tooling</li>
+<li>Start Visual Studio Code</li>
+<li>select <code>Open Folder</code> from the <code>File</code> menu</li>
+<li>open the root of the cloned repo</li>
+<li>a popup appears on the lower left side of Visual Studio Code</li>
+<li>click on <code>Reopen in Container</code></li>
+<li>wait for the container to be set up</li>
+</ol>
+<p>If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command <code>Remote-Containers: Open Folder in Container</code></p>
+</blockquote>
+<blockquote>
+<p>If the development container fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command <code>Remote-Containers: Rebuild Container Without Cache</code></p>
+</blockquote>
+<p>The devContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md">docker-in-docker</a>-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.</p>
+</details>
+<h3 id="codespaces">Codespaces</h3>
+<p>Another possibility to use your newly created repository is via <a href="https://github.com/features/codespaces">GitHub Codespaces</a>.
+You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.</p>
+<p>To get started with Codespaces, you just have to follow a few steps:</p>
+<ol>
+<li>go to the webpage of your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
+<li>click on the green <code>Code</code>-button and select Codespaces on the top</li>
+<li>configure your Codespace if needed (defaults to the main branch and a standard agent)</li>
+<li>click on <code>create</code></li>
+</ol>
+<p>A new window will open where you see the logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.</p>
+<p>Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.</p>
+<h2 id="starting-runtime-services">Starting runtime services</h2>
+<p>The runtime services (like <em>Vehicle Data Broker</em> or <em>Vehicle Services</em>) are required to develop vehicle apps and run integration tests.</p>
+<p>A Visual Studio Code task called <code>Start Vehicle App runtime</code> is available to run these in the correct order. Click <code>F1</code>, select command <code>Tasks: Run Task</code>, select <code>Start VehicleApp runtime</code> and <code>Continue without scanning the output</code>.</p>
+<p>You should see the tasks <code>run-mosquitto</code>, <code>run-vehicledatabroker</code>, <code>run-seatservice</code> and <code>run-feedercan</code> being executed in the Visual Studio Code output panel.</p>
+<p>More information about the tasks are available <a href="/docs/run_runtime_services_locally.md">here</a>.</p>
+<h2 id="start-and-test-vehicle-app">Start and test Vehicle App</h2>
+<p>Now that your DevContainer is up and running, it is time to take a look at what&rsquo;s inside:</p>
+<ul>
+<li>Vehicle App - This sample app is a basic blueprint and illustrates how to interact with the VAL Services and the Vehicle App SDK.</li>
+<li>Mosquitto MQTT Broker - The broker allows for interaction with other Vehicle Apps or the cloud and is used by the Vehicle App. The MQTT broker is running inside a docker image which is started automatically after starting the DevContainer.</li>
+</ul>
+<h3 id="start-and-check-vehicle-app">Start and check Vehicle App</h3>
+<p>Let&rsquo;s start the sample Vehicle App to verify that you receive actual data from the API.</p>
+<p>Open a new terminal and start the Vehicle App with the following command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dapr run --app-id seatadjuster --app-protocol grpc --app-port <span style="color:#0000cf;font-weight:bold">50008</span> --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/SeatAdjusterApp/seatadjuster.py
+</span></span></code></pre></div><p>Once the Vehicle App is started, you can expect to receive the Current Position of the Vehicle Seat, which should be reported as 420.</p>
+<p>You will see messages such as</p>
+<pre tabindex="0"><code>== APP == 04/06/2022 07:31:58 AM - __main__ - INFO - Current Position of the Vehicle Seat is: {&#39;position&#39;: 420}
+</code></pre><p>To stop the Vehicle App instance: close the terminal window by hitting <kbd>Ctrl + C</kbd>.</p>
+<h3 id="debug-vehicle-app">Debug Vehicle App</h3>
+<p>After VAL Services and Vehicle App are running successfully, let&rsquo;s start a debug session for the Vehicle App as next step.</p>
+<ul>
+<li>Open the main python file <code>src/SeatAdjusterApp/seatadjuster.py</code> file and set a breakpoint in <code>line 68</code></li>
+<li>Press <kbd>F5</kbd> to start the Vehicle App to start a debug session and see the log output on the <code>DEBUG CONSOLE</code></li>
+</ul>
+<p>In the next step you will use a mqtt message to trigger this breakpoint.</p>
+<h3 id="send-mqtt-messages-to-vehicle-app">Send MQTT messages to Vehicle App</h3>
+<p>Let&rsquo;s send a message to your Vehicle App using the mqtt broker that is running in the background.</p>
+<ul>
+<li>
+<p>Make sure, Vehicle Api Mock and Seat Adjuster App are running.</p>
+</li>
+<li>
+<p>Open <code>VSMqtt</code> extension in Visual Studio Code and connect to <code>mosquitto (local)</code></p>
+</li>
+<li>
+<p>Set <code>Subscribe Topic</code> = <code>seatadjuster/setPosition/response</code> and click subscribe.</p>
+</li>
+<li>
+<p>Set <code>Subscribe Topic</code> = <code>seatadjuster/currentPosition</code> and click subscribe.</p>
+</li>
+<li>
+<p>Set <code>Publish Topic</code> = <code>seatadjuster/setPosition/request</code></p>
+</li>
+<li>
+<p>Set and publish a dummy payload:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session</p>
+</li>
+<li>
+<p>After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic</p>
+</li>
+<li>
+<p>You can see the response in the MQTT window.</p>
+</li>
+</ul>
+<h2 id="trigger-your-github-workflows">Trigger your Github Workflows</h2>
+<p>GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find <a href="https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md">here</a>.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>In order to run the workflow succesfully inside the SDV-Org, we are using a PAT of the technical user <code>swd9be</code>. He needs write access to all repos created from the template repository. Furthermore this user needs read access to the following repositories:</p>
+<ul>
+<li>vehicle-app-python-sdk</li>
+<li>vehicle-model-python</li>
+<li>license-check</li>
+</ul>
+<p>When using the template outside of the SDV-Org some additional steps need to be done:</p>
+<ol>
+<li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">create a personal access token</a>
+<ul>
+<li>needs write access to your repo</li>
+</ul>
+</li>
+<li><a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">create a secret</a>
+<ul>
+<li>Name must be <code>SDV_GITHUB_AUTOMATION_TOKEN</code></li>
+</ul>
+</li>
+<li>paste the PAT into the secret</li>
+</ol>
+<h3 id="run-github-workflow">Run GitHub Workflow</h3>
+<ul>
+<li>Make modification to your file, e.g. remove the last empty line from <code>src/SeatAdjusterApp/seatadjuster.py</code></li>
+<li>Commit you change
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#4e9a06">&#34;removed emtpy line&#34;</span>
+</span></span></code></pre></div></li>
+<li>Push
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push
+</span></span></code></pre></div></li>
+<li>Open your git repository in your favorite browser</li>
+<li>Navigate to <code>Actions</code> and go to <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml">CI Workflow</a></li>
+<li>Check Workflow Output, it should look like this:
+<img src="/assets/ci-workflow-success.png" alt=""></li>
+</ul>
+<h2 id="build-you-first-release">Build you first release</h2>
+<p>Now that the <code>CI Workflow</code> was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image.</p>
+<h3 id="release-the-vehicle-app-to-push-it-to-the-container-registry">Release the Vehicle App to push it to the container registry</h3>
+<ul>
+<li>In order to deploy the Vehicle App you need to configure the container registry credentials first:
+<ul>
+<li>Open <code>Settings</code>, go to <code>Secrets</code>, click on <code>Manage your environments and add repository secrets</code> and add the following secret (button <code>Add Secret</code>):
+<ul>
+<li>Name: OTA_SYSTEM_CREDENTIALS</li>
+<li>Value:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;CONTAINER_REGISTRY &#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;your container registry&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;REGISTRY_USER &#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;your username&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;REGISTRY_PASSWORD  &#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;your password&gt;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Open the <code>Code</code> page of your repository on GitHub.com and click on <code>Create a new release</code> in the Releases section on the right side</li>
+<li>Enter a version and click on <code>Publish release</code>
+<ul>
+<li>Note: you can start the verion with a <code>v</code> which will be removed though, e.g. &ldquo;v1.0.0&rdquo; will result in a &ldquo;1.0.0&rdquo; (see <a href="https://github.com/battila7/get-version-action">vesion-without-v</a>).</li>
+</ul>
+</li>
+<li>The release workflow will be triggered
+<ul>
+<li>Open <code>Actions</code> on the repoitory and see the result</li>
+</ul>
+</li>
+</ul>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md">Walkthrough: Create a Python Vehicle App</a></li>
+<li><a href="/docs/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes mode</a></li>
+<li><a href="/docs/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-3999eec4307d02364111550f29f4ea06">2 - Create your first Python Vehicle Model</h1>
     
 	<p>In this short introduction, you´ll create a simple Python Vehicle Model with Visual Studio Code and the Python Vehicle App SDK.</p>
 <blockquote>
@@ -615,262 +871,6 @@ shown above:</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-836220d69d36433f11749c9a6b5b96eb">2 - Quickstart</h1>
-    
-	<h2 id="setup-and-explore-development-environment">Setup and Explore Development Environment</h2>
-<p>The following information describes how to setup and configure the Development Container (DevContainer), and how to build, customize and test the sample Vehicle App, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.</p>
-<p>Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Template Repository</a> for your own Vehicle App develpment project.</p>
-<h2 id="vehicle-app-development-with-visual-studio-code">Vehicle App Development with Visual Studio Code</h2>
-<p>The Visual Studio Code <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20">Development Containers</a> makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development &amp; testing tools into a container that is then started within your Visual Studio Code session.</p>
-<p>To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:</p>
-<h3 id="system-prerequisites">System prerequisites</h3>
-<ul>
-<li>Install Docker Engine / <a href="https://www.docker.com/products/docker-desktop">Docker Desktop</a></li>
-<li>Install <a href="https://code.visualstudio.com">Visual Studio Code</a></li>
-<li>Add <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote-Containers</a> extension via the marketplace or using the command line
-<pre tabindex="0"><code>code --install-extension ms-vscode-remote.remote-containers
-</code></pre></li>
-</ul>
-<h3 id="proxy-configuration">Proxy Configuration</h3>
-<p>A non proxy configuration is used by default.
-If you are working behind a corporate proxy you will need to specify proxy settings.</p>
-<details>
-<summary>Please expand for information on configuring proxy settings</summary>
-<p>A template configuration using proxies exists in <code>.devcontainer/Dockerfile.Proxy</code> and by setting the environment variable <code>DEVCONTAINER_PROXY</code> to <code>.Proxy</code> the file
-<code>.devcontainer/Dockerfile.Proxy</code> will be used instead of <code>.devcontainer/Dockerfile</code>.</p>
-<p>The template configuration uses the following default configuration:</p>
-<pre tabindex="0"><code>ENV HTTP_PROXY=&#34;http://172.17.0.1:${PROXY_PORT:-3128}&#34;
-</code></pre><ul>
-<li>If your proxy is not available on <code>172.17.0.1</code> then you must modify <code>.devcontainer/Dockerfile.Proxy</code>.</li>
-<li>If your proxy does not use 3128 as port you can set another port in the environment variable <code>DEVCONTAINER_PROXY_PORT</code></li>
-</ul>
-<h4 id="windows">Windows:</h4>
-<ol>
-<li>Edit environment variables for your account</li>
-<li>Create an environment variable with name the <code>DEVCONTAINER_PROXY</code> and with the value <code>.Proxy</code> for your account
-<ul>
-<li>Don&rsquo;t forget (dot) in value of the environment variable</li>
-</ul>
-</li>
-<li>If you are using a different Port than 3128 for your Proxy, you have to set another environment variable as follows:
-<ul>
-<li>DEVCONTAINER_PROXY_PORT=<PortNumber></li>
-</ul>
-</li>
-<li>Restart Visual Studio Code to pick up the new environment variable</li>
-</ol>
-<h4 id="macos--linux">macOS &amp; Linux:</h4>
-<pre tabindex="0"><code>echo &#34;export DEVCONTAINER_PROXY=.Proxy&#34; &gt;&gt; ~/.bash_profile
-source ~/.bash_profile
-</code></pre><h3 id="proxy-troubleshooting">Proxy Troubleshooting</h3>
-<p>If you experience issues during initial DevContainer build and you want to start over, then you want to make sure you clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI to remove all volumes and containers.</p>
-<p>Proxy settings in <code>~/.docker/config.json</code> will override settings in <code>.devcontainer/Dockerfile.Proxy</code>, which can cause problems.
-In case the DevContainer is still not working, check if proxy settings are set correctly in the Docker user profile (<code>~/.docker/config.json</code>), see <a href="https://docs.docker.com/network/proxy/">Docker Documentation</a> for more details.
-Verify that the <code>noProxy</code> setting in <code>~/.docker/config.json</code> (if existing) is compatible with the setting of <code>NO_PROXY</code> in <code>.devcontainer/Dockerfile.Proxy</code>.
-The development environment relies on communication to localhost (e.g. localhost, 127.0.0.1) and it is important that the proxy setting is correct so that connections to localhost are not forwarded to the proxy.</p>
-</details>
-<h2 id="use-template-repository">Use Template Repository</h2>
-<p>Create your own repository copy from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Template Repository</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches.</p>
-<p>The name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of document.</p>
-<p>For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template">GitHub Tutorial</a></p>
-<p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces">GitHub Codespaces</a>.</p>
-<h3 id="visual-studio-code">Visual Studio Code</h3>
-<p>With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.</p>
-<ol>
-<li>Start Visual Studio Code</li>
-<li>Press <kbd>F1</kbd> and run the command <code>Remote-Containers: Clone Repository within Container Volume...</code></li>
-<li>Select <code>Clone a repository from GitHub in a Container Volume</code> and choose the repository / branch to clone</li>
-<li>Enter the GitHub organization and repository name (e.g. <code>MyOrg/MyFirstVehicleApp</code>) and select the repository from the list</li>
-<li>Select the branch to clone from the list</li>
-</ol>
-<p>The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.</p>
-<blockquote>
-<p>When opening the DevContainer for the first time, the following steps are necessary:</p>
-</blockquote>
-<ul>
-<li>A manual reload of the dapr extension is required, if the extension hasn´t been installed before (Note: the reload button appears next to Dapr extension in extension menue).</li>
-</ul>
-<details>
-<summary>Please expand for information on troubleshooting</summary>
-<blockquote>
-<p>If Visual Studio Code fails to directly clone your repository you can also use a workaround:</p>
-<ol>
-<li>clone the repo locally using your favorite Git tooling</li>
-<li>Start Visual Studio Code</li>
-<li>select <code>Open Folder</code> from the <code>File</code> menu</li>
-<li>open the root of the cloned repo</li>
-<li>a popup appears on the lower left side of Visual Studio Code</li>
-<li>click on <code>Reopen in Container</code></li>
-<li>wait for the container to be set up</li>
-</ol>
-<p>If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command <code>Remote-Containers: Open Folder in Container</code></p>
-</blockquote>
-<blockquote>
-<p>If the development container fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command <code>Remote-Containers: Rebuild Container Without Cache</code></p>
-</blockquote>
-<p>The devContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md">docker-in-docker</a>-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.</p>
-</details>
-<h3 id="codespaces">Codespaces</h3>
-<p>Another possibility to use your newly created repository is via <a href="https://github.com/features/codespaces">GitHub Codespaces</a>.
-You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.</p>
-<p>To get started with Codespaces, you just have to follow a few steps:</p>
-<ol>
-<li>go to the webpage of your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
-<li>click on the green <code>Code</code>-button and select Codespaces on the top</li>
-<li>configure your Codespace if needed (defaults to the main branch and a standard agent)</li>
-<li>click on <code>create</code></li>
-</ol>
-<p>A new window will open where you see the logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.</p>
-<p>Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.</p>
-<h2 id="starting-runtime-services">Starting runtime services</h2>
-<p>The runtime services (like <em>Vehicle Data Broker</em> or <em>Vehicle Services</em>) are required to develop vehicle apps and run integration tests.</p>
-<p>A Visual Studio Code task called <code>Start Vehicle App runtime</code> is available to run these in the correct order. Click <code>F1</code>, select command <code>Tasks: Run Task</code>, select <code>Start VehicleApp runtime</code> and <code>Continue without scanning the output</code>.</p>
-<p>You should see the tasks <code>run-mosquitto</code>, <code>run-vehicledatabroker</code>, <code>run-seatservice</code> and <code>run-feedercan</code> being executed in the Visual Studio Code output panel.</p>
-<p>More information about the tasks are available <a href="/docs/run_runtime_services_locally.md">here</a>.</p>
-<h2 id="start-and-test-vehicle-app">Start and test Vehicle App</h2>
-<p>Now that your DevContainer is up and running, it is time to take a look at what&rsquo;s inside:</p>
-<ul>
-<li>Vehicle App - This sample app is a basic blueprint and illustrates how to interact with the VAL Services and the Vehicle App SDK.</li>
-<li>Mosquitto MQTT Broker - The broker allows for interaction with other Vehicle Apps or the cloud and is used by the Vehicle App. The MQTT broker is running inside a docker image which is started automatically after starting the DevContainer.</li>
-</ul>
-<h3 id="start-and-check-vehicle-app">Start and check Vehicle App</h3>
-<p>Let&rsquo;s start the sample Vehicle App to verify that you receive actual data from the API.</p>
-<p>Open a new terminal and start the Vehicle App with the following command:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dapr run --app-id seatadjuster --app-protocol grpc --app-port <span style="color:#0000cf;font-weight:bold">50008</span> --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/SeatAdjusterApp/seatadjuster.py
-</span></span></code></pre></div><p>Once the Vehicle App is started, you can expect to receive the Current Position of the Vehicle Seat, which should be reported as 420.</p>
-<p>You will see messages such as</p>
-<pre tabindex="0"><code>== APP == 04/06/2022 07:31:58 AM - __main__ - INFO - Current Position of the Vehicle Seat is: {&#39;position&#39;: 420}
-</code></pre><p>To stop the Vehicle App instance: close the terminal window by hitting <kbd>Ctrl + C</kbd>.</p>
-<h3 id="debug-vehicle-app">Debug Vehicle App</h3>
-<p>After VAL Services and Vehicle App are running successfully, let&rsquo;s start a debug session for the Vehicle App as next step.</p>
-<ul>
-<li>Open the main python file <code>src/SeatAdjusterApp/seatadjuster.py</code> file and set a breakpoint in <code>line 68</code></li>
-<li>Press <kbd>F5</kbd> to start the Vehicle App to start a debug session and see the log output on the <code>DEBUG CONSOLE</code></li>
-</ul>
-<p>In the next step you will use a mqtt message to trigger this breakpoint.</p>
-<h3 id="send-mqtt-messages-to-vehicle-app">Send MQTT messages to Vehicle App</h3>
-<p>Let&rsquo;s send a message to your Vehicle App using the mqtt broker that is running in the background.</p>
-<ul>
-<li>
-<p>Make sure, Vehicle Api Mock and Seat Adjuster App are running.</p>
-</li>
-<li>
-<p>Open <code>VSMqtt</code> extension in Visual Studio Code and connect to <code>mosquitto (local)</code></p>
-</li>
-<li>
-<p>Set <code>Subscribe Topic</code> = <code>seatadjuster/setPosition/response</code> and click subscribe.</p>
-</li>
-<li>
-<p>Set <code>Subscribe Topic</code> = <code>seatadjuster/currentPosition</code> and click subscribe.</p>
-</li>
-<li>
-<p>Set <code>Publish Topic</code> = <code>seatadjuster/setPosition/request</code></p>
-</li>
-<li>
-<p>Set and publish a dummy payload:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span> <span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session</p>
-</li>
-<li>
-<p>After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic</p>
-</li>
-<li>
-<p>You can see the response in the MQTT window.</p>
-</li>
-</ul>
-<h2 id="trigger-your-github-workflows">Trigger your Github Workflows</h2>
-<p>GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find <a href="https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md">here</a>.</p>
-<h3 id="prerequisites">Prerequisites</h3>
-<p>In order to run the workflow succesfully inside the SDV-Org, we are using a PAT of the technical user <code>swd9be</code>. He needs write access to all repos created from the template repository. Furthermore this user needs read access to the following repositories:</p>
-<ul>
-<li>vehicle-app-python-sdk</li>
-<li>vehicle-model-python</li>
-<li>license-check</li>
-</ul>
-<p>When using the template outside of the SDV-Org some additional steps need to be done:</p>
-<ol>
-<li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">create a personal access token</a>
-<ul>
-<li>needs write access to your repo</li>
-</ul>
-</li>
-<li><a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">create a secret</a>
-<ul>
-<li>Name must be <code>SDV_GITHUB_AUTOMATION_TOKEN</code></li>
-</ul>
-</li>
-<li>paste the PAT into the secret</li>
-</ol>
-<h3 id="run-github-workflow">Run GitHub Workflow</h3>
-<ul>
-<li>Make modification to your file, e.g. remove the last empty line from <code>src/SeatAdjusterApp/seatadjuster.py</code></li>
-<li>Commit you change
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#4e9a06">&#34;removed emtpy line&#34;</span>
-</span></span></code></pre></div></li>
-<li>Push
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push
-</span></span></code></pre></div></li>
-<li>Open your git repository in your favorite browser</li>
-<li>Navigate to <code>Actions</code> and go to <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml">CI Workflow</a></li>
-<li>Check Workflow Output, it should look like this:
-<img src="/assets/ci-workflow-success.png" alt=""></li>
-</ul>
-<h2 id="build-you-first-release">Build you first release</h2>
-<p>Now that the <code>CI Workflow</code> was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image.</p>
-<h3 id="release-the-vehicle-app-to-push-it-to-the-container-registry">Release the Vehicle App to push it to the container registry</h3>
-<ul>
-<li>In order to deploy the Vehicle App you need to configure the container registry credentials first:
-<ul>
-<li>Open <code>Settings</code>, go to <code>Secrets</code>, click on <code>Manage your environments and add repository secrets</code> and add the following secret (button <code>Add Secret</code>):
-<ul>
-<li>Name: OTA_SYSTEM_CREDENTIALS</li>
-<li>Value:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;CONTAINER_REGISTRY &#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;your container registry&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;REGISTRY_USER &#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;your username&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;REGISTRY_PASSWORD  &#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;your password&gt;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Open the <code>Code</code> page of your repository on GitHub.com and click on <code>Create a new release</code> in the Releases section on the right side</li>
-<li>Enter a version and click on <code>Publish release</code>
-<ul>
-<li>Note: you can start the verion with a <code>v</code> which will be removed though, e.g. &ldquo;v1.0.0&rdquo; will result in a &ldquo;1.0.0&rdquo; (see <a href="https://github.com/battila7/get-version-action">vesion-without-v</a>).</li>
-</ul>
-</li>
-<li>The release workflow will be triggered
-<ul>
-<li>Open <code>Actions</code> on the repoitory and see the result</li>
-</ul>
-</li>
-</ul>
-<h2 id="next-steps">Next steps</h2>
-<ul>
-<li><a href="/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md">Walkthrough: Create a Python Vehicle App</a></li>
-<li><a href="/docs/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes mode</a></li>
-<li><a href="/docs/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
-</ul>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
 	<h1 id="pg-2b30ec67b931796925324af48e8e2f00">3 - Develop your own python Vehicle App</h1>
     
 	<blockquote>
@@ -1176,7 +1176,7 @@ Currently there is only one for the SeatAdjuster App.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f3e319d0b9b198af5c39068a78e57d4b">4 - Deploy your Python Vehicle App with Helm</h1>
+	<h1 id="pg-f3e319d0b9b198af5c39068a78e57d4b">4 - Deploy your Vehicle App with Helm</h1>
     
 	<p>In this short introduction, you´ll learn how to prepare a Helm chart for the deployment of a Python Vehicle App.</p>
 <p>This tutorial will show you how to:</p>
@@ -1361,180 +1361,7 @@ Currently there is only one for the SeatAdjuster App.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9d91984eb08cf20e39f25e171f5fb593">5 - Vehicle App Runtime</h1>
-    
-	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-    
-    
-	
-    
-
-<div class="td-content" style="">
-    
-	<h1 id="pg-b8a7e76bb8b53cf7ffc3a8f82f85ba4c">5.1 - Run runtime services in Kubernetes</h1>
-    
-	<p>Besides <a href="/docs/run_runtime_services_locally.md">local execution</a>, another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks">here</a>.</p>
-<p><strong>Quick Start:</strong> Each step has a task that is defined in <em>.vscode/tasks.json</em>:</p>
-<ul>
-<li>Core tasks (dependent on each other in the given order):
-<ul>
-<li><code>K3D - Install prerequisites</code>: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them.</li>
-<li><code>K3D - Configure control plane</code>: Creates a local container registry used by K3D as well as an K3D cluster with Dapr enabled.</li>
-<li><code>K3D - Deploy runtime</code>: Deploys the runtime components (like Vehicle Data Broker, Seat Service, &hellip;) within the K3D cluster.</li>
-<li><code>K3D - Build SeatAdjusterApp</code>: Builds the SeatAdjusterApp and pushes it to the local K3D registry.</li>
-<li><code>K3D - Deploy SeatAdjusterApp</code>: Builds and deploys the SeatAdjusterApp via Helm to the K3D cluster.</li>
-</ul>
-</li>
-</ul>
-<p>Each task has the required dependencies defined. If you want to run the runtime in K3D, the task <code>K3D - Deploy SeatAdjusterApp</code> will create and configure everything. So it&rsquo;s enough to run that task.</p>
-<ul>
-<li>Optional helper tasks:
-<ul>
-<li><code>K3D - Deploy SeatAdjusterApp (without rebuild)</code>: Deploys the SeatAdjusterApp via Helm to the K3D cluster (without rebuilding it). That requires, that the task <code>K3D - Build SeatAdjusterApp</code> has been executed once before.</li>
-<li><code>K3D - Install tooling</code>: Installs tooling for local debugging (K9s)</li>
-<li><code>K3D - Uninstall runtime</code>: Uninstalls the runtime components from the K3D cluster (without deleting the cluster).</li>
-<li><code>K3D - Reset control plane</code>: Deletes the K3D cluster and the registry with all deployed pods/services.</li>
-</ul>
-</li>
-</ul>
-<p>K3D is configured so that <em>Mosquitto</em> and the <em>Vehicle Data Broker</em> can be reached from outside the container over the ports <code>31883</code> (Mosquitto) and <code>30555</code>(Vehicle Data Broker). The test runner, that is running outside of the cluster, can interact with these services over those ports.</p>
-<p>To check the status of your K3D instance (running pods, containers, logs, &hellip;) you can either use the <code>kubectl</code> utility or start <em>K9s</em> (after running the task <code>K3D - Install tooling</code> once) in a terminal window to have a UI for interacting with the cluster.</p>
-<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>K3D - Deploy SeatAdjusterApp</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>K3D - Deploy SeatAdjusterApp</code>.</p>
-<p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
-<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
-<h2 id="uploading-files-to-persistentvolume">Uploading files to persistentVolume</h2>
-<p>Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
-All the files that are located in <code>deploy/runtime/k3d/volume</code> will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/scripts/k3d/helm/templates/persistentVolume.yaml"><code>deploy/runtime/k3d/helm/templates/bash.yaml</code></a>.</p>
-<p>Changes in <code>deploy/runtime/k3d/volume</code> are automatically reflected in PersistentVolume.</p>
-<h3 id="uploading-custom-candump-file-to-feedercan">Uploading custom candump file to FeederCAN</h3>
-<p>FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:</p>
-<ol>
-<li>Creating/updating candump file with with name <code>candump</code> in <code>deploy/runtime/k3d/volume</code></li>
-<li>Recreating the feedercan pod: <code>kubectl delete pods -l app=feedercan</code></li>
-</ol>
-<p>More information about FeederCan can be found <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders">here</a></p>
-<h2 id="next-steps">Next steps</h2>
-<ul>
-<li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li><a href="/docs/run_runtime_services_locally.md">Deploy runtime services locally</a></li>
-</ul>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-c17c8d2574e5368e139743922d9a9fc3">5.2 - Run runtime services locally</h1>
-    
-	<h2 id="using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</h2>
-<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>Vehicle Data Broker</em> or <em>Vehicle Services</em>) are available for local execution as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks">here</a>.</p>
-<p><strong>Quick Start:</strong> Each component has a task that is defined in <em>.vscode/tasks.json</em>:</p>
-<ul>
-<li>Dapr (<code>Local - Ensure Dapr</code>): installs Dapr CLI and initializes Dapr if required</li>
-<li>Mosquitto (<code>Local - Mosquitto</code>): runs <em>Mosquitto</em> as a container (<code>docker run</code>)</li>
-<li>Vehicle Data Broker (<code>Local - VehicleDataBroker</code>): downloads and runs <em>Vehicle Data Broker</em></li>
-<li>(Optional) Seat Service (<code>Local - SeatService</code>): downloads and runs <em>Seat Service</em>, an example <code>Vehicle Service</code></li>
-<li>(Optional) Feeder Can (<code>Local - FeederCan</code>): downloads and runs <em>FeederCAN</em></li>
-</ul>
-<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>Start Vehicle App runtime</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Start Vehicle App runtime</code>.</p>
-<p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
-<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
-<p><strong>Scripting:</strong> The tasks itself are executing scripts that are located in <code>.vscode/scripts</code>. These scripts download the specified version of the runtime components and execute them along with Dapr. The same mechanism can be used to register additional services or prerequisites by adding new task definitions in the <code>tasks.json</code> file.</p>
-<h2 id="change-version-of-runtime-services">Change version of runtime services</h2>
-<p>The version for the runtime services is defined in the file <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/prerequisite_settings.json"><code>./prerequisite_settings.json</code></a>. If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.</p>
-<h2 id="using-vehicle-databroker-cli">Using Vehicle Databroker CLI</h2>
-<p>A CLI tool is provided for the interact with a running instance of the Vehicle Data Broker. It can be started by running the task <code>run-vehicledatabroker-cli</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>run-vehicledatabroker-cli</code>). The <em>Vehicle Data Broker</em> needs to be running for you to be able to use the tool.</p>
-<h2 id="integrating-a-new-service-into-visual-studio-code-task">Integrating a new service into Visual Studio Code Task</h2>
-<p>Integration of a new service can be done by duplicating one of the existing tasks.</p>
-<ul>
-<li>Create a new script based on template script <code>.vscode/scripts/run-vehicledatabroker.sh</code></li>
-<li>In <code>.vscode/tasks.json</code>, duplicate section from task <code>run-vehicledatabroker</code></li>
-<li>Correct names in a new code block</li>
-<li><strong>Disclaimer:</strong> <code>Problem Matcher</code> defined in <code>tasks.json</code> is a feature of the Visual Studio Code Task, to ensure that the process runs in background</li>
-<li>Run task using <code>[F1 -&gt; Tasks: Run Task -&gt; &lt;Your new task name&gt;]</code></li>
-<li>Task should be visible in Terminal section of Visual Studio Code</li>
-</ul>
-<h3 id="task-codeblock-helper">Task CodeBlock helper</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;label&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;__CHANGEIT: Task name__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;type&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;command&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.vscode/scripts/&lt;__CHANGEIT: Script Name.sh__&gt; --task&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;group&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;presentation&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;reveal&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;always&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;panel&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dedicated&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;isBackground&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;problemMatcher&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;pattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;regexp&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;file&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;location&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;background&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;activeOnStart&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;beginsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;^&lt;__CHANGEIT: Regex log from your app, decision to send process in background__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;endsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">},</span>
-</span></span></code></pre></div><h2 id="troubleshooting">Troubleshooting</h2>
-<p><strong>Problem description:</strong> When integrating new services into an existing dev environment, it is highly recommended to use the Visual Studio Code Task Feature.
-A new service can be easily started by calling it from bash script, however restarting the same service might lead to port conflicts (GRPC Port or APP port). That can be easily avoided by using the Visual Studio Code Task Feature.</p>
-<h3 id="codespaces">Codespaces</h3>
-<p>If you are using Codespaces, remember that you are working on a remote agent. That&rsquo;s why it could happen that the tasks are already running in the background. If that&rsquo;s the case a new start of the tasks will fail, since the ports are already in use. In the Dapr-tab of the sidebar you can check if there are already tasks running. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit <code>F1</code> and enter <code>View: Toggle Ports</code>).</p>
-<h2 id="next-steps">Next steps</h2>
-<ul>
-<li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li><a href="/docs/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes mode</a></li>
-</ul>
-
-</div>
-
-
-
-    
-	
-  
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-92434ff59ee018c09ee5056e41a30ded">6 - Vehicle App Integration Testing</h1>
+	<h1 id="pg-92434ff59ee018c09ee5056e41a30ded">5 - Vehicle App Integration Testing</h1>
     
 	<p>To be sure that a newly created <em>Vehicle App</em> will run together with the <em>Vehicle Data Broker</em> and potentially other dependant <em>Vehicle Services</em> or <em>Vehicle Apps</em>, it&rsquo;s essential to write integration tests along with developing the app.</p>
 <p>To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.</p>
@@ -1648,6 +1475,179 @@ A new service can be easily started by calling it from bash script, however rest
 </div>
 
 
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9d91984eb08cf20e39f25e171f5fb593">6 - Vehicle App Runtime</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-b8a7e76bb8b53cf7ffc3a8f82f85ba4c">6.1 - Run runtime services in Kubernetes</h1>
+    
+	<p>Besides <a href="/docs/run_runtime_services_locally.md">local execution</a>, another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks">here</a>.</p>
+<p><strong>Quick Start:</strong> Each step has a task that is defined in <em>.vscode/tasks.json</em>:</p>
+<ul>
+<li>Core tasks (dependent on each other in the given order):
+<ul>
+<li><code>K3D - Install prerequisites</code>: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them.</li>
+<li><code>K3D - Configure control plane</code>: Creates a local container registry used by K3D as well as an K3D cluster with Dapr enabled.</li>
+<li><code>K3D - Deploy runtime</code>: Deploys the runtime components (like Vehicle Data Broker, Seat Service, &hellip;) within the K3D cluster.</li>
+<li><code>K3D - Build SeatAdjusterApp</code>: Builds the SeatAdjusterApp and pushes it to the local K3D registry.</li>
+<li><code>K3D - Deploy SeatAdjusterApp</code>: Builds and deploys the SeatAdjusterApp via Helm to the K3D cluster.</li>
+</ul>
+</li>
+</ul>
+<p>Each task has the required dependencies defined. If you want to run the runtime in K3D, the task <code>K3D - Deploy SeatAdjusterApp</code> will create and configure everything. So it&rsquo;s enough to run that task.</p>
+<ul>
+<li>Optional helper tasks:
+<ul>
+<li><code>K3D - Deploy SeatAdjusterApp (without rebuild)</code>: Deploys the SeatAdjusterApp via Helm to the K3D cluster (without rebuilding it). That requires, that the task <code>K3D - Build SeatAdjusterApp</code> has been executed once before.</li>
+<li><code>K3D - Install tooling</code>: Installs tooling for local debugging (K9s)</li>
+<li><code>K3D - Uninstall runtime</code>: Uninstalls the runtime components from the K3D cluster (without deleting the cluster).</li>
+<li><code>K3D - Reset control plane</code>: Deletes the K3D cluster and the registry with all deployed pods/services.</li>
+</ul>
+</li>
+</ul>
+<p>K3D is configured so that <em>Mosquitto</em> and the <em>Vehicle Data Broker</em> can be reached from outside the container over the ports <code>31883</code> (Mosquitto) and <code>30555</code>(Vehicle Data Broker). The test runner, that is running outside of the cluster, can interact with these services over those ports.</p>
+<p>To check the status of your K3D instance (running pods, containers, logs, &hellip;) you can either use the <code>kubectl</code> utility or start <em>K9s</em> (after running the task <code>K3D - Install tooling</code> once) in a terminal window to have a UI for interacting with the cluster.</p>
+<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>K3D - Deploy SeatAdjusterApp</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>K3D - Deploy SeatAdjusterApp</code>.</p>
+<p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
+<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
+<h2 id="uploading-files-to-persistentvolume">Uploading files to persistentVolume</h2>
+<p>Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
+All the files that are located in <code>deploy/runtime/k3d/volume</code> will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/scripts/k3d/helm/templates/persistentVolume.yaml"><code>deploy/runtime/k3d/helm/templates/bash.yaml</code></a>.</p>
+<p>Changes in <code>deploy/runtime/k3d/volume</code> are automatically reflected in PersistentVolume.</p>
+<h3 id="uploading-custom-candump-file-to-feedercan">Uploading custom candump file to FeederCAN</h3>
+<p>FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:</p>
+<ol>
+<li>Creating/updating candump file with with name <code>candump</code> in <code>deploy/runtime/k3d/volume</code></li>
+<li>Recreating the feedercan pod: <code>kubectl delete pods -l app=feedercan</code></li>
+</ol>
+<p>More information about FeederCan can be found <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders">here</a></p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
+<li><a href="/docs/run_runtime_services_locally.md">Deploy runtime services locally</a></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c17c8d2574e5368e139743922d9a9fc3">6.2 - Run runtime services locally</h1>
+    
+	<h2 id="using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</h2>
+<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>Vehicle Data Broker</em> or <em>Vehicle Services</em>) are available for local execution as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks">here</a>.</p>
+<p><strong>Quick Start:</strong> Each component has a task that is defined in <em>.vscode/tasks.json</em>:</p>
+<ul>
+<li>Dapr (<code>Local - Ensure Dapr</code>): installs Dapr CLI and initializes Dapr if required</li>
+<li>Mosquitto (<code>Local - Mosquitto</code>): runs <em>Mosquitto</em> as a container (<code>docker run</code>)</li>
+<li>Vehicle Data Broker (<code>Local - VehicleDataBroker</code>): downloads and runs <em>Vehicle Data Broker</em></li>
+<li>(Optional) Seat Service (<code>Local - SeatService</code>): downloads and runs <em>Seat Service</em>, an example <code>Vehicle Service</code></li>
+<li>(Optional) Feeder Can (<code>Local - FeederCan</code>): downloads and runs <em>FeederCAN</em></li>
+</ul>
+<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>Start Vehicle App runtime</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Start Vehicle App runtime</code>.</p>
+<p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
+<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
+<p><strong>Scripting:</strong> The tasks itself are executing scripts that are located in <code>.vscode/scripts</code>. These scripts download the specified version of the runtime components and execute them along with Dapr. The same mechanism can be used to register additional services or prerequisites by adding new task definitions in the <code>tasks.json</code> file.</p>
+<h2 id="change-version-of-runtime-services">Change version of runtime services</h2>
+<p>The version for the runtime services is defined in the file <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/prerequisite_settings.json"><code>./prerequisite_settings.json</code></a>. If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.</p>
+<h2 id="using-vehicle-databroker-cli">Using Vehicle Databroker CLI</h2>
+<p>A CLI tool is provided for the interact with a running instance of the Vehicle Data Broker. It can be started by running the task <code>run-vehicledatabroker-cli</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>run-vehicledatabroker-cli</code>). The <em>Vehicle Data Broker</em> needs to be running for you to be able to use the tool.</p>
+<h2 id="integrating-a-new-service-into-visual-studio-code-task">Integrating a new service into Visual Studio Code Task</h2>
+<p>Integration of a new service can be done by duplicating one of the existing tasks.</p>
+<ul>
+<li>Create a new script based on template script <code>.vscode/scripts/run-vehicledatabroker.sh</code></li>
+<li>In <code>.vscode/tasks.json</code>, duplicate section from task <code>run-vehicledatabroker</code></li>
+<li>Correct names in a new code block</li>
+<li><strong>Disclaimer:</strong> <code>Problem Matcher</code> defined in <code>tasks.json</code> is a feature of the Visual Studio Code Task, to ensure that the process runs in background</li>
+<li>Run task using <code>[F1 -&gt; Tasks: Run Task -&gt; &lt;Your new task name&gt;]</code></li>
+<li>Task should be visible in Terminal section of Visual Studio Code</li>
+</ul>
+<h3 id="task-codeblock-helper">Task CodeBlock helper</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;label&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;__CHANGEIT: Task name__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;type&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;command&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.vscode/scripts/&lt;__CHANGEIT: Script Name.sh__&gt; --task&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;group&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;presentation&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;reveal&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;always&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;panel&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dedicated&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;isBackground&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;problemMatcher&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;pattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;regexp&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;file&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;location&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;background&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;activeOnStart&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;beginsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;^&lt;__CHANGEIT: Regex log from your app, decision to send process in background__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;endsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">},</span>
+</span></span></code></pre></div><h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong>Problem description:</strong> When integrating new services into an existing dev environment, it is highly recommended to use the Visual Studio Code Task Feature.
+A new service can be easily started by calling it from bash script, however restarting the same service might lead to port conflicts (GRPC Port or APP port). That can be easily avoided by using the Visual Studio Code Task Feature.</p>
+<h3 id="codespaces">Codespaces</h3>
+<p>If you are using Codespaces, remember that you are working on a remote agent. That&rsquo;s why it could happen that the tasks are already running in the background. If that&rsquo;s the case a new start of the tasks will fail, since the ports are already in use. In the Dapr-tab of the sidebar you can check if there are already tasks running. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit <code>F1</code> and enter <code>View: Toggle Ports</code>).</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
+<li><a href="/docs/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes mode</a></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
 
     
 	
