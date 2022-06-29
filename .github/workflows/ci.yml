@@ -54,9 +54,9 @@ jobs:
         run: |
           echo $(docker run -v $(pwd)/public:/public -v $(pwd)/.htmltest.yml:/.htmltest.yml --rm wjdp/htmltest -s /public -c /.htmltest.yml) >> $GITHUB_STEP_SUMMARY
 
-      # - name: Publish to GH Pages
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./public
-      #     publish_branch: gh_pages
+      - name: Publish to GH Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh_pages
