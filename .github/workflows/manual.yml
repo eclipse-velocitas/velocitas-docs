@@ -15,6 +15,17 @@ name: Manual publish
 
 on:
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'The branch to publish to'
+        default: 'gh_pages'
+        required: false
+        type: string
+      baseURL:
+        description: 'The base URL for the published docs'
+        default: '/velocitas-docs'
+        required: false
+        type: string
 
 jobs:
   build:
@@ -44,7 +55,7 @@ jobs:
           export NODE_PATH=$NODE_PATH:`npm root -g`
           npm i -g postcss postcss-cli autoprefixer
           echo "Build documentation for GitHub Pages"
-          hugo
+          hugo --baseURL ${{ inputs.baseURL }}
       
       - name: Check
         continue-on-error: true
@@ -56,4 +67,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          publish_branch: gh_pages
+          publish_branch: ${{ inputs.branch }}
