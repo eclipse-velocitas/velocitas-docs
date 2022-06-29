@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Velocitas – Use Case</title>
-    <link>/docs/use-case/</link>
+    <link>/velocitas-deocs/docs/use-case/</link>
     <description>Recent content in Use Case on Eclipse Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/use-case/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/velocitas-deocs/docs/use-case/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,16 +16,16 @@
     
     <item>
       <title>Docs: Seat Adjuster</title>
-      <link>/docs/use-case/seat_adjuster_use_case/</link>
+      <link>/velocitas-deocs/docs/use-case/seat_adjuster_use_case/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/docs/use-case/seat_adjuster_use_case/</guid>
+      <guid>/velocitas-deocs/docs/use-case/seat_adjuster_use_case/</guid>
       <description>
         
         
         &lt;p&gt;The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project &lt;strong&gt;Velocitas&lt;/strong&gt; in this way. The following chapter describes the data flow for the use cases.&lt;/p&gt;
 &lt;h2 id=&#34;requesting-new-seat-position&#34;&gt;Requesting new seat position&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;/assets/SeatAdjuster-dataflow-1.svg&#34; alt=&#34;Use Case&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/velocitas-deocs/assets/SeatAdjuster-dataflow-1.svg&#34; alt=&#34;Use Case&#34;&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;The &lt;strong&gt;Customer&lt;/strong&gt; requests the change of the seat position as MQTT message on the topic &lt;code&gt;seatadjuster/setPosition/request&lt;/code&gt; with the payload:
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;: 300&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
@@ -44,7 +44,7 @@
 &lt;/ol&gt;
 &lt;h2 id=&#34;publishing-current-seat-position&#34;&gt;Publishing current seat position&lt;/h2&gt;
 
-&lt;img src=&#34;/assets/SeatAdjuster-dataflow-2.svg&#34; alt=&#34;Use Case&#34;/&gt;
+&lt;img src=&#34;/velocitas-deocs/assets/SeatAdjuster-dataflow-2.svg&#34; alt=&#34;Use Case&#34;/&gt;
 
 &lt;ol start=&#34;9&#34;&gt;
 &lt;li&gt;If the seat position will be changed by the driver, the new seat position will be sent to the &lt;strong&gt;Seat Service&lt;/strong&gt; via CAN.&lt;/li&gt;

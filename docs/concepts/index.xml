@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eclipse Velocitas – Concepts</title>
-    <link>/docs/concepts/</link>
+    <link>/velocitas-deocs/docs/concepts/</link>
     <description>Recent content in Concepts on Eclipse Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/docs/concepts/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/velocitas-deocs/docs/concepts/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Velocitas Development Model</title>
-      <link>/docs/concepts/development-model/</link>
+      <link>/velocitas-deocs/docs/concepts/development-model/</link>
       <pubDate>Mon, 09 May 2022 13:45:12 +0530</pubDate>
       
-      <guid>/docs/concepts/development-model/</guid>
+      <guid>/velocitas-deocs/docs/concepts/development-model/</guid>
       <description>
         
         
@@ -27,7 +27,7 @@
 &lt;p&gt;The Velocitas development model is centered around what are known as &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. Automation allows engineers to make high-impact changes frequently and deploy &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; through cloud backends as over-the-air updates. The &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle App&lt;/a&gt; development model is about &lt;em&gt;speed&lt;/em&gt; and &lt;em&gt;agility&lt;/em&gt; paired with state-of-the-art software quality.&lt;/p&gt;
 &lt;h2 id=&#34;development-architecture&#34;&gt;Development Architecture&lt;/h2&gt;
 &lt;p&gt;Velocitas provides a flexible development architecture for &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. The following diagram shows the major components of the Velocitas stack.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/assets/programming_model.drawio.svg&#34; alt=&#34;overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/velocitas-deocs/assets/programming_model.drawio.svg&#34; alt=&#34;overview&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-apps&#34;&gt;Vehicle Apps&lt;/h3&gt;
 &lt;p&gt;The Vehicle Applications (aka. &lt;code&gt;Vehicle Apps&lt;/code&gt;) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; and its underlying language-specific &lt;a href=&#34;#sdks&#34;&gt;SDK&lt;/a&gt;. Many concepts of cloud-native and &lt;a href=&#34;https://12factor.net/&#34;&gt;twelve-factor&lt;/a&gt; applications apply to &lt;code&gt;Vehicle Apps&lt;/code&gt; as well and are summarized in the next chapter.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-models&#34;&gt;Vehicle Models&lt;/h3&gt;
@@ -68,22 +68,22 @@ Next to a &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; abstracti
 &lt;p&gt;&lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; are released to cloud backends like the &lt;a href=&#34;https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/&#34;&gt;Bosch Mobility Cloud&lt;/a&gt; and can be updated in vehicles frequently over the air.&lt;/p&gt;
 &lt;h2 id=&#34;development-process&#34;&gt;Development Process&lt;/h2&gt;
 &lt;p&gt;The starting point for developing &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; is a &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; of the vehicle data and vehicle services. Based on the &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt;, language-specific &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt; are generated. &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt; are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &amp;hellip;).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/assets/build_procedure.drawio.svg&#34; alt=&#34;Procedure&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/velocitas-deocs/assets/build_procedure.drawio.svg&#34; alt=&#34;Procedure&#34;&gt;&lt;/p&gt;
 &lt;p&gt;After a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; is available for the chosen programming language, the &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle App&lt;/a&gt; can be developed using the generated Vehicle Model and its core SDK.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;h3 id=&#34;vehicle-apps-sdk-documentation&#34;&gt;Vehicle Apps SDK Documentation&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/python-sdk/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-deocs/python-sdk/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Coming soon: Rust SDK Overview&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;working-with-vehicle-models&#34;&gt;Working with Vehicle Models&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Walkthrough: &lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Walkthrough: &lt;a href=&#34;/velocitas-deocs/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Coming soon: Creating a Rust Vehicle Model&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;working-with-vehicle-apps&#34;&gt;Working with Vehicle Apps&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Walkthrough: &lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Creating a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Walkthrough: &lt;a href=&#34;/velocitas-deocs/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Creating a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Coming soon: Creating a Rust Vehicle App&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -92,10 +92,10 @@ Next to a &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; abstracti
     
     <item>
       <title>Docs: Build and Release Process</title>
-      <link>/docs/concepts/vehicle_app_releases/</link>
+      <link>/velocitas-deocs/docs/concepts/vehicle_app_releases/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/docs/concepts/vehicle_app_releases/</guid>
+      <guid>/velocitas-deocs/docs/concepts/vehicle_app_releases/</guid>
       <description>
         
         
@@ -113,7 +113,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The following illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project&amp;rsquo;s needs.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/assets/publish_container.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/velocitas-deocs/assets/publish_container.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;ci-workflow-ciyml&#34;&gt;CI Workflow (ci.yml)&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;CI workflow&lt;/code&gt; is triggered on every commit to the main branch and contains a set of different actions that cover:&lt;/p&gt;
 &lt;ul&gt;
@@ -153,10 +153,10 @@ Once the application is ready to be released in a new version, a dedicated relea
     
     <item>
       <title>Docs: Runtime and deployment model</title>
-      <link>/docs/concepts/runtime-deployment-model/</link>
+      <link>/velocitas-deocs/docs/concepts/runtime-deployment-model/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/docs/concepts/runtime-deployment-model/</guid>
+      <guid>/velocitas-deocs/docs/concepts/runtime-deployment-model/</guid>
       <description>
         
         
@@ -174,10 +174,10 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;h2 id=&#34;automated-container-image-builds&#34;&gt;Automated container image builds&lt;/h2&gt;
 &lt;p&gt;Velocitas uses GitHub workflows to automate the creation of your containerized application. A workflow is started with every increment of your application code that you push to your GitHub repository. The workflow creates a containerized version of your application and stores this container image in a registry. Further actions are carried out using this container (e.g., integration tests).&lt;/p&gt;
 &lt;p&gt;The workflows are set up to support multi-platform container creation and generate container images for amd64 and arm64 out of the box. This provides a great starting point for developers and lets you add additional support for further platforms easily.&lt;/p&gt;
-&lt;p&gt;Learn more about the concepts of the &lt;a href=&#34;/docs/velocitas/docs/vehicle_app_releases.md&#34;&gt;Velocitas build and release workflows&lt;/a&gt; and check out the example GitHub workflows in our repositories for python (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)&#34;&gt;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Learn more about the concepts of the &lt;a href=&#34;/velocitas-deocs/docs/velocitas/docs/vehicle_app_releases.md&#34;&gt;Velocitas build and release workflows&lt;/a&gt; and check out the example GitHub workflows in our repositories for python (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)&#34;&gt;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/docs/getting-started/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/&#34;&gt;Walkthrough: Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-deocs/docs/getting-started/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/&#34;&gt;Walkthrough: Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
