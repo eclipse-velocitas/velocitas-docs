@@ -4,6 +4,8 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.98.0" />
+<link rel="alternate" type="text/html" href="/velocitas-docs/docs/tutorials/_print/">
+<link rel="alternate" type="application/rss&#43;xml" href="/velocitas-docs/docs/tutorials/index.xml">
 <meta name="robots" content="index, follow">
 
 
@@ -18,28 +20,17 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
-<title>Run runtime services in Kubernetes | Eclipse Velocitas</title>
-<meta name="description" content="Besides local execution, another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To …">
-<meta property="og:title" content="Run runtime services in Kubernetes" />
-<meta property="og:description" content="Besides local execution, another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code Tasks, a feature of Visual Studio Code. Additional information on tasks can be found here.
-Quick Start: Each step has a task that is defined in .vscode/tasks.json:
- Core tasks (dependent on each other in the given order):  K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/velocitas-docs/docs/getting-started/vehicle-app-runtime/run_runtime_services_kubernetes/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2022-06-29T16:37:53+02:00" />
+<title>Getting Started | Eclipse Velocitas</title>
+<meta name="description" content="">
+<meta property="og:title" content="Getting Started" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/velocitas-docs/docs/tutorials/" />
 
-<meta itemprop="name" content="Run runtime services in Kubernetes">
-<meta itemprop="description" content="Besides local execution, another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code Tasks, a feature of Visual Studio Code. Additional information on tasks can be found here.
-Quick Start: Each step has a task that is defined in .vscode/tasks.json:
- Core tasks (dependent on each other in the given order):  K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them."><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2022-06-29T16:37:53+02:00" />
-<meta itemprop="wordCount" content="599">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Run runtime services in Kubernetes"/>
-<meta name="twitter:description" content="Besides local execution, another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code Tasks, a feature of Visual Studio Code. Additional information on tasks can be found here.
-Quick Start: Each step has a task that is defined in .vscode/tasks.json:
- Core tasks (dependent on each other in the given order):  K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them."/>
+<meta itemprop="name" content="Getting Started">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Getting Started"/>
+<meta name="twitter:description" content=""/>
 
 
 
@@ -68,7 +59,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
   </head>
-  <body class="td-page">
+  <body class="td-section">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -112,7 +103,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.39415816eba4c415ee86c40c2d255fdb.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c136302e8c67fb08250e949fc680f21f.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -135,7 +126,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.39415816eba4c415ee86c40c2d255fdb.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c136302e8c67fb08250e949fc680f21f.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -169,53 +160,46 @@ if (!doNotTrack) {
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitas-docsdocsgetting-started-li">
-  <input type="checkbox" id="m-velocitas-docsdocsgetting-started-check" checked/>
-  <label for="m-velocitas-docsdocsgetting-started-check"><a href="/velocitas-docs/docs/getting-started/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsgetting-started"><span class="">Getting Started</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitas-docsdocstutorials-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorials-check" checked/>
+  <label for="m-velocitas-docsdocstutorials-check"><a href="/velocitas-docs/docs/tutorials/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorials"><span class="td-sidebar-nav-active-item">Getting Started</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsgetting-startedquickstart-li">
-  <input type="checkbox" id="m-velocitas-docsdocsgetting-startedquickstart-check"/>
-  <label for="m-velocitas-docsdocsgetting-startedquickstart-check"><a href="/velocitas-docs/docs/getting-started/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsgetting-startedquickstart"><span class="">Quickstart</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_model-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_model-check"/>
+  <label for="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_model-check"><a href="/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_model"><span class="">Create your first Python Vehicle Model</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsgetting-startedtutorials-li">
-  <input type="checkbox" id="m-velocitas-docsdocsgetting-startedtutorials-check"/>
-  <label for="m-velocitas-docsdocsgetting-startedtutorials-check"><a href="/velocitas-docs/docs/getting-started/tutorials/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsgetting-startedtutorials"><span class="">Tutorials</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsquickstart-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsquickstart-check"/>
+  <label for="m-velocitas-docsdocstutorialsquickstart-check"><a href="/velocitas-docs/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsquickstart"><span class="">Quickstart</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_app-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_app-check"/>
+  <label for="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_app-check"><a href="/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_app/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_app"><span class="">Develop your own python Vehicle App</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"/>
+  <label for="m-velocitas-docsdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"><a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm"><span class="">Deploy your Python Vehicle App with Helm</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsvehicle-app-runtime-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle-app-runtime-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle-app-runtime-check"><a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsvehicle-app-runtime"><span class="">Vehicle App Runtime</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_create_a_vehicle_model-li">
-  <input type="checkbox" id="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_create_a_vehicle_model-check"/>
-  <label for="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_create_a_vehicle_model-check"><a href="/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_create_a_vehicle_model"><span class="">Create your first Python Vehicle Model</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-check"><a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes"><span class="">Run runtime services in Kubernetes</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_create_a_vehicle_app-li">
-  <input type="checkbox" id="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_create_a_vehicle_app-check"/>
-  <label for="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_create_a_vehicle_app-check"><a href="/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_app/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_create_a_vehicle_app"><span class="">Develop your own python Vehicle App</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-li">
-  <input type="checkbox" id="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"/>
-  <label for="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"><a href="/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsgetting-startedtutorialstutorial_how_to_deploy_a_vehicle_app_with_helm"><span class="">Deploy your Python Vehicle App with Helm</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsgetting-startedtutorialsintegration_tests-li">
-  <input type="checkbox" id="m-velocitas-docsdocsgetting-startedtutorialsintegration_tests-check"/>
-  <label for="m-velocitas-docsdocsgetting-startedtutorialsintegration_tests-check"><a href="/velocitas-docs/docs/getting-started/tutorials/integration_tests/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsgetting-startedtutorialsintegration_tests"><span class="">Vehicle App Integration Testing</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_locally-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_locally-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_locally-check"><a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_locally"><span class="">Run runtime services locally</span></a></label>
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitas-docsdocsgetting-startedvehicle-app-runtime-li">
-  <input type="checkbox" id="m-velocitas-docsdocsgetting-startedvehicle-app-runtime-check" checked/>
-  <label for="m-velocitas-docsdocsgetting-startedvehicle-app-runtime-check"><a href="/velocitas-docs/docs/getting-started/vehicle-app-runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsgetting-startedvehicle-app-runtime"><span class="">Vehicle App Runtime</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsintegration_tests-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsintegration_tests-check"/>
+  <label for="m-velocitas-docsdocstutorialsintegration_tests-check"><a href="/velocitas-docs/docs/tutorials/integration_tests/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsintegration_tests"><span class="">Vehicle App Integration Testing</span></a></label>
   
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-velocitas-docsdocsgetting-startedvehicle-app-runtimerun_runtime_services_kubernetes-li">
-  <input type="checkbox" id="m-velocitas-docsdocsgetting-startedvehicle-app-runtimerun_runtime_services_kubernetes-check" checked/>
-  <label for="m-velocitas-docsdocsgetting-startedvehicle-app-runtimerun_runtime_services_kubernetes-check"><a href="/velocitas-docs/docs/getting-started/vehicle-app-runtime/run_runtime_services_kubernetes/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsgetting-startedvehicle-app-runtimerun_runtime_services_kubernetes"><span class="td-sidebar-nav-active-item">Run runtime services in Kubernetes</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsgetting-startedvehicle-app-runtimerun_runtime_services_locally-li">
-  <input type="checkbox" id="m-velocitas-docsdocsgetting-startedvehicle-app-runtimerun_runtime_services_locally-check"/>
-  <label for="m-velocitas-docsdocsgetting-startedvehicle-app-runtimerun_runtime_services_locally-check"><a href="/velocitas-docs/docs/getting-started/vehicle-app-runtime/run_runtime_services_locally/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsgetting-startedvehicle-app-runtimerun_runtime_services_locally"><span class="">Run runtime services locally</span></a></label>
-  
-</li>
-  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsreference-li">
@@ -271,28 +255,17 @@ if (!doNotTrack) {
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/eclipse-velocitas/velocitas-docs/tree/main/content/en/docs/Getting%20Started/Vehicle%20App%20Runtime/run_runtime_services_kubernetes.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/eclipse-velocitas/velocitas-docs/edit/main/content/en/docs/Getting%20Started/Vehicle%20App%20Runtime/run_runtime_services_kubernetes.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/eclipse-velocitas/velocitas-docs/new/main/content/en/docs/Getting%20Started/Vehicle%20App%20Runtime/run_runtime_services_kubernetes.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/eclipse-velocitas/velocitas-docs/issues/new?title=Run%20runtime%20services%20in%20Kubernetes" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/eclipse-velocitas/velocitas-docs/tree/main/content/en/docs/Tutorials/_index.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/edit/main/content/en/docs/Tutorials/_index.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/new/main/content/en/docs/Tutorials/_index.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/issues/new?title=Getting%20Started" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/eclipse-velocitas/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-  <a id="print" href="/velocitas-docs/docs/getting-started/vehicle-app-runtime/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+  <a id="print" href="/velocitas-docs/docs/tutorials/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
             
 
-
-<div class="td-toc"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#uploading-files-to-persistentvolume">Uploading files to persistentVolume</a>
-      <ul>
-        <li><a href="#uploading-custom-candump-file-to-feedercan">Uploading custom candump file to FeederCAN</a></li>
-      </ul>
-    </li>
-    <li><a href="#next-steps">Next steps</a></li>
-  </ul>
-</nav></div>
 
 
 
@@ -334,21 +307,15 @@ if (!doNotTrack) {
   <li class="breadcrumb-item">
     <a href="/velocitas-docs/docs/">Documentation</a>
   </li>
-  <li class="breadcrumb-item">
-    <a href="/velocitas-docs/docs/getting-started/">Getting Started</a>
-  </li>
-  <li class="breadcrumb-item">
-    <a href="/velocitas-docs/docs/getting-started/vehicle-app-runtime/">Vehicle App Runtime</a>
-  </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="/velocitas-docs/docs/getting-started/vehicle-app-runtime/run_runtime_services_kubernetes/" aria-disabled="true" class="btn-link disabled">Run runtime services in Kubernetes</a>
+    <a href="/velocitas-docs/docs/tutorials/" aria-disabled="true" class="btn-link disabled">Getting Started</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Run runtime services in Kubernetes</h1>
-	
+	<h1>Getting Started</h1>
+  
 	<header class="article-meta">
 		
 
@@ -365,61 +332,77 @@ if (!doNotTrack) {
   
 
 		
-	</header>    
-	<p>Besides <a href="/docs/run_runtime_services_locally.md">local execution</a>, another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks">here</a>.</p>
-<p><strong>Quick Start:</strong> Each step has a task that is defined in <em>.vscode/tasks.json</em>:</p>
-<ul>
-<li>Core tasks (dependent on each other in the given order):
-<ul>
-<li><code>K3D - Install prerequisites</code>: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them.</li>
-<li><code>K3D - Configure control plane</code>: Creates a local container registry used by K3D as well as an K3D cluster with Dapr enabled.</li>
-<li><code>K3D - Deploy runtime</code>: Deploys the runtime components (like Vehicle Data Broker, Seat Service, &hellip;) within the K3D cluster.</li>
-<li><code>K3D - Build SeatAdjusterApp</code>: Builds the SeatAdjusterApp and pushes it to the local K3D registry.</li>
-<li><code>K3D - Deploy SeatAdjusterApp</code>: Builds and deploys the SeatAdjusterApp via Helm to the K3D cluster.</li>
-</ul>
-</li>
-</ul>
-<p>Each task has the required dependencies defined. If you want to run the runtime in K3D, the task <code>K3D - Deploy SeatAdjusterApp</code> will create and configure everything. So it&rsquo;s enough to run that task.</p>
-<ul>
-<li>Optional helper tasks:
-<ul>
-<li><code>K3D - Deploy SeatAdjusterApp (without rebuild)</code>: Deploys the SeatAdjusterApp via Helm to the K3D cluster (without rebuilding it). That requires, that the task <code>K3D - Build SeatAdjusterApp</code> has been executed once before.</li>
-<li><code>K3D - Install tooling</code>: Installs tooling for local debugging (K9s)</li>
-<li><code>K3D - Uninstall runtime</code>: Uninstalls the runtime components from the K3D cluster (without deleting the cluster).</li>
-<li><code>K3D - Reset control plane</code>: Deletes the K3D cluster and the registry with all deployed pods/services.</li>
-</ul>
-</li>
-</ul>
-<p>K3D is configured so that <em>Mosquitto</em> and the <em>Vehicle Data Broker</em> can be reached from outside the container over the ports <code>31883</code> (Mosquitto) and <code>30555</code>(Vehicle Data Broker). The test runner, that is running outside of the cluster, can interact with these services over those ports.</p>
-<p>To check the status of your K3D instance (running pods, containers, logs, &hellip;) you can either use the <code>kubectl</code> utility or start <em>K9s</em> (after running the task <code>K3D - Install tooling</code> once) in a terminal window to have a UI for interacting with the cluster.</p>
-<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>K3D - Deploy SeatAdjusterApp</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>K3D - Deploy SeatAdjusterApp</code>.</p>
-<p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
-<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
-<h2 id="uploading-files-to-persistentvolume">Uploading files to persistentVolume</h2>
-<p>Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
-All the files that are located in <code>deploy/runtime/k3d/volume</code> will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/scripts/k3d/helm/templates/persistentVolume.yaml"><code>deploy/runtime/k3d/helm/templates/bash.yaml</code></a>.</p>
-<p>Changes in <code>deploy/runtime/k3d/volume</code> are automatically reflected in PersistentVolume.</p>
-<h3 id="uploading-custom-candump-file-to-feedercan">Uploading custom candump file to FeederCAN</h3>
-<p>FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:</p>
-<ol>
-<li>Creating/updating candump file with with name <code>candump</code> in <code>deploy/runtime/k3d/volume</code></li>
-<li>Recreating the feedercan pod: <code>kubectl delete pods -l app=feedercan</code></li>
-</ol>
-<p>More information about FeederCan can be found <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders">here</a></p>
-<h2 id="next-steps">Next steps</h2>
-<ul>
-<li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li><a href="/docs/run_runtime_services_locally.md">Deploy runtime services locally</a></li>
-</ul>
+	</header>
+	
+        <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_model/">Create your first Python Vehicle Model</a>
+                </h5>
+                <p></p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/velocitas-docs/docs/tutorials/quickstart/">Quickstart</a>
+                </h5>
+                <p></p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_app/">Develop your own python Vehicle App</a>
+                </h5>
+                <p></p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/">Deploy your Python Vehicle App with Helm</a>
+                </h5>
+                <p></p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/">Vehicle App Runtime</a>
+                </h5>
+                <p></p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/velocitas-docs/docs/tutorials/integration_tests/">Vehicle App Integration Testing</a>
+                </h5>
+                <p></p>
+            </div>
+        
+    
+</div>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 29, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/242e8538aea9fb3853c8101dd8d32813d2b25d4d">Shorten title (242e853)</a>
+  Last modified June 29, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/931dac9b1c841aba885ecf8a04ef09bbf16c9bcd">Renamed Getting Started to Tutorials (931dac9)</a>
 </div>
 
 </div>
-
 
           </main>
         </div>
