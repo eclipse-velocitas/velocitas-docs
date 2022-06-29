@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Introduction to Vehicle Abstraction Layer</title>
-      <link>/velocitas-docs/docs/val/val/</link>
+      <link>/velocitas-docs/docs/reference/val/val/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/val/val/</guid>
+      <guid>/velocitas-docs/docs/reference/val/val/</guid>
       <description>
         
         
@@ -1287,10 +1287,10 @@ Contributor Agreement (ECA) on file.&lt;/p&gt;
     
     <item>
       <title>Docs: Interface Design Guideline</title>
-      <link>/velocitas-docs/docs/val/interface_guideline/</link>
+      <link>/velocitas-docs/docs/reference/val/interface_guideline/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/val/interface_guideline/</guid>
+      <guid>/velocitas-docs/docs/reference/val/interface_guideline/</guid>
       <description>
         
         
@@ -1630,10 +1630,10 @@ The existing VSC definitions shall preferably be extended with comments so that 
     
     <item>
       <title>Docs: Vehicle Service</title>
-      <link>/velocitas-docs/docs/val/vehicle_service/</link>
+      <link>/velocitas-docs/docs/reference/val/vehicle_service/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/val/vehicle_service/</guid>
+      <guid>/velocitas-docs/docs/reference/val/vehicle_service/</guid>
       <description>
         
         
@@ -2042,54 +2042,6 @@ Once the application is ready to be released in a new version, a dedicated relea
     </item>
     
     <item>
-      <title>Docs: Eclipse Velocitas Overview</title>
-      <link>/velocitas-docs/docs/reference/repository_overview/</link>
-      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
-      
-      <guid>/velocitas-docs/docs/reference/repository_overview/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;img src=&#34;/velocitas-docs/assets/project-overview.svg&#34; alt=&#34;Overview&#34;&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Repository&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;vehicle-app-python-template&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-python-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk&#34;&gt;vehicle-app-python-sdk&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Provides basis functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;swdc-os-vehicleapi&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Provides a vehicle abstraction layer (val) including Vehicle Data Broker, an exemplary CAN Data Feeder as well as a Seat Vehicle Service. The Vehicle Data Broker provides data points available in the vehicle to the Vehicle Apps semantically aligned to the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt;. The CAN Data Feeder is an exemplary implementation that reads in data from the vehicle&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/CAN_bus&#34;&gt;CAN bus&lt;/a&gt;, transforms it according to the VSS and feeds it into the Data Broker. The Seat Vehicle Service is an exemplary implementation that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described in the &lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog&#34;&gt;Vehicle Service Catalog (VSC)&lt;/a&gt;.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/release-documentation-action&#34;&gt;release-documentation-action&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;GitHub Action to generate a release documentation from the CI workflow output by rendering it to markdown files so that this can be easily published with GitHub Pages.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/license-check&#34;&gt;license-check&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;GitHub Action to collect the licenses of the used components and can be configured to fail with an error message on invalid licenses.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Python Vehicle App SDK Overview</title>
       <link>/velocitas-docs/docs/reference/python_vehicle_app_sdk_overview/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
@@ -2301,6 +2253,54 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;run_until_complete&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Repository Overview</title>
+      <link>/velocitas-docs/docs/reference/repository_overview/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/reference/repository_overview/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;img src=&#34;/velocitas-docs/assets/project-overview.svg&#34; alt=&#34;Overview&#34;&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Repository&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;vehicle-app-python-template&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-python-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk&#34;&gt;vehicle-app-python-sdk&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides basis functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;swdc-os-vehicleapi&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides a vehicle abstraction layer (val) including Vehicle Data Broker, an exemplary CAN Data Feeder as well as a Seat Vehicle Service. The Vehicle Data Broker provides data points available in the vehicle to the Vehicle Apps semantically aligned to the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt;. The CAN Data Feeder is an exemplary implementation that reads in data from the vehicle&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/CAN_bus&#34;&gt;CAN bus&lt;/a&gt;, transforms it according to the VSS and feeds it into the Data Broker. The Seat Vehicle Service is an exemplary implementation that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described in the &lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog&#34;&gt;Vehicle Service Catalog (VSC)&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/release-documentation-action&#34;&gt;release-documentation-action&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GitHub Action to generate a release documentation from the CI workflow output by rendering it to markdown files so that this can be easily published with GitHub Pages.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/license-check&#34;&gt;license-check&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GitHub Action to collect the licenses of the used components and can be configured to fail with an error message on invalid licenses.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
       </description>
     </item>
     

@@ -104,7 +104,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7d242da88148e8e6822426011ffb6bad.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.885544602c6a5ca03418323c329f5548.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -306,7 +306,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-6fa49d85349b37db17a7b591033d4d37">Vehicle Abstraction Layer</a></li>
+<li>3: <a href="#pg-8df6ea6904416b571ff9bc73afb50933">Reference</a></li>
 
 
     
@@ -321,35 +321,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.1: <a href="#pg-6ff12f277d2eaa45fa5f47735c9333d3">Introduction to Vehicle Abstraction Layer</a></li>
-
-
-    
-  
-    
-    
-	
-<li>3.2: <a href="#pg-d9753d542593bd9f616eedf407b5812a">Interface Design Guideline</a></li>
-
-
-    
-  
-    
-    
-	
-<li>3.3: <a href="#pg-a3d5960981a36e0c394e1f7a6b6ec80f">Vehicle Service</a></li>
-
-
-    
-  
-
-    </ul>
-    
-  
-    
-    
-	
-<li>4: <a href="#pg-8df6ea6904416b571ff9bc73afb50933">Reference</a></li>
+<li>3.1: <a href="#pg-3ff87169322881c55b35cb588a8807ea">Vehicle Abstraction Layer</a></li>
 
 
     
@@ -364,7 +336,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.1: <a href="#pg-8a3bf83ce793563bed50c1b9fb0ecfae">Eclipse Velocitas Overview</a></li>
+<li>3.1.1: <a href="#pg-8c4854cca4660f6e9ad19dba985b9d08">Introduction to Vehicle Abstraction Layer</a></li>
 
 
     
@@ -372,7 +344,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.2: <a href="#pg-790295fe999cdc373945ca3697c11dd7">Python Vehicle App SDK Overview</a></li>
+<li>3.1.2: <a href="#pg-9a5bb1344781821cfb0c525d922e645e">Interface Design Guideline</a></li>
 
 
     
@@ -380,7 +352,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.3: <a href="#pg-c130819a74623c4e4b5fe37a6f3a3696">Seat Adjuster Use Case</a></li>
+<li>3.1.3: <a href="#pg-f1136af6ab1b33398c08627b35700094">Vehicle Service</a></li>
 
 
     
@@ -392,7 +364,35 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-8eac61776bcf71227e63036ad316802b">Contribution</a></li>
+<li>3.2: <a href="#pg-790295fe999cdc373945ca3697c11dd7">Python Vehicle App SDK Overview</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3.3: <a href="#pg-8a3bf83ce793563bed50c1b9fb0ecfae">Repository Overview</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3.4: <a href="#pg-c130819a74623c4e4b5fe37a6f3a3696">Seat Adjuster Use Case</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-8eac61776bcf71227e63036ad316802b">Contribution</a></li>
 
 
     
@@ -2170,7 +2170,7 @@ A new service can be easily started by calling it from bash script, however rest
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-6fa49d85349b37db17a7b591033d4d37">3 - Vehicle Abstraction Layer</h1>
+	<h1 id="pg-8df6ea6904416b571ff9bc73afb50933">3 - Reference</h1>
     
 	
 </div>
@@ -2195,7 +2195,32 @@ A new service can be easily started by calling it from bash script, however rest
 
 <div class="td-content" style="">
     
-	<h1 id="pg-6ff12f277d2eaa45fa5f47735c9333d3">3.1 - Introduction to Vehicle Abstraction Layer</h1>
+	<h1 id="pg-3ff87169322881c55b35cb588a8807ea">3.1 - Vehicle Abstraction Layer</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-8c4854cca4660f6e9ad19dba985b9d08">3.1.1 - Introduction to Vehicle Abstraction Layer</h1>
     
 	<h2 id="introduction">Introduction</h2>
 <p>The Vehicle Abstraction Layer (VAL) is a reference implementation of an abstraction layer that allows Vehicle applications
@@ -2262,7 +2287,7 @@ The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-d9753d542593bd9f616eedf407b5812a">3.2 - Interface Design Guideline</h1>
+	<h1 id="pg-9a5bb1344781821cfb0c525d922e645e">3.1.2 - Interface Design Guideline</h1>
     
 	<h2 id="grpc-interface-style-guide">GRPC Interface Style Guide</h2>
 <p>This document provides a style guide for .proto files. By following these conventions, you&rsquo;ll make your protocol buffer message definitions and their corresponding classes consistent and easy to read.
@@ -2609,7 +2634,7 @@ The existing VSC definitions shall preferably be extended with comments so that 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-a3d5960981a36e0c394e1f7a6b6ec80f">3.3 - Vehicle Service</h1>
+	<h1 id="pg-f1136af6ab1b33398c08627b35700094">3.1.3 - Vehicle Service</h1>
     
 	<ul>
 <li><a href="#how-to-create-a-vehicle-service">How to create a vehicle service</a>
@@ -2772,84 +2797,7 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8df6ea6904416b571ff9bc73afb50933">4 - Reference</h1>
-    
-	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-    
-    
-	
-    
-
-<div class="td-content" style="">
-    
-	<h1 id="pg-8a3bf83ce793563bed50c1b9fb0ecfae">4.1 - Eclipse Velocitas Overview</h1>
-    
-	<p><img src="/assets/project-overview.svg" alt="Overview"></p>
-<table>
-<thead>
-<tr>
-<th>Repository</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">vehicle-app-python-template</a></td>
-<td>GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the <em>sdv-vehicle-app-python-sdk</em>. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk">vehicle-app-python-sdk</a></td>
-<td>Provides basis functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp; rule support.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse/kuksa.val">swdc-os-vehicleapi</a></td>
-<td>Provides a vehicle abstraction layer (val) including Vehicle Data Broker, an exemplary CAN Data Feeder as well as a Seat Vehicle Service. The Vehicle Data Broker provides data points available in the vehicle to the Vehicle Apps semantically aligned to the <a href="https://covesa.github.io/vehicle_signal_specification/">Vehicle Signal Specification (VSS)</a>. The CAN Data Feeder is an exemplary implementation that reads in data from the vehicle&rsquo;s <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN bus</a>, transforms it according to the VSS and feeds it into the Data Broker. The Seat Vehicle Service is an exemplary implementation that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described in the <a href="https://github.com/COVESA/vehicle_service_catalog">Vehicle Service Catalog (VSC)</a>.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/release-documentation-action">release-documentation-action</a></td>
-<td>GitHub Action to generate a release documentation from the CI workflow output by rendering it to markdown files so that this can be easily published with GitHub Pages.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/license-check">license-check</a></td>
-<td>GitHub Action to collect the licenses of the used components and can be configured to fail with an error message on invalid licenses.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/vehicle-model-generator">vehicle-model-generator</a></td>
-<td>Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-790295fe999cdc373945ca3697c11dd7">4.2 - Python Vehicle App SDK Overview</h1>
+	<h1 id="pg-790295fe999cdc373945ca3697c11dd7">3.2 - Python Vehicle App SDK Overview</h1>
     
 	<h2 id="introduction">Introduction</h2>
 <p>The Python Vehicle App SDK consists of the following building blocks:</p>
@@ -3068,7 +3016,59 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c130819a74623c4e4b5fe37a6f3a3696">4.3 - Seat Adjuster Use Case</h1>
+	<h1 id="pg-8a3bf83ce793563bed50c1b9fb0ecfae">3.3 - Repository Overview</h1>
+    
+	<p><img src="/assets/project-overview.svg" alt="Overview"></p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">vehicle-app-python-template</a></td>
+<td>GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the <em>sdv-vehicle-app-python-sdk</em>. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk">vehicle-app-python-sdk</a></td>
+<td>Provides basis functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp; rule support.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse/kuksa.val">swdc-os-vehicleapi</a></td>
+<td>Provides a vehicle abstraction layer (val) including Vehicle Data Broker, an exemplary CAN Data Feeder as well as a Seat Vehicle Service. The Vehicle Data Broker provides data points available in the vehicle to the Vehicle Apps semantically aligned to the <a href="https://covesa.github.io/vehicle_signal_specification/">Vehicle Signal Specification (VSS)</a>. The CAN Data Feeder is an exemplary implementation that reads in data from the vehicle&rsquo;s <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN bus</a>, transforms it according to the VSS and feeds it into the Data Broker. The Seat Vehicle Service is an exemplary implementation that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described in the <a href="https://github.com/COVESA/vehicle_service_catalog">Vehicle Service Catalog (VSC)</a>.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/release-documentation-action">release-documentation-action</a></td>
+<td>GitHub Action to generate a release documentation from the CI workflow output by rendering it to markdown files so that this can be easily published with GitHub Pages.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/license-check">license-check</a></td>
+<td>GitHub Action to collect the licenses of the used components and can be configured to fail with an error message on invalid licenses.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-model-generator">vehicle-model-generator</a></td>
+<td>Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c130819a74623c4e4b5fe37a6f3a3696">3.4 - Seat Adjuster Use Case</h1>
     
 	<p>The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project <strong>Velocitas</strong> in this way. The following chapter describes the data flow for the use cases.</p>
 <h2 id="requesting-new-seat-position">Requesting new seat position</h2>
@@ -3121,7 +3121,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-8eac61776bcf71227e63036ad316802b">5 - Contribution</h1>
+	<h1 id="pg-8eac61776bcf71227e63036ad316802b">4 - Contribution</h1>
     
 	<p>Thanks for thinking about contributing to <strong>Eclipse Velocitas</strong>. We really appreciate the time and effort you want to spend helping to improve Eclipse Velocitas.</p>
 <p>However, in order to get you started as fast as possible, we need to go through some organizational issues first.</p>
