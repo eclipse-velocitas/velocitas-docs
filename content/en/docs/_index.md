@@ -57,6 +57,6 @@ A detailed description of the _Seat Adjuster_ use case can be found [here](docs/
 ## Community
 
 - [GitHub Issues]()
-- [Mailing List]()
+- [Mailing List](https://accounts.eclipse.org/mailing-list/velocitas-dev)
 - [Contribution](/docs/contributing/contribution)
 
