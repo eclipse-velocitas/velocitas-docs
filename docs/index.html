@@ -104,7 +104,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.790982cad9283b257a9c7ef380e23aec.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.985aebc6531deab71e9b6e694d1682b0.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -127,7 +127,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.790982cad9283b257a9c7ef380e23aec.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.985aebc6531deab71e9b6e694d1682b0.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -346,9 +346,23 @@ if (!doNotTrack) {
 <p>Traditionally, the automotive industry was and still is centered around vehicle hardware and the corresponding hardware development and life-cycle management. Software, however, is gaining more and more importance in vehicle development and over the entire vehicle lifetime. Thus, the vehicle and its value to the customer is increasingly defined by software. This transition towards what are termed as software-defined vehicles changes the way in which we innovate, code, deliver and work together. It is a change across the whole mobility value chain and life-cycle: from development and production to delivery and operations of the vehicle.</p>
 <h2 id="goal">Goal</h2>
 <p>The Eclipse project <em>Velocitas</em> aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (<em>Vehicle Apps</em>) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.</p>
-<p align="center">
-  <img src="/assets/devOps8.png" alt="DevOps Lifecycle" width="800"/>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/dev_ops_cycle_hud6b43f52ee34e3c29c23ce273a74f400_61217_800x0_resize_catmullrom_3.png" width="800" height="217">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  The DevOps cycle that it followed in the design of the Velocitas programnming model
 </p>
+	</div>
+	
+</div>
 <table>
 <thead>
 <tr>
@@ -390,7 +404,7 @@ if (!doNotTrack) {
 <p>That&rsquo;s where your implementation starts. The <em>Seat Adjuster VehicleApp</em> receives the seat position as a MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the <em>Seat Adjuster VehicleApp</em> subscribes to the seat position and receives the new seat position from the <em>Vehicle Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
 <p>A detailed description of the <em>Seat Adjuster</em> use case can be found <a href="docs/seat_adjuster_use_case.md">here</a>.</p>
 <p align="center">
-  <a href="/docs/seat_adjuster_use_case.md" alt="Use Case"><img src="/assets/SeatAdjuster-dataflow.svg" width="600"/></a>
+  <a href="/docs/seat_adjuster_use_case.md" alt="Use Case"><img src="/assets/seat_adjuster_dataflow.svg" width="600"/></a>
 </p>
 <h2 id="quickstart-tutorials">Quickstart tutorials</h2>
 <ol>
@@ -459,7 +473,7 @@ if (!doNotTrack) {
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 30, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/b28e32bdeb8fb599811c19101f16ab1b905420c6">Update _index.md (b28e32b)</a>
+  Last modified June 30, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/33bf7bbae778ea8200c420aea12be30759cfb744">(wip) use inlince imageproc (33bf7bb)</a>
 </div>
 
 </div>
