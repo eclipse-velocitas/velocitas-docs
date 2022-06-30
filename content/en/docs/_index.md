@@ -4,6 +4,9 @@ date: 2022-05-09T14:24:56+05:30
 menu:
   main:
     weight: 1
+resources:
+- src: "**dev_ops_cycle*.png"
+- src: "**seat_adjuster_dataflow*.svg"
 ---
 
 ## Background
@@ -14,9 +17,9 @@ Traditionally, the automotive industry was and still is centered around vehicle 
 
 The Eclipse project _Velocitas_ aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (_Vehicle Apps_) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.
 
-<p align="center">
-  <img src="/assets/devOps8.png" alt="DevOps Lifecycle" width="800"/>
-</p>
+{{< imgproc dev_ops_cycle Resize "800x" >}}
+  The DevOps cycle that it followed in the design of the Velocitas programnming model
+{{< /imgproc >}}
 
 | Category                                                                                              | Description                                                                                                                                                                                                                                                                                                                   |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -41,7 +44,7 @@ That's where your implementation starts. The _Seat Adjuster VehicleApp_ receives
 A detailed description of the _Seat Adjuster_ use case can be found [here](docs/seat_adjuster_use_case.md).
 
 <p align="center">
-  <a href="/docs/seat_adjuster_use_case.md" alt="Use Case"><img src="/assets/SeatAdjuster-dataflow.svg" width="600"/></a>
+  <a href="/docs/seat_adjuster_use_case.md" alt="Use Case"><img src="/assets/seat_adjuster_dataflow.svg" width="600"/></a>
 </p>
 
 ## Quickstart tutorials
