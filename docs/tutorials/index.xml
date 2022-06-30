@@ -296,8 +296,8 @@ A Vehicle Model can be created in one of two ways.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;h3 id=&#34;create-a-python-vehicle-model-from-vss-specification&#34;&gt;Create a Python Vehicle Model from VSS specification&lt;/h3&gt;
-&lt;p&gt;A Vehicle Model can be generated from the VSS spec. &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt; creates a vehicle model from the given vspec specification and also generates a package for use in &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
-&lt;p&gt;Follow the steps to generate a vehicle model.&lt;/p&gt;
+&lt;p&gt;A Vehicle Model can be generated from the VSS spec. &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt; creates a Vehicle Model from the given vspec specification and also generates a package for use in &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
+&lt;p&gt;Follow the steps to generate a Vehicle Model.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Clone the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt; repository in a container volume.&lt;/p&gt;
@@ -390,7 +390,7 @@ The output of the above command should end with:
 Successfully installed sdv-0.4.0
 ```
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now it is time to add some vehicle models to the Python package. At the end of this section you will have a Vehicle Model, that contains a &lt;code&gt;Cabin&lt;/code&gt; model, a &lt;code&gt;Seat&lt;/code&gt;model and has the following tree structure:&lt;/p&gt;
+&lt;p&gt;Now it is time to add some Vehicle Models to the Python package. At the end of this section you will have a Vehicle Model, that contains a &lt;code&gt;Cabin&lt;/code&gt; model, a &lt;code&gt;Seat&lt;/code&gt;model and has the following tree structure:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Vehicle
 └── Cabin
     └── Seat (Row, Pos)
@@ -613,7 +613,7 @@ shown above:&lt;/p&gt;
 &lt;p&gt;Copy the content under &lt;code&gt;my_vehicle_model&lt;/code&gt; to the repository.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Release the vehicle model by creating a version tag (e.g., &lt;code&gt;v1.0.0&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Release the Vehicle Model by creating a version tag (e.g., &lt;code&gt;v1.0.0&lt;/code&gt;).&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Install the Vehicle Model package to your Vehicle App:&lt;/p&gt;
