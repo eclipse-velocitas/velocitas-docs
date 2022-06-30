@@ -3,6 +3,8 @@ title: "Python Vehicle App SDK Overview"
 date: 2022-05-09T13:43:25+05:30
 aliases:
   - /python-sdk/python_vehicle_app_sdk_overview.md
+resources:
+- src: "**pyhon_sdk_overview*.png"
 ---
 
 ## Introduction
@@ -21,7 +23,9 @@ The Python Vehicle App SDK consists of the following building blocks:
 
 An overview of the Vehicle App SDK for Python and its dependencies is depicted in the following diagram:
 
-![](/assets/vehicle_app_sdk_overview.drawio.svg)
+{{< imgproc pyhon_sdk_overview Resize "800x" >}}
+  Overview of Python SDK architecture
+{{< /imgproc >}}
 
 ## Vehicle Model Ontology
 

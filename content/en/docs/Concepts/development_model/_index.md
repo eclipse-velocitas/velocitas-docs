@@ -3,6 +3,9 @@ title: "Velocitas Development Model"
 date: 2022-05-09T13:45:12+05:30
 aliases:
   - /docs/development-model.md
+resources:
+- src: "**programming_model*.png"
+- src: "**build_procedure*.png"
 ---
 
 ## Introduction
@@ -13,7 +16,9 @@ The Velocitas development model is centered around what are known as [Vehicle Ap
 
 Velocitas provides a flexible development architecture for [Vehicle Apps](#vehicle-apps). The following diagram shows the major components of the Velocitas stack.
 
-![overview](/assets/programming_model.drawio.svg)
+{{< imgproc programming_model Resize "800x" >}}
+  Overview of the progamming model
+{{< /imgproc >}}
 
 ### Vehicle Apps
 
@@ -94,7 +99,9 @@ Favor fast startup and support graceful shutdowns to leave the system in a corre
 
 The starting point for developing [Vehicle Apps](#vehicle-apps) is a [Semantic Model](#semantic-models) of the vehicle data and vehicle services. Based on the [Semantic Model](#semantic-models), language-specific [Vehicle Models](#vehicle-models) are generated. [Vehicle Models](#vehicle-models) are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, ...).
 
-![Procedure](/assets/build_procedure.drawio.svg)
+{{< imgproc build_procedure Resize "800x" >}}
+  Architectural diagram of the build process
+{{< /imgproc >}}
 
 After a [Vehicle Model](#vehicle-models) is available for the chosen programming language, the [Vehicle App](#vehicle-apps) can be developed using the generated Vehicle Model and its core SDK.
 

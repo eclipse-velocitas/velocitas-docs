@@ -3,13 +3,18 @@ title: "Example Use Case"
 date: 2022-05-09T13:43:25+05:30
 aliases:
   - /docs/velocitas/docs/seat_adjuster_use_case.md
+resources:
+- src: "**seat_adjuster_dataflow_1*.png"
+- src: "**seat_adjuster_dataflow_2*.png"
 ---
 
 The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project **Velocitas** in this way. The following chapter describes the data flow for the use cases.
 
 ## Requesting new seat position
 
-![Use Case](/assets/SeatAdjuster-dataflow-1.svg)
+{{< imgproc seat_adjuster_dataflow_1 Resize "800x" >}}
+  Architectural diagram of the seat adjuster example use case
+{{< /imgproc >}}
 
 1. The **Customer** requests the change of the seat position as MQTT message on the topic `seatadjuster/setPosition/request` with the payload:
    ```bash
@@ -32,13 +37,13 @@ The example of the seat adjuster provides the option of requesting the new seat 
 
 ## Publishing current seat position
 
-{{<raw>}}
-<img src="/assets/SeatAdjuster-dataflow-2.svg" alt="Use Case"/>
-{{</raw>}}
+{{< imgproc seat_adjuster_dataflow_2 Resize "800x" >}}
+  Architectural diagram of the data flow for publishing a new seat position
+{{< /imgproc >}}
 
-9. If the seat position will be changed by the driver, the new seat position will be sent to the **Seat Service** via CAN.
-10. The **Seat Service** streams the seat position via gRPC to the **Vehicle Data Broker** since it was registered beforehand.
-11. The **Seat Adjuster Vehicle App** that subscribed to the seat position receives the new seat position from the **Vehicle Data Broker** as a result.
+1. If the seat position will be changed by the driver, the new seat position will be sent to the **Seat Service** via CAN.
+2.  The **Seat Service** streams the seat position via gRPC to the **Vehicle Data Broker** since it was registered beforehand.
+3.  The **Seat Adjuster Vehicle App** that subscribed to the seat position receives the new seat position from the **Vehicle Data Broker** as a result.
 12. The **Seat Adjuster Vehicle App** publishes this on topic `seatadjuster/currentPosition` with the payload:
     ```bash
     {"position": 350}

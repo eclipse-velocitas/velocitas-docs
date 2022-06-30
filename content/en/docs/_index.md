@@ -6,7 +6,7 @@ menu:
     weight: 1
 resources:
 - src: "**dev_ops_cycle*.png"
-- src: "**seat_adjuster_dataflow*.svg"
+- src: "**seat_adjuster_dataflow*.png"
 ---
 
 ## Background
@@ -43,9 +43,10 @@ That's where your implementation starts. The _Seat Adjuster VehicleApp_ receives
 
 A detailed description of the _Seat Adjuster_ use case can be found [here](docs/seat_adjuster_use_case.md).
 
-<p align="center">
-  <a href="/docs/seat_adjuster_use_case.md" alt="Use Case"><img src="/assets/seat_adjuster_dataflow.svg" width="600"/></a>
-</p>
+
+{{< imgproc seat_adjuster_dataflow Resize "800x" >}}
+  Architectural representation of the data flow on the example of adjusting the seat position     
+{{< /imgproc >}}
 
 ## Quickstart tutorials
 
