@@ -104,7 +104,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.985aebc6531deab71e9b6e694d1682b0.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.a56f2af7d881db179d4dbcc650948f08.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -165,9 +165,20 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.1: <a href="#pg-85ee69637b60944d921d23b131fadb83">Velocitas Development Model</a></li>
+<li>1.1: <a href="#pg-5a04118b2f2cb48ee8f919d2ada510cc">Velocitas Development Model</a></li>
 
 
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
     
   
     
@@ -345,17 +356,39 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.2: <a href="#pg-c130819a74623c4e4b5fe37a6f3a3696">Example Use Case</a></li>
+<li>3.2: <a href="#pg-2dbd1b20fb31fad11d756d7570dfb78a">Example Use Case</a></li>
 
 
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
     
   
     
     
 	
-<li>3.3: <a href="#pg-790295fe999cdc373945ca3697c11dd7">Python Vehicle App SDK Overview</a></li>
+<li>3.3: <a href="#pg-6da4c75b5d0b36325ced256e8523bf0f">Python Vehicle App SDK Overview</a></li>
 
 
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
     
   
     
@@ -444,9 +477,23 @@ This is the multi-page printable view of this section.
 <p>What could such a use case look like? Image a carsharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The carsharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle.</p>
 <p>That&rsquo;s where your implementation starts. The <em>Seat Adjuster VehicleApp</em> receives the seat position as a MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the <em>Seat Adjuster VehicleApp</em> subscribes to the seat position and receives the new seat position from the <em>Vehicle Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
 <p>A detailed description of the <em>Seat Adjuster</em> use case can be found <a href="docs/seat_adjuster_use_case.md">here</a>.</p>
-<p align="center">
-  <a href="/docs/seat_adjuster_use_case.md" alt="Use Case"><img src="/assets/seat_adjuster_dataflow.svg" width="600"/></a>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/seat_adjuster_dataflow_huc9879869dc6f6fe04b6952a240f799e3_220968_800x0_resize_catmullrom_3.png" width="800" height="477">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural representation of the data flow on the example of adjusting the seat position     
 </p>
+	</div>
+	
+</div>
 <h2 id="quickstart-tutorials">Quickstart tutorials</h2>
 <ol>
 <li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
@@ -510,13 +557,29 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-85ee69637b60944d921d23b131fadb83">1.1 - Velocitas Development Model</h1>
+	<h1 id="pg-5a04118b2f2cb48ee8f919d2ada510cc">1.1 - Velocitas Development Model</h1>
     
 	<h2 id="introduction">Introduction</h2>
 <p>The Velocitas development model is centered around what are known as <a href="#vehicle-apps">Vehicle Apps</a>. Automation allows engineers to make high-impact changes frequently and deploy <a href="#vehicle-apps">Vehicle Apps</a> through cloud backends as over-the-air updates. The <a href="#vehicle-apps">Vehicle App</a> development model is about <em>speed</em> and <em>agility</em> paired with state-of-the-art software quality.</p>
 <h2 id="development-architecture">Development Architecture</h2>
 <p>Velocitas provides a flexible development architecture for <a href="#vehicle-apps">Vehicle Apps</a>. The following diagram shows the major components of the Velocitas stack.</p>
-<p><img src="/assets/programming_model.drawio.svg" alt="overview"></p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/concepts/development_model/programming_model_hud2fec3852a7bf670c5b8a8b5db354a69_89799_800x0_resize_catmullrom_3.png" width="800" height="674">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Overview of the progamming model
+</p>
+	</div>
+	
+</div>
 <h3 id="vehicle-apps">Vehicle Apps</h3>
 <p>The Vehicle Applications (aka. <code>Vehicle Apps</code>) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/">twelve-factor</a> applications apply to <code>Vehicle Apps</code> as well and are summarized in the next chapter.</p>
 <h3 id="vehicle-models">Vehicle Models</h3>
@@ -557,7 +620,23 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
 <p><a href="#vehicle-apps">Vehicle Apps</a> are released to cloud backends like the <a href="https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/">Bosch Mobility Cloud</a> and can be updated in vehicles frequently over the air.</p>
 <h2 id="development-process">Development Process</h2>
 <p>The starting point for developing <a href="#vehicle-apps">Vehicle Apps</a> is a <a href="#semantic-models">Semantic Model</a> of the vehicle data and vehicle services. Based on the <a href="#semantic-models">Semantic Model</a>, language-specific <a href="#vehicle-models">Vehicle Models</a> are generated. <a href="#vehicle-models">Vehicle Models</a> are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &hellip;).</p>
-<p><img src="/assets/build_procedure.drawio.svg" alt="Procedure"></p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/concepts/development_model/build_procedure_hu5f49376adac41f286048be697899cf00_25062_800x0_resize_catmullrom_3.png" width="800" height="299">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural diagram of the build process
+</p>
+	</div>
+	
+</div>
 <p>After a <a href="#vehicle-models">Vehicle Model</a> is available for the chosen programming language, the <a href="#vehicle-apps">Vehicle App</a> can be developed using the generated Vehicle Model and its core SDK.</p>
 <h2 id="next-steps">Next steps</h2>
 <h3 id="vehicle-apps-sdk-documentation">Vehicle Apps SDK Documentation</h3>
@@ -579,6 +658,18 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
 </div>
 
 
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
 
     
 	
@@ -2763,11 +2854,27 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c130819a74623c4e4b5fe37a6f3a3696">3.2 - Example Use Case</h1>
+	<h1 id="pg-2dbd1b20fb31fad11d756d7570dfb78a">3.2 - Example Use Case</h1>
     
 	<p>The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project <strong>Velocitas</strong> in this way. The following chapter describes the data flow for the use cases.</p>
 <h2 id="requesting-new-seat-position">Requesting new seat position</h2>
-<p><img src="/assets/SeatAdjuster-dataflow-1.svg" alt="Use Case"></p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/reference/seat_adjuster_use_case/seat_adjuster_dataflow_1_hu3bf97c4e61796e11582c60109bcd27ef_237711_800x0_resize_catmullrom_3.png" width="800" height="477">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural diagram of the seat adjuster example use case
+</p>
+	</div>
+	
+</div>
 <ol>
 <li>The <strong>Customer</strong> requests the change of the seat position as MQTT message on the topic <code>seatadjuster/setPosition/request</code> with the payload:
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;position&#34;</span>: 300<span style="color:#ce5c00;font-weight:bold">}</span>
@@ -2786,9 +2893,23 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 </ol>
 <h2 id="publishing-current-seat-position">Publishing current seat position</h2>
 
-<img src="/assets/SeatAdjuster-dataflow-2.svg" alt="Use Case"/>
 
-<ol start="9">
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/reference/seat_adjuster_use_case/seat_adjuster_dataflow_2_hu69015de4a83f48072f5d9f4a269080bf_222663_800x0_resize_catmullrom_3.png" width="800" height="477">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural diagram of the data flow for publishing a new seat position
+</p>
+	</div>
+	
+</div>
+<ol>
 <li>If the seat position will be changed by the driver, the new seat position will be sent to the <strong>Seat Service</strong> via CAN.</li>
 <li>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>Vehicle Data Broker</strong> since it was registered beforehand.</li>
 <li>The <strong>Seat Adjuster Vehicle App</strong> that subscribed to the seat position receives the new seat position from the <strong>Vehicle Data Broker</strong> as a result.</li>
@@ -2803,6 +2924,18 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 
 
     
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
 	
   
     
@@ -2812,7 +2945,7 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-790295fe999cdc373945ca3697c11dd7">3.3 - Python Vehicle App SDK Overview</h1>
+	<h1 id="pg-6da4c75b5d0b36325ced256e8523bf0f">3.3 - Python Vehicle App SDK Overview</h1>
     
 	<h2 id="introduction">Introduction</h2>
 <p>The Python Vehicle App SDK consists of the following building blocks:</p>
@@ -2834,7 +2967,23 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 </li>
 </ul>
 <p>An overview of the Vehicle App SDK for Python and its dependencies is depicted in the following diagram:</p>
-<p><img src="/assets/vehicle_app_sdk_overview.drawio.svg" alt=""></p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/reference/python_vehicle_app_sdk/pyhon_sdk_overview_hu7485307a3843777bc51a573bc09fadda_86244_800x0_resize_catmullrom_3.png" width="800" height="565">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Overview of Python SDK architecture
+</p>
+	</div>
+	
+</div>
 <h2 id="vehicle-model-ontology">Vehicle Model Ontology</h2>
 <p>The Vehicle Model is a tree-based model where every branch in the tree, including the root, is derived from the Model base class.</p>
 <p>The Vehicle Model Ontology consists of the following classes:</p>
@@ -3020,6 +3169,18 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </div>
 
 
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
 
     
 	

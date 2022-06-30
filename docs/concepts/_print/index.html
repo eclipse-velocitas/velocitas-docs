@@ -103,7 +103,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.985aebc6531deab71e9b6e694d1682b0.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.a56f2af7d881db179d4dbcc650948f08.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -149,9 +149,20 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-85ee69637b60944d921d23b131fadb83">Velocitas Development Model</a></li>
+<li>1: <a href="#pg-5a04118b2f2cb48ee8f919d2ada510cc">Velocitas Development Model</a></li>
 
 
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
     
   
     
@@ -196,13 +207,29 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-85ee69637b60944d921d23b131fadb83">1 - Velocitas Development Model</h1>
+	<h1 id="pg-5a04118b2f2cb48ee8f919d2ada510cc">1 - Velocitas Development Model</h1>
     
 	<h2 id="introduction">Introduction</h2>
 <p>The Velocitas development model is centered around what are known as <a href="#vehicle-apps">Vehicle Apps</a>. Automation allows engineers to make high-impact changes frequently and deploy <a href="#vehicle-apps">Vehicle Apps</a> through cloud backends as over-the-air updates. The <a href="#vehicle-apps">Vehicle App</a> development model is about <em>speed</em> and <em>agility</em> paired with state-of-the-art software quality.</p>
 <h2 id="development-architecture">Development Architecture</h2>
 <p>Velocitas provides a flexible development architecture for <a href="#vehicle-apps">Vehicle Apps</a>. The following diagram shows the major components of the Velocitas stack.</p>
-<p><img src="/assets/programming_model.drawio.svg" alt="overview"></p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/concepts/development_model/programming_model_hud2fec3852a7bf670c5b8a8b5db354a69_89799_800x0_resize_catmullrom_3.png" width="800" height="674">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Overview of the progamming model
+</p>
+	</div>
+	
+</div>
 <h3 id="vehicle-apps">Vehicle Apps</h3>
 <p>The Vehicle Applications (aka. <code>Vehicle Apps</code>) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/">twelve-factor</a> applications apply to <code>Vehicle Apps</code> as well and are summarized in the next chapter.</p>
 <h3 id="vehicle-models">Vehicle Models</h3>
@@ -243,7 +270,23 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
 <p><a href="#vehicle-apps">Vehicle Apps</a> are released to cloud backends like the <a href="https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/">Bosch Mobility Cloud</a> and can be updated in vehicles frequently over the air.</p>
 <h2 id="development-process">Development Process</h2>
 <p>The starting point for developing <a href="#vehicle-apps">Vehicle Apps</a> is a <a href="#semantic-models">Semantic Model</a> of the vehicle data and vehicle services. Based on the <a href="#semantic-models">Semantic Model</a>, language-specific <a href="#vehicle-models">Vehicle Models</a> are generated. <a href="#vehicle-models">Vehicle Models</a> are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &hellip;).</p>
-<p><img src="/assets/build_procedure.drawio.svg" alt="Procedure"></p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/concepts/development_model/build_procedure_hu5f49376adac41f286048be697899cf00_25062_800x0_resize_catmullrom_3.png" width="800" height="299">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural diagram of the build process
+</p>
+	</div>
+	
+</div>
 <p>After a <a href="#vehicle-models">Vehicle Model</a> is available for the chosen programming language, the <a href="#vehicle-apps">Vehicle App</a> can be developed using the generated Vehicle Model and its core SDK.</p>
 <h2 id="next-steps">Next steps</h2>
 <h3 id="vehicle-apps-sdk-documentation">Vehicle Apps SDK Documentation</h3>
@@ -265,6 +308,18 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
 </div>
 
 
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
 
     
 	

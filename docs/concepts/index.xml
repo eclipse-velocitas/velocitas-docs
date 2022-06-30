@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Velocitas Development Model</title>
-      <link>/velocitas-docs/docs/concepts/development-model/</link>
+      <link>/velocitas-docs/docs/concepts/development_model/</link>
       <pubDate>Mon, 09 May 2022 13:45:12 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/concepts/development-model/</guid>
+      <guid>/velocitas-docs/docs/concepts/development_model/</guid>
       <description>
         
         
@@ -27,7 +27,23 @@
 &lt;p&gt;The Velocitas development model is centered around what are known as &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. Automation allows engineers to make high-impact changes frequently and deploy &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; through cloud backends as over-the-air updates. The &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle App&lt;/a&gt; development model is about &lt;em&gt;speed&lt;/em&gt; and &lt;em&gt;agility&lt;/em&gt; paired with state-of-the-art software quality.&lt;/p&gt;
 &lt;h2 id=&#34;development-architecture&#34;&gt;Development Architecture&lt;/h2&gt;
 &lt;p&gt;Velocitas provides a flexible development architecture for &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. The following diagram shows the major components of the Velocitas stack.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/velocitas-docs/assets/programming_model.drawio.svg&#34; alt=&#34;overview&#34;&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/programming_model_hud2fec3852a7bf670c5b8a8b5db354a69_89799_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;674&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;
+  Overview of the progamming model
+&lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
 &lt;h3 id=&#34;vehicle-apps&#34;&gt;Vehicle Apps&lt;/h3&gt;
 &lt;p&gt;The Vehicle Applications (aka. &lt;code&gt;Vehicle Apps&lt;/code&gt;) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; and its underlying language-specific &lt;a href=&#34;#sdks&#34;&gt;SDK&lt;/a&gt;. Many concepts of cloud-native and &lt;a href=&#34;https://12factor.net/&#34;&gt;twelve-factor&lt;/a&gt; applications apply to &lt;code&gt;Vehicle Apps&lt;/code&gt; as well and are summarized in the next chapter.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-models&#34;&gt;Vehicle Models&lt;/h3&gt;
@@ -68,7 +84,23 @@ Next to a &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; abstracti
 &lt;p&gt;&lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; are released to cloud backends like the &lt;a href=&#34;https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/&#34;&gt;Bosch Mobility Cloud&lt;/a&gt; and can be updated in vehicles frequently over the air.&lt;/p&gt;
 &lt;h2 id=&#34;development-process&#34;&gt;Development Process&lt;/h2&gt;
 &lt;p&gt;The starting point for developing &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; is a &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; of the vehicle data and vehicle services. Based on the &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt;, language-specific &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt; are generated. &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt; are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &amp;hellip;).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/velocitas-docs/assets/build_procedure.drawio.svg&#34; alt=&#34;Procedure&#34;&gt;&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/build_procedure_hu5f49376adac41f286048be697899cf00_25062_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;299&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;
+  Architectural diagram of the build process
+&lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
 &lt;p&gt;After a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; is available for the chosen programming language, the &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle App&lt;/a&gt; can be developed using the generated Vehicle Model and its core SDK.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;h3 id=&#34;vehicle-apps-sdk-documentation&#34;&gt;Vehicle Apps SDK Documentation&lt;/h3&gt;

@@ -103,7 +103,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.985aebc6531deab71e9b6e694d1682b0.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.a56f2af7d881db179d4dbcc650948f08.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -192,17 +192,39 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-c130819a74623c4e4b5fe37a6f3a3696">Example Use Case</a></li>
+<li>2: <a href="#pg-2dbd1b20fb31fad11d756d7570dfb78a">Example Use Case</a></li>
 
 
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
     
   
     
     
 	
-<li>3: <a href="#pg-790295fe999cdc373945ca3697c11dd7">Python Vehicle App SDK Overview</a></li>
+<li>3: <a href="#pg-6da4c75b5d0b36325ced256e8523bf0f">Python Vehicle App SDK Overview</a></li>
 
 
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
     
   
     
@@ -841,11 +863,27 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c130819a74623c4e4b5fe37a6f3a3696">2 - Example Use Case</h1>
+	<h1 id="pg-2dbd1b20fb31fad11d756d7570dfb78a">2 - Example Use Case</h1>
     
 	<p>The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project <strong>Velocitas</strong> in this way. The following chapter describes the data flow for the use cases.</p>
 <h2 id="requesting-new-seat-position">Requesting new seat position</h2>
-<p><img src="/assets/SeatAdjuster-dataflow-1.svg" alt="Use Case"></p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/reference/seat_adjuster_use_case/seat_adjuster_dataflow_1_hu3bf97c4e61796e11582c60109bcd27ef_237711_800x0_resize_catmullrom_3.png" width="800" height="477">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural diagram of the seat adjuster example use case
+</p>
+	</div>
+	
+</div>
 <ol>
 <li>The <strong>Customer</strong> requests the change of the seat position as MQTT message on the topic <code>seatadjuster/setPosition/request</code> with the payload:
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;position&#34;</span>: 300<span style="color:#ce5c00;font-weight:bold">}</span>
@@ -864,9 +902,23 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 </ol>
 <h2 id="publishing-current-seat-position">Publishing current seat position</h2>
 
-<img src="/assets/SeatAdjuster-dataflow-2.svg" alt="Use Case"/>
 
-<ol start="9">
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/reference/seat_adjuster_use_case/seat_adjuster_dataflow_2_hu69015de4a83f48072f5d9f4a269080bf_222663_800x0_resize_catmullrom_3.png" width="800" height="477">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural diagram of the data flow for publishing a new seat position
+</p>
+	</div>
+	
+</div>
+<ol>
 <li>If the seat position will be changed by the driver, the new seat position will be sent to the <strong>Seat Service</strong> via CAN.</li>
 <li>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>Vehicle Data Broker</strong> since it was registered beforehand.</li>
 <li>The <strong>Seat Adjuster Vehicle App</strong> that subscribed to the seat position receives the new seat position from the <strong>Vehicle Data Broker</strong> as a result.</li>
@@ -881,6 +933,18 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 
 
     
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
 	
   
     
@@ -890,7 +954,7 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-790295fe999cdc373945ca3697c11dd7">3 - Python Vehicle App SDK Overview</h1>
+	<h1 id="pg-6da4c75b5d0b36325ced256e8523bf0f">3 - Python Vehicle App SDK Overview</h1>
     
 	<h2 id="introduction">Introduction</h2>
 <p>The Python Vehicle App SDK consists of the following building blocks:</p>
@@ -912,7 +976,23 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
 </li>
 </ul>
 <p>An overview of the Vehicle App SDK for Python and its dependencies is depicted in the following diagram:</p>
-<p><img src="/assets/vehicle_app_sdk_overview.drawio.svg" alt=""></p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/reference/python_vehicle_app_sdk/pyhon_sdk_overview_hu7485307a3843777bc51a573bc09fadda_86244_800x0_resize_catmullrom_3.png" width="800" height="565">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Overview of Python SDK architecture
+</p>
+	</div>
+	
+</div>
 <h2 id="vehicle-model-ontology">Vehicle Model Ontology</h2>
 <p>The Vehicle Model is a tree-based model where every branch in the tree, including the root, is derived from the Model base class.</p>
 <p>The Vehicle Model Ontology consists of the following classes:</p>
@@ -1098,6 +1178,18 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </div>
 
 
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
 
     
 	
