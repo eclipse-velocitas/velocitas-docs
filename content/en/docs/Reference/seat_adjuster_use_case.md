@@ -1,5 +1,5 @@
 ---
-title: "Seat Adjuster"
+title: "Example Use Case"
 date: 2022-05-09T13:43:25+05:30
 aliases:
   - /docs/velocitas/docs/seat_adjuster_use_case.md

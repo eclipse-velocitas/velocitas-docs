@@ -1,9 +1,10 @@
 ---
-title: "Contribution to Eclipse Velocitas"
+title: "Contribution"
 date: 2022-05-09T13:43:25+05:30
+weight: 50
 ---
 
-Thanks for thinking about contributing to Eclipse Velocitas. We really appreciate the time and effort you want to spend helping to improve Eclipse Velocitas.
+Thanks for thinking about contributing to **Eclipse Velocitas**. We really appreciate the time and effort you want to spend helping to improve Eclipse Velocitas.
 
 However, in order to get you started as fast as possible, we need to go through some organizational issues first.
 

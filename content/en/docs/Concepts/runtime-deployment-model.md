@@ -1,5 +1,5 @@
 ---
-title: "Runtime and deployment model"
+title: "Runtime and Deployment Model"
 date: 2022-05-09T13:43:25+05:30
 aliases:
   - /docs/velocitas/docs/runtime-deployment-model.md

@@ -1,6 +1,7 @@
 ---
 title: "Vehicle App Integration Testing"
 date: 2022-05-09T13:46:21+05:30
+weight: 30
 aliases:
   - /docs/integration_tests.md
 ---
