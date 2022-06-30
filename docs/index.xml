@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Introduction to Vehicle Abstraction Layer</title>
-      <link>/velocitas-docs/docs/reference/val/val/</link>
+      <link>/velocitas-docs/docs/val/val/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/reference/val/val/</guid>
+      <guid>/velocitas-docs/docs/val/val/</guid>
       <description>
         
         
@@ -78,11 +78,91 @@ The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals 
     </item>
     
     <item>
+      <title>Docs: Velocitas</title>
+      <link>/velocitas-docs/docs/velocitas/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/velocitas/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Traditionally, the automotive industry was and still is centered around vehicle hardware and the corresponding hardware development and life-cycle management. Software, however, is gaining more and more importance in vehicle development and over the entire vehicle lifetime. Thus, the vehicle and its value to the customer is increasingly defined by software. This transition towards what are termed as software-defined vehicles changes the way in which we innovate, code, deliver and work together. It is a change across the whole mobility value chain and life-cycle: from development and production to delivery and operations of the vehicle.&lt;/p&gt;
+&lt;h2 id=&#34;goal&#34;&gt;Goal&lt;/h2&gt;
+&lt;p&gt;The Eclipse project &lt;em&gt;Velocitas&lt;/em&gt; aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (&lt;em&gt;Vehicle Apps&lt;/em&gt;) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+  &lt;img src=&#34;/velocitas-docs/assets/devOps8.png&#34; alt=&#34;DevOps Lifecycle&#34; width=&#34;800&#34;/&gt;
+&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Category&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;Vehicle App Project Template&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Quick setup of a &lt;em&gt;Vehicle App&lt;/em&gt; project with the help of GitHub templates for the supported programming languages including a sample &lt;em&gt;Vehicle App&lt;/em&gt; and GitHub Actions workflow, and comfortable setup of the development environment e.g. in Microsoft Visual Studio Code.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;/velocitas-docs/docs/development-model.md&#34;&gt;Vehicle App Programming Model&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Simplify coding and debugging of &lt;em&gt;Vehicle Apps&lt;/em&gt; that accessing vehicle data points and modifying vehicle functions using the provided SDK for the different programming languages that delegates to the &lt;em&gt;Vehicle Abstraction Layer&lt;/em&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;docs/val/README.md&#34;&gt;Vehicle Abstraction Layer&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Abstracts vehicle make &amp;amp; model specific properties and capabilities to a common representation. This makes it possible for &lt;em&gt;Vehicle Apps&lt;/em&gt; to be portable across different electric and electronic vehicle architectures e.g. the &lt;em&gt;Vehicle Apps&lt;/em&gt; do not care whether the seat is controlled via CAN, LIN or some other physical interface.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;/velocitas-docs/docs/concepts/vehicle_app_releases/#ci-workflow-ciyml&#34;&gt;GitHub Actions Workflow Blueprint&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Providing ready-to-use GitHub workflows to check the &lt;em&gt;Vehicle App&lt;/em&gt;, build images for multi architectures, scan it, execute integration tests and release the &lt;em&gt;Vehicle App&lt;/em&gt; to allow the developer to focus on the development of the &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;/velocitas-docs/docs/concepts/vehicle_app_releases/#release-workflow-releaseyml&#34;&gt;Automated Release Process&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Providing a release workflow to generate release artifacts and documentation out of the CI workflow results and push it to a container registry to be used by a deployment system&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;docs/runtime-deployment-model.md&#34;&gt;Runtime and Deployment Model&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Running and deploying &lt;em&gt;Vehicle App&lt;/em&gt; as OCI-compliant container to increase the flexibility to support different programming languages and runtimes to accelerate innovation and development.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The repositories of the Eclipse project &lt;em&gt;Velocitas&lt;/em&gt; and their relations between each other can be found [&lt;a href=&#34;docs/repository_overview.md&#34;&gt;here&lt;/a&gt;].&lt;/p&gt;
+&lt;h2 id=&#34;example-use-case&#34;&gt;Example Use Case&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Velocitas&lt;/em&gt; contains implementations based on the example use case of adjusting the vehicle seat position to showcase the development toolchain of a comfort function (QM level - non-safety relevant).&lt;/p&gt;
+&lt;p&gt;What could such a use case look like? Image a carsharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The carsharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s where your implementation starts. The &lt;em&gt;Seat Adjuster VehicleApp&lt;/em&gt; receives the seat position as a MQTT message and triggers a seat adjustment command of the &lt;em&gt;Seat Service&lt;/em&gt; that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the &lt;em&gt;Seat Adjuster VehicleApp&lt;/em&gt; subscribes to the seat position and receives the new seat position from the &lt;em&gt;Vehicle Data Broker&lt;/em&gt; that streams the data from the &lt;em&gt;Seat Service&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;A detailed description of the &lt;em&gt;Seat Adjuster&lt;/em&gt; use case can be found &lt;a href=&#34;docs/seat_adjuster_use_case.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p align=&#34;center&#34;&gt;
+  &lt;a href=&#34;/velocitas-docs/docs/seat_adjuster_use_case.md&#34; alt=&#34;Use Case&#34;&gt;&lt;img src=&#34;/velocitas-docs/assets/SeatAdjuster-dataflow.svg&#34; width=&#34;600&#34;/&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;quickstart-tutorials&#34;&gt;Quickstart tutorials&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-docs/docs/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-docs/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Developing a Vehicle Model in Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-docs/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Developing a Vehicle App in Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-docs/docs/integration_tests.md&#34;&gt;Run and develop integration tests for Vehicle Apps&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34;&gt;Vehicle Signal Specifications (VSS)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;community&#34;&gt;Community&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;&#34;&gt;GitHub Issues&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;&#34;&gt;Mailing List&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-docs/docs/contributing/contribution&#34;&gt;Contribution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Quickstart</title>
-      <link>/velocitas-docs/docs/tutorials/quickstart/</link>
+      <link>/velocitas-docs/docs/getting-started/quickstart/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/tutorials/quickstart/</guid>
+      <guid>/velocitas-docs/docs/getting-started/quickstart/</guid>
       <description>
         
         
@@ -330,11 +410,11 @@ You can either try it out directly in the browser or also use it inside Visual S
     </item>
     
     <item>
-      <title>Docs: Python Vehicle Model Creation</title>
-      <link>/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</link>
+      <title>Docs: Tutorial on how to create your first Python Vehicle Model</title>
+      <link>/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_model/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</guid>
+      <guid>/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_model/</guid>
       <description>
         
         
@@ -359,8 +439,8 @@ A Vehicle Model can be created in one of two ways.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;h3 id=&#34;create-a-python-vehicle-model-from-vss-specification&#34;&gt;Create a Python Vehicle Model from VSS specification&lt;/h3&gt;
-&lt;p&gt;A Vehicle Model can be generated from the VSS spec. &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt; creates a Vehicle Model from the given vspec specification and also generates a package for use in &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
-&lt;p&gt;Follow the steps to generate a Vehicle Model.&lt;/p&gt;
+&lt;p&gt;A Vehicle Model can be generated from the VSS spec. &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt; creates a vehicle model from the given vspec specification and also generates a package for use in &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
+&lt;p&gt;Follow the steps to generate a vehicle model.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Clone the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt; repository in a container volume.&lt;/p&gt;
@@ -453,7 +533,7 @@ The output of the above command should end with:
 Successfully installed sdv-0.4.0
 ```
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now it is time to add some Vehicle Models to the Python package. At the end of this section you will have a Vehicle Model, that contains a &lt;code&gt;Cabin&lt;/code&gt; model, a &lt;code&gt;Seat&lt;/code&gt;model and has the following tree structure:&lt;/p&gt;
+&lt;p&gt;Now it is time to add some vehicle models to the Python package. At the end of this section you will have a Vehicle Model, that contains a &lt;code&gt;Cabin&lt;/code&gt; model, a &lt;code&gt;Seat&lt;/code&gt;model and has the following tree structure:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Vehicle
 └── Cabin
     └── Seat (Row, Pos)
@@ -676,7 +756,7 @@ shown above:&lt;/p&gt;
 &lt;p&gt;Copy the content under &lt;code&gt;my_vehicle_model&lt;/code&gt; to the repository.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Release the Vehicle Model by creating a version tag (e.g., &lt;code&gt;v1.0.0&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Release the vehicle model by creating a version tag (e.g., &lt;code&gt;v1.0.0&lt;/code&gt;).&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Install the Vehicle Model package to your Vehicle App:&lt;/p&gt;
@@ -694,11 +774,11 @@ shown above:&lt;/p&gt;
     </item>
     
     <item>
-      <title>Docs: Python Vehicle App Development</title>
-      <link>/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_app/</link>
+      <title>Docs: Tutorial on how to develop your own python Vehicle App</title>
+      <link>/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_app/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_app/</guid>
+      <guid>/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_app/</guid>
       <description>
         
         
@@ -995,11 +1075,11 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Docs: Vehicle App Deployment with Helm</title>
-      <link>/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</link>
+      <title>Docs: Tutorial on how to deploy your Python Vehicle App with Helm</title>
+      <link>/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</guid>
+      <guid>/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</guid>
       <description>
         
         
@@ -1176,242 +1256,11 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Docs: Vehicle App Integration Testing</title>
-      <link>/velocitas-docs/docs/tutorials/integration_tests/</link>
-      <pubDate>Mon, 09 May 2022 13:46:21 +0530</pubDate>
-      
-      <guid>/velocitas-docs/docs/tutorials/integration_tests/</guid>
-      <description>
-        
-        
-        &lt;p&gt;To be sure that a newly created &lt;em&gt;Vehicle App&lt;/em&gt; will run together with the &lt;em&gt;Vehicle Data Broker&lt;/em&gt; and potentially other dependant &lt;em&gt;Vehicle Services&lt;/em&gt; or &lt;em&gt;Vehicle Apps&lt;/em&gt;, it&amp;rsquo;s essential to write integration tests along with developing the app.&lt;/p&gt;
-&lt;p&gt;To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.&lt;/p&gt;
-&lt;h2 id=&#34;quickstart&#34;&gt;Quickstart&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Make sure that the local execution of runtime components is working and started.&lt;/li&gt;
-&lt;li&gt;Start the application (Debugger or run as task).&lt;/li&gt;
-&lt;li&gt;Extend the test file &lt;code&gt;/test/integration_test.py&lt;/code&gt; or create a new test file.&lt;/li&gt;
-&lt;li&gt;Run/debug tests with the Visual Studio Code Test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;runtime-components&#34;&gt;Runtime components&lt;/h2&gt;
-&lt;p&gt;To be able to test the &lt;em&gt;Vehicle App&lt;/em&gt; in an integrated way, the following components should be running:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Dapr&lt;/li&gt;
-&lt;li&gt;Mosquitto&lt;/li&gt;
-&lt;li&gt;Vehicle Data Broker&lt;/li&gt;
-&lt;li&gt;Vehicle Services&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Local execution&lt;/strong&gt;: components are running locally in the development environment&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Kubernetes execution&lt;/strong&gt;: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
-&lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the task &lt;code&gt;SeatAdjuster&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally.&lt;/p&gt;
-&lt;h3 id=&#34;kubernetes-execution-k3d&#34;&gt;Kubernetes execution (K3D)&lt;/h3&gt;
-&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, the following environment variables need to be set:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;MQTT_PORT: 31883&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;VDB_PORT: 30555&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
-&lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py&#34;&gt;&lt;code&gt;/test/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the Vehicle Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;MqttClient&lt;/code&gt;: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;publish_and_wait_for_response&lt;/code&gt;: publishes the specified payload to the given request topic and waits (till timeout) for a message to the response topic. The payload of the first message that arrives in the response topic will be returned. If the timeout expires before, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;publish_and_wait_for_property&lt;/code&gt;: publishes the specified payload to the given request topic and waits (till timeout) until the given property value is found in an incoming message to the response topic. The &lt;code&gt;path&lt;/code&gt; describes the property location within the response message, the &lt;code&gt;value&lt;/code&gt; the property value to look for.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;status&amp;#34;: &amp;#34;success&amp;#34;,
-    &amp;#34;result&amp;#34;: {
-        &amp;#34;responsecode&amp;#34;: 10
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If the &lt;code&gt;responsecode&lt;/code&gt; property should be checked for the value &lt;code&gt;10&lt;/code&gt;, the path would be &lt;code&gt;[&amp;quot;result&amp;quot;, &amp;quot;responsecode]&lt;/code&gt;, property value would be &lt;code&gt;10&lt;/code&gt;. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;1883&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;1883&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt;. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;IntTestHelper&lt;/code&gt;: this class provides functionality to interact with the &lt;em&gt;Vehicle Data Broker&lt;/em&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;register_dapoint&lt;/code&gt;: registers a new datapoint with given name and type&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;set_..._datapoint&lt;/code&gt;: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;55555&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;55555&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; which is set. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Please make sure that you don&amp;rsquo;t check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;running-tests-locally&#34;&gt;Running Tests locally&lt;/h2&gt;
-&lt;p&gt;Once tests are developed, they can be executed against the running runtime components, either to the &lt;strong&gt;&lt;em&gt;local runtime&lt;/em&gt;&lt;/strong&gt;&lt;code&gt;(**Remark Bjoern:** Should we talk here - in analogy to dapr-terminology - of &amp;quot;self-hosted&amp;quot;. Because &amp;quot;local&amp;quot; is used already for distinguishing between execution on local machine vs. CI pripline)&lt;/code&gt; or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for &lt;em&gt;Mosquitto&lt;/em&gt; and &lt;em&gt;Vehicle Data Broker&lt;/em&gt; are &lt;code&gt;1883&lt;/code&gt;/&lt;code&gt;55555&lt;/code&gt;. In Kubernetes mode, the ports would be the locally exposed ports &lt;code&gt;31883&lt;/code&gt;/&lt;code&gt;30555&lt;/code&gt;. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.&lt;/p&gt;
-&lt;h2 id=&#34;running-tests-in-ci-pipeline&#34;&gt;Running Tests in CI pipeline&lt;/h2&gt;
-&lt;p&gt;The tests will be discovered and executed automatically in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34;&gt;CI pipeline&lt;/a&gt;. The job &lt;code&gt;Run Integration Tests&lt;/code&gt; contains all steps to setup and execute tests in Kubernetes mode. The results are published as test results to the workflow.&lt;/p&gt;
-&lt;h1 id=&#34;common-tasks&#34;&gt;Common Tasks&lt;/h1&gt;
-&lt;h2 id=&#34;run-test-in-local-mode&#34;&gt;Run test in local mode&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Make sure that the &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;tasks for the runtime components&lt;/a&gt; are running (by checking the terminal view).&lt;/li&gt;
-&lt;li&gt;Make sure that your application is running (via Debugger or task).&lt;/li&gt;
-&lt;li&gt;Make sure that you are using the right ports for local execution of runtime components.&lt;/li&gt;
-&lt;li&gt;Run tests from the test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;run-tests-in-kubernetes-mode&#34;&gt;Run tests in Kubernetes mode&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Make sure that K3D is up and running (by calling the scripts in the &lt;code&gt;scripts/k3d&lt;/code&gt; folder, 01 - 04).&lt;/li&gt;
-&lt;li&gt;Make sure that the tests are using the right ports for Kubernetes execution.&lt;/li&gt;
-&lt;li&gt;Run tests from the test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;update-application-when-running-in-kubernetes-mode&#34;&gt;Update application when running in Kubernetes mode&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Re-run the script &lt;code&gt;/scripts/k3d/04_deploy-apps.sh&lt;/code&gt; that rebuilds and deploys the application to K3D.&lt;/li&gt;
-&lt;li&gt;Re-run tests from the test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h1&gt;
-&lt;h2 id=&#34;check-if-the-services-are-registered-correctly-in-dapr&#34;&gt;Check if the services are registered correctly in Dapr&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;When running in local mode, call &lt;code&gt;dapr dashboard&lt;/code&gt; in a terminal and open the given URL to see the Dapr dashboard in the browser.&lt;/li&gt;
-&lt;li&gt;When running in Kubernetes mode, call &lt;code&gt;dapr dashboard -k&lt;/code&gt; in a terminal and open the given URL to see the Dapr dashboard in the browser.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;troubleshoot-inttesthelper&#34;&gt;Troubleshoot IntTestHelper&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Make sure that the &lt;em&gt;Vehicle Data Broker&lt;/em&gt; is up and running by checking the task log.&lt;/li&gt;
-&lt;li&gt;Make sure that you are using the right ports for local/Kubernetes execution.&lt;/li&gt;
-&lt;li&gt;Make sure that you installed the correct version of the SDK (&lt;em&gt;SDV&lt;/em&gt;-package).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;troubleshoot-mosquitto-mqtt-broker&#34;&gt;Troubleshoot Mosquitto (MQTT Broker)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Make sure that the &lt;em&gt;Mosquitto&lt;/em&gt; up and running by checking the task log.&lt;/li&gt;
-&lt;li&gt;Make sure that you are using the right ports for local/Kubernetes execution.&lt;/li&gt;
-&lt;li&gt;Use VsMqtt extension to connect to MQTT broker (&lt;code&gt;localhost:1883&lt;/code&gt; (local) or &lt;code&gt;localhost:31883&lt;/code&gt; (Kubernetes)) to monitor topics in MQTT broker.&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Contribution</title>
-      <link>/velocitas-docs/docs/contribution/</link>
-      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
-      
-      <guid>/velocitas-docs/docs/contribution/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Thanks for thinking about contributing to &lt;strong&gt;Eclipse Velocitas&lt;/strong&gt;. We really appreciate the time and effort you want to spend helping to improve Eclipse Velocitas.&lt;/p&gt;
-&lt;p&gt;However, in order to get you started as fast as possible, we need to go through some organizational issues first.&lt;/p&gt;
-&lt;h2 id=&#34;eclipse-contributor-agreement&#34;&gt;Eclipse Contributor Agreement&lt;/h2&gt;
-&lt;p&gt;Before your contribution can be accepted by the project team, contributors must
-electronically sign the Eclipse Contributor Agreement (ECA).&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.eclipse.org/legal/ECA.php&#34;&gt;http://www.eclipse.org/legal/ECA.php&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Commits that are provided by non-committers must have a Signed-off-by field in
-the footer indicating that the author is aware of the terms by which the
-contribution has been provided to the project. The non-committer must
-additionally have an Eclipse Foundation account and must have a signed Eclipse
-Contributor Agreement (ECA) on file.&lt;/p&gt;
-&lt;p&gt;For more information, please see the Eclipse Committer Handbook:
-&lt;a href=&#34;https://www.eclipse.org/projects/handbook/#resources-commit&#34;&gt;https://www.eclipse.org/projects/handbook/#resources-commit&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;making-your-changes&#34;&gt;Making Your Changes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Fork the repository on GitHub.&lt;/li&gt;
-&lt;li&gt;Create a new branch for your changes.&lt;/li&gt;
-&lt;li&gt;Make your changes following the code style guide (see Code Style Guide section above).&lt;/li&gt;
-&lt;li&gt;When you create new files, make sure you include a proper license header at the top of the file (see License Header section below).&lt;/li&gt;
-&lt;li&gt;Make sure you include test cases for non-trivial features.&lt;/li&gt;
-&lt;li&gt;Make sure test cases provide sufficient code coverage (see GitHub actions for minimal accepted coverage).&lt;/li&gt;
-&lt;li&gt;Make sure the test suite passes after your changes.&lt;/li&gt;
-&lt;li&gt;Commit your changes into that branch.&lt;/li&gt;
-&lt;li&gt;Use descriptive and meaningful commit messages. Start the first line of the commit message with the issue number and title e.g., &lt;code&gt;[#9865] Add token-based authentication&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Squash multiple commits that are related to each other semantically into a single one.&lt;/li&gt;
-&lt;li&gt;Make sure you use the &lt;code&gt;-s&lt;/code&gt; flag when committing as explained above.&lt;/li&gt;
-&lt;li&gt;Push your changes to your branch in your forked repository.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;adding-documentation-to-hugo&#34;&gt;Adding Documentation to Hugo&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Add the markdown document to the appropriate folder in the path velocitas-docs/hugo/hugo/content.&lt;/li&gt;
-&lt;li&gt;Add the front-matter&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;title of the file&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;date&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;2022-05-09T13:43:25&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;+05&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Additional front matter that can be added –
-&lt;ul&gt;
-&lt;li&gt;url : &amp;quot;specifying a definite url to the file&amp;quot;&lt;/li&gt;
-&lt;li&gt;weight : 10 (used for ordering your content in lists. Lower weight gets higher precedence.)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;The images need to be put in path velocitas-docs/hugo/hugo/static/assests. The image reference should be /assests/image.jpg in the markdown file.
-(Note: Do not use relative paths or url)&lt;/li&gt;
-&lt;li&gt;In case you are creating a new folder, create _index.md file with the front matter only.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;running-locally&#34;&gt;Running Locally&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Install hugo version 0.98.0 extended &lt;a href=&#34;https://github.com/gohugoio/hugo/releases/tag/v0.98.0&#34;&gt;Release v0.98.0 · gohugoio/hugo (github.com)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Install Docsy theme in the path velocitas-docs/hugo/hugo/theme –&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#Run this command from the root directory of velocitas-docs&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/google/docsy.git hugo/hugo/themes/docsy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Install pre-requisites&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; themes/docsy/userguide/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install --save-dev postcss
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;Run the command &lt;strong&gt;hugo server&lt;/strong&gt; visit localhost:1313 from the velocitas-docs/hugo/hugo directory to see the rendered static site.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;submitting-the-changes&#34;&gt;Submitting the Changes&lt;/h2&gt;
-&lt;p&gt;Submit a pull request via the normal GitHub UI.&lt;/p&gt;
-&lt;h2 id=&#34;after-submitting&#34;&gt;After Submitting&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Do not use your branch for any other development, otherwise further changes that you make will be visible in the PR.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;license-header&#34;&gt;License Header&lt;/h2&gt;
-&lt;p&gt;Please make sure any file you newly create contains a proper license header like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Copyright (c) &amp;lt;year&amp;gt; Contributors to the Eclipse Foundation&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# See the NOTICE file(s) distributed with this work for additional&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# information regarding copyright ownership.&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# This program and the accompanying materials are made available under the&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# terms of the Apache License 2.0 which is available at&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# http://www.apache.org/licenses/LICENSE-2.0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# SPDX-License-Identifier: Apache-2.0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You should, of course, adapt this header to use the specific mechanism for comments pertaining to the type of file you create.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Please do not forget to add your name/organization to the &lt;code&gt;/legal/legal/NOTICE.md&lt;/code&gt; file&amp;rsquo;s &lt;em&gt;Copyright Holders&lt;/em&gt; section. If this is not the first contribution you make, then simply update the time period contained in the copyright entry to use the year of your first contribution as the lower boundary and the current year as the upper boundary, e.g.,&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Copyright 2017, 2018 ACME Corporation&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;build&#34;&gt;Build&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;A pipeline run will be triggered on every PR merge. This run will trigger the hugo docs build&lt;/li&gt;
-&lt;li&gt;Hugo v0.98.0 extended is set up for the runner&lt;/li&gt;
-&lt;li&gt;Docsy theme is setup for beautification of static site&lt;/li&gt;
-&lt;li&gt;Then dependencies are installed for the theme&lt;/li&gt;
-&lt;li&gt;Static site is generated and stored in a folder &amp;quot;public&amp;quot;&lt;/li&gt;
-&lt;li&gt;The contents of public are committed to gh_pages branch which is exposed to host the GitHub pages&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Interface Design Guideline</title>
-      <link>/velocitas-docs/docs/reference/val/interface_guideline/</link>
+      <link>/velocitas-docs/docs/val/interface_guideline/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/reference/val/interface_guideline/</guid>
+      <guid>/velocitas-docs/docs/val/interface_guideline/</guid>
       <description>
         
         
@@ -1751,10 +1600,10 @@ The existing VSC definitions shall preferably be extended with comments so that 
     
     <item>
       <title>Docs: Vehicle Service</title>
-      <link>/velocitas-docs/docs/reference/val/vehicle_service/</link>
+      <link>/velocitas-docs/docs/val/vehicle_service/</link>
       <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/reference/val/vehicle_service/</guid>
+      <guid>/velocitas-docs/docs/val/vehicle_service/</guid>
       <description>
         
         
@@ -1905,6 +1754,127 @@ Dapr gRPC proxying is only allowed AFTER the Dapr sidecar is fully initialized. 
     </item>
     
     <item>
+      <title>Docs: Vehicle App Integration Testing</title>
+      <link>/velocitas-docs/docs/getting-started/tutorials/integration_tests/</link>
+      <pubDate>Mon, 09 May 2022 13:46:21 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/getting-started/tutorials/integration_tests/</guid>
+      <description>
+        
+        
+        &lt;p&gt;To be sure that a newly created &lt;em&gt;Vehicle App&lt;/em&gt; will run together with the &lt;em&gt;Vehicle Data Broker&lt;/em&gt; and potentially other dependant &lt;em&gt;Vehicle Services&lt;/em&gt; or &lt;em&gt;Vehicle Apps&lt;/em&gt;, it&amp;rsquo;s essential to write integration tests along with developing the app.&lt;/p&gt;
+&lt;p&gt;To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.&lt;/p&gt;
+&lt;h2 id=&#34;quickstart&#34;&gt;Quickstart&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure that the local execution of runtime components is working and started.&lt;/li&gt;
+&lt;li&gt;Start the application (Debugger or run as task).&lt;/li&gt;
+&lt;li&gt;Extend the test file &lt;code&gt;/test/integration_test.py&lt;/code&gt; or create a new test file.&lt;/li&gt;
+&lt;li&gt;Run/debug tests with the Visual Studio Code Test runner.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;runtime-components&#34;&gt;Runtime components&lt;/h2&gt;
+&lt;p&gt;To be able to test the &lt;em&gt;Vehicle App&lt;/em&gt; in an integrated way, the following components should be running:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dapr&lt;/li&gt;
+&lt;li&gt;Mosquitto&lt;/li&gt;
+&lt;li&gt;Vehicle Data Broker&lt;/li&gt;
+&lt;li&gt;Vehicle Services&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Local execution&lt;/strong&gt;: components are running locally in the development environment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kubernetes execution&lt;/strong&gt;: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
+&lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the task &lt;code&gt;SeatAdjuster&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally.&lt;/p&gt;
+&lt;h3 id=&#34;kubernetes-execution-k3d&#34;&gt;Kubernetes execution (K3D)&lt;/h3&gt;
+&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, the following environment variables need to be set:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;MQTT_PORT: 31883&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VDB_PORT: 30555&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
+&lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py&#34;&gt;&lt;code&gt;/test/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the Vehicle Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;MqttClient&lt;/code&gt;: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;publish_and_wait_for_response&lt;/code&gt;: publishes the specified payload to the given request topic and waits (till timeout) for a message to the response topic. The payload of the first message that arrives in the response topic will be returned. If the timeout expires before, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;publish_and_wait_for_property&lt;/code&gt;: publishes the specified payload to the given request topic and waits (till timeout) until the given property value is found in an incoming message to the response topic. The &lt;code&gt;path&lt;/code&gt; describes the property location within the response message, the &lt;code&gt;value&lt;/code&gt; the property value to look for.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+    &amp;#34;status&amp;#34;: &amp;#34;success&amp;#34;,
+    &amp;#34;result&amp;#34;: {
+        &amp;#34;responsecode&amp;#34;: 10
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If the &lt;code&gt;responsecode&lt;/code&gt; property should be checked for the value &lt;code&gt;10&lt;/code&gt;, the path would be &lt;code&gt;[&amp;quot;result&amp;quot;, &amp;quot;responsecode]&lt;/code&gt;, property value would be &lt;code&gt;10&lt;/code&gt;. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;1883&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;1883&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt;. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;IntTestHelper&lt;/code&gt;: this class provides functionality to interact with the &lt;em&gt;Vehicle Data Broker&lt;/em&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;register_dapoint&lt;/code&gt;: registers a new datapoint with given name and type&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;set_..._datapoint&lt;/code&gt;: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;55555&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;55555&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; which is set. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Please make sure that you don&amp;rsquo;t check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;running-tests-locally&#34;&gt;Running Tests locally&lt;/h2&gt;
+&lt;p&gt;Once tests are developed, they can be executed against the running runtime components, either to the &lt;strong&gt;&lt;em&gt;local runtime&lt;/em&gt;&lt;/strong&gt;&lt;code&gt;(**Remark Bjoern:** Should we talk here - in analogy to dapr-terminology - of &amp;quot;self-hosted&amp;quot;. Because &amp;quot;local&amp;quot; is used already for distinguishing between execution on local machine vs. CI pripline)&lt;/code&gt; or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for &lt;em&gt;Mosquitto&lt;/em&gt; and &lt;em&gt;Vehicle Data Broker&lt;/em&gt; are &lt;code&gt;1883&lt;/code&gt;/&lt;code&gt;55555&lt;/code&gt;. In Kubernetes mode, the ports would be the locally exposed ports &lt;code&gt;31883&lt;/code&gt;/&lt;code&gt;30555&lt;/code&gt;. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.&lt;/p&gt;
+&lt;h2 id=&#34;running-tests-in-ci-pipeline&#34;&gt;Running Tests in CI pipeline&lt;/h2&gt;
+&lt;p&gt;The tests will be discovered and executed automatically in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34;&gt;CI pipeline&lt;/a&gt;. The job &lt;code&gt;Run Integration Tests&lt;/code&gt; contains all steps to setup and execute tests in Kubernetes mode. The results are published as test results to the workflow.&lt;/p&gt;
+&lt;h1 id=&#34;common-tasks&#34;&gt;Common Tasks&lt;/h1&gt;
+&lt;h2 id=&#34;run-test-in-local-mode&#34;&gt;Run test in local mode&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure that the &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;tasks for the runtime components&lt;/a&gt; are running (by checking the terminal view).&lt;/li&gt;
+&lt;li&gt;Make sure that your application is running (via Debugger or task).&lt;/li&gt;
+&lt;li&gt;Make sure that you are using the right ports for local execution of runtime components.&lt;/li&gt;
+&lt;li&gt;Run tests from the test runner.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;run-tests-in-kubernetes-mode&#34;&gt;Run tests in Kubernetes mode&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure that K3D is up and running (by calling the scripts in the &lt;code&gt;scripts/k3d&lt;/code&gt; folder, 01 - 04).&lt;/li&gt;
+&lt;li&gt;Make sure that the tests are using the right ports for Kubernetes execution.&lt;/li&gt;
+&lt;li&gt;Run tests from the test runner.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;update-application-when-running-in-kubernetes-mode&#34;&gt;Update application when running in Kubernetes mode&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Re-run the script &lt;code&gt;/scripts/k3d/04_deploy-apps.sh&lt;/code&gt; that rebuilds and deploys the application to K3D.&lt;/li&gt;
+&lt;li&gt;Re-run tests from the test runner.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h1&gt;
+&lt;h2 id=&#34;check-if-the-services-are-registered-correctly-in-dapr&#34;&gt;Check if the services are registered correctly in Dapr&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;When running in local mode, call &lt;code&gt;dapr dashboard&lt;/code&gt; in a terminal and open the given URL to see the Dapr dashboard in the browser.&lt;/li&gt;
+&lt;li&gt;When running in Kubernetes mode, call &lt;code&gt;dapr dashboard -k&lt;/code&gt; in a terminal and open the given URL to see the Dapr dashboard in the browser.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;troubleshoot-inttesthelper&#34;&gt;Troubleshoot IntTestHelper&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Make sure that the &lt;em&gt;Vehicle Data Broker&lt;/em&gt; is up and running by checking the task log.&lt;/li&gt;
+&lt;li&gt;Make sure that you are using the right ports for local/Kubernetes execution.&lt;/li&gt;
+&lt;li&gt;Make sure that you installed the correct version of the SDK (&lt;em&gt;SDV&lt;/em&gt;-package).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;troubleshoot-mosquitto-mqtt-broker&#34;&gt;Troubleshoot Mosquitto (MQTT Broker)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Make sure that the &lt;em&gt;Mosquitto&lt;/em&gt; up and running by checking the task log.&lt;/li&gt;
+&lt;li&gt;Make sure that you are using the right ports for local/Kubernetes execution.&lt;/li&gt;
+&lt;li&gt;Use VsMqtt extension to connect to MQTT broker (&lt;code&gt;localhost:1883&lt;/code&gt; (local) or &lt;code&gt;localhost:31883&lt;/code&gt; (Kubernetes)) to monitor topics in MQTT broker.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Velocitas Development Model</title>
       <link>/velocitas-docs/docs/concepts/development-model/</link>
       <pubDate>Mon, 09 May 2022 13:45:12 +0530</pubDate>
@@ -2042,56 +2012,169 @@ Once the application is ready to be released in a new version, a dedicated relea
     </item>
     
     <item>
-      <title>Docs: Example Use Case</title>
-      <link>/velocitas-docs/docs/reference/seat_adjuster_use_case/</link>
+      <title>Docs: Contribution to Eclipse Velocitas</title>
+      <link>/velocitas-docs/docs/contributing/contribution/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/reference/seat_adjuster_use_case/</guid>
+      <guid>/velocitas-docs/docs/contributing/contribution/</guid>
       <description>
         
         
-        &lt;p&gt;The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project &lt;strong&gt;Velocitas&lt;/strong&gt; in this way. The following chapter describes the data flow for the use cases.&lt;/p&gt;
-&lt;h2 id=&#34;requesting-new-seat-position&#34;&gt;Requesting new seat position&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;/velocitas-docs/assets/SeatAdjuster-dataflow-1.svg&#34; alt=&#34;Use Case&#34;&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The &lt;strong&gt;Customer&lt;/strong&gt; requests the change of the seat position as MQTT message on the topic &lt;code&gt;seatadjuster/setPosition/request&lt;/code&gt; with the payload:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;: 300&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; that has subscribed to this topic, receives the request to change the seat position as a MQTT message.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; gets the current vehicle speed from the data broker, which is fed by the &lt;strong&gt;Generic CAN Feeder&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;With the support of the &lt;strong&gt;Vehicle App SDK&lt;/strong&gt;, the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; triggers a seat adjustment command of the &lt;strong&gt;Seat Service&lt;/strong&gt; via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; moves the seat to the new position via CAN messages.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; returns OK or an error code as grpc status to the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;If everything went well, the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; returns a success message for the topic &lt;code&gt;seatadjuster/setPosition/response&lt;/code&gt; with the payload:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;Otherwise, an error message will be returned:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;requestId&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt;xyz&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;status&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;: 1, &amp;#34;&lt;/span&gt;message&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; = &amp;#34;&lt;/span&gt;&amp;lt;error message&amp;gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; }
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;This success or error message will be returned to the &lt;strong&gt;Customer&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;publishing-current-seat-position&#34;&gt;Publishing current seat position&lt;/h2&gt;
+        &lt;p&gt;Thanks for thinking about contributing to Eclipse Velocitas. We really appreciate the time and effort you want to spend helping to improve Eclipse Velocitas.&lt;/p&gt;
+&lt;p&gt;However, in order to get you started as fast as possible, we need to go through some organizational issues first.&lt;/p&gt;
+&lt;h2 id=&#34;eclipse-contributor-agreement&#34;&gt;Eclipse Contributor Agreement&lt;/h2&gt;
+&lt;p&gt;Before your contribution can be accepted by the project team, contributors must
+electronically sign the Eclipse Contributor Agreement (ECA).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.eclipse.org/legal/ECA.php&#34;&gt;http://www.eclipse.org/legal/ECA.php&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Commits that are provided by non-committers must have a Signed-off-by field in
+the footer indicating that the author is aware of the terms by which the
+contribution has been provided to the project. The non-committer must
+additionally have an Eclipse Foundation account and must have a signed Eclipse
+Contributor Agreement (ECA) on file.&lt;/p&gt;
+&lt;p&gt;For more information, please see the Eclipse Committer Handbook:
+&lt;a href=&#34;https://www.eclipse.org/projects/handbook/#resources-commit&#34;&gt;https://www.eclipse.org/projects/handbook/#resources-commit&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;making-your-changes&#34;&gt;Making Your Changes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Fork the repository on GitHub.&lt;/li&gt;
+&lt;li&gt;Create a new branch for your changes.&lt;/li&gt;
+&lt;li&gt;Make your changes following the code style guide (see Code Style Guide section above).&lt;/li&gt;
+&lt;li&gt;When you create new files, make sure you include a proper license header at the top of the file (see License Header section below).&lt;/li&gt;
+&lt;li&gt;Make sure you include test cases for non-trivial features.&lt;/li&gt;
+&lt;li&gt;Make sure test cases provide sufficient code coverage (see GitHub actions for minimal accepted coverage).&lt;/li&gt;
+&lt;li&gt;Make sure the test suite passes after your changes.&lt;/li&gt;
+&lt;li&gt;Commit your changes into that branch.&lt;/li&gt;
+&lt;li&gt;Use descriptive and meaningful commit messages. Start the first line of the commit message with the issue number and title e.g., &lt;code&gt;[#9865] Add token-based authentication&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Squash multiple commits that are related to each other semantically into a single one.&lt;/li&gt;
+&lt;li&gt;Make sure you use the &lt;code&gt;-s&lt;/code&gt; flag when committing as explained above.&lt;/li&gt;
+&lt;li&gt;Push your changes to your branch in your forked repository.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;adding-documentation-to-hugo&#34;&gt;Adding Documentation to Hugo&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Add the markdown document to the appropriate folder in the path velocitas-docs/hugo/hugo/content.&lt;/li&gt;
+&lt;li&gt;Add the front-matter&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;title&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;title of the file&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;date&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;2022-05-09T13:43:25&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;+05&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Additional front matter that can be added –
+&lt;ul&gt;
+&lt;li&gt;url : &amp;quot;specifying a definite url to the file&amp;quot;&lt;/li&gt;
+&lt;li&gt;weight : 10 (used for ordering your content in lists. Lower weight gets higher precedence.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;The images need to be put in path velocitas-docs/hugo/hugo/static/assests. The image reference should be /assests/image.jpg in the markdown file.
+(Note: Do not use relative paths or url)&lt;/li&gt;
+&lt;li&gt;In case you are creating a new folder, create _index.md file with the front matter only.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;running-locally&#34;&gt;Running Locally&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Install hugo version 0.98.0 extended &lt;a href=&#34;https://github.com/gohugoio/hugo/releases/tag/v0.98.0&#34;&gt;Release v0.98.0 · gohugoio/hugo (github.com)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install Docsy theme in the path velocitas-docs/hugo/hugo/theme –&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#Run this command from the root directory of velocitas-docs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/google/docsy.git hugo/hugo/themes/docsy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Install pre-requisites&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; themes/docsy/userguide/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install --save-dev postcss
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Run the command &lt;strong&gt;hugo server&lt;/strong&gt; visit localhost:1313 from the velocitas-docs/hugo/hugo directory to see the rendered static site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;submitting-the-changes&#34;&gt;Submitting the Changes&lt;/h2&gt;
+&lt;p&gt;Submit a pull request via the normal GitHub UI.&lt;/p&gt;
+&lt;h2 id=&#34;after-submitting&#34;&gt;After Submitting&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Do not use your branch for any other development, otherwise further changes that you make will be visible in the PR.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;license-header&#34;&gt;License Header&lt;/h2&gt;
+&lt;p&gt;Please make sure any file you newly create contains a proper license header like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Copyright (c) &amp;lt;year&amp;gt; Contributors to the Eclipse Foundation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# See the NOTICE file(s) distributed with this work for additional&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# information regarding copyright ownership.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# This program and the accompanying materials are made available under the&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# terms of the Apache License 2.0 which is available at&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# http://www.apache.org/licenses/LICENSE-2.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# SPDX-License-Identifier: Apache-2.0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You should, of course, adapt this header to use the specific mechanism for comments pertaining to the type of file you create.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Important&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Please do not forget to add your name/organization to the &lt;code&gt;/legal/legal/NOTICE.md&lt;/code&gt; file&amp;rsquo;s &lt;em&gt;Copyright Holders&lt;/em&gt; section. If this is not the first contribution you make, then simply update the time period contained in the copyright entry to use the year of your first contribution as the lower boundary and the current year as the upper boundary, e.g.,&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Copyright 2017, 2018 ACME Corporation&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;build&#34;&gt;Build&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A pipeline run will be triggered on every PR merge. This run will trigger the hugo docs build&lt;/li&gt;
+&lt;li&gt;Hugo v0.98.0 extended is set up for the runner&lt;/li&gt;
+&lt;li&gt;Docsy theme is setup for beautification of static site&lt;/li&gt;
+&lt;li&gt;Then dependencies are installed for the theme&lt;/li&gt;
+&lt;li&gt;Static site is generated and stored in a folder &amp;quot;public&amp;quot;&lt;/li&gt;
+&lt;li&gt;The contents of public are committed to gh_pages branch which is exposed to host the GitHub pages&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;img src=&#34;/velocitas-docs/assets/SeatAdjuster-dataflow-2.svg&#34; alt=&#34;Use Case&#34;/&gt;
-
-&lt;ol start=&#34;9&#34;&gt;
-&lt;li&gt;If the seat position will be changed by the driver, the new seat position will be sent to the &lt;strong&gt;Seat Service&lt;/strong&gt; via CAN.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; streams the seat position via gRPC to the &lt;strong&gt;Vehicle Data Broker&lt;/strong&gt; since it was registered beforehand.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; that subscribed to the seat position receives the new seat position from the &lt;strong&gt;Vehicle Data Broker&lt;/strong&gt; as a result.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; publishes this on topic &lt;code&gt;seatadjuster/currentPosition&lt;/code&gt; with the payload:
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;: 350&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Customer&lt;/strong&gt; who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.&lt;/li&gt;
-&lt;/ol&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Eclipse Velocitas Overview</title>
+      <link>/velocitas-docs/docs/reference/repository_overview/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/reference/repository_overview/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;img src=&#34;/velocitas-docs/assets/project-overview.svg&#34; alt=&#34;Overview&#34;&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Repository&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;vehicle-app-python-template&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-python-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk&#34;&gt;vehicle-app-python-sdk&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides basis functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;swdc-os-vehicleapi&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides a vehicle abstraction layer (val) including Vehicle Data Broker, an exemplary CAN Data Feeder as well as a Seat Vehicle Service. The Vehicle Data Broker provides data points available in the vehicle to the Vehicle Apps semantically aligned to the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt;. The CAN Data Feeder is an exemplary implementation that reads in data from the vehicle&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/CAN_bus&#34;&gt;CAN bus&lt;/a&gt;, transforms it according to the VSS and feeds it into the Data Broker. The Seat Vehicle Service is an exemplary implementation that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described in the &lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog&#34;&gt;Vehicle Service Catalog (VSC)&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/release-documentation-action&#34;&gt;release-documentation-action&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GitHub Action to generate a release documentation from the CI workflow output by rendering it to markdown files so that this can be easily published with GitHub Pages.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/license-check&#34;&gt;license-check&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GitHub Action to collect the licenses of the used components and can be configured to fail with an error message on invalid licenses.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: Python Vehicle App SDK Overview</title>
-      <link>/velocitas-docs/docs/reference/python_vehicle_app_sdk_overview/</link>
+      <link>/velocitas-docs/docs/python-sdk/python_vehicle_app_sdk_overview/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/reference/python_vehicle_app_sdk_overview/</guid>
+      <guid>/velocitas-docs/docs/python-sdk/python_vehicle_app_sdk_overview/</guid>
       <description>
         
         
@@ -2302,59 +2385,11 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
     </item>
     
     <item>
-      <title>Docs: Repository Overview</title>
-      <link>/velocitas-docs/docs/reference/repository_overview/</link>
-      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
-      
-      <guid>/velocitas-docs/docs/reference/repository_overview/</guid>
-      <description>
-        
-        
-        &lt;p&gt;&lt;img src=&#34;/velocitas-docs/assets/project-overview.svg&#34; alt=&#34;Overview&#34;&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Repository&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;vehicle-app-python-template&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-python-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk&#34;&gt;vehicle-app-python-sdk&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Provides basis functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;swdc-os-vehicleapi&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Provides a vehicle abstraction layer (val) including Vehicle Data Broker, an exemplary CAN Data Feeder as well as a Seat Vehicle Service. The Vehicle Data Broker provides data points available in the vehicle to the Vehicle Apps semantically aligned to the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt;. The CAN Data Feeder is an exemplary implementation that reads in data from the vehicle&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/CAN_bus&#34;&gt;CAN bus&lt;/a&gt;, transforms it according to the VSS and feeds it into the Data Broker. The Seat Vehicle Service is an exemplary implementation that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described in the &lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog&#34;&gt;Vehicle Service Catalog (VSC)&lt;/a&gt;.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/release-documentation-action&#34;&gt;release-documentation-action&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;GitHub Action to generate a release documentation from the CI workflow output by rendering it to markdown files so that this can be easily published with GitHub Pages.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/license-check&#34;&gt;license-check&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;GitHub Action to collect the licenses of the used components and can be configured to fail with an error message on invalid licenses.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Run runtime services in Kubernetes</title>
-      <link>/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/</link>
+      <link>/velocitas-docs/docs/getting-started/vehicle-app-runtime/run_runtime_services_kubernetes/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/</guid>
+      <guid>/velocitas-docs/docs/getting-started/vehicle-app-runtime/run_runtime_services_kubernetes/</guid>
       <description>
         
         
@@ -2409,10 +2444,10 @@ All the files that are located in &lt;code&gt;deploy/runtime/k3d/volume&lt;/code
     
     <item>
       <title>Docs: Run runtime services locally</title>
-      <link>/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/</link>
+      <link>/velocitas-docs/docs/getting-started/vehicle-app-runtime/run_runtime_services_locally/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/</guid>
+      <guid>/velocitas-docs/docs/getting-started/vehicle-app-runtime/run_runtime_services_locally/</guid>
       <description>
         
         
@@ -2486,7 +2521,7 @@ A new service can be easily started by calling it from bash script, however rest
     </item>
     
     <item>
-      <title>Docs: Runtime and Deployment Model</title>
+      <title>Docs: Runtime and deployment model</title>
       <link>/velocitas-docs/docs/concepts/runtime-deployment-model/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
@@ -2513,6 +2548,51 @@ A new service can be easily started by calling it from bash script, however rest
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/&#34;&gt;Walkthrough: Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Seat Adjuster</title>
+      <link>/velocitas-docs/docs/use-case/seat_adjuster_use_case/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/use-case/seat_adjuster_use_case/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project &lt;strong&gt;Velocitas&lt;/strong&gt; in this way. The following chapter describes the data flow for the use cases.&lt;/p&gt;
+&lt;h2 id=&#34;requesting-new-seat-position&#34;&gt;Requesting new seat position&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;/velocitas-docs/assets/SeatAdjuster-dataflow-1.svg&#34; alt=&#34;Use Case&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;strong&gt;Customer&lt;/strong&gt; requests the change of the seat position as MQTT message on the topic &lt;code&gt;seatadjuster/setPosition/request&lt;/code&gt; with the payload:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;: 300&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; that has subscribed to this topic, receives the request to change the seat position as a MQTT message.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; gets the current vehicle speed from the data broker, which is fed by the &lt;strong&gt;Generic CAN Feeder&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;With the support of the &lt;strong&gt;Vehicle App SDK&lt;/strong&gt;, the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; triggers a seat adjustment command of the &lt;strong&gt;Seat Service&lt;/strong&gt; via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; moves the seat to the new position via CAN messages.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; returns OK or an error code as grpc status to the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;If everything went well, the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; returns a success message for the topic &lt;code&gt;seatadjuster/setPosition/response&lt;/code&gt; with the payload:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;Otherwise, an error message will be returned:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;requestId&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt;xyz&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;status&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;: 1, &amp;#34;&lt;/span&gt;message&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; = &amp;#34;&lt;/span&gt;&amp;lt;error message&amp;gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34; }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;This success or error message will be returned to the &lt;strong&gt;Customer&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;publishing-current-seat-position&#34;&gt;Publishing current seat position&lt;/h2&gt;
+
+&lt;img src=&#34;/velocitas-docs/assets/SeatAdjuster-dataflow-2.svg&#34; alt=&#34;Use Case&#34;/&gt;
+
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;If the seat position will be changed by the driver, the new seat position will be sent to the &lt;strong&gt;Seat Service&lt;/strong&gt; via CAN.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; streams the seat position via gRPC to the &lt;strong&gt;Vehicle Data Broker&lt;/strong&gt; since it was registered beforehand.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; that subscribed to the seat position receives the new seat position from the &lt;strong&gt;Vehicle Data Broker&lt;/strong&gt; as a result.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; publishes this on topic &lt;code&gt;seatadjuster/currentPosition&lt;/code&gt; with the payload:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;: 350&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Customer&lt;/strong&gt; who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.&lt;/li&gt;
+&lt;/ol&gt;
 
       </description>
     </item>
