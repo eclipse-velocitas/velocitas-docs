@@ -15,7 +15,7 @@ Traditionally, the automotive industry was and still is centered around vehicle 
 The Eclipse project _Velocitas_ aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (_Vehicle Apps_) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.
 
 <p align="center">
-  <img src="/assets/devOps8.png" alt="DevOps Lifecycle" width="800"/>
+  <img src="{{ .Site.BaseURL }}/assets/devOps8.png" alt="DevOps Lifecycle" width="800"/>
 </p>
 
 | Category                                                                                              | Description                                                                                                                                                                                                                                                                                                                   |
@@ -41,7 +41,7 @@ That's where your implementation starts. The _Seat Adjuster VehicleApp_ receives
 A detailed description of the _Seat Adjuster_ use case can be found [here](docs/seat_adjuster_use_case.md).
 
 <p align="center">
-  <a href="/docs/seat_adjuster_use_case.md" alt="Use Case"><img src="/assets/SeatAdjuster-dataflow.svg" width="600"/></a>
+  <a href="/docs/seat_adjuster_use_case.md" alt="Use Case"><img src="{{ .Site.BaseURL }}/assets/SeatAdjuster-dataflow.svg" width="600"/></a>
 </p>
 
 ## Quickstart tutorials
