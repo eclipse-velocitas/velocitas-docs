@@ -31,6 +31,9 @@ The Eclipse project _Velocitas_ aims to build-up an end-to-end, scalable and mod
 | [Runtime and Deployment Model](docs/runtime-deployment-model.md)                                      | Running and deploying _Vehicle App_ as OCI-compliant container to increase the flexibility to support different programming languages and runtimes to accelerate innovation and development.                                                                                                                              |
 
 
+
+{{< iframe src="https://www.youtube.com/watch?v=U6iBALbfKcE" >}}
+
 The repositories of the Eclipse project _Velocitas_ and their relations between each other can be found [[here](docs/repository_overview.md)].
 
 ## Example Use Case
