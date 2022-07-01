@@ -36,8 +36,8 @@ The Velocitas development model is centered around what are known as Vehicle App
 
 
 
-<link rel="preload" href="/velocitas-docs/scss/main.min.2cc581023758c6b198aa711fca050eb19c62d50294c9a966dcca8ab34c565c9b.css" as="style">
-<link href="/velocitas-docs/scss/main.min.2cc581023758c6b198aa711fca050eb19c62d50294c9a966dcca8ab34c565c9b.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas-docs/scss/main.min.c381d36def0b002ec56d10c634574679961d00fea7f750b08c607532674b322d.css" as="style">
+<link href="/velocitas-docs/scss/main.min.c381d36def0b002ec56d10c634574679961d00fea7f750b08c607532674b322d.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -104,7 +104,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.a56f2af7d881db179d4dbcc650948f08.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.8b8b50e0ee3036ebdfb4bce58a7f257c.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -127,7 +127,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.a56f2af7d881db179d4dbcc650948f08.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.8b8b50e0ee3036ebdfb4bce58a7f257c.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -154,6 +154,10 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsvehicle_app_releases-li">
   <input type="checkbox" id="m-velocitas-docsdocsconceptsvehicle_app_releases-check"/>
   <label for="m-velocitas-docsdocsconceptsvehicle_app_releases-check"><a href="/velocitas-docs/docs/concepts/vehicle_app_releases/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsconceptsvehicle_app_releases"><span class="">Build and Release Process</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptspython_vehicle_app_sdk-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptspython_vehicle_app_sdk-check"/>
+  <label for="m-velocitas-docsdocsconceptspython_vehicle_app_sdk-check"><a href="/velocitas-docs/docs/concepts/python_vehicle_app_sdk/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptspython_vehicle_app_sdk"><span class="">Python Vehicle App SDK Overview</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsruntime-deployment-model-li">
   <input type="checkbox" id="m-velocitas-docsdocsconceptsruntime-deployment-model-check"/>
@@ -230,10 +234,6 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsreferenceseat_adjuster_use_case-li">
   <input type="checkbox" id="m-velocitas-docsdocsreferenceseat_adjuster_use_case-check"/>
   <label for="m-velocitas-docsdocsreferenceseat_adjuster_use_case-check"><a href="/velocitas-docs/docs/reference/seat_adjuster_use_case/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsreferenceseat_adjuster_use_case"><span class="">Example Use Case</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsreferencepython_vehicle_app_sdk-li">
-  <input type="checkbox" id="m-velocitas-docsdocsreferencepython_vehicle_app_sdk-check"/>
-  <label for="m-velocitas-docsdocsreferencepython_vehicle_app_sdk-check"><a href="/velocitas-docs/docs/reference/python_vehicle_app_sdk/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsreferencepython_vehicle_app_sdk"><span class="">Python Vehicle App SDK Overview</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsreferencerepository_overview-li">
   <input type="checkbox" id="m-velocitas-docsdocsreferencerepository_overview-check"/>
@@ -387,16 +387,17 @@ if (!doNotTrack) {
 
 
 
-<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
 	<img class="card-img-top" src="/velocitas-docs/docs/concepts/development_model/programming_model_hud2fec3852a7bf670c5b8a8b5db354a69_89799_800x0_resize_catmullrom_3.png" width="800" height="674">
 	
-	<div class="card-body px-0 pt-2 pb-0">
+	<figcaption class="card-body px-0 pt-2 pb-0">
 		<p class="card-text">
   Overview of the progamming model
 </p>
-	</div>
+	</figcaption>
 	
-</div>
+</figure>
+
 <h3 id="vehicle-apps">Vehicle Apps</h3>
 <p>The Vehicle Applications (aka. <code>Vehicle Apps</code>) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/">twelve-factor</a> applications apply to <code>Vehicle Apps</code> as well and are summarized in the next chapter.</p>
 <h3 id="vehicle-models">Vehicle Models</h3>
@@ -444,16 +445,17 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
 
 
 
-<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
 	<img class="card-img-top" src="/velocitas-docs/docs/concepts/development_model/build_procedure_hu5f49376adac41f286048be697899cf00_25062_800x0_resize_catmullrom_3.png" width="800" height="299">
 	
-	<div class="card-body px-0 pt-2 pb-0">
+	<figcaption class="card-body px-0 pt-2 pb-0">
 		<p class="card-text">
   Architectural diagram of the build process
 </p>
-	</div>
+	</figcaption>
 	
-</div>
+</figure>
+
 <p>After a <a href="#vehicle-models">Vehicle Model</a> is available for the chosen programming language, the <a href="#vehicle-apps">Vehicle App</a> can be developed using the generated Vehicle Model and its core SDK.</p>
 <h2 id="next-steps">Next steps</h2>
 <h3 id="vehicle-apps-sdk-documentation">Vehicle Apps SDK Documentation</h3>
@@ -487,7 +489,7 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 30, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/2d27353b7c3c5a4bf9796dd97cc8978af0333ee4">(fix) use figures in docs (2d27353)</a>
+  Last modified July 1, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/c3c4262d29adc264a49eabfa3c7f60bc68f916b8">Moved from references to concepts (c3c4262)</a>
 </div>
 
 </div>
