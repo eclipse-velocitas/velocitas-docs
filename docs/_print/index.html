@@ -104,7 +104,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.8b8b50e0ee3036ebdfb4bce58a7f257c.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.f3e955df2cef7825331ef3feff6e2835.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -332,7 +332,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.1: <a href="#pg-3ff87169322881c55b35cb588a8807ea">Vehicle Abstraction Layer</a></li>
+<li>3.1: <a href="#pg-3ff87169322881c55b35cb588a8807ea">Vehicle Abstraction Layer (VAL)</a></li>
 
 
     
@@ -347,7 +347,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.1.1: <a href="#pg-8c4854cca4660f6e9ad19dba985b9d08">Introduction to Vehicle Abstraction Layer</a></li>
+<li>3.1.1: <a href="#pg-9a5bb1344781821cfb0c525d922e645e">Interface Design Guideline</a></li>
 
 
     
@@ -355,15 +355,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.1.2: <a href="#pg-9a5bb1344781821cfb0c525d922e645e">Interface Design Guideline</a></li>
-
-
-    
-  
-    
-    
-	
-<li>3.1.3: <a href="#pg-f1136af6ab1b33398c08627b35700094">Vehicle Service</a></li>
+<li>3.1.2: <a href="#pg-f1136af6ab1b33398c08627b35700094">Vehicle Service</a></li>
 
 
     
@@ -2504,32 +2496,7 @@ A new service can be easily started by calling it from bash script, however rest
 
 <div class="td-content" style="">
     
-	<h1 id="pg-3ff87169322881c55b35cb588a8807ea">3.1 - Vehicle Abstraction Layer</h1>
-    
-	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-    
-    
-	
-    
-
-<div class="td-content" style="">
-    
-	<h1 id="pg-8c4854cca4660f6e9ad19dba985b9d08">3.1.1 - Introduction to Vehicle Abstraction Layer</h1>
+	<h1 id="pg-3ff87169322881c55b35cb588a8807ea">3.1 - Vehicle Abstraction Layer (VAL)</h1>
     
 	<h2 id="introduction">Introduction</h2>
 <p>The Vehicle Abstraction Layer (VAL) is a reference implementation of an abstraction layer that allows Vehicle applications
@@ -2538,7 +2505,24 @@ It currently consists of a data broker, a CAN feeder and a set of example servic
 More elaborate or completely differing implementations are the target of particular derived projects.</p>
 <h2 id="architecture">Architecture</h2>
 <p>The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the <a href="/docs/development-model.md">Velocitas Development Model</a>.</p>
-<p><img src="/val/assets/val_architecture_overview.png" alt="overview"></p>
+
+
+
+
+
+
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/reference/val/val_architecture_overview_hue12a1c2ecc85cf3ee9799265a093472d_127432_800x0_resize_catmullrom_3.png" width="800" height="614">
+	
+	<figcaption class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Overview of the vehicle abstraction layer architecture
+</p>
+	</figcaption>
+	
+</figure>
+
 <h3 id="vehicle-data-broker">Vehicle Data Broker</h3>
 <p>The <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker">Vehicle Data Broker</a> is a gRPC service acting as a broker of vehicle data / data points / signals.
 It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the <a href="https://covesa.github.io/vehicle_signal_specification/">COVESA Vehicle Signal Specification (VSS)</a> or others.
@@ -2571,9 +2555,43 @@ Services (like the <a href="https://github.com/eclipse/kuksa.val.services/tree/v
 The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals supported are currently limited by a <a href="https://github.com/eclipse/kuksa.val/blob/master/kuksa_databroker/databroker/src/main.rs">hard coded list</a>.</p>
 <p>Additional information on how data privacy is managed can be found in the <a href="https://github.com/eclipse/kuksa.val.services/tree/v0.1.0#privacy-customer-information">Vehicle Abstraction Layer repository</a></p>
 <h3 id="data-flow-when-a-vehicle-application-uses-the-vehicle-data-broker">Data flow when a Vehicle Application uses the Vehicle Data Broker.</h3>
-<p><img src="/val/assets/dataflow_broker.png" alt="Vehicle Data Broker information flow overview "></p>
+
+
+
+
+
+
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/reference/val/dataflow_broker_hu042a46cff9fdb3ae953ce2b4baa695f0_25200_800x0_resize_catmullrom_3.png" width="800" height="122">
+	
+	<figcaption class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural representation of the vehicle data broker data flow
+</p>
+	</figcaption>
+	
+</figure>
+
 <h3 id="data-flow-when-a-vehicle-application-uses-a-vehicle-service">Data flow when a Vehicle Application uses a Vehicle Service.</h3>
-<p><img src="/val/assets/dataflow_service.png" alt="Vehicle Service information flow overview "></p>
+
+
+
+
+
+
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/reference/val/dataflow_service_hu2c631cbebd9c8512318cb5903df1828b_24831_800x0_resize_catmullrom_3.png" width="800" height="130">
+	
+	<figcaption class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural representation of the vehicle service data flow
+</p>
+	</figcaption>
+	
+</figure>
+
 <h2 id="source-code">Source Code</h2>
 <p>Source code and build instructions are available in the <a href="https://github.com/eclipse/kuksa.val">kuksa.val repository</a>.</p>
 <h2 id="guidelines">Guidelines</h2>
@@ -2587,7 +2605,15 @@ The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals 
 
 
     
-	
+      
+  
+  
+  
+  
+
+  
+  
+
   
     
     
@@ -2596,7 +2622,7 @@ The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9a5bb1344781821cfb0c525d922e645e">3.1.2 - Interface Design Guideline</h1>
+	<h1 id="pg-9a5bb1344781821cfb0c525d922e645e">3.1.1 - Interface Design Guideline</h1>
     
 	<h2 id="grpc-interface-style-guide">GRPC Interface Style Guide</h2>
 <p>This document provides a style guide for .proto files. By following these conventions, you&rsquo;ll make your protocol buffer message definitions and their corresponding classes consistent and easy to read.
@@ -2943,7 +2969,7 @@ The existing VSC definitions shall preferably be extended with comments so that 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f1136af6ab1b33398c08627b35700094">3.1.3 - Vehicle Service</h1>
+	<h1 id="pg-f1136af6ab1b33398c08627b35700094">3.1.2 - Vehicle Service</h1>
     
 	<ul>
 <li><a href="#how-to-create-a-vehicle-service">How to create a vehicle service</a>
