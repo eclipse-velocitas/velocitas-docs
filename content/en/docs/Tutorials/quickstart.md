@@ -3,7 +3,7 @@ title: "Quickstart"
 date: 2022-05-09T13:43:25+05:30
 weight: 1
 description: >
-  Tutorial to setup and explore the provided development environment.
+  Learn how to setup and explore the provided development environment.
 aliases:
   - /docs/setup_and_explore_development_environment.md
 ---
