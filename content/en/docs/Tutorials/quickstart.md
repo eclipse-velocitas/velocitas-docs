@@ -2,11 +2,11 @@
 title: "Quickstart"
 date: 2022-05-09T13:43:25+05:30
 weight: 1
+description: >
+  Tutorial to setup and explore the provided development environment.
 aliases:
   - /docs/setup_and_explore_development_environment.md
 ---
-
-## Setup and Explore Development Environment
 
 The following information describes how to setup and configure the Development Container (DevContainer), and how to build, customize and test the sample Vehicle App, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.
 
