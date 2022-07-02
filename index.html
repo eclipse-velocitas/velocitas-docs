@@ -104,7 +104,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7ca65662c2a60901a82389bb79cab4f3.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.b2f242078fbd2f37656ed3f95dd8508b.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -138,7 +138,7 @@ if (!doNotTrack) {
 
 
 
-<section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-min js-td-cover td-overlay td-overlay--dark -bg-dark">
+<section id="td-cover-block-0" class="row td-cover-block td-cover-block--height-max js-td-cover td-overlay td-overlay--dark -bg-dark">
   <div class="container td-overlay__inner">
     <div class="row">
       <div class="col-12">
@@ -150,10 +150,10 @@ if (!doNotTrack) {
                 
 <div class="mx-auto">
   <p class="lead mt-5">Toolchain for creating containerized in-vehicle applications</p>
-  <a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/Concepts/">
+  <a class="btn btn-lg btn-primary mr-3 mb-4" href="{{ .Site.BaseURL }}/docs/Concepts/">
      Concepts<i class="fas fa-arrow-alt-circle-right ml-2"></i>
   </a>
-  <a class="btn btn-lg btn-secondary mr-3 mb-4" href="/docs/Tutorials/">
+  <a class="btn btn-lg btn-secondary mr-3 mb-4" href="{{ .Site.BaseURL }}/docs/Tutorials/">
     Tutorials <i class="fas fa-pencil-alt ml-2"></i>
   </a>
   <div class="mx-auto mt-5">
@@ -174,76 +174,7 @@ if (!doNotTrack) {
   
 </section>
 
-        
-<div id="overview">
-  <div class="contain">
-    <h4 class="section-head">Goal</h4>
-    <p>
-       The Eclipse project _Velocitas_ aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (_Vehicle Apps_) 
-       that offers a comfortable, fast and efficient development experience to increase the speed of a development team.
-    </p>
-  </div>
-</div>
-
-<section id="pageContent">
-  <div class="container">
-    <div class="card-deck">
-      <div class="card border-primary-dark">
-        <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">[Vehicle App Project Template](https://github.com/eclipse-velocitas/vehicle-app-python-template)</h5>
-          <p class="card-text text-white">
-            Quick setup of a _Vehicle App_ project with the help of GitHub templates for the supported programming languages including a sample _Vehicle App_ and GitHub Actions workflow, and comfortable setup of the development environment e.g. in Microsoft Visual Studio Code. 
-          </p>
-        </div>
-      </div>
-      <div class="card border-primary-dark">
-        <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">[Vehicle App Programming Model](/docs/development-model.md) </h5>
-          <p class="card-text text-white">
-            Simplify coding and debugging of _Vehicle Apps_ that accessing vehicle data points and modifying vehicle functions using the provided SDK for the different programming languages that delegates to the _Vehicle Abstraction Layer_.
-          </p>
-        </div>
-      </div>
-      <div class="card border-primary-dark">
-        <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">[Vehicle Abstraction Layer](docs/val/README.md) </h5>
-          <p class="card-text text-white">
-            Abstracts vehicle make & model specific properties and capabilities to a common representation. This makes it possible for _Vehicle Apps_ to be portable across different electric and electronic vehicle architectures e.g. the _Vehicle Apps_ do not care whether the seat is controlled via CAN, LIN or some other physical interface. 
-          </p>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="card-deck">
-      <div class="card border-primary-dark">
-        <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head"> [GitHub Actions Workflow Blueprint](/docs/concepts/vehicle_app_releases/#ci-workflow-ciyml) </h5>
-          <p class="card-text text-white">
-		Providing ready-to-use GitHub workflows to check the _Vehicle App_, build images for multi architectures, scan it, execute integration tests and release the _Vehicle App_ to allow the developer to focus on the development of the _Vehicle App_. 
-          </p>
-        </div>
-      </div>
-      <div class="card border-primary-dark">
-        <div class="card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head">[Automated Release Process](/docs/concepts/vehicle_app_releases/#release-workflow-releaseyml)</h5>
-          <p class="card-text text-white">
-            Providing a release workflow to generate release artifacts and documentation out of the CI workflow results and push it to a container registry to be used by a deployment system.
-          </p>
-        </div>
-      </div>
-      <div class="card border-primary-dark">
-        <div class=" card-body bg-primary-dark">
-          <h5 class="card-title text-white section-head"> [Runtime and Deployment Model](docs/runtime-deployment-model.md) </h5>
-          <p class="card-text text-white">
-            Running and deploying _Vehicle App_ as OCI-compliant container to increase the flexibility to support different programming languages and runtimes to accelerate innovation and development.
-          </p>
-        </div>
-      </div>
-    </div>
-    <br />
-  </div>
-</section>
-      
+            
 <div id="video">
   <div class="contain">
     <h4 class="section-head">Demo</h4>
