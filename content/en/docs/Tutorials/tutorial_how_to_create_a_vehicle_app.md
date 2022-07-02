@@ -1,7 +1,9 @@
 ---
 title: "Python Vehicle App Development"
 date: 2022-05-09T13:43:25+05:30
-weight: 10
+weight: 3
+description: >
+  Learn how to develop and test the Vehicle App.
 aliases:
   - /docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md
 ---
