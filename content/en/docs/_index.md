@@ -1,7 +1,6 @@
 ---
 title: "Documentation"
 date: 2022-05-09T14:24:56+05:30
-type: docs
 menu:
   main:
     weight: 1
