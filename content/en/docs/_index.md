@@ -1,6 +1,7 @@
 ---
 title: "Documentation"
 date: 2022-05-09T14:24:56+05:30
+type: docs
 menu:
   main:
     weight: 1
@@ -29,10 +30,7 @@ The Eclipse project _Velocitas_ aims to build-up an end-to-end, scalable and mod
 | [GitHub Actions Workflow Blueprint](/docs/concepts/vehicle_app_releases/#ci-workflow-ciyml)           | Providing ready-to-use GitHub workflows to check the _Vehicle App_, build images for multi architectures, scan it, execute integration tests and release the _Vehicle App_ to allow the developer to focus on the development of the _Vehicle App_.                                                                           |
 | [Automated Release Process](/docs/concepts/vehicle_app_releases/#release-workflow-releaseyml)         | Providing a release workflow to generate release artifacts and documentation out of the CI workflow results and push it to a container registry to be used by a deployment system                                                                                                                                             |
 | [Runtime and Deployment Model](docs/runtime-deployment-model.md)                                      | Running and deploying _Vehicle App_ as OCI-compliant container to increase the flexibility to support different programming languages and runtimes to accelerate innovation and development.                                                                                                                              |
-
-
-
-{{< iframe src="https://www.youtube.com/watch?v=U6iBALbfKcE" >}}
+{{< youtube U6iBALbfKcE >}}
 
 The repositories of the Eclipse project _Velocitas_ and their relations between each other can be found [[here](docs/repository_overview.md)].
 
