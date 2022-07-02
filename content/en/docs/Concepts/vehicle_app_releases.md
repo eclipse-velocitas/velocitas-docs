@@ -3,6 +3,8 @@ title: "Build and Release Process"
 date: 2022-05-09T13:43:25+05:30
 aliases:
   - /docs/velocitas/docs/vehicle_app_releases.md
+description: >
+  Learn more about the provided two-stage process for the development, continuous integration, and release of a new version of a Vehicle App
 ---
 
 The Velocitas project provides a two-stage process for the development, continuous integration, and release of a new version of a Vehicle App.

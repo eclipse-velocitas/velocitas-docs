@@ -5,6 +5,10 @@ aliases:
   - /Concepts/python_vehicle_app_sdk_overview.md
 resources:
 - src: "**pyhon_sdk_overview*.png"
+weight: 50
+description: >
+  Learn more about the provided Python Vehicle App SDK
+
 ---
 
 ## Introduction

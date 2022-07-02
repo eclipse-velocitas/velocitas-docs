@@ -3,6 +3,8 @@ title: "Runtime and Deployment Model"
 date: 2022-05-09T13:43:25+05:30
 aliases:
   - /docs/velocitas/docs/runtime-deployment-model.md
+description: >
+  Learn more about the deployment model used by Eclipse Velocitas and our guiding principles
 ---
 
 The Velocitas project uses a common deployment model. It uses OCI-compliant containers to increase the flexibility for the support of different programming languages and runtimes, which accelerates innovation and development. OCI-compliant containers also allow for a standardized yet flexible deployment process, which increases the ease of operation. Using OCI-compliant is portable to different architectures as long as there is support for OCI-compliant containers on the desired platform (e.g., like a container runtime for arm32, arm64 or amd64).
