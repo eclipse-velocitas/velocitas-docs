@@ -1,7 +1,9 @@
 ---
 title: "Vehicle App Integration Testing"
 date: 2022-05-09T13:46:21+05:30
-weight: 30
+weight: 5
+description: >
+  Learn how to test that a Vehicle App together with the Vehicle Data Broker and potentially other dependant Vehicle Services or Vehicle Apps runs as expected.
 aliases:
   - /docs/integration_tests.md
 ---
