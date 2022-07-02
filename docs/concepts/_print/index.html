@@ -21,16 +21,20 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Concepts | Velocitas</title>
-<meta name="description" content="">
+<meta name="description" content="Explore the basic concepts of Eclipse Velocitas.
+">
 <meta property="og:title" content="Concepts" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="Explore the basic concepts of Eclipse Velocitas.
+" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas-docs/docs/concepts/" />
 
 <meta itemprop="name" content="Concepts">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Explore the basic concepts of Eclipse Velocitas.
+"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Concepts"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="Explore the basic concepts of Eclipse Velocitas.
+"/>
 
 
 
@@ -103,7 +107,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7d76e3a1cdd5afe9496056e56efc7508.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.ecd9a9eb9a4a9c0a1e65b37f5206be8a.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -133,7 +137,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Concepts</h1>
-
+<div class="lead">Explore the basic concepts of Eclipse Velocitas.</div>
 
 
 
@@ -149,7 +153,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-5a04118b2f2cb48ee8f919d2ada510cc">Velocitas Development Model</a></li>
+<li>1: <a href="#pg-1c1f612770264fbdf84b59f9adcafa3a">Python Vehicle App SDK Overview</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-5a04118b2f2cb48ee8f919d2ada510cc">Velocitas Development Model</a></li>
 
 
     
@@ -168,28 +191,9 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-da1f21767304bce723a2d04d2f5058f7">Build and Release Process</a></li>
+<li>3: <a href="#pg-da1f21767304bce723a2d04d2f5058f7">Build and Release Process</a></li>
 
 
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-1c1f612770264fbdf84b59f9adcafa3a">Python Vehicle App SDK Overview</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-
-    </ul>
     
   
     
@@ -226,199 +230,8 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-5a04118b2f2cb48ee8f919d2ada510cc">1 - Velocitas Development Model</h1>
-    
-	<h2 id="introduction">Introduction</h2>
-<p>The Velocitas development model is centered around what are known as <a href="#vehicle-apps">Vehicle Apps</a>. Automation allows engineers to make high-impact changes frequently and deploy <a href="#vehicle-apps">Vehicle Apps</a> through cloud backends as over-the-air updates. The <a href="#vehicle-apps">Vehicle App</a> development model is about <em>speed</em> and <em>agility</em> paired with state-of-the-art software quality.</p>
-<h2 id="development-architecture">Development Architecture</h2>
-<p>Velocitas provides a flexible development architecture for <a href="#vehicle-apps">Vehicle Apps</a>. The following diagram shows the major components of the Velocitas stack.</p>
-
-
-
-
-
-
-
-<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/velocitas-docs/docs/concepts/development_model/programming_model_hud2fec3852a7bf670c5b8a8b5db354a69_89799_800x0_resize_catmullrom_3.png" width="800" height="674">
-	
-	<figcaption class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
-  Overview of the progamming model
-</p>
-	</figcaption>
-	
-</figure>
-
-<h3 id="vehicle-apps">Vehicle Apps</h3>
-<p>The Vehicle Applications (aka. <code>Vehicle Apps</code>) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/">twelve-factor</a> applications apply to <code>Vehicle Apps</code> as well and are summarized in the next chapter.</p>
-<h3 id="vehicle-models">Vehicle Models</h3>
-<p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#vehicle-data-broker">Vehicle Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps">Vehicle Apps</a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined in the <a href="#sdks">SDKs</a>.</p>
-<h3 id="sdks">SDKs</h3>
-<p>To reduce the effort required to implement <a href="#vehicle-apps">Vehicle Apps</a>, Velocitas provides a set of SDKs for different programming languages. A first SDK is available for Python, further SDKs for Rust and C/C++ are planned.
-Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a href="#middleware">Middleware</a>-enabled, provide connectivity to the <a href="#vehicle-data-broker">Vehicle Data Broker</a> and contain the ontology in the form of base classes to create <a href="#vehicle-models">Vehicle Models</a>.</p>
-<h3 id="vehicle-services">Vehicle Services</h3>
-<p><code>Vehicle Services</code> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <code>Vehicle services</code> may feed data to the <a href="#vehicle-data-broker">Vehicle Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a></p>
-<h3 id="vehicle-data-broker">Vehicle Data Broker</h3>
-<p>Vehicle data is stored in the <code>Vehicle Data Broker</code> conforming to an underlying <a href="#semantic-models">Semantic Model</a> like VSS. <a href="#vehicle-apps">Vehicle Apps</a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent. The storage of the vehicle data broker will be the vehicle twin that syncs its data to the cloud.</p>
-<h3 id="semantic-models">Semantic models</h3>
-<p>The Vehicle Signal Specification (<a href="https://covesa.github.io/vehicle_signal_specification/">VSS</a>) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between <code>Vehicle Apps</code> and the <code>vehicle data broker</code>.</p>
-<p>The Vehicle Service Catalog (<a href="https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog">VSC</a>) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of <code>Vehicle Services</code> and <code>Vehicle Apps</code>.</p>
-<p>As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language (<a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md">DTDL</a>) or BAMM Aspect Meta Model <a href="https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model">BAMM</a> as well.</p>
-<h3 id="communication-protocols">Communication Protocols</h3>
-<p>Asynchronous communication between <a href="#vehicle-apps">Vehicle Apps</a> and other vehicle components as well as cloud connectivity is facilitated through <a href="https://mqtt.org/">MQTT</a> messaging. Direct, synchronous communication between <a href="#vehicle-apps">Vehicle Apps</a>, <a href="#vehicle-services">Vehicle Services</a> and the <a href="#vehicle-data-broker">Vehicle Data Broker</a> is based on the <a href="https://grpc.io/">gRPC</a> protocol.</p>
-<h3 id="middleware">Middleware</h3>
-<p>Velocitas leverages <a href="https://dapr.io">dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/">publish/subscribe building block</a> as a higher-level abstraction over MQTT messaging.</p>
-<h3 id="vehicle-edge-operating-system">Vehicle Edge Operating System</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> are expected to run on a <a href="https://www.linux.org/">Linux</a>-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., <a href="https://mosquitto.org/">Eclipse Mosquitto</a>).</p>
-<h2 id="vehicle-app-characteristics">Vehicle App characteristics</h2>
-<h3 id="code-base">Code Base</h3>
-<p>Every <a href="#vehicle-apps">Vehicle App</a> is stored in its own repository. Tracked with version control, it can be deployed to multiple environments.</p>
-<h3 id="polyglot">Polyglot</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.</p>
-<h3 id="oci-compliant-containers">OCI-compliant containers</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.</p>
-<h3 id="isolation">Isolation</h3>
-<p>Each <a href="#vehicle-apps">Vehicle App</a> should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.</p>
-<h3 id="configurations">Configurations</h3>
-<p>Configuration information is moved out of the <a href="#vehicle-apps">Vehicle App</a>, so that the same deployment can propagate across environments with the correct configuration applied.</p>
-<h3 id="disposability">Disposability</h3>
-<p>Favor fast startup and support graceful shutdowns to leave the system in a correct state.</p>
-<h3 id="observability">Observability</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
-<h3 id="over-the-air-updatability">Over-the-air updatability</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> are released to cloud backends like the <a href="https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/">Bosch Mobility Cloud</a> and can be updated in vehicles frequently over the air.</p>
-<h2 id="development-process">Development Process</h2>
-<p>The starting point for developing <a href="#vehicle-apps">Vehicle Apps</a> is a <a href="#semantic-models">Semantic Model</a> of the vehicle data and vehicle services. Based on the <a href="#semantic-models">Semantic Model</a>, language-specific <a href="#vehicle-models">Vehicle Models</a> are generated. <a href="#vehicle-models">Vehicle Models</a> are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &hellip;).</p>
-
-
-
-
-
-
-
-<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/velocitas-docs/docs/concepts/development_model/build_procedure_hu5f49376adac41f286048be697899cf00_25062_800x0_resize_catmullrom_3.png" width="800" height="299">
-	
-	<figcaption class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
-  Architectural diagram of the build process
-</p>
-	</figcaption>
-	
-</figure>
-
-<p>After a <a href="#vehicle-models">Vehicle Model</a> is available for the chosen programming language, the <a href="#vehicle-apps">Vehicle App</a> can be developed using the generated Vehicle Model and its core SDK.</p>
-<h2 id="next-steps">Next steps</h2>
-<h3 id="vehicle-apps-sdk-documentation">Vehicle Apps SDK Documentation</h3>
-<ul>
-<li><a href="/python-sdk/python_vehicle_app_sdk_overview.md">Python SDK Overview</a></li>
-<li>Coming soon: Rust SDK Overview</li>
-</ul>
-<h3 id="working-with-vehicle-models">Working with Vehicle Models</h3>
-<ul>
-<li>Walkthrough: <a href="/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md">Creating a Python Vehicle Model</a></li>
-<li>Coming soon: Creating a Rust Vehicle Model</li>
-</ul>
-<h3 id="working-with-vehicle-apps">Working with Vehicle Apps</h3>
-<ul>
-<li>Walkthrough: <a href="/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md">Creating a Python Vehicle App</a></li>
-<li>Coming soon: Creating a Rust Vehicle App</li>
-</ul>
-
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-da1f21767304bce723a2d04d2f5058f7">2 - Build and Release Process</h1>
-    
-	<p>The Velocitas project provides a two-stage process for the development, continuous integration, and release of a new version of a Vehicle App.</p>
-<ul>
-<li>
-<p><strong>Stage 1 - Build &amp; Test</strong>
-On every new push to the <code>main</code> branch, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts or in a container registry for future reference.</p>
-<p>The workflow provides quick feedback during development and improves efficient collaboration.</p>
-</li>
-<li>
-<p><strong>Stage 2 - Release</strong>
-Once the application is ready to be released in a new version, a dedicated release workflow is automatically executed as soon as you create a new release via GitHub.</p>
-<p>The workflow bundles all relevant artifacts into one tagged set of files and makes it possible to push this information to the preferred OTA (over-the-air update) system of your choice or use the information for quality assurance and documentation.</p>
-</li>
-</ul>
-<p>The following illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project&rsquo;s needs.</p>
-<p><img src="/assets/publish_container.png" alt=""></p>
-<h2 id="ci-workflow-ciyml">CI Workflow (ci.yml)</h2>
-<p>The <code>CI workflow</code> is triggered on every commit to the main branch and contains a set of different actions that cover:</p>
-<ul>
-<li><strong>Building a container for the app</strong> - actions create a containerized version of the Vehicle App, the actions also support creating an image for multiple platforms.</li>
-<li><strong>Scanning for vulnerabilities</strong> - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &ldquo;failed&rdquo;.</li>
-<li><strong>Running unit tests &amp; code coverage</strong> - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as &ldquo;failed&rdquo;.</li>
-<li><strong>Running integration tests</strong> - actions provision a runtime and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marke as &ldquo;failed&rdquo;.</li>
-<li><strong>Storing scan &amp; test results as GitHub action artifacts</strong> - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.</li>
-<li><strong>Publish container images to GitHub Container Registry</strong> - at the end of the workflow, the container images created are stored in a Github Container Registry so that they can be referenced by the release-workflow later.</li>
-</ul>
-<h2 id="release-workflow-releaseyml">Release Workflow (release.yml)</h2>
-<p>The <code>Release workflow</code> is triggered as soon as the <code>main</code> branch is ready for release and the Vehicle App developer creates a new GitHub release. This can be done manually through the GitHub UI.</p>
-<p>On creating a new release with a specific new version, GitHub creates a tag and automatically runs the <code>Release workflow</code> defined in .github/workflows/release.yml, given that <code>CI workflow</code> has run successfully for the current commit on the main branch.</p>
-<p>The set of actions included in the <code>Release workflow</code> cover:</p>
-<ul>
-<li><strong>Generating and verifying QA information</strong> - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.</li>
-<li><strong>Pull &amp; label container image</strong> - actions pull the Vehicle App container image based on the current commit hash from the GitHub registry and label it with the specified tag version. If the image cannot be found, the workflow will fail.</li>
-<li><strong>Publish to container registry</strong> - actions publish your container image and helm charts to your preferred container registry, which is referenced by your preferred OTA (over-the-air update) system.</li>
-</ul>
-<h2 id="github-actions-artifacts">GitHub Actions artifacts</h2>
-<p><strong>GitHub Actions artifacts</strong> are used for storing data, which is generated by the <code>CI workflow</code> and referenced by the <code>Release workflow</code>. This saves time during workflow runs because we don&rsquo;t have to create artifacts multiple times.</p>
-<p>GitHub Actions artifacts always have a retention period, which is 90 days per default, but may be configured differently in the specific GitHub organization. After this period, the QA info gets purged automatically. If that is the case, a re-run of the CI workflow is required to re-generate the QA info, afterwards a release can be created.</p>
-<h2 id="container-registry">Container Registry</h2>
-<p>The GitHub container registry is used for storing container images, which are generated by the <code>CI workflow</code> and leveraged by the <code>Release workflow</code>.</p>
-<p>The <strong>GitHub container registry</strong> does not have an automatic cleanup and keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.</p>
-<h2 id="further-information">Further information</h2>
-<h3 id="versioning">Versioning</h3>
-<p>Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of <a href="https://semver.org/">semantic versions</a> is recommended.</p>
-<p>If the tag name contains a semantic version, the leading <code>v</code> will be trimmed.
-<strong>Example:</strong> A tag name of <code>v1.0.0</code> will lead to version <code>1.0.0</code> of the Vehicle App container.</p>
-<h3 id="maintaining-multiple-versions">Maintaining multiple versions</h3>
-<p>If there is a need to maintain multiple versions of a Vehicle App, e.g., to hotfix the production version while working on a new version at the same time or to support multiple versions in production, create and use <code>release branches</code>.</p>
-<p>The release process would be the same as described in the overview, except that a release branch (e.g., <code>release/v1.0</code>) is created before the release step and the GitHub release is based on the <code>release</code> branch rather than the <code>main</code> branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.</p>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-1c1f612770264fbdf84b59f9adcafa3a">3 - Python Vehicle App SDK Overview</h1>
-    
+	<h1 id="pg-1c1f612770264fbdf84b59f9adcafa3a">1 - Python Vehicle App SDK Overview</h1>
+    <div class="lead">Learn more about the provided Python Vehicle App SDK</div>
 	<h2 id="introduction">Introduction</h2>
 <p>The Python Vehicle App SDK consists of the following building blocks:</p>
 <ul>
@@ -665,8 +478,199 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-b22e3deec09013424a1cf54e716bd28f">4 - Runtime and Deployment Model</h1>
+	<h1 id="pg-5a04118b2f2cb48ee8f919d2ada510cc">2 - Velocitas Development Model</h1>
+    <div class="lead">Learn more about the development model</div>
+	<h2 id="introduction">Introduction</h2>
+<p>The Velocitas development model is centered around what are known as <a href="#vehicle-apps">Vehicle Apps</a>. Automation allows engineers to make high-impact changes frequently and deploy <a href="#vehicle-apps">Vehicle Apps</a> through cloud backends as over-the-air updates. The <a href="#vehicle-apps">Vehicle App</a> development model is about <em>speed</em> and <em>agility</em> paired with state-of-the-art software quality.</p>
+<h2 id="development-architecture">Development Architecture</h2>
+<p>Velocitas provides a flexible development architecture for <a href="#vehicle-apps">Vehicle Apps</a>. The following diagram shows the major components of the Velocitas stack.</p>
+
+
+
+
+
+
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/concepts/development_model/programming_model_hud2fec3852a7bf670c5b8a8b5db354a69_89799_800x0_resize_catmullrom_3.png" width="800" height="674">
+	
+	<figcaption class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Overview of the progamming model
+</p>
+	</figcaption>
+	
+</figure>
+
+<h3 id="vehicle-apps">Vehicle Apps</h3>
+<p>The Vehicle Applications (aka. <code>Vehicle Apps</code>) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/">twelve-factor</a> applications apply to <code>Vehicle Apps</code> as well and are summarized in the next chapter.</p>
+<h3 id="vehicle-models">Vehicle Models</h3>
+<p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#vehicle-data-broker">Vehicle Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps">Vehicle Apps</a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined in the <a href="#sdks">SDKs</a>.</p>
+<h3 id="sdks">SDKs</h3>
+<p>To reduce the effort required to implement <a href="#vehicle-apps">Vehicle Apps</a>, Velocitas provides a set of SDKs for different programming languages. A first SDK is available for Python, further SDKs for Rust and C/C++ are planned.
+Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a href="#middleware">Middleware</a>-enabled, provide connectivity to the <a href="#vehicle-data-broker">Vehicle Data Broker</a> and contain the ontology in the form of base classes to create <a href="#vehicle-models">Vehicle Models</a>.</p>
+<h3 id="vehicle-services">Vehicle Services</h3>
+<p><code>Vehicle Services</code> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <code>Vehicle services</code> may feed data to the <a href="#vehicle-data-broker">Vehicle Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a></p>
+<h3 id="vehicle-data-broker">Vehicle Data Broker</h3>
+<p>Vehicle data is stored in the <code>Vehicle Data Broker</code> conforming to an underlying <a href="#semantic-models">Semantic Model</a> like VSS. <a href="#vehicle-apps">Vehicle Apps</a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent. The storage of the vehicle data broker will be the vehicle twin that syncs its data to the cloud.</p>
+<h3 id="semantic-models">Semantic models</h3>
+<p>The Vehicle Signal Specification (<a href="https://covesa.github.io/vehicle_signal_specification/">VSS</a>) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between <code>Vehicle Apps</code> and the <code>vehicle data broker</code>.</p>
+<p>The Vehicle Service Catalog (<a href="https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog">VSC</a>) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of <code>Vehicle Services</code> and <code>Vehicle Apps</code>.</p>
+<p>As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language (<a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md">DTDL</a>) or BAMM Aspect Meta Model <a href="https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model">BAMM</a> as well.</p>
+<h3 id="communication-protocols">Communication Protocols</h3>
+<p>Asynchronous communication between <a href="#vehicle-apps">Vehicle Apps</a> and other vehicle components as well as cloud connectivity is facilitated through <a href="https://mqtt.org/">MQTT</a> messaging. Direct, synchronous communication between <a href="#vehicle-apps">Vehicle Apps</a>, <a href="#vehicle-services">Vehicle Services</a> and the <a href="#vehicle-data-broker">Vehicle Data Broker</a> is based on the <a href="https://grpc.io/">gRPC</a> protocol.</p>
+<h3 id="middleware">Middleware</h3>
+<p>Velocitas leverages <a href="https://dapr.io">dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/">publish/subscribe building block</a> as a higher-level abstraction over MQTT messaging.</p>
+<h3 id="vehicle-edge-operating-system">Vehicle Edge Operating System</h3>
+<p><a href="#vehicle-apps">Vehicle Apps</a> are expected to run on a <a href="https://www.linux.org/">Linux</a>-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., <a href="https://mosquitto.org/">Eclipse Mosquitto</a>).</p>
+<h2 id="vehicle-app-characteristics">Vehicle App characteristics</h2>
+<h3 id="code-base">Code Base</h3>
+<p>Every <a href="#vehicle-apps">Vehicle App</a> is stored in its own repository. Tracked with version control, it can be deployed to multiple environments.</p>
+<h3 id="polyglot">Polyglot</h3>
+<p><a href="#vehicle-apps">Vehicle Apps</a> can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.</p>
+<h3 id="oci-compliant-containers">OCI-compliant containers</h3>
+<p><a href="#vehicle-apps">Vehicle Apps</a> are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.</p>
+<h3 id="isolation">Isolation</h3>
+<p>Each <a href="#vehicle-apps">Vehicle App</a> should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.</p>
+<h3 id="configurations">Configurations</h3>
+<p>Configuration information is moved out of the <a href="#vehicle-apps">Vehicle App</a>, so that the same deployment can propagate across environments with the correct configuration applied.</p>
+<h3 id="disposability">Disposability</h3>
+<p>Favor fast startup and support graceful shutdowns to leave the system in a correct state.</p>
+<h3 id="observability">Observability</h3>
+<p><a href="#vehicle-apps">Vehicle Apps</a> provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
+<h3 id="over-the-air-updatability">Over-the-air updatability</h3>
+<p><a href="#vehicle-apps">Vehicle Apps</a> are released to cloud backends like the <a href="https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/">Bosch Mobility Cloud</a> and can be updated in vehicles frequently over the air.</p>
+<h2 id="development-process">Development Process</h2>
+<p>The starting point for developing <a href="#vehicle-apps">Vehicle Apps</a> is a <a href="#semantic-models">Semantic Model</a> of the vehicle data and vehicle services. Based on the <a href="#semantic-models">Semantic Model</a>, language-specific <a href="#vehicle-models">Vehicle Models</a> are generated. <a href="#vehicle-models">Vehicle Models</a> are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &hellip;).</p>
+
+
+
+
+
+
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/docs/concepts/development_model/build_procedure_hu5f49376adac41f286048be697899cf00_25062_800x0_resize_catmullrom_3.png" width="800" height="299">
+	
+	<figcaption class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural diagram of the build process
+</p>
+	</figcaption>
+	
+</figure>
+
+<p>After a <a href="#vehicle-models">Vehicle Model</a> is available for the chosen programming language, the <a href="#vehicle-apps">Vehicle App</a> can be developed using the generated Vehicle Model and its core SDK.</p>
+<h2 id="next-steps">Next steps</h2>
+<h3 id="vehicle-apps-sdk-documentation">Vehicle Apps SDK Documentation</h3>
+<ul>
+<li><a href="/python-sdk/python_vehicle_app_sdk_overview.md">Python SDK Overview</a></li>
+<li>Coming soon: Rust SDK Overview</li>
+</ul>
+<h3 id="working-with-vehicle-models">Working with Vehicle Models</h3>
+<ul>
+<li>Walkthrough: <a href="/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md">Creating a Python Vehicle Model</a></li>
+<li>Coming soon: Creating a Rust Vehicle Model</li>
+</ul>
+<h3 id="working-with-vehicle-apps">Working with Vehicle Apps</h3>
+<ul>
+<li>Walkthrough: <a href="/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md">Creating a Python Vehicle App</a></li>
+<li>Coming soon: Creating a Rust Vehicle App</li>
+</ul>
+
+</div>
+
+
+
     
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-da1f21767304bce723a2d04d2f5058f7">3 - Build and Release Process</h1>
+    <div class="lead">Learn more about the provided two-stage process for the development, continuous integration, and release of a new version of a Vehicle App</div>
+	<p>The Velocitas project provides a two-stage process for the development, continuous integration, and release of a new version of a Vehicle App.</p>
+<ul>
+<li>
+<p><strong>Stage 1 - Build &amp; Test</strong>
+On every new push to the <code>main</code> branch, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts or in a container registry for future reference.</p>
+<p>The workflow provides quick feedback during development and improves efficient collaboration.</p>
+</li>
+<li>
+<p><strong>Stage 2 - Release</strong>
+Once the application is ready to be released in a new version, a dedicated release workflow is automatically executed as soon as you create a new release via GitHub.</p>
+<p>The workflow bundles all relevant artifacts into one tagged set of files and makes it possible to push this information to the preferred OTA (over-the-air update) system of your choice or use the information for quality assurance and documentation.</p>
+</li>
+</ul>
+<p>The following illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project&rsquo;s needs.</p>
+<p><img src="/assets/publish_container.png" alt=""></p>
+<h2 id="ci-workflow-ciyml">CI Workflow (ci.yml)</h2>
+<p>The <code>CI workflow</code> is triggered on every commit to the main branch and contains a set of different actions that cover:</p>
+<ul>
+<li><strong>Building a container for the app</strong> - actions create a containerized version of the Vehicle App, the actions also support creating an image for multiple platforms.</li>
+<li><strong>Scanning for vulnerabilities</strong> - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &ldquo;failed&rdquo;.</li>
+<li><strong>Running unit tests &amp; code coverage</strong> - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as &ldquo;failed&rdquo;.</li>
+<li><strong>Running integration tests</strong> - actions provision a runtime and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marke as &ldquo;failed&rdquo;.</li>
+<li><strong>Storing scan &amp; test results as GitHub action artifacts</strong> - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.</li>
+<li><strong>Publish container images to GitHub Container Registry</strong> - at the end of the workflow, the container images created are stored in a Github Container Registry so that they can be referenced by the release-workflow later.</li>
+</ul>
+<h2 id="release-workflow-releaseyml">Release Workflow (release.yml)</h2>
+<p>The <code>Release workflow</code> is triggered as soon as the <code>main</code> branch is ready for release and the Vehicle App developer creates a new GitHub release. This can be done manually through the GitHub UI.</p>
+<p>On creating a new release with a specific new version, GitHub creates a tag and automatically runs the <code>Release workflow</code> defined in .github/workflows/release.yml, given that <code>CI workflow</code> has run successfully for the current commit on the main branch.</p>
+<p>The set of actions included in the <code>Release workflow</code> cover:</p>
+<ul>
+<li><strong>Generating and verifying QA information</strong> - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.</li>
+<li><strong>Pull &amp; label container image</strong> - actions pull the Vehicle App container image based on the current commit hash from the GitHub registry and label it with the specified tag version. If the image cannot be found, the workflow will fail.</li>
+<li><strong>Publish to container registry</strong> - actions publish your container image and helm charts to your preferred container registry, which is referenced by your preferred OTA (over-the-air update) system.</li>
+</ul>
+<h2 id="github-actions-artifacts">GitHub Actions artifacts</h2>
+<p><strong>GitHub Actions artifacts</strong> are used for storing data, which is generated by the <code>CI workflow</code> and referenced by the <code>Release workflow</code>. This saves time during workflow runs because we don&rsquo;t have to create artifacts multiple times.</p>
+<p>GitHub Actions artifacts always have a retention period, which is 90 days per default, but may be configured differently in the specific GitHub organization. After this period, the QA info gets purged automatically. If that is the case, a re-run of the CI workflow is required to re-generate the QA info, afterwards a release can be created.</p>
+<h2 id="container-registry">Container Registry</h2>
+<p>The GitHub container registry is used for storing container images, which are generated by the <code>CI workflow</code> and leveraged by the <code>Release workflow</code>.</p>
+<p>The <strong>GitHub container registry</strong> does not have an automatic cleanup and keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.</p>
+<h2 id="further-information">Further information</h2>
+<h3 id="versioning">Versioning</h3>
+<p>Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of <a href="https://semver.org/">semantic versions</a> is recommended.</p>
+<p>If the tag name contains a semantic version, the leading <code>v</code> will be trimmed.
+<strong>Example:</strong> A tag name of <code>v1.0.0</code> will lead to version <code>1.0.0</code> of the Vehicle App container.</p>
+<h3 id="maintaining-multiple-versions">Maintaining multiple versions</h3>
+<p>If there is a need to maintain multiple versions of a Vehicle App, e.g., to hotfix the production version while working on a new version at the same time or to support multiple versions in production, create and use <code>release branches</code>.</p>
+<p>The release process would be the same as described in the overview, except that a release branch (e.g., <code>release/v1.0</code>) is created before the release step and the GitHub release is based on the <code>release</code> branch rather than the <code>main</code> branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b22e3deec09013424a1cf54e716bd28f">4 - Runtime and Deployment Model</h1>
+    <div class="lead">Learn more about the deployment model used by Eclipse Velocitas and our guiding principles</div>
 	<p>The Velocitas project uses a common deployment model. It uses OCI-compliant containers to increase the flexibility for the support of different programming languages and runtimes, which accelerates innovation and development. OCI-compliant containers also allow for a standardized yet flexible deployment process, which increases the ease of operation. Using OCI-compliant is portable to different architectures as long as there is support for OCI-compliant containers on the desired platform (e.g., like a container runtime for arm32, arm64 or amd64).</p>
 <h2 id="guiding-principles">Guiding principles</h2>
 <p>The deployment model is guided by the following principles</p>
