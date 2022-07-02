@@ -1,12 +1,12 @@
 ---
 title: "Vehicle App Deployment with Helm"
 date: 2022-05-09T13:43:25+05:30
-weight: 15
+weight: 6
+description: >
+  Learn how to prepare a Helm chart for the deployment of a Python Vehicle App.
 aliases:
   - /tutorial_how_to_deploy_a_vehicle_app_with_helm.md
 ---
-
-In this short introduction, you´ll learn how to prepare a Helm chart for the deployment of a Python Vehicle App.
 
 This tutorial will show you how to:
 
