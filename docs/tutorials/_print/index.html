@@ -107,7 +107,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.950a73d6fc89818258c6e2083c271bca.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.33105882fae0736ada1790406da00620.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -177,23 +177,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-f3e319d0b9b198af5c39068a78e57d4b">Vehicle App Deployment with Helm</a></li>
-
-
-    
-  
-    
-    
-	
-<li>5: <a href="#pg-92434ff59ee018c09ee5056e41a30ded">Vehicle App Integration Testing</a></li>
-
-
-    
-  
-    
-    
-	
-<li>6: <a href="#pg-9d91984eb08cf20e39f25e171f5fb593">Vehicle App Runtime</a></li>
+<li>4: <a href="#pg-9d91984eb08cf20e39f25e171f5fb593">Run Vehicle App Runtime Services</a></li>
 
 
     
@@ -208,7 +192,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.1: <a href="#pg-b8a7e76bb8b53cf7ffc3a8f82f85ba4c">Run runtime services in Kubernetes</a></li>
+<li>4.1: <a href="#pg-b8a7e76bb8b53cf7ffc3a8f82f85ba4c">Run runtime services in Kubernetes</a></li>
 
 
     
@@ -216,13 +200,29 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.2: <a href="#pg-c17c8d2574e5368e139743922d9a9fc3">Run runtime services locally</a></li>
+<li>4.2: <a href="#pg-c17c8d2574e5368e139743922d9a9fc3">Run runtime services locally</a></li>
 
 
     
   
 
     </ul>
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-92434ff59ee018c09ee5056e41a30ded">Vehicle App Integration Testing</a></li>
+
+
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-f3e319d0b9b198af5c39068a78e57d4b">Vehicle App Deployment with Helm</a></li>
+
+
     
   
 
@@ -1178,10 +1178,307 @@ Currently there is only one for the SeatAdjuster App.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-f3e319d0b9b198af5c39068a78e57d4b">4 - Vehicle App Deployment with Helm</h1>
+	<h1 id="pg-9d91984eb08cf20e39f25e171f5fb593">4 - Run Vehicle App Runtime Services</h1>
+    <div class="lead">Learn how to run the  Vehicle App Runtime Services locally or in Kubernetes.</div>
+	
+</div>
+
+
+
     
-	<p>In this short introduction, you´ll learn how to prepare a Helm chart for the deployment of a Python Vehicle App.</p>
-<p>This tutorial will show you how to:</p>
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-b8a7e76bb8b53cf7ffc3a8f82f85ba4c">4.1 - Run runtime services in Kubernetes</h1>
+    
+	<p>Besides <a href="/docs/run_runtime_services_locally.md">local execution</a>, another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks">here</a>.</p>
+<p><strong>Quick Start:</strong> Each step has a task that is defined in <em>.vscode/tasks.json</em>:</p>
+<ul>
+<li>Core tasks (dependent on each other in the given order):
+<ul>
+<li><code>K3D - Install prerequisites</code>: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them.</li>
+<li><code>K3D - Configure control plane</code>: Creates a local container registry used by K3D as well as an K3D cluster with Dapr enabled.</li>
+<li><code>K3D - Deploy runtime</code>: Deploys the runtime components (like Vehicle Data Broker, Seat Service, &hellip;) within the K3D cluster.</li>
+<li><code>K3D - Build SeatAdjusterApp</code>: Builds the SeatAdjusterApp and pushes it to the local K3D registry.</li>
+<li><code>K3D - Deploy SeatAdjusterApp</code>: Builds and deploys the SeatAdjusterApp via Helm to the K3D cluster.</li>
+</ul>
+</li>
+</ul>
+<p>Each task has the required dependencies defined. If you want to run the runtime in K3D, the task <code>K3D - Deploy SeatAdjusterApp</code> will create and configure everything. So it&rsquo;s enough to run that task.</p>
+<ul>
+<li>Optional helper tasks:
+<ul>
+<li><code>K3D - Deploy SeatAdjusterApp (without rebuild)</code>: Deploys the SeatAdjusterApp via Helm to the K3D cluster (without rebuilding it). That requires, that the task <code>K3D - Build SeatAdjusterApp</code> has been executed once before.</li>
+<li><code>K3D - Install tooling</code>: Installs tooling for local debugging (K9s)</li>
+<li><code>K3D - Uninstall runtime</code>: Uninstalls the runtime components from the K3D cluster (without deleting the cluster).</li>
+<li><code>K3D - Reset control plane</code>: Deletes the K3D cluster and the registry with all deployed pods/services.</li>
+</ul>
+</li>
+</ul>
+<p>K3D is configured so that <em>Mosquitto</em> and the <em>Vehicle Data Broker</em> can be reached from outside the container over the ports <code>31883</code> (Mosquitto) and <code>30555</code>(Vehicle Data Broker). The test runner, that is running outside of the cluster, can interact with these services over those ports.</p>
+<p>To check the status of your K3D instance (running pods, containers, logs, &hellip;) you can either use the <code>kubectl</code> utility or start <em>K9s</em> (after running the task <code>K3D - Install tooling</code> once) in a terminal window to have a UI for interacting with the cluster.</p>
+<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>K3D - Deploy SeatAdjusterApp</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>K3D - Deploy SeatAdjusterApp</code>.</p>
+<p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
+<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
+<h2 id="uploading-files-to-persistentvolume">Uploading files to persistentVolume</h2>
+<p>Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
+All the files that are located in <code>deploy/runtime/k3d/volume</code> will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/scripts/k3d/helm/templates/persistentVolume.yaml"><code>deploy/runtime/k3d/helm/templates/bash.yaml</code></a>.</p>
+<p>Changes in <code>deploy/runtime/k3d/volume</code> are automatically reflected in PersistentVolume.</p>
+<h3 id="uploading-custom-candump-file-to-feedercan">Uploading custom candump file to FeederCAN</h3>
+<p>FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:</p>
+<ol>
+<li>Creating/updating candump file with with name <code>candump</code> in <code>deploy/runtime/k3d/volume</code></li>
+<li>Recreating the feedercan pod: <code>kubectl delete pods -l app=feedercan</code></li>
+</ol>
+<p>More information about FeederCan can be found <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders">here</a></p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
+<li><a href="/docs/run_runtime_services_locally.md">Deploy runtime services locally</a></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c17c8d2574e5368e139743922d9a9fc3">4.2 - Run runtime services locally</h1>
+    
+	<h2 id="using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</h2>
+<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>Vehicle Data Broker</em> or <em>Vehicle Services</em>) are available for local execution as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks">here</a>.</p>
+<p><strong>Quick Start:</strong> Each component has a task that is defined in <em>.vscode/tasks.json</em>:</p>
+<ul>
+<li>Dapr (<code>Local - Ensure Dapr</code>): installs Dapr CLI and initializes Dapr if required</li>
+<li>Mosquitto (<code>Local - Mosquitto</code>): runs <em>Mosquitto</em> as a container (<code>docker run</code>)</li>
+<li>Vehicle Data Broker (<code>Local - VehicleDataBroker</code>): downloads and runs <em>Vehicle Data Broker</em></li>
+<li>(Optional) Seat Service (<code>Local - SeatService</code>): downloads and runs <em>Seat Service</em>, an example <code>Vehicle Service</code></li>
+<li>(Optional) Feeder Can (<code>Local - FeederCan</code>): downloads and runs <em>FeederCAN</em></li>
+</ul>
+<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>Start Vehicle App runtime</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Start Vehicle App runtime</code>.</p>
+<p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
+<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
+<p><strong>Scripting:</strong> The tasks itself are executing scripts that are located in <code>.vscode/scripts</code>. These scripts download the specified version of the runtime components and execute them along with Dapr. The same mechanism can be used to register additional services or prerequisites by adding new task definitions in the <code>tasks.json</code> file.</p>
+<h2 id="change-version-of-runtime-services">Change version of runtime services</h2>
+<p>The version for the runtime services is defined in the file <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/prerequisite_settings.json"><code>./prerequisite_settings.json</code></a>. If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.</p>
+<h2 id="using-vehicle-databroker-cli">Using Vehicle Databroker CLI</h2>
+<p>A CLI tool is provided for the interact with a running instance of the Vehicle Data Broker. It can be started by running the task <code>run-vehicledatabroker-cli</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>run-vehicledatabroker-cli</code>). The <em>Vehicle Data Broker</em> needs to be running for you to be able to use the tool.</p>
+<h2 id="integrating-a-new-service-into-visual-studio-code-task">Integrating a new service into Visual Studio Code Task</h2>
+<p>Integration of a new service can be done by duplicating one of the existing tasks.</p>
+<ul>
+<li>Create a new script based on template script <code>.vscode/scripts/run-vehicledatabroker.sh</code></li>
+<li>In <code>.vscode/tasks.json</code>, duplicate section from task <code>run-vehicledatabroker</code></li>
+<li>Correct names in a new code block</li>
+<li><strong>Disclaimer:</strong> <code>Problem Matcher</code> defined in <code>tasks.json</code> is a feature of the Visual Studio Code Task, to ensure that the process runs in background</li>
+<li>Run task using <code>[F1 -&gt; Tasks: Run Task -&gt; &lt;Your new task name&gt;]</code></li>
+<li>Task should be visible in Terminal section of Visual Studio Code</li>
+</ul>
+<h3 id="task-codeblock-helper">Task CodeBlock helper</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;label&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;__CHANGEIT: Task name__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;type&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;command&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.vscode/scripts/&lt;__CHANGEIT: Script Name.sh__&gt; --task&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;group&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;presentation&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;reveal&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;always&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;panel&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dedicated&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;isBackground&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;problemMatcher&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;pattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;regexp&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;file&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;location&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;background&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;activeOnStart&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;beginsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;^&lt;__CHANGEIT: Regex log from your app, decision to send process in background__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;endsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">},</span>
+</span></span></code></pre></div><h2 id="troubleshooting">Troubleshooting</h2>
+<p><strong>Problem description:</strong> When integrating new services into an existing dev environment, it is highly recommended to use the Visual Studio Code Task Feature.
+A new service can be easily started by calling it from bash script, however restarting the same service might lead to port conflicts (GRPC Port or APP port). That can be easily avoided by using the Visual Studio Code Task Feature.</p>
+<h3 id="codespaces">Codespaces</h3>
+<p>If you are using Codespaces, remember that you are working on a remote agent. That&rsquo;s why it could happen that the tasks are already running in the background. If that&rsquo;s the case a new start of the tasks will fail, since the ports are already in use. In the Dapr-tab of the sidebar you can check if there are already tasks running. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit <code>F1</code> and enter <code>View: Toggle Ports</code>).</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
+<li><a href="/docs/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes mode</a></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-92434ff59ee018c09ee5056e41a30ded">5 - Vehicle App Integration Testing</h1>
+    <div class="lead">Learn how to test that a Vehicle App together with the Vehicle Data Broker and potentially other dependant Vehicle Services or Vehicle Apps runs as expected.</div>
+	<p>To be sure that a newly created <em>Vehicle App</em> will run together with the <em>Vehicle Data Broker</em> and potentially other dependant <em>Vehicle Services</em> or <em>Vehicle Apps</em>, it&rsquo;s essential to write integration tests along with developing the app.</p>
+<p>To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.</p>
+<h2 id="quickstart">Quickstart</h2>
+<ol>
+<li>Make sure that the local execution of runtime components is working and started.</li>
+<li>Start the application (Debugger or run as task).</li>
+<li>Extend the test file <code>/test/integration_test.py</code> or create a new test file.</li>
+<li>Run/debug tests with the Visual Studio Code Test runner.</li>
+</ol>
+<h2 id="runtime-components">Runtime components</h2>
+<p>To be able to test the <em>Vehicle App</em> in an integrated way, the following components should be running:</p>
+<ul>
+<li>Dapr</li>
+<li>Mosquitto</li>
+<li>Vehicle Data Broker</li>
+<li>Vehicle Services</li>
+</ul>
+<p>We distinguish between two environments for executing the <em>Vehicle App</em> and the runtime components:</p>
+<ul>
+<li><strong>Local execution</strong>: components are running locally in the development environment</li>
+<li><strong>Kubernetes execution</strong>: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)</li>
+</ul>
+<h3 id="local-execution">Local Execution</h3>
+<p>First, make sure that the runtime services are configured and running like described <a href="/docs/run_runtime_services_locally.md">here</a>.</p>
+<p>The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the task <code>SeatAdjuster</code>.</p>
+<p>When the runtime services and the application are running, integration tests can be executed locally.</p>
+<h3 id="kubernetes-execution-k3d">Kubernetes execution (K3D)</h3>
+<p>If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the <a href="/docs/run_runtime_services_kubernetes.md">documentation</a>. To ensure that the tests connect to the containers, the following environment variables need to be set:</p>
+<ul>
+<li><code>MQTT_PORT: 31883</code></li>
+<li><code>VDB_PORT: 30555</code></li>
+</ul>
+<h2 id="writing-test-cases">Writing Test Cases</h2>
+<p>To write an integration test, you should check the sample that comes with the template (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py"><code>/test/integration_test.py</code></a>). To support interacting with the MQTT broker and the Vehicle Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:</p>
+<ul>
+<li>
+<p><code>MqttClient</code>: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:</p>
+<ul>
+<li>
+<p><code>publish_and_wait_for_response</code>: publishes the specified payload to the given request topic and waits (till timeout) for a message to the response topic. The payload of the first message that arrives in the response topic will be returned. If the timeout expires before, an empty string (&quot;&quot;) is returned.</p>
+</li>
+<li>
+<p><code>publish_and_wait_for_property</code>: publishes the specified payload to the given request topic and waits (till timeout) until the given property value is found in an incoming message to the response topic. The <code>path</code> describes the property location within the response message, the <code>value</code> the property value to look for.</p>
+<p><em>Example:</em></p>
+<pre tabindex="0"><code>{
+    &#34;status&#34;: &#34;success&#34;,
+    &#34;result&#34;: {
+        &#34;responsecode&#34;: 10
+    }
+}
+</code></pre><p>If the <code>responsecode</code> property should be checked for the value <code>10</code>, the path would be <code>[&quot;result&quot;, &quot;responsecode]</code>, property value would be <code>10</code>. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&quot;&quot;) is returned.</p>
+</li>
+</ul>
+<p>This class can be initialized with a given port. If no port is specified, the environment variable <code>MQTT_PORT</code> will be checked. If this is not possible either, the default value of <code>1883</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>1883</code> and in CI the port set by the environment variable <code>MQTT_PORT</code>. This will prevent a check-in in the wrong port from local development.</strong></p>
+</li>
+<li>
+<p><code>IntTestHelper</code>: this class provides functionality to interact with the <em>Vehicle Data Broker</em>.</p>
+<ul>
+<li><code>register_dapoint</code>: registers a new datapoint with given name and type</li>
+<li><code>set_..._datapoint</code>: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.</li>
+</ul>
+<p>This class can be initialized with a given port. If no port is specified, the environment variable <code>VDB_PORT</code> will be checked. If this is not possible either, the default value of <code>55555</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>55555</code> and in CI the port set by the environment variable <code>VDB_PORT</code> which is set. This will prevent a check-in in the wrong port from local development.</strong></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Please make sure that you don&rsquo;t check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).</strong></p>
+</blockquote>
+<h2 id="running-tests-locally">Running Tests locally</h2>
+<p>Once tests are developed, they can be executed against the running runtime components, either to the <strong><em>local runtime</em></strong><code>(**Remark Bjoern:** Should we talk here - in analogy to dapr-terminology - of &quot;self-hosted&quot;. Because &quot;local&quot; is used already for distinguishing between execution on local machine vs. CI pripline)</code> or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for <em>Mosquitto</em> and <em>Vehicle Data Broker</em> are <code>1883</code>/<code>55555</code>. In Kubernetes mode, the ports would be the locally exposed ports <code>31883</code>/<code>30555</code>. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.</p>
+<h2 id="running-tests-in-ci-pipeline">Running Tests in CI pipeline</h2>
+<p>The tests will be discovered and executed automatically in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml">CI pipeline</a>. The job <code>Run Integration Tests</code> contains all steps to setup and execute tests in Kubernetes mode. The results are published as test results to the workflow.</p>
+<h1 id="common-tasks">Common Tasks</h1>
+<h2 id="run-test-in-local-mode">Run test in local mode</h2>
+<ol>
+<li>Make sure that the <a href="/docs/run_runtime_services_kubernetes.md">tasks for the runtime components</a> are running (by checking the terminal view).</li>
+<li>Make sure that your application is running (via Debugger or task).</li>
+<li>Make sure that you are using the right ports for local execution of runtime components.</li>
+<li>Run tests from the test runner.</li>
+</ol>
+<h2 id="run-tests-in-kubernetes-mode">Run tests in Kubernetes mode</h2>
+<ol>
+<li>Make sure that K3D is up and running (by calling the scripts in the <code>scripts/k3d</code> folder, 01 - 04).</li>
+<li>Make sure that the tests are using the right ports for Kubernetes execution.</li>
+<li>Run tests from the test runner.</li>
+</ol>
+<h2 id="update-application-when-running-in-kubernetes-mode">Update application when running in Kubernetes mode</h2>
+<ol>
+<li>Re-run the script <code>/scripts/k3d/04_deploy-apps.sh</code> that rebuilds and deploys the application to K3D.</li>
+<li>Re-run tests from the test runner.</li>
+</ol>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<h2 id="check-if-the-services-are-registered-correctly-in-dapr">Check if the services are registered correctly in Dapr</h2>
+<ul>
+<li>When running in local mode, call <code>dapr dashboard</code> in a terminal and open the given URL to see the Dapr dashboard in the browser.</li>
+<li>When running in Kubernetes mode, call <code>dapr dashboard -k</code> in a terminal and open the given URL to see the Dapr dashboard in the browser.</li>
+</ul>
+<h2 id="troubleshoot-inttesthelper">Troubleshoot IntTestHelper</h2>
+<ul>
+<li>Make sure that the <em>Vehicle Data Broker</em> is up and running by checking the task log.</li>
+<li>Make sure that you are using the right ports for local/Kubernetes execution.</li>
+<li>Make sure that you installed the correct version of the SDK (<em>SDV</em>-package).</li>
+</ul>
+<h2 id="troubleshoot-mosquitto-mqtt-broker">Troubleshoot Mosquitto (MQTT Broker)</h2>
+<ul>
+<li>Make sure that the <em>Mosquitto</em> up and running by checking the task log.</li>
+<li>Make sure that you are using the right ports for local/Kubernetes execution.</li>
+<li>Use VsMqtt extension to connect to MQTT broker (<code>localhost:1883</code> (local) or <code>localhost:31883</code> (Kubernetes)) to monitor topics in MQTT broker.</li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-f3e319d0b9b198af5c39068a78e57d4b">6 - Vehicle App Deployment with Helm</h1>
+    <div class="lead">Learn how to prepare a Helm chart for the deployment of a Python Vehicle App.</div>
+	<p>This tutorial will show you how to:</p>
 <ul>
 <li>Prepare a Helm chart</li>
 <li>Deploy your Python Vehicle App to local K3D</li>
@@ -1352,304 +1649,6 @@ Currently there is only one for the SeatAdjuster App.</p>
 </div>
 
 
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-92434ff59ee018c09ee5056e41a30ded">5 - Vehicle App Integration Testing</h1>
-    
-	<p>To be sure that a newly created <em>Vehicle App</em> will run together with the <em>Vehicle Data Broker</em> and potentially other dependant <em>Vehicle Services</em> or <em>Vehicle Apps</em>, it&rsquo;s essential to write integration tests along with developing the app.</p>
-<p>To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.</p>
-<h2 id="quickstart">Quickstart</h2>
-<ol>
-<li>Make sure that the local execution of runtime components is working and started.</li>
-<li>Start the application (Debugger or run as task).</li>
-<li>Extend the test file <code>/test/integration_test.py</code> or create a new test file.</li>
-<li>Run/debug tests with the Visual Studio Code Test runner.</li>
-</ol>
-<h2 id="runtime-components">Runtime components</h2>
-<p>To be able to test the <em>Vehicle App</em> in an integrated way, the following components should be running:</p>
-<ul>
-<li>Dapr</li>
-<li>Mosquitto</li>
-<li>Vehicle Data Broker</li>
-<li>Vehicle Services</li>
-</ul>
-<p>We distinguish between two environments for executing the <em>Vehicle App</em> and the runtime components:</p>
-<ul>
-<li><strong>Local execution</strong>: components are running locally in the development environment</li>
-<li><strong>Kubernetes execution</strong>: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)</li>
-</ul>
-<h3 id="local-execution">Local Execution</h3>
-<p>First, make sure that the runtime services are configured and running like described <a href="/docs/run_runtime_services_locally.md">here</a>.</p>
-<p>The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the task <code>SeatAdjuster</code>.</p>
-<p>When the runtime services and the application are running, integration tests can be executed locally.</p>
-<h3 id="kubernetes-execution-k3d">Kubernetes execution (K3D)</h3>
-<p>If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the <a href="/docs/run_runtime_services_kubernetes.md">documentation</a>. To ensure that the tests connect to the containers, the following environment variables need to be set:</p>
-<ul>
-<li><code>MQTT_PORT: 31883</code></li>
-<li><code>VDB_PORT: 30555</code></li>
-</ul>
-<h2 id="writing-test-cases">Writing Test Cases</h2>
-<p>To write an integration test, you should check the sample that comes with the template (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py"><code>/test/integration_test.py</code></a>). To support interacting with the MQTT broker and the Vehicle Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:</p>
-<ul>
-<li>
-<p><code>MqttClient</code>: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:</p>
-<ul>
-<li>
-<p><code>publish_and_wait_for_response</code>: publishes the specified payload to the given request topic and waits (till timeout) for a message to the response topic. The payload of the first message that arrives in the response topic will be returned. If the timeout expires before, an empty string (&quot;&quot;) is returned.</p>
-</li>
-<li>
-<p><code>publish_and_wait_for_property</code>: publishes the specified payload to the given request topic and waits (till timeout) until the given property value is found in an incoming message to the response topic. The <code>path</code> describes the property location within the response message, the <code>value</code> the property value to look for.</p>
-<p><em>Example:</em></p>
-<pre tabindex="0"><code>{
-    &#34;status&#34;: &#34;success&#34;,
-    &#34;result&#34;: {
-        &#34;responsecode&#34;: 10
-    }
-}
-</code></pre><p>If the <code>responsecode</code> property should be checked for the value <code>10</code>, the path would be <code>[&quot;result&quot;, &quot;responsecode]</code>, property value would be <code>10</code>. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&quot;&quot;) is returned.</p>
-</li>
-</ul>
-<p>This class can be initialized with a given port. If no port is specified, the environment variable <code>MQTT_PORT</code> will be checked. If this is not possible either, the default value of <code>1883</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>1883</code> and in CI the port set by the environment variable <code>MQTT_PORT</code>. This will prevent a check-in in the wrong port from local development.</strong></p>
-</li>
-<li>
-<p><code>IntTestHelper</code>: this class provides functionality to interact with the <em>Vehicle Data Broker</em>.</p>
-<ul>
-<li><code>register_dapoint</code>: registers a new datapoint with given name and type</li>
-<li><code>set_..._datapoint</code>: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.</li>
-</ul>
-<p>This class can be initialized with a given port. If no port is specified, the environment variable <code>VDB_PORT</code> will be checked. If this is not possible either, the default value of <code>55555</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>55555</code> and in CI the port set by the environment variable <code>VDB_PORT</code> which is set. This will prevent a check-in in the wrong port from local development.</strong></p>
-</li>
-</ul>
-<blockquote>
-<p><strong>Please make sure that you don&rsquo;t check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).</strong></p>
-</blockquote>
-<h2 id="running-tests-locally">Running Tests locally</h2>
-<p>Once tests are developed, they can be executed against the running runtime components, either to the <strong><em>local runtime</em></strong><code>(**Remark Bjoern:** Should we talk here - in analogy to dapr-terminology - of &quot;self-hosted&quot;. Because &quot;local&quot; is used already for distinguishing between execution on local machine vs. CI pripline)</code> or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for <em>Mosquitto</em> and <em>Vehicle Data Broker</em> are <code>1883</code>/<code>55555</code>. In Kubernetes mode, the ports would be the locally exposed ports <code>31883</code>/<code>30555</code>. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.</p>
-<h2 id="running-tests-in-ci-pipeline">Running Tests in CI pipeline</h2>
-<p>The tests will be discovered and executed automatically in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml">CI pipeline</a>. The job <code>Run Integration Tests</code> contains all steps to setup and execute tests in Kubernetes mode. The results are published as test results to the workflow.</p>
-<h1 id="common-tasks">Common Tasks</h1>
-<h2 id="run-test-in-local-mode">Run test in local mode</h2>
-<ol>
-<li>Make sure that the <a href="/docs/run_runtime_services_kubernetes.md">tasks for the runtime components</a> are running (by checking the terminal view).</li>
-<li>Make sure that your application is running (via Debugger or task).</li>
-<li>Make sure that you are using the right ports for local execution of runtime components.</li>
-<li>Run tests from the test runner.</li>
-</ol>
-<h2 id="run-tests-in-kubernetes-mode">Run tests in Kubernetes mode</h2>
-<ol>
-<li>Make sure that K3D is up and running (by calling the scripts in the <code>scripts/k3d</code> folder, 01 - 04).</li>
-<li>Make sure that the tests are using the right ports for Kubernetes execution.</li>
-<li>Run tests from the test runner.</li>
-</ol>
-<h2 id="update-application-when-running-in-kubernetes-mode">Update application when running in Kubernetes mode</h2>
-<ol>
-<li>Re-run the script <code>/scripts/k3d/04_deploy-apps.sh</code> that rebuilds and deploys the application to K3D.</li>
-<li>Re-run tests from the test runner.</li>
-</ol>
-<h1 id="troubleshooting">Troubleshooting</h1>
-<h2 id="check-if-the-services-are-registered-correctly-in-dapr">Check if the services are registered correctly in Dapr</h2>
-<ul>
-<li>When running in local mode, call <code>dapr dashboard</code> in a terminal and open the given URL to see the Dapr dashboard in the browser.</li>
-<li>When running in Kubernetes mode, call <code>dapr dashboard -k</code> in a terminal and open the given URL to see the Dapr dashboard in the browser.</li>
-</ul>
-<h2 id="troubleshoot-inttesthelper">Troubleshoot IntTestHelper</h2>
-<ul>
-<li>Make sure that the <em>Vehicle Data Broker</em> is up and running by checking the task log.</li>
-<li>Make sure that you are using the right ports for local/Kubernetes execution.</li>
-<li>Make sure that you installed the correct version of the SDK (<em>SDV</em>-package).</li>
-</ul>
-<h2 id="troubleshoot-mosquitto-mqtt-broker">Troubleshoot Mosquitto (MQTT Broker)</h2>
-<ul>
-<li>Make sure that the <em>Mosquitto</em> up and running by checking the task log.</li>
-<li>Make sure that you are using the right ports for local/Kubernetes execution.</li>
-<li>Use VsMqtt extension to connect to MQTT broker (<code>localhost:1883</code> (local) or <code>localhost:31883</code> (Kubernetes)) to monitor topics in MQTT broker.</li>
-</ul>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-9d91984eb08cf20e39f25e171f5fb593">6 - Vehicle App Runtime</h1>
-    
-	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-    
-    
-	
-    
-
-<div class="td-content" style="">
-    
-	<h1 id="pg-b8a7e76bb8b53cf7ffc3a8f82f85ba4c">6.1 - Run runtime services in Kubernetes</h1>
-    
-	<p>Besides <a href="/docs/run_runtime_services_locally.md">local execution</a>, another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks">here</a>.</p>
-<p><strong>Quick Start:</strong> Each step has a task that is defined in <em>.vscode/tasks.json</em>:</p>
-<ul>
-<li>Core tasks (dependent on each other in the given order):
-<ul>
-<li><code>K3D - Install prerequisites</code>: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them.</li>
-<li><code>K3D - Configure control plane</code>: Creates a local container registry used by K3D as well as an K3D cluster with Dapr enabled.</li>
-<li><code>K3D - Deploy runtime</code>: Deploys the runtime components (like Vehicle Data Broker, Seat Service, &hellip;) within the K3D cluster.</li>
-<li><code>K3D - Build SeatAdjusterApp</code>: Builds the SeatAdjusterApp and pushes it to the local K3D registry.</li>
-<li><code>K3D - Deploy SeatAdjusterApp</code>: Builds and deploys the SeatAdjusterApp via Helm to the K3D cluster.</li>
-</ul>
-</li>
-</ul>
-<p>Each task has the required dependencies defined. If you want to run the runtime in K3D, the task <code>K3D - Deploy SeatAdjusterApp</code> will create and configure everything. So it&rsquo;s enough to run that task.</p>
-<ul>
-<li>Optional helper tasks:
-<ul>
-<li><code>K3D - Deploy SeatAdjusterApp (without rebuild)</code>: Deploys the SeatAdjusterApp via Helm to the K3D cluster (without rebuilding it). That requires, that the task <code>K3D - Build SeatAdjusterApp</code> has been executed once before.</li>
-<li><code>K3D - Install tooling</code>: Installs tooling for local debugging (K9s)</li>
-<li><code>K3D - Uninstall runtime</code>: Uninstalls the runtime components from the K3D cluster (without deleting the cluster).</li>
-<li><code>K3D - Reset control plane</code>: Deletes the K3D cluster and the registry with all deployed pods/services.</li>
-</ul>
-</li>
-</ul>
-<p>K3D is configured so that <em>Mosquitto</em> and the <em>Vehicle Data Broker</em> can be reached from outside the container over the ports <code>31883</code> (Mosquitto) and <code>30555</code>(Vehicle Data Broker). The test runner, that is running outside of the cluster, can interact with these services over those ports.</p>
-<p>To check the status of your K3D instance (running pods, containers, logs, &hellip;) you can either use the <code>kubectl</code> utility or start <em>K9s</em> (after running the task <code>K3D - Install tooling</code> once) in a terminal window to have a UI for interacting with the cluster.</p>
-<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>K3D - Deploy SeatAdjusterApp</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>K3D - Deploy SeatAdjusterApp</code>.</p>
-<p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
-<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
-<h2 id="uploading-files-to-persistentvolume">Uploading files to persistentVolume</h2>
-<p>Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
-All the files that are located in <code>deploy/runtime/k3d/volume</code> will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/scripts/k3d/helm/templates/persistentVolume.yaml"><code>deploy/runtime/k3d/helm/templates/bash.yaml</code></a>.</p>
-<p>Changes in <code>deploy/runtime/k3d/volume</code> are automatically reflected in PersistentVolume.</p>
-<h3 id="uploading-custom-candump-file-to-feedercan">Uploading custom candump file to FeederCAN</h3>
-<p>FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:</p>
-<ol>
-<li>Creating/updating candump file with with name <code>candump</code> in <code>deploy/runtime/k3d/volume</code></li>
-<li>Recreating the feedercan pod: <code>kubectl delete pods -l app=feedercan</code></li>
-</ol>
-<p>More information about FeederCan can be found <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders">here</a></p>
-<h2 id="next-steps">Next steps</h2>
-<ul>
-<li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li><a href="/docs/run_runtime_services_locally.md">Deploy runtime services locally</a></li>
-</ul>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-c17c8d2574e5368e139743922d9a9fc3">6.2 - Run runtime services locally</h1>
-    
-	<h2 id="using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</h2>
-<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>Vehicle Data Broker</em> or <em>Vehicle Services</em>) are available for local execution as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks">here</a>.</p>
-<p><strong>Quick Start:</strong> Each component has a task that is defined in <em>.vscode/tasks.json</em>:</p>
-<ul>
-<li>Dapr (<code>Local - Ensure Dapr</code>): installs Dapr CLI and initializes Dapr if required</li>
-<li>Mosquitto (<code>Local - Mosquitto</code>): runs <em>Mosquitto</em> as a container (<code>docker run</code>)</li>
-<li>Vehicle Data Broker (<code>Local - VehicleDataBroker</code>): downloads and runs <em>Vehicle Data Broker</em></li>
-<li>(Optional) Seat Service (<code>Local - SeatService</code>): downloads and runs <em>Seat Service</em>, an example <code>Vehicle Service</code></li>
-<li>(Optional) Feeder Can (<code>Local - FeederCan</code>): downloads and runs <em>FeederCAN</em></li>
-</ul>
-<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>Start Vehicle App runtime</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Start Vehicle App runtime</code>.</p>
-<p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
-<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
-<p><strong>Scripting:</strong> The tasks itself are executing scripts that are located in <code>.vscode/scripts</code>. These scripts download the specified version of the runtime components and execute them along with Dapr. The same mechanism can be used to register additional services or prerequisites by adding new task definitions in the <code>tasks.json</code> file.</p>
-<h2 id="change-version-of-runtime-services">Change version of runtime services</h2>
-<p>The version for the runtime services is defined in the file <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/prerequisite_settings.json"><code>./prerequisite_settings.json</code></a>. If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.</p>
-<h2 id="using-vehicle-databroker-cli">Using Vehicle Databroker CLI</h2>
-<p>A CLI tool is provided for the interact with a running instance of the Vehicle Data Broker. It can be started by running the task <code>run-vehicledatabroker-cli</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>run-vehicledatabroker-cli</code>). The <em>Vehicle Data Broker</em> needs to be running for you to be able to use the tool.</p>
-<h2 id="integrating-a-new-service-into-visual-studio-code-task">Integrating a new service into Visual Studio Code Task</h2>
-<p>Integration of a new service can be done by duplicating one of the existing tasks.</p>
-<ul>
-<li>Create a new script based on template script <code>.vscode/scripts/run-vehicledatabroker.sh</code></li>
-<li>In <code>.vscode/tasks.json</code>, duplicate section from task <code>run-vehicledatabroker</code></li>
-<li>Correct names in a new code block</li>
-<li><strong>Disclaimer:</strong> <code>Problem Matcher</code> defined in <code>tasks.json</code> is a feature of the Visual Studio Code Task, to ensure that the process runs in background</li>
-<li>Run task using <code>[F1 -&gt; Tasks: Run Task -&gt; &lt;Your new task name&gt;]</code></li>
-<li>Task should be visible in Terminal section of Visual Studio Code</li>
-</ul>
-<h3 id="task-codeblock-helper">Task CodeBlock helper</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;label&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;__CHANGEIT: Task name__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;type&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;command&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.vscode/scripts/&lt;__CHANGEIT: Script Name.sh__&gt; --task&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;group&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;presentation&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;reveal&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;always&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;panel&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dedicated&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;isBackground&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;problemMatcher&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;pattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;regexp&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;file&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;location&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;background&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;activeOnStart&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;beginsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;^&lt;__CHANGEIT: Regex log from your app, decision to send process in background__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;endsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">},</span>
-</span></span></code></pre></div><h2 id="troubleshooting">Troubleshooting</h2>
-<p><strong>Problem description:</strong> When integrating new services into an existing dev environment, it is highly recommended to use the Visual Studio Code Task Feature.
-A new service can be easily started by calling it from bash script, however restarting the same service might lead to port conflicts (GRPC Port or APP port). That can be easily avoided by using the Visual Studio Code Task Feature.</p>
-<h3 id="codespaces">Codespaces</h3>
-<p>If you are using Codespaces, remember that you are working on a remote agent. That&rsquo;s why it could happen that the tasks are already running in the background. If that&rsquo;s the case a new start of the tasks will fail, since the ports are already in use. In the Dapr-tab of the sidebar you can check if there are already tasks running. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit <code>F1</code> and enter <code>View: Toggle Ports</code>).</p>
-<h2 id="next-steps">Next steps</h2>
-<ul>
-<li><a href="/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li><a href="/docs/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes mode</a></li>
-</ul>
-
-</div>
-
-
-
-    
-	
-  
 
     
 	

@@ -930,6 +930,140 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
     </item>
     
     <item>
+      <title>Docs: Run Vehicle App Runtime Services</title>
+      <link>/velocitas-docs/docs/tutorials/vehicle-app-runtime/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/tutorials/vehicle-app-runtime/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Vehicle App Integration Testing</title>
+      <link>/velocitas-docs/docs/tutorials/integration_tests/</link>
+      <pubDate>Mon, 09 May 2022 13:46:21 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/tutorials/integration_tests/</guid>
+      <description>
+        
+        
+        &lt;p&gt;To be sure that a newly created &lt;em&gt;Vehicle App&lt;/em&gt; will run together with the &lt;em&gt;Vehicle Data Broker&lt;/em&gt; and potentially other dependant &lt;em&gt;Vehicle Services&lt;/em&gt; or &lt;em&gt;Vehicle Apps&lt;/em&gt;, it&amp;rsquo;s essential to write integration tests along with developing the app.&lt;/p&gt;
+&lt;p&gt;To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.&lt;/p&gt;
+&lt;h2 id=&#34;quickstart&#34;&gt;Quickstart&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure that the local execution of runtime components is working and started.&lt;/li&gt;
+&lt;li&gt;Start the application (Debugger or run as task).&lt;/li&gt;
+&lt;li&gt;Extend the test file &lt;code&gt;/test/integration_test.py&lt;/code&gt; or create a new test file.&lt;/li&gt;
+&lt;li&gt;Run/debug tests with the Visual Studio Code Test runner.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;runtime-components&#34;&gt;Runtime components&lt;/h2&gt;
+&lt;p&gt;To be able to test the &lt;em&gt;Vehicle App&lt;/em&gt; in an integrated way, the following components should be running:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dapr&lt;/li&gt;
+&lt;li&gt;Mosquitto&lt;/li&gt;
+&lt;li&gt;Vehicle Data Broker&lt;/li&gt;
+&lt;li&gt;Vehicle Services&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Local execution&lt;/strong&gt;: components are running locally in the development environment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kubernetes execution&lt;/strong&gt;: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
+&lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the task &lt;code&gt;SeatAdjuster&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally.&lt;/p&gt;
+&lt;h3 id=&#34;kubernetes-execution-k3d&#34;&gt;Kubernetes execution (K3D)&lt;/h3&gt;
+&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, the following environment variables need to be set:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;MQTT_PORT: 31883&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;VDB_PORT: 30555&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
+&lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py&#34;&gt;&lt;code&gt;/test/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the Vehicle Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;MqttClient&lt;/code&gt;: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;publish_and_wait_for_response&lt;/code&gt;: publishes the specified payload to the given request topic and waits (till timeout) for a message to the response topic. The payload of the first message that arrives in the response topic will be returned. If the timeout expires before, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;publish_and_wait_for_property&lt;/code&gt;: publishes the specified payload to the given request topic and waits (till timeout) until the given property value is found in an incoming message to the response topic. The &lt;code&gt;path&lt;/code&gt; describes the property location within the response message, the &lt;code&gt;value&lt;/code&gt; the property value to look for.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+    &amp;#34;status&amp;#34;: &amp;#34;success&amp;#34;,
+    &amp;#34;result&amp;#34;: {
+        &amp;#34;responsecode&amp;#34;: 10
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If the &lt;code&gt;responsecode&lt;/code&gt; property should be checked for the value &lt;code&gt;10&lt;/code&gt;, the path would be &lt;code&gt;[&amp;quot;result&amp;quot;, &amp;quot;responsecode]&lt;/code&gt;, property value would be &lt;code&gt;10&lt;/code&gt;. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;1883&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;1883&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt;. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;IntTestHelper&lt;/code&gt;: this class provides functionality to interact with the &lt;em&gt;Vehicle Data Broker&lt;/em&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;register_dapoint&lt;/code&gt;: registers a new datapoint with given name and type&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;set_..._datapoint&lt;/code&gt;: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;55555&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;55555&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; which is set. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Please make sure that you don&amp;rsquo;t check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;running-tests-locally&#34;&gt;Running Tests locally&lt;/h2&gt;
+&lt;p&gt;Once tests are developed, they can be executed against the running runtime components, either to the &lt;strong&gt;&lt;em&gt;local runtime&lt;/em&gt;&lt;/strong&gt;&lt;code&gt;(**Remark Bjoern:** Should we talk here - in analogy to dapr-terminology - of &amp;quot;self-hosted&amp;quot;. Because &amp;quot;local&amp;quot; is used already for distinguishing between execution on local machine vs. CI pripline)&lt;/code&gt; or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for &lt;em&gt;Mosquitto&lt;/em&gt; and &lt;em&gt;Vehicle Data Broker&lt;/em&gt; are &lt;code&gt;1883&lt;/code&gt;/&lt;code&gt;55555&lt;/code&gt;. In Kubernetes mode, the ports would be the locally exposed ports &lt;code&gt;31883&lt;/code&gt;/&lt;code&gt;30555&lt;/code&gt;. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.&lt;/p&gt;
+&lt;h2 id=&#34;running-tests-in-ci-pipeline&#34;&gt;Running Tests in CI pipeline&lt;/h2&gt;
+&lt;p&gt;The tests will be discovered and executed automatically in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34;&gt;CI pipeline&lt;/a&gt;. The job &lt;code&gt;Run Integration Tests&lt;/code&gt; contains all steps to setup and execute tests in Kubernetes mode. The results are published as test results to the workflow.&lt;/p&gt;
+&lt;h1 id=&#34;common-tasks&#34;&gt;Common Tasks&lt;/h1&gt;
+&lt;h2 id=&#34;run-test-in-local-mode&#34;&gt;Run test in local mode&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure that the &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;tasks for the runtime components&lt;/a&gt; are running (by checking the terminal view).&lt;/li&gt;
+&lt;li&gt;Make sure that your application is running (via Debugger or task).&lt;/li&gt;
+&lt;li&gt;Make sure that you are using the right ports for local execution of runtime components.&lt;/li&gt;
+&lt;li&gt;Run tests from the test runner.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;run-tests-in-kubernetes-mode&#34;&gt;Run tests in Kubernetes mode&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure that K3D is up and running (by calling the scripts in the &lt;code&gt;scripts/k3d&lt;/code&gt; folder, 01 - 04).&lt;/li&gt;
+&lt;li&gt;Make sure that the tests are using the right ports for Kubernetes execution.&lt;/li&gt;
+&lt;li&gt;Run tests from the test runner.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;update-application-when-running-in-kubernetes-mode&#34;&gt;Update application when running in Kubernetes mode&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Re-run the script &lt;code&gt;/scripts/k3d/04_deploy-apps.sh&lt;/code&gt; that rebuilds and deploys the application to K3D.&lt;/li&gt;
+&lt;li&gt;Re-run tests from the test runner.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h1&gt;
+&lt;h2 id=&#34;check-if-the-services-are-registered-correctly-in-dapr&#34;&gt;Check if the services are registered correctly in Dapr&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;When running in local mode, call &lt;code&gt;dapr dashboard&lt;/code&gt; in a terminal and open the given URL to see the Dapr dashboard in the browser.&lt;/li&gt;
+&lt;li&gt;When running in Kubernetes mode, call &lt;code&gt;dapr dashboard -k&lt;/code&gt; in a terminal and open the given URL to see the Dapr dashboard in the browser.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;troubleshoot-inttesthelper&#34;&gt;Troubleshoot IntTestHelper&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Make sure that the &lt;em&gt;Vehicle Data Broker&lt;/em&gt; is up and running by checking the task log.&lt;/li&gt;
+&lt;li&gt;Make sure that you are using the right ports for local/Kubernetes execution.&lt;/li&gt;
+&lt;li&gt;Make sure that you installed the correct version of the SDK (&lt;em&gt;SDV&lt;/em&gt;-package).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;troubleshoot-mosquitto-mqtt-broker&#34;&gt;Troubleshoot Mosquitto (MQTT Broker)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Make sure that the &lt;em&gt;Mosquitto&lt;/em&gt; up and running by checking the task log.&lt;/li&gt;
+&lt;li&gt;Make sure that you are using the right ports for local/Kubernetes execution.&lt;/li&gt;
+&lt;li&gt;Use VsMqtt extension to connect to MQTT broker (&lt;code&gt;localhost:1883&lt;/code&gt; (local) or &lt;code&gt;localhost:31883&lt;/code&gt; (Kubernetes)) to monitor topics in MQTT broker.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Vehicle App Deployment with Helm</title>
       <link>/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
@@ -938,8 +1072,7 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
       <description>
         
         
-        &lt;p&gt;In this short introduction, you´ll learn how to prepare a Helm chart for the deployment of a Python Vehicle App.&lt;/p&gt;
-&lt;p&gt;This tutorial will show you how to:&lt;/p&gt;
+        &lt;p&gt;This tutorial will show you how to:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prepare a Helm chart&lt;/li&gt;
 &lt;li&gt;Deploy your Python Vehicle App to local K3D&lt;/li&gt;
@@ -1107,140 +1240,6 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;/velocitas-docs/docs/velocitas/docs/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Vehicle App Integration Testing</title>
-      <link>/velocitas-docs/docs/tutorials/integration_tests/</link>
-      <pubDate>Mon, 09 May 2022 13:46:21 +0530</pubDate>
-      
-      <guid>/velocitas-docs/docs/tutorials/integration_tests/</guid>
-      <description>
-        
-        
-        &lt;p&gt;To be sure that a newly created &lt;em&gt;Vehicle App&lt;/em&gt; will run together with the &lt;em&gt;Vehicle Data Broker&lt;/em&gt; and potentially other dependant &lt;em&gt;Vehicle Services&lt;/em&gt; or &lt;em&gt;Vehicle Apps&lt;/em&gt;, it&amp;rsquo;s essential to write integration tests along with developing the app.&lt;/p&gt;
-&lt;p&gt;To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.&lt;/p&gt;
-&lt;h2 id=&#34;quickstart&#34;&gt;Quickstart&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Make sure that the local execution of runtime components is working and started.&lt;/li&gt;
-&lt;li&gt;Start the application (Debugger or run as task).&lt;/li&gt;
-&lt;li&gt;Extend the test file &lt;code&gt;/test/integration_test.py&lt;/code&gt; or create a new test file.&lt;/li&gt;
-&lt;li&gt;Run/debug tests with the Visual Studio Code Test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;runtime-components&#34;&gt;Runtime components&lt;/h2&gt;
-&lt;p&gt;To be able to test the &lt;em&gt;Vehicle App&lt;/em&gt; in an integrated way, the following components should be running:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Dapr&lt;/li&gt;
-&lt;li&gt;Mosquitto&lt;/li&gt;
-&lt;li&gt;Vehicle Data Broker&lt;/li&gt;
-&lt;li&gt;Vehicle Services&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Local execution&lt;/strong&gt;: components are running locally in the development environment&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Kubernetes execution&lt;/strong&gt;: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
-&lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the task &lt;code&gt;SeatAdjuster&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally.&lt;/p&gt;
-&lt;h3 id=&#34;kubernetes-execution-k3d&#34;&gt;Kubernetes execution (K3D)&lt;/h3&gt;
-&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, the following environment variables need to be set:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;MQTT_PORT: 31883&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;VDB_PORT: 30555&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
-&lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py&#34;&gt;&lt;code&gt;/test/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the Vehicle Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;MqttClient&lt;/code&gt;: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;publish_and_wait_for_response&lt;/code&gt;: publishes the specified payload to the given request topic and waits (till timeout) for a message to the response topic. The payload of the first message that arrives in the response topic will be returned. If the timeout expires before, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;publish_and_wait_for_property&lt;/code&gt;: publishes the specified payload to the given request topic and waits (till timeout) until the given property value is found in an incoming message to the response topic. The &lt;code&gt;path&lt;/code&gt; describes the property location within the response message, the &lt;code&gt;value&lt;/code&gt; the property value to look for.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;status&amp;#34;: &amp;#34;success&amp;#34;,
-    &amp;#34;result&amp;#34;: {
-        &amp;#34;responsecode&amp;#34;: 10
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If the &lt;code&gt;responsecode&lt;/code&gt; property should be checked for the value &lt;code&gt;10&lt;/code&gt;, the path would be &lt;code&gt;[&amp;quot;result&amp;quot;, &amp;quot;responsecode]&lt;/code&gt;, property value would be &lt;code&gt;10&lt;/code&gt;. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;1883&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;1883&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt;. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;IntTestHelper&lt;/code&gt;: this class provides functionality to interact with the &lt;em&gt;Vehicle Data Broker&lt;/em&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;register_dapoint&lt;/code&gt;: registers a new datapoint with given name and type&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;set_..._datapoint&lt;/code&gt;: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;55555&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;55555&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; which is set. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Please make sure that you don&amp;rsquo;t check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;running-tests-locally&#34;&gt;Running Tests locally&lt;/h2&gt;
-&lt;p&gt;Once tests are developed, they can be executed against the running runtime components, either to the &lt;strong&gt;&lt;em&gt;local runtime&lt;/em&gt;&lt;/strong&gt;&lt;code&gt;(**Remark Bjoern:** Should we talk here - in analogy to dapr-terminology - of &amp;quot;self-hosted&amp;quot;. Because &amp;quot;local&amp;quot; is used already for distinguishing between execution on local machine vs. CI pripline)&lt;/code&gt; or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for &lt;em&gt;Mosquitto&lt;/em&gt; and &lt;em&gt;Vehicle Data Broker&lt;/em&gt; are &lt;code&gt;1883&lt;/code&gt;/&lt;code&gt;55555&lt;/code&gt;. In Kubernetes mode, the ports would be the locally exposed ports &lt;code&gt;31883&lt;/code&gt;/&lt;code&gt;30555&lt;/code&gt;. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.&lt;/p&gt;
-&lt;h2 id=&#34;running-tests-in-ci-pipeline&#34;&gt;Running Tests in CI pipeline&lt;/h2&gt;
-&lt;p&gt;The tests will be discovered and executed automatically in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34;&gt;CI pipeline&lt;/a&gt;. The job &lt;code&gt;Run Integration Tests&lt;/code&gt; contains all steps to setup and execute tests in Kubernetes mode. The results are published as test results to the workflow.&lt;/p&gt;
-&lt;h1 id=&#34;common-tasks&#34;&gt;Common Tasks&lt;/h1&gt;
-&lt;h2 id=&#34;run-test-in-local-mode&#34;&gt;Run test in local mode&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Make sure that the &lt;a href=&#34;/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;tasks for the runtime components&lt;/a&gt; are running (by checking the terminal view).&lt;/li&gt;
-&lt;li&gt;Make sure that your application is running (via Debugger or task).&lt;/li&gt;
-&lt;li&gt;Make sure that you are using the right ports for local execution of runtime components.&lt;/li&gt;
-&lt;li&gt;Run tests from the test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;run-tests-in-kubernetes-mode&#34;&gt;Run tests in Kubernetes mode&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Make sure that K3D is up and running (by calling the scripts in the &lt;code&gt;scripts/k3d&lt;/code&gt; folder, 01 - 04).&lt;/li&gt;
-&lt;li&gt;Make sure that the tests are using the right ports for Kubernetes execution.&lt;/li&gt;
-&lt;li&gt;Run tests from the test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;update-application-when-running-in-kubernetes-mode&#34;&gt;Update application when running in Kubernetes mode&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Re-run the script &lt;code&gt;/scripts/k3d/04_deploy-apps.sh&lt;/code&gt; that rebuilds and deploys the application to K3D.&lt;/li&gt;
-&lt;li&gt;Re-run tests from the test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h1&gt;
-&lt;h2 id=&#34;check-if-the-services-are-registered-correctly-in-dapr&#34;&gt;Check if the services are registered correctly in Dapr&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;When running in local mode, call &lt;code&gt;dapr dashboard&lt;/code&gt; in a terminal and open the given URL to see the Dapr dashboard in the browser.&lt;/li&gt;
-&lt;li&gt;When running in Kubernetes mode, call &lt;code&gt;dapr dashboard -k&lt;/code&gt; in a terminal and open the given URL to see the Dapr dashboard in the browser.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;troubleshoot-inttesthelper&#34;&gt;Troubleshoot IntTestHelper&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Make sure that the &lt;em&gt;Vehicle Data Broker&lt;/em&gt; is up and running by checking the task log.&lt;/li&gt;
-&lt;li&gt;Make sure that you are using the right ports for local/Kubernetes execution.&lt;/li&gt;
-&lt;li&gt;Make sure that you installed the correct version of the SDK (&lt;em&gt;SDV&lt;/em&gt;-package).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;troubleshoot-mosquitto-mqtt-broker&#34;&gt;Troubleshoot Mosquitto (MQTT Broker)&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Make sure that the &lt;em&gt;Mosquitto&lt;/em&gt; up and running by checking the task log.&lt;/li&gt;
-&lt;li&gt;Make sure that you are using the right ports for local/Kubernetes execution.&lt;/li&gt;
-&lt;li&gt;Use VsMqtt extension to connect to MQTT broker (&lt;code&gt;localhost:1883&lt;/code&gt; (local) or &lt;code&gt;localhost:31883&lt;/code&gt; (Kubernetes)) to monitor topics in MQTT broker.&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Vehicle App Runtime</title>
-      <link>/velocitas-docs/docs/tutorials/vehicle-app-runtime/</link>
-      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
-      
-      <guid>/velocitas-docs/docs/tutorials/vehicle-app-runtime/</guid>
-      <description>
-        
-        
-        
       </description>
     </item>
     
