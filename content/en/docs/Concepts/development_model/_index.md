@@ -1,5 +1,5 @@
 ---
-title: "Velocitas Development Model"
+title: "Development Model"
 date: 2022-05-09T13:45:12+05:30
 aliases:
   - /docs/development-model.md
@@ -7,7 +7,7 @@ resources:
 - src: "**programming_model*.png"
 - src: "**build_procedure*.png"
 description: >
-  Learn more about the development model
+  Learn more about provided development model for Vehicle Apps.
 ---
 
 ## Introduction
