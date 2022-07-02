@@ -1,6 +1,7 @@
 ---
 title: "Development Model"
 date: 2022-05-09T13:45:12+05:30
+weight: 1
 aliases:
   - /docs/development-model.md
 resources:
