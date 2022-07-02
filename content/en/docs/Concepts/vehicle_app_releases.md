@@ -1,6 +1,7 @@
 ---
 title: "Build and Release Process"
 date: 2022-05-09T13:43:25+05:30
+weight: 4
 aliases:
   - /docs/velocitas/docs/vehicle_app_releases.md
 description: >
