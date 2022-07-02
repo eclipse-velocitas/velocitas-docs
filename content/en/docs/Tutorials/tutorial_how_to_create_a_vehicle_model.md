@@ -1,12 +1,12 @@
 ---
 title: "Python Vehicle Model Creation"
 date: 2022-05-09T13:43:25+05:30
-weight: 5
+weight: 2
+description: >
+  Learn how to create a simple Python Vehicle Model with Visual Studio Code and the Python Vehicle App SDK.
 aliases:
   - /docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md
 ---
-
-In this short introduction, you´ll create a simple Python Vehicle Model with Visual Studio Code and the Python Vehicle App SDK.
 
 > We recommend that you make yourself familiar with the [Python Vehicle App SDK Overview](/docs/python-sdk//python_vehicle_app_sdk_overview.md) first, before going through this tutorial.
 
