@@ -1,5 +1,5 @@
 ---
-title: "Python Vehicle App SDK Overview"
+title: "Python Vehicle App SDK"
 date: 2022-05-09T13:43:25+05:30
 weight: 2
 aliases:
