@@ -6,6 +6,8 @@ aliases:
 resources:
 - src: "**programming_model*.png"
 - src: "**build_procedure*.png"
+description: >
+  Learn more about the development model
 ---
 
 ## Introduction
