@@ -28,18 +28,40 @@ linkTitle = "Velocitas"
 </div>
 {{< /blocks/cover >}}
 
-{{< home-component-list color="100" height="auto" title="Benefits">}}
-
-{{% home-component icon="fas fa-star" title="Vehicle App Project Template" color="dark" url="https://github.com/eclipse-velocitas/vehicle-app-python-template" url_text="Read more" %}}
-Quick setup of a _Vehicle App_ project with the help of GitHub templates for the supported programming languages including a sample _Vehicle App_ and GitHub Actions workflow, and comfortable setup of the development environment e.g. in Microsoft Visual Studio Code.
-{{% /home-component %}}
-
-{{% home-component icon="fas fa-star" title="Vehicle App Programming Model" color="dark" url="docs/development-model.md" url_text="Read more" %}}
-Simplify coding and debugging of _Vehicle Apps_ that accessing vehicle data points and modifying vehicle functions using the provided SDK for the different programming languages that delegates to the _Vehicle Abstraction Layer_.
-{{% /home-component %}}
-
-{{< /home-component-list >}}
-
 {{< blocks/lead color="white">}}
     {{< youtube id=U6iBALbfKcE autoplay="true" >}}
 {{< /blocks/lead >}}
+
+
+{{% blocks/lead color="primary" %}}
+The Eclipse project _Velocitas_ aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (_Vehicle Apps_) 
+that offers a comfortable, fast and efficient development experience to increase the speed of a development team.
+
+{{< imgproc dev_ops_cycle Resize "800x" >}}
+  The DevOps cycle that it followed in the design of the Velocitas programnming model
+{{< /imgproc >}}
+
+{{% /blocks/lead %}}
+
+
+{{< blocks/section color="dark" >}}
+
+{{% blocks/feature icon="fa-lightbulb" title="Vehicle App Project Template" url="https://github.com/eclipse-velocitas/vehicle-app-python-template" %}}
+Quick setup of a _Vehicle App_ project with the help of GitHub templates for the supported programming languages including a sample _Vehicle App_ 
+and GitHub Actions workflow, and comfortable setup of the development environment e.g. in Microsoft Visual Studio Code.
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fab fa-github" title="Vehicle App Programming Model" url="docs/development-model.md" %}}
+Simplify coding and debugging of _Vehicle Apps_ that accessing vehicle data points and modifying vehicle functions 
+using the provided SDK for the different programming languages that delegates to the _Vehicle Abstraction Layer_.
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fab fa-twitter" title="Vehicle Abstraction Layer" url="docs/val/README.md" %}}
+Abstracts vehicle make & model specific properties and capabilities to a common representation. 
+This makes it possible for _Vehicle Apps_ to be portable across different electric and electronic vehicle architectures 
+e.g. the _Vehicle Apps_ do not care whether the seat is controlled via CAN, LIN or some other physical interface.
+{{% /blocks/feature %}}
+
+{{< /blocks/section >}}
