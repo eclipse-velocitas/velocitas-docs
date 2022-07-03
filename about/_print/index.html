@@ -4,8 +4,9 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.98.0" />
-<link rel="alternate" type="application/rss&#43;xml" href="/velocitas-docs/categories/index.xml">
-<meta name="robots" content="index, follow">
+<link rel="canonical" type="text/html" href="/velocitas-docs/about/">
+<link rel="alternate" type="application/rss&#43;xml" href="/velocitas-docs/about/index.xml">
+<meta name="robots" content="noindex, nofollow">
 
 
 <link rel="shortcut icon" href="/velocitas-docs/favicons/favicon.ico" >
@@ -19,17 +20,21 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
-<title>Categories | Velocitas</title>
-<meta name="description" content="">
-<meta property="og:title" content="Categories" />
-<meta property="og:description" content="" />
+<title>About | Velocitas</title>
+<meta name="description" content="About Eclipse Velocitas features.
+">
+<meta property="og:title" content="About" />
+<meta property="og:description" content="About Eclipse Velocitas features.
+" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/velocitas-docs/categories/" />
+<meta property="og:url" content="/velocitas-docs/about/" />
 
-<meta itemprop="name" content="Categories">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Categories"/>
-<meta name="twitter:description" content=""/>
+<meta itemprop="name" content="About">
+<meta itemprop="description" content="About Eclipse Velocitas features.
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="About"/>
+<meta name="twitter:description" content="About Eclipse Velocitas features.
+"/>
 
 
 
@@ -58,7 +63,7 @@ if (!doNotTrack) {
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
   </head>
-  <body class="td-taxonomy">
+  <body class="td-section">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -113,18 +118,93 @@ if (!doNotTrack) {
     <div class="container-fluid td-default td-outer">
       <main role="main" class="td-main">
         
-<div class="td-content">
-  <main class="taxonomy-terms-page">
-    <h1>Categories</h1>
-    
+
+<h2 id="background">Background</h2>
+<p>Traditionally, the automotive industry was and still is centered around vehicle hardware and the corresponding hardware development and life-cycle management. Software, however, is gaining more and more importance in vehicle development and over the entire vehicle lifetime. Thus, the vehicle and its value to the customer is increasingly defined by software. This transition towards what are termed as software-defined vehicles changes the way in which we innovate, code, deliver and work together. It is a change across the whole mobility value chain and life-cycle: from development and production to delivery and operations of the vehicle.</p>
+<h2 id="goal">Goal</h2>
+<p>The Eclipse project <em>Velocitas</em> aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (<em>Vehicle Apps</em>) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.</p>
 
 
 
-  
-  
 
-  </main>
-</div>
+
+
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/about/dev_ops_cycle_hud6b43f52ee34e3c29c23ce273a74f400_61217_800x0_resize_catmullrom_3.png" width="800" height="217">
+	
+	<figcaption class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  The DevOps cycle that it followed in the design of the Velocitas programnming model
+</p>
+	</figcaption>
+	
+</figure>
+
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Vehicle App Project Template</a></td>
+<td>Quick setup of a <em>Vehicle App</em> project with the help of GitHub templates for the supported programming languages including a sample <em>Vehicle App</em> and GitHub Actions workflow, and comfortable setup of the development environment e.g. in Microsoft Visual Studio Code.</td>
+</tr>
+<tr>
+<td><a href="/docs/development-model.md">Vehicle App Programming Model</a></td>
+<td>Simplify coding and debugging of <em>Vehicle Apps</em> that accessing vehicle data points and modifying vehicle functions using the provided SDK for the different programming languages that delegates to the <em>Vehicle Abstraction Layer</em>.</td>
+</tr>
+<tr>
+<td><a href="docs/val/README.md">Vehicle Abstraction Layer</a></td>
+<td>Abstracts vehicle make &amp; model specific properties and capabilities to a common representation. This makes it possible for <em>Vehicle Apps</em> to be portable across different electric and electronic vehicle architectures e.g. the <em>Vehicle Apps</em> do not care whether the seat is controlled via CAN, LIN or some other physical interface.</td>
+</tr>
+<tr>
+<td><a href="/docs/concepts/vehicle_app_releases/#ci-workflow-ciyml">GitHub Actions Workflow Blueprint</a></td>
+<td>Providing ready-to-use GitHub workflows to check the <em>Vehicle App</em>, build images for multi architectures, scan it, execute integration tests and release the <em>Vehicle App</em> to allow the developer to focus on the development of the <em>Vehicle App</em>.</td>
+</tr>
+<tr>
+<td><a href="/docs/concepts/vehicle_app_releases/#release-workflow-releaseyml">Automated Release Process</a></td>
+<td>Providing a release workflow to generate release artifacts and documentation out of the CI workflow results and push it to a container registry to be used by a deployment system</td>
+</tr>
+<tr>
+<td><a href="docs/runtime-deployment-model.md">Runtime and Deployment Model</a></td>
+<td>Running and deploying <em>Vehicle App</em> as OCI-compliant container to increase the flexibility to support different programming languages and runtimes to accelerate innovation and development.</td>
+</tr>
+</tbody>
+</table>
+<p>The repositories of the Eclipse project <em>Velocitas</em> and their relations between each other can be found [<a href="docs/repository_overview.md">here</a>].</p>
+<h2 id="example-use-case">Example Use Case</h2>
+<p><em>Velocitas</em> contains implementations based on the example use case of adjusting the vehicle seat position to showcase the development toolchain of a comfort function (QM level - non-safety relevant).</p>
+<p>What could such a use case look like? Image a carsharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The carsharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle.</p>
+<p>That&rsquo;s where your implementation starts. The <em>Seat Adjuster VehicleApp</em> receives the seat position as a MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the <em>Seat Adjuster VehicleApp</em> subscribes to the seat position and receives the new seat position from the <em>Vehicle Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
+<p>A detailed description of the <em>Seat Adjuster</em> use case can be found <a href="docs/seat_adjuster_use_case.md">here</a>.</p>
+
+
+
+
+
+
+
+<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
+	<img class="card-img-top" src="/velocitas-docs/about/seat_adjuster_dataflow_hu5c0d389a484601ed0ca11bc32b645efd_1006665_800x0_resize_catmullrom_3.png" width="800" height="462">
+	
+	<figcaption class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+  Architectural representation of the data flow on the example of adjusting the seat position     
+</p>
+	</figcaption>
+	
+</figure>
+
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/COVESA/vehicle_signal_specification">Vehicle Signal Specifications (VSS)</a></li>
+</ul>
+
+
 
       </main>
       
