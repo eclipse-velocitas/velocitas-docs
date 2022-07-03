@@ -6,10 +6,10 @@ linkTitle = "Velocitas"
 {{< blocks/cover title="Eclipse Velocitas" image_anchor="center" color="dark">}}
 <div class="mx-auto">
   <p class="lead mt-5">Toolchain for creating containerized in-vehicle applications</p>
-  <a class="btn btn-lg btn-primary mr-3 mb-4" href="{{ .Site.BaseURL }}/docs/concepts/">
+  <a class="btn btn-lg btn-primary mr-3 mb-4" href="docs/concepts/">
      Concepts<i class="fas fa-arrow-alt-circle-right ml-2"></i>
   </a>
-  <a class="btn btn-lg btn-secondary mr-3 mb-4" href="{{ .Site.BaseURL }}/docs/tutorials/">
+  <a class="btn btn-lg btn-secondary mr-3 mb-4" href="docs/tutorials/">
     Tutorials <i class="fas fa-arrow-alt-circle-right ml-2"></i>
   </a>
   <div class="mx-auto mt-5">
@@ -18,7 +18,7 @@ linkTitle = "Velocitas"
 </div>
 {{< /blocks/cover >}}
 
-{{< blocks/section color="white" >}}
+{{% blocks/section color="white" %}}
 
 The Eclipse project _Velocitas_ aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (_Vehicle Apps_) 
 that offers a comfortable, fast and efficient development experience to increase the speed of a development team.
@@ -36,7 +36,7 @@ using the provided SDK for the different programming languages that delegates to
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fa-solid fa-layer-group" title="Vehicle Abstraction Layer" url="reference/val/" %}}
+{{% blocks/feature icon="fa-solid fa-layer-group" title="Vehicle Abstraction Layer" url="docs/reference/val/" %}}
 Abstracts vehicle make & model specific properties and capabilities to a common representation. 
 This makes it possible for _Vehicle Apps_ to be portable across different electric and electronic vehicle architectures 
 e.g. the _Vehicle Apps_ do not care whether the seat is controlled via CAN, LIN or some other physical interface.
@@ -52,12 +52,12 @@ Providing a release workflow to generate release artifacts and documentation out
 push it to the GitHub container registry to be used by a deployment system.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fa-solid fa-box" title="Runtime and Deployment Model" url="docs/runtime-deployment-model/" %}}
+{{% blocks/feature icon="fa-solid fa-box" title="Runtime and Deployment Model" url="docs/concepts/runtime-deployment-model/" %}}
 Running and deploying _Vehicle App_ as OCI-compliant container to increase the flexibility to support different programming languages 
 and runtimes to accelerate innovation and development.
 {{% /blocks/feature %}}
 
-{{< /blocks/section >}}
+{{% /blocks/section %}}
 
 {{< blocks/lead color="primary">}}
     {{< youtube id=U6iBALbfKcE autoplay="true" >}}
