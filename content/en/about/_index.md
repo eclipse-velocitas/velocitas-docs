@@ -1,9 +1,10 @@
 ---
 title: "About"
+linkTitle: "About"
 date: 2022-07-03T14:06:56+05:30
-menu:
-  main:
-    weight: 1
+description: >
+  About Eclipse Velocitas features.
+aliases: ["/about/"]
 resources:
 - src: "**dev_ops_cycle*.png"
 - src: "**seat_adjuster_dataflow*.png"
