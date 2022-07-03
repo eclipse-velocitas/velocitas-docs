@@ -28,11 +28,6 @@ linkTitle = "Velocitas"
 </div>
 {{< /blocks/cover >}}
 
-{{< blocks/lead color="white">}}
-    {{< youtube id=U6iBALbfKcE autoplay="true" >}}
-{{< /blocks/lead >}}
-
-
 {{% blocks/lead color="primary" %}}
 The Eclipse project _Velocitas_ aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (_Vehicle Apps_) 
 that offers a comfortable, fast and efficient development experience to increase the speed of a development team.
@@ -60,4 +55,23 @@ This makes it possible for _Vehicle Apps_ to be portable across different electr
 e.g. the _Vehicle Apps_ do not care whether the seat is controlled via CAN, LIN or some other physical interface.
 {{% /blocks/feature %}}
 
+{{% blocks/feature icon="fab fa-github" title="GitHub Actions Workflow Blueprint" url="docs/concepts/vehicle_app_releases/#ci-workflow-ciyml" %}}
+Providing ready-to-use GitHub workflows to check the _Vehicle App_, build images for multi architectures, scan it, 
+execute integration tests and release the _Vehicle App_ to allow the developer to focus on the development of the _Vehicle App_.
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fab fa-github" title="Automated Release Process" url="docs/concepts/vehicle_app_releases/#release-workflow-releaseyml" %}}
+Providing a release workflow to generate release artifacts and documentation out of the CI workflow results and 
+push it to the GitHub container registry to be used by a deployment system.
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fab fa-github" title="Runtime and Deployment Model" url="docs/runtime-deployment-model.md" %}}
+Running and deploying _Vehicle App_ as OCI-compliant container to increase the flexibility to support different programming languages 
+and runtimes to accelerate innovation and development.
+{{% /blocks/feature %}}
+
 {{< /blocks/section >}}
+
+{{< blocks/lead color="white">}}
+    {{< youtube id=U6iBALbfKcE autoplay="true" >}}
+{{< /blocks/lead >}}
