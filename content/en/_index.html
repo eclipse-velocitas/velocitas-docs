@@ -1,6 +1,8 @@
 +++
 title = "Velocitas"
 linkTitle = "Velocitas"
+resources:
+- src: "**dev_ops_cycle*.png"
 +++
 
 <!-- Some style overrides to improve the look and spacing of the Docsy Feature shortcode" -->
@@ -32,6 +34,10 @@ linkTitle = "Velocitas"
 The Eclipse project _Velocitas_ aims to build-up an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (_Vehicle Apps_) 
 that offers a comfortable, fast and efficient development experience to increase the speed of a development team.
 
+{{< imgproc dev_ops_cycle Resize "800x" >}}
+  The DevOps cycle that it followed in the design of the Velocitas programnming model
+{{< /imgproc >}}
+
 {{% /blocks/lead %}}
 
 
@@ -49,23 +55,23 @@ using the provided SDK for the different programming languages that delegates to
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fab fa-layer-group" title="Vehicle Abstraction Layer" url="docs/val/README.md" %}}
+{{% blocks/feature icon="fab fa-layer-group" title="Vehicle Abstraction Layer" url="reference/val/" %}}
 Abstracts vehicle make & model specific properties and capabilities to a common representation. 
 This makes it possible for _Vehicle Apps_ to be portable across different electric and electronic vehicle architectures 
 e.g. the _Vehicle Apps_ do not care whether the seat is controlled via CAN, LIN or some other physical interface.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-github" title="GitHub Actions Workflow Blueprint" url="docs/concepts/vehicle_app_releases/#ci-workflow-ciyml" %}}
+{{% blocks/feature icon="fab fa-github" title="GitHub Actions Workflow Blueprint" url="docs/concepts/vehicle_app_releases/" %}}
 Providing ready-to-use GitHub workflows to check the _Vehicle App_, build images for multi architectures, scan it, 
 execute integration tests and release the _Vehicle App_ to allow the developer to focus on the development of the _Vehicle App_.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-github" title="Automated Release Process" url="docs/concepts/vehicle_app_releases/#release-workflow-releaseyml" %}}
+{{% blocks/feature icon="fab fa-github" title="Automated Release Process" url="docs/concepts/vehicle_app_releases/" %}}
 Providing a release workflow to generate release artifacts and documentation out of the CI workflow results and 
 push it to the GitHub container registry to be used by a deployment system.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-boxes" title="Runtime and Deployment Model" url="docs/runtime-deployment-model.md" %}}
+{{% blocks/feature icon="fab fa-boxes" title="Runtime and Deployment Model" url="docs/runtime-deployment-model/" %}}
 Running and deploying _Vehicle App_ as OCI-compliant container to increase the flexibility to support different programming languages 
 and runtimes to accelerate innovation and development.
 {{% /blocks/feature %}}
