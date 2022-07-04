@@ -31,7 +31,7 @@ using the provided SDK for the different programming languages that delegates to
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fa-solid fa-layer-group" title="Vehicle Abstraction Layer" url="Reference/val/" %}}
+{{% blocks/feature icon="fa-solid fa-layer-group" title="Vehicle Abstraction Layer" url="Concepts/val/" %}}
 Abstracts vehicle make & model specific properties and capabilities to a common representation. 
 This makes it possible for _Vehicle Apps_ to be portable across different electric and electronic vehicle architectures 
 e.g. the _Vehicle Apps_ do not care whether the seat is controlled via CAN, LIN or some other physical interface.
