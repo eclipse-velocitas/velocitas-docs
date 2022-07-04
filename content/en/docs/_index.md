@@ -67,4 +67,4 @@ That's where your implementation starts. The _Seat Adjuster VehicleApp_ receives
 
 A detailed description of the _Seat Adjuster_ use case can be found [here](reference/seat_adjuster_use_case/).
 
-<img src="Reference/seat_adjuster_use_case/seat_adjuster_dataflow.png" >
+<img src="reference/seat_adjuster_use_case/seat_adjuster_dataflow.png" >
