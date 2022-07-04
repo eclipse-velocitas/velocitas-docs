@@ -1,8 +1,8 @@
 ---
 title: "Repository Overview"
 date: 2022-05-09T13:43:25+05:30
-aliases:
-  - /docs/velocitas/docs/repository_overview.md
+resources:
+- src: "**project-overview*.png"
 ---
 
 <img src="project-overview.png" >
