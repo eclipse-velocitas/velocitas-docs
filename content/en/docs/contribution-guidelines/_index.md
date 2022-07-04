@@ -1,7 +1,9 @@
 ---
-title: "Contribution"
+title: "Contribution Guidelines"
 date: 2022-05-09T13:43:25+05:30
 weight: 50
+description: >
+  Read how you can contribute to Eclipse Veloctias.
 ---
 
 Thanks for thinking about contributing to **Eclipse Velocitas**. We really appreciate the time and effort you want to spend helping to improve Eclipse Velocitas.
