@@ -352,14 +352,14 @@ if (!doNotTrack) {
 <p>Traditionally, the automotive industry was and still is centered around vehicle hardware and the corresponding hardware development and life-cycle management. Software, however, is gaining more and more importance in vehicle development and over the entire vehicle lifetime. Thus, the vehicle and its value to the customer is increasingly defined by software. This transition towards what are termed as software-defined vehicles changes the way in which we innovate, code, deliver and work together. It is a change across the whole mobility value chain and life-cycle: from development and production to delivery and operations of the vehicle.</p>
 <h2 id="goal">Goal</h2>
 <p>The Eclipse project <em>Velocitas™</em> provides an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (<em>Vehicle Apps</em>) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.</p>
-<img src="docs/dev_ops_cycle.png" >
-<p>The repositories of the Eclipse project <em>Velocitas</em> and their relations between each other can be found [<a href="docs/Reference/repository_overview.md">here</a>].</p>
+<img src="dev_ops_cycle.png" >
+<p>The repositories of the Eclipse project <em>Velocitas</em> and their relations between each other can be found [<a href="Reference/repository_overview.md">here</a>].</p>
 <h2 id="example-use-case">Example Use Case</h2>
 <p><em>Velocitas</em> contains implementations based on the example use case of adjusting the vehicle seat position to showcase the development toolchain of a comfort function (QM level - non-safety relevant).</p>
 <p>What could such a use case look like? Image a carsharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The carsharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle.</p>
 <p>That&rsquo;s where your implementation starts. The <em>Seat Adjuster VehicleApp</em> receives the seat position as a MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the <em>Seat Adjuster VehicleApp</em> subscribes to the seat position and receives the new seat position from the <em>Vehicle Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
-<p>A detailed description of the <em>Seat Adjuster</em> use case can be found <a href="docs/Reference/seat_adjuster_use_case.md">here</a>.</p>
-<img src="docs/seat_adjuster_dataflow.png" >
+<p>A detailed description of the <em>Seat Adjuster</em> use case can be found <a href="Reference/seat_adjuster_use_case.md">here</a>.</p>
+<img src="seat_adjuster_dataflow.png" >
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://github.com/COVESA/vehicle_signal_specification">Vehicle Signal Specifications (VSS)</a></li>
@@ -414,7 +414,7 @@ if (!doNotTrack) {
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified July 4, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/7fa77aaaccd72e1409738a8ab3f9b3f77c07612c">Added describtion (7fa77aa)</a>
+  Last modified July 4, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/655c32abe3c8aedaab85b100b578de9bcbd068f5">Corrected path (655c32a)</a>
 </div>
 
 </div>
