@@ -115,7 +115,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1b8169da62f1be4c96aaaf6129135db4.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.6e5d4fc5f162aebbf52857aa2f08d124.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -1886,27 +1886,6 @@ You can either try it out directly in the browser or also use it inside Visual S
 </ul>
 <h2 id="trigger-your-github-workflows">Trigger your Github Workflows</h2>
 <p>GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find <a href="https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md">here</a>.</p>
-<h3 id="prerequisites">Prerequisites</h3>
-<p>In order to run the workflow succesfully inside the SDV-Org, we are using a PAT of the technical user <code>swd9be</code>. He needs write access to all repos created from the template repository. Furthermore this user needs read access to the following repositories:</p>
-<ul>
-<li>vehicle-app-python-sdk</li>
-<li>vehicle-model-python</li>
-<li>license-check</li>
-</ul>
-<p>When using the template outside of the SDV-Org some additional steps need to be done:</p>
-<ol>
-<li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">create a personal access token</a>
-<ul>
-<li>needs write access to your repo</li>
-</ul>
-</li>
-<li><a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">create a secret</a>
-<ul>
-<li>Name must be <code>SDV_GITHUB_AUTOMATION_TOKEN</code></li>
-</ul>
-</li>
-<li>paste the PAT into the secret</li>
-</ol>
 <h3 id="run-github-workflow">Run GitHub Workflow</h3>
 <ul>
 <li>Make modification to your file, e.g. remove the last empty line from <code>src/SeatAdjusterApp/seatadjuster.py</code></li>
@@ -1926,22 +1905,6 @@ You can either try it out directly in the browser or also use it inside Visual S
 <p>Now that the <code>CI Workflow</code> was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image.</p>
 <h3 id="release-the-vehicle-app-to-push-it-to-the-container-registry">Release the Vehicle App to push it to the container registry</h3>
 <ul>
-<li>In order to deploy the Vehicle App you need to configure the container registry credentials first:
-<ul>
-<li>Open <code>Settings</code>, go to <code>Secrets</code>, click on <code>Manage your environments and add repository secrets</code> and add the following secret (button <code>Add Secret</code>):
-<ul>
-<li>Name: OTA_SYSTEM_CREDENTIALS</li>
-<li>Value:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;CONTAINER_REGISTRY &#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;your container registry&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;REGISTRY_USER &#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;your username&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;REGISTRY_PASSWORD  &#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;your password&gt;&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div></li>
-</ul>
-</li>
-</ul>
-</li>
 <li>Open the <code>Code</code> page of your repository on GitHub.com and click on <code>Create a new release</code> in the Releases section on the right side</li>
 <li>Enter a version and click on <code>Publish release</code>
 <ul>
