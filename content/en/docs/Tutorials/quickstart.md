@@ -228,17 +228,6 @@ Now that the `CI Workflow` was successful, you are ready to build your first rel
 
 ### Release the Vehicle App to push it to the container registry
 
-- In order to deploy the Vehicle App you need to configure the container registry credentials first:
-  - Open `Settings`, go to `Secrets`, click on `Manage your environments and add repository secrets` and add the following secret (button `Add Secret`):
-    - Name: OTA_SYSTEM_CREDENTIALS
-    - Value:
-      ```json
-      {
-        "CONTAINER_REGISTRY ": "<your container registry>",
-        "REGISTRY_USER ": "<your username>",
-        "REGISTRY_PASSWORD  ": "<your password>"
-      }
-      ```
 - Open the `Code` page of your repository on GitHub.com and click on `Create a new release` in the Releases section on the right side
 - Enter a version and click on `Publish release`
   - Note: you can start the verion with a `v` which will be removed though, e.g. "v1.0.0" will result in a "1.0.0" (see [vesion-without-v](https://github.com/battila7/get-version-action)).
