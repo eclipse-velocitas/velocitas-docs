@@ -205,20 +205,6 @@ Let's send a message to your Vehicle App using the mqtt broker that is running i
 
 GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find [here](https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md).
 
-### Prerequisites
-
-In order to run the workflow succesfully inside the SDV-Org, we are using a PAT of the technical user `swd9be`. He needs write access to all repos created from the template repository. Furthermore this user needs read access to the following repositories:
-* vehicle-app-python-sdk
-* vehicle-model-python
-* license-check
-
-When using the template outside of the SDV-Org some additional steps need to be done:
-1. [create a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-   + needs write access to your repo
-1. [create a secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
-   + Name must be `SDV_GITHUB_AUTOMATION_TOKEN`
-1. paste the PAT into the secret
-
 ### Run GitHub Workflow
 
 - Make modification to your file, e.g. remove the last empty line from `src/SeatAdjusterApp/seatadjuster.py`
