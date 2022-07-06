@@ -47,7 +47,7 @@ Specifications like VSS support a concept that is called [Instances](https://cov
 
 ### Service
 
-Direct synchronous communication between Vehicle Apps and Vehicle Services is supposed to be facilitated over the [gRPC](https://grpc.io) protocol.
+Direct synchronous communication between Vehicle Apps and Vehicle Services is  facilitated via the [gRPC](https://grpc.io) protocol.
 
 The SDK has its own `Service` base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a Vehicle Service or another Vehicle App. Please see the [Middleware Integration](#middleware-integration) section for more details.
 
@@ -185,6 +185,7 @@ vehicle_data = vehicle.CurrentLocation.Latitude.join(
 print(f'
     Latitude: {vehicle_data.CurrentLocation.Latitude}
     Longitude: {vehicle_data.CurrentLocation.Longitude}
+    ')
 
 # Call to broker:
 # GetDataPoint(rule="SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude")
@@ -279,8 +280,10 @@ class SeatAdjusterApp(VehicleApp):
         self.vehicle = vehicle
 
 async def main():
-    seat_adjuster_talent = SeatAdjusterApp(vehicle)
-    await seat_adjuster_talent.run()
+    # Main function
+    logger.info("Starting seat adjuster app...")
+    seat_adjuster_app = SeatAdjusterApp(vehicle)
+    await seat_adjuster_app.run()
 
 
 LOOP = asyncio.get_event_loop()
@@ -288,3 +291,20 @@ LOOP.add_signal_handler(signal.SIGTERM, LOOP.stop)
 LOOP.run_until_complete(main())
 LOOP.close()
 ````
+
+## Further information
+
+### Vehicle Apps SDK Documentation
+
+- [Python SDK Overview](/python-sdk/python_vehicle_app_sdk_overview.md)
+- Coming soon: Rust SDK Overview
+
+### Working with Vehicle Models
+
+- Walkthrough: [Creating a Python Vehicle Model](/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md)
+- Coming soon: Creating a Rust Vehicle Model
+
+### Working with Vehicle Apps
+
+- Walkthrough: [Creating a Python Vehicle App](/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md)
+- Coming soon: Creating a Rust Vehicle App
