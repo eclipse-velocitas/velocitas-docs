@@ -20,7 +20,7 @@ aliases:
   - [Add Dapr support to the vehicle service](#add-dapr-support-to-the-vehicle-service)
     - [Metadata](#metadata)
     - [Connection status with Dapr](#connection-status-with-dapr)
-  - [Interaction with the vehicle data broker (optional)](#interaction-with-the-vehicle-data-broker-optional)
+  - [Interaction with the KUKSA Data Broker (optional)](#interaction-with-the-kuksa-data-broker-optional)
   - [Next steps](#next-steps)
     - [Vehicle Apps SDK documentation](#vehicle-apps-sdk-documentation)
     - [Vehicle App development](#vehicle-app-development)
@@ -39,7 +39,7 @@ Following steps are needed to create a vehicle service:
 - Implement the service
 - Add support for [Dapr](https://dapr.io) middleware
 - (optional) Implement simulation
-- (optional) Interaction with the vehicle data broker
+- (optional) Interaction with the KUKSA data broker
 
 ## Define a service interface
 
@@ -86,7 +86,7 @@ A vehicle service implementation ..
 
 ### Connection status
 
-To be able to detect connectivity problems users of a gRPC service, e.g., for [ feeding data to the data broker](#interaction-with-the-vehicle-data-broker-optional), shall preferably monitor the gRPC connection state, see: [gRPC Connectivity Semantics and API ](https://grpc.github.io/grpc/core/md_doc_connectivity-semantics-and-api.html).
+To be able to detect connectivity problems users of a gRPC service, e.g., for [ feeding data to the data broker](#interaction-with-the-kuksa-data-broker-optional), shall preferably monitor the gRPC connection state, see: [gRPC Connectivity Semantics and API ](https://grpc.github.io/grpc/core/md_doc_connectivity-semantics-and-api.html).
 This can be used to report or log errors if the connection behaves differently than expected.
 
 ## Add Dapr support to the vehicle service
@@ -127,7 +127,7 @@ The following sequence in vehicle services is recommended:
 
 1. Create a gRPC Server and listen
 2. Wait for the sidecar (e.g., poll health endpoint or sleep )
-3. Execute gRPC proxying calls (e.g., against Vehicle Data Broker)
+3. Execute gRPC proxying calls (e.g., against KUKSA Data Broker)
 
 Example: A callback for the connectivity state in conjugation with retry to call the server:
 
@@ -167,12 +167,12 @@ Example: A callback for the connectivity state in conjugation with retry to call
 
 If the Dapr side car is ready to forward, communication can be checked with the [GRPC Health Checking Protocol ](https://grpc.github.io/grpc/core/md_doc_health-checking.html), see also [Python gRPC Health Checking](https://grpc.github.io/grpc/python/grpc_health_checking.html).
 
-## Interaction with the vehicle data broker (optional)
+## Interaction with the KUKSA Data Broker (optional)
 
-Use the [interface description of the vehicle data broker (\*.proto files)](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker/proto) to publish data to the vehicle data broker. In the `collector.proto` you find methods to
+Use the [interface description of the KUKSA data broker (\*.proto files)](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker/proto) to publish data to the data broker. In the `collector.proto` you find methods to
 
 1.  register datapoints `RegisterDatapoints`, afterwards you can
-2.  feed data via single calls `UpdateDatapoints` or in a stream manner `StreamDatapoints`
+2.  feed data via single calls `UpdateDatapoints` or in a stream manner `StreamDatapoints`.
 
 See the \*.proto files for a detailed description.
 

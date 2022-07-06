@@ -20,7 +20,7 @@ The Python Vehicle App SDK consists of the following building blocks:
 
 - **[Middleware integration](#middleware-integration)**: Vehicle Models can contain gRPC stubs to communicate with Vehicle Services. gRPC communication is integrated with the [Dapr](https://dapr.io) middleware for service discovery and [OpenTelemetry](https://opentelemetry.io) tracing.
 
-- **[Fluent query & rule construction](#Fluent-query--rule-construction)**: Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the Vehicle Data Broker to access the real values of the data points that are defined in the vehicle model.
+- **[Fluent query & rule construction](#Fluent-query--rule-construction)**: Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.
 
 - **[Publish & subscribe messaging](#publish--subscribe-messaging)**: The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.
 
@@ -162,7 +162,7 @@ The underlying gRPC channel is provided and managed by the Service base class of
 
 ## Fluent query & rule construction
 
-A set of query methods like `get()`, `where()`, `join()` etc. are provided through the `Model` and `DataPoint` base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the Vehicle Data Broker.
+A set of query methods like `get()`, `where()`, `join()` etc. are provided through the `Model` and `DataPoint` base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Data Broker.
 
 ### Query examples
 
@@ -264,11 +264,11 @@ async def main():
 
 ## Vehicle App abstraction
 
-`Vehicle Apps` are inherited from the `VehicleApp` base class. This enables the `Vehicle App` to use the Publish & subscribe messaging and the Vehicle Data Broker.
+`Vehicle Apps` are inherited from the `VehicleApp` base class. This enables the `Vehicle App` to use the Publish & subscribe messaging and the KUKSA Data Broker.
 
 The `Vehicle Model` instance is passed to the `__init__` method of the `VehicleApp` class and should be stored in a `self.vehicle` attribute, to be used in event handler functions.
 
-Finally, the `run()` method of the `VehicleApp` class is called to start the `Vehicle App` and register all MQTT topic and Vehicle Data Broker subscriptions. The subscriptions are based on `asyncio`, which makes it necessary to call the `run()` method with an active `asyncio event_loop`.
+Finally, the `run()` method of the `VehicleApp` class is called to start the `Vehicle App` and register all MQTT topic and Data Broker subscriptions. The subscriptions are based on `asyncio`, which makes it necessary to call the `run()` method with an active `asyncio event_loop`.
 
 A typical skeleton of a `Vehicle App` looks like this:
 

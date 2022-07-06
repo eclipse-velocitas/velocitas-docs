@@ -8,12 +8,12 @@ aliases:
 
 ## Using tasks in Visual Studio Code
 
-**Overview:** If you are developing in Visual Studio Code, the runtime components (like _Vehicle Data Broker_ or _Vehicle Services_) are available for local execution as _Tasks_, a feature of the Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
+**Overview:** If you are developing in Visual Studio Code, the runtime components (like _KUKSA Data Broker_ or _Vehicle Services_) are available for local execution as _Tasks_, a feature of the Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
 
 **Quick Start:** Each component has a task that is defined in _.vscode/tasks.json_:
 * Dapr (```Local - Ensure Dapr```): installs Dapr CLI and initializes Dapr if required
 * Mosquitto (```Local - Mosquitto```): runs _Mosquitto_ as a container (```docker run```)
-* Vehicle Data Broker (```Local - VehicleDataBroker```): downloads and runs _Vehicle Data Broker_
+* KUKSA Data Broker (```Local - VehicleDataBroker```): downloads and runs _KUKSA Data Broker_
 * (Optional) Seat Service (```Local - SeatService```): downloads and runs _Seat Service_, an example `Vehicle Service`
 * (Optional) Feeder Can (```Local - FeederCan```): downloads and runs _FeederCAN_
 
@@ -30,9 +30,9 @@ aliases:
 
 The version for the runtime services is defined in the file [`./prerequisite_settings.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/prerequisite_settings.json). If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.
 
-## Using Vehicle Databroker CLI
+## Using KUKSA Data Broker CLI
 
-A CLI tool is provided for the interact with a running instance of the Vehicle Data Broker. It can be started by running the task `run-vehicledatabroker-cli`(by pressing _F1_, type _Run Task_ followed by `run-vehicledatabroker-cli`). The _Vehicle Data Broker_ needs to be running for you to be able to use the tool.
+A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task `run-vehicledatabroker-cli`(by pressing _F1_, type _Run Task_ followed by `run-vehicledatabroker-cli`). The _KUKSA Data Broker_ needs to be running for you to be able to use the tool.
 
 ## Integrating a new service into Visual Studio Code Task
 

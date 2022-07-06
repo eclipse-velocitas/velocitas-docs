@@ -30,24 +30,24 @@ The Vehicle Applications (aka. `Vehicle Apps`) contain the business logic that n
 
 ### Vehicle Models
 
-A Vehicle Model makes it possible to easily get vehicle data from the [Vehicle Data Broker](#vehicle-data-broker) and to execute remote procedure calls over gRPC against [Vehicle Services](#vehicle-services) and other [Vehicle Apps](#vehicle-apps). It is generated from the underlying [semantic models](#semantic-models) for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the [SDKs](#sdks).
+A Vehicle Model makes it possible to easily get vehicle data from the in-vehicle [Data Broker](#data-broker) and to execute remote procedure calls over gRPC against [Vehicle Services](#vehicle-services) and other [Vehicle Apps](#vehicle-apps). It is generated from the underlying [semantic models](#semantic-models) for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the [SDKs](#sdks).
 
 ### SDKs
 
 To reduce the effort required to implement [Vehicle Apps](#vehicle-apps), Velocitas provides a set of SDKs for different programming languages. A first SDK is available for Python, further SDKs for Rust and C/C++ are planned.
-Next to a [Vehicle Apps](#vehicle-apps) abstraction, the SDKs are [Middleware](#middleware)-enabled, provide connectivity to the [Vehicle Data Broker](#vehicle-data-broker) and contain the ontology in the form of base classes to create [Vehicle Models](#vehicle-models).
+Next to a [Vehicle Apps](#vehicle-apps) abstraction, the SDKs are [Middleware](#middleware)-enabled, provide connectivity to the [Data Broker](#data-broker) and contain the ontology in the form of base classes to create [Vehicle Models](#vehicle-models).
 
 ### Vehicle Services
 
-`Vehicle Services` provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. `Vehicle services` may feed data to the [Vehicle Data Broker](#vehicle-data-broker) and may expose gRPC endpoints, which can be invoked by [Vehicle Apps](#vehicle-apps) over a [Vehicle Model](#vehicle-models)
+`Vehicle Services` provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. `Vehicle services` may feed data to the [Data Broker](#data-broker) and may expose gRPC endpoints, which can be invoked by [Vehicle Apps](#vehicle-apps) over a [Vehicle Model](#vehicle-models)
 
-### Vehicle Data Broker
+### Data Broker
 
-Vehicle data is stored in the `Vehicle Data Broker` conforming to an underlying [Semantic Model](#semantic-models) like [VSS](https://covesa.github.io/vehicle_signal_specification/). [Vehicle Apps](#vehicle-apps) can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.
+Vehicle data is stored in the `Data Broker` conforming to an underlying [Semantic Model](#semantic-models) like [VSS](https://covesa.github.io/vehicle_signal_specification/). [Vehicle Apps](#vehicle-apps) can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.
 
 ### Semantic models
 
-The Vehicle Signal Specification ([VSS](https://covesa.github.io/vehicle_signal_specification/)) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between `Vehicle Apps` and the `vehicle data broker`.
+The Vehicle Signal Specification ([VSS](https://covesa.github.io/vehicle_signal_specification/)) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between `Vehicle Apps` and the `Data Broker`.
 
 The Vehicle Service Catalog ([VSC](https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog)) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of `Vehicle Services` and `Vehicle Apps`.
 
@@ -57,7 +57,7 @@ The Velocitas SDK is using ([VSS](https://covesa.github.io/vehicle_signal_specif
 
 ### Communication Protocols
 
-Asynchronous communication between [Vehicle Apps](#vehicle-apps) and other vehicle components, as well as cloud connectivity, is facilitated through [MQTT](https://mqtt.org/) messaging. Direct, synchronous communication between [Vehicle Apps](#vehicle-apps), [Vehicle Services](#vehicle-services) and the [Vehicle Data Broker](#vehicle-data-broker) is based on the [gRPC](https://grpc.io/) protocol.
+Asynchronous communication between [Vehicle Apps](#vehicle-apps) and other vehicle components, as well as cloud connectivity, is facilitated through [MQTT](https://mqtt.org/) messaging. Direct, synchronous communication between [Vehicle Apps](#vehicle-apps), [Vehicle Services](#vehicle-services) and the [Data Broker](#data-broker) is based on the [gRPC](https://grpc.io/) protocol.
 
 ### Middleware
 

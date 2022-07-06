@@ -13,7 +13,7 @@ Besides [local execution](/docs/run_runtime_services_locally.md), another way of
 * Core tasks (dependent on each other in the given order):
   * ```K3D - Install prerequisites```: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them.
   * ```K3D - Configure control plane```: Creates a local container registry used by K3D as well as an K3D cluster with Dapr enabled.
-  * ```K3D - Deploy runtime```: Deploys the runtime components (like Vehicle Data Broker, Seat Service, ...) within the K3D cluster.
+  * ```K3D - Deploy runtime```: Deploys the runtime components (like KUKSA Data Broker, Seat Service, ...) within the K3D cluster.
   * ```K3D - Build SeatAdjusterApp```: Builds the SeatAdjusterApp and pushes it to the local K3D registry.
   * ```K3D - Deploy SeatAdjusterApp```: Builds and deploys the SeatAdjusterApp via Helm to the K3D cluster.
 
@@ -25,7 +25,7 @@ Each task has the required dependencies defined. If you want to run the runtime 
   * ```K3D - Uninstall runtime```: Uninstalls the runtime components from the K3D cluster (without deleting the cluster).
   * ```K3D - Reset control plane```: Deletes the K3D cluster and the registry with all deployed pods/services.
 
-K3D is configured so that _Mosquitto_ and the _Vehicle Data Broker_ can be reached from outside the container over the ports ```31883``` (Mosquitto) and ```30555```(Vehicle Data Broker). The test runner, that is running outside of the cluster, can interact with these services over those ports.
+K3D is configured so that _Mosquitto_ and the _KUKSA Data Broker_ can be reached from outside the container over the ports ```31883``` (Mosquitto) and ```30555```(KUKSA Data Broker). The test runner, that is running outside of the cluster, can interact with these services over those ports.
 
 To check the status of your K3D instance (running pods, containers, logs, ...) you can either use the ```kubectl``` utility or start _K9s_ (after running the task ```K3D - Install tooling``` once) in a terminal window to have a UI for interacting with the cluster.
 

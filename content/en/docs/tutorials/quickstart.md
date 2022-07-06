@@ -139,7 +139,7 @@ Once everything is set up in the Codespace, you can work with it in the same way
 
 ## Starting runtime services
 
-The runtime services (like _Vehicle Data Broker_ or _Vehicle Services_) are required to develop vehicle apps and run integration tests.
+The runtime services (like _KUKSA Data Broker_ or _Vehicle Services_) are required to develop vehicle apps and run integration tests.
 
 A Visual Studio Code task called `Start Vehicle App runtime` is available to run these in the correct order. Click `F1`, select command `Tasks: Run Task`, select `Start VehicleApp runtime` and `Continue without scanning the output`.
 
