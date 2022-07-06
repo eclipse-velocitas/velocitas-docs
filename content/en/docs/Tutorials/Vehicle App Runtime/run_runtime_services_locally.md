@@ -2,7 +2,7 @@
 title: "Run runtime services locally"
 date: 2022-05-09T13:43:25+05:30
 aliases:
-  - /docs/run_runtime_services_locally.md
+  - /docs/tutorials/run_runtime_services_locally.md
 ---
 
 ## Using tasks in Visual Studio Code

@@ -5,7 +5,7 @@ weight: 3
 description: >
   Learn how to develop and test the Vehicle App.
 aliases:
-  - /docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md
+  - /docs/tutorials/tutorial_how_to_create_a_vehicle_app.md
 ---
 
 > We recommend that you make yourself familiar with the [Python Vehicle App SDK](/python-sdk/python_vehicle_app_sdk_overview.md) first, before going through this tutorial.

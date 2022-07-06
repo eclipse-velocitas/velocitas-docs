@@ -3,7 +3,7 @@ title: "Python Vehicle App SDK"
 date: 2022-05-09T13:43:25+05:30
 weight: 2
 aliases:
-  - /Concepts/python_vehicle_app_sdk_overview.md
+  - /docs/concepts/python_vehicle_app_sdk_overview.md
 resources:
 - src: "**pyhon_sdk_overview*.png"
 description: >

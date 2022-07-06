@@ -1,9 +1,9 @@
 ---
-title: "Runtime and Deployment Model"
+title: "Velocitas Deployment Model"
 date: 2022-05-09T13:43:25+05:30
 weight: 4
 aliases:
-  - /docs/velocitas/docs/runtime-deployment-model.md
+  - /docs/concepts/deployment-model.md
 description: >
   Learn more about our deployment model and guiding principles.
 ---

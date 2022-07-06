@@ -3,7 +3,7 @@ title: "Development Model"
 date: 2022-05-09T13:45:12+05:30
 weight: 1
 aliases:
-  - /docs/development-model.md
+  - /docs/concepts/development-model.md
 resources:
 - src: "**programming_model*.png"
 - src: "**build_procedure*.png"

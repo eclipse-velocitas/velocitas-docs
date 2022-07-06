@@ -5,7 +5,7 @@ weight: 5
 description: >
   Learn how to test that a Vehicle App together with the Vehicle Data Broker and potentially other dependant Vehicle Services or Vehicle Apps runs as expected.
 aliases:
-  - /docs/integration_tests.md
+  - /docs/tutorials/integration_tests.md
 ---
 
 To be sure that a newly created _Vehicle App_ will run together with the _Vehicle Data Broker_ and potentially other dependant _Vehicle Services_ or _Vehicle Apps_, it's essential to write integration tests along with developing the app.

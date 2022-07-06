@@ -2,7 +2,7 @@
 title: "Run runtime services in Kubernetes"
 date: 2022-05-09T13:43:25+05:30
 aliases:
-  - /docs/run_runtime_services_kubernetes.md
+  - /docs/tutorials/run_runtime_services_kubernetes.md
 ---
 
 Besides [local execution](/docs/run_runtime_services_locally.md), another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code _Tasks_, a feature of Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
@@ -52,5 +52,14 @@ More information about FeederCan can be found [here](https://github.com/eclipse/
 
 ## Next steps
 
-- [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
+### Deploy a Vehicle App with Helm
+
+- Walkthrough: [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
+
+### Deploy runtime services locally
+
 - [Deploy runtime services locally](/docs/run_runtime_services_locally.md)
+
+### Deploy a Vehicle App with Helm
+
+- Walkthrough: [Deploy a Python Vehicle App with Helm](/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
