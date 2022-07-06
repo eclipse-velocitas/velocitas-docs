@@ -182,9 +182,5 @@ After the Helm chart has been prepared, you can deploy it to local K3D.
 This script builds the local source code of the application into a container, pushes that container to the local cluster registry and deploys the app via a helm chart to the K3D cluster. Rerun this script after you have changed the source code of your application to re-deploy with the latest changes.
 
 ## Next steps
-
-### Runtime services
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
-
-### Release and deploy
 - Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)

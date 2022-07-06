@@ -382,18 +382,10 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.
 
 ## Next steps
-
-### Vehicle Apps SDK documentation
 - Concept: [Python SDK Overview](/docs/concepts/python_vehicle_app_sdk_overview.md)
-
-### Runtime services
 - Tutorial: [Deploy runtime services in Kubernetes mode](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
-- 
-### Vehicle App development
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
-
-### Release and deploy
 - Concept: [Deployment Model](/docs/concepts/deployment-model.md)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

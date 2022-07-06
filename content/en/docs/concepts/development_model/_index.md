@@ -112,16 +112,10 @@ The starting point for developing [Vehicle Apps](#vehicle-apps) is a [Semantic M
 
 After a [Vehicle Model](#vehicle-models) is available for the chosen programming language, the [Vehicle App](#vehicle-apps) can be developed using the generated Vehicle Model and its core SDK.
 
-## Next steps
-
-### Vehicle Apps SDK documentation
+## Further information
 - Concept: [Python SDK Overview](/docs/concepts/python_vehicle_app_sdk_overview.md)
-
-### Vehicle App development
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 - Tutorial: [Create a Python Vehicle App](/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
-
-### Release and deploy
 - Concept: [Deployment Model](/docs/concepts/deployment-model.md)

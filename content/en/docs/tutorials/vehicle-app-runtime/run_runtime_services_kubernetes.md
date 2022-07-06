@@ -52,14 +52,8 @@ FeederCAN requires candump file. Pre-defined candump file is part of docker cont
 More information about FeederCan can be found [here](https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders)
 
 ## Next steps
-
-### Runtime services
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
-  
-### Vehicle App development
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
-
-### Release and deploy
 - Concept: [Deployment Model](/docs/concepts/deployment-model.md)
 - Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

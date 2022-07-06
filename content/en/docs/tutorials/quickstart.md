@@ -236,7 +236,7 @@ Now that the `CI Workflow` was successful, you are ready to build your first rel
   - Open `Actions` on the repoitory and see the result
 
 ## Next steps
-
-- [Walkthrough: Create a Python Vehicle App](/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md)
-- [Deploy runtime services in Kubernetes mode](/docs/run_runtime_services_kubernetes.md)
-- [Develop and run integration tests for a Vehicle App](/docs/integration_tests.md)
+- Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Create a Python Vehicle App](/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md)
+- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
+- Concept: [Development Model](/docs/concepts/development-model.md)

@@ -294,8 +294,6 @@ LOOP.close()
 ````
 
 ## Further information
-  
-### Vehicle App development
 - Concept: [Development Model](/docs/concepts/development-model.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)

@@ -76,7 +76,4 @@ If there is a need to maintain multiple versions of a Vehicle App, e.g., to hotf
 The release process would be the same as described in the overview, except that a release branch (e.g., `release/v1.0`) is created before the release step and the GitHub release is based on the `release` branch rather than the `main` branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.
 
 ## Further information
-
-### Deploy a Vehicle App with Helm
-
-- Walkthrough: [Deploy a Python Vehicle App with Helm](/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm)
