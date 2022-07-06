@@ -26,10 +26,10 @@ If the Vehicle App has been created from the Python template repository, a sampl
 This will be adapted to deploy a new vehicle app, which is called `my_vehicle_app` for this walkthrough.
 
 1. Start Visual Studio Code and open the previously created Vehicle App repository.
-2. Create a new folder `my_vehicle_app` under `deploy`
-3. Copy all files from the `deploy/SeatAdjusterApp` folder to the new folder `deploy/my_vehicle_app`.
-4. Rename the file `deploy/my_vehicle_app/helm/templates/seatadjuster.yaml` to `deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml`
-5. Open `deploy/my_vehicle_app/helm/Chart.yaml` and change the name of the chart to `my_vehicle_app` and provide a meaningful description.
+1. Create a new folder `my_vehicle_app` under `deploy`
+1. Copy all files from the `deploy/SeatAdjusterApp` folder to the new folder `deploy/my_vehicle_app`.
+1. Rename the file `deploy/my_vehicle_app/helm/templates/seatadjuster.yaml` to `deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml`
+1. Open `deploy/my_vehicle_app/helm/Chart.yaml` and change the name of the chart to `my_vehicle_app` and provide a meaningful description.
 
    ```yaml
    apiVersion: v2
@@ -156,7 +156,7 @@ This will be adapted to deploy a new vehicle app, which is called `my_vehicle_ap
 
 At this point, the Helm chart and the sh-script are ready to use and folder structure under `deploy/my_vehicle_app` should look like this:
 
-```
+``` bash
 deploy
 ├── my_vehicle_app
 │   └── helm
@@ -176,8 +176,11 @@ deploy
 - A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/run_runtime_services_kubernetes.md).
 
 After the Helm chart has been prepared, you can deploy it to local K3D.
+Execute the script:
 
-1. Execute the script `deploy/my_vehicle_app/deploy-my-vehicle-app.sh`.
+``` bash
+deploy/my_vehicle_app/deploy-my-vehicle-app.sh
+```
 
 This script builds the local source code of the application into a container, pushes that container to the local cluster registry and deploys the app via a helm chart to the K3D cluster. Rerun this script after you have changed the source code of your application to re-deploy with the latest changes.
 
