@@ -21,9 +21,12 @@ This section describes how to develop your first Vehicle App. Before you start b
 - [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
 - [How to create a Vehicle Model](/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md)
 
-Once you have established a working environment, you will be able to start developing your first Vehicle App.
+Once you have established your development environment, you will be able to start developing your first Vehicle App.
 
-For this purpose, we assume a usecase having a vehicle where we can change the positions of the seats and also get their current positions.
+For this tutorial, you will recreate the SeatAdjuster example that is included with the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template): 
+The Vehicle app allows to change the positions of the seats in the car and also provide their current positions to other applications.
+
+A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
 
 At first, you have to create the main python script called `run.py` in `src/`. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:
 
@@ -42,11 +45,14 @@ import json
 import logging
 import signal
 
-from sdv.util.log import get_default_date_format, get_default_log_format
-from sdv.vehicle_app import VehicleApp, subscribe_data_points, subscribe_topic
-
-from set_position_request_processor import SetPositionRequestProcessor
-from vehicle_model.Vehicle import Vehicle
+import grpc
+from sdv.util.log import (  # type: ignore
+    get_opentelemetry_log_factory,
+    get_opentelemetry_log_format,
+)
+from sdv.vehicle_app import VehicleApp, subscribe_topic
+from sdv_model import Vehicle, vehicle  # type: ignore
+from sdv_model.proto.seats_pb2 import BASE, SeatLocation  # type: ignore
 ```
 
 #### Enable logging
@@ -54,7 +60,8 @@ from vehicle_model.Vehicle import Vehicle
 The following logging configuration applies the default log format provided by the SDK and sets the log level to INFO:
 
 ```Python
-logging.basicConfig(format=get_default_log_format(), datefmt=get_default_date_format())
+logging.setLogRecordFactory(get_opentelemetry_log_factory())
+logging.basicConfig(format=get_opentelemetry_log_format())
 logging.getLogger().setLevel("INFO")
 logger = logging.getLogger(__name__)
 ```
@@ -72,7 +79,7 @@ In class initialization, you have to pass an instance of the Vehicle Model:
 ```Python
 def __init__(self, vehicle_client: Vehicle):
     super().__init__()
-    self.vehicle_client = vehicle_client
+    self.Vehicle = vehicle_client
 ```
 
 We save the vehicle object to use it in our app. Now, you have initialized the app and can continue developing relevant methods.
@@ -111,7 +118,7 @@ As you know, the model has a single [Datapoint](#datapoints) for the speed and a
 Accessing the speed can be done via
 
 ```Python
-vehicle_speed = await self.vehicle_client.Speed.get()
+vehicle_speed = await self.Vehicle.Speed.get()
 ```
 
 As the `get`-method of the Datapoint-class there is a coroutine and you have to use the `await` keyword when using it.
@@ -122,31 +129,39 @@ If you want to get deeper inside the vehicle, to access a single seat for exampl
 self.DriverSeatPosition = await self.vehicle_client.Cabin.Seat.Row1.Pos1.Position.get()
 ```
 
-## Subscribtion to Datapoints
+## Subscription to Datapoints
 
-As you have already seen in the Vehicle Models, `Datapoints` are objects that contain just a single type of data. You can also use them directly in your app as already seen in the section above with the example of the vehicle speed.
+If you want to get notified about changes of a specific `Datapoint`, you can subscribe to this event, e.g. as part of the "on_start"-method in your app. 
 
-If you want to get notified about the changes of a `Datapoint`, you can subscribe to this event. To get notified when, for example, the position of a seat changes, you create a method, which is annotated with`@subscribe_data_points` defined by the whole path to the `Datapoint` of interest.
+```Python
 
-In the method body, you can handle the information and send out MQTT messages. Notice that you get the data as a `JSON`-object and have to handle it accordingly.
+    async def on_start(self):
+        """Run when the vehicle app starts"""
+        await self.Vehicle.Cabin.Seat.element_at(1, 1).Position.subscribe(
+            self.on_seat_position_changed
+        )
+
+    async def on_seat_position_changed(self, data):
+        # handle the event here
+        response_topic = "seatadjuster/currentPosition"
+        seat_path = self.Vehicle.Cabin.Seat.element_at(1, 1).Position.get_path()
+        response_data = {"position": data.fields[seat_path].uint32_value}
+
+```
+Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked envery datapoint update. Subscribed data is available in the respective *data.fields* value and are accessed by their complete path.
+
+The SDK also supports annotations for subscribing to datapoint changes  with`@subscribe_data_points` defined by the whole path to the `Datapoint` of interest.
 
 ```Python
 @subscribe_data_points("Vehicle.Cabin.Seat.Row1.Pos1.Position")
 async def on_vehicle_seat_change(self, data):
-    resp_data = data.fields["Vehicle.Cabin.Seat.Row1.Pos1.Position"].int32_value
-    req_data = {"position": resp_data}
-    logger.info("Current Position of the Vehicle Seat is: %s", req_data)
-    try:
-        await self.publish_mqtt_event(
-            "seatadjuster/currentPosition", json.dumps(req_data)
-        )
-    except Exception as ex:
-        logger.info("Unable to get Current Seat Position, Exception: %s", ex)
-        resp_data = {"requestId": data["requestId"], "status": 1, "message": ex}
-        await self.publish_mqtt_event(
-            "seatadjuster/currentPosition", json.dumps(resp_data)
-        )
+    response_topic = "seatadjuster/currentPosition"
+    response_data = {"position": data.fields["Vehicle.Cabin.Seat.Row1.Pos1.Position"].uint32_value}
+
+    await self.publish_mqtt_event(response_topic, json.dumps(response_data))
 ```
+
+Similarly, subscribed data is available in the respective *data.fields* value and are accessed by their complete path.
 
 ## Services
 
@@ -161,7 +176,9 @@ await self.vehicle_client.Cabin.SeatService.MoveComponent(
     )
 ```
 
-We have to use the `await` keyword here, since the service methods are co-routines. In order to know which seat to move, you have to pass a `SeatLocation` object as the first parameter. The second argument specifies the component to be moved. The possible components are defined in the proto-files. The last parameter to be passed into the method is the final position of the component.
+In order to know which seat to move, you have to pass a `SeatLocation` object as the first parameter. The second argument specifies the component to be moved. The possible components are defined in the proto-files. The last parameter to be passed into the method is the final position of the component.
+
+> Make sure to use the `await` keyword when calling service methods, since these methods are co-routines. 
 
 ### MQTT
 
@@ -169,105 +186,58 @@ Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto M
 
 In the [general section](/docs/getting-started/quickstart/#send-mqtt-messages-to-vehicle-app) about the Vehicle App, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `Datapoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
-In order to receive the MQTT messages inside your app, `@subscribe_topic` annotation needs to be used with the specified topic. In the method, you can process the data or forward it to another method that handles processing and also provides a response.
+
+In order to receive and process MQTT messages inside your app, simply use the `@subscribe_topic` annotations from the SDK:
 
 ```Python
-@subscribe_topic("seatadjuster/setPosition/request")
-async def on_set_position_request_received(self, data: str) -> None:
-    """Handle set position request from GUI app from MQTT topic"""
-    data = json.loads(data)
-    logger.info("Set Position Request received: data=%s", data)  # noqa: E501
-    await self._on_set_position_request_received(
-        data, "seatadjuster/setPosition/response"
-    )
+    @subscribe_topic("seatadjuster/setPosition/request")
+    async def on_set_position_request_received(self, data_str: str) -> None:
+        data = json.loads(data_str)
+        response_topic = "seatadjuster/setPosition/response"
+        response_data = {"requestId": data["requestId"], "result": {}}
+        
+        # ...
 ```
+The `on_set_position_request_received` method will now be invoked every time a message is created on the subscribed topic `"seatadjuster/setPosition/response"`. The message data (string) is provided as parameter. In the example above the data is parsed to json (`data = json.loads(data_str)`).
 
-This method contains logic to execute requested operations or if that is not possible, respond with an error message. Another class, which you see next, is used to process the request. 
+In order to publish data to other subscribers, the SDK provides the appropriate convenience method: `self.publish_mqtt_event()`
 
 ```Python
-async def _on_set_position_request_received(
-    self, data: str, resp_topic: str
-) -> None:
-    vehicle_speed = await self.vehicle_client.Speed.get()
-
-    if vehicle_speed == 0:
-        processor = SetPositionRequestProcessor(self.vehicle_client)
-        await processor.process(data, resp_topic, self)
-    else:
-        error_msg = f"""Not allowed to move seat because vehicle speed
-            is {vehicle_speed} and not 0"""
-        logger.warning(error_msg)
-        resp_data = {
-            "requestId": data["requestId"],  # type: ignore
-            "status": 1,
-            "message": error_msg,
-        }
-        await self.publish_mqtt_event(resp_topic, json.dumps(resp_data))
+    async def on_seat_position_changed(self, data):
+        response_topic = "seatadjuster/currentPosition"
+        seat_path = self.Vehicle.Cabin.Seat.element_at(1, 1).Position.get_path()
+        await self.publish_mqtt_event(
+            response_topic,
+            json.dumps({"position": data.fields[seat_path].uint32_value}),
+        )
 ```
-
-The RequestProcessor class contains code responsible for processing the position request, including relevant MQTT communication.
-
-```Python
-class SetPositionRequestProcessor:
-    """A class to process position requests."""
-
-    def __init__(self, vehicle_client: Vehicle):
-        self.vehicle_client = vehicle_client
-
-    async def process(self, data: str, resp_topic: str, app: VehicleApp):
-        """Process the position request."""
-        resp_data = await self.__get_processed_response(data)
-        await self.__publish_data_to_topic(resp_data, resp_topic, app)
-
-    async def __get_processed_response(self, data):
-        try:
-            location = SeatLocation(row=1, index=1)
-            await self.vehicle_client.Cabin.SeatService.MoveComponent(
-                location, BASE, data["position"]  # type: ignore
-            )
-            resp_data = {"requestId": data["requestId"], "result": {"status": 0}}
-        except Exception as ex:
-            resp_data = {
-                "requestId": data["requestId"],
-                "result": {"status": 1, "message": self.__get_error_message_from(ex)},
-            }
-        return resp_data
-
-    async def __publish_data_to_topic(
-        self, resp_data: dict, resp_topic: str, app: VehicleApp
-    ):
-        try:
-            await app.publish_mqtt_event(resp_topic, json.dumps(resp_data))
-        except Exception as ex:
-            logger.error(self.__get_error_message_from(ex))
-
-    def __get_error_message_from(self, ex: Exception):
-        return f"Exception details: {ex}"
-
-```
+The above example illustrates how one can easily publish messages. In this case, every time the seat position changes, the new position is published to `seatadjuster/currentPosition`
 
 ## UnitTests
 
-Unit testing is an important part of the development, so let's have a look at how to do that. You can find some example tests in `test_set_position_request_processor.py`.
+Unit testing is an important part of the development, so let's have a look at how to do that. You can find some example tests in `test/integration_test.py`.
 First, you have to import the relevant packages for unit testing and everything you need for your implementation:
 
 ```Python
 from unittest import mock
-import pytest
 
+import pytest
 from sdv.vehicle_app import VehicleApp
-from vehicle_model.proto.seats_pb2 import BASE, SeatLocation
-from vehicle_model.SeatService import SeatService
+from sdv_model.Cabin.SeatService import SeatService  # type: ignore
+from sdv_model.proto.seats_pb2 import BASE, SeatLocation  # type: ignore
 ```
 
 ```Python
 @pytest.mark.asyncio
 async def test_for_publish_to_topic():
+    # Disable no-value-for-parameter, seems to be false positive with mock lib
+    # pylint: disable=no-value-for-parameter
+
     with mock.patch.object(
         VehicleApp, "publish_mqtt_event", new_callable=mock.AsyncMock, return_value=-1
     ):
         response = await VehicleApp.publish_mqtt_event(
-            str("sampleTopic"), get_sample_request_data()
+            str("sampleTopic"), get_sample_request_data()  # type: ignore
         )
         assert response == -1
 
@@ -412,4 +382,16 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 ## Next steps
 
+### Deploy a Vehicle App with Helm
+
 - [Walkthrough: Deploy a Python Vehicle App with Helm](/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+
+### Vehicle Apps SDK Documentation
+
+- [Python SDK Overview](/python-sdk/python_vehicle_app_sdk_overview.md)
+- Coming soon: Rust SDK Overview
+
+### Working with Vehicle Models
+
+- Walkthrough: [Creating a Python Vehicle Model](/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md)
+- Coming soon: Creating a Rust Vehicle Model

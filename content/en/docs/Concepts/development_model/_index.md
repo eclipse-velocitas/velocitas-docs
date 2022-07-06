@@ -29,7 +29,7 @@ The Vehicle Applications (aka. `Vehicle Apps`) contain the business logic that n
 
 ### Vehicle Models
 
-A Vehicle Model makes it possible to easily get vehicle data from the [Vehicle Data Broker](#vehicle-data-broker) and to execute remote procedure calls over gRPC against [Vehicle Services](#vehicle-services) and other [Vehicle Apps](#vehicle-apps). It is generated from the underlying [semantic models](#semantic-models) for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined in the [SDKs](#sdks).
+A Vehicle Model makes it possible to easily get vehicle data from the [Vehicle Data Broker](#vehicle-data-broker) and to execute remote procedure calls over gRPC against [Vehicle Services](#vehicle-services) and other [Vehicle Apps](#vehicle-apps). It is generated from the underlying [semantic models](#semantic-models) for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the [SDKs](#sdks).
 
 ### SDKs
 
@@ -42,7 +42,7 @@ Next to a [Vehicle Apps](#vehicle-apps) abstraction, the SDKs are [Middleware](#
 
 ### Vehicle Data Broker
 
-Vehicle data is stored in the `Vehicle Data Broker` conforming to an underlying [Semantic Model](#semantic-models) like VSS. [Vehicle Apps](#vehicle-apps) can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent. The storage of the vehicle data broker will be the vehicle twin that syncs its data to the cloud.
+Vehicle data is stored in the `Vehicle Data Broker` conforming to an underlying [Semantic Model](#semantic-models) like [VSS](https://covesa.github.io/vehicle_signal_specification/). [Vehicle Apps](#vehicle-apps) can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.
 
 ### Semantic models
 
@@ -52,23 +52,26 @@ The Vehicle Service Catalog ([VSC](https://github.com/COVESA/vehicle_service_cat
 
 As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language ([DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)) or BAMM Aspect Meta Model [BAMM](https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model) as well.
 
+The Velocitas SDK is using ([VSS](https://covesa.github.io/vehicle_signal_specification/)) as the sementic model for the Vehicle Model.
+
 ### Communication Protocols
 
-Asynchronous communication between [Vehicle Apps](#vehicle-apps) and other vehicle components as well as cloud connectivity is facilitated through [MQTT](https://mqtt.org/) messaging. Direct, synchronous communication between [Vehicle Apps](#vehicle-apps), [Vehicle Services](#vehicle-services) and the [Vehicle Data Broker](#vehicle-data-broker) is based on the [gRPC](https://grpc.io/) protocol.
+Asynchronous communication between [Vehicle Apps](#vehicle-apps) and other vehicle components, as well as cloud connectivity, is facilitated through [MQTT](https://mqtt.org/) messaging. Direct, synchronous communication between [Vehicle Apps](#vehicle-apps), [Vehicle Services](#vehicle-services) and the [Vehicle Data Broker](#vehicle-data-broker) is based on the [gRPC](https://grpc.io/) protocol.
 
 ### Middleware
 
-Velocitas leverages [dapr](https://dapr.io) for gRPC service discovery, Open Telemetry tracing and the [publish/subscribe building block](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/) as a higher-level abstraction over MQTT messaging.
+Velocitas leverages [dapr](https://dapr.io) for gRPC service discovery, Open Telemetry tracing and the [publish/subscribe building block](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/) which provides an abstraction of the MQTT messaging protocol.
 
 ### Vehicle Edge Operating System
 
 [Vehicle Apps](#vehicle-apps) are expected to run on a [Linux](https://www.linux.org/)-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., [Eclipse Mosquitto](https://mosquitto.org/)).
 
 ## Vehicle App characteristics
+The following aspects are important characterstics for [Vehicle Apps](#vehicle-apps): 
 
-### Code Base
+### Code base
 
-Every [Vehicle App](#vehicle-apps) is stored in its own repository. Tracked with version control, it can be deployed to multiple environments.
+Every [Vehicle App](#vehicle-apps) is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.
 
 ### Polyglot
 
@@ -84,7 +87,7 @@ Each [Vehicle App](#vehicle-apps) should execute in its own process and should b
 
 ### Configurations
 
-Configuration information is moved out of the [Vehicle App](#vehicle-apps), so that the same deployment can propagate across environments with the correct configuration applied.
+Configuration information is separated from the code base of the [Vehicle App](#vehicle-apps), so that the same deployment can propagate across environments with their respective configuration applied.
 
 ### Disposability
 
