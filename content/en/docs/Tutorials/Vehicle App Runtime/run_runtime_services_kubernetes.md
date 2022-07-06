@@ -52,14 +52,13 @@ More information about FeederCan can be found [here](https://github.com/eclipse/
 
 ## Next steps
 
-### Deploy a Vehicle App with Helm
+### Runtime services
+- Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
+  
+### Vehicle App development
+- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
 
-- Walkthrough: [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
-
-### Deploy runtime services locally
-
-- [Deploy runtime services locally](/docs/run_runtime_services_locally.md)
-
-### Deploy a Vehicle App with Helm
-
-- Walkthrough: [Deploy a Python Vehicle App with Helm](/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+### Release and deploy
+- Concept: [Deployment Model](/docs/concepts/deployment-model.md)
+- Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)
+- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

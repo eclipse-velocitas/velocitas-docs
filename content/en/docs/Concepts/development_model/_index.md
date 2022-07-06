@@ -113,17 +113,14 @@ After a [Vehicle Model](#vehicle-models) is available for the chosen programming
 
 ## Next steps
 
-### Vehicle Apps SDK Documentation
+### Vehicle Apps SDK documentation
+- Concept: [Python SDK Overview](/docs/concepts/python_vehicle_app_sdk_overview.md)
 
-- [Python SDK Overview](/python-sdk/python_vehicle_app_sdk_overview.md)
-- Coming soon: Rust SDK Overview
+### Vehicle App development
+- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
+- Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Create a Python Vehicle App](/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md)
+- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 
-### Working with Vehicle Models
-
-- Walkthrough: [Creating a Python Vehicle Model](/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md)
-- Coming soon: Creating a Rust Vehicle Model
-
-### Working with Vehicle Apps
-
-- Walkthrough: [Creating a Python Vehicle App](/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md)
-- Coming soon: Creating a Rust Vehicle App
+### Release and deploy
+- Concept: [Deployment Model](/docs/concepts/deployment-model.md)

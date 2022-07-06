@@ -182,4 +182,8 @@ This script builds the local source code of the application into a container, pu
 
 ## Next steps
 
-- [Release your Vehicle App](/docs/velocitas/docs/vehicle_app_releases.md)
+### Runtime services
+- Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
+
+### Release and deploy
+- Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)

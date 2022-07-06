@@ -127,3 +127,10 @@ The tests will be discovered and executed automatically in the [CI pipeline](htt
 - Make sure that the _Mosquitto_ up and running by checking the task log.
 - Make sure that you are using the right ports for local/Kubernetes execution.
 - Use VsMqtt extension to connect to MQTT broker (`localhost:1883` (local) or `localhost:31883` (Kubernetes)) to monitor topics in MQTT broker.
+
+## Next steps
+
+### Release and deploy
+- Concept: [Deployment Model](/docs/concepts/deployment-model.md)
+- Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)
+- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

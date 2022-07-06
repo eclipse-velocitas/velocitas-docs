@@ -382,16 +382,17 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 ## Next steps
 
-### Deploy a Vehicle App with Helm
+### Vehicle Apps SDK documentation
+- Concept: [Python SDK Overview](/docs/concepts/python_vehicle_app_sdk_overview.md)
 
-- [Walkthrough: Deploy a Python Vehicle App with Helm](/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+### Runtime services
+- Tutorial: [Deploy runtime services in Kubernetes mode](/docs/tutorials/run_runtime_services_kubernetes.md)
+- Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
+- 
+### Vehicle App development
+- Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 
-### Vehicle Apps SDK Documentation
-
-- [Python SDK Overview](/python-sdk/python_vehicle_app_sdk_overview.md)
-- Coming soon: Rust SDK Overview
-
-### Working with Vehicle Models
-
-- Walkthrough: [Creating a Python Vehicle Model](/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md)
-- Coming soon: Creating a Rust Vehicle Model
+### Release and deploy
+- Concept: [Deployment Model](/docs/concepts/deployment-model.md)
+- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

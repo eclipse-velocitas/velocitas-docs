@@ -85,5 +85,13 @@ If you are using Codespaces, remember that you are working on a remote agent. Th
 
 ## Next steps
 
-- [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
-- [Deploy runtime services in Kubernetes mode](/docs/run_runtime_services_kubernetes.md)
+### Runtime services
+- Tutorial: [Deploy runtime services in Kubernetes mode](/docs/tutorials/run_runtime_services_kubernetes.md)
+
+### Vehicle App development
+- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
+
+### Release and deploy
+- Concept: [Deployment Model](/docs/concepts/deployment-model.md)
+- Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)
+- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

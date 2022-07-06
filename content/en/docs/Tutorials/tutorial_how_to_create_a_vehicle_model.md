@@ -383,3 +383,12 @@ If you want to distribute your Python Vehicle Model inside an organization and u
 If you want to distribute your Python Vehicle Model publicly, you can do so by creating a Python package and distributing it on the [Python Package Index (PyPI)](https://pypi.org/). PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the `pip` command, you are already using PyPI.
 
 Detailed instructions on how to make a Python package available on PyPI can be found [here](https://packaging.python.org/tutorials/packaging-projects/).
+
+## Further information
+
+### Vehicle Apps SDK documentation
+- Concept: [Python SDK Overview](/docs/concepts/python_vehicle_app_sdk_overview.md)
+
+### Vehicle App development
+- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
+- Tutorial: [Create a Python Vehicle App](/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md)
