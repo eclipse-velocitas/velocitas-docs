@@ -35,4 +35,4 @@ Learn more about the concepts of the [Velocitas build and release workflows](/do
 
 ## Next steps
 
-- [Walkthrough: Deploy a Python Vehicle App with Helm](/docs/getting-started/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/)
+- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm)
