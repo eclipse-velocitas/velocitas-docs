@@ -63,7 +63,11 @@ jobs:
           npm i -g postcss postcss-cli autoprefixer
           echo "Build documentation for GitHub Pages"
           hugo --baseURL ${{ inputs.baseURL }}
-      
+
+      - name: Fixes
+        run: |
+          for f in public/docs/index.html public/docs/_print/index.html; do sed -i 's,/docs/contributing/contribution,${{ inputs.baseURL }}/docs/contributing/contribution,g' $f; done
+
       - name: Check
         continue-on-error: true
         run: |

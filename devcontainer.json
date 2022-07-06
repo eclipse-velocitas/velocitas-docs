@@ -1,8 +1,12 @@
 {
     "name": "eclipse-velocitas/velocitas-docs",
     "image": "mcr.microsoft.com/vscode/devcontainers/universal:latest",
-    "workspaceFolder": "/workspace",
-    "settings": {},
-    "extensions": [],
-    "forwardPorts": [1313]
+    "postCreateCommand": "bash scripts/postCreateCommand.sh",
+    "forwardPorts": [1313],
+    "appPort": [1313],
+    "portsAttributes": {
+      "1313": {
+        "label": "web"
+      }
+    }
 }
