@@ -8,7 +8,7 @@ description: >
   Learn more about the provided continuous integration, and release process of a Vehicle App.
 ---
 
-The Velocitas project provides a two-stage process for the development, continuous integration, and release of a new version of a Vehicle App.
+The Velocitas project provides a two-stage process for development, continuous integration, and release of a new version of a Vehicle App.
 
 - **Stage 1 - Build & Test**
   On every new push to the `main` branch, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts or in a container registry for future reference.
@@ -31,7 +31,7 @@ The `CI workflow` is triggered on every commit to the main branch and contains a
 - **Building a container for the app** - actions create a containerized version of the Vehicle App, the actions also support creating an image for multiple platforms.
 - **Scanning for vulnerabilities** - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as "failed".
 - **Running unit tests & code coverage** - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as "failed".
-- **Running integration tests** - actions provision a runtime and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marke as "failed".
+- **Running integration tests** - actions provision a runtime instance and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marked as "failed".
 - **Storing scan & test results as GitHub action artifacts** - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.
 - **Publish container images to GitHub Container Registry** - at the end of the workflow, the container images created are stored in a Github Container Registry so that they can be referenced by the release-workflow later.
 
