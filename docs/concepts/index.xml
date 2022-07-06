@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Velocitas – Concepts</title>
-    <link>/velocitas/docs/concepts/</link>
+    <link>/velocitas-docs/docs/concepts/</link>
     <description>Recent content in Concepts on Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/velocitas/docs/concepts/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/velocitas-docs/docs/concepts/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Development Model</title>
-      <link>/velocitas/docs/concepts/development_model/</link>
+      <link>/velocitas-docs/docs/concepts/development_model/</link>
       <pubDate>Mon, 09 May 2022 13:45:12 +0530</pubDate>
       
-      <guid>/velocitas/docs/concepts/development_model/</guid>
+      <guid>/velocitas-docs/docs/concepts/development_model/</guid>
       <description>
         
         
@@ -35,7 +35,7 @@
 
 
 &lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas/velocitas/docs/concepts/development_model/programming_model_hud2fec3852a7bf670c5b8a8b5db354a69_89799_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;674&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/programming_model_hud2fec3852a7bf670c5b8a8b5db354a69_89799_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;674&#34;&gt;
 	
 	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;
@@ -48,27 +48,29 @@
 &lt;h3 id=&#34;vehicle-apps&#34;&gt;Vehicle Apps&lt;/h3&gt;
 &lt;p&gt;The Vehicle Applications (aka. &lt;code&gt;Vehicle Apps&lt;/code&gt;) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; and its underlying language-specific &lt;a href=&#34;#sdks&#34;&gt;SDK&lt;/a&gt;. Many concepts of cloud-native and &lt;a href=&#34;https://12factor.net/&#34;&gt;twelve-factor&lt;/a&gt; applications apply to &lt;code&gt;Vehicle Apps&lt;/code&gt; as well and are summarized in the next chapter.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-models&#34;&gt;Vehicle Models&lt;/h3&gt;
-&lt;p&gt;A Vehicle Model makes it possible to easily get vehicle data from the &lt;a href=&#34;#vehicle-data-broker&#34;&gt;Vehicle Data Broker&lt;/a&gt; and to execute remote procedure calls over gRPC against &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and other &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. It is generated from the underlying &lt;a href=&#34;#semantic-models&#34;&gt;semantic models&lt;/a&gt; for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined in the &lt;a href=&#34;#sdks&#34;&gt;SDKs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A Vehicle Model makes it possible to easily get vehicle data from the &lt;a href=&#34;#vehicle-data-broker&#34;&gt;Vehicle Data Broker&lt;/a&gt; and to execute remote procedure calls over gRPC against &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and other &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. It is generated from the underlying &lt;a href=&#34;#semantic-models&#34;&gt;semantic models&lt;/a&gt; for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the &lt;a href=&#34;#sdks&#34;&gt;SDKs&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;sdks&#34;&gt;SDKs&lt;/h3&gt;
 &lt;p&gt;To reduce the effort required to implement &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;, Velocitas provides a set of SDKs for different programming languages. A first SDK is available for Python, further SDKs for Rust and C/C++ are planned.
 Next to a &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; abstraction, the SDKs are &lt;a href=&#34;#middleware&#34;&gt;Middleware&lt;/a&gt;-enabled, provide connectivity to the &lt;a href=&#34;#vehicle-data-broker&#34;&gt;Vehicle Data Broker&lt;/a&gt; and contain the ontology in the form of base classes to create &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-services&#34;&gt;Vehicle Services&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;Vehicle Services&lt;/code&gt; provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. &lt;code&gt;Vehicle services&lt;/code&gt; may feed data to the &lt;a href=&#34;#vehicle-data-broker&#34;&gt;Vehicle Data Broker&lt;/a&gt; and may expose gRPC endpoints, which can be invoked by &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; over a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-data-broker&#34;&gt;Vehicle Data Broker&lt;/h3&gt;
-&lt;p&gt;Vehicle data is stored in the &lt;code&gt;Vehicle Data Broker&lt;/code&gt; conforming to an underlying &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; like VSS. &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent. The storage of the vehicle data broker will be the vehicle twin that syncs its data to the cloud.&lt;/p&gt;
+&lt;p&gt;Vehicle data is stored in the &lt;code&gt;Vehicle Data Broker&lt;/code&gt; conforming to an underlying &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; like &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;VSS&lt;/a&gt;. &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.&lt;/p&gt;
 &lt;h3 id=&#34;semantic-models&#34;&gt;Semantic models&lt;/h3&gt;
 &lt;p&gt;The Vehicle Signal Specification (&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;VSS&lt;/a&gt;) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between &lt;code&gt;Vehicle Apps&lt;/code&gt; and the &lt;code&gt;vehicle data broker&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;The Vehicle Service Catalog (&lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog&#34;&gt;VSC&lt;/a&gt;) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of &lt;code&gt;Vehicle Services&lt;/code&gt; and &lt;code&gt;Vehicle Apps&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language (&lt;a href=&#34;https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md&#34;&gt;DTDL&lt;/a&gt;) or BAMM Aspect Meta Model &lt;a href=&#34;https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model&#34;&gt;BAMM&lt;/a&gt; as well.&lt;/p&gt;
+&lt;p&gt;The Velocitas SDK is using (&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;VSS&lt;/a&gt;) as the sementic model for the Vehicle Model.&lt;/p&gt;
 &lt;h3 id=&#34;communication-protocols&#34;&gt;Communication Protocols&lt;/h3&gt;
-&lt;p&gt;Asynchronous communication between &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; and other vehicle components as well as cloud connectivity is facilitated through &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; messaging. Direct, synchronous communication between &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;, &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and the &lt;a href=&#34;#vehicle-data-broker&#34;&gt;Vehicle Data Broker&lt;/a&gt; is based on the &lt;a href=&#34;https://grpc.io/&#34;&gt;gRPC&lt;/a&gt; protocol.&lt;/p&gt;
+&lt;p&gt;Asynchronous communication between &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; and other vehicle components, as well as cloud connectivity, is facilitated through &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; messaging. Direct, synchronous communication between &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;, &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and the &lt;a href=&#34;#vehicle-data-broker&#34;&gt;Vehicle Data Broker&lt;/a&gt; is based on the &lt;a href=&#34;https://grpc.io/&#34;&gt;gRPC&lt;/a&gt; protocol.&lt;/p&gt;
 &lt;h3 id=&#34;middleware&#34;&gt;Middleware&lt;/h3&gt;
-&lt;p&gt;Velocitas leverages &lt;a href=&#34;https://dapr.io&#34;&gt;dapr&lt;/a&gt; for gRPC service discovery, Open Telemetry tracing and the &lt;a href=&#34;https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/&#34;&gt;publish/subscribe building block&lt;/a&gt; as a higher-level abstraction over MQTT messaging.&lt;/p&gt;
+&lt;p&gt;Velocitas leverages &lt;a href=&#34;https://dapr.io&#34;&gt;dapr&lt;/a&gt; for gRPC service discovery, Open Telemetry tracing and the &lt;a href=&#34;https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/&#34;&gt;publish/subscribe building block&lt;/a&gt; which provides an abstraction of the MQTT messaging protocol.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-edge-operating-system&#34;&gt;Vehicle Edge Operating System&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; are expected to run on a &lt;a href=&#34;https://www.linux.org/&#34;&gt;Linux&lt;/a&gt;-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Eclipse Mosquitto&lt;/a&gt;).&lt;/p&gt;
 &lt;h2 id=&#34;vehicle-app-characteristics&#34;&gt;Vehicle App characteristics&lt;/h2&gt;
-&lt;h3 id=&#34;code-base&#34;&gt;Code Base&lt;/h3&gt;
-&lt;p&gt;Every &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle App&lt;/a&gt; is stored in its own repository. Tracked with version control, it can be deployed to multiple environments.&lt;/p&gt;
+&lt;p&gt;The following aspects are important characterstics for &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;:&lt;/p&gt;
+&lt;h3 id=&#34;code-base&#34;&gt;Code base&lt;/h3&gt;
+&lt;p&gt;Every &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle App&lt;/a&gt; is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.&lt;/p&gt;
 &lt;h3 id=&#34;polyglot&#34;&gt;Polyglot&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.&lt;/p&gt;
 &lt;h3 id=&#34;oci-compliant-containers&#34;&gt;OCI-compliant containers&lt;/h3&gt;
@@ -76,7 +78,7 @@ Next to a &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; abstracti
 &lt;h3 id=&#34;isolation&#34;&gt;Isolation&lt;/h3&gt;
 &lt;p&gt;Each &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle App&lt;/a&gt; should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.&lt;/p&gt;
 &lt;h3 id=&#34;configurations&#34;&gt;Configurations&lt;/h3&gt;
-&lt;p&gt;Configuration information is moved out of the &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle App&lt;/a&gt;, so that the same deployment can propagate across environments with the correct configuration applied.&lt;/p&gt;
+&lt;p&gt;Configuration information is separated from the code base of the &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle App&lt;/a&gt;, so that the same deployment can propagate across environments with their respective configuration applied.&lt;/p&gt;
 &lt;h3 id=&#34;disposability&#34;&gt;Disposability&lt;/h3&gt;
 &lt;p&gt;Favor fast startup and support graceful shutdowns to leave the system in a correct state.&lt;/p&gt;
 &lt;h3 id=&#34;observability&#34;&gt;Observability&lt;/h3&gt;
@@ -93,7 +95,7 @@ Next to a &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; abstracti
 
 
 &lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas/velocitas/docs/concepts/development_model/build_procedure_hu5f49376adac41f286048be697899cf00_25062_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;299&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/build_procedure_hu5f49376adac41f286048be697899cf00_25062_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;299&#34;&gt;
 	
 	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;
@@ -105,20 +107,20 @@ Next to a &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; abstracti
 
 &lt;p&gt;After a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; is available for the chosen programming language, the &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle App&lt;/a&gt; can be developed using the generated Vehicle Model and its core SDK.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
-&lt;h3 id=&#34;vehicle-apps-sdk-documentation&#34;&gt;Vehicle Apps SDK Documentation&lt;/h3&gt;
+&lt;h3 id=&#34;vehicle-apps-sdk-documentation&#34;&gt;Vehicle Apps SDK documentation&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/velocitas/python-sdk/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Coming soon: Rust SDK Overview&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas-docs/docs/concepts/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;working-with-vehicle-models&#34;&gt;Working with Vehicle Models&lt;/h3&gt;
+&lt;h3 id=&#34;vehicle-app-development&#34;&gt;Vehicle App development&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Walkthrough: &lt;a href=&#34;/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Coming soon: Creating a Rust Vehicle Model&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Create a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;working-with-vehicle-apps&#34;&gt;Working with Vehicle Apps&lt;/h3&gt;
+&lt;h3 id=&#34;release-and-deploy&#34;&gt;Release and deploy&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Walkthrough: &lt;a href=&#34;/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Creating a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Coming soon: Creating a Rust Vehicle App&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas-docs/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -126,10 +128,10 @@ Next to a &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; abstracti
     
     <item>
       <title>Docs: Python Vehicle App SDK</title>
-      <link>/velocitas/docs/concepts/python_vehicle_app_sdk/</link>
+      <link>/velocitas-docs/docs/concepts/python_vehicle_app_sdk/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/concepts/python_vehicle_app_sdk/</guid>
+      <guid>/velocitas-docs/docs/concepts/python_vehicle_app_sdk/</guid>
       <description>
         
         
@@ -161,7 +163,7 @@ Next to a &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; abstracti
 
 
 &lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas/velocitas/docs/concepts/python_vehicle_app_sdk/pyhon_sdk_overview_hu7485307a3843777bc51a573bc09fadda_86244_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;565&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas-docs/velocitas-docs/docs/concepts/python_vehicle_app_sdk/pyhon_sdk_overview_hu7485307a3843777bc51a573bc09fadda_86244_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;565&#34;&gt;
 	
 	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;
@@ -179,7 +181,7 @@ Next to a &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; abstracti
 &lt;h3 id=&#34;modelcollection&#34;&gt;ModelCollection&lt;/h3&gt;
 &lt;p&gt;Specifications like VSS support a concept that is called &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/instances/&#34;&gt;Instances&lt;/a&gt;. It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with &lt;a href=&#34;https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship&#34;&gt;Relationships&lt;/a&gt;. In the SDK, these structures are mapped with the &lt;code&gt;ModelCollection&lt;/code&gt; class. A &lt;code&gt;ModelCollection&lt;/code&gt; is a collection of models, which make it possible to reference an individual model either by a &lt;code&gt;NamedRange&lt;/code&gt; (e.g., Row [1-3]), a &lt;code&gt;Dictionary&lt;/code&gt; (e.g., &amp;ldquo;Left&amp;rdquo;, &amp;ldquo;Right&amp;rdquo;) or a combination of both.&lt;/p&gt;
 &lt;h3 id=&#34;service&#34;&gt;Service&lt;/h3&gt;
-&lt;p&gt;Direct synchronous communication between Vehicle Apps and Vehicle Services is supposed to be facilitated over the &lt;a href=&#34;https://grpc.io&#34;&gt;gRPC&lt;/a&gt; protocol.&lt;/p&gt;
+&lt;p&gt;Direct synchronous communication between Vehicle Apps and Vehicle Services is  facilitated via the &lt;a href=&#34;https://grpc.io&#34;&gt;gRPC&lt;/a&gt; protocol.&lt;/p&gt;
 &lt;p&gt;The SDK has its own &lt;code&gt;Service&lt;/code&gt; base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a Vehicle Service or another Vehicle App. Please see the &lt;a href=&#34;#middleware-integration&#34;&gt;Middleware Integration&lt;/a&gt; section for more details.&lt;/p&gt;
 &lt;h3 id=&#34;datapoint&#34;&gt;DataPoint&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;DataPoint&lt;/code&gt; is the base class for all data points. It corresponds to sensors/actuators in VSS or telemetry / properties in DTDL.&lt;/p&gt;
@@ -284,6 +286,7 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;print&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;f&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;Latitude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle_data&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CurrentLocation&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Latitude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;Longitude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle_data&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CurrentLocation&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Longitude&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Call to broker:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# GetDataPoint(rule=&amp;#34;SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude&amp;#34;)&lt;/span&gt;
@@ -344,24 +347,215 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;():&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;seat_adjuster_talent&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SeatAdjusterApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;seat_adjuster_talent&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Main function&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Starting seat adjuster app...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;seat_adjuster_app&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SeatAdjusterApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;seat_adjuster_app&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;asyncio&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;get_event_loop&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add_signal_handler&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;signal&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;SIGTERM&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;stop&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;run_until_complete&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
+&lt;h3 id=&#34;vehicle-app-development&#34;&gt;Vehicle App development&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas-docs/docs/concepts/development-model.md&#34;&gt;Development Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Create a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
       </description>
     </item>
     
     <item>
-      <title>Docs: Runtime and Deployment Model</title>
-      <link>/velocitas/docs/concepts/runtime-deployment-model/</link>
+      <title>Docs: Vehicle Abstraction Layer (VAL)</title>
+      <link>/velocitas-docs/docs/concepts/val/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/concepts/val/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;The Vehicle Abstraction Layer (VAL) is a reference implementation of an abstraction layer that allows Vehicle applications
+to interact with signals and services in the vehicle.
+It currently consists of a data broker, a CAN feeder and a set of example services.
+More elaborate or completely differing implementations are the target of particular derived projects.&lt;/p&gt;
+&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the &lt;a href=&#34;/velocitas-docs/docs/development-model.md&#34;&gt;Velocitas Development Model&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas-docs/velocitas-docs/docs/concepts/val/val_architecture_overview_hue12a1c2ecc85cf3ee9799265a093472d_127432_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;614&#34;&gt;
+	
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;
+  Overview of the vehicle abstraction layer architecture
+&lt;/p&gt;
+	&lt;/figcaption&gt;
+	
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;vehicle-data-broker&#34;&gt;Vehicle Data Broker&lt;/h3&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Vehicle Data Broker&lt;/a&gt; is a gRPC service acting as a broker of vehicle data / data points / signals.
+It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;COVESA Vehicle Signal Specification (VSS)&lt;/a&gt; or others.
+It is implemented in Rust, can run in a container and provides services to get datapoints, update datapoints and for subscribing to datapoints.
+Filter- and rule-based subscriptions of datapoints can be used to reduce the number of updates sent to the subscriber.&lt;/p&gt;
+&lt;h3 id=&#34;data-feeders&#34;&gt;Data Feeders&lt;/h3&gt;
+&lt;p&gt;Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
+The source of the contents of the data points provided is specific to the respective feeder.&lt;/p&gt;
+&lt;p&gt;As of today, the Vehicle Abstraction Layer contains a &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders&#34;&gt;generic CAN feeder&lt;/a&gt; implemented in Python,
+which reads data from a CAN bus based on specifications in a e.g., CAN network description file.
+The feeder then uses a mapping file and data point metadata to convert the source data to data points and injects them into the Vehicle Data Broker using the Vehicle Data Broker gRPC interface.
+The feeder automatically reconnects to the data broker in the event that the connection is lost.&lt;/p&gt;
+&lt;h3 id=&#34;vehicle-services&#34;&gt;Vehicle Services&lt;/h3&gt;
+&lt;p&gt;A vehicle service offers a gRPC interface for interacting with underlying services.
+It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
+It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the Vehicle Data Broker.&lt;/p&gt;
+&lt;p&gt;As of today, the Vehicle Abstraction Layer contains one &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/v0.1.0/seat_service&#34;&gt;example service to control a seat&lt;/a&gt;.
+It is implemented in C++ and uses the &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders&#34;&gt;CAN feeder&lt;/a&gt; to control a seat in the vehicle.&lt;/p&gt;
+&lt;h3 id=&#34;hardware-abstraction&#34;&gt;Hardware Abstraction&lt;/h3&gt;
+&lt;p&gt;Data feeders rely on hardware abstraction. Hardware abstraction project/platform specific.
+The reference implementation relies on [SocketCAN]&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders&#34;&gt;(https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders&lt;/a&gt;) and
+&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders&#34;&gt;vxcan&lt;/a&gt;.
+The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.&lt;/p&gt;
+&lt;h2 id=&#34;information-flow&#34;&gt;Information Flow&lt;/h2&gt;
+&lt;p&gt;The vehicle abstraction layer offers an information flow between vehicle networks and vehicle services.
+The data that can flow is ultimately limited to the data available through the Hardware Abstraction, which is platform/project-specific.
+Which data can actually be sent or consumed is controlled by &lt;a href=&#34;https://github.com/eclipse/kuksa.val/blob/master/kuksa_feeders/dbc2val/Model3CAN.dbc&#34;&gt;DBC&lt;/a&gt;
+and &lt;a href=&#34;https://github.com/eclipse/kuksa.val/blob/master/kuksa_feeders/dbc2val/mapping.yml&#34;&gt;Mapping&lt;/a&gt; files.
+Services (like the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/v0.1.0/seat_service&#34;&gt;seat service&lt;/a&gt;) define which CAN signals they listen to and which CAN signals they send themselves, see &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/v0.1.0/seat_service/src/lib/seat_adjuster/seat_controller/README.md&#34;&gt;documentation&lt;/a&gt;
+The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals supported are currently limited by a &lt;a href=&#34;https://github.com/eclipse/kuksa.val/blob/master/kuksa_databroker/databroker/src/main.rs&#34;&gt;hard coded list&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Additional information on how data privacy is managed can be found in the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/v0.1.0#privacy-customer-information&#34;&gt;Vehicle Abstraction Layer repository&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;data-flow-when-a-vehicle-application-uses-the-vehicle-data-broker&#34;&gt;Data flow when a Vehicle Application uses the Vehicle Data Broker.&lt;/h3&gt;
+
+
+
+
+
+
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas-docs/velocitas-docs/docs/concepts/val/dataflow_broker_hu042a46cff9fdb3ae953ce2b4baa695f0_25200_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;122&#34;&gt;
+	
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;
+  Architectural representation of the vehicle data broker data flow
+&lt;/p&gt;
+	&lt;/figcaption&gt;
+	
+&lt;/figure&gt;
+
+&lt;h3 id=&#34;data-flow-when-a-vehicle-application-uses-a-vehicle-service&#34;&gt;Data flow when a Vehicle Application uses a Vehicle Service.&lt;/h3&gt;
+
+
+
+
+
+
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas-docs/velocitas-docs/docs/concepts/val/dataflow_service_hu2c631cbebd9c8512318cb5903df1828b_24831_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;130&#34;&gt;
+	
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;
+  Architectural representation of the vehicle service data flow
+&lt;/p&gt;
+	&lt;/figcaption&gt;
+	
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;source-code&#34;&gt;Source Code&lt;/h2&gt;
+&lt;p&gt;Source code and build instructions are available in the &lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;kuksa.val repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;guidelines&#34;&gt;Guidelines&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Please see the &lt;a href=&#34;vehicle_service.md&#34;&gt;vehicle service guidelines&lt;/a&gt; for information on how to implement a Vehicle Service.&lt;/li&gt;
+&lt;li&gt;Please see the &lt;a href=&#34;interface_guideline.md&#34;&gt;interface guideline&lt;/a&gt; for best practices on how to specify a gRPC interface.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Build and Release Process</title>
+      <link>/velocitas-docs/docs/concepts/vehicle_app_releases/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/concepts/runtime-deployment-model/</guid>
+      <guid>/velocitas-docs/docs/concepts/vehicle_app_releases/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The Velocitas project provides a two-stage process for development, continuous integration, and release of a new version of a Vehicle App.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Stage 1 - Build &amp;amp; Test&lt;/strong&gt;
+On every new push to the &lt;code&gt;main&lt;/code&gt; branch, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts or in a container registry for future reference.&lt;/p&gt;
+&lt;p&gt;The workflow provides quick feedback during development and improves efficient collaboration.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Stage 2 - Release&lt;/strong&gt;
+Once the application is ready to be released in a new version, a dedicated release workflow is automatically executed as soon as you create a new release via GitHub.&lt;/p&gt;
+&lt;p&gt;The workflow bundles all relevant artifacts into one tagged set of files and makes it possible to push this information to the preferred OTA (over-the-air update) system of your choice or use the information for quality assurance and documentation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The following illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project&amp;rsquo;s needs.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/velocitas-docs/assets/publish_container.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ci-workflow-ciyml&#34;&gt;CI Workflow (ci.yml)&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;CI workflow&lt;/code&gt; is triggered on every commit to the main branch and contains a set of different actions that cover:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Building a container for the app&lt;/strong&gt; - actions create a containerized version of the Vehicle App, the actions also support creating an image for multiple platforms.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scanning for vulnerabilities&lt;/strong&gt; - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &amp;ldquo;failed&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Running unit tests &amp;amp; code coverage&lt;/strong&gt; - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as &amp;ldquo;failed&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Running integration tests&lt;/strong&gt; - actions provision a runtime instance and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marked as &amp;ldquo;failed&amp;rdquo;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Storing scan &amp;amp; test results as GitHub action artifacts&lt;/strong&gt; - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Publish container images to GitHub Container Registry&lt;/strong&gt; - at the end of the workflow, the container images created are stored in a Github Container Registry so that they can be referenced by the release-workflow later.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;release-workflow-releaseyml&#34;&gt;Release Workflow (release.yml)&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;Release workflow&lt;/code&gt; is triggered as soon as the &lt;code&gt;main&lt;/code&gt; branch is ready for release and the Vehicle App developer creates a new GitHub release. This can be done manually through the GitHub UI.&lt;/p&gt;
+&lt;p&gt;On creating a new release with a specific new version, GitHub creates a tag and automatically runs the &lt;code&gt;Release workflow&lt;/code&gt; defined in .github/workflows/release.yml, given that &lt;code&gt;CI workflow&lt;/code&gt; has run successfully for the current commit on the main branch.&lt;/p&gt;
+&lt;p&gt;The set of actions included in the &lt;code&gt;Release workflow&lt;/code&gt; cover:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Generating and publishing QA information&lt;/strong&gt; - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pull &amp;amp; label container image&lt;/strong&gt; - actions pull the Vehicle App container image based on the current commit hash from the GitHub registry and label it with the specified tag version. If the image cannot be found, the workflow will fail.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Publish as GitHub pages&lt;/strong&gt; - all information from the release together with the project&amp;rsquo;s documentation is built as a static page using hugo. the result can be published as a GitHub page in your repository.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;github-actions-artifacts&#34;&gt;GitHub Actions artifacts&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Actions artifacts&lt;/strong&gt; are used for storing data, which is generated by the &lt;code&gt;CI workflow&lt;/code&gt; and referenced by the &lt;code&gt;Release workflow&lt;/code&gt;. This saves time during workflow runs because we don&amp;rsquo;t have to create artifacts multiple times.&lt;/p&gt;
+&lt;p&gt;GitHub Actions artifacts always have a retention period, which is 90 days per default. This may be configured differently in the specific GitHub organization. After this period, the QA info gets purged automatically. In this case, a re-run of the CI workflow would be required to regenerate all QA info neede for creating a released.&lt;/p&gt;
+&lt;h2 id=&#34;container-registry&#34;&gt;Container Registry&lt;/h2&gt;
+&lt;p&gt;The GitHub container registry is used for storing container images, which are generated by the &lt;code&gt;CI workflow&lt;/code&gt; and leveraged by the &lt;code&gt;Release workflow&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;GitHub container registry&lt;/strong&gt; does not have an automatic cleanup and keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.&lt;/p&gt;
+&lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
+&lt;h3 id=&#34;versioning&#34;&gt;Versioning&lt;/h3&gt;
+&lt;p&gt;Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of &lt;a href=&#34;https://semver.org/&#34;&gt;semantic versions&lt;/a&gt; is recommended.&lt;/p&gt;
+&lt;p&gt;If the tag name contains a semantic version, the leading &lt;code&gt;v&lt;/code&gt; will be trimmed.
+&lt;strong&gt;Example:&lt;/strong&gt; A tag name of &lt;code&gt;v1.0.0&lt;/code&gt; will lead to version &lt;code&gt;1.0.0&lt;/code&gt; of the Vehicle App container.&lt;/p&gt;
+&lt;h3 id=&#34;maintaining-multiple-versions&#34;&gt;Maintaining multiple versions&lt;/h3&gt;
+&lt;p&gt;If there is a need to maintain multiple versions of a Vehicle App, e.g., to hotfix the production version while working on a new version at the same time or to support multiple versions in production, create and use &lt;code&gt;release branches&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The release process would be the same as described in the overview, except that a release branch (e.g., &lt;code&gt;release/v1.0&lt;/code&gt;) is created before the release step and the GitHub release is based on the &lt;code&gt;release&lt;/code&gt; branch rather than the &lt;code&gt;main&lt;/code&gt; branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.&lt;/p&gt;
+&lt;h2 id=&#34;further-information-1&#34;&gt;Further information&lt;/h2&gt;
+&lt;h3 id=&#34;deploy-a-vehicle-app-with-helm&#34;&gt;Deploy a Vehicle App with Helm&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Walkthrough: &lt;a href=&#34;/velocitas-docs/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Velocitas Deployment Model</title>
+      <link>/velocitas-docs/docs/concepts/deployment-model/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/concepts/deployment-model/</guid>
       <description>
         
         
@@ -379,72 +573,11 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;h2 id=&#34;automated-container-image-builds&#34;&gt;Automated container image builds&lt;/h2&gt;
 &lt;p&gt;Velocitas uses GitHub workflows to automate the creation of your containerized application. A workflow is started with every increment of your application code that you push to your GitHub repository. The workflow creates a containerized version of your application and stores this container image in a registry. Further actions are carried out using this container (e.g., integration tests).&lt;/p&gt;
 &lt;p&gt;The workflows are set up to support multi-platform container creation and generate container images for amd64 and arm64 out of the box. This provides a great starting point for developers and lets you add additional support for further platforms easily.&lt;/p&gt;
-&lt;p&gt;Learn more about the concepts of the &lt;a href=&#34;/velocitas/docs/velocitas/docs/vehicle_app_releases.md&#34;&gt;Velocitas build and release workflows&lt;/a&gt; and check out the example GitHub workflows in our repositories for python (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)&#34;&gt;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Learn more about the concepts of the &lt;a href=&#34;/velocitas-docs/docs/velocitas/docs/vehicle_app_releases.md&#34;&gt;Velocitas build and release workflows&lt;/a&gt; and check out the example GitHub workflows in our repositories for python (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)&#34;&gt;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/velocitas/docs/getting-started/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/&#34;&gt;Walkthrough: Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-docs/docs/getting-started/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/&#34;&gt;Walkthrough: Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Build and Release Process</title>
-      <link>/velocitas/docs/concepts/vehicle_app_releases/</link>
-      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
-      
-      <guid>/velocitas/docs/concepts/vehicle_app_releases/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The Velocitas project provides a two-stage process for the development, continuous integration, and release of a new version of a Vehicle App.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Stage 1 - Build &amp;amp; Test&lt;/strong&gt;
-On every new push to the &lt;code&gt;main&lt;/code&gt; branch, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts or in a container registry for future reference.&lt;/p&gt;
-&lt;p&gt;The workflow provides quick feedback during development and improves efficient collaboration.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Stage 2 - Release&lt;/strong&gt;
-Once the application is ready to be released in a new version, a dedicated release workflow is automatically executed as soon as you create a new release via GitHub.&lt;/p&gt;
-&lt;p&gt;The workflow bundles all relevant artifacts into one tagged set of files and makes it possible to push this information to the preferred OTA (over-the-air update) system of your choice or use the information for quality assurance and documentation.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The following illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project&amp;rsquo;s needs.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/velocitas/assets/publish_container.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;ci-workflow-ciyml&#34;&gt;CI Workflow (ci.yml)&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;CI workflow&lt;/code&gt; is triggered on every commit to the main branch and contains a set of different actions that cover:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Building a container for the app&lt;/strong&gt; - actions create a containerized version of the Vehicle App, the actions also support creating an image for multiple platforms.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Scanning for vulnerabilities&lt;/strong&gt; - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &amp;ldquo;failed&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Running unit tests &amp;amp; code coverage&lt;/strong&gt; - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as &amp;ldquo;failed&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Running integration tests&lt;/strong&gt; - actions provision a runtime and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marke as &amp;ldquo;failed&amp;rdquo;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Storing scan &amp;amp; test results as GitHub action artifacts&lt;/strong&gt; - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Publish container images to GitHub Container Registry&lt;/strong&gt; - at the end of the workflow, the container images created are stored in a Github Container Registry so that they can be referenced by the release-workflow later.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;release-workflow-releaseyml&#34;&gt;Release Workflow (release.yml)&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;Release workflow&lt;/code&gt; is triggered as soon as the &lt;code&gt;main&lt;/code&gt; branch is ready for release and the Vehicle App developer creates a new GitHub release. This can be done manually through the GitHub UI.&lt;/p&gt;
-&lt;p&gt;On creating a new release with a specific new version, GitHub creates a tag and automatically runs the &lt;code&gt;Release workflow&lt;/code&gt; defined in .github/workflows/release.yml, given that &lt;code&gt;CI workflow&lt;/code&gt; has run successfully for the current commit on the main branch.&lt;/p&gt;
-&lt;p&gt;The set of actions included in the &lt;code&gt;Release workflow&lt;/code&gt; cover:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Generating and verifying QA information&lt;/strong&gt; - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Pull &amp;amp; label container image&lt;/strong&gt; - actions pull the Vehicle App container image based on the current commit hash from the GitHub registry and label it with the specified tag version. If the image cannot be found, the workflow will fail.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Publish to container registry&lt;/strong&gt; - actions publish your container image and helm charts to your preferred container registry, which is referenced by your preferred OTA (over-the-air update) system.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;github-actions-artifacts&#34;&gt;GitHub Actions artifacts&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;GitHub Actions artifacts&lt;/strong&gt; are used for storing data, which is generated by the &lt;code&gt;CI workflow&lt;/code&gt; and referenced by the &lt;code&gt;Release workflow&lt;/code&gt;. This saves time during workflow runs because we don&amp;rsquo;t have to create artifacts multiple times.&lt;/p&gt;
-&lt;p&gt;GitHub Actions artifacts always have a retention period, which is 90 days per default, but may be configured differently in the specific GitHub organization. After this period, the QA info gets purged automatically. If that is the case, a re-run of the CI workflow is required to re-generate the QA info, afterwards a release can be created.&lt;/p&gt;
-&lt;h2 id=&#34;container-registry&#34;&gt;Container Registry&lt;/h2&gt;
-&lt;p&gt;The GitHub container registry is used for storing container images, which are generated by the &lt;code&gt;CI workflow&lt;/code&gt; and leveraged by the &lt;code&gt;Release workflow&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The &lt;strong&gt;GitHub container registry&lt;/strong&gt; does not have an automatic cleanup and keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.&lt;/p&gt;
-&lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
-&lt;h3 id=&#34;versioning&#34;&gt;Versioning&lt;/h3&gt;
-&lt;p&gt;Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of &lt;a href=&#34;https://semver.org/&#34;&gt;semantic versions&lt;/a&gt; is recommended.&lt;/p&gt;
-&lt;p&gt;If the tag name contains a semantic version, the leading &lt;code&gt;v&lt;/code&gt; will be trimmed.
-&lt;strong&gt;Example:&lt;/strong&gt; A tag name of &lt;code&gt;v1.0.0&lt;/code&gt; will lead to version &lt;code&gt;1.0.0&lt;/code&gt; of the Vehicle App container.&lt;/p&gt;
-&lt;h3 id=&#34;maintaining-multiple-versions&#34;&gt;Maintaining multiple versions&lt;/h3&gt;
-&lt;p&gt;If there is a need to maintain multiple versions of a Vehicle App, e.g., to hotfix the production version while working on a new version at the same time or to support multiple versions in production, create and use &lt;code&gt;release branches&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The release process would be the same as described in the overview, except that a release branch (e.g., &lt;code&gt;release/v1.0&lt;/code&gt;) is created before the release step and the GitHub release is based on the &lt;code&gt;release&lt;/code&gt; branch rather than the &lt;code&gt;main&lt;/code&gt; branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.&lt;/p&gt;
 
       </description>
     </item>
