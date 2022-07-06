@@ -3,6 +3,7 @@ title: "Run runtime services in Kubernetes"
 date: 2022-05-09T13:43:25+05:30
 aliases:
   - /docs/tutorials/run_runtime_services_kubernetes.md
+  - /docs/run_runtime_services_kubernetes.md
 ---
 
 Besides [local execution](/docs/run_runtime_services_locally.md), another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code _Tasks_, a feature of Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).

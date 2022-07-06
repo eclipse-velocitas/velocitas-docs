@@ -6,6 +6,7 @@ description: >
   Learn how to prepare a Helm chart for the deployment of a Python Vehicle App.
 aliases:
   - /docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md
+  - /tutorial_how_to_deploy_a_vehicle_app_with_helm.md
 ---
 
 This tutorial will show you how to:

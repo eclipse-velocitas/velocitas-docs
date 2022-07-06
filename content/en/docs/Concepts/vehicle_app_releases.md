@@ -4,6 +4,7 @@ date: 2022-05-09T13:43:25+05:30
 weight: 4
 aliases:
   - /docs/concepts/vehicle_app_releases.md
+  - /docs/velocitas/docs/vehicle_app_releases.md
 description: >
   Learn more about the provided continuous integration, and release process of a Vehicle App.
 ---
