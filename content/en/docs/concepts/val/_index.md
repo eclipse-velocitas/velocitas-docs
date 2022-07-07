@@ -51,8 +51,7 @@ The KUKSA.VAL is providing examples how such kind of vehicle services could be b
 ### Hardware Abstraction
 
 Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
-The reference implementation relies on [SocketCAN][(https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders](https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders)) and
-[vxcan](https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders).
+The reference implementation relies on **SocketCAN** and **vxcan**, see https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val.
 The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.
 
 ## Information Flow

@@ -49,7 +49,7 @@ FeederCAN requires candump file. Pre-defined candump file is part of docker cont
 1. Creating/updating candump file with with name ```candump``` in ```deploy/runtime/k3d/volume```
 1. Recreating the feedercan pod: ```kubectl delete pods -l app=feedercan```
 
-More information about FeederCan can be found [here](https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders)
+More information about FeederCan can be found [here](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val)
 
 ## Next steps
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
