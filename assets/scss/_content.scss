@@ -142,7 +142,7 @@ h2, .h2 {
 }
 
 .td-navbar {
-  background-color: #031e30;
+  background-color: $dark;
 
   .navbar-brand span.font-weight-bold {
     display: none;
@@ -159,22 +159,24 @@ h2, .h2 {
       margin-top: .5em;
     }
   }
-
-  @media (max-width: 1432px) {
-    .td-navbar-nav-scroll {
+  
+  @media (max-width: 991.98px) {
+    .td-navbar-nav-scroll,
+    .navbar-nav {
       margin-top: 0;
     }
   }
-  
-  @media (max-width: 991.98px) {
-    .td-navbar .td-navbar-nav-scroll {
+
+  @media (max-width: 1432px) {
+    .td-navbar-nav-scroll,
+    .navbar-nav {
       margin-top: 0;
     }
   }
 }
 
 .td-navbar-cover {
-  background-color: #00081ac0 !important;
+  background-color: $dark-nav-transparent !important;
 }
 
 #td-cover-block-0 {
@@ -182,7 +184,7 @@ h2, .h2 {
 
   .display-1,
   p.lead {
-    text-shadow: 1px 1px #031e30;
+    text-shadow: 1px 1px $dark;
   }
 }
 
