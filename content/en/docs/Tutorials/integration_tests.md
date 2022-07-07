@@ -43,10 +43,11 @@ When the runtime services and the application are running, integration tests can
 
 ### Kubernetes execution (K3D)
 
-If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the [documentation](/docs/run_runtime_services_kubernetes.md). To ensure that the tests connect to the containers, the following environment variables need to be set:
+If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the [documentation](/docs/run_runtime_services_kubernetes.md). To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:
 
-- `MQTT_PORT: 31883`
-- `VDB_PORT: 30555`
+- `export MQTT_PORT=31883`
+- `export VDB_PORT=30555`
+- `pytest`
 
 ## Writing Test Cases
 
