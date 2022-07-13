@@ -21,7 +21,7 @@ The example of the seat adjuster provides the option of requesting the new seat 
    {"requestId": "xyz", "position": 300}
    ```
 2. The **Seat Adjuster Vehicle App** that has subscribed to this topic, receives the request to change the seat position as a MQTT message.
-3. The **Seat Adjuster Vehicle App** gets the current vehicle speed from the data broker, which is fed by the **Generic CAN Feeder**.
+3. The **Seat Adjuster Vehicle App** gets the current vehicle speed from the data broker, which is fed by the **CAN Feeder (KUKSA DBC Feeder)**.
 4. With the support of the **Vehicle App SDK**, the **Seat Adjuster Vehicle App** triggers a seat adjustment command of the **Seat Service** via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.
 5. The **Seat Service** moves the seat to the new position via CAN messages.
 6. The **Seat Service** returns OK or an error code as grpc status to the **Seat Adjuster Vehicle App**.
