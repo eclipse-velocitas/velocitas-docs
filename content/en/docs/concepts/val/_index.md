@@ -12,8 +12,7 @@ resources:
 
 The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/), also called KUKSA.VAL.
 It is is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
-It currently consists of a data broker, a CAN feeder and a set of example services.
-More elaborate or completely differing implementations are the target of particular derived projects.
+It currently consists of a data broker, a CAN feeder, and a set of example services.
 
 ## Architecture
 
@@ -77,9 +76,12 @@ Service implementations may also interact as feeders with the data broker.
 
 ## Source Code
 
-Source code and build instructions are available in the [kuksa.val repository](https://github.com/eclipse/kuksa.val).
+Source code and build instructions are available in the respective KUKSA.VAL repositories:
+
+* [KUKSA Data Broker](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker)
+* [KUKSA DBC Feeder](https://github.com/eclipse/kuksa.val/tree/main/kuksa_feeders)
+* [KUKSA example services](https://github.com/eclipse/kuksa.val.services/)
 
 ## Guidelines
 
-- Please see the [vehicle service guidelines](vehicle_service.md) for information on how to implement a Vehicle Service.
-- Please see the [interface guideline](interface_guideline.md) for best practices on how to specify a gRPC interface.
+- Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the [kuksa.val.services repository](https://github.com/eclipse/kuksa.val.services/).
