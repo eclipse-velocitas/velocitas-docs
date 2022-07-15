@@ -6,6 +6,8 @@ resources:
 - src: "**dataflow_broker*.png"
 - src: "**dataflow_service*.png"
 - - src: "**val_architecture_overview*.png"
+description: >
+  Learn about the main conecpts and components of the vehicle abstraction and how this interrelates with the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
 ---
 
 ## Introduction
@@ -84,4 +86,4 @@ Source code and build instructions are available in the respective KUKSA.VAL rep
 
 ## Guidelines
 
-- Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the [kuksa.val.services repository](https://github.com/eclipse/kuksa.val.services/).
+- Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the [kuksa.val.services repository](https://github.com/eclipse/kuksa.val.services/docs).
