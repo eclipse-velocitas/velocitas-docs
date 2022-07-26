@@ -24,7 +24,7 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
 - Install Docker Engine / [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - Install [Visual Studio Code](https://code.visualstudio.com)
 - Add [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension via the marketplace or using the command line
-  ```
+  ```bash
   code --install-extension ms-vscode-remote.remote-containers
   ```
 
@@ -96,9 +96,10 @@ With following steps you will clone and set up your development environment on y
 5. Select the branch to clone from the list
 
 The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.
-> When opening the DevContainer for the first time, the following steps are necessary:
-
-- A manual reload of the dapr extension is required, if the extension hasn´t been installed before (Note: the reload button appears next to Dapr extension in extension menue).
+  
+{{% alert title="Note" %}}
+When opening the DevContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.
+{{% /alert %}}
 
 <details>
 <summary>Please expand for information on troubleshooting</summary>
@@ -128,10 +129,10 @@ You can either try it out directly in the browser or also use it inside Visual S
 
 To get started with Codespaces, you just have to follow a few steps:
 
-1. go to the webpage of your repository on GitHub (e.g. https://github.com/MyOrg/MyFirstVehicleApp)
-1. click on the green `Code`-button and select Codespaces on the top
-1. configure your Codespace if needed (defaults to the main branch and a standard agent)
-1. click on `create`
+1. Go to the webpage of your repository on GitHub (e.g. https://github.com/MyOrg/MyFirstVehicleApp)
+1. Click on the green `Code`-button and select Codespaces on the top
+1. Configure your Codespace if needed (defaults to the main branch and a standard agent)
+1. Click on `create`
 
 A new window will open where you see the logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.
 
@@ -145,7 +146,12 @@ Be careful with using Codespaces in browser and Visual Studio Code locally at th
 
 The runtime services (like _KUKSA Data Broker_ or _Vehicle Services_) are required to develop vehicle apps and run integration tests.
 
-A Visual Studio Code task called `Start Vehicle App runtime` is available to run these in the correct order. Click `F1`, select command `Tasks: Run Task`, select `Start VehicleApp runtime` and `Continue without scanning the output`.
+A Visual Studio Code task called `Start Vehicle App runtime` is available to run these in the correct order.
+
+1. Press <kbd>F1</kbd>
+2. Select command `Tasks: Run Task`
+3. Select `Start VehicleApp runtime` 
+4. Choose `Continue without scanning the output`
 
 You should see the tasks `run-mosquitto`, `run-vehicledatabroker`, `run-seatservice` and `run-feedercan` being executed in the Visual Studio Code output panel.
 
@@ -153,20 +159,12 @@ More information about the tasks are available [here](/docs/run_runtime_services
 
 ## Debugging the Vehicle App
 
-Now that the runtime services are all up and running, let's start a debug session for the Vehicle App as next step.
-
-### Starting debug session
+Now that the [runtime services](#starting-runtime-services) are all up and running, let's start a debug session for the Vehicle App as next step.
 
 - Open the main python file `src/SeatAdjusterApp/seatadjuster.py` file and set a breakpoint in `line 68`
 - Press <kbd>F5</kbd> to start the Vehicle App to start a debug session and see the log output on the `DEBUG CONSOLE`
 
-In the next step you will use a mqtt message to trigger this breakpoint.
-
-### Sending MQTT messages to Vehicle App
-
-Let's send a message to your Vehicle App using the mqtt broker that is running in the background.
-
-> Make sure that [runtime services](#starting-runtime-services) and [Vehicle App debug session](#start-and-debug-vehicle-app) are running.
+To trigger this breakpoint, let's send a message to the Vehicle App using the mqtt broker that is running in the background.
 
 - Open `VSMqtt` extension in Visual Studio Code and connect to `mosquitto (local)`
 - Set `Subscribe Topic` = `seatadjuster/setPosition/response` and click subscribe.
@@ -177,10 +175,8 @@ Let's send a message to your Vehicle App using the mqtt broker that is running i
   ```json
   { "position": 300, "requestId": "xyz" }
   ```
-
-- Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session
-- After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic
-- You can see the response in the MQTT window.
+  
+Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.
 
 ## Trigger your Github Workflows
 
@@ -198,22 +194,22 @@ GitHub workflows are used to build the container image for the Vehicle App, run 
   ```bash
   git push
   ```
-- Open your git repository in your favorite browser
-- Navigate to `Actions` and go to [CI Workflow](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)
-- Check Workflow Output, it should look like this:
-  ![](/assets/ci-workflow-success.png)
+- Open the `Actions` page of your repository on GitHub.com in your favorite browser
+- Go to [CI Workflow](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)
+- Check Workflow Output
 
-## Build you first release
+## Build your first release
 
 Now that the `CI Workflow` was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image.
 
 ### Release the Vehicle App to push it to the container registry
 
-- Open the `Code` page of your repository on GitHub.com and click on `Create a new release` in the Releases section on the right side
-- Enter a version, e.g. v1.0.0, and click on `Publish release`
-  GitHub will automatically create a tag using the version number
-- The release workflow will be triggered
-  - Open `Actions` on the repoitory and see the result
+- Open the `Code` page of your repository on GitHub.com 
+- Click on `Create a new release` in the Releases section on the right side
+- Enter a version, e.g. v1.0.0, and click on `Publish release` 
+  - GitHub will automatically create a tag using the version number
+  - The release workflow will be triggered
+- Open `Actions` on the repoitory and see the result
 
 ## Next steps
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
