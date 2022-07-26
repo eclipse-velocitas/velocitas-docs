@@ -13,7 +13,7 @@ The following information describes how to setup and configure the Development C
 
 Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own Vehicle App develpment project.
 
-## Vehicle App Development with Visual Studio Code
+## Vehicle App development with Visual Studio Code
 
 The Visual Studio Code [Development Containers](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development & testing tools into a container that is then started within your Visual Studio Code session.
 
@@ -28,7 +28,7 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
   code --install-extension ms-vscode-remote.remote-containers
   ```
 
-### Proxy Configuration
+### Proxy configuration
 
 A non proxy configuration is used by default.
 If you are working behind a corporate proxy you will need to specify proxy settings.
@@ -64,7 +64,7 @@ echo "export DEVCONTAINER_PROXY=.Proxy" >> ~/.bash_profile
 source ~/.bash_profile
 ```
 
-### Proxy Troubleshooting
+### Proxy troubleshooting
 
 If you experience issues during initial DevContainer build and you want to start over, then you want to make sure you clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI to remove all volumes and containers.
 
@@ -147,47 +147,23 @@ You should see the tasks `run-mosquitto`, `run-vehicledatabroker`, `run-seatserv
 
 More information about the tasks are available [here](/docs/run_runtime_services_locally.md).
 
-## Start and test Vehicle App
+## Debugging the Vehicle App
 
-Now that your DevContainer is up and running, it is time to take a look at what's inside:
+Now that the runtime services are all up and running, let's start a debug session for the Vehicle App as next step.
 
-- Vehicle App - This sample app is a basic blueprint and illustrates how to interact with the VAL Services and the Vehicle App SDK.
-- Mosquitto MQTT Broker - The broker allows for interaction with other Vehicle Apps or the cloud and is used by the Vehicle App. The MQTT broker is running inside a docker image which is started automatically after starting the DevContainer.
-
-### Start and check Vehicle App
-
-Let's start the sample Vehicle App to verify that you receive actual data from the API.
-
-Open a new terminal and start the Vehicle App with the following command:
-
-```bash
-dapr run --app-id seatadjuster --app-protocol grpc --app-port 50008 --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/SeatAdjusterApp/seatadjuster.py
-```
-
-Once the Vehicle App is started, you can expect to receive the Current Position of the Vehicle Seat, which should be reported as 420.
-
-You will see messages such as
-
-```
-== APP == 04/06/2022 07:31:58 AM - __main__ - INFO - Current Position of the Vehicle Seat is: {'position': 420}
-```
-
-To stop the Vehicle App instance: close the terminal window by hitting <kbd>Ctrl + C</kbd>.
-
-### Debug Vehicle App
-
-After VAL Services and Vehicle App are running successfully, let's start a debug session for the Vehicle App as next step.
+### Starting debug session
 
 - Open the main python file `src/SeatAdjusterApp/seatadjuster.py` file and set a breakpoint in `line 68`
 - Press <kbd>F5</kbd> to start the Vehicle App to start a debug session and see the log output on the `DEBUG CONSOLE`
 
 In the next step you will use a mqtt message to trigger this breakpoint.
 
-### Send MQTT messages to Vehicle App
+### Sending MQTT messages to Vehicle App
 
 Let's send a message to your Vehicle App using the mqtt broker that is running in the background.
 
-- Make sure, Vehicle Api Mock and Seat Adjuster App are running.
+> Make sure that [runtime services](#starting-runtime-services) and [Vehicle App debug session](#start-and-debug-vehicle-app) are running.
+
 - Open `VSMqtt` extension in Visual Studio Code and connect to `mosquitto (local)`
 - Set `Subscribe Topic` = `seatadjuster/setPosition/response` and click subscribe.
 - Set `Subscribe Topic` = `seatadjuster/currentPosition` and click subscribe.
