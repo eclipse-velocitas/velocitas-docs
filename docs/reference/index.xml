@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Velocitas – Reference</title>
+    <title>Velocitas – References</title>
     <link>/velocitas/docs/reference/</link>
-    <description>Recent content in Reference on Velocitas</description>
+    <description>Recent content in References on Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
@@ -13,120 +13,6 @@
         
       
     
-    
-    <item>
-      <title>Docs: Vehicle Abstraction Layer (VAL)</title>
-      <link>/velocitas/docs/reference/val/</link>
-      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
-      
-      <guid>/velocitas/docs/reference/val/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;The Vehicle Abstraction Layer (VAL) is a reference implementation of an abstraction layer that allows Vehicle applications
-to interact with signals and services in the vehicle.
-It currently consists of a data broker, a CAN feeder and a set of example services.
-More elaborate or completely differing implementations are the target of particular derived projects.&lt;/p&gt;
-&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
-&lt;p&gt;The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the &lt;a href=&#34;/velocitas/docs/development-model.md&#34;&gt;Velocitas Development Model&lt;/a&gt;.&lt;/p&gt;
-
-
-
-
-
-
-
-&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas/velocitas/docs/reference/val/val_architecture_overview_hue12a1c2ecc85cf3ee9799265a093472d_127432_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;614&#34;&gt;
-	
-	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
-		&lt;p class=&#34;card-text&#34;&gt;
-  Overview of the vehicle abstraction layer architecture
-&lt;/p&gt;
-	&lt;/figcaption&gt;
-	
-&lt;/figure&gt;
-
-&lt;h3 id=&#34;vehicle-data-broker&#34;&gt;Vehicle Data Broker&lt;/h3&gt;
-&lt;p&gt;The &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34;&gt;Vehicle Data Broker&lt;/a&gt; is a gRPC service acting as a broker of vehicle data / data points / signals.
-It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;COVESA Vehicle Signal Specification (VSS)&lt;/a&gt; or others.
-It is implemented in Rust, can run in a container and provides services to get datapoints, update datapoints and for subscribing to datapoints.
-Filter- and rule-based subscriptions of datapoints can be used to reduce the number of updates sent to the subscriber.&lt;/p&gt;
-&lt;h3 id=&#34;data-feeders&#34;&gt;Data Feeders&lt;/h3&gt;
-&lt;p&gt;Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
-The source of the contents of the data points provided is specific to the respective feeder.&lt;/p&gt;
-&lt;p&gt;As of today, the Vehicle Abstraction Layer contains a &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders&#34;&gt;generic CAN feeder&lt;/a&gt; implemented in Python,
-which reads data from a CAN bus based on specifications in a e.g., CAN network description file.
-The feeder then uses a mapping file and data point metadata to convert the source data to data points and injects them into the Vehicle Data Broker using the Vehicle Data Broker gRPC interface.
-The feeder automatically reconnects to the data broker in the event that the connection is lost.&lt;/p&gt;
-&lt;h3 id=&#34;vehicle-services&#34;&gt;Vehicle Services&lt;/h3&gt;
-&lt;p&gt;A vehicle service offers a gRPC interface for interacting with underlying services.
-It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
-It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the Vehicle Data Broker.&lt;/p&gt;
-&lt;p&gt;As of today, the Vehicle Abstraction Layer contains one &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/v0.1.0/seat_service&#34;&gt;example service to control a seat&lt;/a&gt;.
-It is implemented in C++ and uses the &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders&#34;&gt;CAN feeder&lt;/a&gt; to control a seat in the vehicle.&lt;/p&gt;
-&lt;h3 id=&#34;hardware-abstraction&#34;&gt;Hardware Abstraction&lt;/h3&gt;
-&lt;p&gt;Data feeders rely on hardware abstraction. Hardware abstraction project/platform specific.
-The reference implementation relies on [SocketCAN]&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders&#34;&gt;(https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders&lt;/a&gt;) and
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_feeders&#34;&gt;vxcan&lt;/a&gt;.
-The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.&lt;/p&gt;
-&lt;h2 id=&#34;information-flow&#34;&gt;Information Flow&lt;/h2&gt;
-&lt;p&gt;The vehicle abstraction layer offers an information flow between vehicle networks and vehicle services.
-The data that can flow is ultimately limited to the data available through the Hardware Abstraction, which is platform/project-specific.
-Which data can actually be sent or consumed is controlled by &lt;a href=&#34;https://github.com/eclipse/kuksa.val/blob/master/kuksa_feeders/dbc2val/Model3CAN.dbc&#34;&gt;DBC&lt;/a&gt;
-and &lt;a href=&#34;https://github.com/eclipse/kuksa.val/blob/master/kuksa_feeders/dbc2val/mapping.yml&#34;&gt;Mapping&lt;/a&gt; files.
-Services (like the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/v0.1.0/seat_service&#34;&gt;seat service&lt;/a&gt;) define which CAN signals they listen to and which CAN signals they send themselves, see &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/v0.1.0/seat_service/src/lib/seat_adjuster/seat_controller/README.md&#34;&gt;documentation&lt;/a&gt;
-The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals supported are currently limited by a &lt;a href=&#34;https://github.com/eclipse/kuksa.val/blob/master/kuksa_databroker/databroker/src/main.rs&#34;&gt;hard coded list&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Additional information on how data privacy is managed can be found in the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/v0.1.0#privacy-customer-information&#34;&gt;Vehicle Abstraction Layer repository&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;data-flow-when-a-vehicle-application-uses-the-vehicle-data-broker&#34;&gt;Data flow when a Vehicle Application uses the Vehicle Data Broker.&lt;/h3&gt;
-
-
-
-
-
-
-
-&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas/velocitas/docs/reference/val/dataflow_broker_hu042a46cff9fdb3ae953ce2b4baa695f0_25200_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;122&#34;&gt;
-	
-	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
-		&lt;p class=&#34;card-text&#34;&gt;
-  Architectural representation of the vehicle data broker data flow
-&lt;/p&gt;
-	&lt;/figcaption&gt;
-	
-&lt;/figure&gt;
-
-&lt;h3 id=&#34;data-flow-when-a-vehicle-application-uses-a-vehicle-service&#34;&gt;Data flow when a Vehicle Application uses a Vehicle Service.&lt;/h3&gt;
-
-
-
-
-
-
-
-&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/velocitas/velocitas/docs/reference/val/dataflow_service_hu2c631cbebd9c8512318cb5903df1828b_24831_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;130&#34;&gt;
-	
-	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
-		&lt;p class=&#34;card-text&#34;&gt;
-  Architectural representation of the vehicle service data flow
-&lt;/p&gt;
-	&lt;/figcaption&gt;
-	
-&lt;/figure&gt;
-
-&lt;h2 id=&#34;source-code&#34;&gt;Source Code&lt;/h2&gt;
-&lt;p&gt;Source code and build instructions are available in the &lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;kuksa.val repository&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;guidelines&#34;&gt;Guidelines&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Please see the &lt;a href=&#34;vehicle_service.md&#34;&gt;vehicle service guidelines&lt;/a&gt; for information on how to implement a Vehicle Service.&lt;/li&gt;
-&lt;li&gt;Please see the &lt;a href=&#34;interface_guideline.md&#34;&gt;interface guideline&lt;/a&gt; for best practices on how to specify a gRPC interface.&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
     
     <item>
       <title>Docs: Example Use Case</title>
@@ -162,7 +48,7 @@ The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals 
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;: 300&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; that has subscribed to this topic, receives the request to change the seat position as a MQTT message.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; gets the current vehicle speed from the data broker, which is fed by the &lt;strong&gt;Generic CAN Feeder&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; gets the current vehicle speed from the data broker, which is fed by the &lt;strong&gt;CAN Feeder (KUKSA DBC Feeder)&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;With the support of the &lt;strong&gt;Vehicle App SDK&lt;/strong&gt;, the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; triggers a seat adjustment command of the &lt;strong&gt;Seat Service&lt;/strong&gt; via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.&lt;/li&gt;
 &lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; moves the seat to the new position via CAN messages.&lt;/li&gt;
 &lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; returns OK or an error code as grpc status to the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt;.&lt;/li&gt;
@@ -194,8 +80,8 @@ The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals 
 
 &lt;ol&gt;
 &lt;li&gt;If the seat position will be changed by the driver, the new seat position will be sent to the &lt;strong&gt;Seat Service&lt;/strong&gt; via CAN.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; streams the seat position via gRPC to the &lt;strong&gt;Vehicle Data Broker&lt;/strong&gt; since it was registered beforehand.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; that subscribed to the seat position receives the new seat position from the &lt;strong&gt;Vehicle Data Broker&lt;/strong&gt; as a result.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; streams the seat position via gRPC to the &lt;strong&gt;KUKSA Data Broker&lt;/strong&gt; since it was registered beforehand.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; that subscribed to the seat position receives the new seat position from the &lt;strong&gt;KUKSA Data Broker&lt;/strong&gt; as a result.&lt;/li&gt;
 &lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; publishes this on topic &lt;code&gt;seatadjuster/currentPosition&lt;/code&gt; with the payload:
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;: 350&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
@@ -207,14 +93,14 @@ The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals 
     
     <item>
       <title>Docs: Repository Overview</title>
-      <link>/velocitas/docs/reference/repository_overview/</link>
+      <link>/velocitas/docs/reference/repository-overview/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/reference/repository_overview/</guid>
+      <guid>/velocitas/docs/reference/repository-overview/</guid>
       <description>
         
         
-        &lt;p&gt;&lt;img src=&#34;/velocitas/assets/project-overview.svg&#34; alt=&#34;Overview&#34;&gt;&lt;/p&gt;
+        &lt;img src=&#34;project-overview.png&#34; &gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -224,27 +110,35 @@ The Vehicle Data Broker offers read/write/subscribe using MQTT. The VSS signals 
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34;&gt;vehicle-app-python-template&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-python-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk&#34;&gt;vehicle-app-python-sdk&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-sdk&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Provides basis functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34;&gt;swdc-os-vehicleapi&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Provides a vehicle abstraction layer (val) including Vehicle Data Broker, an exemplary CAN Data Feeder as well as a Seat Vehicle Service. The Vehicle Data Broker provides data points available in the vehicle to the Vehicle Apps semantically aligned to the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt;. The CAN Data Feeder is an exemplary implementation that reads in data from the vehicle&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/CAN_bus&#34;&gt;CAN bus&lt;/a&gt;, transforms it according to the VSS and feeds it into the Data Broker. The Seat Vehicle Service is an exemplary implementation that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described in the &lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog&#34;&gt;Vehicle Service Catalog (VSC)&lt;/a&gt;.&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Is a part of the Vehicle Abstraction Layer (VAL) of the &lt;a href=&#34;https://www.eclipse.org/kuksa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse KUKSA project&lt;/a&gt; and provides the KUKSA Data Broker. The KUKSA Data Broker offers data points available in the vehicle to the Vehicle Apps semantically aligned to a data model like the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt;.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/release-documentation-action&#34;&gt;release-documentation-action&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val.feeders&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;The KUKSA DBC Feeder is a generic data feeder that reads data from the vehicle&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/CAN_bus&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CAN bus&lt;/a&gt; defined by a DBC file, maps them to a set of data points (e.g. according to the VSS) and feeds it into the Data Broker.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val.services&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides exemplary vehicle services and respective implementations that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described e.g. in the &lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle Service Catalog (VSC)&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/release-documentation-action&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;release-documentation-action&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;GitHub Action to generate a release documentation from the CI workflow output by rendering it to markdown files so that this can be easily published with GitHub Pages.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/license-check&#34;&gt;license-check&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/license-check&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;license-check&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;GitHub Action to collect the licenses of the used components and can be configured to fail with an error message on invalid licenses.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34;&gt;vehicle-model-generator&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-generator&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
