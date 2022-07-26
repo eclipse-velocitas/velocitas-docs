@@ -27,13 +27,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/quickstart/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2022-07-26T12:19:03+00:00" />
+<meta property="article:modified_time" content="2022-07-26T21:27:53+02:00" />
 
 <meta itemprop="name" content="Quickstart">
 <meta itemprop="description" content="Learn how to setup and explore the provided development environment.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2022-07-26T12:19:03+00:00" />
-<meta itemprop="wordCount" content="1648">
+<meta itemprop="dateModified" content="2022-07-26T21:27:53+02:00" />
+<meta itemprop="wordCount" content="1607">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Quickstart"/>
 <meta name="twitter:description" content="Learn how to setup and explore the provided development environment.
@@ -122,7 +122,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.a46906b7a14edb6159580c3fa5a84dab.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.6c188ffbdcbb8aeff2e622826550828d.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -145,7 +145,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.a46906b7a14edb6159580c3fa5a84dab.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.6c188ffbdcbb8aeff2e622826550828d.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -287,18 +287,13 @@ if (!doNotTrack) {
       </ul>
     </li>
     <li><a href="#starting-runtime-services">Starting runtime services</a></li>
-    <li><a href="#debugging-the-vehicle-app">Debugging the Vehicle App</a>
-      <ul>
-        <li><a href="#starting-debug-session">Starting debug session</a></li>
-        <li><a href="#sending-mqtt-messages-to-vehicle-app">Sending MQTT messages to Vehicle App</a></li>
-      </ul>
-    </li>
+    <li><a href="#debugging-the-vehicle-app">Debugging the Vehicle App</a></li>
     <li><a href="#trigger-your-github-workflows">Trigger your Github Workflows</a>
       <ul>
         <li><a href="#run-github-workflow">Run GitHub Workflow</a></li>
       </ul>
     </li>
-    <li><a href="#build-you-first-release">Build you first release</a>
+    <li><a href="#build-your-first-release">Build your first release</a>
       <ul>
         <li><a href="#release-the-vehicle-app-to-push-it-to-the-container-registry">Release the Vehicle App to push it to the container registry</a></li>
       </ul>
@@ -386,8 +381,8 @@ if (!doNotTrack) {
 <li>Install Docker Engine / <a href="https://www.docker.com/products/docker-desktop" target="_blank" rel="noopener">Docker Desktop</a></li>
 <li>Install <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a></li>
 <li>Add <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers" target="_blank" rel="noopener">Remote-Containers</a> extension via the marketplace or using the command line
-<pre tabindex="0"><code>code --install-extension ms-vscode-remote.remote-containers
-</code></pre></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>code --install-extension ms-vscode-remote.remote-containers
+</span></span></code></pre></div></li>
 </ul>
 <h3 id="proxy-configuration">Proxy configuration</h3>
 <p>A non proxy configuration is used by default.
@@ -442,12 +437,15 @@ The development environment relies on communication to localhost (e.g. localhost
 <li>Select the branch to clone from the list</li>
 </ol>
 <p>The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.</p>
-<blockquote>
-<p>When opening the DevContainer for the first time, the following steps are necessary:</p>
-</blockquote>
-<ul>
-<li>A manual reload of the dapr extension is required, if the extension hasn´t been installed before (Note: the reload button appears next to Dapr extension in extension menue).</li>
-</ul>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    When opening the DevContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.
+
+</div>
+
 <details>
 <summary>Please expand for information on troubleshooting</summary>
 <blockquote>
@@ -473,10 +471,10 @@ The development environment relies on communication to localhost (e.g. localhost
 You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.</p>
 <p>To get started with Codespaces, you just have to follow a few steps:</p>
 <ol>
-<li>go to the webpage of your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp" target="_blank" rel="noopener">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
-<li>click on the green <code>Code</code>-button and select Codespaces on the top</li>
-<li>configure your Codespace if needed (defaults to the main branch and a standard agent)</li>
-<li>click on <code>create</code></li>
+<li>Go to the webpage of your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp" target="_blank" rel="noopener">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
+<li>Click on the green <code>Code</code>-button and select Codespaces on the top</li>
+<li>Configure your Codespace if needed (defaults to the main branch and a standard agent)</li>
+<li>Click on <code>create</code></li>
 </ol>
 <p>A new window will open where you see the logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.</p>
 <p>Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.</p>
@@ -491,22 +489,22 @@ You can either try it out directly in the browser or also use it inside Visual S
 
 <h2 id="starting-runtime-services">Starting runtime services</h2>
 <p>The runtime services (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are required to develop vehicle apps and run integration tests.</p>
-<p>A Visual Studio Code task called <code>Start Vehicle App runtime</code> is available to run these in the correct order. Click <code>F1</code>, select command <code>Tasks: Run Task</code>, select <code>Start VehicleApp runtime</code> and <code>Continue without scanning the output</code>.</p>
+<p>A Visual Studio Code task called <code>Start Vehicle App runtime</code> is available to run these in the correct order.</p>
+<ol>
+<li>Press <kbd>F1</kbd></li>
+<li>Select command <code>Tasks: Run Task</code></li>
+<li>Select <code>Start VehicleApp runtime</code></li>
+<li>Choose <code>Continue without scanning the output</code></li>
+</ol>
 <p>You should see the tasks <code>run-mosquitto</code>, <code>run-vehicledatabroker</code>, <code>run-seatservice</code> and <code>run-feedercan</code> being executed in the Visual Studio Code output panel.</p>
 <p>More information about the tasks are available <a href="/velocitas/docs/run_runtime_services_locally.md">here</a>.</p>
 <h2 id="debugging-the-vehicle-app">Debugging the Vehicle App</h2>
-<p>Now that the runtime services are all up and running, let&rsquo;s start a debug session for the Vehicle App as next step.</p>
-<h3 id="starting-debug-session">Starting debug session</h3>
+<p>Now that the <a href="#starting-runtime-services">runtime services</a> are all up and running, let&rsquo;s start a debug session for the Vehicle App as next step.</p>
 <ul>
 <li>Open the main python file <code>src/SeatAdjusterApp/seatadjuster.py</code> file and set a breakpoint in <code>line 68</code></li>
 <li>Press <kbd>F5</kbd> to start the Vehicle App to start a debug session and see the log output on the <code>DEBUG CONSOLE</code></li>
 </ul>
-<p>In the next step you will use a mqtt message to trigger this breakpoint.</p>
-<h3 id="sending-mqtt-messages-to-vehicle-app">Sending MQTT messages to Vehicle App</h3>
-<p>Let&rsquo;s send a message to your Vehicle App using the mqtt broker that is running in the background.</p>
-<blockquote>
-<p>Make sure that <a href="#starting-runtime-services">runtime services</a> and <a href="#start-and-debug-vehicle-app">Vehicle App debug session</a> are running.</p>
-</blockquote>
+<p>To trigger this breakpoint, let&rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.</p>
 <ul>
 <li>
 <p>Open <code>VSMqtt</code> extension in Visual Studio Code and connect to <code>mosquitto (local)</code></p>
@@ -524,16 +522,8 @@ You can either try it out directly in the browser or also use it inside Visual S
 <p>Set and publish a dummy payload:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
-<li>
-<p>Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session</p>
-</li>
-<li>
-<p>After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic</p>
-</li>
-<li>
-<p>You can see the response in the MQTT window.</p>
-</li>
 </ul>
+<p>Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.</p>
 <h2 id="trigger-your-github-workflows">Trigger your Github Workflows</h2>
 <p>GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find <a href="https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md" target="_blank" rel="noopener">here</a>.</p>
 <h3 id="run-github-workflow">Run GitHub Workflow</h3>
@@ -546,23 +536,23 @@ You can either try it out directly in the browser or also use it inside Visual S
 <li>Push
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push
 </span></span></code></pre></div></li>
-<li>Open your git repository in your favorite browser</li>
-<li>Navigate to <code>Actions</code> and go to <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">CI Workflow</a></li>
-<li>Check Workflow Output, it should look like this:
-<img src="/assets/ci-workflow-success.png" alt=""></li>
+<li>Open the <code>Actions</code> page of your repository on GitHub.com in your favorite browser</li>
+<li>Go to <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">CI Workflow</a></li>
+<li>Check Workflow Output</li>
 </ul>
-<h2 id="build-you-first-release">Build you first release</h2>
+<h2 id="build-your-first-release">Build your first release</h2>
 <p>Now that the <code>CI Workflow</code> was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image.</p>
 <h3 id="release-the-vehicle-app-to-push-it-to-the-container-registry">Release the Vehicle App to push it to the container registry</h3>
 <ul>
-<li>Open the <code>Code</code> page of your repository on GitHub.com and click on <code>Create a new release</code> in the Releases section on the right side</li>
+<li>Open the <code>Code</code> page of your repository on GitHub.com</li>
+<li>Click on <code>Create a new release</code> in the Releases section on the right side</li>
 <li>Enter a version, e.g. v1.0.0, and click on <code>Publish release</code>
-GitHub will automatically create a tag using the version number</li>
-<li>The release workflow will be triggered
 <ul>
-<li>Open <code>Actions</code> on the repoitory and see the result</li>
+<li>GitHub will automatically create a tag using the version number</li>
+<li>The release workflow will be triggered</li>
 </ul>
 </li>
+<li>Open <code>Actions</code> on the repoitory and see the result</li>
 </ul>
 <h2 id="next-steps">Next steps</h2>
 <ul>
@@ -575,7 +565,7 @@ GitHub will automatically create a tag using the version number</li>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified July 26, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/2c46881e05dd71c4934282d8be6b083d65e21044">added visual alert element to highlight note for codespaces (2c46881)</a>
+  Last modified July 26, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/c235a47e5962b3ee8eb90975fd90ecf05d954e41">Corrected styling and removed missing image link (c235a47)</a>
 </div>
 
 </div>

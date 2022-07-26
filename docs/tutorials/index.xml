@@ -33,8 +33,8 @@
 &lt;li&gt;Install Docker Engine / &lt;a href=&#34;https://www.docker.com/products/docker-desktop&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Desktop&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Install &lt;a href=&#34;https://code.visualstudio.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Add &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Remote-Containers&lt;/a&gt; extension via the marketplace or using the command line
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;code --install-extension ms-vscode-remote.remote-containers
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;code --install-extension ms-vscode-remote.remote-containers
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;proxy-configuration&#34;&gt;Proxy configuration&lt;/h3&gt;
 &lt;p&gt;A non proxy configuration is used by default.
@@ -89,12 +89,15 @@ The development environment relies on communication to localhost (e.g. localhost
 &lt;li&gt;Select the branch to clone from the list&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;When opening the DevContainer for the first time, the following steps are necessary:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;A manual reload of the dapr extension is required, if the extension hasn´t been installed before (Note: the reload button appears next to Dapr extension in extension menue).&lt;/li&gt;
-&lt;/ul&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    When opening the DevContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.
+
+&lt;/div&gt;
+
 &lt;details&gt;
 &lt;summary&gt;Please expand for information on troubleshooting&lt;/summary&gt;
 &lt;blockquote&gt;
@@ -120,10 +123,10 @@ The development environment relies on communication to localhost (e.g. localhost
 You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.&lt;/p&gt;
 &lt;p&gt;To get started with Codespaces, you just have to follow a few steps:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;go to the webpage of your repository on GitHub (e.g. &lt;a href=&#34;https://github.com/MyOrg/MyFirstVehicleApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/MyOrg/MyFirstVehicleApp&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;click on the green &lt;code&gt;Code&lt;/code&gt;-button and select Codespaces on the top&lt;/li&gt;
-&lt;li&gt;configure your Codespace if needed (defaults to the main branch and a standard agent)&lt;/li&gt;
-&lt;li&gt;click on &lt;code&gt;create&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Go to the webpage of your repository on GitHub (e.g. &lt;a href=&#34;https://github.com/MyOrg/MyFirstVehicleApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/MyOrg/MyFirstVehicleApp&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Click on the green &lt;code&gt;Code&lt;/code&gt;-button and select Codespaces on the top&lt;/li&gt;
+&lt;li&gt;Configure your Codespace if needed (defaults to the main branch and a standard agent)&lt;/li&gt;
+&lt;li&gt;Click on &lt;code&gt;create&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;A new window will open where you see the logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.&lt;/p&gt;
 &lt;p&gt;Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.&lt;/p&gt;
@@ -138,22 +141,22 @@ You can either try it out directly in the browser or also use it inside Visual S
 
 &lt;h2 id=&#34;starting-runtime-services&#34;&gt;Starting runtime services&lt;/h2&gt;
 &lt;p&gt;The runtime services (like &lt;em&gt;KUKSA Data Broker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are required to develop vehicle apps and run integration tests.&lt;/p&gt;
-&lt;p&gt;A Visual Studio Code task called &lt;code&gt;Start Vehicle App runtime&lt;/code&gt; is available to run these in the correct order. Click &lt;code&gt;F1&lt;/code&gt;, select command &lt;code&gt;Tasks: Run Task&lt;/code&gt;, select &lt;code&gt;Start VehicleApp runtime&lt;/code&gt; and &lt;code&gt;Continue without scanning the output&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A Visual Studio Code task called &lt;code&gt;Start Vehicle App runtime&lt;/code&gt; is available to run these in the correct order.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt;&lt;/li&gt;
+&lt;li&gt;Select command &lt;code&gt;Tasks: Run Task&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;Start VehicleApp runtime&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Choose &lt;code&gt;Continue without scanning the output&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;p&gt;You should see the tasks &lt;code&gt;run-mosquitto&lt;/code&gt;, &lt;code&gt;run-vehicledatabroker&lt;/code&gt;, &lt;code&gt;run-seatservice&lt;/code&gt; and &lt;code&gt;run-feedercan&lt;/code&gt; being executed in the Visual Studio Code output panel.&lt;/p&gt;
 &lt;p&gt;More information about the tasks are available &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;debugging-the-vehicle-app&#34;&gt;Debugging the Vehicle App&lt;/h2&gt;
-&lt;p&gt;Now that the runtime services are all up and running, let&amp;rsquo;s start a debug session for the Vehicle App as next step.&lt;/p&gt;
-&lt;h3 id=&#34;starting-debug-session&#34;&gt;Starting debug session&lt;/h3&gt;
+&lt;p&gt;Now that the &lt;a href=&#34;#starting-runtime-services&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the Vehicle App as next step.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Open the main python file &lt;code&gt;src/SeatAdjusterApp/seatadjuster.py&lt;/code&gt; file and set a breakpoint in &lt;code&gt;line 68&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Press &lt;kbd&gt;F5&lt;/kbd&gt; to start the Vehicle App to start a debug session and see the log output on the &lt;code&gt;DEBUG CONSOLE&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;In the next step you will use a mqtt message to trigger this breakpoint.&lt;/p&gt;
-&lt;h3 id=&#34;sending-mqtt-messages-to-vehicle-app&#34;&gt;Sending MQTT messages to Vehicle App&lt;/h3&gt;
-&lt;p&gt;Let&amp;rsquo;s send a message to your Vehicle App using the mqtt broker that is running in the background.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Make sure that &lt;a href=&#34;#starting-runtime-services&#34;&gt;runtime services&lt;/a&gt; and &lt;a href=&#34;#start-and-debug-vehicle-app&#34;&gt;Vehicle App debug session&lt;/a&gt; are running.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in Visual Studio Code and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/p&gt;
@@ -171,16 +174,8 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;p&gt;Set and publish a dummy payload:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;300&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;After resuming execution (&lt;kbd&gt;F5&lt;/kbd&gt;), a response from your Vehicle App is published to the response topic&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;You can see the response in the MQTT window.&lt;/p&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (&lt;kbd&gt;F5&lt;/kbd&gt;), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.&lt;/p&gt;
 &lt;h2 id=&#34;trigger-your-github-workflows&#34;&gt;Trigger your Github Workflows&lt;/h2&gt;
 &lt;p&gt;GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find &lt;a href=&#34;https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;run-github-workflow&#34;&gt;Run GitHub Workflow&lt;/h3&gt;
@@ -193,23 +188,23 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;li&gt;Push
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;Open your git repository in your favorite browser&lt;/li&gt;
-&lt;li&gt;Navigate to &lt;code&gt;Actions&lt;/code&gt; and go to &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CI Workflow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Check Workflow Output, it should look like this:
-&lt;img src=&#34;/velocitas/assets/ci-workflow-success.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;li&gt;Open the &lt;code&gt;Actions&lt;/code&gt; page of your repository on GitHub.com in your favorite browser&lt;/li&gt;
+&lt;li&gt;Go to &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CI Workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Check Workflow Output&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;build-you-first-release&#34;&gt;Build you first release&lt;/h2&gt;
+&lt;h2 id=&#34;build-your-first-release&#34;&gt;Build your first release&lt;/h2&gt;
 &lt;p&gt;Now that the &lt;code&gt;CI Workflow&lt;/code&gt; was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image.&lt;/p&gt;
 &lt;h3 id=&#34;release-the-vehicle-app-to-push-it-to-the-container-registry&#34;&gt;Release the Vehicle App to push it to the container registry&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Open the &lt;code&gt;Code&lt;/code&gt; page of your repository on GitHub.com and click on &lt;code&gt;Create a new release&lt;/code&gt; in the Releases section on the right side&lt;/li&gt;
+&lt;li&gt;Open the &lt;code&gt;Code&lt;/code&gt; page of your repository on GitHub.com&lt;/li&gt;
+&lt;li&gt;Click on &lt;code&gt;Create a new release&lt;/code&gt; in the Releases section on the right side&lt;/li&gt;
 &lt;li&gt;Enter a version, e.g. v1.0.0, and click on &lt;code&gt;Publish release&lt;/code&gt;
-GitHub will automatically create a tag using the version number&lt;/li&gt;
-&lt;li&gt;The release workflow will be triggered
 &lt;ul&gt;
-&lt;li&gt;Open &lt;code&gt;Actions&lt;/code&gt; on the repoitory and see the result&lt;/li&gt;
+&lt;li&gt;GitHub will automatically create a tag using the version number&lt;/li&gt;
+&lt;li&gt;The release workflow will be triggered&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;Open &lt;code&gt;Actions&lt;/code&gt; on the repoitory and see the result&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
