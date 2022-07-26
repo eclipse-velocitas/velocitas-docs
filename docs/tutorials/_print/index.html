@@ -119,7 +119,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.3245ee85dca9133d280f56166d390679.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.b87679b75cd6eaf89df3aa7a4ed2b903.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -267,10 +267,14 @@ This is the multi-page printable view of this section.
     <div class="lead">Learn how to setup and explore the provided development environment.</div>
 	<p>The following information describes how to setup and configure the Development Container (DevContainer), and how to build, customize and test the sample Vehicle App, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.</p>
 <p>Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> for your own Vehicle App develpment project.</p>
-<h2 id="vehicle-app-development-with-visual-studio-code">Vehicle App development with Visual Studio Code</h2>
+<h2 id="creating-vehicle-app-repository">Creating Vehicle App Repository</h2>
+<p>Create your own repository copy from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
+<p>The name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of document.</p>
+<h2 id="starting-development-environement">Starting Development Environement</h2>
+<p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
+<h3 id="visual-studio-code">Visual Studio Code</h3>
 <p>The Visual Studio Code <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">Development Containers</a> makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development &amp; testing tools into a container that is then started within your Visual Studio Code session.</p>
 <p>To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:</p>
-<h3 id="system-prerequisites">System prerequisites</h3>
 <ul>
 <li>Install Docker Engine / <a href="https://www.docker.com/products/docker-desktop" target="_blank" rel="noopener">Docker Desktop</a></li>
 <li>Install <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a></li>
@@ -278,9 +282,15 @@ This is the multi-page printable view of this section.
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>code --install-extension ms-vscode-remote.remote-containers
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="proxy-configuration">Proxy configuration</h3>
-<p>A non proxy configuration is used by default.
-If you are working behind a corporate proxy you will need to specify proxy settings.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Proxy configuration</h4>
+
+    A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings.
+
+</div>
+
 <details>
 <summary>Please expand for information on configuring proxy settings</summary>
 <p>A template configuration using proxies exists in <code>.devcontainer/Dockerfile.Proxy</code> and by setting the environment variable <code>DEVCONTAINER_PROXY</code> to <code>.Proxy</code> the file
@@ -316,12 +326,6 @@ In case the DevContainer is still not working, check if proxy settings are set c
 Verify that the <code>noProxy</code> setting in <code>~/.docker/config.json</code> (if existing) is compatible with the setting of <code>NO_PROXY</code> in <code>.devcontainer/Dockerfile.Proxy</code>.
 The development environment relies on communication to localhost (e.g. localhost, 127.0.0.1) and it is important that the proxy setting is correct so that connections to localhost are not forwarded to the proxy.</p>
 </details>
-<h2 id="use-template-repository">Use Template Repository</h2>
-<p>Create your own repository copy from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches.</p>
-<p>The name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of document.</p>
-<p>For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a></p>
-<p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
-<h3 id="visual-studio-code">Visual Studio Code</h3>
 <p>With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.</p>
 <ol>
 <li>Start Visual Studio Code</li>
@@ -420,7 +424,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 </span></span><span style="display:flex;"><span>git push
 </span></span></code></pre></div></li>
 </ol>
-<p>To see the the results open the <code>Actions</code> page of your repository on GitHub, go to <code>CI Workflow</code> and check the workflow output.</p>
+<p>To see the results open the <code>Actions</code> page of your repository on GitHub, go to <code>CI Workflow</code> and check the workflow output.</p>
 <h2 id="releasing-vehicle-app">Releasing Vehicle App</h2>
 <p>Now that the <code>CI Workflow</code> was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image that is published in the GitHub container registry</p>
 <ol>
