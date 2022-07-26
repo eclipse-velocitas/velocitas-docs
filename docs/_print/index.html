@@ -115,7 +115,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.6c188ffbdcbb8aeff2e622826550828d.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.3245ee85dca9133d280f56166d390679.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -1309,7 +1309,7 @@ The development environment relies on communication to localhost (e.g. localhost
 You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.</p>
 <p>To get started with Codespaces, you just have to follow a few steps:</p>
 <ol>
-<li>Go to the webpage of your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp" target="_blank" rel="noopener">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
+<li>Open your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp" target="_blank" rel="noopener">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
 <li>Click on the green <code>Code</code>-button and select Codespaces on the top</li>
 <li>Configure your Codespace if needed (defaults to the main branch and a standard agent)</li>
 <li>Click on <code>create</code></li>
@@ -1336,62 +1336,47 @@ You can either try it out directly in the browser or also use it inside Visual S
 </ol>
 <p>You should see the tasks <code>run-mosquitto</code>, <code>run-vehicledatabroker</code>, <code>run-seatservice</code> and <code>run-feedercan</code> being executed in the Visual Studio Code output panel.</p>
 <p>More information about the tasks are available <a href="/velocitas/docs/run_runtime_services_locally.md">here</a>.</p>
-<h2 id="debugging-the-vehicle-app">Debugging the Vehicle App</h2>
+<h2 id="debugging-vehicle-app">Debugging Vehicle App</h2>
 <p>Now that the <a href="#starting-runtime-services">runtime services</a> are all up and running, let&rsquo;s start a debug session for the Vehicle App as next step.</p>
-<ul>
+<ol>
 <li>Open the main python file <code>src/SeatAdjusterApp/seatadjuster.py</code> file and set a breakpoint in <code>line 68</code></li>
 <li>Press <kbd>F5</kbd> to start the Vehicle App to start a debug session and see the log output on the <code>DEBUG CONSOLE</code></li>
-</ul>
+</ol>
 <p>To trigger this breakpoint, let&rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.</p>
-<ul>
-<li>
-<p>Open <code>VSMqtt</code> extension in Visual Studio Code and connect to <code>mosquitto (local)</code></p>
-</li>
-<li>
-<p>Set <code>Subscribe Topic</code> = <code>seatadjuster/setPosition/response</code> and click subscribe.</p>
-</li>
-<li>
-<p>Set <code>Subscribe Topic</code> = <code>seatadjuster/currentPosition</code> and click subscribe.</p>
-</li>
-<li>
-<p>Set <code>Publish Topic</code> = <code>seatadjuster/setPosition/request</code></p>
-</li>
-<li>
-<p>Set and publish a dummy payload:</p>
+<ol start="3">
+<li>Open <code>VSMqtt</code> extension in Visual Studio Code and connect to <code>mosquitto (local)</code></li>
+<li>Set <code>Subscribe Topic</code> = <code>seatadjuster/setPosition/response</code> and click subscribe</li>
+<li>Set <code>Subscribe Topic</code> = <code>seatadjuster/currentPosition</code> and click subscribe</li>
+<li>Set <code>Publish Topic</code> = <code>seatadjuster/setPosition/request</code></li>
+<li>Set and publish a dummy payload:
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
-</ul>
+</ol>
 <p>Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.</p>
-<h2 id="trigger-your-github-workflows">Trigger your Github Workflows</h2>
-<p>GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find <a href="https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md" target="_blank" rel="noopener">here</a>.</p>
-<h3 id="run-github-workflow">Run GitHub Workflow</h3>
-<ul>
+<h2 id="triggering-ci-workflow">Triggering CI Workflow</h2>
+<p>The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find <a href="https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md" target="_blank" rel="noopener">here</a>.</p>
+<p>By pushing a change to GitHub the CI Workflow will be triggered:</p>
+<ol>
 <li>Make modification to your file, e.g. remove the last empty line from <code>src/SeatAdjusterApp/seatadjuster.py</code></li>
-<li>Commit you change
+<li>Commit and push your change
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
 </span></span><span style="display:flex;"><span>git commit -m <span style="color:#4e9a06">&#34;removed emtpy line&#34;</span>
+</span></span><span style="display:flex;"><span>git push
 </span></span></code></pre></div></li>
-<li>Push
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push
-</span></span></code></pre></div></li>
-<li>Open the <code>Actions</code> page of your repository on GitHub.com in your favorite browser</li>
-<li>Go to <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">CI Workflow</a></li>
-<li>Check Workflow Output</li>
-</ul>
-<h2 id="build-your-first-release">Build your first release</h2>
-<p>Now that the <code>CI Workflow</code> was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image.</p>
-<h3 id="release-the-vehicle-app-to-push-it-to-the-container-registry">Release the Vehicle App to push it to the container registry</h3>
-<ul>
-<li>Open the <code>Code</code> page of your repository on GitHub.com</li>
+</ol>
+<p>To see the the results open the <code>Actions</code> page of your repository on GitHub, go to <code>CI Workflow</code> and check the workflow output.</p>
+<h2 id="releasing-vehicle-app">Releasing Vehicle App</h2>
+<p>Now that the <code>CI Workflow</code> was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image that is published in the GitHub container registry</p>
+<ol>
+<li>Open the <code>Code</code> page of your repository on GitHub</li>
 <li>Click on <code>Create a new release</code> in the Releases section on the right side</li>
 <li>Enter a version, e.g. v1.0.0, and click on <code>Publish release</code>
 <ul>
 <li>GitHub will automatically create a tag using the version number</li>
-<li>The release workflow will be triggered</li>
 </ul>
 </li>
-<li>Open <code>Actions</code> on the repoitory and see the result</li>
-</ul>
+</ol>
+<p>The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open <code>Actions</code> on the repoitory and see the result.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Python Vehicle Model</a></li>
