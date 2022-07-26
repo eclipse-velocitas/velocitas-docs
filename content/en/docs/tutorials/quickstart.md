@@ -178,7 +178,7 @@ The provided GitHub workflows are used to build the container image for the Vehi
   
 By pushing a change to GitHub the CI Workflow will be triggered:
 
-1. Make modification to your file, e.g. remove the last empty line from `src/SeatAdjusterApp/seatadjuster.py`
+1. Make modification to your file, e.g. remove the last empty line from `src/VehicleApp/main.py`
 2. Commit and push your change
    ```bash
    git add .

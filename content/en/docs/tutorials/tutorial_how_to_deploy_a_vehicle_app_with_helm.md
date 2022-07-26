@@ -21,14 +21,14 @@ This tutorial will show you how to:
 
 ## Prepare a Helm chart
 
-If the Vehicle App has been created from the Python template repository, a sample Helm chart is already available under `deploy/SeatAdjusterApp`.
+If the Vehicle App has been created from the Python template repository, a sample Helm chart is already available under `deploy/VehicleApp`.
 
 This will be adapted to deploy a new vehicle app, which is called `my_vehicle_app` for this walkthrough.
 
 1. Start Visual Studio Code and open the previously created Vehicle App repository.
 1. Create a new folder `my_vehicle_app` under `deploy`
-1. Copy all files from the `deploy/SeatAdjusterApp` folder to the new folder `deploy/my_vehicle_app`.
-1. Rename the file `deploy/my_vehicle_app/helm/templates/seatadjuster.yaml` to `deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml`
+1. Copy all files from the `deploy/VehicleApp` folder to the new folder `deploy/my_vehicle_app`.
+1. Rename the file `deploy/my_vehicle_app/helm/templates/vehicleapp.yaml` to `deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml`
 1. Open `deploy/my_vehicle_app/helm/Chart.yaml` and change the name of the chart to `my_vehicle_app` and provide a meaningful description.
 
    ```yaml
@@ -57,7 +57,7 @@ This will be adapted to deploy a new vehicle app, which is called `my_vehicle_ap
    appVersion: 1.16.0
    ```
 
-1. Open `deploy/my_vehicle_app/helm/values.yaml` and change `name`, `repository` and `daprAppid` to `my_vehicle_app`. Rename the root node from `imageSeatAdjusterApp` to `imageMyVehicleApp`.
+1. Open `deploy/my_vehicle_app/helm/values.yaml` and change `name`, `repository` and `daprAppid` to `my_vehicle_app`. Rename the root node from `imageVehicleApp` to `imageMyVehicleApp`.
 
    ```yaml
    imageMyVehicleApp:
@@ -73,7 +73,7 @@ This will be adapted to deploy a new vehicle app, which is called `my_vehicle_ap
      fullnameOverride: ""
    ```
 
-1. Open `deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml` and replace `imageSeatAdjusterApp` with `imageMyVehicleApp`:
+1. Open `deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml` and replace `imageVehicleApp` with `imageMyVehicleApp`:
 
    ```yaml
    apiVersion: apps/v1
@@ -106,7 +106,7 @@ This will be adapted to deploy a new vehicle app, which is called `my_vehicle_ap
 
    ```
 
-1. Rename `deploy/my_vehicle_app/deploy_seat-adjuster-app.sh` to `deploy/my_vehicle_app/deploy-my-vehicle-app.sh` and replace all occurences of `SeatAdjusterApp` with `MyVehicleApp` and `seatservice` with `my-vehicle-app`.
+1. Rename `deploy/my_vehicle_app/deploy_vehicleapp.sh` to `deploy/my_vehicle_app/deploy-my-vehicle-app.sh` and replace all occurences of `VehicleApp` with `MyVehicleApp` and `seatservice` with `my-vehicle-app`.
 
    ```sh
    #!/bin/bash

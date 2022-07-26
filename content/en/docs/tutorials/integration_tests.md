@@ -38,7 +38,7 @@ We distinguish between two environments for executing the _Vehicle App_ and the 
 
 First, make sure that the runtime services are configured and running like described [here](/docs/run_runtime_services_locally.md).
 
-The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the task `SeatAdjuster`.
+The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the task `VehicleApp`.
 
 When the runtime services and the application are running, integration tests can be executed locally.
 
@@ -46,9 +46,9 @@ When the runtime services and the application are running, integration tests can
 
 If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the [documentation](/docs/run_runtime_services_kubernetes.md). To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:
 
-- `export MQTT_PORT=31883`
-- `export VDB_PORT=30555`
-- `pytest`
+```bash
+  export MQTT_PORT=31883 && export VDB_PORT=30555 && pytest
+```
 
 ## Writing Test Cases
 
@@ -102,14 +102,14 @@ The tests will be discovered and executed automatically in the [CI pipeline](htt
 
 ## Run tests in Kubernetes mode
 
-1. Make sure that K3D is up and running (by calling the scripts in the `scripts/k3d` folder, 01 - 04).
-2. Make sure that the tests are using the right ports for Kubernetes execution.
+1. Make sure that K3D is set up and all vehicle runtime are deployed and running (by calling the script in the `/scripts/runtime//k3d/deploy_runtime.sh`).
+2. Make sure that the tests are using the right ports for Kubernetes execution ([see above](#kubernetes-execution-k3d)).
 3. Run tests from the test runner.
 
 ## Update application when running in Kubernetes mode
 
-1. Re-run the script `/scripts/k3d/04_deploy-apps.sh` that rebuilds and deploys the application to K3D.
-2. Re-run tests from the test runner. 
+1. Re-run the script `/scripts/runtime//k3d/deploy_vehicleapp.sh` that rebuilds and deploys the application to K3D.
+2. Re-run tests from the test runner.
 
 # Troubleshooting
 

@@ -29,7 +29,7 @@ The Vehicle app allows to change the positions of the seats in the car and also 
 
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
 
-At first, you have to create the main python script called `run.py` in `src/`. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:
+At first, you have to create the main python script called `main.py` in `src/VehicleApp/`. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:
 
 1. Manage your imports
 2. Enable logging
@@ -38,7 +38,7 @@ At first, you have to create the main python script called `run.py` in `src/`. A
 
 #### Manage your imports
 
-Before you start development in the `run.py` you just created, it will be necessary to include the imports required, which you will understand better later through the development:
+Before you start development in the `main.py` you just created, it will be necessary to include the imports required, which you will understand better later through the development:
 
 ```Python
 import asyncio
@@ -259,7 +259,7 @@ Once the implementation is done, it is time to run and debug the app.
 If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the "dapr run ..." command to start your app:
 
 ```bash
-dapr run --app-id seatadjuster --app-protocol grpc --app-port 50008 --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/run.py
+dapr run --app-id seatadjuster --app-protocol grpc --app-port 50008 --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/VehicleApp/main.py
 ```
 
 You already have seen this command and how to check if it is working in the [general setup](/docs/getting-started/quickstart/#start-and-test-vehicle-app).
@@ -327,13 +327,14 @@ Currently there is only one for the SeatAdjuster App.
         "type": "python",
         "justMyCode": false,
         "request": "launch",
-        "name": "SeatAdjuster",
-        "program": "${workspaceFolder}/src/run.py",
+        "name": "VehicleApp",
+        "program": "${workspaceFolder}/src/VehicleApp/main.py",
         "console": "integratedTerminal",
-        "preLaunchTask": "dapr-SeatAdjuster-run",
-        "postDebugTask": "dapr-SeatAdjuster-stop",
+        "preLaunchTask": "dapr-VehicleApp-run",
+        "postDebugTask": "dapr-VehicleApp-stop",
         "env": {
             "DAPR_GRPC_PORT":"50001",
+            "DAPR_HTTP_PORT":"3500",
             "SEATSERVICE_DAPR_APP_ID": "seatservice",
             "VEHICLEDATABROKER_DAPR_APP_ID": "vehicledatabroker"
         }
@@ -345,8 +346,8 @@ We specify which python-script to run using the `program` key. With the `preLaun
 
 ```JSON
 {
-    "label": "dapr-SeatAdjuster-run",
-    "appId": "seatadjuster",
+    "label": "dapr-VehicleApp-run",
+	"appId": "vehicleapp",
     "appPort": 50008,
     "componentsPath": "./.dapr/components",
     "config": "./.dapr/config.yaml",
@@ -363,10 +364,10 @@ We specify which python-script to run using the `program` key. With the `preLaun
 
 ```JSON
 {
-    "label": "dapr-SeatAdjuster-stop",
+    "label": "dapr-VehicleApp-stop",
     "type": "shell",
     "command": [
-        "dapr stop --app-id seatadjuster"
+        "dapr stop --app-id vehicleapp"
     ],
     "presentation": {
         "close": true,

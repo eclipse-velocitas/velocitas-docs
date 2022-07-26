@@ -48,7 +48,7 @@ A Vehicle Model can be created in one of two ways.
         python3 gen_vehicle_model.py -I ./vehicle_signal_specification/spec ./vehicle_signal_specification/spec/VehicleSignalSpecification.vspec -T sdv_model -N sdv_model
         ```
         This creates a `sdv_model` directory in the root of repository along with a `setup.py` file.
-        To have a custom model name, refer to README of [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository. 
+        To have a custom model name, refer to README of [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository.
     4. Change the version of package in `setup.py` manually (defaults to 0.1.0).
     5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Python Vehicle Model](#distributing-your-python-vehicle-model))
 
