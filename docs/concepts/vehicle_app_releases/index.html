@@ -7,16 +7,16 @@
 <meta name="robots" content="index, follow">
 
 
-<link rel="shortcut icon" href="/velocitas/favicons/favicon.ico" >
-<link rel="apple-touch-icon" href="/velocitas/favicons/apple-touch-icon-180x180.png" sizes="180x180">
-<link rel="icon" type="image/png" href="/velocitas/favicons/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="/velocitas/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-36x36.png" sizes="36x36">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-48x48.png" sizes="48x48">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-72x72.png" sizes="72x72">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-144x144.png" sizes="144x144">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-192x192.png" sizes="192x192">
+<link rel="shortcut icon" href="/velocitas-docs/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/velocitas-docs/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Build and Release Process | Velocitas</title>
 <meta name="description" content="Learn more about the provided continuous integration, and release process of a Vehicle App.
@@ -25,15 +25,15 @@
 <meta property="og:description" content="Learn more about the provided continuous integration, and release process of a Vehicle App.
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/velocitas/docs/concepts/vehicle_app_releases/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="/velocitas-docs/docs/concepts/vehicle_app_releases/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2022-07-08T12:08:23+00:00" />
+<meta property="article:modified_time" content="2022-07-07T09:36:39+02:00" />
 
 <meta itemprop="name" content="Build and Release Process">
 <meta itemprop="description" content="Learn more about the provided continuous integration, and release process of a Vehicle App.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2022-07-08T12:08:23+00:00" />
-<meta itemprop="wordCount" content="937">
+<meta itemprop="dateModified" content="2022-07-07T09:36:39+02:00" />
+<meta itemprop="wordCount" content="922">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Build and Release Process"/>
 <meta name="twitter:description" content="Learn more about the provided continuous integration, and release process of a Vehicle App.
@@ -42,8 +42,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.bbb51141b294b6295350e6387ce6c07ee125154ffb0a3c8e376351b58d20c91d.css" as="style">
-<link href="/velocitas/scss/main.min.bbb51141b294b6295350e6387ce6c07ee125154ffb0a3c8e376351b58d20c91d.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas-docs/scss/main.min.1d182b71ccb4ba22c0df507b864c03da3407c2b853f78311ec5508811eeb3467.css" as="style">
+<link href="/velocitas-docs/scss/main.min.1d182b71ccb4ba22c0df507b864c03da3407c2b853f78311ec5508811eeb3467.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -70,8 +70,8 @@ if (!doNotTrack) {
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
-        <a class="navbar-brand" href="/velocitas/">
-		<span class="navbar-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="180mm" height="40mm" style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision" viewBox="0 0 7086.6144 1574.8032" id="svg983" sodipodi:docname="logo.svg" inkscape:version="1.0 (4035a4f, 2020-05-01)"><sodipodi:namedview inkscape:document-rotation="0" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1080" id="namedview985" showgrid="false" showguides="false" units="mm" inkscape:zoom=".69602273" inkscape:cx="408" inkscape:cy="528" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="Layer_x0020_1"/><defs id="defs967"><style id="style956">.fil5{fill:#24b2e4}.fil4{fill:#2e95c9}.fil3{fill:#2477b6}.fil2{fill:#2c5aa0}.fil1{fill:#364b95}.fil0{fill:url(#id0);fill-rule:nonzero}</style><linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="3149.4299" y1="5635.5898" x2="7771.9399" y2="5635.5898"><stop offset="0" style="stop-opacity:1;stop-color:#2B6FB5" id="stop958"/><stop offset=".870588" style="stop-opacity:1;stop-color:#7DC5ED" id="stop960"/><stop offset=".988235" style="stop-opacity:1;stop-color:#7DC5ED" id="stop962"/><stop offset="1" style="stop-opacity:1;stop-color:#7DC5ED" id="stop964"/></linearGradient></defs><g id="Layer_x0020_1" transform="matrix(0.98370981,0,0,0.98370981,-626.40511,-4616.899)"><path class="fil0" d="m3395.11 6027.9h147.19l246.79-709.92h-116.2l-203.63 611.98-205.28-611.98h-114.54l245.68 709.92zm968.32-244.57v0-170.98c0-99.6-76.36-154.37-183.7-154.37h-131.69c-107.35.0-183.7 54.78-183.7 154.37v261.17c0 99.6 76.36 154.38 183.7 154.38h315.39v-82.44h-353.02c-28.22.0-37.63-18.26-37.63-47.59v-114.54zm-108.45-83v0h-282.2v-112.88c0-22.13 9.41-47.03 37.63-47.03h206.94c28.22.0 37.63 24.9 37.63 47.03zm258.95 327.57v0h108.45v-784.62h-108.45zm760.83-415.55v0c0-99.6-65.29-154.37-171.53-154.37h-158.81c-106.24.0-172.09 54.78-172.09 154.37v261.17c0 99.6 65.85 154.38 172.09 154.38h158.81c106.24.0 171.53-54.78 171.53-154.38zm-393.97 275.01v0-288.84c0-42.06 12.17-58.1 48.69-58.1h188.69c36.52.0 48.14 16.04 48.14 58.1v288.84c0 41.5-11.62 58.1-48.14 58.1h-188.69c-36.52.0-48.69-16.6-48.69-58.1zm631.35.0v0-288.84c0-42.06 11.62-58.1 48.14-58.1h272.79v-82.44h-256.19c-107.35.0-173.19 54.78-173.19 154.37v261.17c0 99.6 65.85 154.38 173.19 154.38h256.19v-82.44h-272.79c-36.52.0-48.14-16.6-48.14-58.1zm460.93 140.54v0h107.9v-569.93h-107.9zM5962 5362.25v0h130.03V5243.28H5962zm621.94 178.17v0-82.44h-168.76v-139.99h-76.36l-32.09 139.99h-85.77v82.44h85.77v332c0 96.28 54.78 155.48 180.39 155.48h96.83v-82.44h-120.63c-41.5.0-48.14-21.58-48.14-61.42v-343.61h168.76zm107.35 333.1v0c0 99.6 65.3 154.38 172.64 154.38h33.2c83.56.0 143.87-2.21 169.87-65.29v65.29h107.35v-415.55c0-99.6-76.36-154.37-183.71-154.37h-241.8v82.44h280.54c27.67.0 37.63 18.26 37.63 47.03v95.72h-203.07c-107.35.0-172.64 54.78-172.64 154.93v35.41zm108.45 13.83v0-63.63c0-39.29 10.52-55.89 42.61-57.55H7067v141.65c-3.32 26.56-13.28 37.63-43.16 37.63h-175.96c-36.52.0-48.14-16.6-48.14-58.1zm863.75 27.67v0c0 22.69-11.62 30.43-48.14 30.43H7324.3v82.44h275c107.35.0 172.64-54.78 172.64-154.38v-40.94c0-68.61-47.03-90.19-146.63-113.99-80.78-19.37-101.26-26.56-203.07-51.46v-96.83c0-22.13 11.62-29.88 48.14-29.88h282.2v-82.44h-266.15c-107.34.0-172.64 54.78-172.64 154.37v37.63c0 64.19 43.71 89.08 132.8 109.56 106.8 24.9 151.61 36.52 216.91 50.35v105.13z" id="path970" style="fill:url(#id0)"/><path class="fil1" d="m728.06 5018.07c722.09-309.86 1087.3 423.3 1320.24 889.75 88.54 177.62 156.59 313.19 195.88 317.61 67.5 8.3 132.24-294.37 240.7-1228.94l85.77 7.19C2455 5996.35 2361.49 6315.07 2233.12 6300.13 2145.14 6289.62 2069.33 6137.45 1969.73 5937.7c-219.12-438.78-562.74-1127.13-1203.49-852.12z" id="path972"/><path class="fil2" d="m900.14 4963.85c686.68-298.8 1022 350.81 1244.44 781.3 87.43 168.77 155.49 301.01 202.52 309.31 74.7 12.17 156.04-257.3 299.35-1107.76l85.22 10.51c-153.28 909.67-266.15 1193.53-400.61 1170.84-90.74-15.49-167.11-163.23-265.04-352.47C1857.97 5373.32 1544.78 4766.86 938.89 5030.8l-38.73-66.95z" id="path974"/><path class="fil3" d="m1056.18 4905.75c651.27-287.18 957.26 282.2 1168.63 675.61 85.21 158.25 153.27 285.52 207.5 298.24 82.45 18.81 180.94-216.35 359.11-986.03l84.66 14.39c-192.56 828.88-324.8 1076.78-465.35 1044.13-93.51-21.58-169.32-163.23-263.94-339.19-195.88-364.64-479.74-892.52-1051.88-640.2z" id="path976"/><path class="fil4" d="m1238.22 4844.88c616.96-276.66 894.18 216.35 1094.49 572.7 80.79 144.42 148.29 263.94 209.16 282.75 90.19 28.22 205.29-171.53 421.09-863.74l83.55 19.37c-234.61 751.97-386.78 961.13-533.96 915.2-93.51-29.33-167.66-161.57-257.3-320.93-183.71-327.57-438.79-780.75-977.74-538.39l-39.29-66.95z" id="path978"/><path class="fil5" d="m1406.99 4784.02c583.76-266.7 832.76 153.83 1020.89 471.99 75.25 127.27 139.99 236.83 205.28 263.38 99.05 40.94 231.85-120.07 489.15-740.91l80.79 25.45c-281.65 680.59-453.73 847.15-607 783.51-91.3-37.63-162.13-157.7-244.57-297.13-171.54-289.39-397.85-671.74-904.7-439.9l-39.84-66.4z" id="path980"/></g></svg></span><span class="font-weight-bold">Velocitas</span>
+        <a class="navbar-brand" href="/velocitas-docs/">
+		<span class="navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="font-weight-bold">Velocitas</span>
 	</a>
 	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 		<ul class="navbar-nav mt-2 mt-lg-0">
@@ -86,19 +86,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link active" href="/velocitas/docs/" ><span class="active">Documentation</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				
-				
-				<a class="nav-link" href="/velocitas/community/" ><span>Community</span></a>
+				<a class="nav-link active" href="/velocitas-docs/docs/" ><span class="active">Documentation</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -122,7 +110,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.9bd09956d7164d18ca4884e57e75d43e.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5d284336771df3a004c7e499b4f3dfaf.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -145,7 +133,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.9bd09956d7164d18ca4884e57e75d43e.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5d284336771df3a004c7e499b4f3dfaf.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -157,107 +145,107 @@ if (!doNotTrack) {
   <div id="content-desktop"></div>
   <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
     <ul class="td-sidebar-nav__section pr-md-3 ul-0">
-      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitasdocs-li">
-  <a href="/velocitas/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-velocitasdocs"><span class="">Documentation</span></a>
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitas-docsdocs-li">
+  <a href="/velocitas-docs/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-velocitas-docsdocs"><span class="">Documentation</span></a>
   <ul class="ul-1">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitasdocsconcepts-li">
-  <input type="checkbox" id="m-velocitasdocsconcepts-check" checked/>
-  <label for="m-velocitasdocsconcepts-check"><a href="/velocitas/docs/concepts/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconcepts"><span class="">Concepts</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitas-docsdocsconcepts-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconcepts-check" checked/>
+  <label for="m-velocitas-docsdocsconcepts-check"><a href="/velocitas-docs/docs/concepts/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconcepts"><span class="">Concepts</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptsdevelopment_model-li">
-  <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_model-check"/>
-  <label for="m-velocitasdocsconceptsdevelopment_model-check"><a href="/velocitas/docs/concepts/development_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_model"><span class="">Development Model</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsdevelopment_model-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_model-check"/>
+  <label for="m-velocitas-docsdocsconceptsdevelopment_model-check"><a href="/velocitas-docs/docs/concepts/development_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_model"><span class="">Development Model</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptspython_vehicle_app_sdk-li">
-  <input type="checkbox" id="m-velocitasdocsconceptspython_vehicle_app_sdk-check"/>
-  <label for="m-velocitasdocsconceptspython_vehicle_app_sdk-check"><a href="/velocitas/docs/concepts/python_vehicle_app_sdk/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptspython_vehicle_app_sdk"><span class="">Python Vehicle App SDK</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptspython_vehicle_app_sdk-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptspython_vehicle_app_sdk-check"/>
+  <label for="m-velocitas-docsdocsconceptspython_vehicle_app_sdk-check"><a href="/velocitas-docs/docs/concepts/python_vehicle_app_sdk/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptspython_vehicle_app_sdk"><span class="">Python Vehicle App SDK</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocsconceptsval-li">
-  <input type="checkbox" id="m-velocitasdocsconceptsval-check"/>
-  <label for="m-velocitasdocsconceptsval-check"><a href="/velocitas/docs/concepts/val/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsval"><span class="">Vehicle Abstraction Layer (VAL)</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsruntime-deployment-model-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptsruntime-deployment-model-check"/>
+  <label for="m-velocitas-docsdocsconceptsruntime-deployment-model-check"><a href="/velocitas-docs/docs/concepts/runtime-deployment-model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsconceptsruntime-deployment-model"><span class="">Runtime and Deployment Model</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-velocitas-docsdocsconceptsvehicle_app_releases-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptsvehicle_app_releases-check" checked/>
+  <label for="m-velocitas-docsdocsconceptsvehicle_app_releases-check"><a href="/velocitas-docs/docs/concepts/vehicle_app_releases/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsconceptsvehicle_app_releases"><span class="td-sidebar-nav-active-item">Build and Release Process</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorials-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorials-check"/>
+  <label for="m-velocitas-docsdocstutorials-check"><a href="/velocitas-docs/docs/tutorials/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorials"><span class="">Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsquickstart-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsquickstart-check"/>
+  <label for="m-velocitas-docsdocstutorialsquickstart-check"><a href="/velocitas-docs/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsquickstart"><span class="">Quickstart</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_model-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_model-check"/>
+  <label for="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_model-check"><a href="/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_model"><span class="">Python Vehicle Model Creation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_app-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_app-check"/>
+  <label for="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_app-check"><a href="/velocitas-docs/docs/tutorials/tutorial_how_to_create_a_vehicle_app/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialstutorial_how_to_create_a_vehicle_app"><span class="">Python Vehicle App Development</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsvehicle-app-runtime-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle-app-runtime-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle-app-runtime-check"><a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsvehicle-app-runtime"><span class="">Run Vehicle App Runtime Services</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptsvalinterface_guideline-li">
-  <input type="checkbox" id="m-velocitasdocsconceptsvalinterface_guideline-check"/>
-  <label for="m-velocitasdocsconceptsvalinterface_guideline-check"><a href="/velocitas/docs/concepts/val/interface_guideline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptsvalinterface_guideline"><span class="">Interface Design Guideline</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-check"><a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes"><span class="">Run runtime services in Kubernetes</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptsvalvehicle_service-li">
-  <input type="checkbox" id="m-velocitasdocsconceptsvalvehicle_service-check"/>
-  <label for="m-velocitasdocsconceptsvalvehicle_service-check"><a href="/velocitas/docs/concepts/val/vehicle_service/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptsvalvehicle_service"><span class="">Vehicle Service</span></a></label>
-  
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-velocitasdocsconceptsvehicle_app_releases-li">
-  <input type="checkbox" id="m-velocitasdocsconceptsvehicle_app_releases-check" checked/>
-  <label for="m-velocitasdocsconceptsvehicle_app_releases-check"><a href="/velocitas/docs/concepts/vehicle_app_releases/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptsvehicle_app_releases"><span class="td-sidebar-nav-active-item">Build and Release Process</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptsdeployment-model-li">
-  <input type="checkbox" id="m-velocitasdocsconceptsdeployment-model-check"/>
-  <label for="m-velocitasdocsconceptsdeployment-model-check"><a href="/velocitas/docs/concepts/deployment-model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptsdeployment-model"><span class="">Velocitas Deployment Model</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_locally-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_locally-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_locally-check"><a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle-app-runtimerun_runtime_services_locally"><span class="">Run runtime services locally</span></a></label>
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocstutorials-li">
-  <input type="checkbox" id="m-velocitasdocstutorials-check"/>
-  <label for="m-velocitasdocstutorials-check"><a href="/velocitas/docs/tutorials/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorials"><span class="">Tutorials</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsintegration_tests-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsintegration_tests-check"/>
+  <label for="m-velocitas-docsdocstutorialsintegration_tests-check"><a href="/velocitas-docs/docs/tutorials/integration_tests/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsintegration_tests"><span class="">Vehicle App Integration Testing</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"/>
+  <label for="m-velocitas-docsdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"><a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm"><span class="">Vehicle App Deployment with Helm</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsreference-li">
+  <input type="checkbox" id="m-velocitas-docsdocsreference-check"/>
+  <label for="m-velocitas-docsdocsreference-check"><a href="/velocitas-docs/docs/reference/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsreference"><span class="">Reference</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsquickstart-li">
-  <input type="checkbox" id="m-velocitasdocstutorialsquickstart-check"/>
-  <label for="m-velocitasdocstutorialsquickstart-check"><a href="/velocitas/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsquickstart"><span class="">Quickstart</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_model-li">
-  <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_model-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_model-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_model"><span class="">Python Vehicle Model Creation</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_app-li">
-  <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_app-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_app-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_app"><span class="">Python Vehicle App Development</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocstutorialsvehicle-app-runtime-li">
-  <input type="checkbox" id="m-velocitasdocstutorialsvehicle-app-runtime-check"/>
-  <label for="m-velocitasdocstutorialsvehicle-app-runtime-check"><a href="/velocitas/docs/tutorials/vehicle-app-runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsvehicle-app-runtime"><span class="">Run Vehicle App Runtime Services</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsreferenceval-li">
+  <input type="checkbox" id="m-velocitas-docsdocsreferenceval-check"/>
+  <label for="m-velocitas-docsdocsreferenceval-check"><a href="/velocitas-docs/docs/reference/val/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsreferenceval"><span class="">Vehicle Abstraction Layer (VAL)</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-li">
-  <input type="checkbox" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-check"/>
-  <label for="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-check"><a href="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes"><span class="">Run runtime services in Kubernetes</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsreferencevalinterface_guideline-li">
+  <input type="checkbox" id="m-velocitas-docsdocsreferencevalinterface_guideline-check"/>
+  <label for="m-velocitas-docsdocsreferencevalinterface_guideline-check"><a href="/velocitas-docs/docs/reference/val/interface_guideline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsreferencevalinterface_guideline"><span class="">Interface Design Guideline</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_locally-li">
-  <input type="checkbox" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_locally-check"/>
-  <label for="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_locally-check"><a href="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_locally"><span class="">Run runtime services locally</span></a></label>
-  
-</li>
-  </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsintegration_tests-li">
-  <input type="checkbox" id="m-velocitasdocstutorialsintegration_tests-check"/>
-  <label for="m-velocitasdocstutorialsintegration_tests-check"><a href="/velocitas/docs/tutorials/integration_tests/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsintegration_tests"><span class="">Vehicle App Integration Testing</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-li">
-  <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm"><span class="">Vehicle App Deployment with Helm</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsreferencevalvehicle_service-li">
+  <input type="checkbox" id="m-velocitas-docsdocsreferencevalvehicle_service-check"/>
+  <label for="m-velocitas-docsdocsreferencevalvehicle_service-check"><a href="/velocitas-docs/docs/reference/val/vehicle_service/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsreferencevalvehicle_service"><span class="">Vehicle Service</span></a></label>
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocsreference-li">
-  <input type="checkbox" id="m-velocitasdocsreference-check"/>
-  <label for="m-velocitasdocsreference-check"><a href="/velocitas/docs/reference/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsreference"><span class="">References</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsreferenceseat_adjuster_use_case-li">
+  <input type="checkbox" id="m-velocitas-docsdocsreferenceseat_adjuster_use_case-check"/>
+  <label for="m-velocitas-docsdocsreferenceseat_adjuster_use_case-check"><a href="/velocitas-docs/docs/reference/seat_adjuster_use_case/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsreferenceseat_adjuster_use_case"><span class="">Example Use Case</span></a></label>
   
-  <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsreferenceseat_adjuster_use_case-li">
-  <input type="checkbox" id="m-velocitasdocsreferenceseat_adjuster_use_case-check"/>
-  <label for="m-velocitasdocsreferenceseat_adjuster_use_case-check"><a href="/velocitas/docs/reference/seat_adjuster_use_case/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsreferenceseat_adjuster_use_case"><span class="">Example Use Case</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsreferencerepository-overview-li">
-  <input type="checkbox" id="m-velocitasdocsreferencerepository-overview-check"/>
-  <label for="m-velocitasdocsreferencerepository-overview-check"><a href="/velocitas/docs/reference/repository-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsreferencerepository-overview"><span class="">Repository Overview</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsreferencerepository_overview-li">
+  <input type="checkbox" id="m-velocitas-docsdocsreferencerepository_overview-check"/>
+  <label for="m-velocitas-docsdocsreferencerepository_overview-check"><a href="/velocitas-docs/docs/reference/repository_overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsreferencerepository_overview"><span class="">Repository Overview</span></a></label>
   
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocscontribution-guidelines-li">
-  <input type="checkbox" id="m-velocitasdocscontribution-guidelines-check"/>
-  <label for="m-velocitasdocscontribution-guidelines-check"><a href="/velocitas/docs/contribution-guidelines/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocscontribution-guidelines"><span class="">Contribution Guidelines</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocscontribution-li">
+  <input type="checkbox" id="m-velocitas-docsdocscontribution-check"/>
+  <label for="m-velocitas-docsdocscontribution-check"><a href="/velocitas-docs/docs/contribution/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocscontribution"><span class="">Contribution</span></a></label>
   
 </li>
   </ul>
@@ -270,12 +258,12 @@ if (!doNotTrack) {
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/eclipse-velocitas/velocitas-docs/tree/main/content/en/docs/concepts/vehicle_app_releases.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/eclipse-velocitas/velocitas-docs/edit/main/content/en/docs/concepts/vehicle_app_releases.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/eclipse-velocitas/velocitas-docs/new/main/content/en/docs/concepts/vehicle_app_releases.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+<a href="https://github.com/eclipse-velocitas/velocitas-docs/tree/main/content/en/docs/Concepts/vehicle_app_releases.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/edit/main/content/en/docs/Concepts/vehicle_app_releases.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/new/main/content/en/docs/Concepts/vehicle_app_releases.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
   <a href="https://github.com/eclipse-velocitas/velocitas-docs/issues/new?title=Build%20and%20Release%20Process" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/eclipse-velocitas/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
-  <a id="print" href="/velocitas/docs/concepts/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
+  <a id="print" href="/velocitas-docs/docs/concepts/_print/"><i class="fa fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
@@ -294,7 +282,6 @@ if (!doNotTrack) {
         <li><a href="#maintaining-multiple-versions">Maintaining multiple versions</a></li>
       </ul>
     </li>
-    <li><a href="#further-information-1">Further information</a></li>
   </ul>
 </nav></div>
 
@@ -336,13 +323,13 @@ if (!doNotTrack) {
             <nav aria-label="breadcrumb" class="td-breadcrumbs">
   <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="/velocitas/docs/">Documentation</a>
+    <a href="/velocitas-docs/docs/">Documentation</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="/velocitas/docs/concepts/">Concepts</a>
+    <a href="/velocitas-docs/docs/concepts/">Concepts</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="/velocitas/docs/concepts/vehicle_app_releases/" aria-disabled="true" class="btn-link disabled">Build and Release Process</a>
+    <a href="/velocitas-docs/docs/concepts/vehicle_app_releases/" aria-disabled="true" class="btn-link disabled">Build and Release Process</a>
   </li>
   </ol>
 </nav>
@@ -367,7 +354,7 @@ if (!doNotTrack) {
 
 		
 	</header>    
-	<p>The Velocitas project provides a two-stage process for development, continuous integration, and release of a new version of a Vehicle App.</p>
+	<p>The Velocitas project provides a two-stage process for the development, continuous integration, and release of a new version of a Vehicle App.</p>
 <ul>
 <li>
 <p><strong>Stage 1 - Build &amp; Test</strong>
@@ -388,7 +375,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 <li><strong>Building a container for the app</strong> - actions create a containerized version of the Vehicle App, the actions also support creating an image for multiple platforms.</li>
 <li><strong>Scanning for vulnerabilities</strong> - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &ldquo;failed&rdquo;.</li>
 <li><strong>Running unit tests &amp; code coverage</strong> - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as &ldquo;failed&rdquo;.</li>
-<li><strong>Running integration tests</strong> - actions provision a runtime instance and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marked as &ldquo;failed&rdquo;.</li>
+<li><strong>Running integration tests</strong> - actions provision a runtime and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marke as &ldquo;failed&rdquo;.</li>
 <li><strong>Storing scan &amp; test results as GitHub action artifacts</strong> - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.</li>
 <li><strong>Publish container images to GitHub Container Registry</strong> - at the end of the workflow, the container images created are stored in a Github Container Registry so that they can be referenced by the release-workflow later.</li>
 </ul>
@@ -397,33 +384,29 @@ Once the application is ready to be released in a new version, a dedicated relea
 <p>On creating a new release with a specific new version, GitHub creates a tag and automatically runs the <code>Release workflow</code> defined in .github/workflows/release.yml, given that <code>CI workflow</code> has run successfully for the current commit on the main branch.</p>
 <p>The set of actions included in the <code>Release workflow</code> cover:</p>
 <ul>
-<li><strong>Generating and publishing QA information</strong> - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.</li>
+<li><strong>Generating and verifying QA information</strong> - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.</li>
 <li><strong>Pull &amp; label container image</strong> - actions pull the Vehicle App container image based on the current commit hash from the GitHub registry and label it with the specified tag version. If the image cannot be found, the workflow will fail.</li>
-<li><strong>Publish as GitHub pages</strong> - all information from the release together with the project&rsquo;s documentation is built as a static page using hugo. the result can be published as a GitHub page in your repository.</li>
+<li><strong>Publish to container registry</strong> - actions publish your container image and helm charts to your preferred container registry, which is referenced by your preferred OTA (over-the-air update) system.</li>
 </ul>
 <h2 id="github-actions-artifacts">GitHub Actions artifacts</h2>
 <p><strong>GitHub Actions artifacts</strong> are used for storing data, which is generated by the <code>CI workflow</code> and referenced by the <code>Release workflow</code>. This saves time during workflow runs because we don&rsquo;t have to create artifacts multiple times.</p>
-<p>GitHub Actions artifacts always have a retention period, which is 90 days per default. This may be configured differently in the specific GitHub organization. After this period, the QA info gets purged automatically. In this case, a re-run of the CI workflow would be required to regenerate all QA info neede for creating a released.</p>
+<p>GitHub Actions artifacts always have a retention period, which is 90 days per default, but may be configured differently in the specific GitHub organization. After this period, the QA info gets purged automatically. If that is the case, a re-run of the CI workflow is required to re-generate the QA info, afterwards a release can be created.</p>
 <h2 id="container-registry">Container Registry</h2>
 <p>The GitHub container registry is used for storing container images, which are generated by the <code>CI workflow</code> and leveraged by the <code>Release workflow</code>.</p>
 <p>The <strong>GitHub container registry</strong> does not have an automatic cleanup and keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.</p>
 <h2 id="further-information">Further information</h2>
 <h3 id="versioning">Versioning</h3>
-<p>Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of <a href="https://semver.org/" target="_blank" rel="noopener">semantic versions</a> is recommended.</p>
+<p>Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of <a href="https://semver.org/">semantic versions</a> is recommended.</p>
 <p>If the tag name contains a semantic version, the leading <code>v</code> will be trimmed.
 <strong>Example:</strong> A tag name of <code>v1.0.0</code> will lead to version <code>1.0.0</code> of the Vehicle App container.</p>
 <h3 id="maintaining-multiple-versions">Maintaining multiple versions</h3>
 <p>If there is a need to maintain multiple versions of a Vehicle App, e.g., to hotfix the production version while working on a new version at the same time or to support multiple versions in production, create and use <code>release branches</code>.</p>
 <p>The release process would be the same as described in the overview, except that a release branch (e.g., <code>release/v1.0</code>) is created before the release step and the GitHub release is based on the <code>release</code> branch rather than the <code>main</code> branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.</p>
-<h2 id="further-information-1">Further information</h2>
-<ul>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm">Deploy a Python Vehicle App with Helm</a></li>
-</ul>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified July 8, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/89fae4c86e40c40877865b8d5c6faca751beb59f">Added favicon logos (89fae4c)</a>
+  Last modified July 7, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/6e17b9e7819e19bdd6248867b3e44e083502905e">Merge pull request #16 from eclipse-velocitas/hotfix/10633-integration-test-documentation (6e17b9e)</a>
 </div>
 
 </div>
@@ -477,7 +460,7 @@ Once the application is ready to be released in a new version, a dedicated relea
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2022 The Eclipse Velocity™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -566,7 +549,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 
 
 
-<script src='/velocitas/js/tabpane-persist.js'></script>
+<script src='/velocitas-docs/js/tabpane-persist.js'></script>
 
 
 
@@ -587,7 +570,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 
 
 
-<script src="/velocitas/js/main.min.42193e94c144a53fc86f5be701ff2d0833936ce47504213b8207eb5546a1bcf1.js" integrity="sha256-Qhk&#43;lMFEpT/Ib1vnAf8tCDOTbOR1BCE7ggfrVUahvPE=" crossorigin="anonymous"></script>
+<script src="/velocitas-docs/js/main.min.0a4011cc64eece3f188017a6ab918e3311f9db86caa7b500616261bc807bbedb.js" integrity="sha256-CkARzGTuzj8YgBemq5GOMxH524bKp7UAYWJhvIB7vts=" crossorigin="anonymous"></script>
 
 
 

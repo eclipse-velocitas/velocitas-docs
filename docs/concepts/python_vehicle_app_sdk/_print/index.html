@@ -4,21 +4,21 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.98.0" />
-<link rel="canonical" type="text/html" href="/velocitas/docs/concepts/python_vehicle_app_sdk/">
-<link rel="alternate" type="application/rss&#43;xml" href="/velocitas/docs/concepts/python_vehicle_app_sdk/index.xml">
+<link rel="canonical" type="text/html" href="/velocitas-docs/docs/concepts/python_vehicle_app_sdk/">
+<link rel="alternate" type="application/rss&#43;xml" href="/velocitas-docs/docs/concepts/python_vehicle_app_sdk/index.xml">
 <meta name="robots" content="noindex, nofollow">
 
 
-<link rel="shortcut icon" href="/velocitas/favicons/favicon.ico" >
-<link rel="apple-touch-icon" href="/velocitas/favicons/apple-touch-icon-180x180.png" sizes="180x180">
-<link rel="icon" type="image/png" href="/velocitas/favicons/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="/velocitas/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-36x36.png" sizes="36x36">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-48x48.png" sizes="48x48">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-72x72.png" sizes="72x72">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-144x144.png" sizes="144x144">
-<link rel="icon" type="image/png" href="/velocitas/favicons/android-192x192.png" sizes="192x192">
+<link rel="shortcut icon" href="/velocitas-docs/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/velocitas-docs/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Python Vehicle App SDK | Velocitas</title>
 <meta name="description" content="Learn more about the provided Python Vehicle App SDK.
@@ -27,7 +27,7 @@
 <meta property="og:description" content="Learn more about the provided Python Vehicle App SDK.
 " />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/velocitas/docs/concepts/python_vehicle_app_sdk/" />
+<meta property="og:url" content="/velocitas-docs/docs/concepts/python_vehicle_app_sdk/" />
 
 <meta itemprop="name" content="Python Vehicle App SDK">
 <meta itemprop="description" content="Learn more about the provided Python Vehicle App SDK.
@@ -39,8 +39,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.bbb51141b294b6295350e6387ce6c07ee125154ffb0a3c8e376351b58d20c91d.css" as="style">
-<link href="/velocitas/scss/main.min.bbb51141b294b6295350e6387ce6c07ee125154ffb0a3c8e376351b58d20c91d.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas-docs/scss/main.min.1d182b71ccb4ba22c0df507b864c03da3407c2b853f78311ec5508811eeb3467.css" as="style">
+<link href="/velocitas-docs/scss/main.min.1d182b71ccb4ba22c0df507b864c03da3407c2b853f78311ec5508811eeb3467.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -67,8 +67,8 @@ if (!doNotTrack) {
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
-        <a class="navbar-brand" href="/velocitas/">
-		<span class="navbar-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="180mm" height="40mm" style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision" viewBox="0 0 7086.6144 1574.8032" id="svg983" sodipodi:docname="logo.svg" inkscape:version="1.0 (4035a4f, 2020-05-01)"><sodipodi:namedview inkscape:document-rotation="0" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1080" id="namedview985" showgrid="false" showguides="false" units="mm" inkscape:zoom=".69602273" inkscape:cx="408" inkscape:cy="528" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="Layer_x0020_1"/><defs id="defs967"><style id="style956">.fil5{fill:#24b2e4}.fil4{fill:#2e95c9}.fil3{fill:#2477b6}.fil2{fill:#2c5aa0}.fil1{fill:#364b95}.fil0{fill:url(#id0);fill-rule:nonzero}</style><linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="3149.4299" y1="5635.5898" x2="7771.9399" y2="5635.5898"><stop offset="0" style="stop-opacity:1;stop-color:#2B6FB5" id="stop958"/><stop offset=".870588" style="stop-opacity:1;stop-color:#7DC5ED" id="stop960"/><stop offset=".988235" style="stop-opacity:1;stop-color:#7DC5ED" id="stop962"/><stop offset="1" style="stop-opacity:1;stop-color:#7DC5ED" id="stop964"/></linearGradient></defs><g id="Layer_x0020_1" transform="matrix(0.98370981,0,0,0.98370981,-626.40511,-4616.899)"><path class="fil0" d="m3395.11 6027.9h147.19l246.79-709.92h-116.2l-203.63 611.98-205.28-611.98h-114.54l245.68 709.92zm968.32-244.57v0-170.98c0-99.6-76.36-154.37-183.7-154.37h-131.69c-107.35.0-183.7 54.78-183.7 154.37v261.17c0 99.6 76.36 154.38 183.7 154.38h315.39v-82.44h-353.02c-28.22.0-37.63-18.26-37.63-47.59v-114.54zm-108.45-83v0h-282.2v-112.88c0-22.13 9.41-47.03 37.63-47.03h206.94c28.22.0 37.63 24.9 37.63 47.03zm258.95 327.57v0h108.45v-784.62h-108.45zm760.83-415.55v0c0-99.6-65.29-154.37-171.53-154.37h-158.81c-106.24.0-172.09 54.78-172.09 154.37v261.17c0 99.6 65.85 154.38 172.09 154.38h158.81c106.24.0 171.53-54.78 171.53-154.38zm-393.97 275.01v0-288.84c0-42.06 12.17-58.1 48.69-58.1h188.69c36.52.0 48.14 16.04 48.14 58.1v288.84c0 41.5-11.62 58.1-48.14 58.1h-188.69c-36.52.0-48.69-16.6-48.69-58.1zm631.35.0v0-288.84c0-42.06 11.62-58.1 48.14-58.1h272.79v-82.44h-256.19c-107.35.0-173.19 54.78-173.19 154.37v261.17c0 99.6 65.85 154.38 173.19 154.38h256.19v-82.44h-272.79c-36.52.0-48.14-16.6-48.14-58.1zm460.93 140.54v0h107.9v-569.93h-107.9zM5962 5362.25v0h130.03V5243.28H5962zm621.94 178.17v0-82.44h-168.76v-139.99h-76.36l-32.09 139.99h-85.77v82.44h85.77v332c0 96.28 54.78 155.48 180.39 155.48h96.83v-82.44h-120.63c-41.5.0-48.14-21.58-48.14-61.42v-343.61h168.76zm107.35 333.1v0c0 99.6 65.3 154.38 172.64 154.38h33.2c83.56.0 143.87-2.21 169.87-65.29v65.29h107.35v-415.55c0-99.6-76.36-154.37-183.71-154.37h-241.8v82.44h280.54c27.67.0 37.63 18.26 37.63 47.03v95.72h-203.07c-107.35.0-172.64 54.78-172.64 154.93v35.41zm108.45 13.83v0-63.63c0-39.29 10.52-55.89 42.61-57.55H7067v141.65c-3.32 26.56-13.28 37.63-43.16 37.63h-175.96c-36.52.0-48.14-16.6-48.14-58.1zm863.75 27.67v0c0 22.69-11.62 30.43-48.14 30.43H7324.3v82.44h275c107.35.0 172.64-54.78 172.64-154.38v-40.94c0-68.61-47.03-90.19-146.63-113.99-80.78-19.37-101.26-26.56-203.07-51.46v-96.83c0-22.13 11.62-29.88 48.14-29.88h282.2v-82.44h-266.15c-107.34.0-172.64 54.78-172.64 154.37v37.63c0 64.19 43.71 89.08 132.8 109.56 106.8 24.9 151.61 36.52 216.91 50.35v105.13z" id="path970" style="fill:url(#id0)"/><path class="fil1" d="m728.06 5018.07c722.09-309.86 1087.3 423.3 1320.24 889.75 88.54 177.62 156.59 313.19 195.88 317.61 67.5 8.3 132.24-294.37 240.7-1228.94l85.77 7.19C2455 5996.35 2361.49 6315.07 2233.12 6300.13 2145.14 6289.62 2069.33 6137.45 1969.73 5937.7c-219.12-438.78-562.74-1127.13-1203.49-852.12z" id="path972"/><path class="fil2" d="m900.14 4963.85c686.68-298.8 1022 350.81 1244.44 781.3 87.43 168.77 155.49 301.01 202.52 309.31 74.7 12.17 156.04-257.3 299.35-1107.76l85.22 10.51c-153.28 909.67-266.15 1193.53-400.61 1170.84-90.74-15.49-167.11-163.23-265.04-352.47C1857.97 5373.32 1544.78 4766.86 938.89 5030.8l-38.73-66.95z" id="path974"/><path class="fil3" d="m1056.18 4905.75c651.27-287.18 957.26 282.2 1168.63 675.61 85.21 158.25 153.27 285.52 207.5 298.24 82.45 18.81 180.94-216.35 359.11-986.03l84.66 14.39c-192.56 828.88-324.8 1076.78-465.35 1044.13-93.51-21.58-169.32-163.23-263.94-339.19-195.88-364.64-479.74-892.52-1051.88-640.2z" id="path976"/><path class="fil4" d="m1238.22 4844.88c616.96-276.66 894.18 216.35 1094.49 572.7 80.79 144.42 148.29 263.94 209.16 282.75 90.19 28.22 205.29-171.53 421.09-863.74l83.55 19.37c-234.61 751.97-386.78 961.13-533.96 915.2-93.51-29.33-167.66-161.57-257.3-320.93-183.71-327.57-438.79-780.75-977.74-538.39l-39.29-66.95z" id="path978"/><path class="fil5" d="m1406.99 4784.02c583.76-266.7 832.76 153.83 1020.89 471.99 75.25 127.27 139.99 236.83 205.28 263.38 99.05 40.94 231.85-120.07 489.15-740.91l80.79 25.45c-281.65 680.59-453.73 847.15-607 783.51-91.3-37.63-162.13-157.7-244.57-297.13-171.54-289.39-397.85-671.74-904.7-439.9l-39.84-66.4z" id="path980"/></g></svg></span><span class="font-weight-bold">Velocitas</span>
+        <a class="navbar-brand" href="/velocitas-docs/">
+		<span class="navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="font-weight-bold">Velocitas</span>
 	</a>
 	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 		<ul class="navbar-nav mt-2 mt-lg-0">
@@ -83,19 +83,7 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link active" href="/velocitas/docs/" ><span class="active">Documentation</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
-				
-				
-				
-				
-				
-				
-				
-				
-				<a class="nav-link" href="/velocitas/community/" ><span>Community</span></a>
+				<a class="nav-link active" href="/velocitas-docs/docs/" ><span class="active">Documentation</span></a>
 			</li>
 			
 			<li class="nav-item mr-4 mb-2 mb-lg-0">
@@ -119,7 +107,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.9bd09956d7164d18ca4884e57e75d43e.json"
+  data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5d284336771df3a004c7e499b4f3dfaf.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -142,7 +130,7 @@ if (!doNotTrack) {
 This is the multi-page printable view of this section.
 <a href="#" onclick="print();return false;">Click here to print</a>.
 </p><p>
-<a href="/velocitas/docs/concepts/python_vehicle_app_sdk/">Return to the regular view of this page</a>.
+<a href="/velocitas-docs/docs/concepts/python_vehicle_app_sdk/">Return to the regular view of this page</a>.
 </p>
 </div>
 
@@ -174,10 +162,10 @@ This is the multi-page printable view of this section.
 <p><strong><a href="#vehicle-model-ontology">Vehicle Model Ontology</a></strong>: The SDK provides a set of model base classes for the creation of vehicle models.</p>
 </li>
 <li>
-<p><strong><a href="#middleware-integration">Middleware integration</a></strong>: Vehicle Models can contain gRPC stubs to communicate with Vehicle Services. gRPC communication is integrated with the <a href="https://dapr.io" target="_blank" rel="noopener">Dapr</a> middleware for service discovery and <a href="https://opentelemetry.io" target="_blank" rel="noopener">OpenTelemetry</a> tracing.</p>
+<p><strong><a href="#middleware-integration">Middleware integration</a></strong>: Vehicle Models can contain gRPC stubs to communicate with Vehicle Services. gRPC communication is integrated with the <a href="https://dapr.io">Dapr</a> middleware for service discovery and <a href="https://opentelemetry.io">OpenTelemetry</a> tracing.</p>
 </li>
 <li>
-<p><strong><a href="#Fluent-query--rule-construction">Fluent query &amp; rule construction</a></strong>: Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.</p>
+<p><strong><a href="#Fluent-query--rule-construction">Fluent query &amp; rule construction</a></strong>: Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the Vehicle Data Broker to access the real values of the data points that are defined in the vehicle model.</p>
 </li>
 <li>
 <p><strong><a href="#publish--subscribe-messaging">Publish &amp; subscribe messaging</a></strong>: The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.</p>
@@ -195,7 +183,7 @@ This is the multi-page printable view of this section.
 
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/velocitas/docs/concepts/python_vehicle_app_sdk/pyhon_sdk_overview_hu7485307a3843777bc51a573bc09fadda_86244_800x0_resize_catmullrom_3.png" width="800" height="565">
+	<img class="card-img-top" src="/velocitas-docs/docs/concepts/python_vehicle_app_sdk/pyhon_sdk_overview_hu7485307a3843777bc51a573bc09fadda_86244_800x0_resize_catmullrom_3.png" width="800" height="565">
 	
 	<figcaption class="card-body px-0 pt-2 pb-0">
 		<p class="card-text">
@@ -211,9 +199,9 @@ This is the multi-page printable view of this section.
 <h3 id="model">Model</h3>
 <p>A model contains services, data points and other models. It corresponds to branch entries in VSS or interfaces in DTDL or namespaces in VSC.</p>
 <h3 id="modelcollection">ModelCollection</h3>
-<p>Specifications like VSS support a concept that is called <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/instances/" target="_blank" rel="noopener">Instances</a>. It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with <a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship" target="_blank" rel="noopener">Relationships</a>. In the SDK, these structures are mapped with the <code>ModelCollection</code> class. A <code>ModelCollection</code> is a collection of models, which make it possible to reference an individual model either by a <code>NamedRange</code> (e.g., Row [1-3]), a <code>Dictionary</code> (e.g., &ldquo;Left&rdquo;, &ldquo;Right&rdquo;) or a combination of both.</p>
+<p>Specifications like VSS support a concept that is called <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/instances/">Instances</a>. It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with <a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship">Relationships</a>. In the SDK, these structures are mapped with the <code>ModelCollection</code> class. A <code>ModelCollection</code> is a collection of models, which make it possible to reference an individual model either by a <code>NamedRange</code> (e.g., Row [1-3]), a <code>Dictionary</code> (e.g., &ldquo;Left&rdquo;, &ldquo;Right&rdquo;) or a combination of both.</p>
 <h3 id="service">Service</h3>
-<p>Direct synchronous communication between Vehicle Apps and Vehicle Services is  facilitated via the <a href="https://grpc.io" target="_blank" rel="noopener">gRPC</a> protocol.</p>
+<p>Direct synchronous communication between Vehicle Apps and Vehicle Services is supposed to be facilitated over the <a href="https://grpc.io">gRPC</a> protocol.</p>
 <p>The SDK has its own <code>Service</code> base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a Vehicle Service or another Vehicle App. Please see the <a href="#middleware-integration">Middleware Integration</a> section for more details.</p>
 <h3 id="datapoint">DataPoint</h3>
 <p><code>DataPoint</code> is the base class for all data points. It corresponds to sensors/actuators in VSS or telemetry / properties in DTDL.</p>
@@ -303,7 +291,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span></code></pre></div><h3 id="service-discovery">Service discovery</h3>
 <p>The underlying gRPC channel is provided and managed by the Service base class of the SDK. It is also responsible for routing the method invocation to the service through dapr middleware. As a result, a <code>dapr-app-id</code> has to be assigned to every <code>Service</code>, so that dapr can discover the corresponding vehicle services. This <code>dapr-app-id</code> has to be specified as an environment variable named <code>&lt;service_name&gt;_DAPR_APP_ID</code>.</p>
 <h2 id="fluent-query--rule-construction">Fluent query &amp; rule construction</h2>
-<p>A set of query methods like <code>get()</code>, <code>where()</code>, <code>join()</code> etc. are provided through the <code>Model</code> and <code>DataPoint</code> base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Data Broker.</p>
+<p>A set of query methods like <code>get()</code>, <code>where()</code>, <code>join()</code> etc. are provided through the <code>Model</code> and <code>DataPoint</code> base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the Vehicle Data Broker.</p>
 <h3 id="query-examples">Query examples</h3>
 <p>The following examples show you how to query data points.</p>
 <h4 id="get-single-datapoint">Get single datapoint</h4>
@@ -318,7 +306,6 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#39;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">Latitude</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">vehicle_data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Latitude</span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">vehicle_data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#39;)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Call to broker:</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># GetDataPoint(rule=&#34;SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude&#34;)</span>
@@ -367,9 +354,9 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">():</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">conf</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DAPR_APP_PORT</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">your</span> <span style="color:#000">port</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
 </span></span></code></pre></div><h2 id="vehicle-app-abstraction">Vehicle App abstraction</h2>
-<p><code>Vehicle Apps</code> are inherited from the <code>VehicleApp</code> base class. This enables the <code>Vehicle App</code> to use the Publish &amp; subscribe messaging and the KUKSA Data Broker.</p>
+<p><code>Vehicle Apps</code> are inherited from the <code>VehicleApp</code> base class. This enables the <code>Vehicle App</code> to use the Publish &amp; subscribe messaging and the Vehicle Data Broker.</p>
 <p>The <code>Vehicle Model</code> instance is passed to the <code>__init__</code> method of the <code>VehicleApp</code> class and should be stored in a <code>self.vehicle</code> attribute, to be used in event handler functions.</p>
-<p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <code>Vehicle App</code> and register all MQTT topic and Data Broker subscriptions. The subscriptions are based on <code>asyncio</code>, which makes it necessary to call the <code>run()</code> method with an active <code>asyncio event_loop</code>.</p>
+<p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <code>Vehicle App</code> and register all MQTT topic and Vehicle Data Broker subscriptions. The subscriptions are based on <code>asyncio</code>, which makes it necessary to call the <code>run()</code> method with an active <code>asyncio event_loop</code>.</p>
 <p>A typical skeleton of a <code>Vehicle App</code> looks like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a40000">```</span><span style="color:#000">Python</span>
@@ -379,25 +366,15 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">vehicle</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vehicle</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">():</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic"># Main function</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Starting seat adjuster app...&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">seat_adjuster_app</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">SeatAdjusterApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#000">seat_adjuster_app</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">seat_adjuster_talent</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">SeatAdjusterApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#000">seat_adjuster_talent</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">asyncio</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_event_loop</span><span style="color:#000;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_signal_handler</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">signal</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">SIGTERM</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">stop</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">run_until_complete</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">main</span><span style="color:#000;font-weight:bold">())</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">close</span><span style="color:#000;font-weight:bold">()</span>
-</span></span></code></pre></div><h2 id="further-information">Further information</h2>
-<ul>
-<li>Concept: <a href="/velocitas/docs/concepts/development-model.md">Development Model</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Python Vehicle Model</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md">Create a Python Vehicle App</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
-</ul>
-
+</span></span></code></pre></div>
 </div>
 </div>
 
@@ -462,7 +439,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2022 The Eclipse Velocity™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -551,7 +528,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 
 
-<script src='/velocitas/js/tabpane-persist.js'></script>
+<script src='/velocitas-docs/js/tabpane-persist.js'></script>
 
 
 
@@ -572,7 +549,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 
 
-<script src="/velocitas/js/main.min.42193e94c144a53fc86f5be701ff2d0833936ce47504213b8207eb5546a1bcf1.js" integrity="sha256-Qhk&#43;lMFEpT/Ib1vnAf8tCDOTbOR1BCE7ggfrVUahvPE=" crossorigin="anonymous"></script>
+<script src="/velocitas-docs/js/main.min.0a4011cc64eece3f188017a6ab918e3311f9db86caa7b500616261bc807bbedb.js" integrity="sha256-CkARzGTuzj8YgBemq5GOMxH524bKp7UAYWJhvIB7vts=" crossorigin="anonymous"></script>
 
 
 
