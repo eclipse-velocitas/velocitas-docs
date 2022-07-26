@@ -137,7 +137,9 @@ A new window will open where you see the logs for setting up the container. On t
 
 Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.
 
-**Note:** Be careful with using Codespaces in browser and Visual Studio Code locally: _Tasks_ that are started using a browser session will not show in Visual Studio Code environment and vice versa. This can lead to problems using the prepared _Tasks_-scripts.
+{{% alert title="Note" %}}
+Be careful with using Codespaces in browser and Visual Studio Code locally at the same time: _Tasks_ that are started using a browser session will not show in Visual Studio Code environment and vice versa. This can lead to problems using the prepared _Tasks_-scripts.
+{{% /alert %}}
 
 ## Starting runtime services
 
