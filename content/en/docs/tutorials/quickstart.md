@@ -13,13 +13,21 @@ The following information describes how to setup and configure the Development C
 
 Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own Vehicle App develpment project.
 
-## Vehicle App development with Visual Studio Code
+## Creating Vehicle App Repository
+
+Create your own repository copy from the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) by clicking the green button `Use this template`. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
+
+The name `MyOrg/MyFirstVehicleApp` is used as a reference during the rest of document.
+
+## Starting Development Environement
+
+In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
+
+### Visual Studio Code
 
 The Visual Studio Code [Development Containers](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development & testing tools into a container that is then started within your Visual Studio Code session.
 
 To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:
-
-### System prerequisites
 
 - Install Docker Engine / [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - Install [Visual Studio Code](https://code.visualstudio.com)
@@ -28,10 +36,9 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
   code --install-extension ms-vscode-remote.remote-containers
   ```
 
-### Proxy configuration
-
-A non proxy configuration is used by default.
-If you are working behind a corporate proxy you will need to specify proxy settings.
+{{% alert title="Proxy configuration" %}}
+A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings.
+{{% /alert %}}
 
 <details>
 <summary>Please expand for information on configuring proxy settings</summary>
@@ -74,18 +81,6 @@ Verify that the `noProxy` setting in `~/.docker/config.json` (if existing) is co
 The development environment relies on communication to localhost (e.g. localhost, 127.0.0.1) and it is important that the proxy setting is correct so that connections to localhost are not forwarded to the proxy.
 
 </details>
-
-## Use Template Repository
-
-Create your own repository copy from the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) by clicking the green button `Use this template`. You don't have to include all branches.
-
-The name `MyOrg/MyFirstVehicleApp` is used as a reference during the rest of document.
-
-For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
-
-In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
-
-### Visual Studio Code
 
 With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
 
@@ -190,7 +185,7 @@ By pushing a change to GitHub the CI Workflow will be triggered:
    git commit -m "removed emtpy line"
    git push
    ```
-To see the the results open the `Actions` page of your repository on GitHub, go to `CI Workflow` and check the workflow output.
+To see the results open the `Actions` page of your repository on GitHub, go to `CI Workflow` and check the workflow output.
 
 ## Releasing Vehicle App
 
