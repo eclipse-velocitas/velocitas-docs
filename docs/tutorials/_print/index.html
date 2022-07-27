@@ -119,7 +119,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.b87679b75cd6eaf89df3aa7a4ed2b903.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.e1d6ba804eefe9e864c428885a99520d.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -1321,10 +1321,11 @@ A new service can be easily started by calling it from bash script, however rest
 <p>The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the task <code>SeatAdjuster</code>.</p>
 <p>When the runtime services and the application are running, integration tests can be executed locally.</p>
 <h3 id="kubernetes-execution-k3d">Kubernetes execution (K3D)</h3>
-<p>If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the <a href="/velocitas/docs/run_runtime_services_kubernetes.md">documentation</a>. To ensure that the tests connect to the containers, the following environment variables need to be set:</p>
+<p>If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the <a href="/velocitas/docs/run_runtime_services_kubernetes.md">documentation</a>. To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:</p>
 <ul>
-<li><code>MQTT_PORT: 31883</code></li>
-<li><code>VDB_PORT: 30555</code></li>
+<li><code>export MQTT_PORT=31883</code></li>
+<li><code>export VDB_PORT=30555</code></li>
+<li><code>pytest</code></li>
 </ul>
 <h2 id="writing-test-cases">Writing Test Cases</h2>
 <p>To write an integration test, you should check the sample that comes with the template (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py" target="_blank" rel="noopener"><code>/test/integration_test.py</code></a>). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:</p>

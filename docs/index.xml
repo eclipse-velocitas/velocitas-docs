@@ -985,10 +985,11 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the task &lt;code&gt;SeatAdjuster&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally.&lt;/p&gt;
 &lt;h3 id=&#34;kubernetes-execution-k3d&#34;&gt;Kubernetes execution (K3D)&lt;/h3&gt;
-&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, the following environment variables need to be set:&lt;/p&gt;
+&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;MQTT_PORT: 31883&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;VDB_PORT: 30555&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;export MQTT_PORT=31883&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;export VDB_PORT=30555&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pytest&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
 &lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;/test/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
