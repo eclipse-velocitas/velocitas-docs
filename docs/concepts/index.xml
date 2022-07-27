@@ -374,8 +374,7 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
         &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the &lt;a href=&#34;https://www.eclipse.org/kuksa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse KUKSA project&lt;/a&gt;, also called KUKSA.VAL.
 It is is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
-It currently consists of a data broker, a CAN feeder and a set of example services.
-More elaborate or completely differing implementations are the target of particular derived projects.&lt;/p&gt;
+It currently consists of a data broker, a CAN feeder, and a set of example services.&lt;/p&gt;
 &lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
 &lt;p&gt;The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/development-model.md&#34;&gt;Velocitas Development Model&lt;/a&gt;.&lt;/p&gt;
 
@@ -404,7 +403,7 @@ Filter- and rule-based subscriptions of datapoints can be used to reduce the num
 &lt;h3 id=&#34;data-feeders&#34;&gt;Data Feeders&lt;/h3&gt;
 &lt;p&gt;Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
 The source of the contents of the data points provided is specific to the respective feeder.&lt;/p&gt;
-&lt;p&gt;As of today, the Vehicle Abstraction Layer contains a &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/main/kuksa_feeders&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;generic CAN feeder&lt;/a&gt; implemented in Python,
+&lt;p&gt;As of today, the Vehicle Abstraction Layer contains a generic &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/main/kuksa_feeders&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CAN feeder (KUKSA DBC Feeder)&lt;/a&gt; implemented in Python,
 which reads data from a CAN bus based on specifications in a e.g., CAN network description (dbc) file.
 The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the data broker using its &lt;code&gt;Collector&lt;/code&gt; gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.&lt;/p&gt;
@@ -462,11 +461,15 @@ Service implementations may also interact as feeders with the data broker.&lt;/p
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;source-code&#34;&gt;Source Code&lt;/h2&gt;
-&lt;p&gt;Source code and build instructions are available in the &lt;a href=&#34;https://github.com/eclipse/kuksa.val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Source code and build instructions are available in the respective KUKSA.VAL repositories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA Data Broker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/main/kuksa_feeders&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA DBC Feeder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA example services&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;guidelines&#34;&gt;Guidelines&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Please see the &lt;a href=&#34;vehicle_service.md&#34;&gt;vehicle service guidelines&lt;/a&gt; for information on how to implement a Vehicle Service.&lt;/li&gt;
-&lt;li&gt;Please see the &lt;a href=&#34;interface_guideline.md&#34;&gt;interface guideline&lt;/a&gt; for best practices on how to specify a gRPC interface.&lt;/li&gt;
+&lt;li&gt;Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/docs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val.services repository&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

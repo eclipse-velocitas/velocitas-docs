@@ -48,7 +48,7 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;: 300&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; that has subscribed to this topic, receives the request to change the seat position as a MQTT message.&lt;/li&gt;
-&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; gets the current vehicle speed from the data broker, which is fed by the &lt;strong&gt;Generic CAN Feeder&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; gets the current vehicle speed from the data broker, which is fed by the &lt;strong&gt;CAN Feeder (KUKSA DBC Feeder)&lt;/strong&gt;.&lt;/li&gt;
 &lt;li&gt;With the support of the &lt;strong&gt;Vehicle App SDK&lt;/strong&gt;, the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt; triggers a seat adjustment command of the &lt;strong&gt;Seat Service&lt;/strong&gt; via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.&lt;/li&gt;
 &lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; moves the seat to the new position via CAN messages.&lt;/li&gt;
 &lt;li&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; returns OK or an error code as grpc status to the &lt;strong&gt;Seat Adjuster Vehicle App&lt;/strong&gt;.&lt;/li&gt;
@@ -123,7 +123,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val.feeders&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;The DBC CAN Feeder is a generic data feeder that reads data from the vehicle&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/CAN_bus&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CAN bus&lt;/a&gt; defined by a DBC file, maps them to a set of data points (e.g. according to the VSS) and feeds it into the Data Broker.&lt;/td&gt;
+&lt;td&gt;The KUKSA DBC Feeder is a generic data feeder that reads data from the vehicle&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/CAN_bus&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CAN bus&lt;/a&gt; defined by a DBC file, maps them to a set of data points (e.g. according to the VSS) and feeds it into the Data Broker.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val.services&lt;/a&gt;&lt;/td&gt;
