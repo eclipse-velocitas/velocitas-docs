@@ -156,7 +156,7 @@ More information about the tasks are available [here](/docs/run_runtime_services
 
 Now that the [runtime services](#starting-runtime-services) are all up and running, let's start a debug session for the Vehicle App as next step.
 
-1. Open the main python file `src/SeatAdjusterApp/seatadjuster.py` file and set a breakpoint in `line 68`
+1. Open the main python file `src/VehicleApp/main.py` file and set a breakpoint within the `on_set_position_request_received`
 2. Press <kbd>F5</kbd> to start the Vehicle App to start a debug session and see the log output on the `DEBUG CONSOLE`
 
 To trigger this breakpoint, let's send a message to the Vehicle App using the mqtt broker that is running in the background.
