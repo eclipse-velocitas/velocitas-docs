@@ -24,7 +24,7 @@ This section describes how to develop your first Vehicle App. Before you start b
 
 Once you have established your development environment, you will be able to start developing your first Vehicle App.
 
-For this tutorial, you will recreate MyVehicleApp (i.e. the SeatAdjuster example) that is included with the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template):
+For this tutorial you will recreate the vehicle app called MyVehicleApp that is included with the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template):
 The Vehicle app allows to change the positions of the seats in the car and also provide their current positions to other applications.
 
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
@@ -321,8 +321,8 @@ If you want to know more about dapr and the configuration, please visit <https:/
 
 In the [introduction about debugging](/docs/getting-started/quickstart/#debug-vehicle-app), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
 
-In order to be able to debug your code, you need to add some configs in Visual Studio Code. You find the files in the `.vscode` folder. The main entrypoint is the launch.json. All configurations are stored here.
-Currently there is only one for the `VehicleApp`.
+The debug session launch settings are already prepared for the `VehicleApp`.
+
 
 ```JSON
 "configurations": [
