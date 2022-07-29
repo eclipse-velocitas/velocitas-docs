@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Velocitas – Tutorials</title>
-    <link>/velocitas/docs/tutorials/</link>
+    <link>/docs/tutorials/</link>
     <description>Recent content in Tutorials on Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 13:43:25 +0530</lastBuildDate>
     
-	  <atom:link href="/velocitas/docs/tutorials/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/docs/tutorials/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Quickstart</title>
-      <link>/velocitas/docs/tutorials/quickstart/</link>
+      <link>/docs/tutorials/quickstart/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/quickstart/</guid>
+      <guid>/docs/tutorials/quickstart/</guid>
       <description>
         
         
@@ -34,9 +34,14 @@
 &lt;p&gt;The Visual Studio Code &lt;a href=&#34;https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Development Containers&lt;/a&gt; makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development &amp;amp; testing tools into a container that is then started within your Visual Studio Code session.&lt;/p&gt;
 &lt;p&gt;To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Install Docker Engine / &lt;a href=&#34;https://www.docker.com/products/docker-desktop&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Desktop&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Install &lt;a href=&#34;https://code.visualstudio.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Add &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Remote-Containers&lt;/a&gt; extension via the marketplace or using the command line
+&lt;li&gt;
+&lt;p&gt;Install Docker Engine / &lt;a href=&#34;https://www.docker.com/products/docker-desktop&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Desktop&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://code.visualstudio.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Remote-Containers&lt;/a&gt; extension via the marketplace or using the command line&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;code --install-extension ms-vscode-remote.remote-containers
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -59,7 +64,7 @@
 &lt;li&gt;If your proxy is not available on &lt;code&gt;172.17.0.1&lt;/code&gt; then you must modify &lt;code&gt;.devcontainer/Dockerfile.Proxy&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;If your proxy does not use 3128 as port you can set another port in the environment variable &lt;code&gt;DEVCONTAINER_PROXY_PORT&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;windows&#34;&gt;Windows:&lt;/h4&gt;
+&lt;h4 id=&#34;windows&#34;&gt;Windows&lt;/h4&gt;
 &lt;ol&gt;
 &lt;li&gt;Edit environment variables for your account&lt;/li&gt;
 &lt;li&gt;Create an environment variable with name the &lt;code&gt;DEVCONTAINER_PROXY&lt;/code&gt; and with the value &lt;code&gt;.Proxy&lt;/code&gt; for your account
@@ -74,7 +79,7 @@
 &lt;/li&gt;
 &lt;li&gt;Restart Visual Studio Code to pick up the new environment variable&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h4 id=&#34;macos--linux&#34;&gt;macOS &amp;amp; Linux:&lt;/h4&gt;
+&lt;h4 id=&#34;macos--linux&#34;&gt;macOS &amp;amp; Linux&lt;/h4&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#34;export DEVCONTAINER_PROXY=.Proxy&amp;#34; &amp;gt;&amp;gt; ~/.bash_profile
 source ~/.bash_profile
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;proxy-troubleshooting&#34;&gt;Proxy troubleshooting&lt;/h3&gt;
@@ -153,20 +158,29 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;li&gt;Choose &lt;code&gt;Continue without scanning the output&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;You should see the tasks &lt;code&gt;run-mosquitto&lt;/code&gt;, &lt;code&gt;run-vehicledatabroker&lt;/code&gt;, &lt;code&gt;run-seatservice&lt;/code&gt; and &lt;code&gt;run-feedercan&lt;/code&gt; being executed in the Visual Studio Code output panel.&lt;/p&gt;
-&lt;p&gt;More information about the tasks are available &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More information about the tasks are available &lt;a href=&#34;/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;debugging-vehicle-app&#34;&gt;Debugging Vehicle App&lt;/h2&gt;
 &lt;p&gt;Now that the &lt;a href=&#34;#starting-runtime-services&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the Vehicle App as next step.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Open the main python file &lt;code&gt;src/SeatAdjusterApp/seatadjuster.py&lt;/code&gt; file and set a breakpoint in &lt;code&gt;line 68&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open the main python file &lt;code&gt;src/VehicleApp/main.py&lt;/code&gt; file and set a breakpoint within the &lt;code&gt;on_set_position_request_received&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Press &lt;kbd&gt;F5&lt;/kbd&gt; to start the Vehicle App to start a debug session and see the log output on the &lt;code&gt;DEBUG CONSOLE&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in Visual Studio Code and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/setPosition/response&lt;/code&gt; and click subscribe&lt;/li&gt;
-&lt;li&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/currentPosition&lt;/code&gt; and click subscribe&lt;/li&gt;
-&lt;li&gt;Set &lt;code&gt;Publish Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/setPosition/request&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Set and publish a dummy payload:
+&lt;li&gt;
+&lt;p&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in Visual Studio Code and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/setPosition/response&lt;/code&gt; and click subscribe&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/currentPosition&lt;/code&gt; and click subscribe&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set &lt;code&gt;Publish Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/setPosition/request&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set and publish a dummy payload:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;300&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -175,8 +189,11 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;p&gt;The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find &lt;a href=&#34;https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By pushing a change to GitHub the CI Workflow will be triggered:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Make modification to your file, e.g. remove the last empty line from &lt;code&gt;src/SeatAdjusterApp/seatadjuster.py&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Commit and push your change
+&lt;li&gt;
+&lt;p&gt;Make modification to your file, e.g. remove the last empty line from &lt;code&gt;src/VehicleApp/main.py&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Commit and push your change&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add .
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;removed emtpy line&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push
@@ -197,10 +214,10 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;p&gt;The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open &lt;code&gt;Actions&lt;/code&gt; on the repoitory and see the result.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Create a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/development-model.md&#34;&gt;Development Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Create a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/development-model.md&#34;&gt;Development Model&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -208,15 +225,15 @@ You can either try it out directly in the browser or also use it inside Visual S
     
     <item>
       <title>Docs: Python Vehicle Model Creation</title>
-      <link>/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</link>
+      <link>/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</guid>
+      <guid>/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</guid>
       <description>
         
         
         &lt;blockquote&gt;
-&lt;p&gt;We recommend that you make yourself familiar with the &lt;a href=&#34;/velocitas/velocitas/docs/python-sdk//python_vehicle_app_sdk_overview.md&#34;&gt;Python Vehicle App SDK Overview&lt;/a&gt; first, before going through this tutorial.&lt;/p&gt;
+&lt;p&gt;We recommend that you make yourself familiar with the &lt;a href=&#34;/docs/python-sdk//python_vehicle_app_sdk_overview.md&#34;&gt;Python Vehicle App SDK Overview&lt;/a&gt; first, before going through this tutorial.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;This tutorial will show you how to:&lt;/p&gt;
 &lt;ul&gt;
@@ -264,6 +281,8 @@ To have a custom model name, refer to README of &lt;a href=&#34;https://github.c
 &lt;/li&gt;
 &lt;li&gt;
 &lt;h3 id=&#34;create-a-python-vehicle-model-manually&#34;&gt;Create a Python Vehicle Model Manually&lt;/h3&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h4 id=&#34;setup-a-python-package-manually&#34;&gt;Setup a Python Package manually&lt;/h4&gt;
 &lt;p&gt;A Vehicle Model should be defined in its own Python Package. This allows to distribute the Vehicle Model later as a standalone package and to use it in different &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
 &lt;p&gt;The name of the Vehicle Model package will be &lt;code&gt;my_vehicle_model&lt;/code&gt; for this walkthrough.&lt;/p&gt;
@@ -319,20 +338,20 @@ Successfully installed my-vehicle-model-0.1
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Install the Python Vehicle App SDK:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;```bash
-pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git@v0.4.0
-```
+&lt;pre&gt;&lt;code&gt; ```bash
+ pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git@v0.4.0
+ ```
 
-The output of the above command should end with:
+ The output of the above command should end with:
 
-```bash
-Successfully installed sdv-0.4.0
-```
+ ```bash
+ Successfully installed sdv-0.4.0
+ ```
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now it is time to add some Vehicle Models to the Python package. At the end of this section you will have a Vehicle Model, that contains a &lt;code&gt;Cabin&lt;/code&gt; model, a &lt;code&gt;Seat&lt;/code&gt;model and has the following tree structure:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Vehicle
-└── Cabin
-    └── Seat (Row, Pos)
+&lt;pre&gt;&lt;code&gt; Vehicle
+ └── Cabin
+     └── Seat (Row, Pos)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -387,8 +406,6 @@ Successfully installed sdv-0.4.0
 &lt;/ol&gt;
 &lt;p&gt;The root model of the Vehicle Model tree should be called &lt;em&gt;Vehicle&lt;/em&gt; by convention and is specified, by setting parent to &lt;code&gt;None&lt;/code&gt;. For all other models a parent model must be specified as the 2nd argument of the &lt;code&gt;Model&lt;/code&gt; constructor, as can be seen by the &lt;code&gt;Cabin&lt;/code&gt; and the &lt;code&gt;Seat&lt;/code&gt; models above.&lt;/p&gt;
 &lt;p&gt;A singleton instance of the Vehicle Model called &lt;code&gt;vehicle&lt;/code&gt; is created at the end of the file. This instance is supposed to be used in the Vehicle Apps. Creating multiple instances of the Vehicle Model should be avoided for performance reasons.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 &lt;h2 id=&#34;add-a-vehicle-service&#34;&gt;Add a Vehicle Service&lt;/h2&gt;
 &lt;p&gt;In this section, we add the &lt;code&gt;SeatService&lt;/code&gt; vehicle service to the Vehicle Model.&lt;/p&gt;
 &lt;ol&gt;
@@ -567,9 +584,9 @@ shown above:&lt;/p&gt;
 &lt;p&gt;Detailed instructions on how to make a Python package available on PyPI can be found &lt;a href=&#34;https://packaging.python.org/tutorials/packaging-projects/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Create a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Create a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -577,29 +594,29 @@ shown above:&lt;/p&gt;
     
     <item>
       <title>Docs: Python Vehicle App Development</title>
-      <link>/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app/</link>
+      <link>/docs/tutorials/tutorial_how_to_create_a_vehicle_app/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app/</guid>
+      <guid>/docs/tutorials/tutorial_how_to_create_a_vehicle_app/</guid>
       <description>
         
         
         &lt;blockquote&gt;
-&lt;p&gt;We recommend that you make yourself familiar with the &lt;a href=&#34;/velocitas/velocitas/python-sdk/python_vehicle_app_sdk_overview.md&#34;&gt;Python Vehicle App SDK&lt;/a&gt; first, before going through this tutorial.&lt;/p&gt;
+&lt;p&gt;We recommend that you make yourself familiar with the &lt;a href=&#34;/python-sdk/python_vehicle_app_sdk_overview.md&#34;&gt;Python Vehicle App SDK&lt;/a&gt; first, before going through this tutorial.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;The following information describes how to develop and test the sample Vehicle App that is included in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;template repository&lt;/a&gt;. You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.&lt;/p&gt;
 &lt;p&gt;Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own Vehicle App development project.&lt;/p&gt;
 &lt;h2 id=&#34;develop-your-first-vehicle-app&#34;&gt;Develop your first Vehicle App&lt;/h2&gt;
 &lt;p&gt;This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read the other manuals:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;How to create a Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;How to create a Vehicle Model&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Once you have established your development environment, you will be able to start developing your first Vehicle App.&lt;/p&gt;
-&lt;p&gt;For this tutorial, you will recreate the SeatAdjuster example that is included with the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;template repository&lt;/a&gt;:
+&lt;p&gt;For this tutorial, you will recreate the vehicle app that is included with the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;template repository&lt;/a&gt;:
 The Vehicle app allows to change the positions of the seats in the car and also provide their current positions to other applications.&lt;/p&gt;
-&lt;p&gt;A detailed explanation of the use case and the example is available &lt;a href=&#34;/velocitas/velocitas/docs/velocitas/docs/seat_adjuster_use_case.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;At first, you have to create the main python script called &lt;code&gt;run.py&lt;/code&gt; in &lt;code&gt;src/&lt;/code&gt;. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:&lt;/p&gt;
+&lt;p&gt;A detailed explanation of the use case and the example is available &lt;a href=&#34;/docs/velocitas/docs/seat_adjuster_use_case.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At first, you have to create the main python script called &lt;code&gt;main.py&lt;/code&gt; in &lt;code&gt;src/VehicleApp/&lt;/code&gt;. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Manage your imports&lt;/li&gt;
 &lt;li&gt;Enable logging&lt;/li&gt;
@@ -607,7 +624,7 @@ The Vehicle app allows to change the positions of the seats in the car and also 
 &lt;li&gt;Start the app&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;manage-your-imports&#34;&gt;Manage your imports&lt;/h4&gt;
-&lt;p&gt;Before you start development in the &lt;code&gt;run.py&lt;/code&gt; you just created, it will be necessary to include the imports required, which you will understand better later through the development:&lt;/p&gt;
+&lt;p&gt;Before you start development in the &lt;code&gt;main.py&lt;/code&gt; you just created, it will be necessary to include the imports required, which you will understand better later through the development:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;asyncio&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;json&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;logging&lt;/span&gt;
@@ -629,19 +646,19 @@ The Vehicle app allows to change the positions of the seats in the car and also 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;logging&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getLogger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;__name__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;initialize-your-class&#34;&gt;Initialize your class&lt;/h4&gt;
 &lt;p&gt;The main class of your new Vehicle App needs to inherit the &lt;code&gt;VehicleApp&lt;/code&gt; provided by the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SDK&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SeatAdjusterApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;VehicleApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MyVehicleApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;VehicleApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In class initialization, you have to pass an instance of the Vehicle Model:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicle_client&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87&#34;&gt;super&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicle_client&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We save the vehicle object to use it in our app. Now, you have initialized the app and can continue developing relevant methods.&lt;/p&gt;
 &lt;h4 id=&#34;start-the-app&#34;&gt;Start the app&lt;/h4&gt;
-&lt;p&gt;Here&amp;rsquo;s an example of how to start the SeatAdjuster App we just developed:&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s an example of how to start the MyVehicleApp App that we just developed:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;():&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Main function&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Starting seat adjuster app...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;seat_adjuster_talent&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SeatAdjusterApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;seat_adjuster_talent&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Starting my VehicleApp...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;vehicle_app&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MyVehicleApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicle_app&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;run&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;asyncio&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;get_event_loop&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;add_signal_handler&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;signal&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;SIGTERM&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;stop&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
@@ -649,10 +666,10 @@ The Vehicle app allows to change the positions of the seats in the car and also 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The app is now running. In order to use it properly, we will enhance the app with more features in the next sections.&lt;/p&gt;
 &lt;h2 id=&#34;vehicle-model&#34;&gt;Vehicle Model&lt;/h2&gt;
-&lt;p&gt;In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check &lt;a href=&#34;/velocitas/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;tutorial about creating models&lt;/a&gt; for more details about this topic. In this section, the focus is on using the models.&lt;/p&gt;
+&lt;p&gt;In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check &lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;tutorial about creating models&lt;/a&gt; for more details about this topic. In this section, the focus is on using the models.&lt;/p&gt;
 &lt;h3 id=&#34;import-the-model&#34;&gt;Import the model&lt;/h3&gt;
-&lt;p&gt;The first thing you need to do to get access to the Vehicle Model. In the section about &lt;a href=&#34;/velocitas/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md#distributing-your-python-vehicle-model&#34;&gt;distributing a model&lt;/a&gt;, you got to know the different methods.&lt;/p&gt;
-&lt;p&gt;If you just want to use your model in one app, you can simply copy the classes into your &lt;code&gt;src&lt;/code&gt;-folder. In this example, you find the classes inside the &lt;code&gt;vehicle_model&lt;/code&gt;-folder. As you have already seen in the section about &lt;a href=&#34;/velocitas/velocitas/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_app/#initialize-your-class&#34;&gt;initializing the app&lt;/a&gt;, we need the &lt;code&gt;vehicle model&lt;/code&gt;to use the app.&lt;/p&gt;
+&lt;p&gt;The first thing you need to do to get access to the Vehicle Model. In the section about &lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md#distributing-your-python-vehicle-model&#34;&gt;distributing a model&lt;/a&gt;, you got to know the different methods.&lt;/p&gt;
+&lt;p&gt;If you just want to use your model in one app, you can simply copy the classes into your &lt;code&gt;src&lt;/code&gt;-folder. In this example, you find the classes inside the &lt;code&gt;vehicle_model&lt;/code&gt;-folder. As you have already seen in the section about &lt;a href=&#34;/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_app/#initialize-your-class&#34;&gt;initializing the app&lt;/a&gt;, we need the &lt;code&gt;vehicle model&lt;/code&gt;to use the app.&lt;/p&gt;
 &lt;p&gt;As you know, the model has a single &lt;a href=&#34;#datapoints&#34;&gt;Datapoint&lt;/a&gt; for the speed and a reference to the &lt;code&gt;cabin&lt;/code&gt;-model.&lt;/p&gt;
 &lt;p&gt;Accessing the speed can be done via&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle_speed&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Speed&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
@@ -683,7 +700,7 @@ The Vehicle app allows to change the positions of the seats in the car and also 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;publish_mqtt_event&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;response_topic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;json&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;dumps&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;response_data&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Similarly, subscribed data is available in the respective &lt;em&gt;data.fields&lt;/em&gt; value and are accessed by their complete path.&lt;/p&gt;
 &lt;h2 id=&#34;services&#34;&gt;Services&lt;/h2&gt;
-&lt;p&gt;Services are used to communicate with other parts of the vehicle. Please read the basics about them &lt;a href=&#34;/velocitas/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md/#add-a-vehicle-service&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Services are used to communicate with other parts of the vehicle. Please read the basics about them &lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md/#add-a-vehicle-service&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The following few lines show you how to use the &lt;code&gt;MoveComponent&lt;/code&gt;-method of the &lt;code&gt;SeatService&lt;/code&gt; you have created:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SeatLocation&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle_client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Cabin&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;SeatService&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MoveComponent&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
@@ -695,7 +712,7 @@ The Vehicle app allows to change the positions of the seats in the car and also 
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;mqtt&#34;&gt;MQTT&lt;/h3&gt;
 &lt;p&gt;Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.&lt;/p&gt;
-&lt;p&gt;In the &lt;a href=&#34;/velocitas/velocitas/docs/getting-started/quickstart/#send-mqtt-messages-to-vehicle-app&#34;&gt;general section&lt;/a&gt; about the Vehicle App, you already tested sending MQTT messages to the app.
+&lt;p&gt;In the &lt;a href=&#34;/docs/getting-started/quickstart/#send-mqtt-messages-to-vehicle-app&#34;&gt;general section&lt;/a&gt; about the Vehicle App, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use &lt;code&gt;Vehicle Models&lt;/code&gt;, &lt;code&gt;Datapoints&lt;/code&gt; and &lt;code&gt;GRPC Services&lt;/code&gt;. In this section, you will learn how to combine them with MQTT.&lt;/p&gt;
 &lt;p&gt;In order to receive and process MQTT messages inside your app, simply use the &lt;code&gt;@subscribe_topic&lt;/code&gt; annotations from the SDK:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#5c35cc;font-weight:bold&#34;&gt;@subscribe_topic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;seatadjuster/setPosition/request&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
@@ -746,8 +763,8 @@ After creating the mock, you can test the method and check the response. Use ass
 &lt;p&gt;Once the implementation is done, it is time to run and debug the app.&lt;/p&gt;
 &lt;h3 id=&#34;run-your-app&#34;&gt;Run your App&lt;/h3&gt;
 &lt;p&gt;If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the &amp;ldquo;dapr run &amp;hellip;&amp;rdquo; command to start your app:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dapr run --app-id seatadjuster --app-protocol grpc --app-port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50008&lt;/span&gt; --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/run.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You already have seen this command and how to check if it is working in the &lt;a href=&#34;/velocitas/velocitas/docs/getting-started/quickstart/#start-and-test-vehicle-app&#34;&gt;general setup&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dapr run --app-id seatadjuster --app-protocol grpc --app-port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50008&lt;/span&gt; --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/VehicleApp/main.py
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You already have seen this command and how to check if it is working in the &lt;a href=&#34;/docs/getting-started/quickstart/#start-and-test-vehicle-app&#34;&gt;general setup&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;2 parameters may be unclear in this command:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;the config file &lt;code&gt;config.yaml&lt;/code&gt;&lt;/li&gt;
@@ -788,21 +805,21 @@ After creating the mock, you can test the method and check the response. Use ass
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you want to know more about dapr and the configuration, please visit &lt;a href=&#34;https://dapr.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://dapr.io&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;debug-your-vehicle-app&#34;&gt;Debug your Vehicle App&lt;/h3&gt;
-&lt;p&gt;In the &lt;a href=&#34;/velocitas/velocitas/docs/getting-started/quickstart/#debug-vehicle-app&#34;&gt;introduction about debugging&lt;/a&gt;, you saw how to start a debugging session. In this section, you will learn what is happening in the background.&lt;/p&gt;
-&lt;p&gt;In order to be able to debug your code, you need to add some configs in Visual Studio Code. You find the files in the &lt;code&gt;.vscode&lt;/code&gt; folder. The main entrypoint is the launch.json. All configurations are stored here.
-Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
+&lt;p&gt;In the &lt;a href=&#34;/docs/getting-started/quickstart/#debug-vehicle-app&#34;&gt;introduction about debugging&lt;/a&gt;, you saw how to start a debugging session. In this section, you will learn what is happening in the background.&lt;/p&gt;
+&lt;p&gt;The debug session launch settings are already prepared for the &lt;code&gt;VehicleApp&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-JSON&#34; data-lang=&#34;JSON&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;configurations&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;python&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;justMyCode&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;request&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;launch&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;SeatAdjuster&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;program&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;${workspaceFolder}/src/run.py&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;VehicleApp&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;program&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;${workspaceFolder}/src/VehicleApp/main.py&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;console&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;integratedTerminal&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;preLaunchTask&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;dapr-SeatAdjuster-run&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;postDebugTask&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;dapr-SeatAdjuster-stop&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;preLaunchTask&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;dapr-VehicleApp-run&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;postDebugTask&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;dapr-VehicleApp-stop&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;env&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;DAPR_GRPC_PORT&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;50001&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;DAPR_HTTP_PORT&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;3500&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;SEATSERVICE_DAPR_APP_ID&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;seatservice&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;VEHICLEDATABROKER_DAPR_APP_ID&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vehicledatabroker&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
@@ -810,8 +827,8 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We specify which python-script to run using the &lt;code&gt;program&lt;/code&gt; key. With the &lt;code&gt;preLaunchTask&lt;/code&gt; and &lt;code&gt;postDebugTask&lt;/code&gt; keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-JSON&#34; data-lang=&#34;JSON&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;label&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;dapr-SeatAdjuster-run&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;appId&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;seatadjuster&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;label&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;dapr-VehicleApp-run&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;appId&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vehicleapp&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;appPort&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50008&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;componentsPath&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./.dapr/components&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./.dapr/config.yaml&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
@@ -825,10 +842,10 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-JSON&#34; data-lang=&#34;JSON&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;label&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;dapr-SeatAdjuster-stop&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;label&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;dapr-VehicleApp-stop&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;shell&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;command&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;dapr stop --app-id seatadjuster&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;dapr stop --app-id vehicleapp&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;presentation&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;close&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
@@ -840,13 +857,13 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;p&gt;Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or &lt;kbd&gt;F5&lt;/kbd&gt;. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_kubernetes.md&#34;&gt;Deploy runtime services in Kubernetes mode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/run_runtime_services_kubernetes.md&#34;&gt;Deploy runtime services in Kubernetes mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -854,10 +871,10 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
     
     <item>
       <title>Docs: Run Vehicle App Runtime Services</title>
-      <link>/velocitas/docs/tutorials/vehicle-app-runtime/</link>
+      <link>/docs/tutorials/vehicle-app-runtime/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/vehicle-app-runtime/</guid>
+      <guid>/docs/tutorials/vehicle-app-runtime/</guid>
       <description>
         
         
@@ -867,10 +884,10 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
     
     <item>
       <title>Docs: Vehicle App Integration Testing</title>
-      <link>/velocitas/docs/tutorials/integration_tests/</link>
+      <link>/docs/tutorials/integration_tests/</link>
       <pubDate>Mon, 09 May 2022 13:46:21 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/integration_tests/</guid>
+      <guid>/docs/tutorials/integration_tests/</guid>
       <description>
         
         
@@ -897,17 +914,13 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;Kubernetes execution&lt;/strong&gt;: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
-&lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the task &lt;code&gt;SeatAdjuster&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the task &lt;code&gt;VehicleApp&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally.&lt;/p&gt;
 &lt;h3 id=&#34;kubernetes-execution-k3d&#34;&gt;Kubernetes execution (K3D)&lt;/h3&gt;
-&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;export MQTT_PORT=31883&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;export VDB_PORT=30555&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pytest&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
+&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MQTT_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31883&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;VDB_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30555&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; pytest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
 &lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;/test/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -943,26 +956,26 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Please make sure that you don&amp;rsquo;t check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;running-tests-locally&#34;&gt;Running Tests locally&lt;/h2&gt;
-&lt;p&gt;Once tests are developed, they can be executed against the running runtime components, either to the &lt;strong&gt;&lt;em&gt;local runtime&lt;/em&gt;&lt;/strong&gt;&lt;code&gt;(**Remark Bjoern:** Should we talk here - in analogy to dapr-terminology - of &amp;quot;self-hosted&amp;quot;. Because &amp;quot;local&amp;quot; is used already for distinguishing between execution on local machine vs. CI pripline)&lt;/code&gt; or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for &lt;em&gt;Mosquitto&lt;/em&gt; and &lt;em&gt;KUKSA Data Broker&lt;/em&gt; are &lt;code&gt;1883&lt;/code&gt;/&lt;code&gt;55555&lt;/code&gt;. In Kubernetes mode, the ports would be the locally exposed ports &lt;code&gt;31883&lt;/code&gt;/&lt;code&gt;30555&lt;/code&gt;. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.&lt;/p&gt;
+&lt;p&gt;Once tests are developed, they can be executed against the running runtime components, either to the &lt;strong&gt;&lt;em&gt;local runtime&lt;/em&gt;&lt;/strong&gt; or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for &lt;em&gt;Mosquitto&lt;/em&gt; and &lt;em&gt;KUKSA Data Broker&lt;/em&gt; are &lt;code&gt;1883&lt;/code&gt;/&lt;code&gt;55555&lt;/code&gt;. In Kubernetes mode, the ports would be the locally exposed ports &lt;code&gt;31883&lt;/code&gt;/&lt;code&gt;30555&lt;/code&gt;. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.&lt;/p&gt;
 &lt;h2 id=&#34;running-tests-in-ci-pipeline&#34;&gt;Running Tests in CI pipeline&lt;/h2&gt;
-&lt;p&gt;The tests will be discovered and executed automatically in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CI pipeline&lt;/a&gt;. The job &lt;code&gt;Run Integration Tests&lt;/code&gt; contains all steps to setup and execute tests in Kubernetes mode. The results are published as test results to the workflow.&lt;/p&gt;
+&lt;p&gt;The tests will be discovered and executed automatically in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CI pipeline&lt;/a&gt;. The job &lt;code&gt;Run Integration Tests&lt;/code&gt; contains all steps to set up and execute tests in Kubernetes mode. The results are published as test results to the workflow.&lt;/p&gt;
 &lt;h1 id=&#34;common-tasks&#34;&gt;Common Tasks&lt;/h1&gt;
 &lt;h2 id=&#34;run-test-in-local-mode&#34;&gt;Run test in local mode&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Make sure that the &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_kubernetes.md&#34;&gt;tasks for the runtime components&lt;/a&gt; are running (by checking the terminal view).&lt;/li&gt;
+&lt;li&gt;Make sure that the &lt;a href=&#34;/docs/run_runtime_services_kubernetes.md&#34;&gt;tasks for the runtime components&lt;/a&gt; are running (by checking the terminal view).&lt;/li&gt;
 &lt;li&gt;Make sure that your application is running (via Debugger or task).&lt;/li&gt;
 &lt;li&gt;Make sure that you are using the right ports for local execution of runtime components.&lt;/li&gt;
 &lt;li&gt;Run tests from the test runner.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;run-tests-in-kubernetes-mode&#34;&gt;Run tests in Kubernetes mode&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Make sure that K3D is up and running (by calling the scripts in the &lt;code&gt;scripts/k3d&lt;/code&gt; folder, 01 - 04).&lt;/li&gt;
-&lt;li&gt;Make sure that the tests are using the right ports for Kubernetes execution.&lt;/li&gt;
+&lt;li&gt;Make sure that K3D is set up and all vehicle services and vehicle runtime are deployed and running (by executing the task &lt;code&gt;K3D - Deploy runtime&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;Make sure that the tests are using the right ports for Kubernetes execution (&lt;a href=&#34;#kubernetes-execution-k3d&#34;&gt;see above&lt;/a&gt;).&lt;/li&gt;
 &lt;li&gt;Run tests from the test runner.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;update-application-when-running-in-kubernetes-mode&#34;&gt;Update application when running in Kubernetes mode&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Re-run the script &lt;code&gt;/scripts/k3d/04_deploy-apps.sh&lt;/code&gt; that rebuilds and deploys the application to K3D.&lt;/li&gt;
+&lt;li&gt;Re-run the task &lt;code&gt;K3D - Deploy runtime&lt;/code&gt; that rebuilds and deploys the application to K3D.&lt;/li&gt;
 &lt;li&gt;Re-run tests from the test runner.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h1 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h1&gt;
@@ -985,9 +998,9 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -995,10 +1008,10 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
     
     <item>
       <title>Docs: Vehicle App Deployment with Helm</title>
-      <link>/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</link>
+      <link>/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</guid>
+      <guid>/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</guid>
       <description>
         
         
@@ -1010,11 +1023,13 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visual Studio Code&lt;/a&gt; with the &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-python.python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python extension&lt;/a&gt; installed. For information on how to install extensions on Visual Studio Code, see &lt;a href=&#34;https://code.visualstudio.com/docs/editor/extension-gallery&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VS Code Extension Marketplace&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Completed the tutorial &lt;a href=&#34;/velocitas/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;How to create a vehicle app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Completed the tutorial &lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;How to create a vehicle app&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;prepare-a-helm-chart&#34;&gt;Prepare a Helm chart&lt;/h2&gt;
-&lt;p&gt;If the Vehicle App has been created from the Python template repository, a sample Helm chart is already available under &lt;code&gt;deploy/SeatAdjusterApp&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;This will be adapted to deploy a new vehicle app, which is called &lt;code&gt;my_vehicle_app&lt;/code&gt; for this walkthrough.&lt;/p&gt;
+&lt;h2 id=&#34;use-the-sample-helm-chart&#34;&gt;Use the sample Helm chart&lt;/h2&gt;
+&lt;p&gt;If the Vehicle App has been created from the Python template repository, a sample Helm chart is already available under &lt;code&gt;deploy/VehicleApp&lt;/code&gt; and can be used as it is without any modification.
+This sample chart is using the values from &lt;code&gt;deploy/VehicleApp/values.yaml&lt;/code&gt; file, during the deployment of the VehicleApp, the neccessary app attributes from the &lt;code&gt;AppManifest.json&lt;/code&gt; (e.g. &lt;code&gt;app name&lt;/code&gt; and &lt;code&gt;app port&lt;/code&gt;) will overwite the default values from the sample helm chart via the &lt;code&gt;deploy_vehicleapp.sh&lt;/code&gt; script.&lt;/p&gt;
+&lt;h2 id=&#34;prepare-a-new-helm-chart&#34;&gt;Prepare a new Helm chart&lt;/h2&gt;
+&lt;p&gt;If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called &lt;code&gt;my_vehicle_app&lt;/code&gt; for this walkthrough.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Start Visual Studio Code and open the previously created Vehicle App repository.&lt;/p&gt;
@@ -1023,10 +1038,10 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;p&gt;Create a new folder &lt;code&gt;my_vehicle_app&lt;/code&gt; under &lt;code&gt;deploy&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Copy all files from the &lt;code&gt;deploy/SeatAdjusterApp&lt;/code&gt; folder to the new folder &lt;code&gt;deploy/my_vehicle_app&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Copy all files from the &lt;code&gt;deploy/VehicleApp&lt;/code&gt; folder to the new folder &lt;code&gt;deploy/my_vehicle_app&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Rename the file &lt;code&gt;deploy/my_vehicle_app/helm/templates/seatadjuster.yaml&lt;/code&gt; to &lt;code&gt;deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Rename the file &lt;code&gt;deploy/my_vehicle_app/helm/templates/vehicleapp.yaml&lt;/code&gt; to &lt;code&gt;deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Open &lt;code&gt;deploy/my_vehicle_app/helm/Chart.yaml&lt;/code&gt; and change the name of the chart to &lt;code&gt;my_vehicle_app&lt;/code&gt; and provide a meaningful description.&lt;/p&gt;
@@ -1055,7 +1070,7 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;appVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1.16.0&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Open &lt;code&gt;deploy/my_vehicle_app/helm/values.yaml&lt;/code&gt; and change &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;repository&lt;/code&gt; and &lt;code&gt;daprAppid&lt;/code&gt; to &lt;code&gt;my_vehicle_app&lt;/code&gt;. Rename the root node from &lt;code&gt;imageSeatAdjusterApp&lt;/code&gt; to &lt;code&gt;imageMyVehicleApp&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Open &lt;code&gt;deploy/my_vehicle_app/helm/values.yaml&lt;/code&gt; and change &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;repository&lt;/code&gt; and &lt;code&gt;daprAppid&lt;/code&gt; to &lt;code&gt;my_vehicle_app&lt;/code&gt;. Rename the root node from &lt;code&gt;imageVehicleApp&lt;/code&gt; to &lt;code&gt;imageMyVehicleApp&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;imageMyVehicleApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;my_vehicle_app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repository&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;local/my_vehicle_app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -1069,7 +1084,7 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fullnameOverride&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Open &lt;code&gt;deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml&lt;/code&gt; and replace &lt;code&gt;imageSeatAdjusterApp&lt;/code&gt; with &lt;code&gt;imageMyVehicleApp&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Open &lt;code&gt;deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml&lt;/code&gt; and replace &lt;code&gt;imageVehicleApp&lt;/code&gt; with &lt;code&gt;imageMyVehicleApp&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;apps/v1&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Deployment&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -1099,52 +1114,18 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;imagePullPolicy&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;{{&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;.Values.imageMyVehicleApp.pullPolicy }}&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Rename &lt;code&gt;deploy/my_vehicle_app/deploy_seat-adjuster-app.sh&lt;/code&gt; to &lt;code&gt;deploy/my_vehicle_app/deploy-my-vehicle-app.sh&lt;/code&gt; and replace all occurences of &lt;code&gt;SeatAdjusterApp&lt;/code&gt; with &lt;code&gt;MyVehicleApp&lt;/code&gt; and &lt;code&gt;seatservice&lt;/code&gt; with &lt;code&gt;my-vehicle-app&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;WORKING_DIR&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;$(&lt;/span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;pwd&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt; -f &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./../../github_token.txt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;GITHUB_TOKEN&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;github_token,src=github_token.txt&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;else&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;GITHUB_TOKEN&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;github_token&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fi&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt; -n &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$HTTP_PROXY&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Building image with proxy configuration&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$WORKING_DIR&lt;/span&gt;/../../
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;DOCKER_BUILDKIT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; docker build &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -f src/MyVehicleApp/Dockerfile &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --progress&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;plain --secret &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$GITHUB_TOKEN&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -t localhost:12345/my-vehicle-app:local &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --build-arg &lt;span style=&#34;color:#000&#34;&gt;HTTP_PROXY&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$HTTP_PROXY&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --build-arg &lt;span style=&#34;color:#000&#34;&gt;HTTPS_PROXY&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$HTTPS_PROXY&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --build-arg &lt;span style=&#34;color:#000&#34;&gt;FTP_PROXY&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$FTP_PROXY&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --build-arg &lt;span style=&#34;color:#000&#34;&gt;ALL_PROXY&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$ALL_PROXY&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --build-arg &lt;span style=&#34;color:#000&#34;&gt;NO_PROXY&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$NO_PROXY&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; . --no-cache
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    docker push localhost:12345/my-vehicle-app:local
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$WORKING_DIR&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;else&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Building image without proxy configuration&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Build, push vehicleapi image - NO PROXY&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$WORKING_DIR&lt;/span&gt;/../../
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;DOCKER_BUILDKIT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; docker build -f src/MyVehicleApp/Dockerfile --progress&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;plain --secret &lt;span style=&#34;color:#000&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$GITHUB_TOKEN&lt;/span&gt; -t localhost:12345/my-vehicle-app:local . --no-cache
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    docker push localhost:12345/my-vehicle-app:local
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;$WORKING_DIR&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fi&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm uninstall vapp-chart --wait
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Deploy in Kubernetes&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm install vapp-chart ./helm --values ../runtime/k3d/values.yml --wait --timeout 60s --debug
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;p&gt;update or copy the scripts &lt;code&gt;build_vehicleapp.sh&lt;/code&gt; and &lt;code&gt;deploy_vehicleapp.sh&lt;/code&gt; in path (&lt;code&gt;.vscode/scripts/runtime/k3d/&lt;/code&gt;) for the local Kubernates deployment and adjust the values according to the values &lt;code&gt;AppManifest.json&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;APP_NAME&lt;/li&gt;
+&lt;li&gt;APP_PORT&lt;/li&gt;
+&lt;li&gt;DOCKERFILE_FILE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;update the script &lt;code&gt;.github/scripts/deploy_imagefromghcr.sh&lt;/code&gt; for the CI workflow with the correct values from the &lt;code&gt;AppManifest.json&lt;/code&gt; as above.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;At this point, the Helm chart and the sh-script are ready to use and folder structure under &lt;code&gt;deploy/my_vehicle_app&lt;/code&gt; should look like this:&lt;/p&gt;
+&lt;p&gt;At this point, the Helm chart and updated scripts are ready to use and folder structure under &lt;code&gt;deploy/my_vehicle_app&lt;/code&gt; should look like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;deploy
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── my_vehicle_app
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── helm
@@ -1153,12 +1134,11 @@ Currently there is only one for the SeatAdjuster App.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│           └── my_vehicle_app.yaml
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│────────── .helmignore
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│────────── Chart.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│────────── values.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└────── deploy-my-vehicle-app.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└────────── values.yaml
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-python-vehicle-app-to-local-k3d&#34;&gt;Deploy your Python Vehicle App to local K3D&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites-1&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas/velocitas/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After the Helm chart has been prepared, you can deploy it to local K3D.
 Execute the script:&lt;/p&gt;
@@ -1166,8 +1146,8 @@ Execute the script:&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This script builds the local source code of the application into a container, pushes that container to the local cluster registry and deploys the app via a helm chart to the K3D cluster. Rerun this script after you have changed the source code of your application to re-deploy with the latest changes.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
