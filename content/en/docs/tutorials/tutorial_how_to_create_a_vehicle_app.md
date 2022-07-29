@@ -24,12 +24,12 @@ This section describes how to develop your first Vehicle App. Before you start b
 
 Once you have established your development environment, you will be able to start developing your first Vehicle App.
 
-For this tutorial, you will recreate the SeatAdjuster example that is included with the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template): 
+For this tutorial, you will recreate the vehicle app that is included with the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template):
 The Vehicle app allows to change the positions of the seats in the car and also provide their current positions to other applications.
 
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
 
-At first, you have to create the main python script called `run.py` in `src/`. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:
+At first, you have to create the main python script called `main.py` in `src/VehicleApp/`. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:
 
 1. Manage your imports
 2. Enable logging
@@ -38,7 +38,7 @@ At first, you have to create the main python script called `run.py` in `src/`. A
 
 #### Manage your imports
 
-Before you start development in the `run.py` you just created, it will be necessary to include the imports required, which you will understand better later through the development:
+Before you start development in the `main.py` you just created, it will be necessary to include the imports required, which you will understand better later through the development:
 
 ```Python
 import asyncio
@@ -72,7 +72,7 @@ logger = logging.getLogger(__name__)
 The main class of your new Vehicle App needs to inherit the `VehicleApp` provided by the [SDK](https://github.com/eclipse-velocitas/vehicle-app-python-sdk).
 
 ```Python
-class SeatAdjusterApp(VehicleApp):
+class MyVehicleApp(VehicleApp):
 ```
 
 In class initialization, you have to pass an instance of the Vehicle Model:
@@ -87,14 +87,14 @@ We save the vehicle object to use it in our app. Now, you have initialized the a
 
 #### Start the app
 
-Here's an example of how to start the SeatAdjuster App we just developed:
+Here's an example of how to start the MyVehicleApp App that we just developed:
 
 ```Python
 async def main():
     """Main function"""
-    logger.info("Starting seat adjuster app...")
-    seat_adjuster_talent = SeatAdjusterApp(vehicle)
-    await seat_adjuster_talent.run()
+    logger.info("Starting my VehicleApp...")
+    vehicle_app = MyVehicleApp(vehicle)
+    await vehicle_app.run()
 
 LOOP = asyncio.get_event_loop()
 LOOP.add_signal_handler(signal.SIGTERM, LOOP.stop)
@@ -132,7 +132,7 @@ self.DriverSeatPosition = await self.vehicle_client.Cabin.Seat.Row1.Pos1.Positio
 
 ## Subscription to Datapoints
 
-If you want to get notified about changes of a specific `Datapoint`, you can subscribe to this event, e.g. as part of the "on_start"-method in your app. 
+If you want to get notified about changes of a specific `Datapoint`, you can subscribe to this event, e.g. as part of the "on_start"-method in your app.
 
 ```Python
 
@@ -149,6 +149,7 @@ If you want to get notified about changes of a specific `Datapoint`, you can sub
         response_data = {"position": data.fields[seat_path].uint32_value}
 
 ```
+
 Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked envery datapoint update. Subscribed data is available in the respective *data.fields* value and are accessed by their complete path.
 
 The SDK also supports annotations for subscribing to datapoint changes  with`@subscribe_data_points` defined by the whole path to the `Datapoint` of interest.
@@ -179,7 +180,7 @@ await self.vehicle_client.Cabin.SeatService.MoveComponent(
 
 In order to know which seat to move, you have to pass a `SeatLocation` object as the first parameter. The second argument specifies the component to be moved. The possible components are defined in the proto-files. The last parameter to be passed into the method is the final position of the component.
 
-> Make sure to use the `await` keyword when calling service methods, since these methods are co-routines. 
+> Make sure to use the `await` keyword when calling service methods, since these methods are co-routines.
 
 ### MQTT
 
@@ -199,6 +200,7 @@ In order to receive and process MQTT messages inside your app, simply use the `@
         
         # ...
 ```
+
 The `on_set_position_request_received` method will now be invoked every time a message is created on the subscribed topic `"seatadjuster/setPosition/response"`. The message data (string) is provided as parameter. In the example above the data is parsed to json (`data = json.loads(data_str)`).
 
 In order to publish data to other subscribers, the SDK provides the appropriate convenience method: `self.publish_mqtt_event()`
@@ -212,6 +214,7 @@ In order to publish data to other subscribers, the SDK provides the appropriate 
             json.dumps({"position": data.fields[seat_path].uint32_value}),
         )
 ```
+
 The above example illustrates how one can easily publish messages. In this case, every time the seat position changes, the new position is published to `seatadjuster/currentPosition`
 
 ## UnitTests
@@ -259,7 +262,7 @@ Once the implementation is done, it is time to run and debug the app.
 If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the "dapr run ..." command to start your app:
 
 ```bash
-dapr run --app-id seatadjuster --app-protocol grpc --app-port 50008 --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/run.py
+dapr run --app-id seatadjuster --app-protocol grpc --app-port 50008 --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/VehicleApp/main.py
 ```
 
 You already have seen this command and how to check if it is working in the [general setup](/docs/getting-started/quickstart/#start-and-test-vehicle-app).
@@ -312,14 +315,14 @@ spec:
     value: "false"
 ```
 
-If you want to know more about dapr and the configuration, please visit https://dapr.io
+If you want to know more about dapr and the configuration, please visit <https://dapr.io>
 
 ### Debug your Vehicle App
 
 In the [introduction about debugging](/docs/getting-started/quickstart/#debug-vehicle-app), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
 
-In order to be able to debug your code, you need to add some configs in Visual Studio Code. You find the files in the `.vscode` folder. The main entrypoint is the launch.json. All configurations are stored here.
-Currently there is only one for the SeatAdjuster App.
+The debug session launch settings are already prepared for the `VehicleApp`.
+
 
 ```JSON
 "configurations": [
@@ -327,13 +330,14 @@ Currently there is only one for the SeatAdjuster App.
         "type": "python",
         "justMyCode": false,
         "request": "launch",
-        "name": "SeatAdjuster",
-        "program": "${workspaceFolder}/src/run.py",
+        "name": "VehicleApp",
+        "program": "${workspaceFolder}/src/VehicleApp/main.py",
         "console": "integratedTerminal",
-        "preLaunchTask": "dapr-SeatAdjuster-run",
-        "postDebugTask": "dapr-SeatAdjuster-stop",
+        "preLaunchTask": "dapr-VehicleApp-run",
+        "postDebugTask": "dapr-VehicleApp-stop",
         "env": {
             "DAPR_GRPC_PORT":"50001",
+            "DAPR_HTTP_PORT":"3500",
             "SEATSERVICE_DAPR_APP_ID": "seatservice",
             "VEHICLEDATABROKER_DAPR_APP_ID": "vehicledatabroker"
         }
@@ -345,8 +349,8 @@ We specify which python-script to run using the `program` key. With the `preLaun
 
 ```JSON
 {
-    "label": "dapr-SeatAdjuster-run",
-    "appId": "seatadjuster",
+    "label": "dapr-VehicleApp-run",
+    "appId": "vehicleapp",
     "appPort": 50008,
     "componentsPath": "./.dapr/components",
     "config": "./.dapr/config.yaml",
@@ -363,10 +367,10 @@ We specify which python-script to run using the `program` key. With the `preLaun
 
 ```JSON
 {
-    "label": "dapr-SeatAdjuster-stop",
+    "label": "dapr-VehicleApp-stop",
     "type": "shell",
     "command": [
-        "dapr stop --app-id seatadjuster"
+        "dapr stop --app-id vehicleapp"
     ],
     "presentation": {
         "close": true,
@@ -382,6 +386,7 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.
 
 ## Next steps
+
 - Concept: [Python SDK Overview](/docs/concepts/python_vehicle_app_sdk_overview.md)
 - Tutorial: [Deploy runtime services in Kubernetes mode](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)

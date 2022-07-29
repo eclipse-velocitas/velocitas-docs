@@ -1,4 +1,5 @@
 ---
+weight: 1
 title: "Run runtime services locally"
 date: 2022-05-09T13:43:25+05:30
 aliases:
@@ -11,6 +12,7 @@ aliases:
 **Overview:** If you are developing in Visual Studio Code, the runtime components (like _KUKSA Data Broker_ or _Vehicle Services_) are available for local execution as _Tasks_, a feature of the Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
 
 **Quick Start:** Each component has a task that is defined in _.vscode/tasks.json_:
+
 * Dapr (```Local - Ensure Dapr```): installs Dapr CLI and initializes Dapr if required
 * Mosquitto (```Local - Mosquitto```): runs _Mosquitto_ as a container (```docker run```)
 * KUKSA Data Broker (```Local - VehicleDataBroker```): downloads and runs _KUKSA Data Broker_
@@ -18,7 +20,6 @@ aliases:
 * (Optional) Feeder Can (```Local - FeederCan```): downloads and runs _FeederCAN_
 
 **Run as Bundle:** To orchestrate these tasks, a task called `Start Vehicle App runtime` is available. This task runs the other tasks in the correct order. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `Start Vehicle App runtime`.
-
 
 **Tasks Management:** Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/... You can access them by pressing F1 and typing `task`. A list with available task commands will appear.
 
@@ -32,7 +33,7 @@ The version for the runtime services is defined in the file [`./prerequisite_set
 
 ## Using KUKSA Data Broker CLI
 
-A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task `run-vehicledatabroker-cli`(by pressing _F1_, type _Run Task_ followed by `run-vehicledatabroker-cli`). The _KUKSA Data Broker_ needs to be running for you to be able to use the tool.
+A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task `Local - VehicleDataBroker CLI`(by pressing _F1_, type _Run Task_ followed by `Local - VehicleDataBroker CLI`). The _KUKSA Data Broker_ needs to be running for you to be able to use the tool.
 
 ## Integrating a new service into Visual Studio Code Task
 
@@ -80,12 +81,14 @@ Integration of a new service can be done by duplicating one of the existing task
 
 **Problem description:** When integrating new services into an existing dev environment, it is highly recommended to use the Visual Studio Code Task Feature.
 A new service can be easily started by calling it from bash script, however restarting the same service might lead to port conflicts (GRPC Port or APP port). That can be easily avoided by using the Visual Studio Code Task Feature.
+
 ### Codespaces
 
 If you are using Codespaces, remember that you are working on a remote agent. That's why it could happen that the tasks are already running in the background. If that's the case a new start of the tasks will fail, since the ports are already in use. In the Dapr-tab of the sidebar you can check if there are already tasks running. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit `F1` and enter `View: Toggle Ports`).
 
 ## Next steps
-- Tutorial: [Deploy runtime services in Kubernetes mode](/docs/tutorials/run_runtime_services_kubernetes.md)
+
+- Tutorial: [Deploy runtime services in local Kubernetes cluster](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
 - Concept: [Deployment Model](/docs/concepts/deployment-model.md)
 - Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)

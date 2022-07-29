@@ -36,25 +36,30 @@ A Vehicle Model can be created in one of two ways.
   1. Clone the [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository in a container volume.
 
   2. In this container volume, clone the [vehicle-signal-specification](https://github.com/COVESA/vehicle_signal_specification) repository.
+
         ```
         git clone https://github.com/COVESA/vehicle_signal_specification
         ```
+
         After cloning if a user wants to refer to a particular branch they can checkout that branch afterwards.
+
         ```
         cd vehicle_signal_specification
         git checkout <branch-name>
-    3. Execute the command
+  3. Execute the command
+
         ```bash
         python3 gen_vehicle_model.py -I ./vehicle_signal_specification/spec ./vehicle_signal_specification/spec/VehicleSignalSpecification.vspec -T sdv_model -N sdv_model
         ```
+
         This creates a `sdv_model` directory in the root of repository along with a `setup.py` file.
-        To have a custom model name, refer to README of [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository. 
-    4. Change the version of package in `setup.py` manually (defaults to 0.1.0).
-    5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Python Vehicle Model](#distributing-your-python-vehicle-model))
+        To have a custom model name, refer to README of [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository.
+  4. Change the version of package in `setup.py` manually (defaults to 0.1.0).
+  5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Python Vehicle Model](#distributing-your-python-vehicle-model))
 
 - ### Create a Python Vehicle Model Manually
 
-  #### Setup a Python Package manually
+#### Setup a Python Package manually
 
   A Vehicle Model should be defined in its own Python Package. This allows to distribute the Vehicle Model later as a standalone package and to use it in different _Vehicle App_ projects.
 
@@ -116,9 +121,9 @@ A Vehicle Model can be created in one of two ways.
   pip3 uninstall my_vehicle_model
   ```
 
-  #### Add Vehicle Models manually
+#### Add Vehicle Models manually
 
-  1.  Install the Python Vehicle App SDK:
+  1. Install the Python Vehicle App SDK:
 
           ```bash
           pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git@v0.4.0
@@ -136,7 +141,7 @@ A Vehicle Model can be created in one of two ways.
           └── Cabin
               └── Seat (Row, Pos)
 
-  2.  Create a new file `Seat.py` under `my_vehicle_model/my_vehicle_model`:
+  2. Create a new file `Seat.py` under `my_vehicle_model/my_vehicle_model`:
 
       ```python
       from sdv.model import Model
@@ -151,7 +156,7 @@ A Vehicle Model can be created in one of two ways.
 
       This creates the Seat model with a single data point of type `float` named `Position`.
 
-  3.  Create a new file `Cabin.py` under `my_vehicle_model/my_vehicle_model`:
+  3. Create a new file `Cabin.py` under `my_vehicle_model/my_vehicle_model`:
 
       ```python
       from sdv.model import Model
@@ -175,7 +180,7 @@ A Vehicle Model can be created in one of two ways.
       - row=2, pos=2
       - row=2, pos=3
 
-  4.  Create a new file `vehicle.py` under `my_vehicle_model/my_vehicle_model`:
+  4. Create a new file `vehicle.py` under `my_vehicle_model/my_vehicle_model`:
 
       ```python
       from sdv.model import Model
@@ -386,6 +391,7 @@ If you want to distribute your Python Vehicle Model publicly, you can do so by c
 Detailed instructions on how to make a Python package available on PyPI can be found [here](https://packaging.python.org/tutorials/packaging-projects/).
 
 ## Further information
+
 - Concept: [Python SDK Overview](/docs/concepts/python_vehicle_app_sdk_overview.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
 - Tutorial: [Create a Python Vehicle App](/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md)

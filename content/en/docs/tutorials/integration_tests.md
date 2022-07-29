@@ -38,7 +38,7 @@ We distinguish between two environments for executing the _Vehicle App_ and the 
 
 First, make sure that the runtime services are configured and running like described [here](/docs/run_runtime_services_locally.md).
 
-The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the task `SeatAdjuster`.
+The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the task `VehicleApp`.
 
 When the runtime services and the application are running, integration tests can be executed locally.
 
@@ -46,9 +46,9 @@ When the runtime services and the application are running, integration tests can
 
 If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the [documentation](/docs/run_runtime_services_kubernetes.md). To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:
 
-- `export MQTT_PORT=31883`
-- `export VDB_PORT=30555`
-- `pytest`
+```bash
+  export MQTT_PORT=31883 && export VDB_PORT=30555 && pytest
+```
 
 ## Writing Test Cases
 
@@ -85,11 +85,11 @@ To write an integration test, you should check the sample that comes with the te
 
 ## Running Tests locally
 
-Once tests are developed, they can be executed against the running runtime components, either to the **_local runtime_**`(**Remark Bjoern:** Should we talk here - in analogy to dapr-terminology - of "self-hosted". Because "local" is used already for distinguishing between execution on local machine vs. CI pripline)` or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for _Mosquitto_ and _KUKSA Data Broker_ are `1883`/`55555`. In Kubernetes mode, the ports would be the locally exposed ports `31883`/`30555`. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.
+Once tests are developed, they can be executed against the running runtime components, either to the **_local runtime_** or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for _Mosquitto_ and _KUKSA Data Broker_ are `1883`/`55555`. In Kubernetes mode, the ports would be the locally exposed ports `31883`/`30555`. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.
 
 ## Running Tests in CI pipeline
 
-The tests will be discovered and executed automatically in the [CI pipeline](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml). The job `Run Integration Tests` contains all steps to setup and execute tests in Kubernetes mode. The results are published as test results to the workflow.
+The tests will be discovered and executed automatically in the [CI pipeline](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml). The job `Run Integration Tests` contains all steps to set up and execute tests in Kubernetes mode. The results are published as test results to the workflow.
 
 # Common Tasks
 
@@ -102,14 +102,14 @@ The tests will be discovered and executed automatically in the [CI pipeline](htt
 
 ## Run tests in Kubernetes mode
 
-1. Make sure that K3D is up and running (by calling the scripts in the `scripts/k3d` folder, 01 - 04).
-2. Make sure that the tests are using the right ports for Kubernetes execution.
+1. Make sure that K3D is set up and all vehicle services and vehicle runtime are deployed and running (by executing the task `K3D - Deploy runtime`).
+2. Make sure that the tests are using the right ports for Kubernetes execution ([see above](#kubernetes-execution-k3d)).
 3. Run tests from the test runner.
 
 ## Update application when running in Kubernetes mode
 
-1. Re-run the script `/scripts/k3d/04_deploy-apps.sh` that rebuilds and deploys the application to K3D.
-2. Re-run tests from the test runner. 
+1. Re-run the task `K3D - Deploy runtime` that rebuilds and deploys the application to K3D.
+2. Re-run tests from the test runner.
 
 # Troubleshooting
 
@@ -131,6 +131,7 @@ The tests will be discovered and executed automatically in the [CI pipeline](htt
 - Use VsMqtt extension to connect to MQTT broker (`localhost:1883` (local) or `localhost:31883` (Kubernetes)) to monitor topics in MQTT broker.
 
 ## Next steps
+
 - Concept: [Deployment Model](/docs/concepts/deployment-model.md)
 - Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
