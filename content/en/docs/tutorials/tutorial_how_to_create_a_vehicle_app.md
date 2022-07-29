@@ -24,7 +24,7 @@ This section describes how to develop your first Vehicle App. Before you start b
 
 Once you have established your development environment, you will be able to start developing your first Vehicle App.
 
-For this tutorial you will recreate the vehicle app called MyVehicleApp that is included with the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template):
+For this tutorial, you will recreate the vehicle app that is included with the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template):
 The Vehicle app allows to change the positions of the seats in the car and also provide their current positions to other applications.
 
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).

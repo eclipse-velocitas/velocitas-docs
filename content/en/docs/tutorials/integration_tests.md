@@ -89,7 +89,7 @@ Once tests are developed, they can be executed against the running runtime compo
 
 ## Running Tests in CI pipeline
 
-The tests will be discovered and executed automatically in the [CI pipeline](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml). The job `Run Integration Tests` contains all steps to setup and execute tests in Kubernetes mode. The results are published as test results to the workflow.
+The tests will be discovered and executed automatically in the [CI pipeline](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml). The job `Run Integration Tests` contains all steps to set up and execute tests in Kubernetes mode. The results are published as test results to the workflow.
 
 # Common Tasks
 
@@ -102,7 +102,7 @@ The tests will be discovered and executed automatically in the [CI pipeline](htt
 
 ## Run tests in Kubernetes mode
 
-1. Make sure that K3D is setup and all vehicle services and vehicle runtime are deployed and running (by executing the task `K3D - Deploy runtime`).
+1. Make sure that K3D is set up and all vehicle services and vehicle runtime are deployed and running (by executing the task `K3D - Deploy runtime`).
 2. Make sure that the tests are using the right ports for Kubernetes execution ([see above](#kubernetes-execution-k3d)).
 3. Run tests from the test runner.
 
