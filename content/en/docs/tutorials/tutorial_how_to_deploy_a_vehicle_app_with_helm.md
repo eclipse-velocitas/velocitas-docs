@@ -19,11 +19,16 @@ This tutorial will show you how to:
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) installed. For information on how to install extensions on Visual Studio Code, see [VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery).
 - Completed the tutorial [How to create a vehicle app](/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md)
 
-## Prepare a Helm chart
+## Use the sample Helm chart
 
-If the Vehicle App has been created from the Python template repository, a sample Helm chart is already available under `deploy/VehicleApp`.
+If the Vehicle App has been created from the Python template repository, a sample Helm chart is already available under `deploy/VehicleApp` and can be used as it is without any modification.
+This sample chart is using the values from `deploy/VehicleApp/values.yaml` file, during the deployment of the VehicleApp, the neccessary app attributes from the `AppManifest.json` (e.g. `app name` and `app port`) will overwite the default values from the sample helm chart via the `deploy_vehicleapp.sh` script.
 
-This will be adapted to deploy a new vehicle app, which is called `my_vehicle_app` for this walkthrough.
+In order to ensure the correct deployment of your vehicle app, successfull execution of CI workflow and the integration tests, make sure only to update the `AppManifest.json` with the new app name and the port number without any updates to the template `vehicleapp.yalm` and/or values `values.yaml` files.
+
+## Prepare a new Helm chart
+
+If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called `my_vehicle_app` for this walkthrough.
 
 1. Start Visual Studio Code and open the previously created Vehicle App repository.
 1. Create a new folder `my_vehicle_app` under `deploy`
@@ -106,55 +111,14 @@ This will be adapted to deploy a new vehicle app, which is called `my_vehicle_ap
 
    ```
 
-1. Rename `deploy/my_vehicle_app/deploy_vehicleapp.sh` to `deploy/my_vehicle_app/deploy-my-vehicle-app.sh` and replace all occurences of `VehicleApp` with `MyVehicleApp` and `seatservice` with `my-vehicle-app`.
+1. update or copy the scripts `build_vehicleapp.sh` and `deploy_vehicleapp.sh` in path (```.vscode/scripts/runtime/k3d/```) for the local Kubernates deployment and adjust the values according to the values `AppManifest.json`:
+    - APP_NAME
+    - APP_PORT
+    - DOCKERFILE_FILE
 
-   ```sh
-   #!/bin/bash
+1. update the script ```.github/scripts/deploy_imagefromghcr.sh``` for the CI workflow with the correct values from the `AppManifest.json` as above.
 
-   WORKING_DIR=$(pwd)
-
-   if [ -f "./../../github_token.txt" ];
-   then
-       GITHUB_TOKEN="github_token,src=github_token.txt"
-   else
-       GITHUB_TOKEN="github_token"
-   fi
-
-   if [ -n "$HTTP_PROXY" ]; then
-       echo "Building image with proxy configuration"
-
-       cd $WORKING_DIR/../../
-       DOCKER_BUILDKIT=1 docker build \
-       -f src/MyVehicleApp/Dockerfile \
-       --progress=plain --secret id=$GITHUB_TOKEN \
-       -t localhost:12345/my-vehicle-app:local \
-       --build-arg HTTP_PROXY="$HTTP_PROXY" \
-       --build-arg HTTPS_PROXY="$HTTPS_PROXY" \
-       --build-arg FTP_PROXY="$FTP_PROXY" \
-       --build-arg ALL_PROXY="$ALL_PROXY" \
-       --build-arg NO_PROXY="$NO_PROXY" . --no-cache
-       docker push localhost:12345/my-vehicle-app:local
-
-       cd $WORKING_DIR
-   else
-       echo "Building image without proxy configuration"
-       # Build, push vehicleapi image - NO PROXY
-
-       cd $WORKING_DIR/../../
-       DOCKER_BUILDKIT=1 docker build -f src/MyVehicleApp/Dockerfile --progress=plain --secret id=$GITHUB_TOKEN -t localhost:12345/my-vehicle-app:local . --no-cache
-       docker push localhost:12345/my-vehicle-app:local
-
-       cd $WORKING_DIR
-   fi
-
-   helm uninstall vapp-chart --wait
-
-   # Deploy in Kubernetes
-   helm install vapp-chart ./helm --values ../runtime/k3d/values.yml --wait --timeout 60s --debug
-
-   ```
-
-At this point, the Helm chart and the sh-script are ready to use and folder structure under `deploy/my_vehicle_app` should look like this:
+At this point, the Helm chart and updated scripts are ready to use and folder structure under `deploy/my_vehicle_app` should look like this:
 
 ``` bash
 deploy
@@ -165,8 +129,7 @@ deploy
 │           └── my_vehicle_app.yaml
 │────────── .helmignore
 │────────── Chart.yaml
-│────────── values.yaml
-└────── deploy-my-vehicle-app.sh
+└────────── values.yaml
 ```
 
 ## Deploy your Python Vehicle App to local K3D
@@ -185,5 +148,6 @@ deploy/my_vehicle_app/deploy-my-vehicle-app.sh
 This script builds the local source code of the application into a container, pushes that container to the local cluster registry and deploys the app via a helm chart to the K3D cluster. Rerun this script after you have changed the source code of your application to re-deploy with the latest changes.
 
 ## Next steps
+
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
 - Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)

@@ -32,6 +32,7 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
 - Install Docker Engine / [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - Install [Visual Studio Code](https://code.visualstudio.com)
 - Add [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension via the marketplace or using the command line
+
   ```bash
   code --install-extension ms-vscode-remote.remote-containers
   ```
@@ -55,7 +56,7 @@ ENV HTTP_PROXY="http://172.17.0.1:${PROXY_PORT:-3128}"
 - If your proxy is not available on `172.17.0.1` then you must modify `.devcontainer/Dockerfile.Proxy`.
 - If your proxy does not use 3128 as port you can set another port in the environment variable `DEVCONTAINER_PROXY_PORT`
 
-#### Windows:
+#### Windows
 
 1. Edit environment variables for your account
 2. Create an environment variable with name the `DEVCONTAINER_PROXY` and with the value `.Proxy` for your account
@@ -64,7 +65,7 @@ ENV HTTP_PROXY="http://172.17.0.1:${PROXY_PORT:-3128}"
    - DEVCONTAINER_PROXY_PORT=<PortNumber>
 4. Restart Visual Studio Code to pick up the new environment variable
 
-#### macOS & Linux:
+#### macOS & Linux
 
 ```
 echo "export DEVCONTAINER_PROXY=.Proxy" >> ~/.bash_profile
@@ -101,13 +102,13 @@ When opening the DevContainer for the first time, a manual reload of the dapr ex
 
 > If Visual Studio Code fails to directly clone your repository you can also use a workaround:
 >
-> 1.  clone the repo locally using your favorite Git tooling
-> 1.  Start Visual Studio Code
-> 1.  select `Open Folder` from the `File` menu
-> 1.  open the root of the cloned repo
-> 1.  a popup appears on the lower left side of Visual Studio Code
-> 1.  click on `Reopen in Container`
-> 1.  wait for the container to be set up
+> 1. clone the repo locally using your favorite Git tooling
+> 1. Start Visual Studio Code
+> 1. select `Open Folder` from the `File` menu
+> 1. open the root of the cloned repo
+> 1. a popup appears on the lower left side of Visual Studio Code
+> 1. click on `Reopen in Container`
+> 1. wait for the container to be set up
 >
 > If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command `Remote-Containers: Open Folder in Container`
 
@@ -124,7 +125,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 
 To get started with Codespaces, you just have to follow a few steps:
 
-1. Open your repository on GitHub (e.g. https://github.com/MyOrg/MyFirstVehicleApp)
+1. Open your repository on GitHub (e.g. <https://github.com/MyOrg/MyFirstVehicleApp>)
 1. Click on the green `Code`-button and select Codespaces on the top
 1. Configure your Codespace if needed (defaults to the main branch and a standard agent)
 1. Click on `create`
@@ -145,7 +146,7 @@ A Visual Studio Code task called `Start Vehicle App runtime` is available to run
 
 1. Press <kbd>F1</kbd>
 2. Select command `Tasks: Run Task`
-3. Select `Start VehicleApp runtime` 
+3. Select `Start VehicleApp runtime`
 4. Choose `Continue without scanning the output`
 
 You should see the tasks `run-mosquitto`, `run-vehicledatabroker`, `run-seatservice` and `run-feedercan` being executed in the Visual Studio Code output panel.
@@ -166,6 +167,7 @@ To trigger this breakpoint, let's send a message to the Vehicle App using the mq
 5. Set `Subscribe Topic` = `seatadjuster/currentPosition` and click subscribe
 6. Set `Publish Topic` = `seatadjuster/setPosition/request`
 7. Set and publish a dummy payload:
+
    ```json
    { "position": 300, "requestId": "xyz" }
    ```
@@ -174,17 +176,19 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 
 ## Triggering CI Workflow
 
-The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find [here](https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md). 
+The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find [here](https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md).
   
 By pushing a change to GitHub the CI Workflow will be triggered:
 
 1. Make modification to your file, e.g. remove the last empty line from `src/VehicleApp/main.py`
 2. Commit and push your change
+
    ```bash
    git add .
    git commit -m "removed emtpy line"
    git push
    ```
+
 To see the results open the `Actions` page of your repository on GitHub, go to `CI Workflow` and check the workflow output.
 
 ## Releasing Vehicle App
@@ -193,12 +197,13 @@ Now that the `CI Workflow` was successful, you are ready to build your first rel
 
 1. Open the `Code` page of your repository on GitHub
 1. Click on `Create a new release` in the Releases section on the right side
-1. Enter a version, e.g. v1.0.0, and click on `Publish release` 
+1. Enter a version, e.g. v1.0.0, and click on `Publish release`
    - GitHub will automatically create a tag using the version number
 
 The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open `Actions` on the repoitory and see the result.
 
 ## Next steps
+
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 - Tutorial: [Create a Python Vehicle App](/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)

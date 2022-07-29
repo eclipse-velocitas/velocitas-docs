@@ -6,7 +6,7 @@ aliases:
   - /docs/run_runtime_services_kubernetes.md
 ---
 
-Besides [local execution](/docs/run_runtime_services_locally.md), another way of running the runtime components is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code _Tasks_, a feature of Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
+Besides [local execution](/docs/run_runtime_services_locally.md) of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code _Tasks_, a feature of Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
 
 **Quick Start:** Each step has a task that is defined in _.vscode/tasks.json_:
 
