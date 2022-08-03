@@ -1,51 +1,48 @@
 ---
-title: "Python Vehicle Model Creation"
+title: "Vehicle Model Creation"
 date: 2022-05-09T13:43:25+05:30
 weight: 2
 description: >
-  Learn how to create a simple Python Vehicle Model with Visual Studio Code and the Python Vehicle App SDK.
+  Learn how to create a Vehicle Model to get assess vehicle data or execute remote procedure calls.
 aliases:
   - /docs/tutorials/tutorial_how_to_create_a_vehicle_model.md
   - /docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md
 ---
 
-> We recommend that you make yourself familiar with the [Python Vehicle App SDK Overview](/docs/python-sdk//python_vehicle_app_sdk_overview.md) first, before going through this tutorial.
+A Vehicle Model makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against Vehicle Services and other Vehicle Apps. It is generated from the underlying semantic models for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. 
 
 This tutorial will show you how to:
 
-- Set up a Python Package
-- Create a Python Vehicle Model
-- Add Vehicle Services
+- Create a Vehicle Model
+- Add Vehicle Services to the Vehicle Model
 - Distribute your Python Vehicle Model
+
+{{% alert title="Note" %}}
+A Vehicle Model should be defined in its own package. This makes it possible to distribute the Vehicle Model later as a standalone package and to use it in different _Vehicle App_ projects.
+{{% /alert %}}
 
 ## Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) installed. For information on how to install extensions on Visual Studio Code, see [VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery).
 
-## Create a Python Vehicle Model
+## Create a Vehicle Model from VSS specification
 
-A Vehicle Model should be defined in its own Python Package. This makes it possible to distribute the Vehicle Model later as a standalone package and to use it in different _Vehicle App_ projects.
-A Vehicle Model can be created in one of two ways.
+A Vehicle Model can be generated from a [COVESA Vehicle Signal Specification](https://covesa.github.io/vehicle_signal_specification/) (VSS). VSS introduces a domain taxonomy for vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data. The Velocitas [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) creates a Vehicle Model from the given specification and generates a package for use in _Vehicle App_ projects.
 
-- ### Create a Python Vehicle Model from VSS specification
-
-  A Vehicle Model can be generated from the VSS spec. [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) creates a Vehicle Model from the given vspec specification and also generates a package for use in _Vehicle App_ projects.
-
-  Follow the steps to generate a Vehicle Model.
+Follow the steps to generate a Vehicle Model.
 
   1. Clone the [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository in a container volume.
 
-  2. In this container volume, clone the [vehicle-signal-specification](https://github.com/COVESA/vehicle_signal_specification) repository.
+  2. In this container volume, clone the [vehicle-signal-specification](https://github.com/COVESA/vehicle_signal_specification) repository and if required checkout a particular branch: 
 
-        ```
+        ```bash
         git clone https://github.com/COVESA/vehicle_signal_specification
-        ```
 
-        After cloning if a user wants to refer to a particular branch they can checkout that branch afterwards.
-
-        ```
         cd vehicle_signal_specification
         git checkout <branch-name>
+        ```
+        In case the VSS vspec doesn't contain the required signals, you can create a vspec using the [VSS Rule Set](https://covesa.github.io/vehicle_signal_specification/rule_set/). 
+        
   3. Execute the command
 
         ```bash
@@ -57,9 +54,11 @@ A Vehicle Model can be created in one of two ways.
   4. Change the version of package in `setup.py` manually (defaults to 0.1.0).
   5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Python Vehicle Model](#distributing-your-python-vehicle-model))
 
-- ### Create a Python Vehicle Model Manually
+## Create a Python Vehicle Model Manually
 
-#### Setup a Python Package manually
+Alternative to the generation from a VSS specification you could create the Vehicle Model manually. The following sections describing the required steps.
+
+### Setup a Python Package manually
 
   A Vehicle Model should be defined in its own Python Package. This allows to distribute the Vehicle Model later as a standalone package and to use it in different _Vehicle App_ projects.
 
@@ -121,7 +120,7 @@ A Vehicle Model can be created in one of two ways.
   pip3 uninstall my_vehicle_model
   ```
 
-#### Add Vehicle Models manually
+### Add Vehicle Models manually
 
   1. Install the Python Vehicle App SDK:
 
@@ -205,73 +204,14 @@ A Vehicle Model can be created in one of two ways.
 
 ## Add a Vehicle Service
 
-In this section, we add the `SeatService` vehicle service to the Vehicle Model.
+Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by Vehicle Apps over a Vehicle Model.
+
+In this section, we add a Vehicle Service to the Vehicle Model. 
 
 1. Create a new folder `proto` under `my_vehicle_model/my_vehicle_model`.
-2. Create a new file `seats.proto` under `my_vehicle_model/my_vehicle_model/proto`:
+2. Copy your proto file under `my_vehicle_model/my_vehicle_model/proto`
 
-   ```protobuf
-   syntax = "proto3";
-
-   package sdv.edge.comfort.seats.v1;
-
-   service Seats {
-       rpc Move(MoveRequest) returns (MoveReply);
-       rpc MoveComponent(MoveComponentRequest) returns (MoveComponentReply);
-       rpc CurrentPosition(CurrentPositionRequest) returns (CurrentPositionReply);
-   }
-
-   message MoveRequest {
-       Seat seat = 1; // The desired seat position
-   }
-
-   message MoveReply {}
-
-   message MoveComponentRequest {
-       SeatLocation seat = 1; // The seat location to change
-       SeatComponent component = 2; // The component position to change
-       int32 position = 3; // The desired position to move the component to
-   }
-
-   message MoveComponentReply {}
-
-   message CurrentPositionRequest {
-       uint32 row = 1; // The row of the desired seat (1 - front most)
-       uint32 index = 2; // The position in the addressed row (1 - left most)
-   }
-
-   message CurrentPositionReply {
-       Seat seat = 1; // The seat state that was requested
-   }
-
-   message Seat {
-       SeatLocation location = 1; // The location of the seat in the vehicle
-       Position position = 2; // The various positions of the seat
-   }
-
-   message SeatLocation {
-       uint32 row = 1; // The row, front 1 and +1 toward rear
-       uint32 index = 2; // The index within the row, 1 left most, +1 toward right
-   }
-
-   message Position {
-       int32 base = 1;    // The position of the base 0 front, 1000 back
-       int32 cushion = 2; // The position of the cushion 0 short, 1000 long
-       int32 lumbar = 3;  // The position of the lumbar support
-       int32 side_bolster = 4;   // The position of the side bolster
-       int32 head_restraint = 5; // The position of the head restraint 0 down, 1000 up
-   }
-
-   enum SeatComponent {
-       BASE = 0;
-       CUSHION = 1;
-       LUMBAR = 2;
-       SIDE_BOLSTER  = 3;
-       HEAD_RESTRAINT = 4;
-   }
-   ```
-
-   This is the protocol buffers message definition of the `SeatService`, which is expected to be provided by the vehicle service.
+   As example you could use the protocol buffers message definition [seats.proto](https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto) provided by the KUKSA VAL services which describes a [seat control service](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service).
 
 3. Install the grpcio tools including mypy types to generate the python classes out of the proto-file:
 
