@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Velocitas – Documentation</title>
-    <link>/velocitas/docs/</link>
+    <link>/docs/</link>
     <description>Recent content in Documentation on Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 May 2022 14:24:56 +0530</lastBuildDate>
     
-	  <atom:link href="/velocitas/docs/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Quickstart</title>
-      <link>/velocitas/docs/tutorials/quickstart/</link>
+      <link>/docs/tutorials/quickstart/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/quickstart/</guid>
+      <guid>/docs/tutorials/quickstart/</guid>
       <description>
         
         
@@ -158,7 +158,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;li&gt;Choose &lt;code&gt;Continue without scanning the output&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;You should see the tasks &lt;code&gt;run-mosquitto&lt;/code&gt;, &lt;code&gt;run-vehicledatabroker&lt;/code&gt;, &lt;code&gt;run-seatservice&lt;/code&gt; and &lt;code&gt;run-feedercan&lt;/code&gt; being executed in the Visual Studio Code output panel.&lt;/p&gt;
-&lt;p&gt;More information about the tasks are available &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More information about the tasks are available &lt;a href=&#34;/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;debugging-vehicle-app&#34;&gt;Debugging Vehicle App&lt;/h2&gt;
 &lt;p&gt;Now that the &lt;a href=&#34;#starting-runtime-services&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the Vehicle App as next step.&lt;/p&gt;
 &lt;ol&gt;
@@ -214,10 +214,10 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;p&gt;The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open &lt;code&gt;Actions&lt;/code&gt; on the repoitory and see the result.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Create a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/development-model.md&#34;&gt;Development Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Create a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/development-model.md&#34;&gt;Development Model&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -225,10 +225,10 @@ You can either try it out directly in the browser or also use it inside Visual S
     
     <item>
       <title>Docs: Run runtime services locally</title>
-      <link>/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/</link>
+      <link>/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/</guid>
+      <guid>/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/</guid>
       <description>
         
         
@@ -294,58 +294,60 @@ A new service can be easily started by calling it from bash script, however rest
 &lt;p&gt;If you are using Codespaces, remember that you are working on a remote agent. That&amp;rsquo;s why it could happen that the tasks are already running in the background. If that&amp;rsquo;s the case a new start of the tasks will fail, since the ports are already in use. In the Dapr-tab of the sidebar you can check if there are already tasks running. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit &lt;code&gt;F1&lt;/code&gt; and enter &lt;code&gt;View: Toggle Ports&lt;/code&gt;).&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_kubernetes.md&#34;&gt;Deploy runtime services in local Kubernetes cluster&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/run_runtime_services_kubernetes.md&#34;&gt;Deploy runtime services in local Kubernetes cluster&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Python Vehicle Model Creation</title>
-      <link>/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</link>
+      <title>Docs: Vehicle Model Creation</title>
+      <link>/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</guid>
+      <guid>/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</guid>
       <description>
         
         
-        &lt;blockquote&gt;
-&lt;p&gt;We recommend that you make yourself familiar with the &lt;a href=&#34;/velocitas/velocitas/docs/python-sdk//python_vehicle_app_sdk_overview.md&#34;&gt;Python Vehicle App SDK Overview&lt;/a&gt; first, before going through this tutorial.&lt;/p&gt;
-&lt;/blockquote&gt;
+        &lt;p&gt;A &lt;em&gt;Vehicle Model&lt;/em&gt; makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against &lt;em&gt;Vehicle Services&lt;/em&gt; and other &lt;em&gt;Vehicle Apps&lt;/em&gt;. It is generated from the underlying semantic models for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library.&lt;/p&gt;
 &lt;p&gt;This tutorial will show you how to:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Set up a Python Package&lt;/li&gt;
-&lt;li&gt;Create a Python Vehicle Model&lt;/li&gt;
-&lt;li&gt;Add Vehicle Services&lt;/li&gt;
+&lt;li&gt;Create a &lt;em&gt;Vehicle Model&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Add a &lt;em&gt;Vehicle Service&lt;/em&gt; to the &lt;em&gt;Vehicle Model&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;Distribute your Python Vehicle Model&lt;/li&gt;
 &lt;/ul&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    A &lt;em&gt;Vehicle Model&lt;/em&gt; should be defined in its own package. This makes it possible to distribute the &lt;em&gt;Vehicle Model&lt;/em&gt; later as a standalone package and to use it in different &lt;em&gt;Vehicle App&lt;/em&gt; projects.
+
+&lt;/div&gt;
+
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visual Studio Code&lt;/a&gt; with the &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-python.python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python extension&lt;/a&gt; installed. For information on how to install extensions on Visual Studio Code, see &lt;a href=&#34;https://code.visualstudio.com/docs/editor/extension-gallery&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VS Code Extension Marketplace&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;create-a-python-vehicle-model&#34;&gt;Create a Python Vehicle Model&lt;/h2&gt;
-&lt;p&gt;A Vehicle Model should be defined in its own Python Package. This makes it possible to distribute the Vehicle Model later as a standalone package and to use it in different &lt;em&gt;Vehicle App&lt;/em&gt; projects.
-A Vehicle Model can be created in one of two ways.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;h3 id=&#34;create-a-python-vehicle-model-from-vss-specification&#34;&gt;Create a Python Vehicle Model from VSS specification&lt;/h3&gt;
-&lt;p&gt;A Vehicle Model can be generated from the VSS spec. &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-generator&lt;/a&gt; creates a Vehicle Model from the given vspec specification and also generates a package for use in &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
-&lt;p&gt;Follow the steps to generate a Vehicle Model.&lt;/p&gt;
+&lt;h2 id=&#34;create-a-vehicle-model-from-vss-specification&#34;&gt;Create a Vehicle Model from VSS specification&lt;/h2&gt;
+&lt;p&gt;A &lt;em&gt;Vehicle Model&lt;/em&gt; can be generated from a &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;COVESA Vehicle Signal Specification&lt;/a&gt; (VSS). VSS introduces a domain taxonomy for vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data. The Velocitas &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-generator&lt;/a&gt; creates a &lt;em&gt;Vehicle Model&lt;/em&gt; from the given specification and generates a package for use in &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
+&lt;p&gt;Follow the steps to generate a &lt;em&gt;Vehicle Model&lt;/em&gt;.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Clone the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-generator&lt;/a&gt; repository in a container volume.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;In this container volume, clone the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-signal-specification&lt;/a&gt; repository.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/COVESA/vehicle_signal_specification
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;After cloning if a user wants to refer to a particular branch they can checkout that branch afterwards.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd vehicle_signal_specification
-git checkout &amp;lt;branch-name&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;p&gt;In this container volume, clone the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-signal-specification&lt;/a&gt; repository and if required checkout a particular branch:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/COVESA/vehicle_signal_specification
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; vehicle_signal_specification
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout &amp;lt;branch-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In case the VSS vspec doesn&amp;rsquo;t contain the required signals, you can create a vspec using the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS Rule Set&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Execute the command&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 gen_vehicle_model.py -I ./vehicle_signal_specification/spec ./vehicle_signal_specification/spec/VehicleSignalSpecification.vspec -T sdv_model -N sdv_model
@@ -359,14 +361,11 @@ To have a custom model name, refer to README of &lt;a href=&#34;https://github.c
 &lt;p&gt;Now the newly generated &lt;code&gt;sdv_model&lt;/code&gt; can be used for distribution. (See &lt;a href=&#34;#distributing-your-python-vehicle-model&#34;&gt;Distributing your Python Vehicle Model&lt;/a&gt;)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h3 id=&#34;create-a-python-vehicle-model-manually&#34;&gt;Create a Python Vehicle Model Manually&lt;/h3&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;setup-a-python-package-manually&#34;&gt;Setup a Python Package manually&lt;/h4&gt;
-&lt;p&gt;A Vehicle Model should be defined in its own Python Package. This allows to distribute the Vehicle Model later as a standalone package and to use it in different &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
-&lt;p&gt;The name of the Vehicle Model package will be &lt;code&gt;my_vehicle_model&lt;/code&gt; for this walkthrough.&lt;/p&gt;
+&lt;h2 id=&#34;create-a-python-vehicle-model-manually&#34;&gt;Create a Python Vehicle Model Manually&lt;/h2&gt;
+&lt;p&gt;Alternative to the generation from a VSS specification you could create the &lt;em&gt;Vehicle Model&lt;/em&gt; manually. The following sections describing the required steps.&lt;/p&gt;
+&lt;h3 id=&#34;setup-a-python-package-manually&#34;&gt;Setup a Python Package manually&lt;/h3&gt;
+&lt;p&gt;A &lt;em&gt;Vehicle Model&lt;/em&gt; should be defined in its own Python Package. This allows to distribute the &lt;em&gt;Vehicle Model&lt;/em&gt; later as a standalone package and to use it in different &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
+&lt;p&gt;The name of the &lt;em&gt;Vehicle Model&lt;/em&gt; package will be &lt;code&gt;my_vehicle_model&lt;/code&gt; for this walkthrough.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Start Visual Studio Code&lt;/p&gt;
@@ -415,7 +414,7 @@ Installing collected packages: my-vehicle-model
 Successfully installed my-vehicle-model-0.1
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Finally, uninstall the package again:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip3 uninstall my_vehicle_model
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;add-vehicle-models-manually&#34;&gt;Add Vehicle Models manually&lt;/h4&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;add-vehicle-models-manually&#34;&gt;Add Vehicle Models manually&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Install the Python Vehicle App SDK:&lt;/p&gt;
@@ -429,7 +428,7 @@ Successfully installed my-vehicle-model-0.1
  Successfully installed sdv-0.4.0
  ```
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now it is time to add some Vehicle Models to the Python package. At the end of this section you will have a Vehicle Model, that contains a &lt;code&gt;Cabin&lt;/code&gt; model, a &lt;code&gt;Seat&lt;/code&gt;model and has the following tree structure:&lt;/p&gt;
+&lt;p&gt;Now it is time to add some &lt;em&gt;Vehicle Models&lt;/em&gt; to the Python package. At the end of this section you will have a &lt;em&gt;Vehicle Model&lt;/em&gt;, that contains a &lt;code&gt;Cabin&lt;/code&gt; model, a &lt;code&gt;Seat&lt;/code&gt;model and has the following tree structure:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt; Vehicle
  └── Cabin
      └── Seat (Row, Pos)
@@ -485,75 +484,18 @@ Successfully installed my-vehicle-model-0.1
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The root model of the Vehicle Model tree should be called &lt;em&gt;Vehicle&lt;/em&gt; by convention and is specified, by setting parent to &lt;code&gt;None&lt;/code&gt;. For all other models a parent model must be specified as the 2nd argument of the &lt;code&gt;Model&lt;/code&gt; constructor, as can be seen by the &lt;code&gt;Cabin&lt;/code&gt; and the &lt;code&gt;Seat&lt;/code&gt; models above.&lt;/p&gt;
-&lt;p&gt;A singleton instance of the Vehicle Model called &lt;code&gt;vehicle&lt;/code&gt; is created at the end of the file. This instance is supposed to be used in the Vehicle Apps. Creating multiple instances of the Vehicle Model should be avoided for performance reasons.&lt;/p&gt;
+&lt;p&gt;The root model of the &lt;em&gt;Vehicle Model&lt;/em&gt; tree should be called &lt;em&gt;Vehicle&lt;/em&gt; by convention and is specified, by setting parent to &lt;code&gt;None&lt;/code&gt;. For all other models a parent model must be specified as the 2nd argument of the &lt;code&gt;Model&lt;/code&gt; constructor, as can be seen by the &lt;code&gt;Cabin&lt;/code&gt; and the &lt;code&gt;Seat&lt;/code&gt; models above.&lt;/p&gt;
+&lt;p&gt;A singleton instance of the &lt;em&gt;Vehicle Model&lt;/em&gt; called &lt;code&gt;vehicle&lt;/code&gt; is created at the end of the file. This instance is supposed to be used in the &lt;em&gt;Vehicle Apps&lt;/em&gt;. Creating multiple instances of the &lt;em&gt;Vehicle Model&lt;/em&gt; should be avoided for performance reasons.&lt;/p&gt;
 &lt;h2 id=&#34;add-a-vehicle-service&#34;&gt;Add a Vehicle Service&lt;/h2&gt;
-&lt;p&gt;In this section, we add the &lt;code&gt;SeatService&lt;/code&gt; vehicle service to the Vehicle Model.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Vehicle Services&lt;/em&gt; provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. &lt;em&gt;Vehicle Services&lt;/em&gt; may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by &lt;em&gt;Vehicle Apps&lt;/em&gt; over a &lt;em&gt;Vehicle Model&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In this section, we add a &lt;em&gt;Vehicle Service&lt;/em&gt; to the &lt;em&gt;Vehicle Model&lt;/em&gt;.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Create a new folder &lt;code&gt;proto&lt;/code&gt; under &lt;code&gt;my_vehicle_model/my_vehicle_model&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Create a new file &lt;code&gt;seats.proto&lt;/code&gt; under &lt;code&gt;my_vehicle_model/my_vehicle_model/proto&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-protobuf&#34; data-lang=&#34;protobuf&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;syntax&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;proto3&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;sdv&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;edge.comfort.seats.v1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;service&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Seats&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;rpc&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Move&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MoveRequest&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;returns&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MoveReply&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;rpc&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MoveComponent&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MoveComponentRequest&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;returns&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MoveComponentReply&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;rpc&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;CurrentPosition&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CurrentPositionRequest&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;returns&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;CurrentPositionReply&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MoveRequest&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;Seat&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;seat&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The desired seat position
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MoveReply&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MoveComponentRequest&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;SeatLocation&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;seat&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The seat location to change
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;SeatComponent&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;component&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The component position to change
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int32&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;position&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The desired position to move the component to
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MoveComponentReply&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;CurrentPositionRequest&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;uint32&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;row&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The row of the desired seat (1 - front most)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;uint32&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The position in the addressed row (1 - left most)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;CurrentPositionReply&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;Seat&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;seat&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The seat state that was requested
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Seat&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;SeatLocation&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The location of the seat in the vehicle
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;Position&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;position&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The various positions of the seat
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SeatLocation&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;uint32&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;row&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The row, front 1 and +1 toward rear
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;uint32&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The index within the row, 1 left most, +1 toward right
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;message&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Position&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int32&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;base&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The position of the base 0 front, 1000 back
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int32&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;cushion&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The position of the cushion 0 short, 1000 long
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int32&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;lumbar&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;  &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The position of the lumbar support
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int32&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;side_bolster&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;   &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The position of the side bolster
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int32&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;head_restraint&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// The position of the head restraint 0 down, 1000 up
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enum&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SeatComponent&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;BASE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;CUSHION&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;LUMBAR&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;SIDE_BOLSTER&lt;/span&gt;  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#000&#34;&gt;HEAD_RESTRAINT&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is the protocol buffers message definition of the &lt;code&gt;SeatService&lt;/code&gt;, which is expected to be provided by the vehicle service.&lt;/p&gt;
+&lt;p&gt;Copy your proto file under &lt;code&gt;my_vehicle_model/my_vehicle_model/proto&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;As example you could use the protocol buffers message definition &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seats.proto&lt;/a&gt; provided by the KUKSA VAL services which describes a &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat control service&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Install the grpcio tools including mypy types to generate the python classes out of the proto-file:&lt;/p&gt;
@@ -627,13 +569,13 @@ shown above:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;distributing-your-python-vehicle-model&#34;&gt;Distributing your Python Vehicle Model&lt;/h2&gt;
-&lt;p&gt;Now you a have a Python package containing your first Python Vehicle Model and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the &lt;a href=&#34;https://packaging.python.org/en/latest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Packaging User Guide&lt;/a&gt; to learn more about packaging and package distribution in Python.&lt;/p&gt;
+&lt;p&gt;Now you a have a Python package containing your first Python &lt;em&gt;Vehicle Model&lt;/em&gt; and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the &lt;a href=&#34;https://packaging.python.org/en/latest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Packaging User Guide&lt;/a&gt; to learn more about packaging and package distribution in Python.&lt;/p&gt;
 &lt;h3 id=&#34;distribute-to-single-vehicle-app&#34;&gt;Distribute to single Vehicle App&lt;/h3&gt;
-&lt;p&gt;If you want to distribute your Python Vehicle Model to a single Vehicle App, you can do so by copying the entire folder &lt;code&gt;my_vehicle_model&lt;/code&gt; under the &lt;code&gt;src&lt;/code&gt; folder of your Vehicle App repository and treat is a sub-package of the Vehicle App.&lt;/p&gt;
+&lt;p&gt;If you want to distribute your Python &lt;em&gt;Vehicle Model&lt;/em&gt; to a single &lt;em&gt;Vehicle App&lt;/em&gt;, you can do so by copying the entire folder &lt;code&gt;my_vehicle_model&lt;/code&gt; under the &lt;code&gt;src&lt;/code&gt; folder of your &lt;em&gt;Vehicle App&lt;/em&gt; repository and treat is a sub-package of the &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Create a new folder &lt;code&gt;my_vehicle_model&lt;/code&gt; under &lt;code&gt;src&lt;/code&gt; in your &lt;code&gt;Vehicle App&lt;/code&gt; repository.&lt;/li&gt;
-&lt;li&gt;Copy the &lt;code&gt;my_vehicle_model&lt;/code&gt; folder to the &lt;code&gt;src&lt;/code&gt; folder of your &lt;code&gt;Vehicle App&lt;/code&gt; repository.&lt;/li&gt;
-&lt;li&gt;Import the package &lt;code&gt;my_vehicle_model&lt;/code&gt; in your &lt;code&gt;Vehicle App&lt;/code&gt;:&lt;/li&gt;
+&lt;li&gt;Create a new folder &lt;code&gt;my_vehicle_model&lt;/code&gt; under &lt;code&gt;src&lt;/code&gt; in your &lt;em&gt;Vehicle App&lt;/em&gt; repository.&lt;/li&gt;
+&lt;li&gt;Copy the &lt;code&gt;my_vehicle_model&lt;/code&gt; folder to the &lt;code&gt;src&lt;/code&gt; folder of your &lt;em&gt;Vehicle App&lt;/em&gt; repository.&lt;/li&gt;
+&lt;li&gt;Import the package &lt;code&gt;my_vehicle_model&lt;/code&gt; in your &lt;em&gt;Vehicle App&lt;/em&gt;:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;my_app&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;my_vehicle_model&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -641,7 +583,7 @@ shown above:&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;my_app&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MyVehicleApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;distribute-inside-an-organization&#34;&gt;Distribute inside an organization&lt;/h3&gt;
-&lt;p&gt;If you want to distribute your Python Vehicle Model inside an organization and use it to develop multiple Vehicle Apps, you can do so by creating a dedicated Git repository and copying the files there.&lt;/p&gt;
+&lt;p&gt;If you want to distribute your Python &lt;em&gt;Vehicle Model&lt;/em&gt; inside an organization and use it to develop multiple &lt;em&gt;Vehicle Apps&lt;/em&gt;, you can do so by creating a dedicated Git repository and copying the files there.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Create new Git repository called &lt;code&gt;my_vehicle_model&lt;/code&gt;&lt;/p&gt;
@@ -650,24 +592,24 @@ shown above:&lt;/p&gt;
 &lt;p&gt;Copy the content under &lt;code&gt;my_vehicle_model&lt;/code&gt; to the repository.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Release the Vehicle Model by creating a version tag (e.g., &lt;code&gt;v1.0.0&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Release the &lt;em&gt;Vehicle Model&lt;/em&gt; by creating a version tag (e.g., &lt;code&gt;v1.0.0&lt;/code&gt;).&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Install the Vehicle Model package to your Vehicle App:&lt;/p&gt;
+&lt;p&gt;Install the &lt;em&gt;Vehicle Model&lt;/em&gt; package to your &lt;em&gt;Vehicle App&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;pip3&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;install&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;git&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;https&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;//&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;github&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;com&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;/&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;yourorg&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;gt;/&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;my_vehicle_model&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;git&lt;/span&gt;&lt;span style=&#34;color:#5c35cc;font-weight:bold&#34;&gt;@v1&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;.0.0&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Import the package &lt;code&gt;my_vehicle_model&lt;/code&gt; in your Vehicle App and use it as shown in the previous section.&lt;/p&gt;
+&lt;p&gt;Import the package &lt;code&gt;my_vehicle_model&lt;/code&gt; in your &lt;em&gt;Vehicle App&lt;/em&gt; and use it as shown in the previous section.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;distribute-publicly-as-open-source&#34;&gt;Distribute publicly as open source&lt;/h3&gt;
-&lt;p&gt;If you want to distribute your Python Vehicle Model publicly, you can do so by creating a Python package and distributing it on the &lt;a href=&#34;https://pypi.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Package Index (PyPI)&lt;/a&gt;. PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the &lt;code&gt;pip&lt;/code&gt; command, you are already using PyPI.&lt;/p&gt;
+&lt;p&gt;If you want to distribute your Python &lt;em&gt;Vehicle Model&lt;/em&gt; publicly, you can do so by creating a Python package and distributing it on the &lt;a href=&#34;https://pypi.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Package Index (PyPI)&lt;/a&gt;. PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the &lt;code&gt;pip&lt;/code&gt; command, you are already using PyPI.&lt;/p&gt;
 &lt;p&gt;Detailed instructions on how to make a Python package available on PyPI can be found &lt;a href=&#34;https://packaging.python.org/tutorials/packaging-projects/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Create a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;Create a Python Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -675,28 +617,28 @@ shown above:&lt;/p&gt;
     
     <item>
       <title>Docs: Python Vehicle App Development</title>
-      <link>/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app/</link>
+      <link>/docs/tutorials/tutorial_how_to_create_a_vehicle_app/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app/</guid>
+      <guid>/docs/tutorials/tutorial_how_to_create_a_vehicle_app/</guid>
       <description>
         
         
         &lt;blockquote&gt;
-&lt;p&gt;We recommend that you make yourself familiar with the &lt;a href=&#34;/velocitas/velocitas/python-sdk/python_vehicle_app_sdk_overview.md&#34;&gt;Python Vehicle App SDK&lt;/a&gt; first, before going through this tutorial.&lt;/p&gt;
+&lt;p&gt;We recommend that you make yourself familiar with the &lt;a href=&#34;/python-sdk/python_vehicle_app_sdk_overview.md&#34;&gt;Python Vehicle App SDK&lt;/a&gt; first, before going through this tutorial.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;The following information describes how to develop and test the sample Vehicle App that is included in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;template repository&lt;/a&gt;. You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.&lt;/p&gt;
 &lt;p&gt;Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own Vehicle App development project.&lt;/p&gt;
 &lt;h2 id=&#34;develop-your-first-vehicle-app&#34;&gt;Develop your first Vehicle App&lt;/h2&gt;
 &lt;p&gt;This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read the other manuals:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;How to create a Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;How to create a Vehicle Model&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Once you have established your development environment, you will be able to start developing your first Vehicle App.&lt;/p&gt;
 &lt;p&gt;For this tutorial, you will recreate the vehicle app that is included with the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;template repository&lt;/a&gt;:
 The Vehicle app allows to change the positions of the seats in the car and also provide their current positions to other applications.&lt;/p&gt;
-&lt;p&gt;A detailed explanation of the use case and the example is available &lt;a href=&#34;/velocitas/velocitas/docs/velocitas/docs/seat_adjuster_use_case.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A detailed explanation of the use case and the example is available &lt;a href=&#34;/docs/velocitas/docs/seat_adjuster_use_case.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;At first, you have to create the main python script called &lt;code&gt;main.py&lt;/code&gt; in &lt;code&gt;src/VehicleApp/&lt;/code&gt;. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Manage your imports&lt;/li&gt;
@@ -747,10 +689,10 @@ The Vehicle app allows to change the positions of the seats in the car and also 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The app is now running. In order to use it properly, we will enhance the app with more features in the next sections.&lt;/p&gt;
 &lt;h2 id=&#34;vehicle-model&#34;&gt;Vehicle Model&lt;/h2&gt;
-&lt;p&gt;In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check &lt;a href=&#34;/velocitas/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;tutorial about creating models&lt;/a&gt; for more details about this topic. In this section, the focus is on using the models.&lt;/p&gt;
+&lt;p&gt;In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check &lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;tutorial about creating models&lt;/a&gt; for more details about this topic. In this section, the focus is on using the models.&lt;/p&gt;
 &lt;h3 id=&#34;import-the-model&#34;&gt;Import the model&lt;/h3&gt;
-&lt;p&gt;The first thing you need to do to get access to the Vehicle Model. In the section about &lt;a href=&#34;/velocitas/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md#distributing-your-python-vehicle-model&#34;&gt;distributing a model&lt;/a&gt;, you got to know the different methods.&lt;/p&gt;
-&lt;p&gt;If you just want to use your model in one app, you can simply copy the classes into your &lt;code&gt;src&lt;/code&gt;-folder. In this example, you find the classes inside the &lt;code&gt;vehicle_model&lt;/code&gt;-folder. As you have already seen in the section about &lt;a href=&#34;/velocitas/velocitas/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_app/#initialize-your-class&#34;&gt;initializing the app&lt;/a&gt;, we need the &lt;code&gt;vehicle model&lt;/code&gt;to use the app.&lt;/p&gt;
+&lt;p&gt;The first thing you need to do to get access to the Vehicle Model. In the section about &lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md#distributing-your-python-vehicle-model&#34;&gt;distributing a model&lt;/a&gt;, you got to know the different methods.&lt;/p&gt;
+&lt;p&gt;If you just want to use your model in one app, you can simply copy the classes into your &lt;code&gt;src&lt;/code&gt;-folder. In this example, you find the classes inside the &lt;code&gt;vehicle_model&lt;/code&gt;-folder. As you have already seen in the section about &lt;a href=&#34;/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_app/#initialize-your-class&#34;&gt;initializing the app&lt;/a&gt;, we need the &lt;code&gt;vehicle model&lt;/code&gt;to use the app.&lt;/p&gt;
 &lt;p&gt;As you know, the model has a single &lt;a href=&#34;#datapoints&#34;&gt;Datapoint&lt;/a&gt; for the speed and a reference to the &lt;code&gt;cabin&lt;/code&gt;-model.&lt;/p&gt;
 &lt;p&gt;Accessing the speed can be done via&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle_speed&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Speed&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
@@ -781,7 +723,7 @@ The Vehicle app allows to change the positions of the seats in the car and also 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;publish_mqtt_event&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;response_topic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;json&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;dumps&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;response_data&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Similarly, subscribed data is available in the respective &lt;em&gt;data.fields&lt;/em&gt; value and are accessed by their complete path.&lt;/p&gt;
 &lt;h2 id=&#34;services&#34;&gt;Services&lt;/h2&gt;
-&lt;p&gt;Services are used to communicate with other parts of the vehicle. Please read the basics about them &lt;a href=&#34;/velocitas/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md/#add-a-vehicle-service&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Services are used to communicate with other parts of the vehicle. Please read the basics about them &lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md/#add-a-vehicle-service&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The following few lines show you how to use the &lt;code&gt;MoveComponent&lt;/code&gt;-method of the &lt;code&gt;SeatService&lt;/code&gt; you have created:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;location&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SeatLocation&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;row&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;index&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicle_client&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Cabin&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;SeatService&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;MoveComponent&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
@@ -793,7 +735,7 @@ The Vehicle app allows to change the positions of the seats in the car and also 
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;mqtt&#34;&gt;MQTT&lt;/h3&gt;
 &lt;p&gt;Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.&lt;/p&gt;
-&lt;p&gt;In the &lt;a href=&#34;/velocitas/velocitas/docs/getting-started/quickstart/#send-mqtt-messages-to-vehicle-app&#34;&gt;general section&lt;/a&gt; about the Vehicle App, you already tested sending MQTT messages to the app.
+&lt;p&gt;In the &lt;a href=&#34;/docs/getting-started/quickstart/#send-mqtt-messages-to-vehicle-app&#34;&gt;general section&lt;/a&gt; about the Vehicle App, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use &lt;code&gt;Vehicle Models&lt;/code&gt;, &lt;code&gt;Datapoints&lt;/code&gt; and &lt;code&gt;GRPC Services&lt;/code&gt;. In this section, you will learn how to combine them with MQTT.&lt;/p&gt;
 &lt;p&gt;In order to receive and process MQTT messages inside your app, simply use the &lt;code&gt;@subscribe_topic&lt;/code&gt; annotations from the SDK:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#5c35cc;font-weight:bold&#34;&gt;@subscribe_topic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;seatadjuster/setPosition/request&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
@@ -845,7 +787,7 @@ After creating the mock, you can test the method and check the response. Use ass
 &lt;h3 id=&#34;run-your-app&#34;&gt;Run your App&lt;/h3&gt;
 &lt;p&gt;If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the &amp;ldquo;dapr run &amp;hellip;&amp;rdquo; command to start your app:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dapr run --app-id seatadjuster --app-protocol grpc --app-port &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50008&lt;/span&gt; --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/VehicleApp/main.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You already have seen this command and how to check if it is working in the &lt;a href=&#34;/velocitas/velocitas/docs/getting-started/quickstart/#start-and-test-vehicle-app&#34;&gt;general setup&lt;/a&gt;.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You already have seen this command and how to check if it is working in the &lt;a href=&#34;/docs/getting-started/quickstart/#start-and-test-vehicle-app&#34;&gt;general setup&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;2 parameters may be unclear in this command:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;the config file &lt;code&gt;config.yaml&lt;/code&gt;&lt;/li&gt;
@@ -886,7 +828,7 @@ After creating the mock, you can test the method and check the response. Use ass
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you want to know more about dapr and the configuration, please visit &lt;a href=&#34;https://dapr.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://dapr.io&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;debug-your-vehicle-app&#34;&gt;Debug your Vehicle App&lt;/h3&gt;
-&lt;p&gt;In the &lt;a href=&#34;/velocitas/velocitas/docs/getting-started/quickstart/#debug-vehicle-app&#34;&gt;introduction about debugging&lt;/a&gt;, you saw how to start a debugging session. In this section, you will learn what is happening in the background.&lt;/p&gt;
+&lt;p&gt;In the &lt;a href=&#34;/docs/getting-started/quickstart/#debug-vehicle-app&#34;&gt;introduction about debugging&lt;/a&gt;, you saw how to start a debugging session. In this section, you will learn what is happening in the background.&lt;/p&gt;
 &lt;p&gt;The debug session launch settings are already prepared for the &lt;code&gt;VehicleApp&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-JSON&#34; data-lang=&#34;JSON&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;configurations&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
@@ -938,13 +880,13 @@ After creating the mock, you can test the method and check the response. Use ass
 &lt;p&gt;Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or &lt;kbd&gt;F5&lt;/kbd&gt;. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_kubernetes.md&#34;&gt;Deploy runtime services in Kubernetes mode&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/python_vehicle_app_sdk_overview.md&#34;&gt;Python SDK Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/run_runtime_services_kubernetes.md&#34;&gt;Deploy runtime services in Kubernetes mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Python Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -952,10 +894,10 @@ After creating the mock, you can test the method and check the response. Use ass
     
     <item>
       <title>Docs: Build and Release Process</title>
-      <link>/velocitas/docs/concepts/vehicle_app_releases/</link>
+      <link>/docs/concepts/vehicle_app_releases/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/concepts/vehicle_app_releases/</guid>
+      <guid>/docs/concepts/vehicle_app_releases/</guid>
       <description>
         
         
@@ -973,7 +915,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The following illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project&amp;rsquo;s needs.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/velocitas/assets/publish_container.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/assets/publish_container.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;ci-workflow-ciyml&#34;&gt;CI Workflow (ci.yml)&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;CI workflow&lt;/code&gt; is triggered on every commit to the main branch and contains a set of different actions that cover:&lt;/p&gt;
 &lt;ul&gt;
@@ -1009,7 +951,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;p&gt;The release process would be the same as described in the overview, except that a release branch (e.g., &lt;code&gt;release/v1.0&lt;/code&gt;) is created before the release step and the GitHub release is based on the &lt;code&gt;release&lt;/code&gt; branch rather than the &lt;code&gt;main&lt;/code&gt; branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.&lt;/p&gt;
 &lt;h2 id=&#34;further-information-1&#34;&gt;Further information&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -1017,10 +959,10 @@ Once the application is ready to be released in a new version, a dedicated relea
     
     <item>
       <title>Docs: Velocitas Deployment Model</title>
-      <link>/velocitas/docs/concepts/deployment-model/</link>
+      <link>/docs/concepts/deployment-model/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/concepts/deployment-model/</guid>
+      <guid>/docs/concepts/deployment-model/</guid>
       <description>
         
         
@@ -1038,10 +980,10 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;h2 id=&#34;automated-container-image-builds&#34;&gt;Automated container image builds&lt;/h2&gt;
 &lt;p&gt;Velocitas uses GitHub workflows to automate the creation of your containerized application. A workflow is started with every increment of your application code that you push to your GitHub repository. The workflow creates a containerized version of your application and stores this container image in a registry. Further actions are carried out using this container (e.g., integration tests).&lt;/p&gt;
 &lt;p&gt;The workflows are set up to support multi-platform container creation and generate container images for amd64 and arm64 out of the box. This provides a great starting point for developers and lets you add additional support for further platforms easily.&lt;/p&gt;
-&lt;p&gt;Learn more about the concepts of the &lt;a href=&#34;/velocitas/velocitas/docs/velocitas/docs/vehicle_app_releases.md&#34;&gt;Velocitas build and release workflows&lt;/a&gt; and check out the example GitHub workflows in our repositories for python (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Learn more about the concepts of the &lt;a href=&#34;/docs/velocitas/docs/vehicle_app_releases.md&#34;&gt;Velocitas build and release workflows&lt;/a&gt; and check out the example GitHub workflows in our repositories for python (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -1049,10 +991,10 @@ Once the application is ready to be released in a new version, a dedicated relea
     
     <item>
       <title>Docs: Vehicle App Integration Testing</title>
-      <link>/velocitas/docs/tutorials/integration_tests/</link>
+      <link>/docs/tutorials/integration_tests/</link>
       <pubDate>Mon, 09 May 2022 13:46:21 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/integration_tests/</guid>
+      <guid>/docs/tutorials/integration_tests/</guid>
       <description>
         
         
@@ -1079,11 +1021,11 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;li&gt;&lt;strong&gt;Kubernetes execution&lt;/strong&gt;: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
-&lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the task &lt;code&gt;VehicleApp&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally.&lt;/p&gt;
 &lt;h3 id=&#34;kubernetes-execution-k3d&#34;&gt;Kubernetes execution (K3D)&lt;/h3&gt;
-&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:&lt;/p&gt;
+&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MQTT_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31883&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;VDB_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30555&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; pytest
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
 &lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;/test/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
@@ -1127,7 +1069,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;h1 id=&#34;common-tasks&#34;&gt;Common Tasks&lt;/h1&gt;
 &lt;h2 id=&#34;run-test-in-local-mode&#34;&gt;Run test in local mode&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;Make sure that the &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_kubernetes.md&#34;&gt;tasks for the runtime components&lt;/a&gt; are running (by checking the terminal view).&lt;/li&gt;
+&lt;li&gt;Make sure that the &lt;a href=&#34;/docs/run_runtime_services_kubernetes.md&#34;&gt;tasks for the runtime components&lt;/a&gt; are running (by checking the terminal view).&lt;/li&gt;
 &lt;li&gt;Make sure that your application is running (via Debugger or task).&lt;/li&gt;
 &lt;li&gt;Make sure that you are using the right ports for local execution of runtime components.&lt;/li&gt;
 &lt;li&gt;Run tests from the test runner.&lt;/li&gt;
@@ -1163,9 +1105,9 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;/ul&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -1173,10 +1115,10 @@ Once the application is ready to be released in a new version, a dedicated relea
     
     <item>
       <title>Docs: Vehicle App Deployment with Helm</title>
-      <link>/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</link>
+      <link>/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</guid>
+      <guid>/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/</guid>
       <description>
         
         
@@ -1188,7 +1130,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visual Studio Code&lt;/a&gt; with the &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-python.python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python extension&lt;/a&gt; installed. For information on how to install extensions on Visual Studio Code, see &lt;a href=&#34;https://code.visualstudio.com/docs/editor/extension-gallery&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VS Code Extension Marketplace&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Completed the tutorial &lt;a href=&#34;/velocitas/velocitas/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;How to create a vehicle app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Completed the tutorial &lt;a href=&#34;/docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md&#34;&gt;How to create a vehicle app&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;use-the-sample-helm-chart&#34;&gt;Use the sample Helm chart&lt;/h2&gt;
 &lt;p&gt;If the Vehicle App has been created from the Python template repository, a sample Helm chart is already available under &lt;code&gt;deploy/VehicleApp&lt;/code&gt; and can be used as it is without any modification.
@@ -1303,7 +1245,7 @@ This sample chart is using the values from &lt;code&gt;deploy/VehicleApp/values.
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-python-vehicle-app-to-local-k3d&#34;&gt;Deploy your Python Vehicle App to local K3D&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites-1&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas/velocitas/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After the Helm chart has been prepared, you can deploy it to local K3D.
 Execute the script:&lt;/p&gt;
@@ -1311,8 +1253,8 @@ Execute the script:&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This script builds the local source code of the application into a container, pushes that container to the local cluster registry and deploys the app via a helm chart to the K3D cluster. Rerun this script after you have changed the source code of your application to re-deploy with the latest changes.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -1320,14 +1262,14 @@ Execute the script:&lt;/p&gt;
     
     <item>
       <title>Docs: Run runtime services in Kubernetes</title>
-      <link>/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/</link>
+      <link>/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
-      <guid>/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/</guid>
+      <guid>/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/</guid>
       <description>
         
         
-        &lt;p&gt;Besides &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_locally.md&#34;&gt;local execution&lt;/a&gt; of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code &lt;em&gt;Tasks&lt;/em&gt;, a feature of Visual Studio Code. Additional information on tasks can be found &lt;a href=&#34;https://code.visualstudio.com/docs/editor/tasks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;Besides &lt;a href=&#34;/docs/run_runtime_services_locally.md&#34;&gt;local execution&lt;/a&gt; of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code &lt;em&gt;Tasks&lt;/em&gt;, a feature of Visual Studio Code. Additional information on tasks can be found &lt;a href=&#34;https://code.visualstudio.com/docs/editor/tasks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Quick Start:&lt;/strong&gt; Each step has a task that is defined in &lt;em&gt;.vscode/tasks.json&lt;/em&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Core tasks (dependent on each other in the given order):
@@ -1369,11 +1311,11 @@ All the files that are located in &lt;code&gt;deploy/runtime/k3d/volume&lt;/code
 &lt;p&gt;More information about FeederCan can be found &lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
