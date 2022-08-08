@@ -1,51 +1,48 @@
 ---
-title: "Python Vehicle Model Creation"
+title: "Vehicle Model Creation"
 date: 2022-05-09T13:43:25+05:30
 weight: 2
 description: >
-  Learn how to create a simple Python Vehicle Model with Visual Studio Code and the Python Vehicle App SDK.
+  Learn how to create a Vehicle Model to get to access vehicle data or execute remote procedure calls.
 aliases:
   - /docs/tutorials/tutorial_how_to_create_a_vehicle_model.md
   - /docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md
 ---
 
-> We recommend that you make yourself familiar with the [Python Vehicle App SDK Overview](/docs/python-sdk//python_vehicle_app_sdk_overview.md) first, before going through this tutorial.
+A _Vehicle Model_ makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against _Vehicle Services_ and other _Vehicle Apps_. It is generated from the underlying semantic models for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. 
 
 This tutorial will show you how to:
 
-- Set up a Python Package
-- Create a Python Vehicle Model
-- Add Vehicle Services
+- Create a _Vehicle Model_
+- Add a _Vehicle Service_ to the _Vehicle Model_
 - Distribute your Python Vehicle Model
+
+{{% alert title="Note" %}}
+A _Vehicle Model_ should be defined in its own package. This makes it possible to distribute the _Vehicle Model_ later as a standalone package and to use it in different _Vehicle App_ projects.
+{{% /alert %}}
 
 ## Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) installed. For information on how to install extensions on Visual Studio Code, see [VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery).
 
-## Create a Python Vehicle Model
+## Create a Vehicle Model from VSS specification
 
-A Vehicle Model should be defined in its own Python Package. This makes it possible to distribute the Vehicle Model later as a standalone package and to use it in different _Vehicle App_ projects.
-A Vehicle Model can be created in one of two ways.
+A _Vehicle Model_ can be generated from a [COVESA Vehicle Signal Specification](https://covesa.github.io/vehicle_signal_specification/) (VSS). VSS introduces a domain taxonomy for vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data. The Velocitas [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) creates a _Vehicle Model_ from the given specification and generates a package for use in _Vehicle App_ projects.
 
-- ### Create a Python Vehicle Model from VSS specification
-
-  A Vehicle Model can be generated from the VSS spec. [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) creates a Vehicle Model from the given vspec specification and also generates a package for use in _Vehicle App_ projects.
-
-  Follow the steps to generate a Vehicle Model.
+Follow the steps to generate a _Vehicle Model_.
 
   1. Clone the [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository in a container volume.
 
-  2. In this container volume, clone the [vehicle-signal-specification](https://github.com/COVESA/vehicle_signal_specification) repository.
+  2. In this container volume, clone the [vehicle-signal-specification](https://github.com/COVESA/vehicle_signal_specification) repository and if required checkout a particular branch: 
 
-        ```
+        ```bash
         git clone https://github.com/COVESA/vehicle_signal_specification
-        ```
 
-        After cloning if a user wants to refer to a particular branch they can checkout that branch afterwards.
-
-        ```
         cd vehicle_signal_specification
         git checkout <branch-name>
+        ```
+        In case the VSS vspec doesn't contain the required signals, you can create a vspec using the [VSS Rule Set](https://covesa.github.io/vehicle_signal_specification/rule_set/). 
+        
   3. Execute the command
 
         ```bash
@@ -57,13 +54,15 @@ A Vehicle Model can be created in one of two ways.
   4. Change the version of package in `setup.py` manually (defaults to 0.1.0).
   5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Python Vehicle Model](#distributing-your-python-vehicle-model))
 
-- ### Create a Python Vehicle Model Manually
+## Create a Python Vehicle Model Manually
 
-#### Setup a Python Package manually
+Alternative to the generation from a VSS specification you could create the _Vehicle Model_ manually. The following sections describing the required steps.
 
-  A Vehicle Model should be defined in its own Python Package. This allows to distribute the Vehicle Model later as a standalone package and to use it in different _Vehicle App_ projects.
+### Setup a Python Package manually
 
-  The name of the Vehicle Model package will be `my_vehicle_model` for this walkthrough.
+  A _Vehicle Model_ should be defined in its own Python Package. This allows to distribute the _Vehicle Model_ later as a standalone package and to use it in different _Vehicle App_ projects.
+
+  The name of the _Vehicle Model_ package will be `my_vehicle_model` for this walkthrough.
 
   1. Start Visual Studio Code
   2. Select **File > Open Folder (File > Open**... on macOS) from the main menu.
@@ -121,7 +120,7 @@ A Vehicle Model can be created in one of two ways.
   pip3 uninstall my_vehicle_model
   ```
 
-#### Add Vehicle Models manually
+### Add Vehicle Models manually
 
   1. Install the Python Vehicle App SDK:
 
@@ -135,7 +134,7 @@ A Vehicle Model can be created in one of two ways.
           Successfully installed sdv-0.4.0
           ```
 
-      Now it is time to add some Vehicle Models to the Python package. At the end of this section you will have a Vehicle Model, that contains a `Cabin` model, a `Seat`model and has the following tree structure:
+      Now it is time to add some _Vehicle Models_ to the Python package. At the end of this section you will have a _Vehicle Model_, that contains a `Cabin` model, a `Seat`model and has the following tree structure:
 
           Vehicle
           └── Cabin
@@ -199,79 +198,20 @@ A Vehicle Model can be created in one of two ways.
 
       ```
 
-  The root model of the Vehicle Model tree should be called _Vehicle_ by convention and is specified, by setting parent to `None`. For all other models a parent model must be specified as the 2nd argument of the `Model` constructor, as can be seen by the `Cabin` and the `Seat` models above.
+  The root model of the _Vehicle Model_ tree should be called _Vehicle_ by convention and is specified, by setting parent to `None`. For all other models a parent model must be specified as the 2nd argument of the `Model` constructor, as can be seen by the `Cabin` and the `Seat` models above.
 
-  A singleton instance of the Vehicle Model called `vehicle` is created at the end of the file. This instance is supposed to be used in the Vehicle Apps. Creating multiple instances of the Vehicle Model should be avoided for performance reasons.
+  A singleton instance of the _Vehicle Model_ called `vehicle` is created at the end of the file. This instance is supposed to be used in the _Vehicle Apps_. Creating multiple instances of the _Vehicle Model_ should be avoided for performance reasons.
 
 ## Add a Vehicle Service
 
-In this section, we add the `SeatService` vehicle service to the Vehicle Model.
+_Vehicle Services_ provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. _Vehicle Services_ may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by _Vehicle Apps_ over a _Vehicle Model_.
+
+In this section, we add a _Vehicle Service_ to the _Vehicle Model_. 
 
 1. Create a new folder `proto` under `my_vehicle_model/my_vehicle_model`.
-2. Create a new file `seats.proto` under `my_vehicle_model/my_vehicle_model/proto`:
+2. Copy your proto file under `my_vehicle_model/my_vehicle_model/proto`
 
-   ```protobuf
-   syntax = "proto3";
-
-   package sdv.edge.comfort.seats.v1;
-
-   service Seats {
-       rpc Move(MoveRequest) returns (MoveReply);
-       rpc MoveComponent(MoveComponentRequest) returns (MoveComponentReply);
-       rpc CurrentPosition(CurrentPositionRequest) returns (CurrentPositionReply);
-   }
-
-   message MoveRequest {
-       Seat seat = 1; // The desired seat position
-   }
-
-   message MoveReply {}
-
-   message MoveComponentRequest {
-       SeatLocation seat = 1; // The seat location to change
-       SeatComponent component = 2; // The component position to change
-       int32 position = 3; // The desired position to move the component to
-   }
-
-   message MoveComponentReply {}
-
-   message CurrentPositionRequest {
-       uint32 row = 1; // The row of the desired seat (1 - front most)
-       uint32 index = 2; // The position in the addressed row (1 - left most)
-   }
-
-   message CurrentPositionReply {
-       Seat seat = 1; // The seat state that was requested
-   }
-
-   message Seat {
-       SeatLocation location = 1; // The location of the seat in the vehicle
-       Position position = 2; // The various positions of the seat
-   }
-
-   message SeatLocation {
-       uint32 row = 1; // The row, front 1 and +1 toward rear
-       uint32 index = 2; // The index within the row, 1 left most, +1 toward right
-   }
-
-   message Position {
-       int32 base = 1;    // The position of the base 0 front, 1000 back
-       int32 cushion = 2; // The position of the cushion 0 short, 1000 long
-       int32 lumbar = 3;  // The position of the lumbar support
-       int32 side_bolster = 4;   // The position of the side bolster
-       int32 head_restraint = 5; // The position of the head restraint 0 down, 1000 up
-   }
-
-   enum SeatComponent {
-       BASE = 0;
-       CUSHION = 1;
-       LUMBAR = 2;
-       SIDE_BOLSTER  = 3;
-       HEAD_RESTRAINT = 4;
-   }
-   ```
-
-   This is the protocol buffers message definition of the `SeatService`, which is expected to be provided by the vehicle service.
+   As example you could use the protocol buffers message definition [seats.proto](https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto) provided by the KUKSA VAL services which describes a [seat control service](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service).
 
 3. Install the grpcio tools including mypy types to generate the python classes out of the proto-file:
 
@@ -351,15 +291,15 @@ In this section, we add the `SeatService` vehicle service to the Vehicle Model.
 
 ## Distributing your Python Vehicle Model
 
-Now you a have a Python package containing your first Python Vehicle Model and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the [Python Packaging User Guide](https://packaging.python.org/en/latest/) to learn more about packaging and package distribution in Python.
+Now you a have a Python package containing your first Python _Vehicle Model_ and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the [Python Packaging User Guide](https://packaging.python.org/en/latest/) to learn more about packaging and package distribution in Python.
 
 ### Distribute to single Vehicle App
 
-If you want to distribute your Python Vehicle Model to a single Vehicle App, you can do so by copying the entire folder `my_vehicle_model` under the `src` folder of your Vehicle App repository and treat is a sub-package of the Vehicle App.
+If you want to distribute your Python _Vehicle Model_ to a single _Vehicle App_, you can do so by copying the entire folder `my_vehicle_model` under the `src` folder of your _Vehicle App_ repository and treat is a sub-package of the _Vehicle App_.
 
-1. Create a new folder `my_vehicle_model` under `src` in your `Vehicle App` repository.
-2. Copy the `my_vehicle_model` folder to the `src` folder of your `Vehicle App` repository.
-3. Import the package `my_vehicle_model` in your `Vehicle App`:
+1. Create a new folder `my_vehicle_model` under `src` in your _Vehicle App_ repository.
+2. Copy the `my_vehicle_model` folder to the `src` folder of your _Vehicle App_ repository.
+3. Import the package `my_vehicle_model` in your _Vehicle App_:
 
 ```python
 from <my_app>.my_vehicle_model import vehicle
@@ -371,22 +311,22 @@ my_app = MyVehicleApp(vehicle)
 
 ### Distribute inside an organization
 
-If you want to distribute your Python Vehicle Model inside an organization and use it to develop multiple Vehicle Apps, you can do so by creating a dedicated Git repository and copying the files there.
+If you want to distribute your Python _Vehicle Model_ inside an organization and use it to develop multiple _Vehicle Apps_, you can do so by creating a dedicated Git repository and copying the files there.
 
 1. Create new Git repository called `my_vehicle_model`
 2. Copy the content under `my_vehicle_model` to the repository.
-3. Release the Vehicle Model by creating a version tag (e.g., `v1.0.0`).
-4. Install the Vehicle Model package to your Vehicle App:
+3. Release the _Vehicle Model_ by creating a version tag (e.g., `v1.0.0`).
+4. Install the _Vehicle Model_ package to your _Vehicle App_:
 
    ```python
    pip3 install git+https://github.com/<yourorg>/my_vehicle_model.git@v1.0.0
    ```
 
-5. Import the package `my_vehicle_model` in your Vehicle App and use it as shown in the previous section.
+5. Import the package `my_vehicle_model` in your _Vehicle App_ and use it as shown in the previous section.
 
 ### Distribute publicly as open source
 
-If you want to distribute your Python Vehicle Model publicly, you can do so by creating a Python package and distributing it on the [Python Package Index (PyPI)](https://pypi.org/). PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the `pip` command, you are already using PyPI.
+If you want to distribute your Python _Vehicle Model_ publicly, you can do so by creating a Python package and distributing it on the [Python Package Index (PyPI)](https://pypi.org/). PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the `pip` command, you are already using PyPI.
 
 Detailed instructions on how to make a Python package available on PyPI can be found [here](https://packaging.python.org/tutorials/packaging-projects/).
 
