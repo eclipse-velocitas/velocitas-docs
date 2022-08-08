@@ -28,7 +28,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Building documentation
+    name: Preview documentation on https://eclipse-velocitas.github.io/velocitas-docs/
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -61,12 +61,12 @@ jobs:
         run: |
           for f in public/docs/index.html public/docs/_print/index.html; do sed -i 's,/docs/contributing/contribution,/velocitas-docs/docs/contributing/contribution,g' $f; done
 
-      - name: Check
+      - name: Check for broken links
         continue-on-error: true
         run: |
           echo $(docker run -v $(pwd)/public:/public -v $(pwd)/.htmltest.yml:/.htmltest.yml --rm wjdp/htmltest -s /public -c /.htmltest.yml) >> $GITHUB_STEP_SUMMARY
 
-      - name: Publish to GH Pages
+      - name: Publish to docs branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
