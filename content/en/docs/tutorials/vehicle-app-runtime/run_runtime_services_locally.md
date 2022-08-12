@@ -15,9 +15,9 @@ aliases:
 
 * Dapr (```Local - Ensure Dapr```): installs Dapr CLI and initializes Dapr if required
 * Mosquitto (```Local - Mosquitto```): runs _Mosquitto_ as a container (```docker run```)
-* KUKSA Data Broker (```Local - VehicleDataBroker```): downloads and runs _KUKSA Data Broker_
-* (Optional) Seat Service (```Local - SeatService```): downloads and runs _Seat Service_, an example `Vehicle Service`
-* (Optional) Feeder Can (```Local - FeederCan```): downloads and runs _FeederCAN_
+* KUKSA Data Broker (```Local - VehicleDataBroker```): runs _KUKSA Data Broker_ as a container
+* (Optional) Vehicle Services (```Local - VehicleServices```): runs _Vehicle Services_, an example `Seat Service` as a container
+* (Optional) Feeder Can (```Local - FeederCan```): runs _FeederCAN_ as a container
 
 **Run as Bundle:** To orchestrate these tasks, a task called `Start Vehicle App runtime` is available. This task runs the other tasks in the correct order. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `Start Vehicle App runtime`.
 
@@ -27,17 +27,27 @@ aliases:
 
 **Scripting:** The tasks itself are executing scripts that are located in `.vscode/scripts`. These scripts download the specified version of the runtime components and execute them along with Dapr. The same mechanism can be used to register additional services or prerequisites by adding new task definitions in the `tasks.json` file.
 
-## Change version of runtime services
+## Add/Change service configuration
 
-The version for the runtime services is defined in the file [`./prerequisite_settings.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/prerequisite_settings.json). If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.
+The configuration for the services is defined in the file [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json). If you want to add new service, adapt [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json). If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.
+
+
+### Add/Change service configuration helper
+```json
+{
+  "name": "<NAME>",
+  "image": "<IMAGE>",
+  "version": "<VERSION>"
+}
+```
 
 ## Using KUKSA Data Broker CLI
 
 A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task `Local - VehicleDataBroker CLI`(by pressing _F1_, type _Run Task_ followed by `Local - VehicleDataBroker CLI`). The _KUKSA Data Broker_ needs to be running for you to be able to use the tool.
 
-## Integrating a new service into Visual Studio Code Task
+## Integrating a new runtime service into Visual Studio Code Task
 
-Integration of a new service can be done by duplicating one of the existing tasks.
+Integration of a new runtime service can be done by duplicating one of the existing tasks.
 
 - Create a new script based on template script `.vscode/scripts/run-vehicledatabroker.sh`
 - In `.vscode/tasks.json`, duplicate section from task `run-vehicledatabroker`
@@ -75,6 +85,34 @@ Integration of a new service can be done by duplicating one of the existing task
         }
     }
 },
+```
+
+## Integrating a new vehicle service
+
+Integration of a new vehicle service can be done by adding an additional case and following the template [`run-vehicleservices.sh`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.vscode/scripts/runtime/local/run-vehicleservices.sh).
+### Vehicle Service CodeBlock helper
+```c
+# Configure Service Specific Requirements
+configure_service() {
+    case $1 in
+        seatservice)
+            ...
+            ;;
+        <NEW_SERVICE>)
+            # Configure ports for docker to expose
+            DOCKER_PORTS="-p <PORT_TO_EXPOSE>"
+            # Configure ENVs need to run docker container
+            DOCKER_ENVS="-e <ENV_TO_RUN_CONTAINER>"
+            # Configure Dapr App Port
+            DAPR_APP_PORT=
+            # Configure Dapr Grpc Port
+            DAPR_GRPC_PORT=
+            ;;
+        *)
+            echo "Unknown Service to configure."
+            ;;
+    esac
+}      
 ```
 
 ## Troubleshooting
