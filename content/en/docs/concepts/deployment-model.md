@@ -34,4 +34,4 @@ The workflows are set up to support multi-platform container creation and genera
 Learn more about the concepts of the [Velocitas build and release workflows](/docs/velocitas/docs/vehicle_app_releases.md) and check out the example GitHub workflows in our repositories for python (https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml).
 
 ## Further information
-- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm)
+- Tutorial: [Deploy a Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm)

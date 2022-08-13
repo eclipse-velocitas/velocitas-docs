@@ -34,7 +34,7 @@ A Vehicle Model makes it possible to easily get vehicle data from the in-vehicle
 
 ### SDKs
 
-To reduce the effort required to implement [Vehicle Apps](#vehicle-apps), Velocitas provides a set of SDKs for different programming languages. A first SDK is available for Python, further SDKs for Rust and C/C++ are planned.
+To reduce the effort required to implement [Vehicle Apps](#vehicle-apps), Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
 Next to a [Vehicle Apps](#vehicle-apps) abstraction, the SDKs are [Middleware](#middleware)-enabled, provide connectivity to the [Data Broker](#data-broker) and contain the ontology in the form of base classes to create [Vehicle Models](#vehicle-models).
 
 ### Vehicle Services
@@ -113,9 +113,9 @@ The starting point for developing [Vehicle Apps](#vehicle-apps) is a [Semantic M
 After a [Vehicle Model](#vehicle-models) is available for the chosen programming language, the [Vehicle App](#vehicle-apps) can be developed using the generated Vehicle Model and its core SDK.
 
 ## Further information
-- Concept: [Python SDK Overview](/docs/concepts/python_vehicle_app_sdk_overview.md)
+- Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
-- Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
-- Tutorial: [Create a Python Vehicle App](/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md)
+- Tutorial: [Creating a Vehicle Model]({{< ref "/docs/tutorials/tutorial_how_to_create_a_vehicle_model" >}})
+- Tutorial: [Create a Vehicle App]({{< ref "/docs/tutorials/vehicle-app-development" >}})
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 - Concept: [Deployment Model](/docs/concepts/deployment-model.md)
