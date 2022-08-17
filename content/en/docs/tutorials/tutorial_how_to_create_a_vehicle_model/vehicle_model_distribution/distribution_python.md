@@ -12,7 +12,7 @@ Now you a have a Python package containing your first Python _Vehicle Model_ and
 
 ## Distribute to single Vehicle App
 
-If you want to distribute your Python _Vehicle Model_ to a single _Vehicle App_, you can do so by copying the entire folder `my_vehicle_model` under the `src` folder of your _Vehicle App_ repository and treat is a sub-package of the _Vehicle App_.
+If you want to distribute your Python _Vehicle Model_ to a single _Vehicle App_, you can do so by copying the entire folder `my_vehicle_model` under the `src` folder of your _Vehicle App_ repository and treat it as a sub-package of the _Vehicle App_.
 
 1. Create a new folder `my_vehicle_model` under `src` in your _Vehicle App_ repository.
 2. Copy the `my_vehicle_model` folder to the `src` folder of your _Vehicle App_ repository.

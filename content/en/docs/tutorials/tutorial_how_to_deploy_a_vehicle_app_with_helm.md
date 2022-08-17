@@ -17,7 +17,7 @@ This tutorial will show you how to:
 ## Prerequisites
 
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) installed. For information on how to install extensions on Visual Studio Code, see [VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery).
-- Completed the tutorial [How to create a vehicle app]({{< ref "/docs/tutorials/vehicle-app-development" >}})
+- Completed the tutorial [How to create a vehicle app](/docs/tutorials/vehicle-app-development)
 
 ## Use the sample Helm chart
 

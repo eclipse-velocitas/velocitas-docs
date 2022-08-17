@@ -23,6 +23,7 @@ A similar approach to the one above but a bit more difficult to set up is to cre
 3. Commit everything and push the branch
 
 In your _Vehicle App_ repo, add a new git submodule via
+
 ```bash
 git submodule add <checkout URL of your new repo> app/vehicle_model
 git submodule init

@@ -8,9 +8,9 @@ aliases:
   - /docs/tutorials/python/tutorial_how_to_create_a_vehicle_app_cpp.md
 ---
 
-> We recommend that you make yourself familiar with the [Vehicle App SDK]({{< ref "vehicle_app_sdk" >}} "SDK Overview") first, before going through this tutorial.
+> We recommend that you make yourself familiar with the [Vehicle App SDK](/docs/concepts/vehicle_app_sdk_overview.md) first, before going through this tutorial.
 
-The following information describes how to develop and test the sample Vehicle App that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
+The following information describes how to develop and test the sample Vehicle App that is included in the [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
 
 Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own _Vehicle App_ development project.
 
@@ -19,11 +19,11 @@ Once you have completed all steps, you will have a solid understanding of the de
 This section describes how to develop your first _Vehicle App_. Before you start building a new _Vehicle App_, make sure you have already read the other manuals:
 
 - [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
-- [How to create a Vehicle Model](/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md)
+- [How to create a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 
 Once you have established your development environment, you will be able to start developing your first _Vehicle App_.
 
-For this tutorial, you will recreate the vehicle app that is included with the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk):
+For this tutorial, you will recreate the vehicle app that is included with the [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk):
 The _Vehicle App_ allows to change the positions of the seats in the car and also provide their current positions to other applications.
 
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
@@ -96,7 +96,7 @@ In order to facilitate the implementation, the whole vehicle is abstracted into 
 
 ### Import the model
 
-The first thing you need to do to get access to the Vehicle Model. In the section about [distributing a model]({{< ref "tutorial_how_to_create_a_vehicle_model.md#distributing-your-python-vehicle-model" >}}), you got to know the different methods.
+The first thing you need to do to get access to the Vehicle Model. In the section about [distributing a model](/docs/tutorials/how_to_create_a_vehicle_model/distribution_cpp.md), you got to know the different methods.
 
 If you just want to use your model in one app, you can simply copy the classes into your `src`-folder. In this example, you find the classes inside the `vehicle_model`-folder. As you have already seen in the section about [initializing the app]({{< ref "#initialize-your-class" >}}), we need the `vehicle model` to use the app.
 
@@ -318,7 +318,7 @@ The debug session launch settings are already prepared for the `VehicleApp`.
 ]
 ```
 
-We specify which python-script to run using the `program` key. With the `preLaunchTask` and `postDebugTask` keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks.
+We specify which binary to run using the `program` key. With the `preLaunchTask` and `postDebugTask` keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks.
 
 ```JSON
 {

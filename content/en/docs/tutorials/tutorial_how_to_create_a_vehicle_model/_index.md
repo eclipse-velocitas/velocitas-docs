@@ -3,7 +3,7 @@ title: "Vehicle Model Creation"
 date: 2022-05-09T13:43:25+05:30
 weight: 1
 description: >
-  Learn how to create a Vehicle Model to get to access vehicle data or execute remote procedure calls.
+  Learn how to create a Vehicle Model to access vehicle data or execute remote procedure calls.
 aliases:
   - /docs/tutorials/tutorial_how_to_create_a_vehicle_model.md
 ---
@@ -52,14 +52,15 @@ Follow the steps to generate a _Vehicle Model_.
         Depending on the value of `lang`, which can assume the values `python` and `cpp`, this creates a `sdv_model` directory in the root of repository along with all generated source files for the given programming language.
 
         Here is an overview of what is generated for every available value of `lang`:
-        | lang   | output                                                                        |
-        | -------|------------------------------------------------------------------------------ |
-        | python | python sources and a `setup.py` ready to be used as python package            |
-        | cpp    | c++ sources, headers and a CMakeLists.txt ready to be used as a CMake project |
+
+        | lang       | output                                                                          |
+        | :--------- |:------------------------------------------------------------------------------- |
+        | `python`   | python sources and a `setup.py` ready to be used as python package              |
+        | `cpp`      | c++ sources, headers and a CMakeLists.txt ready to be used as a CMake project   |
 
         To have a custom model name, refer to README of [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository.
   4. For python: Change the version of package in `setup.py` manually (defaults to 0.1.0).
-  5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Python Vehicle Model](#distributing-your-python-vehicle-model))
+  5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Vehicle Model](/docs/tutorials/vehicle_model_distribution))
 
 ## Create a Vehicle Model Manually
 
@@ -71,8 +72,8 @@ Alternative to the generation from a VSS specification you could create the _Veh
 
 Once you have created your Vehicle Model either manually or via the Vehicle Model Generator, you need to distribute your model to use it in an application. Follow the links below for language specific tutorials on how to distribute your freshly created Vehicle Model.
 
-- [Python]({{< ref "distribution_python.md" >}})
-- [C++]({{< ref "distribution_cpp.md" >}})
+- [Python]/docs/tutorials/how_to_create_a_vehicle_model/distribution_python.md)
+- [C++](/docs/tutorials/how_to_create_a_vehicle_model/distribution_cpp.md)
 
 ## Further information
 

@@ -208,7 +208,7 @@ Based on the `.proto` files of the Vehicle Services, the protocol buffers compil
 The gRPC stubs are wrapped by a **convenience layer** class derived from `Service` that contains all the methods of the underlying protocol buffer specification.
 
 {{% alert title="Info" %}}
-The convencience layer of C++ is abit more extensive than in Python. The complexity of gRPC's async API is hidden behind individual `AsyncGrpcFacade` implementations which need to be implemented manually. Have a look at the `SeatAdjusterApp` example's `SeatService` and its `SeatSeatServiceAsyncGrpcFacade`.
+The convencience layer of C++ is abit more extensive than in Python. The complexity of gRPC's async API is hidden behind individual `AsyncGrpcFacade` implementations which need to be implemented manually. Have a look at the `SeatAdjusterApp` example's `SeatService` and its `SeatServiceAsyncGrpcFacade`.
 {{% /alert %}}
 
 {{< tabpane langEqualsHeader=true >}}
@@ -392,7 +392,7 @@ publishToTopic("seatadjuster/currentPosition", "{ \"position\": 40 }");
 
 ### Subscribe to MQTT Topics
 
-Subscriptions to MQTT topics can be easily established with the `subscribe_topic()` annotation. The annotation needs to be applied to a method of the `Vehicle App` class.
+In Python subscriptions to MQTT topics can be easily established with the `subscribe_topic()` annotation. The annotation needs to be applied to a method of the `Vehicle App` class. In C++ the `subscribeToTopic()` method has to be called. Callbacks for `onItem` and `onError` can be set. The following examples provide some more details.
 
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
@@ -470,7 +470,7 @@ using namespace velocitas;
 class SeatAdjusterApp : public VehicleApp {
 public:
     SeatAdjusterApp()
-        : VehicleApp(IVehicleAdataBrokerClient::createInstance("vehicledatabroker")),
+        : VehicleApp(IVehicleDataBrokerClient::createInstance("vehicledatabroker")),
         IPubSubClient::createInstance("localhost:1883", "SeatAdjusterApp"))
     {}
 private:
@@ -486,8 +486,9 @@ int main(int argc, char** argv) {
 {{< /tabpane >}}
 
 ## Further information
+
 - Concept: [Development Model](/docs/concepts/development-model.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
-- Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
-- Tutorial: [Create a Python Vehicle App](/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md)
+- Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)

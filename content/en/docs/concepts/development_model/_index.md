@@ -68,7 +68,8 @@ Velocitas leverages [dapr](https://dapr.io) for gRPC service discovery, Open Tel
 [Vehicle Apps](#vehicle-apps) are expected to run on a [Linux](https://www.linux.org/)-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., [Eclipse Mosquitto](https://mosquitto.org/)).
 
 ## Vehicle App characteristics
-The following aspects are important characterstics for [Vehicle Apps](#vehicle-apps): 
+
+The following aspects are important characterstics for [Vehicle Apps](#vehicle-apps):
 
 ### Code base
 
@@ -113,9 +114,10 @@ The starting point for developing [Vehicle Apps](#vehicle-apps) is a [Semantic M
 After a [Vehicle Model](#vehicle-models) is available for the chosen programming language, the [Vehicle App](#vehicle-apps) can be developed using the generated Vehicle Model and its core SDK.
 
 ## Further information
+
 - Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
-- Tutorial: [Creating a Vehicle Model]({{< ref "/docs/tutorials/tutorial_how_to_create_a_vehicle_model" >}})
-- Tutorial: [Create a Vehicle App]({{< ref "/docs/tutorials/vehicle-app-development" >}})
+- Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 - Concept: [Deployment Model](/docs/concepts/deployment-model.md)

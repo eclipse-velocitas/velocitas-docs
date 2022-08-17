@@ -26,7 +26,7 @@ C++ currently has only an [SDK repository](https://github.com/eclipse-velocitas/
 {{% /tab %}}
 {{< /tabpane >}}
 
-## Starting Development Environement
+## Starting Development Environment
 
 In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
 
@@ -167,7 +167,7 @@ Now that the [runtime services](#starting-runtime-services) are all up and runni
 1. Open the main source file and set a breakpoint in the given method:
    * Python main source file: `src/VehicleApp/main.py`, set breakpoint in method: `on_set_position_request_received`
    * C++ main source file: `app/src/VehicleApp.cpp`, set breakpoint in method: `onSetPositionRequestReceived`
-2. Press <kbd>F5</kbd> to start the _Vehicle App_ to start a debug session and see the log output on the `DEBUG CONSOLE`
+2. Press <kbd>F5</kbd> to start a debug session of the _Vehicle App_ and see the log output on the `DEBUG CONSOLE`
 
 To trigger this breakpoint, let's send a message to the Vehicle App using the mqtt broker that is running in the background.
 

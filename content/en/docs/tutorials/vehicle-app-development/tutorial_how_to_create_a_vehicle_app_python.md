@@ -8,7 +8,7 @@ aliases:
   - /docs/tutorials/python/tutorial_how_to_create_a_vehicle_app_python.md
 ---
 
-> We recommend that you make yourself familiar with the [Vehicle App SDK]({{< ref "vehicle_app_sdk" >}} "SDK Overview") first, before going through this tutorial.
+> We recommend that you make yourself familiar with the [Vehicle App SDK](/docs/concepts/vehicle_app_sdk_overview.md) first, before going through this tutorial.
 
 The following information describes how to develop and test the sample Vehicle App that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
 
