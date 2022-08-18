@@ -39,8 +39,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.56a7ebe88b01c73b58866a6ef26c833670e730b07015614cb37d579a91865c09.css" as="style">
-<link href="/velocitas/scss/main.min.56a7ebe88b01c73b58866a6ef26c833670e730b07015614cb37d579a91865c09.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.e813ace6a05d131cb24f2b39d7d842ffae568db2a75a4490bee866fb64df2557.css" as="style">
+<link href="/velocitas/scss/main.min.e813ace6a05d131cb24f2b39d7d842ffae568db2a75a4490bee866fb64df2557.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -119,7 +119,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.16548f828e0868ae7be37d25b250ed40.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.7b9ff98b77657215309cd27bbad4b790.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -194,7 +194,7 @@ This is the multi-page printable view of this section.
 <h3 id="vehicle-models">Vehicle Models</h3>
 <p>A Vehicle Model makes it possible to easily get vehicle data from the in-vehicle <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps">Vehicle Apps</a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
 <h3 id="sdks">SDKs</h3>
-<p>To reduce the effort required to implement <a href="#vehicle-apps">Vehicle Apps</a>, Velocitas provides a set of SDKs for different programming languages. A first SDK is available for Python, further SDKs for Rust and C/C++ are planned.
+<p>To reduce the effort required to implement <a href="#vehicle-apps">Vehicle Apps</a>, Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
 Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a href="#middleware">Middleware</a>-enabled, provide connectivity to the <a href="#data-broker">Data Broker</a> and contain the ontology in the form of base classes to create <a href="#vehicle-models">Vehicle Models</a>.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
 <p><code>Vehicle Services</code> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <code>Vehicle services</code> may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a></p>
@@ -212,7 +212,7 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
 <h3 id="vehicle-edge-operating-system">Vehicle Edge Operating System</h3>
 <p><a href="#vehicle-apps">Vehicle Apps</a> are expected to run on a <a href="https://www.linux.org/" target="_blank" rel="noopener">Linux</a>-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., <a href="https://mosquitto.org/" target="_blank" rel="noopener">Eclipse Mosquitto</a>).</p>
 <h2 id="vehicle-app-characteristics">Vehicle App characteristics</h2>
-<p>The following aspects are important characterstics for <a href="#vehicle-apps">Vehicle Apps</a>:</p>
+<p>The following aspects are important characteristics for <a href="#vehicle-apps">Vehicle Apps</a>:</p>
 <h3 id="code-base">Code base</h3>
 <p>Every <a href="#vehicle-apps">Vehicle App</a> is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.</p>
 <h3 id="polyglot">Polyglot</h3>
@@ -252,10 +252,10 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
 <p>After a <a href="#vehicle-models">Vehicle Model</a> is available for the chosen programming language, the <a href="#vehicle-apps">Vehicle App</a> can be developed using the generated Vehicle Model and its core SDK.</p>
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/python_vehicle_app_sdk_overview.md">Python SDK Overview</a></li>
+<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Python Vehicle Model</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md">Create a Python Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Vehicle Model</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
 <li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
 </ul>
