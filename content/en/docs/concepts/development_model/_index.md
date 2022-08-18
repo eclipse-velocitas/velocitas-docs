@@ -69,7 +69,7 @@ Velocitas leverages [dapr](https://dapr.io) for gRPC service discovery, Open Tel
 
 ## Vehicle App characteristics
 
-The following aspects are important characterstics for [Vehicle Apps](#vehicle-apps):
+The following aspects are important characteristics for [Vehicle Apps](#vehicle-apps):
 
 ### Code base
 
