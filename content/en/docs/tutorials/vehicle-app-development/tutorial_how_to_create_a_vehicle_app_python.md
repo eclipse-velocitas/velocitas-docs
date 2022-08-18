@@ -1,15 +1,14 @@
 ---
 title: "Python Vehicle App Development"
 date: 2022-05-09T13:43:25+05:30
-weight: 3
+weight: 1
 description: >
-  Learn how to develop and test the Vehicle App.
+  Learn how to develop and test the Vehicle App using Python.
 aliases:
-  - /docs/tutorials/tutorial_how_to_create_a_vehicle_app.md
-  - /docs/python-sdk/tutorial_how_to_create_a_vehicle_app.md
+  - /docs/tutorials/python/tutorial_how_to_create_a_vehicle_app_python.md
 ---
 
-> We recommend that you make yourself familiar with the [Python Vehicle App SDK](/python-sdk/python_vehicle_app_sdk_overview.md) first, before going through this tutorial.
+> We recommend that you make yourself familiar with the [Vehicle App SDK](/docs/concepts/vehicle_app_sdk_overview.md) first, before going through this tutorial.
 
 The following information describes how to develop and test the sample Vehicle App that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
 
@@ -387,7 +386,7 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 ## Next steps
 
-- Concept: [Python SDK Overview](/docs/concepts/python_vehicle_app_sdk_overview.md)
+- Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)
 - Tutorial: [Deploy runtime services in Kubernetes mode](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)

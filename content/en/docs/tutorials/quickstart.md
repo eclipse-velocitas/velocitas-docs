@@ -9,17 +9,24 @@ aliases:
   - /docs/setup_and_explore_development_environment.md
 ---
 
-The following information describes how to setup and configure the Development Container (DevContainer), and how to build, customize and test the sample Vehicle App, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.
+The following information describes how to setup and configure the [Development Container (DevContainer)](https://code.visualstudio.com/docs/remote/containers), and how to build, customize and test the sample _Vehicle App_, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.
 
-Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own Vehicle App develpment project.
+Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own _Vehicle App_ develpment project.
 
 ## Creating Vehicle App Repository
 
+For the orginization and _Vehicle App_ repository the name `MyOrg/MyFirstVehicleApp` is used as a reference during the rest of the document.
+
+{{< tabpane text=true >}}
+{{% tab header="Python" %}}
 Create your own repository copy from the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) by clicking the green button `Use this template`. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
+{{% /tab %}}
+{{% tab header="C++" %}}
+C++ currently has only an [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk). To create your own _Vehicle App_ repository, fork the repository into your own organization. For the fork, only the `main` branch needs to be copied over.
+{{% /tab %}}
+{{< /tabpane >}}
 
-The name `MyOrg/MyFirstVehicleApp` is used as a reference during the rest of document.
-
-## Starting Development Environement
+## Starting Development Environment
 
 In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
 
@@ -157,8 +164,10 @@ More information about the tasks are available [here](/docs/run_runtime_services
 
 Now that the [runtime services](#starting-runtime-services) are all up and running, let's start a debug session for the Vehicle App as next step.
 
-1. Open the main python file `src/VehicleApp/main.py` file and set a breakpoint within the `on_set_position_request_received`
-2. Press <kbd>F5</kbd> to start the Vehicle App to start a debug session and see the log output on the `DEBUG CONSOLE`
+1. Open the main source file and set a breakpoint in the given method:
+   * Python main source file: `src/VehicleApp/main.py`, set breakpoint in method: `on_set_position_request_received`
+   * C++ main source file: `app/src/VehicleApp.cpp`, set breakpoint in method: `onSetPositionRequestReceived`
+2. Press <kbd>F5</kbd> to start a debug session of the _Vehicle App_ and see the log output on the `DEBUG CONSOLE`
 
 To trigger this breakpoint, let's send a message to the Vehicle App using the mqtt broker that is running in the background.
 
@@ -180,7 +189,7 @@ The provided GitHub workflows are used to build the container image for the Vehi
   
 By pushing a change to GitHub the CI Workflow will be triggered:
 
-1. Make modification to your file, e.g. remove the last empty line from `src/VehicleApp/main.py`
+1. Make modification in any of your files
 2. Commit and push your change
 
    ```bash
@@ -204,7 +213,7 @@ The provided release workflow will be triggered by the release. The release work
 
 ## Next steps
 
-- Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
-- Tutorial: [Create a Python Vehicle App](/docs/tutorials/tutorial_how_to_create_a_vehicle_app.md)
+- Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 - Concept: [Development Model](/docs/concepts/development-model.md)
