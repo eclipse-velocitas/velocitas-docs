@@ -27,11 +27,7 @@ The Velocitas project provides a two-stage process for development, continuous i
 
 The following illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project's needs.
 
-![](publish_container.png)
-
-{{< imgproc publish_container Resize "800x" >}}
-  Workflows
-{{< /imgproc >}}
+<img src="publish_container.png" >
 
 ## CI Workflow (ci.yml)
 
