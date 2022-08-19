@@ -20,9 +20,7 @@ The Velocitas development model is centered around what are known as [Vehicle Ap
 
 Velocitas provides a flexible development architecture for [Vehicle Apps](#vehicle-apps). The following diagram shows the major components of the Velocitas stack.
 
-{{< imgproc programming_model Resize "800x" >}}
-  Overview of the progamming model
-{{< /imgproc >}}
+![Programming Model](./programming_model.png)
 
 ### Vehicle Apps
 
