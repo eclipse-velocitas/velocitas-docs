@@ -45,50 +45,9 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
   ```
 
 {{% alert title="Proxy configuration" %}}
-A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings.
+A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/behind_proxy.md)
 {{% /alert %}}
 
-<details>
-<summary>Please expand for information on configuring proxy settings</summary>
-
-A template configuration using proxies exists in `.devcontainer/Dockerfile.Proxy` and by setting the environment variable `DEVCONTAINER_PROXY` to `.Proxy` the file
-`.devcontainer/Dockerfile.Proxy` will be used instead of `.devcontainer/Dockerfile`.
-
-The template configuration uses the following default configuration:
-
-```
-ENV HTTP_PROXY="http://172.17.0.1:${PROXY_PORT:-3128}"
-```
-
-- If your proxy is not available on `172.17.0.1` then you must modify `.devcontainer/Dockerfile.Proxy`.
-- If your proxy does not use 3128 as port you can set another port in the environment variable `DEVCONTAINER_PROXY_PORT`
-
-#### Windows
-
-1. Edit environment variables for your account
-2. Create an environment variable with name the `DEVCONTAINER_PROXY` and with the value `.Proxy` for your account
-   - Don't forget (dot) in value of the environment variable
-3. If you are using a different Port than 3128 for your Proxy, you have to set another environment variable as follows:
-   - DEVCONTAINER_PROXY_PORT=<PortNumber>
-4. Restart Visual Studio Code to pick up the new environment variable
-
-#### macOS & Linux
-
-```
-echo "export DEVCONTAINER_PROXY=.Proxy" >> ~/.bash_profile
-source ~/.bash_profile
-```
-
-### Proxy troubleshooting
-
-If you experience issues during initial DevContainer build and you want to start over, then you want to make sure you clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI to remove all volumes and containers.
-
-Proxy settings in `~/.docker/config.json` will override settings in `.devcontainer/Dockerfile.Proxy`, which can cause problems.
-In case the DevContainer is still not working, check if proxy settings are set correctly in the Docker user profile (`~/.docker/config.json`), see [Docker Documentation](https://docs.docker.com/network/proxy/) for more details.
-Verify that the `noProxy` setting in `~/.docker/config.json` (if existing) is compatible with the setting of `NO_PROXY` in `.devcontainer/Dockerfile.Proxy`.
-The development environment relies on communication to localhost (e.g. localhost, 127.0.0.1) and it is important that the proxy setting is correct so that connections to localhost are not forwarded to the proxy.
-
-</details>
 
 With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
 
