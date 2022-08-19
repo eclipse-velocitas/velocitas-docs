@@ -5,10 +5,10 @@ weight: 4
 aliases:
   - /docs/concepts/vehicle_app_releases.md
   - /docs/velocitas/docs/vehicle_app_releases.md
-description: >
-  Learn more about the provided continuous integration, and release process of a Vehicle App.
 resources:
 - src: "**publish_container*.png"
+description: >
+  Learn more about the provided continuous integration, and release process of a Vehicle App.
 ---
 
 The Velocitas project provides a two-stage process for development, continuous integration, and release of a new version of a Vehicle App.
