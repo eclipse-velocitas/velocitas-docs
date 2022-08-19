@@ -2,8 +2,12 @@
 title: "Build and Release Process"
 date: 2022-05-09T13:43:25+05:30
 weight: 4
+aliases:
+  - /docs/concepts/deployment_model/vehicle_app_releases.md
+  - /docs/concepts/vehicle_app_releases.md
+  - /docs/velocitas/docs/vehicle_app_releases.md
 resources:
-- src: "**publish_container*.png"
+  - src: "**publish_container*.png"
 description: >
   Learn more about the provided continuous integration, and release process of a Vehicle App.
 ---
@@ -22,9 +26,7 @@ The Velocitas project provides a two-stage process for development, continuous i
 
 The following illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project's needs.
 
-{{< imgproc publish_container Resize "800x" >}}
-  Workflows
-{{< /imgproc >}}
+![Workflows](./publish_container.png)
 
 ## CI Workflow (ci.yml)
 
