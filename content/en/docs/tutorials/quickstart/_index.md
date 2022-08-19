@@ -6,8 +6,8 @@ description: >
   Learn how to setup and explore the provided development environment.
 aliases:
   - /docs/tutorials/setup_and_explore_development_environment.md
-  - /docs/setup_and_explore_development_environment.md
   - /docs/tutorials/quickstart.md
+  - /docs/setup_and_explore_development_environment.md
 ---
 
 The following information describes how to setup and configure the [Development Container (DevContainer)](https://code.visualstudio.com/docs/remote/containers), and how to build, customize and test the sample _Vehicle App_, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.
@@ -173,7 +173,7 @@ The provided release workflow will be triggered by the release. The release work
 
 ## Next steps
 
-- Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model)
 - Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 - Concept: [Development Model](/docs/concepts/development-model.md)
