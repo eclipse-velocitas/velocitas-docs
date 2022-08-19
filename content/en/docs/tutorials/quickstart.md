@@ -106,12 +106,12 @@ When opening the DevContainer for the first time, a manual reload of the dapr ex
 > If Visual Studio Code [fails to directly clone your repository](https://github.com/microsoft/vscode-dev-containers/issues/1585)  you can also use a workaround:
 >
 > 1. Clone the repo locally using your favorite Git tooling
-> 2. Start Visual Studio Code
-> 3. Select `Open Folder` from the `File` menu
-> 4. Open the root of the cloned repo
-> 5. A popup appears on the lower left side of Visual Studio Code
-> 6. Click on `Reopen in Container`
-> 7. Wait for the container to be set up
+> 1. Start Visual Studio Code
+> 1. Select `Open Folder` from the `File` menu
+> 1. Open the root of the cloned repo
+> 1. A popup appears on the lower left side of Visual Studio Code
+> 1. Click on `Reopen in Container`
+> 1. Wait for the container to be set up
 >
 > If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command `Remote-Containers: Open Folder in Container`
 >
