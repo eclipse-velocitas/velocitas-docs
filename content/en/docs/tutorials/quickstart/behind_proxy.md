@@ -1,5 +1,5 @@
 ---
-title: "Working behind a proxy"
+title: "Working behind proxy"
 date: 2022-08-19T17:46:21+05:30
 weight: 2
 description: >

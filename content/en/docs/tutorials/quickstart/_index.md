@@ -7,6 +7,7 @@ description: >
 aliases:
   - /docs/tutorials/setup_and_explore_development_environment.md
   - /docs/setup_and_explore_development_environment.md
+  - /docs/tutorials/quickstart.md
 ---
 
 The following information describes how to setup and configure the [Development Container (DevContainer)](https://code.visualstudio.com/docs/remote/containers), and how to build, customize and test the sample _Vehicle App_, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.
@@ -45,7 +46,7 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
   ```
 
 {{% alert title="Proxy configuration" %}}
-A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/behind_proxy.md)
+A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/quickstart/behind_proxy.md)
 {{% /alert %}}
 
 
