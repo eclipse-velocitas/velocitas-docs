@@ -78,5 +78,5 @@ Once you have created your Vehicle Model either manually or via the Vehicle Mode
 ## Further information
 
 - Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)
-- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
+- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/quickstart)
 - Tutorial: [Create a Vehicle App]({{< ref "/docs/tutorials/vehicle-app-development" >}})
