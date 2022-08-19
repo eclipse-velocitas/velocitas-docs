@@ -35,6 +35,8 @@ The `CI workflow` is triggered on every commit to the main branch and contains a
 - **Storing scan & test results as GitHub action artifacts** - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.
 - **Publish container images to GitHub Container Registry** - at the end of the workflow, the container images created are stored in a Github Container Registry so that they can be referenced by the release-workflow later.
 
+Check out the example GitHub workflows in our repositories for python (https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)
+
 ## Release Workflow (release.yml)
 
 The `Release workflow` is triggered as soon as the `main` branch is ready for release and the Vehicle App developer creates a new GitHub release. This can be done manually through the GitHub UI.
@@ -59,9 +61,7 @@ The GitHub container registry is used for storing container images, which are ge
 
 The **GitHub container registry** does not have an automatic cleanup and keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.
 
-## Further information
-
-### Versioning
+## Versioning
 
 Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of [semantic versions](https://semver.org/) is recommended.
 
