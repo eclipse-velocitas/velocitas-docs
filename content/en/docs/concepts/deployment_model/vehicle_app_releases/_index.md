@@ -20,7 +20,7 @@ The Velocitas project provides a two-stage process for development, continuous i
 
   The workflow bundles all relevant artifacts into one tagged set of files and makes it possible to push this information to the preferred OTA (over-the-air update) system of your choice or use the information for quality assurance and documentation.
 
-The following illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project's needs.
+The drawing below illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project's needs.
 
 ![Project Overview](./publish_container.png)
 
