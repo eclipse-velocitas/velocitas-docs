@@ -163,7 +163,7 @@ In order to know which seat to move, you have to pass a `SeatLocation` object as
 
 Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.
 
-In the [general section]({{< ref "/docs/tutorials/quickstart.md" >}}) about the Vehicle App, you already tested sending MQTT messages to the app.
+In the [general section]({{< ref "/docs/tutorials/quickstart" >}}) about the Vehicle App, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `Datapoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
 
 In order to receive and process MQTT messages inside your app, simply use the `VehicleApp::subscribeTopic` method provided by the SDK:
