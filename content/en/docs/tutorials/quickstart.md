@@ -53,7 +53,7 @@ The template configuration uses the following default configuration:
 ENV HTTP_PROXY="${PROXY_HOST:-http://host.docker.internal}:${PROXY_PORT:-3128}"
 ```
 
-- If your proxy is not available on `http://host.docker.internal` you can set another port in the environment variable `DEVCONTAINER_PROXY_HOST`
+- If your proxy is not available on `http://host.docker.internal` you can set another host in the environment variable `DEVCONTAINER_PROXY_HOST`
 - If your proxy does not use 3128 as port you can set another port in the environment variable `DEVCONTAINER_PROXY_PORT`
 
 #### Windows
