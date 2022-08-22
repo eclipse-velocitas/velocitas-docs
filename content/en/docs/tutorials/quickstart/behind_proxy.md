@@ -18,13 +18,13 @@ To be able to use the DevContainer in Visual Studio Code behind a proxy, you hav
 
 It is required to set the following environment variables:
 
-| Name | Value | Description | Required |
-|-|-|-|-|
-| HTTP_PROXY              | | | yes |
-| HTTPS_PROXY             | | | yes |
-| DEVCONTAINER_PROXY      | .Proxy | Enables proxy configuration for the devContainer. Please don't forget (dot) in the value | yes |
-| DEVCONTAINER_PROXY_PORT | | If you are trying to connect to a proxy which is running on a different port than `3128`, please use this variable to define the port. | no  |
-| DEVCONTAINER_PROXY_HOST| | If you are running in Linux and expierence issues with the internal docker host proxy, please use this variable to set the host. | no  |
+| Name | Required | Description |
+|------|-------|-------------|
+| HTTP_PROXY              | yes | |
+| HTTPS_PROXY             | yes | |
+| DEVCONTAINER_PROXY      | yes | Enables proxy configuration for the devContainer. Please use `.Proxy` as value and don't forget (dot) in the value |
+| DEVCONTAINER_PROXY_PORT | no  | If you are trying to connect to a proxy which is running on a different port than `3128`, please use this variable to define the port. |
+| DEVCONTAINER_PROXY_HOST | no | If you are running in Linux and expierence issues with the internal docker host proxy, please use this variable to set the host. |
 
 #### Windows
 
