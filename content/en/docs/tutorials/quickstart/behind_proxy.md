@@ -21,7 +21,7 @@ You need to install [Docker Desktop](https://www.docker.com/get-started/) using 
 As we recognized a proxy issue in Docker Desktop [#12672](https://github.com/docker/for-win/issues/12672) we strongly recomment to use a Docker Desktop version >= 4.8.2. In case you have an older version on your machine please update to the current version.
 
 In the next step you need to enter your proxy settings:
-- Open _Docker Desktop_"_ and go to the Settings
+- Open _Docker Desktop_ and go to the Settings
 - From `Resources`, select `Proxies`
 - Enable `Manual proxy configuration`
 - Enter your proxy settings, e.g.:
@@ -72,7 +72,7 @@ A template configuration using proxy settings is provided by our template reposi
 
 - If you experience issues during initial DevContainer build, than clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI `Troubleshooting` >  `Clean / Purge data`
 
-- Proxy settings in `~/.docker/config.json` will override settings in `.devcontainer/Dockerfile.Proxy`, which can cause problems. In case the DevContainer is still not working, check if proxy settings are set correctly in the Docker user profile (`~/.docker/config.json`).
+- Proxy settings in `~/.docker/config.json` will override settings in `.devcontainer/Dockerfile.Proxy`, which can cause problems. In case the DevContainer is still not working, check if proxy settings are set correctly in the Docker user profile (`~/.docker/config.json`), for more details see [Docker Documentation](https://docs.docker.com/network/proxy/).
    ```json
    {
     "proxies":
@@ -86,7 +86,6 @@ A template configuration using proxy settings is provided by our template reposi
     }
    }
    ```
-See [Docker Documentation](https://docs.docker.com/network/proxy/) for more details.
 
 - If you are using `noProxy` setting in `~/.docker/config.json` verify that it is compatible with the setting of `NO_PROXY` in `.devcontainer/Dockerfile.Proxy`.
 The development environment relies on communication to localhost (e.g. localhost, 127.0.0.1) and it is important that the proxy setting is correct so that connections to localhost are not forwarded to the proxy.
