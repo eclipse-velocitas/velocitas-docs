@@ -14,27 +14,26 @@ First of all you need to install [Docker Desktop](https://www.docker.com/get-sta
 
 To be able to use the DevContainer in Visual Studio Code behind a proxy, you have to make sure that your proxy configuration in Docker Desktop is correct. Go to `Settings` > `Resources` > `Proxies` and enable `Manual proxy configuration` and set the value to the lines `Web Server (HTTP)`and `Secure Web Server (HTTPS)`, and if required to the `Bypass proxy settings for these hosts & domains` to your specific proxy settings e.g. "http://localhost:3128". For more details read the [Docker Desktop documentation](https://docs.docker.com/network/proxy/)
 
-# Environment Variables
+## Environment Variables
 
-It is required to set the following environment variables
-- `HTTP_PROXY`
-- `HTTPS_PROXY`
-- `DEVCONTAINER_PROXY`
-- `DEVCONTAINER_PROXY_HOST`
-- `DEVCONTAINER_PROXY_PORT`
+It is required to set the following environment variables:
+
+| Name | Value | Description | Required |
+|-|-|-|-|
+| HTTP_PROXY              | | | yes |
+| HTTPS_PROXY             | | | yes |
+| DEVCONTAINER_PROXY      | .Proxy | Enables proxy configuration for the devContainer. Please don't forget (dot) in the value | yes |
+| DEVCONTAINER_PROXY_PORT | | If you are trying to connect to a proxy which is running on a different port than `3128`, please use this variable to define the port. | no  |
+| DEVCONTAINER_PROXY_HOST| | If you are running in Linux and expierence issues with the internal docker host proxy, please use this variable to set the host. | no  |
 
 #### Windows
 
 1. Edit environment variables for your account
-2. Create HTTP and HTTPS PROXY environment variables 
-   - `HTTP_PROXY`=`ProxyHostWithPortNumber`
-   - `HTTPS_PROXY`=`ProxyHostWithPortNumber`
-2. Create a new environment variables to enable proxy configuration for the devContainer (don't forget (dot) in the value):
+2. Create `HTTP_PROXY` and `HTTPS_PROXY` environment variables and set the value of your target proxy
+3. Create `DEVCONTAINER_PROXY` environment variable to enable proxy configuration for the devContainer (don't forget (dot) in the value):
    - `DEVCONTAINER_PROXY`=.Proxy
-3. If you are using a different HOST or PORT than http://172.17.0.1:3128 for your Proxy, you have to set another environment variable as follows:
-   - `DEVCONTAINER_PROXY_HOST`=`ProxyHost`
-   - `DEVCONTAINER_PROXY_PORT`=`ProxyPortNumber`
-4. Restart Visual Studio Code to pick up the new environment variable
+4. If you are trying to connect to a proxy which is running on a different port than `3128`, please set the `DEVCONTAINER_PROXY_PORT` environment variable to the port of your target proxy.
+5. Restart Visual Studio Code to pick up the new environment variable
 
 #### macOS & Linux
 
@@ -44,7 +43,9 @@ echo "export DEVCONTAINER_PROXY_HOST=<ProxyHost>" >> ~/.bash_profile
 echo "export DEVCONTAINER_PROXY_PORT=<ProxyPortNumber>" >> ~/.bash_profile
 source ~/.bash_profile
 ```
-
+{{% alert title="Troubleshooting" %}}
+If you are running in Linux and expierence issues with the internal docker host proxy, please set the   `DEVCONTAINER_PROXY_HOST` environment variable to the internal docker host.
+{{% /alert %}}
 
 # Visual Studio Code
 
