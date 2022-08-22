@@ -32,7 +32,7 @@ In the next step you need to enter your proxy settings:
 
 Please replace the values with our specific values (at least replace example.com in the Bypass value with your domain).
 
-## Environment Variables
+# Environment Variables
 
 It is required to set the following environment variables:
 
@@ -73,19 +73,19 @@ A template configuration using proxy settings is provided by our template reposi
 - If you experience issues during initial DevContainer build, than clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI `Troubleshooting` >  `Clean / Purge data`
 
 - Proxy settings in `~/.docker/config.json` will override settings in `.devcontainer/Dockerfile.Proxy`, which can cause problems. In case the DevContainer is still not working, check if proxy settings are set correctly in the Docker user profile (`~/.docker/config.json`).
-```json
-{
- "proxies":
- {
-   "default":
+   ```json
    {
-     "httpProxy": "http://localhost:3128",
-     "httpsProxy": "http://localhost:3128",
-     "noProxy": "localhost,127.0.0.1,.example.com"
+    "proxies":
+    {
+      "default":
+      {
+        "httpProxy": "http://localhost:3128",
+        "httpsProxy": "http://localhost:3128",
+        "noProxy": "localhost,127.0.0.1,.example.com"
+      }
+    }
    }
- }
-}
-```
+   ```
 See [Docker Documentation](https://docs.docker.com/network/proxy/) for more details.
 
 - If you are using `noProxy` setting in `~/.docker/config.json` verify that it is compatible with the setting of `NO_PROXY` in `.devcontainer/Dockerfile.Proxy`.
