@@ -30,7 +30,7 @@ As the next step you need to configure your Docker user profile (`~/.docker/conf
    }
  }
 }
-```json
+```
 
 ## Environment Variables
 
@@ -52,7 +52,7 @@ set
 setx DEVCONTAINER_PROXY ".Proxy"
 setx http_proxy "http://localhost:3128"
 setx https_proxy "http://localhost:3128"
-```bash
+```
 {{% /tab %}}
 {{% tab header="Mac & Linux" %}}
 ```bash
