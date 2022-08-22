@@ -10,7 +10,10 @@ We know how time consuming it could be to setup your environment behind a cooper
 
 # HTTP(s) proxy server
 
-Install and configure the proxy server as recommented or required by your company. For example you could us [PX](https://github.com/genotrance/px), which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with.
+Install and configure the proxy server as recommented or required by your company. For example you could use [PX](https://github.com/genotrance/px), which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: [PX](https://github.com/genotrance/px))
+
+- Install your HTTP(s) proxy server
+- Start your HTTP(s) proxy server
 
 # Docker Desktop
 
