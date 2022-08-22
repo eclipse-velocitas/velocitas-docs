@@ -41,6 +41,32 @@ It is required to set the following environment variables:
 - `DEVCONTAINER_PROXY` - Enables proxy configuration for the devContainer. Please use `.Proxy` as value and don't forget (dot) in the value
 
 
+{{< tabpane text=true >}}
+{{% tab header="Windows" %}}
+```bash
+set
+setx DEVCONTAINER_PROXY ".Proxy"
+setx http_proxy "http://localhost:3128"
+setx https_proxy "http://localhost:3128"
+```
+{{% /tab %}}
+{{% tab header="Mac & Linux" %}}
+```bash
+echo "export DEVCONTAINER_PROXY=.Proxy" >> ~/.bash_profile
+echo "export http_proxy=http://localhost:3128" >> ~/.bash_profile
+echo "export https_proxy=http://localhost:3128" >> ~/.bash_profile
+source ~/.bash_profile
+```
+{{% /tab %}}
+{{< /tabpane >}}
+
+# Visual Studio Code
+
+A template configuration using proxy settings is provided by our template repository with `.devcontainer/Dockerfile.Proxy`. By setting the environment variable `DEVCONTAINER_PROXY` to `.Proxy` the file
+`.devcontainer/Dockerfile.Proxy` will be used instead of `.devcontainer/Dockerfile`.
+
+{{% /alert %}}
+
 # Visual Studio Code
 
 A template configuration using proxy settings is provided by our template repository with `.devcontainer/Dockerfile.Proxy`. By setting the environment variable `DEVCONTAINER_PROXY` to `.Proxy` the file
@@ -48,13 +74,12 @@ A template configuration using proxy settings is provided by our template reposi
 
 {{% alert title="Troubleshooting" %}}
 - If you are running in Linux and expierence issues with the internal docker host proxy, please set the   `DEVCONTAINER_PROXY_HOST` environment variable to the internal docker host.
+
 - If you are trying to connect to a proxy which is running on a different port than `3128`, please use the `DEVCONTAINER_PROXY_Port` environment variable to define the port.
 
-- If you experience issues during initial DevContainer build and you want to start over, then you want to make sure you clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI to remove all volumes and containers.
+- If you experience issues during initial DevContainer build, than clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI `Troubleshooting` >  `Clean / Purge data`
 
-- Proxy settings in `~/.docker/config.json` will override settings in `.devcontainer/Dockerfile.Proxy`, which can cause problems.
-In case the DevContainer is still not working, check if proxy settings are set correctly in the Docker user profile (`~/.docker/config.json`), see [Docker Documentation](https://docs.docker.com/network/proxy/) for more details.
-Verify that the `noProxy` setting in `~/.docker/config.json` (if existing) is compatible with the setting of `NO_PROXY` in `.devcontainer/Dockerfile.Proxy`.
+- If you are using `noProxy` setting in `~/.docker/config.json` verify that it is compatible with the setting of `NO_PROXY` in `.devcontainer/Dockerfile.Proxy`.
 The development environment relies on communication to localhost (e.g. localhost, 127.0.0.1) and it is important that the proxy setting is correct so that connections to localhost are not forwarded to the proxy.
 
 {{% /alert %}}
