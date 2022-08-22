@@ -21,9 +21,9 @@ You need to install [Docker Desktop](https://www.docker.com/get-started/) using 
 As we recognized a proxy issue in Docker Desktop [#12672](https://github.com/docker/for-win/issues/12672) we strongly recomment to use a Docker Desktop version >= 4.8.2. In case you have an older version on your machine please update to the current version.
 
 In the next step you need to enter your proxy settings:
-- Open "Docker Desktop" and go to the Settings
-- From "Resources", select "Proxies"
-- Enable "Manual proxy configuration"
+- Open _Docker Desktop_"_ and go to the Settings
+- From `Resources`, select `Proxies`
+- Enable `Manual proxy configuration`
 - Enter your proxy settings, e.g.:
   - Web Server (HTTP): http://localhost:3128
   - Secure Web Server (HTTPS): http://localhost:3128
