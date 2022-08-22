@@ -65,13 +65,6 @@ source ~/.bash_profile
 A template configuration using proxy settings is provided by our template repository with `.devcontainer/Dockerfile.Proxy`. By setting the environment variable `DEVCONTAINER_PROXY` to `.Proxy` the file
 `.devcontainer/Dockerfile.Proxy` will be used instead of `.devcontainer/Dockerfile`.
 
-{{% /alert %}}
-
-# Visual Studio Code
-
-A template configuration using proxy settings is provided by our template repository with `.devcontainer/Dockerfile.Proxy`. By setting the environment variable `DEVCONTAINER_PROXY` to `.Proxy` the file
-`.devcontainer/Dockerfile.Proxy` will be used instead of `.devcontainer/Dockerfile`.
-
 {{% alert title="Troubleshooting" %}}
 - If you are running in Linux and expierence issues with the internal docker host proxy, please set the   `DEVCONTAINER_PROXY_HOST` environment variable to the internal docker host.
 
