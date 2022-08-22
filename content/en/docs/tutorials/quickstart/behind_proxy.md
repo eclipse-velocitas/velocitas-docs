@@ -21,8 +21,8 @@ Go to `Settings` > `Resources` > `Proxies` and enable `Manual proxy configuratio
 # Environment Variables
 
 It is required to set the following environment variables
-- `http_proxy`
-- `https_proxy`
+- `HTTP_PROXY`
+- `HTTPS_PROXY`
 - `DEVCONTAINER_PROXY`
 - `DEVCONTAINER_PROXY_HOST`
 - `DEVCONTAINER_PROXY_PORT`
@@ -31,8 +31,8 @@ It is required to set the following environment variables
 
 1. Edit environment variables for your account
 2. Create HTTP and HTTPS PROXY environment variables 
-   - `http_proxy`=`ProxyHostWithPortNumber`
-   - `https_proxy`=`ProxyHostWithPortNumber`
+   - `HTTP_PROXY`=`ProxyHostWithPortNumber`
+   - `HTTPS_PROXY`=`ProxyHostWithPortNumber`
 2. Create a new environment variables to enable proxy configuration for the devContainer (don't forget (dot) in the value):
    - `DEVCONTAINER_PROXY`=.Proxy
 3. If you are using a different HOST or PORT than http://172.17.0.1:3128 for your Proxy, you have to set another environment variable as follows:
