@@ -12,7 +12,7 @@ We know how time consuming it could be to setup your environment behind a cooper
 
 First of all you need to install [Docker Desktop](https://www.docker.com/get-started/). 
 
-{{% warning title="Right Version" %}}
+{{% alert title="Right Version" %}}
 As we recognized a proxy issue in Docker Desktop [#12672](https://github.com/docker/for-win/issues/12672) we strongly recomment to use a Docker Desktop version >= 4.8.2. In case you have an older version on your machine please update to the current version.
 {{% /alert %}}
 
