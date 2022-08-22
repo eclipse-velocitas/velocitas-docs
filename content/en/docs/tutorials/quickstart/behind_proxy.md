@@ -25,9 +25,9 @@ In the next step you need to enter your proxy settings:
 - From `Resources`, select `Proxies`
 - Enable `Manual proxy configuration`
 - Enter your proxy settings, e.g.:
-  - Web Server (HTTP): http://localhost:3128
-  - Secure Web Server (HTTPS): http://localhost:3128
-  - Bypass: localhost,127.0.0.1,.example.com
+  - Web Server (HTTP): `http://localhost:3128`
+  - Secure Web Server (HTTPS): `http://localhost:3128`
+  - Bypass: `localhost,127.0.0.1,.example.com`
 - Apply & Restart.
 
 Please replace the values with our specific values (at least replace example.com in the Bypass value with your domain).
@@ -38,7 +38,7 @@ It is required to set the following environment variables:
 
 - `HTTP_PROXY` - proxy server, e.g. `http://localhost:3128`
 - `HTTPS_PROXY` - secure proxy server, e.g. `http://localhost:3128`
-- `DEVCONTAINER_PROXY` - Enables proxy configuration for the devContainer. Please use `.Proxy` as value and don't forget (dot) in the value
+- `DEVCONTAINER_PROXY` - Enables proxy configuration for the devContainer. Please use `.Proxy` as value and don't forget (dot).
 
 
 {{< tabpane text=true >}}
