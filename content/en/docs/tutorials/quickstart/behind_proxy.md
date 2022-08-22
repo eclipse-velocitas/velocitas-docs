@@ -10,13 +10,11 @@ We know how time consuming it could be to setup your environment behind a cooper
 
 # Docker Desktop
 
-As we recognized a proxy issue in Docker Desktop [#12672](https://github.com/docker/for-win/issues/12672) we strongly recomment to use a Docker Desktop version >= 4.8.2.
+First of all you need to install [Docker Desktop](https://www.docker.com/get-started/). As we recognized a proxy issue in Docker Desktop [#12672](https://github.com/docker/for-win/issues/12672) we strongly recomment to use a Docker Desktop version >= 4.8.2. In case you have an older version on your machine please update to the current version.
 
 To be able to use the DevContainer in Visual Studio Code behind a proxy, you have to make sure that your proxy configuration in Docker Desktop is correct. 
 
 Go to `Settings` > `Resources` > `Proxies` and enable `Manual proxy configuration` and set HTTP and HTTPS to your host and port e.g. "http://localhost:3128", for more details read the Docker Desktop documentation: https://docs.docker.com/network/proxy/
-
-
 
 # Environment Variables
 
