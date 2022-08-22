@@ -67,7 +67,7 @@ When opening the DevContainer for the first time, a manual reload of the dapr ex
 <details>
 <summary>Please expand for information on troubleshooting</summary>
 
-> If Visual Studio Code fails to directly clone your repository you can also use a workaround:
+> If Visual Studio Code [fails to directly clone your repository](https://github.com/microsoft/vscode-dev-containers/issues/1585)  you can also use a workaround:
 >
 > 1. Clone the repo locally using your favorite Git tooling
 > 1. Start Visual Studio Code
