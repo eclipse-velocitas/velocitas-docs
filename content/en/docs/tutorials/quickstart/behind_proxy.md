@@ -16,7 +16,7 @@ First of all you need to install [Docker Desktop](https://www.docker.com/get-sta
 As we recognized a proxy issue in Docker Desktop [#12672](https://github.com/docker/for-win/issues/12672) we strongly recomment to use a Docker Desktop version >= 4.8.2. In case you have an older version on your machine please update to the current version.
 {{% /alert %}}
 
-As the next step you need to configure your Docker user profile (`~/.docker/config.json`), see [Docker Documentation](https://docs.docker.com/network/proxy/) for more details.
+In the next step you need to configure your Docker user profile (`~/.docker/config.json`), see [Docker Documentation](https://docs.docker.com/network/proxy/) for more details.
 
 ```json
 {
