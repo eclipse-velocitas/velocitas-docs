@@ -38,7 +38,7 @@ It is required to set the following environment variables:
 - `HTTPS_PROXY` - secure proxy server, e.g. `http://localhost:3128`
 - `DEVCONTAINER_PROXY` - Enables proxy configuration for the devContainer. Please use `.Proxy` as value and don't forget (dot).
 
-If you are running on 'Unix' you have to define in addition the environment variable `DEVCONTAINER_PROXY_HOST` to define the internal docker host `172.17.0.1`.
+If you are running on Unix you have to define in addition the environment variable `DEVCONTAINER_PROXY_HOST` to define the internal docker host `172.17.0.1`.
 
 In addition you have the opportunity to use the environment variable `DEVCONTAINER_PROXY_PORT` to define the port in case your proxy is running on a different port than `3128`.
 
@@ -85,6 +85,7 @@ A template configuration using proxy settings is provided by our template reposi
 
 
 - Check the value in `~/.docker/config.json` contains the following content, for more details see [Docker Documentation](https://docs.docker.com/network/proxy/):
+
    ```json
    {
     "proxies":{
