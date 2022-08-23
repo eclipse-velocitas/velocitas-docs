@@ -83,9 +83,9 @@ A template configuration using proxy settings is provided by our template reposi
    - From `Troubleshooting` choose `Clean / Purge data`
 
 
-
 - Check the value in `~/.docker/config.json` contains the following content, for more details see [Docker Documentation](https://docs.docker.com/network/proxy/):
-
+   {{% /tab %}}
+   {{% tab header="Windows & MacOS" %}}
    ```json
    {
     "proxies":{
@@ -97,5 +97,19 @@ A template configuration using proxy settings is provided by our template reposi
       }
    }
    ```
+   {{% /tab %}}
+   {{% tab header="Linux" %}}
+   ```json
+   {
+    "proxies":{
+         "default":{
+            "httpProxy":"http://172.17.0.1:3128",
+            "httpsProxy":"http://172.17.0.1:3128",
+            "noProxy":"localhost,127.0.0.1,0.0.0.0,10.0.0.0/8,192.168.122.0/24,cattle-system.svc,.svc,.cluster.local"
+         }
+      }
+   }
+   ```
+   {{% /tab %}}
 
 {{% /alert %}}
