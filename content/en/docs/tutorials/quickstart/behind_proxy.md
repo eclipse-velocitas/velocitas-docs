@@ -78,12 +78,12 @@ A template configuration using proxy settings is provided by our template reposi
 
 # Troubleshooting
 
-- If you experience issues during initial DevContainer build, clean images and volumes to avoid usage of cache: 
+If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used: 
+
    - Open Docker Desktop 
    - From `Troubleshooting` choose `Clean / Purge data`
 
-
-- Check the value in [`~/.docker/config.json`](https://docs.docker.com/network/proxy/) contains the following content:
+If you still have proxy problems, check if the `~/.docker/config.json` contains the following content:
 
    {{< tabpane text=true >}}
    {{% tab header="Windows & MacOS" %}}
@@ -113,3 +113,5 @@ A template configuration using proxy settings is provided by our template reposi
    ```
    {{% /tab %}}
    {{< /tabpane >}}
+
+For more details see: [Docker Documentation](https://docs.docker.com/network/proxy/)
