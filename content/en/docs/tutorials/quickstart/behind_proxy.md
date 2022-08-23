@@ -27,10 +27,8 @@ In the next step you need to enter your proxy settings:
 - Enter your proxy settings, e.g.:
   - Web Server (HTTP): `http://localhost:3128`
   - Secure Web Server (HTTPS): `http://localhost:3128`
-  - Bypass: `localhost,127.0.0.1,.example.com`
+  - Bypass: `localhost,127.0.0.1`
 - Apply & Restart.
-
-Please replace the values with our specific values (at least replace example.com in the Bypass value with your domain).
 
 # Environment Variables
 
@@ -40,21 +38,34 @@ It is required to set the following environment variables:
 - `HTTPS_PROXY` - secure proxy server, e.g. `http://localhost:3128`
 - `DEVCONTAINER_PROXY` - Enables proxy configuration for the devContainer. Please use `.Proxy` as value and don't forget (dot).
 
+- If you are running on Unix you have to define the environment variable `DEVCONTAINER_PROXY_HOST` to define the internal docker host `172.17.0.1`.
+
+- If you are trying to connect to a proxy which is running on a different port than `3128`, use the environment variable `DEVCONTAINER_PROXY_PORT` to define the port.
+
 
 {{< tabpane text=true >}}
 {{% tab header="Windows" %}}
 ```bash
 set
 setx DEVCONTAINER_PROXY ".Proxy"
-setx http_proxy "http://localhost:3128"
-setx https_proxy "http://localhost:3128"
+setx HTTP_PROXY "http://localhost:3128"
+setx HTTPS_PROXY "http://localhost:3128"
 ```
 {{% /tab %}}
-{{% tab header="MacOS & Linux" %}}
+{{% tab header="MacOS" %}}
 ```bash
 echo "export DEVCONTAINER_PROXY=.Proxy" >> ~/.bash_profile
-echo "export http_proxy=http://localhost:3128" >> ~/.bash_profile
-echo "export https_proxy=http://localhost:3128" >> ~/.bash_profile
+echo "export HTTP_PROXY=http://localhost:3128" >> ~/.bash_profile
+echo "export HTTPS_PROXY=http://localhost:3128" >> ~/.bash_profile
+source ~/.bash_profile
+```
+{{% /tab %}}
+{{% tab header="Linux" %}}
+```bash
+echo "export DEVCONTAINER_PROXY=.Proxy" >> ~/.bash_profile
+echo "export HTTP_PROXY=http://localhost:3128" >> ~/.bash_profile
+echo "export HTTPS_PROXY=http://localhost:3128" >> ~/.bash_profile
+echo "export DEVCONTAINER_PROXY_HOST=172.17.0.1" >> ~/.bash_profile
 source ~/.bash_profile
 ```
 {{% /tab %}}
@@ -66,30 +77,23 @@ A template configuration using proxy settings is provided by our template reposi
 `.devcontainer/Dockerfile.Proxy` will be used instead of `.devcontainer/Dockerfile`.
 
 {{% alert title="Troubleshooting" %}}
-- If you are running in Linux and expierence issues with the internal docker host proxy, use the environment variable `DEVCONTAINER_PROXY_HOST` to the internal docker host.
-
-- If you are trying to connect to a proxy which is running on a different port than `3128`, use the environment variable `DEVCONTAINER_PROXY_Port` to define the port.
 
 - If you experience issues during initial DevContainer build, than clean all images and volumes in Docker Desktop, otherwise cache might be used. 
   - Open Docker Desktop 
   - From `Troubleshooting` choose `Clean / Purge data`
 
-- Proxy settings in `~/.docker/config.json` will override settings in `.devcontainer/Dockerfile.Proxy`, which can cause problems. In case the DevContainer is still not working, check if proxy settings are set correctly in the Docker user profile (`~/.docker/config.json`), for more details see [Docker Documentation](https://docs.docker.com/network/proxy/).
+
+- Check the value in `~/.docker/config.json` contains the following content, for more details see [Docker Documentation](https://docs.docker.com/network/proxy/):
    ```json
    {
-    "proxies":
-    {
-      "default":
-      {
-        "httpProxy": "http://localhost:3128",
-        "httpsProxy": "http://localhost:3128",
-        "noProxy":"host.docker.internal,localhost,127.0.0.1,.example.com"
+    "proxies":{
+         "default":{
+            "httpProxy":"http://host.docker.internal:3128",
+            "httpsProxy":"http://host.docker.internal:3128",
+            "noProxy":"host.docker.internal,localhost,127.0.0.1"
+         }
       }
-    }
    }
    ```
-
-- If you are using `noProxy` setting in `~/.docker/config.json` verify that it is compatible with the setting of `NO_PROXY` in `.devcontainer/Dockerfile.Proxy`.
-The development environment relies on communication to localhost (e.g. localhost, 127.0.0.1) and it is important that the proxy setting is correct so that connections to localhost are not forwarded to the proxy.
 
 {{% /alert %}}
