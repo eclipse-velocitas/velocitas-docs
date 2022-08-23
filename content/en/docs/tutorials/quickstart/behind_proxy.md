@@ -84,7 +84,7 @@ A template configuration using proxy settings is provided by our template reposi
 
 
 - Check the value in [`~/.docker/config.json`](https://docs.docker.com/network/proxy/) contains the following content:
-   {{% /tab %}}
+   {{< tabpane text=true >}}
    {{% tab header="Windows & MacOS" %}}
    ```json
    {
@@ -111,5 +111,6 @@ A template configuration using proxy settings is provided by our template reposi
    }
    ```
    {{% /tab %}}
+   {{< /tabpane >}}
 
 {{% /alert %}}
