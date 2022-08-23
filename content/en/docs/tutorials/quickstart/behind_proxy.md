@@ -38,9 +38,9 @@ It is required to set the following environment variables:
 - `HTTPS_PROXY` - secure proxy server, e.g. `http://localhost:3128`
 - `DEVCONTAINER_PROXY` - Enables proxy configuration for the devContainer. Please use `.Proxy` as value and don't forget (dot).
 
-- If you are running on Unix you have to define the environment variable `DEVCONTAINER_PROXY_HOST` to define the internal docker host `172.17.0.1`.
+If you are running on 'Unix' you have to define in addition the environment variable `DEVCONTAINER_PROXY_HOST` to define the internal docker host `172.17.0.1`.
 
-- If you are trying to connect to a proxy which is running on a different port than `3128`, use the environment variable `DEVCONTAINER_PROXY_PORT` to define the port.
+In addition you have the opportunity to use the environment variable `DEVCONTAINER_PROXY_PORT` to define the port in case your proxy is running on a different port than `3128`.
 
 
 {{< tabpane text=true >}}
@@ -79,8 +79,9 @@ A template configuration using proxy settings is provided by our template reposi
 {{% alert title="Troubleshooting" %}}
 
 - If you experience issues during initial DevContainer build, than clean all images and volumes in Docker Desktop, otherwise cache might be used. 
-  - Open Docker Desktop 
-  - From `Troubleshooting` choose `Clean / Purge data`
+   - Open Docker Desktop 
+   - From `Troubleshooting` choose `Clean / Purge data`
+
 
 
 - Check the value in `~/.docker/config.json` contains the following content, for more details see [Docker Documentation](https://docs.docker.com/network/proxy/):
