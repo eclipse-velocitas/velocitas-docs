@@ -78,12 +78,12 @@ A template configuration using proxy settings is provided by our template reposi
 
 {{% alert title="Troubleshooting" %}}
 
-- If you experience issues during initial DevContainer build, than clean all images and volumes in Docker Desktop, otherwise cache might be used. 
+- If you experience issues during initial DevContainer build, clean images and volumes otherwise cache might be used: 
    - Open Docker Desktop 
    - From `Troubleshooting` choose `Clean / Purge data`
 
 
-- Check the value in `~/.docker/config.json` contains the following content, for more details see [Docker Documentation](https://docs.docker.com/network/proxy/):
+- Check the value in [`~/.docker/config.json`](https://docs.docker.com/network/proxy/) contains the following content:
    {{% /tab %}}
    {{% tab header="Windows & MacOS" %}}
    ```json
