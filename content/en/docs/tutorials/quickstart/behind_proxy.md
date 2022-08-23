@@ -76,7 +76,7 @@ source ~/.bash_profile
 A template configuration using proxy settings is provided by our template repository with `.devcontainer/Dockerfile.Proxy`. By setting the environment variable `DEVCONTAINER_PROXY` to `.Proxy` the file
 `.devcontainer/Dockerfile.Proxy` will be used instead of `.devcontainer/Dockerfile`.
 
-{{% alert title="Troubleshooting" %}}
+# Troubleshooting
 
 - If you experience issues during initial DevContainer build, clean images and volumes to avoid usage of cache: 
    - Open Docker Desktop 
@@ -113,5 +113,3 @@ A template configuration using proxy settings is provided by our template reposi
    ```
    {{% /tab %}}
    {{< /tabpane >}}
-
-{{% /alert %}}
