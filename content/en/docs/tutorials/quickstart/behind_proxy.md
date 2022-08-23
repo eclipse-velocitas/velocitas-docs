@@ -83,7 +83,7 @@ A template configuration using proxy settings is provided by our template reposi
       {
         "httpProxy": "http://localhost:3128",
         "httpsProxy": "http://localhost:3128",
-        "noProxy": "localhost,127.0.0.1,.example.com"
+        "noProxy":"host.docker.internal,localhost,127.0.0.1,.example.com"
       }
     }
    }
