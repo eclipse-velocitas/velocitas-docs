@@ -83,7 +83,7 @@ If you experience issues during initial DevContainer build, clean all images and
    - Open Docker Desktop 
    - From `Troubleshooting` choose `Clean / Purge data`
 
-If you still have proxy problems, check if the `~/.docker/config.json` contains the following content:
+Proxy settings in `.devcontainer/Dockerfile.Proxy` will be overridden by `~/.docker/config.json`, which can cause problems. In case the DevContainer is still not working, check if the `~/.docker/config.json` contains the following content:
 
    {{< tabpane text=true >}}
    {{% tab header="Windows & MacOS" %}}
