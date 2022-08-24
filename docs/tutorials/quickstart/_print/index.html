@@ -1,0 +1,896 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.98.0" />
+<link rel="canonical" type="text/html" href="/velocitas/docs/tutorials/quickstart/">
+<link rel="alternate" type="application/rss&#43;xml" href="/velocitas/docs/tutorials/quickstart/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/velocitas/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/velocitas/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/velocitas/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/velocitas/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-192x192.png" sizes="192x192">
+
+<title>Quickstart | Velocitas</title>
+<meta name="description" content="Learn how to setup and explore the provided development environment.
+">
+<meta property="og:title" content="Quickstart" />
+<meta property="og:description" content="Learn how to setup and explore the provided development environment.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/velocitas/docs/tutorials/quickstart/" />
+
+<meta itemprop="name" content="Quickstart">
+<meta itemprop="description" content="Learn how to setup and explore the provided development environment.
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Quickstart"/>
+<meta name="twitter:description" content="Learn how to setup and explore the provided development environment.
+"/>
+
+
+
+
+<link rel="preload" href="/velocitas/scss/main.min.190eed3a685f1e2c82e3a091ca824a891749562d5a9a13247d2f94d7feb607c1.css" as="style">
+<link href="/velocitas/scss/main.min.190eed3a685f1e2c82e3a091ca824a891749562d5a9a13247d2f94d7feb607c1.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-130444728-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav
+  class="js-navbar-scroll navbar navbar-expand navbar-dark  flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/velocitas/"><span class="navbar-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="180mm" height="40mm" style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision" viewBox="0 0 7086.6144 1574.8032" id="svg983" sodipodi:docname="logo.svg" inkscape:version="1.0 (4035a4f, 2020-05-01)"><sodipodi:namedview inkscape:document-rotation="0" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1080" id="namedview985" showgrid="false" showguides="false" units="mm" inkscape:zoom=".69602273" inkscape:cx="408" inkscape:cy="528" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="Layer_x0020_1"/><defs id="defs967"><style id="style956">.fil5{fill:#24b2e4}.fil4{fill:#2e95c9}.fil3{fill:#2477b6}.fil2{fill:#2c5aa0}.fil1{fill:#364b95}.fil0{fill:url(#id0);fill-rule:nonzero}</style><linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="3149.4299" y1="5635.5898" x2="7771.9399" y2="5635.5898"><stop offset="0" style="stop-opacity:1;stop-color:#2B6FB5" id="stop958"/><stop offset=".870588" style="stop-opacity:1;stop-color:#7DC5ED" id="stop960"/><stop offset=".988235" style="stop-opacity:1;stop-color:#7DC5ED" id="stop962"/><stop offset="1" style="stop-opacity:1;stop-color:#7DC5ED" id="stop964"/></linearGradient></defs><g id="Layer_x0020_1" transform="matrix(0.98370981,0,0,0.98370981,-626.40511,-4616.899)"><path class="fil0" d="m3395.11 6027.9h147.19l246.79-709.92h-116.2l-203.63 611.98-205.28-611.98h-114.54l245.68 709.92zm968.32-244.57v0-170.98c0-99.6-76.36-154.37-183.7-154.37h-131.69c-107.35.0-183.7 54.78-183.7 154.37v261.17c0 99.6 76.36 154.38 183.7 154.38h315.39v-82.44h-353.02c-28.22.0-37.63-18.26-37.63-47.59v-114.54zm-108.45-83v0h-282.2v-112.88c0-22.13 9.41-47.03 37.63-47.03h206.94c28.22.0 37.63 24.9 37.63 47.03zm258.95 327.57v0h108.45v-784.62h-108.45zm760.83-415.55v0c0-99.6-65.29-154.37-171.53-154.37h-158.81c-106.24.0-172.09 54.78-172.09 154.37v261.17c0 99.6 65.85 154.38 172.09 154.38h158.81c106.24.0 171.53-54.78 171.53-154.38zm-393.97 275.01v0-288.84c0-42.06 12.17-58.1 48.69-58.1h188.69c36.52.0 48.14 16.04 48.14 58.1v288.84c0 41.5-11.62 58.1-48.14 58.1h-188.69c-36.52.0-48.69-16.6-48.69-58.1zm631.35.0v0-288.84c0-42.06 11.62-58.1 48.14-58.1h272.79v-82.44h-256.19c-107.35.0-173.19 54.78-173.19 154.37v261.17c0 99.6 65.85 154.38 173.19 154.38h256.19v-82.44h-272.79c-36.52.0-48.14-16.6-48.14-58.1zm460.93 140.54v0h107.9v-569.93h-107.9zM5962 5362.25v0h130.03V5243.28H5962zm621.94 178.17v0-82.44h-168.76v-139.99h-76.36l-32.09 139.99h-85.77v82.44h85.77v332c0 96.28 54.78 155.48 180.39 155.48h96.83v-82.44h-120.63c-41.5.0-48.14-21.58-48.14-61.42v-343.61h168.76zm107.35 333.1v0c0 99.6 65.3 154.38 172.64 154.38h33.2c83.56.0 143.87-2.21 169.87-65.29v65.29h107.35v-415.55c0-99.6-76.36-154.37-183.71-154.37h-241.8v82.44h280.54c27.67.0 37.63 18.26 37.63 47.03v95.72h-203.07c-107.35.0-172.64 54.78-172.64 154.93v35.41zm108.45 13.83v0-63.63c0-39.29 10.52-55.89 42.61-57.55H7067v141.65c-3.32 26.56-13.28 37.63-43.16 37.63h-175.96c-36.52.0-48.14-16.6-48.14-58.1zm863.75 27.67v0c0 22.69-11.62 30.43-48.14 30.43H7324.3v82.44h275c107.35.0 172.64-54.78 172.64-154.38v-40.94c0-68.61-47.03-90.19-146.63-113.99-80.78-19.37-101.26-26.56-203.07-51.46v-96.83c0-22.13 11.62-29.88 48.14-29.88h282.2v-82.44h-266.15c-107.34.0-172.64 54.78-172.64 154.37v37.63c0 64.19 43.71 89.08 132.8 109.56 106.8 24.9 151.61 36.52 216.91 50.35v105.13z" id="path970" style="fill:url(#id0)"/><path class="fil1" d="m728.06 5018.07c722.09-309.86 1087.3 423.3 1320.24 889.75 88.54 177.62 156.59 313.19 195.88 317.61 67.5 8.3 132.24-294.37 240.7-1228.94l85.77 7.19C2455 5996.35 2361.49 6315.07 2233.12 6300.13 2145.14 6289.62 2069.33 6137.45 1969.73 5937.7c-219.12-438.78-562.74-1127.13-1203.49-852.12z" id="path972"/><path class="fil2" d="m900.14 4963.85c686.68-298.8 1022 350.81 1244.44 781.3 87.43 168.77 155.49 301.01 202.52 309.31 74.7 12.17 156.04-257.3 299.35-1107.76l85.22 10.51c-153.28 909.67-266.15 1193.53-400.61 1170.84-90.74-15.49-167.11-163.23-265.04-352.47C1857.97 5373.32 1544.78 4766.86 938.89 5030.8l-38.73-66.95z" id="path974"/><path class="fil3" d="m1056.18 4905.75c651.27-287.18 957.26 282.2 1168.63 675.61 85.21 158.25 153.27 285.52 207.5 298.24 82.45 18.81 180.94-216.35 359.11-986.03l84.66 14.39c-192.56 828.88-324.8 1076.78-465.35 1044.13-93.51-21.58-169.32-163.23-263.94-339.19-195.88-364.64-479.74-892.52-1051.88-640.2z" id="path976"/><path class="fil4" d="m1238.22 4844.88c616.96-276.66 894.18 216.35 1094.49 572.7 80.79 144.42 148.29 263.94 209.16 282.75 90.19 28.22 205.29-171.53 421.09-863.74l83.55 19.37c-234.61 751.97-386.78 961.13-533.96 915.2-93.51-29.33-167.66-161.57-257.3-320.93-183.71-327.57-438.79-780.75-977.74-538.39l-39.29-66.95z" id="path978"/><path class="fil5" d="m1406.99 4784.02c583.76-266.7 832.76 153.83 1020.89 471.99 75.25 127.27 139.99 236.83 205.28 263.38 99.05 40.94 231.85-120.07 489.15-740.91l80.79 25.45c-281.65 680.59-453.73 847.15-607 783.51-91.3-37.63-162.13-157.7-244.57-297.13-171.54-289.39-397.85-671.74-904.7-439.9l-39.84-66.4z" id="path980"/></g></svg></span><span class="font-weight-bold">Velocitas</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/velocitas/docs/"><span class="active">Documentation</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="/velocitas/community/"><span>Community</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    <input
+  type="search"
+  class="form-control td-search-input"
+  placeholder="&#xf002; Search this site…"
+  aria-label="Search this site…"
+  autocomplete="off"
+  
+  data-offline-search-index-json-src="/velocitas/offline-search-index.e7236ea6e952c899add7de00efeeded9.json"
+  data-offline-search-base-href="/"
+  data-offline-search-max-results="10"
+>
+
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/velocitas/docs/tutorials/quickstart/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Quickstart</h1>
+<div class="lead">Learn how to setup and explore the provided development environment.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-defa8f4653ef49762113635364d18b4e">Working behind proxy</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>The following information describes how to setup and configure the <a href="https://code.visualstudio.com/docs/remote/containers" target="_blank" rel="noopener">Development Container (DevContainer)</a>, and how to build, customize and test the sample <em>Vehicle App</em>, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.</p>
+<p>Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> for your own <em>Vehicle App</em> develpment project.</p>
+<h2 id="creating-vehicle-app-repository">Creating Vehicle App Repository</h2>
+<p>For the orginization and <em>Vehicle App</em> repository the name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of the document.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+<ul class="nav nav-tabs" id="tabs-0" role="tablist"><li class="nav-item">
+      <a class="nav-link active"
+          id="tabs-00-00-tab" data-toggle="tab" href="#tabs-00-00" role="tab"
+          
+        aria-controls="tabs-00-00" aria-selected="false">Python</a>
+    </li>
+
+    
+      
+    <li class="nav-item">
+      <a class="nav-link"
+          id="tabs-00-01-tab" data-toggle="tab" href="#tabs-00-01" role="tab"
+          
+        aria-controls="tabs-00-01" aria-selected="false">C++</a>
+    </li>
+
+    
+      
+    </ul>
+
+
+
+
+<div class="tab-content" id="tabs-0-content"><div class="tab-body tab-pane fade show active"
+        id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab">
+        <p>Create your own repository copy from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
+</div>
+
+    
+      
+    
+
+  <div class="tab-body tab-pane fade"
+        id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab">
+        <p>C++ currently has only an <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">SDK repository</a>. To create your own <em>Vehicle App</em> repository, fork the repository into your own organization. For the fork, only the <code>main</code> branch needs to be copied over.</p>
+</div>
+
+    
+      
+    
+
+  
+</div>
+
+<h2 id="starting-development-environment">Starting Development Environment</h2>
+<p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
+<h3 id="visual-studio-code">Visual Studio Code</h3>
+<p>The Visual Studio Code <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">Development Containers</a> makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development &amp; testing tools into a container that is then started within your Visual Studio Code session.</p>
+<p>To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:</p>
+<ul>
+<li>
+<p>Install Docker Engine / <a href="https://www.docker.com/products/docker-desktop" target="_blank" rel="noopener">Docker Desktop</a></p>
+</li>
+<li>
+<p>Install <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a></p>
+</li>
+<li>
+<p>Add <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers" target="_blank" rel="noopener">Remote-Containers</a> extension via the marketplace or using the command line</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>code --install-extension ms-vscode-remote.remote-containers
+</span></span></code></pre></div></li>
+</ul>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Proxy configuration</h4>
+
+    A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: <a href="/velocitas/docs/tutorials/quickstart/behind_proxy">Working behind a proxy</a>
+
+</div>
+
+<p>With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.</p>
+<ol>
+<li>Start Visual Studio Code</li>
+<li>Press <kbd>F1</kbd> and run the command <code>Remote-Containers: Clone Repository in Container Volume...</code></li>
+<li>Select <code>Clone a repository from GitHub in a Container Volume</code> and choose the repository / branch to clone</li>
+<li>Enter the GitHub organization and repository name (e.g. <code>MyOrg/MyFirstVehicleApp</code>) and select the repository from the list</li>
+<li>Select the branch to clone from the list</li>
+</ol>
+<p>The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    When opening the DevContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.
+
+</div>
+
+<details>
+<summary>Please expand for information on troubleshooting</summary>
+<blockquote>
+<p>If Visual Studio Code <a href="https://github.com/microsoft/vscode-dev-containers/issues/1585" target="_blank" rel="noopener">fails to directly clone your repository</a>  you can also use a workaround:</p>
+<ol>
+<li>Clone the repo locally using your favorite Git tooling</li>
+<li>Start Visual Studio Code</li>
+<li>Select <code>Open Folder</code> from the <code>File</code> menu</li>
+<li>Open the root of the cloned repo</li>
+<li>A popup appears on the lower left side of Visual Studio Code</li>
+<li>Click on <code>Reopen in Container</code></li>
+<li>Wait for the container to be set up</li>
+</ol>
+<p>If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command <code>Remote-Containers: Open Folder in Container</code></p>
+</blockquote>
+<blockquote>
+<p>If the development container fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command <code>Remote-Containers: Rebuild Container Without Cache</code></p>
+</blockquote>
+<p>The devContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a>-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.</p>
+</details>
+<h3 id="codespaces">Codespaces</h3>
+<p>Another possibility to use your newly created repository is via <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.
+You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.</p>
+<p>To get started with Codespaces, you just have to follow a few steps:</p>
+<ol>
+<li>Open your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp" target="_blank" rel="noopener">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
+<li>Click on the green <code>Code</code> button and select Codespaces on the top</li>
+<li>Configure your Codespace if needed (defaults to the main branch and a standard agent)</li>
+<li>Click on <code>create</code></li>
+</ol>
+<p>A new window will open where you see the logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.</p>
+<p>Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    Be careful with using Codespaces in browser and Visual Studio Code locally at the same time: <em>Tasks</em> that are started using a browser session will not show in Visual Studio Code environment and vice versa. This can lead to problems using the prepared <em>Tasks</em>-scripts.
+
+</div>
+
+<h2 id="starting-runtime-services">Starting runtime services</h2>
+<p>The runtime services (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are required to develop vehicle apps and run integration tests.</p>
+<p>A Visual Studio Code task called <code>Start Vehicle App runtime</code> is available to run these in the correct order.</p>
+<ol>
+<li>Press <kbd>F1</kbd></li>
+<li>Select command <code>Tasks: Run Task</code></li>
+<li>Select <code>Start VehicleApp runtime</code></li>
+<li>Choose <code>Continue without scanning the output</code></li>
+</ol>
+<p>You should see the tasks <code>run-mosquitto</code>, <code>run-vehicledatabroker</code>, <code>run-seatservice</code> and <code>run-feedercan</code> being executed in the Visual Studio Code output panel.</p>
+<p>More information about the tasks are available <a href="/velocitas/docs/run_runtime_services_locally.md">here</a>.</p>
+<h2 id="debugging-vehicle-app">Debugging Vehicle App</h2>
+<p>Now that the <a href="#starting-runtime-services">runtime services</a> are all up and running, let&rsquo;s start a debug session for the Vehicle App as next step.</p>
+<ol>
+<li>Open the main source file and set a breakpoint in the given method:
+<ul>
+<li>Python main source file: <code>src/VehicleApp/main.py</code>, set breakpoint in method: <code>on_set_position_request_received</code></li>
+<li>C++ main source file: <code>app/src/VehicleApp.cpp</code>, set breakpoint in method: <code>onSetPositionRequestReceived</code></li>
+</ul>
+</li>
+<li>Press <kbd>F5</kbd> to start a debug session of the <em>Vehicle App</em> and see the log output on the <code>DEBUG CONSOLE</code></li>
+</ol>
+<p>To trigger this breakpoint, let&rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.</p>
+<ol start="3">
+<li>
+<p>Open <code>VSMqtt</code> extension in Visual Studio Code and connect to <code>mosquitto (local)</code></p>
+</li>
+<li>
+<p>Set <code>Subscribe Topic</code> = <code>seatadjuster/setPosition/response</code> and click subscribe</p>
+</li>
+<li>
+<p>Set <code>Subscribe Topic</code> = <code>seatadjuster/currentPosition</code> and click subscribe</p>
+</li>
+<li>
+<p>Set <code>Publish Topic</code> = <code>seatadjuster/setPosition/request</code></p>
+</li>
+<li>
+<p>Set and publish a dummy payload:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+</ol>
+<p>Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.</p>
+<h2 id="triggering-ci-workflow">Triggering CI Workflow</h2>
+<p>The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find <a href="https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md" target="_blank" rel="noopener">here</a>.</p>
+<p>By pushing a change to GitHub the CI Workflow will be triggered:</p>
+<ol>
+<li>
+<p>Make modification in any of your files</p>
+</li>
+<li>
+<p>Commit and push your change</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#4e9a06">&#34;removed emtpy line&#34;</span>
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div></li>
+</ol>
+<p>To see the results open the <code>Actions</code> page of your repository on GitHub, go to <code>CI Workflow</code> and check the workflow output.</p>
+<h2 id="releasing-vehicle-app">Releasing Vehicle App</h2>
+<p>Now that the <code>CI Workflow</code> was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image that is published in the GitHub container registry</p>
+<ol>
+<li>Open the <code>Code</code> page of your repository on GitHub</li>
+<li>Click on <code>Create a new release</code> in the Releases section on the right side</li>
+<li>Enter a version, e.g. v1.0.0, and click on <code>Publish release</code>
+<ul>
+<li>GitHub will automatically create a tag using the version number</li>
+</ul>
+</li>
+</ol>
+<p>The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open <code>Actions</code> on the repoitory and see the result.</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model">Creating a Vehicle Model</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
+<li>Concept: <a href="/velocitas/docs/concepts/development-model.md">Development Model</a></li>
+</ul>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-defa8f4653ef49762113635364d18b4e">1 - Working behind proxy</h1>
+    <div class="lead">Learn how to setup your docker desktop and Visual Studio Code behind a coorperate proxy.</div>
+	<p>We know how time consuming it could be to setup your environment behind a cooperate proxy. This guide will help you to set it up correctly.</p>
+<h1 id="https-proxy-server">HTTP(s) proxy server</h1>
+<p>Install and configure the proxy server as recommented or required by your company. For example you could use <a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>, which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: <a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>)</p>
+<ul>
+<li>Install your HTTP(s) proxy server</li>
+<li>Start your HTTP(s) proxy server</li>
+</ul>
+<h1 id="docker-desktop">Docker Desktop</h1>
+<p>You need to install <a href="https://www.docker.com/get-started/" target="_blank" rel="noopener">Docker Desktop</a> using the right version. 
+As we recognized a proxy issue in Docker Desktop <a href="https://github.com/docker/for-win/issues/12672" target="_blank" rel="noopener">#12672</a> we strongly recomment to use a Docker Desktop version &gt;= 4.8.2. In case you have an older version on your machine please update to the current version.</p>
+<p>In the next step you need to enter your proxy settings:</p>
+<ul>
+<li>Open Docker Desktop and go to the Settings</li>
+<li>From <code>Resources</code>, select <code>Proxies</code></li>
+<li>Enable <code>Manual proxy configuration</code></li>
+<li>Enter your proxy settings, e.g.:
+<ul>
+<li>Web Server (HTTP): <code>http://localhost:3128</code></li>
+<li>Secure Web Server (HTTPS): <code>http://localhost:3128</code></li>
+<li>Bypass: <code>localhost,127.0.0.1</code></li>
+</ul>
+</li>
+<li>Apply &amp; Restart.</li>
+</ul>
+<h1 id="environment-variables">Environment Variables</h1>
+<p>It is required to set the following environment variables:</p>
+<ul>
+<li><code>HTTP_PROXY</code> - proxy server, e.g. <code>http://localhost:3128</code></li>
+<li><code>HTTPS_PROXY</code> - secure proxy server, e.g. <code>http://localhost:3128</code></li>
+<li><code>DEVCONTAINER_PROXY</code> - Enables proxy configuration for the devContainer. Please use <code>.Proxy</code> as value and don&rsquo;t forget (dot).</li>
+</ul>
+<p><strong>Unix users</strong>: If you are running on Unix you have to define in addition the environment variable <code>DEVCONTAINER_PROXY_HOST</code> to define the internal docker host <code>172.17.0.1</code>.</p>
+<p>In addition you have the opportunity to use the environment variable <code>DEVCONTAINER_PROXY_PORT</code> to define the port in case your proxy is running on a different port than <code>3128</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+<ul class="nav nav-tabs" id="tabs-0" role="tablist"><li class="nav-item">
+      <a class="nav-link active"
+          id="tabs-00-00-tab" data-toggle="tab" href="#tabs-00-00" role="tab"
+          
+        aria-controls="tabs-00-00" aria-selected="false">Windows</a>
+    </li>
+
+    
+      
+    <li class="nav-item">
+      <a class="nav-link"
+          id="tabs-00-01-tab" data-toggle="tab" href="#tabs-00-01" role="tab"
+          
+        aria-controls="tabs-00-01" aria-selected="false">MacOS</a>
+    </li>
+
+    
+      
+    <li class="nav-item">
+      <a class="nav-link"
+          id="tabs-00-02-tab" data-toggle="tab" href="#tabs-00-02" role="tab"
+          
+        aria-controls="tabs-00-02" aria-selected="false">Linux</a>
+    </li>
+
+    
+      
+    </ul>
+
+
+
+
+<div class="tab-content" id="tabs-0-content"><div class="tab-body tab-pane fade show active"
+        id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">set</span>
+</span></span><span style="display:flex;"><span>setx DEVCONTAINER_PROXY <span style="color:#4e9a06">&#34;.Proxy&#34;</span>
+</span></span><span style="display:flex;"><span>setx HTTP_PROXY <span style="color:#4e9a06">&#34;http://localhost:3128&#34;</span>
+</span></span><span style="display:flex;"><span>setx HTTPS_PROXY <span style="color:#4e9a06">&#34;http://localhost:3128&#34;</span>
+</span></span></code></pre></div></div>
+
+    
+      
+    
+
+  <div class="tab-body tab-pane fade"
+        id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export DEVCONTAINER_PROXY=.Proxy&#34;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTP_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTPS_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> ~/.bash_profile
+</span></span></code></pre></div></div>
+
+    
+      
+    
+
+  <div class="tab-body tab-pane fade"
+        id="tabs-00-02" role="tabpanel" aria-labelled-by="tabs-00-02-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export DEVCONTAINER_PROXY=.Proxy&#34;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTP_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTPS_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export DEVCONTAINER_PROXY_HOST=172.17.0.1&#34;</span> &gt;&gt; ~/.bash_profile
+</span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> ~/.bash_profile
+</span></span></code></pre></div></div>
+
+    
+      
+    
+
+  
+</div>
+
+<h1 id="visual-studio-code">Visual Studio Code</h1>
+<p>A template configuration using proxy settings is provided by our template repository with <code>.devcontainer/Dockerfile.Proxy</code>. By setting the environment variable <code>DEVCONTAINER_PROXY</code> to <code>.Proxy</code> the file
+<code>.devcontainer/Dockerfile.Proxy</code> will be used instead of <code>.devcontainer/Dockerfile</code>.</p>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<p><strong>Case 1</strong>:</p>
+<p>If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used:</p>
+<ul>
+<li>Open Docker Desktop</li>
+<li>From <code>Troubleshooting</code> choose <code>Clean / Purge data</code></li>
+</ul>
+<p><strong>Case 2</strong>:</p>
+<p>Proxy settings in <code>.devcontainer/Dockerfile.Proxy</code> will be overridden by <code>~/.docker/config.json</code>, which can cause problems. In case the DevContainer is still not working, check if the <code>~/.docker/config.json</code> contains the following content:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+   
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+   <ul class="nav nav-tabs" id="tabs-1" role="tablist"><li class="nav-item">
+      <a class="nav-link active"
+          id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
+          
+        aria-controls="tabs-01-00" aria-selected="false">Windows &amp; MacOS</a>
+    </li>
+
+    
+      
+    <li class="nav-item">
+      <a class="nav-link"
+          id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
+          
+        aria-controls="tabs-01-01" aria-selected="false">Linux</a>
+    </li>
+
+    
+      
+    </ul>
+
+
+
+
+<div class="tab-content" id="tabs-1-content"><div class="tab-body tab-pane fade show active"
+        id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">&#34;proxies&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;default&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://host.docker.internal:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpsProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://host.docker.internal:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;noProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;host.docker.internal,localhost,127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></div>
+
+    
+      
+    
+
+  <div class="tab-body tab-pane fade"
+        id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">&#34;proxies&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;default&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://172.17.0.1:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpsProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://172.17.0.1:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;noProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;host.docker.internal,localhost,127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></div>
+
+    
+      
+    
+
+  
+</div>
+
+<p>For more details see: <a href="https://docs.docker.com/network/proxy/" target="_blank" rel="noopener">Docker Documentation</a></p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Eclipse Velocitas Project" aria-label="Eclipse Velocitas Project">
+    <a class="text-white" target="_blank" rel="noopener" href="https://projects.eclipse.org/projects/automotive.velocitas" aria-label="Eclipse Velocitas Project">
+      <i class="fas fa-external-link-alt"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/eclipse-velocitas" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Developer mailing list" aria-label="Developer mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://accounts.eclipse.org/mailing-list/velocitas-dev" aria-label="Developer mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org">
+        Eclipse Foundation
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/privacy.php">
+        Privacy Policy
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/termsofuse.php">
+        Terms of Use
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/copyright.php">
+        Copyright Agent
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/">
+        Legal
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/epl-2.0/">
+        License
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/security/">
+        Report a Vulnerability
+      </a>
+    </small>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src='/velocitas/js/tabpane-persist.js'></script>
+<script src="/velocitas/js/main.min.7649ae165a00802da6d831dc9f27da24dbea5447408e1a9e1f9b7040e553ec98.js" integrity="sha256-dkmuFloAgC2m2DHcnyfaJNvqVEdAjhqeH5twQOVT7Jg=" crossorigin="anonymous"></script>
+
+  </body>
+</html>

@@ -1,0 +1,348 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Velocitas – Quickstart</title>
+    <link>/velocitas/docs/tutorials/quickstart/</link>
+    <description>Recent content in Quickstart on Velocitas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 13:43:25 +0530</lastBuildDate>
+    
+	  <atom:link href="/velocitas/docs/tutorials/quickstart/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Working behind proxy</title>
+      <link>/velocitas/docs/tutorials/quickstart/behind_proxy/</link>
+      <pubDate>Fri, 19 Aug 2022 17:46:21 +0530</pubDate>
+      
+      <guid>/velocitas/docs/tutorials/quickstart/behind_proxy/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We know how time consuming it could be to setup your environment behind a cooperate proxy. This guide will help you to set it up correctly.&lt;/p&gt;
+&lt;h1 id=&#34;https-proxy-server&#34;&gt;HTTP(s) proxy server&lt;/h1&gt;
+&lt;p&gt;Install and configure the proxy server as recommented or required by your company. For example you could use &lt;a href=&#34;https://github.com/genotrance/px&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PX&lt;/a&gt;, which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: &lt;a href=&#34;https://github.com/genotrance/px&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PX&lt;/a&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install your HTTP(s) proxy server&lt;/li&gt;
+&lt;li&gt;Start your HTTP(s) proxy server&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;docker-desktop&#34;&gt;Docker Desktop&lt;/h1&gt;
+&lt;p&gt;You need to install &lt;a href=&#34;https://www.docker.com/get-started/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Desktop&lt;/a&gt; using the right version. 
+As we recognized a proxy issue in Docker Desktop &lt;a href=&#34;https://github.com/docker/for-win/issues/12672&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#12672&lt;/a&gt; we strongly recomment to use a Docker Desktop version &amp;gt;= 4.8.2. In case you have an older version on your machine please update to the current version.&lt;/p&gt;
+&lt;p&gt;In the next step you need to enter your proxy settings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Open Docker Desktop and go to the Settings&lt;/li&gt;
+&lt;li&gt;From &lt;code&gt;Resources&lt;/code&gt;, select &lt;code&gt;Proxies&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enable &lt;code&gt;Manual proxy configuration&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enter your proxy settings, e.g.:
+&lt;ul&gt;
+&lt;li&gt;Web Server (HTTP): &lt;code&gt;http://localhost:3128&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Secure Web Server (HTTPS): &lt;code&gt;http://localhost:3128&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Bypass: &lt;code&gt;localhost,127.0.0.1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Apply &amp;amp; Restart.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;environment-variables&#34;&gt;Environment Variables&lt;/h1&gt;
+&lt;p&gt;It is required to set the following environment variables:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;HTTP_PROXY&lt;/code&gt; - proxy server, e.g. &lt;code&gt;http://localhost:3128&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;HTTPS_PROXY&lt;/code&gt; - secure proxy server, e.g. &lt;code&gt;http://localhost:3128&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;DEVCONTAINER_PROXY&lt;/code&gt; - Enables proxy configuration for the devContainer. Please use &lt;code&gt;.Proxy&lt;/code&gt; as value and don&amp;rsquo;t forget (dot).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Unix users&lt;/strong&gt;: If you are running on Unix you have to define in addition the environment variable &lt;code&gt;DEVCONTAINER_PROXY_HOST&lt;/code&gt; to define the internal docker host &lt;code&gt;172.17.0.1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In addition you have the opportunity to use the environment variable &lt;code&gt;DEVCONTAINER_PROXY_PORT&lt;/code&gt; to define the port in case your proxy is running on a different port than &lt;code&gt;3128&lt;/code&gt;.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-0&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active&#34;
+          id=&#34;tabs-00-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-00-00&#34; role=&#34;tab&#34;
+          
+        aria-controls=&#34;tabs-00-00&#34; aria-selected=&#34;false&#34;&gt;Windows&lt;/a&gt;
+    &lt;/li&gt;
+
+    
+      
+    &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-00-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-00-01&#34; role=&#34;tab&#34;
+          
+        aria-controls=&#34;tabs-00-01&#34; aria-selected=&#34;false&#34;&gt;MacOS&lt;/a&gt;
+    &lt;/li&gt;
+
+    
+      
+    &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-00-02-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-00-02&#34; role=&#34;tab&#34;
+          
+        aria-controls=&#34;tabs-00-02&#34; aria-selected=&#34;false&#34;&gt;Linux&lt;/a&gt;
+    &lt;/li&gt;
+
+    
+      
+    &lt;/ul&gt;
+
+
+
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-0-content&#34;&gt;&lt;div class=&#34;tab-body tab-pane fade show active&#34;
+        id=&#34;tabs-00-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-00-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setx DEVCONTAINER_PROXY &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;.Proxy&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setx HTTP_PROXY &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://localhost:3128&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setx HTTPS_PROXY &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://localhost:3128&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+    
+      
+    
+
+  &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-00-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-01-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export DEVCONTAINER_PROXY=.Proxy&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export HTTP_PROXY=http://localhost:3128&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export HTTPS_PROXY=http://localhost:3128&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+    
+      
+    
+
+  &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-00-02&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-02-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export DEVCONTAINER_PROXY=.Proxy&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export HTTP_PROXY=http://localhost:3128&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export HTTPS_PROXY=http://localhost:3128&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export DEVCONTAINER_PROXY_HOST=172.17.0.1&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+    
+      
+    
+
+  
+&lt;/div&gt;
+
+&lt;h1 id=&#34;visual-studio-code&#34;&gt;Visual Studio Code&lt;/h1&gt;
+&lt;p&gt;A template configuration using proxy settings is provided by our template repository with &lt;code&gt;.devcontainer/Dockerfile.Proxy&lt;/code&gt;. By setting the environment variable &lt;code&gt;DEVCONTAINER_PROXY&lt;/code&gt; to &lt;code&gt;.Proxy&lt;/code&gt; the file
+&lt;code&gt;.devcontainer/Dockerfile.Proxy&lt;/code&gt; will be used instead of &lt;code&gt;.devcontainer/Dockerfile&lt;/code&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Case 1&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Open Docker Desktop&lt;/li&gt;
+&lt;li&gt;From &lt;code&gt;Troubleshooting&lt;/code&gt; choose &lt;code&gt;Clean / Purge data&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Case 2&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Proxy settings in &lt;code&gt;.devcontainer/Dockerfile.Proxy&lt;/code&gt; will be overridden by &lt;code&gt;~/.docker/config.json&lt;/code&gt;, which can cause problems. In case the DevContainer is still not working, check if the &lt;code&gt;~/.docker/config.json&lt;/code&gt; contains the following content:&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+   
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+   &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-1&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active&#34;
+          id=&#34;tabs-01-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-00&#34; role=&#34;tab&#34;
+          
+        aria-controls=&#34;tabs-01-00&#34; aria-selected=&#34;false&#34;&gt;Windows &amp;amp; MacOS&lt;/a&gt;
+    &lt;/li&gt;
+
+    
+      
+    &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-01-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-01&#34; role=&#34;tab&#34;
+          
+        aria-controls=&#34;tabs-01-01&#34; aria-selected=&#34;false&#34;&gt;Linux&lt;/a&gt;
+    &lt;/li&gt;
+
+    
+      
+    &lt;/ul&gt;
+
+
+
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;&lt;div class=&#34;tab-body tab-pane fade show active&#34;
+        id=&#34;tabs-01-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-00-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;proxies&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;default&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;httpProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://host.docker.internal:3128&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;httpsProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://host.docker.internal:3128&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;noProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;host.docker.internal,localhost,127.0.0.1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+    
+      
+    
+
+  &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-01-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-01-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;proxies&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;default&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;httpProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://172.17.0.1:3128&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;httpsProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://172.17.0.1:3128&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;noProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;host.docker.internal,localhost,127.0.0.1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+    
+      
+    
+
+  
+&lt;/div&gt;
+
+&lt;p&gt;For more details see: &lt;a href=&#34;https://docs.docker.com/network/proxy/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Documentation&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

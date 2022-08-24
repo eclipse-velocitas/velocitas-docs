@@ -151,49 +151,14 @@
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Proxy configuration&lt;/h4&gt;
 
-    A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings.
+    A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart/behind_proxy&#34;&gt;Working behind a proxy&lt;/a&gt;
 
 &lt;/div&gt;
 
-&lt;details&gt;
-&lt;summary&gt;Please expand for information on configuring proxy settings&lt;/summary&gt;
-&lt;p&gt;A template configuration using proxies exists in &lt;code&gt;.devcontainer/Dockerfile.Proxy&lt;/code&gt; and by setting the environment variable &lt;code&gt;DEVCONTAINER_PROXY&lt;/code&gt; to &lt;code&gt;.Proxy&lt;/code&gt; the file
-&lt;code&gt;.devcontainer/Dockerfile.Proxy&lt;/code&gt; will be used instead of &lt;code&gt;.devcontainer/Dockerfile&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The template configuration uses the following default configuration:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ENV HTTP_PROXY=&amp;#34;http://172.17.0.1:${PROXY_PORT:-3128}&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;If your proxy is not available on &lt;code&gt;172.17.0.1&lt;/code&gt; then you must modify &lt;code&gt;.devcontainer/Dockerfile.Proxy&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;If your proxy does not use 3128 as port you can set another port in the environment variable &lt;code&gt;DEVCONTAINER_PROXY_PORT&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;windows&#34;&gt;Windows&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;Edit environment variables for your account&lt;/li&gt;
-&lt;li&gt;Create an environment variable with name the &lt;code&gt;DEVCONTAINER_PROXY&lt;/code&gt; and with the value &lt;code&gt;.Proxy&lt;/code&gt; for your account
-&lt;ul&gt;
-&lt;li&gt;Don&amp;rsquo;t forget (dot) in value of the environment variable&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;If you are using a different Port than 3128 for your Proxy, you have to set another environment variable as follows:
-&lt;ul&gt;
-&lt;li&gt;DEVCONTAINER_PROXY_PORT=&lt;PortNumber&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Restart Visual Studio Code to pick up the new environment variable&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;macos--linux&#34;&gt;macOS &amp;amp; Linux&lt;/h4&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#34;export DEVCONTAINER_PROXY=.Proxy&amp;#34; &amp;gt;&amp;gt; ~/.bash_profile
-source ~/.bash_profile
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;proxy-troubleshooting&#34;&gt;Proxy troubleshooting&lt;/h3&gt;
-&lt;p&gt;If you experience issues during initial DevContainer build and you want to start over, then you want to make sure you clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI to remove all volumes and containers.&lt;/p&gt;
-&lt;p&gt;Proxy settings in &lt;code&gt;~/.docker/config.json&lt;/code&gt; will override settings in &lt;code&gt;.devcontainer/Dockerfile.Proxy&lt;/code&gt;, which can cause problems.
-In case the DevContainer is still not working, check if proxy settings are set correctly in the Docker user profile (&lt;code&gt;~/.docker/config.json&lt;/code&gt;), see &lt;a href=&#34;https://docs.docker.com/network/proxy/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Documentation&lt;/a&gt; for more details.
-Verify that the &lt;code&gt;noProxy&lt;/code&gt; setting in &lt;code&gt;~/.docker/config.json&lt;/code&gt; (if existing) is compatible with the setting of &lt;code&gt;NO_PROXY&lt;/code&gt; in &lt;code&gt;.devcontainer/Dockerfile.Proxy&lt;/code&gt;.
-The development environment relies on communication to localhost (e.g. localhost, 127.0.0.1) and it is important that the proxy setting is correct so that connections to localhost are not forwarded to the proxy.&lt;/p&gt;
-&lt;/details&gt;
 &lt;p&gt;With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Start Visual Studio Code&lt;/li&gt;
-&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Remote-Containers: Clone Repository within Container Volume...&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Remote-Containers: Clone Repository in Container Volume...&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;code&gt;Clone a repository from GitHub in a Container Volume&lt;/code&gt; and choose the repository / branch to clone&lt;/li&gt;
 &lt;li&gt;Enter the GitHub organization and repository name (e.g. &lt;code&gt;MyOrg/MyFirstVehicleApp&lt;/code&gt;) and select the repository from the list&lt;/li&gt;
 &lt;li&gt;Select the branch to clone from the list&lt;/li&gt;
@@ -211,15 +176,15 @@ The development environment relies on communication to localhost (e.g. localhost
 &lt;details&gt;
 &lt;summary&gt;Please expand for information on troubleshooting&lt;/summary&gt;
 &lt;blockquote&gt;
-&lt;p&gt;If Visual Studio Code fails to directly clone your repository you can also use a workaround:&lt;/p&gt;
+&lt;p&gt;If Visual Studio Code &lt;a href=&#34;https://github.com/microsoft/vscode-dev-containers/issues/1585&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fails to directly clone your repository&lt;/a&gt;  you can also use a workaround:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;clone the repo locally using your favorite Git tooling&lt;/li&gt;
+&lt;li&gt;Clone the repo locally using your favorite Git tooling&lt;/li&gt;
 &lt;li&gt;Start Visual Studio Code&lt;/li&gt;
-&lt;li&gt;select &lt;code&gt;Open Folder&lt;/code&gt; from the &lt;code&gt;File&lt;/code&gt; menu&lt;/li&gt;
-&lt;li&gt;open the root of the cloned repo&lt;/li&gt;
-&lt;li&gt;a popup appears on the lower left side of Visual Studio Code&lt;/li&gt;
-&lt;li&gt;click on &lt;code&gt;Reopen in Container&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;wait for the container to be set up&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;Open Folder&lt;/code&gt; from the &lt;code&gt;File&lt;/code&gt; menu&lt;/li&gt;
+&lt;li&gt;Open the root of the cloned repo&lt;/li&gt;
+&lt;li&gt;A popup appears on the lower left side of Visual Studio Code&lt;/li&gt;
+&lt;li&gt;Click on &lt;code&gt;Reopen in Container&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Wait for the container to be set up&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;If the popup does not appear, you can also hit &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Remote-Containers: Open Folder in Container&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -234,7 +199,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;p&gt;To get started with Codespaces, you just have to follow a few steps:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Open your repository on GitHub (e.g. &lt;a href=&#34;https://github.com/MyOrg/MyFirstVehicleApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/MyOrg/MyFirstVehicleApp&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Click on the green &lt;code&gt;Code&lt;/code&gt;-button and select Codespaces on the top&lt;/li&gt;
+&lt;li&gt;Click on the green &lt;code&gt;Code&lt;/code&gt; button and select Codespaces on the top&lt;/li&gt;
 &lt;li&gt;Configure your Codespace if needed (defaults to the main branch and a standard agent)&lt;/li&gt;
 &lt;li&gt;Click on &lt;code&gt;create&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -320,7 +285,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;p&gt;The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open &lt;code&gt;Actions&lt;/code&gt; on the repoitory and see the result.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md&#34;&gt;Creating a Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model&#34;&gt;Creating a Vehicle Model&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle-app-development&#34;&gt;Create a Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/development-model.md&#34;&gt;Development Model&lt;/a&gt;&lt;/li&gt;
@@ -413,13 +378,13 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;h2 id=&#34;distributing-your-vehicle-model&#34;&gt;Distributing your Vehicle Model&lt;/h2&gt;
 &lt;p&gt;Once you have created your Vehicle Model either manually or via the Vehicle Model Generator, you need to distribute your model to use it in an application. Follow the links below for language specific tutorials on how to distribute your freshly created Vehicle Model.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;[Python]/docs/tutorials/how_to_create_a_vehicle_model/distribution_python.md)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/how_to_create_a_vehicle_model/distribution_python.md&#34;&gt;Python&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/how_to_create_a_vehicle_model/distribution_cpp.md&#34;&gt;C++&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_sdk_overview.md&#34;&gt;SDK Overview&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle-app-development/&#34;&gt;Create a Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -569,7 +534,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment-model.md&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -717,7 +682,7 @@ Execute the script:&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_releases.md&#34;&gt;Release your Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
