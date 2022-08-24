@@ -5,7 +5,7 @@ weight: 5
 resources:
 - src: "**project-overview*.png"
 description: >
-  The repositories of the Eclipse project _Velocitas_ and their relations between each other
+  The repositories of the Eclipse _Velocitas_ and their relations between each other
 ---
 
 ![Project Overview](./project-overview.png)
