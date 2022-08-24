@@ -7,9 +7,11 @@ aliases:
 resources:
 - src: "**seat_adjuster_dataflow_1*.png"
 - src: "**seat_adjuster_dataflow_2*.png"
+description: >
+  The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer
 ---
 
-The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer. The following chapter describes the data flow for the use cases.
+The _Seat Adjuster VehicleApp_ receives the seat position as a MQTT message and triggers a seat adjustment command of the _Seat Service_ that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the _Seat Adjuster VehicleApp_ subscribes to the seat position and receives the new seat position from the _Data Broker_ that streams the data from the _Seat Service_.
 
 ## Requesting new seat position
 
