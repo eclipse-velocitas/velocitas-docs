@@ -109,7 +109,7 @@ Proxy settings in `.devcontainer/Dockerfile.Proxy` will be overridden by `~/.doc
          "default":{
             "httpProxy":"http://172.17.0.1:3128",
             "httpsProxy":"http://172.17.0.1:3128",
-            "noProxy":"localhost,127.0.0.1,0.0.0.0,10.0.0.0/8,192.168.122.0/24,cattle-system.svc,.svc,.cluster.local"
+            "noProxy":"host.docker.internal,localhost,127.0.0.1"
          }
       }
    }
