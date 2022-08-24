@@ -6,8 +6,6 @@ description: >
   What is Eclipse Velocitas™.
 ---
 
-## Goal
-
 The Eclipse project _Velocitas™_ provides an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (_Vehicle Apps_) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.
 
 <img src="dev_ops_cycle.png" >
@@ -28,8 +26,8 @@ using the provided SDK for the different programming languages that delegates to
 
 {{% blocks/feature icon="fa-solid fa-layer-group" title="Vehicle Abstraction Layer" url="concepts/val/" %}}
 Abstracts vehicle make & model specific properties and capabilities to a common representation. 
-This makes it possible for _Vehicle Apps_ to be portable across different electric and electronic vehicle architectures 
-e.g. the _Vehicle Apps_ do not care whether the seat is controlled via CAN, LIN or some other physical interface.
+This enables _Vehicle Apps_ to be portable across different electric and electronic vehicle architectures 
+e.g. to not care whether the seat is controlled via CAN, LIN or some other physical interface.
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fab fa-github" title="GitHub Actions Workflow Blueprint" url="concepts/vehicle_app_releases/" %}}
