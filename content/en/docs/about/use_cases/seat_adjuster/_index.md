@@ -1,5 +1,5 @@
 ---
-title: "Seat Adjuster Use Case"
+title: "Seat Adjuster"
 date: 2022-05-09T13:43:25+05:30
 aliases:
   - /docs/velocitas/docs/seat_adjuster_use_case.md
@@ -8,16 +8,14 @@ resources:
 - src: "**seat_adjuster_dataflow_1*.png"
 - src: "**seat_adjuster_dataflow_2*.png"
 description: >
-  The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer
+  The seat adjuster example provides the option to request the new seat position and publishing the current seat position to the customer
 ---
 
 The _Seat Adjuster VehicleApp_ receives the seat position as a MQTT message and triggers a seat adjustment command of the _Seat Service_ that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the _Seat Adjuster VehicleApp_ subscribes to the seat position and receives the new seat position from the _Data Broker_ that streams the data from the _Seat Service_.
 
 ## Requesting new seat position
 
-{{< imgproc seat_adjuster_dataflow_1 Resize "800x" >}}
-  Architectural diagram of the seat adjuster example use case
-{{< /imgproc >}}
+![](./seat_adjuster_dataflow_1.png)
 
 1. The **Customer** requests the change of the seat position as MQTT message on the topic `seatadjuster/setPosition/request` with the payload:
    ```bash
@@ -40,9 +38,7 @@ The _Seat Adjuster VehicleApp_ receives the seat position as a MQTT message and 
 
 ## Publishing current seat position
 
-{{< imgproc seat_adjuster_dataflow_2 Resize "800x" >}}
-  Architectural diagram of the data flow for publishing a new seat position
-{{< /imgproc >}}
+![](./seat_adjuster_dataflow_2.png)
 
 1. If the seat position will be changed by the driver, the new seat position will be sent to the **Seat Service** via CAN.
 2.  The **Seat Service** streams the seat position via gRPC to the **KUKSA Data Broker** since it was registered beforehand.

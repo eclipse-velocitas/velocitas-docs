@@ -9,4 +9,4 @@ What could such a use case look like? Image a carsharing company that wants to o
 
 That's where your implementation starts. A detailed description of the _Seat Adjuster_ use case can be found [here](use_cases/seat_adjuster/).
 
-<img src="use_cases/seat_adjuster/seat_adjuster_dataflow.png" >
+![](./seat_adjuster/seat_adjuster_dataflow.png)
