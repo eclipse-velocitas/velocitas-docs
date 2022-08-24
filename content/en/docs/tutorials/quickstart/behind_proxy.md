@@ -38,9 +38,9 @@ It is required to set the following environment variables:
 - `HTTPS_PROXY` - secure proxy server, e.g. `http://localhost:3128`
 - `DEVCONTAINER_PROXY` - Enables proxy configuration for the devContainer. Please use `.Proxy` as value and don't forget (dot).
 
-#### For unix users:
+**Unix users**: If you are running on Unix you have to define in addition the environment variable `DEVCONTAINER_PROXY_HOST` to define the internal docker host `172.17.0.1`.
 
-If you are running on Unix you have to define in addition the environment variable `DEVCONTAINER_PROXY_HOST` to define the internal docker host `172.17.0.1`.
+In addition you have the opportunity to use the environment variable `DEVCONTAINER_PROXY_PORT` to define the port in case your proxy is running on a different port than `3128`.
 
 {{< tabpane text=true >}}
 {{% tab header="Windows" %}}
@@ -69,8 +69,6 @@ source ~/.bash_profile
 ```
 {{% /tab %}}
 {{< /tabpane >}}
-
-In addition you have the opportunity to use the environment variable `DEVCONTAINER_PROXY_PORT` to define the port in case your proxy is running on a different port than `3128`.
 
 # Visual Studio Code
 
