@@ -1,14 +1,15 @@
 ---
-title: "Example Use Case"
+title: "Seat Adjuster Use Case"
 date: 2022-05-09T13:43:25+05:30
 aliases:
   - /docs/velocitas/docs/seat_adjuster_use_case.md
+  - /docs/velocitas/docs/reference/seat_adjuster_use_case.md
 resources:
 - src: "**seat_adjuster_dataflow_1*.png"
 - src: "**seat_adjuster_dataflow_2*.png"
 ---
 
-The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project **Velocitas** in this way. The following chapter describes the data flow for the use cases.
+The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer. The following chapter describes the data flow for the use cases.
 
 ## Requesting new seat position
 
