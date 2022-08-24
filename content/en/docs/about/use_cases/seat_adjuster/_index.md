@@ -8,7 +8,7 @@ resources:
 - src: "**seat_adjuster_dataflow_1*.png"
 - src: "**seat_adjuster_dataflow_2*.png"
 description: >
-  Provides the option to request the new seat position and publishing the current seat position to the customer
+  Provides option to request the new seat position and to publish the current seat position
 ---
 
  Image a carsharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The carsharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle. That's where your implementation starts.
