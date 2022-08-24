@@ -9,7 +9,7 @@ The Dog Mode Vehicle App consists of the following key features:
 
 - Request the vehicle's Heating, Ventilation, and Air Conditioning (HVAC) service to turn the Air Conditioning (AC) ON/OFF
 - The driver can adjust the temperature for a specific degree
-- The app observe the current temperature and the battery's state of charge and react accordingly
+- The Vehicle App observe the current temperature and the battery's state of charge and react accordingly
 - The driver/owner will be notified whenever the state of the charge drops below a certain value
 
 ## Code
