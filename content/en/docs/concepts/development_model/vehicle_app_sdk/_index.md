@@ -486,9 +486,3 @@ int main(int argc, char** argv) {
 {{< /tabpane >}}
 
 ## Further information
-
-- Concept: [Development Model](/docs/concepts/development-model.md)
-- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
-- Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
-- Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
-- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
