@@ -77,14 +77,14 @@ A template configuration using proxy settings is provided by our template reposi
 
 # Troubleshooting
 
-#### Case 1:
+**Case 1**:
 
 If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used: 
 
    - Open Docker Desktop 
    - From `Troubleshooting` choose `Clean / Purge data`
 
-#### Case 2:
+**Case 2**:
 
 Proxy settings in `.devcontainer/Dockerfile.Proxy` will be overridden by `~/.docker/config.json`, which can cause problems. In case the DevContainer is still not working, check if the `~/.docker/config.json` contains the following content:
 
