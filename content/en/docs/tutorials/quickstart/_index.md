@@ -45,7 +45,7 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
   code --install-extension ms-vscode-remote.remote-containers
   ```
 
-{{% alert title="Proxy configuration" %}}
+{{% alert title="Proxy configuration" color="warning" %}}
 A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/quickstart/behind_proxy)
 {{% /alert %}}
 
