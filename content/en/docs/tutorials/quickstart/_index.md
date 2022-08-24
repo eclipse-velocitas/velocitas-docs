@@ -6,6 +6,7 @@ description: >
   Learn how to setup and explore the provided development environment.
 aliases:
   - /docs/tutorials/setup_and_explore_development_environment.md
+  - /docs/tutorials/quickstart.md
   - /docs/setup_and_explore_development_environment.md
 ---
 
@@ -45,55 +46,14 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
   ```
 
 {{% alert title="Proxy configuration" %}}
-A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings.
+A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/quickstart/behind_proxy)
 {{% /alert %}}
 
-<details>
-<summary>Please expand for information on configuring proxy settings</summary>
-
-A template configuration using proxies exists in `.devcontainer/Dockerfile.Proxy` and by setting the environment variable `DEVCONTAINER_PROXY` to `.Proxy` the file
-`.devcontainer/Dockerfile.Proxy` will be used instead of `.devcontainer/Dockerfile`.
-
-The template configuration uses the following default configuration:
-
-```
-ENV HTTP_PROXY="http://172.17.0.1:${PROXY_PORT:-3128}"
-```
-
-- If your proxy is not available on `172.17.0.1` then you must modify `.devcontainer/Dockerfile.Proxy`.
-- If your proxy does not use 3128 as port you can set another port in the environment variable `DEVCONTAINER_PROXY_PORT`
-
-#### Windows
-
-1. Edit environment variables for your account
-2. Create an environment variable with name the `DEVCONTAINER_PROXY` and with the value `.Proxy` for your account
-   - Don't forget (dot) in value of the environment variable
-3. If you are using a different Port than 3128 for your Proxy, you have to set another environment variable as follows:
-   - DEVCONTAINER_PROXY_PORT=<PortNumber>
-4. Restart Visual Studio Code to pick up the new environment variable
-
-#### macOS & Linux
-
-```
-echo "export DEVCONTAINER_PROXY=.Proxy" >> ~/.bash_profile
-source ~/.bash_profile
-```
-
-### Proxy troubleshooting
-
-If you experience issues during initial DevContainer build and you want to start over, then you want to make sure you clean all images and volumes in Docker Desktop, otherwise cache might be used. Use the Docker Desktop UI to remove all volumes and containers.
-
-Proxy settings in `~/.docker/config.json` will override settings in `.devcontainer/Dockerfile.Proxy`, which can cause problems.
-In case the DevContainer is still not working, check if proxy settings are set correctly in the Docker user profile (`~/.docker/config.json`), see [Docker Documentation](https://docs.docker.com/network/proxy/) for more details.
-Verify that the `noProxy` setting in `~/.docker/config.json` (if existing) is compatible with the setting of `NO_PROXY` in `.devcontainer/Dockerfile.Proxy`.
-The development environment relies on communication to localhost (e.g. localhost, 127.0.0.1) and it is important that the proxy setting is correct so that connections to localhost are not forwarded to the proxy.
-
-</details>
 
 With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
 
 1. Start Visual Studio Code
-2. Press <kbd>F1</kbd> and run the command `Remote-Containers: Clone Repository within Container Volume...`
+2. Press <kbd>F1</kbd> and run the command `Remote-Containers: Clone Repository in Container Volume...`
 3. Select `Clone a repository from GitHub in a Container Volume` and choose the repository / branch to clone
 4. Enter the GitHub organization and repository name (e.g. `MyOrg/MyFirstVehicleApp`) and select the repository from the list
 5. Select the branch to clone from the list
@@ -107,15 +67,15 @@ When opening the DevContainer for the first time, a manual reload of the dapr ex
 <details>
 <summary>Please expand for information on troubleshooting</summary>
 
-> If Visual Studio Code fails to directly clone your repository you can also use a workaround:
+> If Visual Studio Code [fails to directly clone your repository](https://github.com/microsoft/vscode-dev-containers/issues/1585)  you can also use a workaround:
 >
-> 1. clone the repo locally using your favorite Git tooling
+> 1. Clone the repo locally using your favorite Git tooling
 > 1. Start Visual Studio Code
-> 1. select `Open Folder` from the `File` menu
-> 1. open the root of the cloned repo
-> 1. a popup appears on the lower left side of Visual Studio Code
-> 1. click on `Reopen in Container`
-> 1. wait for the container to be set up
+> 1. Select `Open Folder` from the `File` menu
+> 1. Open the root of the cloned repo
+> 1. A popup appears on the lower left side of Visual Studio Code
+> 1. Click on `Reopen in Container`
+> 1. Wait for the container to be set up
 >
 > If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command `Remote-Containers: Open Folder in Container`
 
@@ -133,7 +93,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 To get started with Codespaces, you just have to follow a few steps:
 
 1. Open your repository on GitHub (e.g. <https://github.com/MyOrg/MyFirstVehicleApp>)
-1. Click on the green `Code`-button and select Codespaces on the top
+1. Click on the green `Code` button and select Codespaces on the top
 1. Configure your Codespace if needed (defaults to the main branch and a standard agent)
 1. Click on `create`
 
@@ -213,7 +173,7 @@ The provided release workflow will be triggered by the release. The release work
 
 ## Next steps
 
-- Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model)
 - Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 - Concept: [Development Model](/docs/concepts/development-model.md)

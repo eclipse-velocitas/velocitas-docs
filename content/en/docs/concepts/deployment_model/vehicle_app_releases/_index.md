@@ -2,9 +2,8 @@
 title: "Build and Release Process"
 date: 2022-05-09T13:43:25+05:30
 weight: 4
-aliases:
-  - /docs/concepts/vehicle_app_releases.md
-  - /docs/velocitas/docs/vehicle_app_releases.md
+resources:
+- src: "**publish_container*.png"
 description: >
   Learn more about the provided continuous integration, and release process of a Vehicle App.
 ---
@@ -21,9 +20,9 @@ The Velocitas project provides a two-stage process for development, continuous i
 
   The workflow bundles all relevant artifacts into one tagged set of files and makes it possible to push this information to the preferred OTA (over-the-air update) system of your choice or use the information for quality assurance and documentation.
 
-The following illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project's needs.
+The drawing below illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project's needs.
 
-![](/assets/publish_container.png)
+![Project Overview](./publish_container.png)
 
 ## CI Workflow (ci.yml)
 
@@ -35,6 +34,8 @@ The `CI workflow` is triggered on every commit to the main branch and contains a
 - **Running integration tests** - actions provision a runtime instance and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marked as "failed".
 - **Storing scan & test results as GitHub action artifacts** - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.
 - **Publish container images to GitHub Container Registry** - at the end of the workflow, the container images created are stored in a Github Container Registry so that they can be referenced by the release-workflow later.
+
+Check out the example GitHub workflows in our repositories for python (https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)
 
 ## Release Workflow (release.yml)
 
@@ -60,9 +61,7 @@ The GitHub container registry is used for storing container images, which are ge
 
 The **GitHub container registry** does not have an automatic cleanup and keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.
 
-## Further information
-
-### Versioning
+## Versioning
 
 Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of [semantic versions](https://semver.org/) is recommended.
 

@@ -55,5 +55,5 @@ More information about FeederCan can be found [here](https://github.com/eclipse/
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
 - Concept: [Deployment Model](/docs/concepts/deployment-model.md)
-- Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)
+- Concept: [Build and release process](/docs/concepts/vehicle_app_releases)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

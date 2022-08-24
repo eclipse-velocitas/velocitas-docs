@@ -1,5 +1,5 @@
 ---
-title: "Velocitas Deployment Model"
+title: "Deployment Model"
 date: 2022-05-09T13:43:25+05:30
 weight: 4
 aliases:
@@ -31,7 +31,4 @@ Velocitas uses GitHub workflows to automate the creation of your containerized a
 
 The workflows are set up to support multi-platform container creation and generate container images for amd64 and arm64 out of the box. This provides a great starting point for developers and lets you add additional support for further platforms easily.
 
-Learn more about the concepts of the [Velocitas build and release workflows](/docs/velocitas/docs/vehicle_app_releases.md) and check out the example GitHub workflows in our repositories for python (https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml).
-
 ## Further information
-- Tutorial: [Deploy a Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm)

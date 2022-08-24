@@ -133,5 +133,5 @@ The tests will be discovered and executed automatically in the [CI pipeline](htt
 ## Next steps
 
 - Concept: [Deployment Model](/docs/concepts/deployment-model.md)
-- Concept: [Release your Vehicle App](/docs/concepts/vehicle_app_releases.md)
+- Concept: [Build and release process](/docs/concepts/vehicle_app_releases)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
