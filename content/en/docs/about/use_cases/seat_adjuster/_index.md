@@ -52,5 +52,7 @@ description: >
     ```
 13. The **Customer** who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.
 
-## Code
-[Seat Adjuster Code](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster)
+## Example Code
+
+You can find an example implementation of a Seat Adjuster vehicle application here:
+[Seat Adjuster](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster)

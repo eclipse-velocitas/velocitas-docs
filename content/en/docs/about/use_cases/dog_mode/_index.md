@@ -13,5 +13,7 @@ The Dog Mode Vehicle App consists of the following key features:
 - The Vehicle App observe the current temperature and the battery's state of charge and react accordingly
 - The driver/owner will be notified whenever the state of the charge drops below a certain value
 
-## Code
+## Example Code
+
+You can find an example implementation of a dog mode vehicle application here:
 [Dog Mode](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/dog-mode)
