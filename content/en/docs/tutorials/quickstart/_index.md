@@ -14,6 +14,10 @@ The following information describes how to setup and configure the [Development 
 
 Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own _Vehicle App_ develpment project.
 
+{{% alert title="Note" %}}
+Before you start, we recommend that you familiarize yourself with our [basic concept](/docs/about/development-model) to understand the terms mentioned.
+{{% /alert %}}
+
 ## Creating Vehicle App Repository
 
 For the orginization and _Vehicle App_ repository the name `MyOrg/MyFirstVehicleApp` is used as a reference during the rest of the document.
@@ -45,7 +49,7 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
   code --install-extension ms-vscode-remote.remote-containers
   ```
 
-{{% alert title="Proxy configuration" %}}
+{{% alert title="Proxy configuration" color="warning" %}}
 A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/quickstart/behind_proxy)
 {{% /alert %}}
 
@@ -176,4 +180,3 @@ The provided release workflow will be triggered by the release. The release work
 - Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model)
 - Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
-- Concept: [Development Model](/docs/concepts/development-model.md)

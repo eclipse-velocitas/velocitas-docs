@@ -90,6 +90,6 @@ If you are using Codespaces, remember that you are working on a remote agent. Th
 
 - Tutorial: [Deploy runtime services in local Kubernetes cluster](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/quickstart)
-- Concept: [Deployment Model](/docs/concepts/deployment-model.md)
-- Concept: [Build and release process](/docs/concepts/vehicle_app_releases)
+- Concept: [Deployment Model](/docs/about/deployment-model/)
+- Concept: [Build and release process](/docs/about/deployment-model/vehicle_app_releases/)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

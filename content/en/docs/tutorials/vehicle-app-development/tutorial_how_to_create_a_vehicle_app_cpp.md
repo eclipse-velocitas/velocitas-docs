@@ -358,10 +358,10 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 ## Next steps
 
-- Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)
+- Concept: [SDK Overview](/docs/about/deployment-model/vehicle_app_sdk_overview.md)
 - Tutorial: [Deploy runtime services in Kubernetes mode](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
 - Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
-- Concept: [Deployment Model](/docs/concepts/deployment-model.md)
+- Concept: [Deployment Model](/docs/about/deployment-model.md)
 - Tutorial: [Deploy a Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

@@ -1,8 +1,11 @@
 ---
 title: "Repository Overview"
 date: 2022-05-09T13:43:25+05:30
+weight: 5
 resources:
 - src: "**project-overview*.png"
+description: >
+  The repositories of the Eclipse _Velocitas_ and their relations between each other
 ---
 
 ![Project Overview](./project-overview.png)
