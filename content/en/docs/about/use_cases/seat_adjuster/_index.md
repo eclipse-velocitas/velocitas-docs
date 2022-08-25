@@ -1,6 +1,7 @@
 ---
 title: "Seat Adjuster"
 date: 2022-05-09T13:43:25+05:30
+weight: 1
 aliases:
   - /docs/velocitas/docs/seat_adjuster_use_case.md
   - /docs/velocitas/docs/reference/seat_adjuster_use_case.md

@@ -1,6 +1,7 @@
 ---
 title: "Dog Mode"
 date: 2022-08-24T13:43:25+05:30
+weight: 2
 description: >
   Climate control app that allows drivers to leave their vehicles while keeping the air conditioning system of the vehicle active for their pets. 
 ---
