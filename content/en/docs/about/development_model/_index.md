@@ -35,7 +35,7 @@ Next to a Vehicle Apps abstraction, the SDKs are [Middleware](#middleware)-enabl
 
 ### Vehicle Services
 
-`Vehicle Services` provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. `Vehicle services` may feed data to the [Data Broker](#data-broker) and may expose gRPC endpoints, which can be invoked by [Vehicle Apps](#vehicle-apps) over a [Vehicle Model](#vehicle-models)
+Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the [Data Broker](#data-broker) and may expose gRPC endpoints, which can be invoked by [Vehicle Apps](#vehicle-apps) over a [Vehicle Model](#vehicle-models)
 
 ### Data Broker
 
@@ -93,12 +93,10 @@ The following aspects are important characteristics for [Vehicle Apps](#vehicle-
 
 ## Development Process
 
-The starting point for developing [Vehicle Apps](#vehicle-apps) is a [Semantic Model](#semantic-models) of the vehicle data and vehicle services. Based on the [Semantic Model](#semantic-models), language-specific [Vehicle Models](#vehicle-models) are generated. [Vehicle Models](#vehicle-models) are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, ...).
+The starting point for developing [Vehicle Apps](#vehicle-apps) is a [Semantic Model](#semantic-models) of the vehicle data and vehicle services. Based on the Semantic Model, language-specific [Vehicle Models](#vehicle-models) are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, ...).
 
-{{< imgproc build_procedure Resize "800x" >}}
-  Architectural diagram of the build process
-{{< /imgproc >}}
+After a Vehicle Model is available for the chosen programming language, the Vehicle App can be developed using the generated Vehicle Model and its SDK.
 
-After a [Vehicle Model](#vehicle-models) is available for the chosen programming language, the [Vehicle App](#vehicle-apps) can be developed using the generated Vehicle Model and its core SDK.
+![Development Process](./build_procedure.png)
 
 ## Further information
