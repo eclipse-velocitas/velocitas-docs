@@ -85,7 +85,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.e7236ea6e952c899add7de00efeeded9.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.2c7ebd337d62cb7e352b40b543dbcd45.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -131,7 +131,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-dd948255948d6b59b32c471abcb62997">Concepts</a></li>
+<li>1: <a href="#pg-c43b6569b496f1a6d7d9012ee3bc204f">About Velocitas</a></li>
 
 
     
@@ -146,7 +146,22 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.1: <a href="#pg-50dbc3adb718274744ad08ddc3fd3ff6">Development Model</a></li>
+<li>1.1: <a href="#pg-a84b7714a14c509e2130340a3d7f1e48">Use Cases</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1.1: <a href="#pg-14994cdfceb19b97cd58870a0d746743">Seat Adjuster</a></li>
 
 
     
@@ -165,7 +180,45 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.2: <a href="#pg-5fbb44f99e550dae26310f98c673daa8">Vehicle App SDK</a></li>
+<li>1.1.2: <a href="#pg-002a30bd5a7d4198c7cde65320af1a5f">Dog Mode</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>1.2: <a href="#pg-9b6296a0f330b5a3f965daca7b0e62e1">Development Model</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.2.1: <a href="#pg-258f658a9261263cf87e93653d35cd34">Vehicle App SDK</a></li>
 
 
     
@@ -184,7 +237,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.3: <a href="#pg-53f89c5f8e7834adfd5dc04f58a62868">Vehicle Abstraction Layer (VAL)</a></li>
+<li>1.2.2: <a href="#pg-0e9483f5b3711eec853bb55b42c519ad">Vehicle Abstraction Layer (VAL)</a></li>
 
 
     
@@ -200,10 +253,14 @@ This is the multi-page printable view of this section.
     </ul>
     
   
+
+    </ul>
+    
+  
     
     
 	
-<li>1.4: <a href="#pg-745cbbc500d280d83e9fcaf94ecea84b">Deployment Model</a></li>
+<li>1.3: <a href="#pg-92f99cc503f41935e98f632ac2195a8d">Deployment Model</a></li>
 
 
     
@@ -218,7 +275,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1.4.1: <a href="#pg-9128db8048cd1b7aedfb97ce89217631">Build and Release Process</a></li>
+<li>1.3.1: <a href="#pg-910209e7563d9f3e5537b198974f1128">Build and Release Process</a></li>
 
 
     
@@ -233,6 +290,25 @@ This is the multi-page printable view of this section.
 
     </ul>
     
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>1.4: <a href="#pg-2c63eee46c0f8f9183b9da4a108ddf3f">Repository Overview</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
   
 
     </ul>
@@ -447,64 +523,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-b00a88a07ceb21b1a83e5822e0c86c1d">References</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-    
-    
-	
-<li>3.1: <a href="#pg-56d4312e157b56f80e10920f0e229664">Example Use Case</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-
-    </ul>
-    
-  
-    
-    
-	
-<li>3.2: <a href="#pg-e80ffe32a2ea184a96cb77e55beee356">Repository Overview</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-
-    </ul>
-    
-  
-
-    </ul>
-    
-  
-    
-    
-	
-<li>4: <a href="#pg-99a93ef9534d11fef4be3e4b3b1a6381">Contribution Guidelines</a></li>
+<li>3: <a href="#pg-99a93ef9534d11fef4be3e4b3b1a6381">Contribution Guidelines</a></li>
 
 
     
@@ -526,98 +545,6 @@ This is the multi-page printable view of this section.
 
 <div class="content">
       <p>Traditionally, the automotive industry was and still is centered around vehicle hardware and the corresponding hardware development and life-cycle management. Software, however, is gaining more and more importance in vehicle development and over the entire vehicle lifetime. Thus, the vehicle and its value to the customer is increasingly defined by software. This transition towards what are termed as software-defined vehicles changes the way in which we innovate, code, deliver and work together. It is a change across the whole mobility value chain and life-cycle: from development and production to delivery and operations of the vehicle.</p>
-<h2 id="goal">Goal</h2>
-<p>The Eclipse project <em>Velocitas™</em> provides an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (<em>Vehicle Apps</em>) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.</p>
-<img src="dev_ops_cycle.png" >
-
-
-
- 
-<a id="td-block-0" class="td-offset-anchor"></a>
-<section class="row td-box td-box--white td-box--gradient td-box--height-auto">
-	<div class="col">
-		<div class="row ">
-			
-				<div class="col-lg-4 mb-5 mb-lg-0 text-center">
-<div class="mb-4 h1">
-  <i class="fas fa-lightbulb"></i>
-</div>
-<h4 class="h3">Vehicle App Project Template</h4>
-<div class="mb-0">
-<p>Quick setup of a <em>Vehicle App</em> project with the help of GitHub templates for the supported programming languages including a sample <em>Vehicle App</em>
-and GitHub Actions workflow, and comfortable setup of the development environment e.g. in Microsoft Visual Studio Code.</p>
-</div>
-<p><a href="https://github.com/eclipse-velocitas/vehicle-app-python-template">Read more …</a></p>
-</div>
-<div class="col-lg-4 mb-5 mb-lg-0 text-center">
-<div class="mb-4 h1">
-  <i class="fas fa-solid fa-code"></i>
-</div>
-<h4 class="h3">Vehicle App Programming Model</h4>
-<div class="mb-0">
-<p>Simplify coding and debugging of <em>Vehicle Apps</em> that accessing vehicle data points and modifying vehicle functions
-using the provided SDK for the different programming languages that delegates to the <em>Vehicle Abstraction Layer</em>.</p>
-</div>
-<p><a href="concepts/development-model.md">Read more …</a></p>
-</div>
-<div class="col-lg-4 mb-5 mb-lg-0 text-center">
-<div class="mb-4 h1">
-  <i class="fas fa-solid fa-layer-group"></i>
-</div>
-<h4 class="h3">Vehicle Abstraction Layer</h4>
-<div class="mb-0">
-<p>Abstracts vehicle make &amp; model specific properties and capabilities to a common representation.
-This makes it possible for <em>Vehicle Apps</em> to be portable across different electric and electronic vehicle architectures
-e.g. the <em>Vehicle Apps</em> do not care whether the seat is controlled via CAN, LIN or some other physical interface.</p>
-</div>
-<p><a href="concepts/val/">Read more …</a></p>
-</div>
-<div class="col-lg-4 mb-5 mb-lg-0 text-center">
-<div class="mb-4 h1">
-  <i class="fab fa-github"></i>
-</div>
-<h4 class="h3">GitHub Actions Workflow Blueprint</h4>
-<div class="mb-0">
-<p>Providing ready-to-use GitHub workflows to check the <em>Vehicle App</em>, build images for multi architectures, scan it,
-execute integration tests and release the <em>Vehicle App</em> to allow the developer to focus on the development of the <em>Vehicle App</em>.</p>
-</div>
-<p><a href="concepts/vehicle_app_releases/">Read more …</a></p>
-</div>
-<div class="col-lg-4 mb-5 mb-lg-0 text-center">
-<div class="mb-4 h1">
-  <i class="fab fa-github"></i>
-</div>
-<h4 class="h3">Automated Release Process</h4>
-<div class="mb-0">
-<p>Providing a release workflow to generate release artifacts and documentation out of the CI workflow results and
-push it to the GitHub container registry to be used by a deployment system.</p>
-</div>
-<p><a href="concepts/vehicle_app_releases/">Read more …</a></p>
-</div>
-<div class="col-lg-4 mb-5 mb-lg-0 text-center">
-<div class="mb-4 h1">
-  <i class="fas fa-solid fa-box"></i>
-</div>
-<h4 class="h3">Deployment Model</h4>
-<div class="mb-0">
-<p>Running and deploying <em>Vehicle App</em> as OCI-compliant container to increase the flexibility to support different programming languages
-and runtimes to accelerate innovation and development.</p>
-</div>
-<p><a href="concepts/deployment-model/">Read more …</a></p>
-</div>
-
-			
-		</div>
-	</div>
-</section>
-
-<p>The repositories of the Eclipse project <em>Velocitas</em> and their relations between each other can be found [<a href="reference/repository_overview/">here</a>].</p>
-<h2 id="example-use-case">Example Use Case</h2>
-<p><em>Velocitas</em> contains implementations based on the example use case of adjusting the vehicle seat position to showcase the development toolchain of a comfort function (QM level - non-safety relevant).</p>
-<p>What could such a use case look like? Image a carsharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The carsharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle.</p>
-<p>That&rsquo;s where your implementation starts. The <em>Seat Adjuster VehicleApp</em> receives the seat position as a MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the <em>Seat Adjuster VehicleApp</em> subscribes to the seat position and receives the new seat position from the <em>Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
-<p>A detailed description of the <em>Seat Adjuster</em> use case can be found <a href="reference/seat_adjuster_use_case/">here</a>.</p>
-<img src="reference/seat_adjuster_use_case/seat_adjuster_dataflow.png" >
 
 </div>
 </div>
@@ -639,9 +566,20 @@ and runtimes to accelerate innovation and development.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-dd948255948d6b59b32c471abcb62997">1 - Concepts</h1>
-    <div class="lead">Explore the basic concepts of Eclipse Velocitas™.</div>
-	
+	<h1 id="pg-c43b6569b496f1a6d7d9012ee3bc204f">1 - About Velocitas</h1>
+    <div class="lead">Explore the goal, benefits and basic concepts of Eclipse <em>Velocitas™</em></div>
+	<p>The Eclipse <em>Velocitas™</em> provides an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (<em>Vehicle Apps</em>) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.</p>
+<img src="dev_ops_cycle.png" >
+<h2 id="what-offers-velocitas">What offers Velocitas?</h2>
+<ul>
+<li>Predefined CI/CD workflows that build (for multi architectures), test, document and deploy a Vehicle App help saving setup time</li>
+<li>DevContainer helps to install everything to start the local development immediately in Microsoft Visual Studio Code</li>
+<li>Vehicle API to abstract the vehicle&rsquo;s signals and E/E architecture helps to focus on business logic and enables <em>Vehicle Apps</em> to be portable across different electric and electronic vehicle architectures</li>
+<li>Vehicle Apps skeleton and example Vehicle Apps helps to understand easily how to write a Vehicle Apps using the KUKSA VAL runtime services</li>
+<li>Higher development velocity through self-contained, containerized Apps with no dependencies to E/E architecture</li>
+</ul>
+<h2 id="concepts">Concepts</h2>
+
 </div>
 
 
@@ -662,29 +600,163 @@ and runtimes to accelerate innovation and development.</p>
 	
     
 
-<div class="td-content" style="">
+<div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-50dbc3adb718274744ad08ddc3fd3ff6">1.1 - Development Model</h1>
+	<h1 id="pg-a84b7714a14c509e2130340a3d7f1e48">1.1 - Use Cases</h1>
+    <div class="lead">Is Velocitas for me? How does Velocitas help?</div>
+	<p><em>Velocitas</em> offers a scalable and modular development toolchain for creating containerized Vehicle Applications that offers a easy to use, fast and efficient development experience to increase the velocity of your development team.</p>
+<p>This Vehicle Apps are implemented on top of a Vehicle Model (which is generated from the underlying semantic models like VSS for a concrete programming language) and its underlying language-specific SDK to provide headless comfort functions or connected application functions like Seat Adjuster, Dog Mode, Trunk Delivery or Data Logging &amp; triggering.</p>
+<p><img src="./dataflow.png" alt=""></p>
+<h2 id="examples">Examples</h2>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-14994cdfceb19b97cd58870a0d746743">1.1.1 - Seat Adjuster</h1>
+    <div class="lead">Provides option to request a new seat position and to publish the current seat position</div>
+	<p>Image a carsharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The carsharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle. That&rsquo;s where your implementation starts.</p>
+<p>The <em>Seat Adjuster Vehicle App</em> receives the seat position as a MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the <em>Seat Adjuster Vehicle App</em> subscribes to the seat position and receives the new seat position from the <em>Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
+<h2 id="requesting-new-seat-position">Requesting new seat position</h2>
+<p><img src="./seat_adjuster_dataflow_1.png" alt=""></p>
+<ol>
+<li>The <strong>Customer</strong> requests the change of the seat position as MQTT message on the topic <code>seatadjuster/setPosition/request</code> with the payload:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;position&#34;</span>: 300<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>The <strong>Seat Adjuster Vehicle App</strong> that has subscribed to this topic, receives the request to change the seat position as a MQTT message.</li>
+<li>The <strong>Seat Adjuster Vehicle App</strong> gets the current vehicle speed from the data broker, which is fed by the <strong>CAN Feeder (KUKSA DBC Feeder)</strong>.</li>
+<li>With the support of the <strong>Vehicle App SDK</strong>, the <strong>Seat Adjuster Vehicle App</strong> triggers a seat adjustment command of the <strong>Seat Service</strong> via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.</li>
+<li>The <strong>Seat Service</strong> moves the seat to the new position via CAN messages.</li>
+<li>The <strong>Seat Service</strong> returns OK or an error code as grpc status to the <strong>Seat Adjuster Vehicle App</strong>.</li>
+<li>If everything went well, the <strong>Seat Adjuster Vehicle App</strong> returns a success message for the topic <code>seatadjuster/setPosition/response</code> with the payload:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;status&#34;</span>: <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div>Otherwise, an error message will be returned:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span>requestId<span style="color:#4e9a06">&#34;: &#34;</span>xyz<span style="color:#4e9a06">&#34;, &#34;</span>status<span style="color:#4e9a06">&#34;: 1, &#34;</span>message<span style="color:#4e9a06">&#34; = &#34;</span>&lt;error message&gt;<span style="color:#4e9a06">&#34; }
+</span></span></span></code></pre></div></li>
+<li>This success or error message will be returned to the <strong>Customer</strong>.</li>
+</ol>
+<h2 id="publishing-current-seat-position">Publishing current seat position</h2>
+<p><img src="./seat_adjuster_dataflow_2.png" alt=""></p>
+<ol>
+<li>If the seat position will be changed by the driver, the new seat position will be sent to the <strong>Seat Service</strong> via CAN.</li>
+<li>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>KUKSA Data Broker</strong> since it was registered beforehand.</li>
+<li>The <strong>Seat Adjuster Vehicle App</strong> that subscribed to the seat position receives the new seat position from the <strong>KUKSA Data Broker</strong> as a result.</li>
+<li>The <strong>Seat Adjuster Vehicle App</strong> publishes this on topic <code>seatadjuster/currentPosition</code> with the payload:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 350<span style="color:#ce5c00;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
+<li>The <strong>Customer</strong> who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.</li>
+</ol>
+<h2 id="example-code">Example Code</h2>
+<p>You can find an example implementation of a Seat Adjuster vehicle application here:
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener">Seat Adjuster</a></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-002a30bd5a7d4198c7cde65320af1a5f">1.1.2 - Dog Mode</h1>
+    <div class="lead">Climate control app that allows drivers to leave their vehicles while keeping the air conditioning system of the vehicle active for their pets.</div>
+	<p>The Dog Mode Vehicle App consists of the following key features:</p>
+<ul>
+<li>Request the vehicle&rsquo;s Heating, Ventilation, and Air Conditioning (HVAC) service to turn the Air Conditioning (AC) ON/OFF</li>
+<li>The driver can adjust the temperature for a specific degree</li>
+<li>The Vehicle App observe the current temperature and the battery&rsquo;s state of charge and react accordingly</li>
+<li>The driver/owner will be notified whenever the state of the charge drops below a certain value</li>
+</ul>
+<h2 id="example-code">Example Code</h2>
+<p>You can find an example implementation of a dog mode vehicle application here:
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/dog-mode" target="_blank" rel="noopener">Dog Mode</a></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9b6296a0f330b5a3f965daca7b0e62e1">1.2 - Development Model</h1>
     <div class="lead">Learn more about provided development model for Vehicle Apps.</div>
-	<h2 id="introduction">Introduction</h2>
-<p>The Velocitas development model is centered around what are known as <a href="#vehicle-apps">Vehicle Apps</a>. Automation allows engineers to make high-impact changes frequently and deploy <a href="#vehicle-apps">Vehicle Apps</a> through cloud backends as over-the-air updates. The <a href="#vehicle-apps">Vehicle App</a> development model is about <em>speed</em> and <em>agility</em> paired with state-of-the-art software quality.</p>
+	<p>The Velocitas development model is centered around what are known as <a href="#vehicle-apps">Vehicle Apps</a>. Automation allows engineers to make high-impact changes frequently and deploy Vehicle Apps through cloud backends as over-the-air updates. The Vehicle App development model is about <em>speed</em> and <em>agility</em> paired with state-of-the-art software quality.</p>
 <h2 id="development-architecture">Development Architecture</h2>
 <p>Velocitas provides a flexible development architecture for <a href="#vehicle-apps">Vehicle Apps</a>. The following diagram shows the major components of the Velocitas stack.</p>
 <p><img src="./programming_model.png" alt="Programming Model"></p>
 <h3 id="vehicle-apps">Vehicle Apps</h3>
-<p>The Vehicle Applications (aka. <code>Vehicle Apps</code>) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/" target="_blank" rel="noopener">twelve-factor</a> applications apply to <code>Vehicle Apps</code> as well and are summarized in the next chapter.</p>
+<p>The Vehicle Applications (aka. Vehicle Apps) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/" target="_blank" rel="noopener">twelve-factor</a> applications apply to Vehicle Apps as well and are summarized in the next chapter.</p>
 <h3 id="vehicle-models">Vehicle Models</h3>
-<p>A Vehicle Model makes it possible to easily get vehicle data from the in-vehicle <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps">Vehicle Apps</a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
+<p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps">Vehicle Apps</a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
 <h3 id="sdks">SDKs</h3>
 <p>To reduce the effort required to implement <a href="#vehicle-apps">Vehicle Apps</a>, Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
-Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a href="#middleware">Middleware</a>-enabled, provide connectivity to the <a href="#data-broker">Data Broker</a> and contain the ontology in the form of base classes to create <a href="#vehicle-models">Vehicle Models</a>.</p>
+Next to a Vehicle Apps abstraction, the SDKs are <a href="#middleware">Middleware</a>-enabled, provide connectivity to the <a href="#data-broker">Data Broker</a> and contain the ontology in the form of base classes to create <a href="#vehicle-models">Vehicle Models</a>.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
-<p><code>Vehicle Services</code> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <code>Vehicle services</code> may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a></p>
+<p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a></p>
 <h3 id="data-broker">Data Broker</h3>
-<p>Vehicle data is stored in the <code>Data Broker</code> conforming to an underlying <a href="#semantic-models">Semantic Model</a> like <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>. <a href="#vehicle-apps">Vehicle Apps</a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.</p>
+<p>Vehicle data is stored in the KUKSA Data Broker conforming to an underlying <a href="#semantic-models">Semantic Model</a> like <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>. <a href="#vehicle-apps">Vehicle Apps</a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.</p>
 <h3 id="semantic-models">Semantic models</h3>
-<p>The Vehicle Signal Specification (<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between <code>Vehicle Apps</code> and the <code>Data Broker</code>.</p>
-<p>The Vehicle Service Catalog (<a href="https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog" target="_blank" rel="noopener">VSC</a>) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of <code>Vehicle Services</code> and <code>Vehicle Apps</code>.</p>
+<p>The Vehicle Signal Specification (<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between Vehicle Apps and the Data Broker.</p>
+<p>The Vehicle Service Catalog (<a href="https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog" target="_blank" rel="noopener">VSC</a>) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and Vehicle Apps.</p>
 <p>As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language (<a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md" target="_blank" rel="noopener">DTDL</a>) or BAMM Aspect Meta Model <a href="https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model" target="_blank" rel="noopener">BAMM</a> as well.</p>
 <p>The Velocitas SDK is using (<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>) as the sementic model for the Vehicle Model.</p>
 <h3 id="communication-protocols">Communication Protocols</h3>
@@ -693,54 +765,47 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
 <p>Velocitas leverages <a href="https://dapr.io" target="_blank" rel="noopener">dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/" target="_blank" rel="noopener">publish/subscribe building block</a> which provides an abstraction of the MQTT messaging protocol.</p>
 <h3 id="vehicle-edge-operating-system">Vehicle Edge Operating System</h3>
 <p><a href="#vehicle-apps">Vehicle Apps</a> are expected to run on a <a href="https://www.linux.org/" target="_blank" rel="noopener">Linux</a>-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., <a href="https://mosquitto.org/" target="_blank" rel="noopener">Eclipse Mosquitto</a>).</p>
-<h2 id="vehicle-app-characteristics">Vehicle App characteristics</h2>
+<h2 id="vehicle-app-characteristics">Vehicle App Characteristics</h2>
 <p>The following aspects are important characteristics for <a href="#vehicle-apps">Vehicle Apps</a>:</p>
-<h3 id="code-base">Code base</h3>
-<p>Every <a href="#vehicle-apps">Vehicle App</a> is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.</p>
-<h3 id="polyglot">Polyglot</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.</p>
-<h3 id="oci-compliant-containers">OCI-compliant containers</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.</p>
-<h3 id="isolation">Isolation</h3>
-<p>Each <a href="#vehicle-apps">Vehicle App</a> should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.</p>
-<h3 id="configurations">Configurations</h3>
-<p>Configuration information is separated from the code base of the <a href="#vehicle-apps">Vehicle App</a>, so that the same deployment can propagate across environments with their respective configuration applied.</p>
-<h3 id="disposability">Disposability</h3>
-<p>Favor fast startup and support graceful shutdowns to leave the system in a correct state.</p>
-<h3 id="observability">Observability</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
-<h3 id="over-the-air-updatability">Over-the-air updatability</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> are released to cloud backends like the <a href="https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/" target="_blank" rel="noopener">Bosch Mobility Cloud</a> and can be updated in vehicles frequently over the air.</p>
-<h2 id="development-process">Development Process</h2>
-<p>The starting point for developing <a href="#vehicle-apps">Vehicle Apps</a> is a <a href="#semantic-models">Semantic Model</a> of the vehicle data and vehicle services. Based on the <a href="#semantic-models">Semantic Model</a>, language-specific <a href="#vehicle-models">Vehicle Models</a> are generated. <a href="#vehicle-models">Vehicle Models</a> are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &hellip;).</p>
-
-
-
-
-
-
-
-<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/velocitas/docs/concepts/development_model/build_procedure_hu5f49376adac41f286048be697899cf00_25062_800x0_resize_catmullrom_3.png" width="800" height="299">
-	
-	<figcaption class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
-  Architectural diagram of the build process
-</p>
-	</figcaption>
-	
-</figure>
-
-<p>After a <a href="#vehicle-models">Vehicle Model</a> is available for the chosen programming language, the <a href="#vehicle-apps">Vehicle App</a> can be developed using the generated Vehicle Model and its core SDK.</p>
-<h2 id="further-information">Further information</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Vehicle Model</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
+<li>
+<p><strong>Code base</strong>:
+Every Vehicle App is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.</p>
+</li>
+<li>
+<p><strong>Polyglot</strong>:
+Vehicle Apps can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.</p>
+</li>
+<li>
+<p><strong>OCI-compliant containers</strong>:
+Vehicle Apps are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.</p>
+</li>
+<li>
+<p><strong>Isolation</strong>:
+Each Vehicle App should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.</p>
+</li>
+<li>
+<p><strong>Configurations</strong>:
+Configuration information is separated from the code base of the Vehicle App, so that the same deployment can propagate across environments with their respective configuration applied.</p>
+</li>
+<li>
+<p><strong>Disposability</strong>:
+Favor fast startup and support graceful shutdowns to leave the system in a correct state.</p>
+</li>
+<li>
+<p><strong>Observability</strong>:
+Vehicle Apps provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
+</li>
+<li>
+<p><strong>Over-the-air updatability</strong>:
+Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/" target="_blank" rel="noopener">Bosch Mobility Cloud</a> and can be updated in vehicles frequently over the air.</p>
+</li>
 </ul>
+<h2 id="development-process">Development Process</h2>
+<p>The starting point for developing <a href="#vehicle-apps">Vehicle Apps</a> is a <a href="#semantic-models">Semantic Model</a> of the vehicle data and vehicle services. Based on the Semantic Model, language-specific <a href="#vehicle-models">Vehicle Models</a> are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &hellip;).</p>
+<p>After a Vehicle Model is available for the chosen programming language, the Vehicle App can be developed using the generated Vehicle Model and its SDK.</p>
+<p><img src="./build_procedure.png" alt="Development Process"></p>
+<h2 id="further-information">Further information</h2>
 
 </div>
 
@@ -757,10 +822,6 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
   
 
   
-
-    
-	
-  
     
     
 	
@@ -768,7 +829,7 @@ Next to a <a href="#vehicle-apps">Vehicle Apps</a> abstraction, the SDKs are <a 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-5fbb44f99e550dae26310f98c673daa8">1.2 - Vehicle App SDK</h1>
+	<h1 id="pg-258f658a9261263cf87e93653d35cd34">1.2.1 - Vehicle App SDK</h1>
     <div class="lead">Learn more about the provided Vehicle App SDK.</div>
 	<h2 id="introduction">Introduction</h2>
 <p>The Vehicle App SDK consists of the following building blocks:</p>
@@ -2104,10 +2165,9 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/development-model.md">Development Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Vehicle Model</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Vehicle Model Creation</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development">Vehicle App Development</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
 </ul>
 
@@ -2137,8 +2197,8 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-53f89c5f8e7834adfd5dc04f58a62868">1.3 - Vehicle Abstraction Layer (VAL)</h1>
-    <div class="lead">Learn about the main conecpts and components of the vehicle abstraction and how this interrelates with the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>.</div>
+	<h1 id="pg-0e9483f5b3711eec853bb55b42c519ad">1.2.2 - Vehicle Abstraction Layer (VAL)</h1>
+    <div class="lead">Learn about the main concepts and components of the vehicle abstraction and how this interrelates with the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>.</div>
 	<h2 id="introduction">Introduction</h2>
 <p>The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>, also called KUKSA.VAL.
 It is is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
@@ -2153,7 +2213,7 @@ It currently consists of a data broker, a CAN feeder, and a set of example servi
 
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/velocitas/docs/concepts/val/val_architecture_overview_hue12a1c2ecc85cf3ee9799265a093472d_127432_800x0_resize_catmullrom_3.png" width="800" height="614">
+	<img class="card-img-top" src="/velocitas/docs/about/development_model/val/val_architecture_overview_hue12a1c2ecc85cf3ee9799265a093472d_127432_800x0_resize_catmullrom_3.png" width="800" height="614">
 	
 	<figcaption class="card-body px-0 pt-2 pb-0">
 		<p class="card-text">
@@ -2199,7 +2259,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/velocitas/docs/concepts/val/dataflow_broker_hu042a46cff9fdb3ae953ce2b4baa695f0_25200_800x0_resize_catmullrom_3.png" width="800" height="122">
+	<img class="card-img-top" src="/velocitas/docs/about/development_model/val/dataflow_broker_hu042a46cff9fdb3ae953ce2b4baa695f0_25200_800x0_resize_catmullrom_3.png" width="800" height="122">
 	
 	<figcaption class="card-body px-0 pt-2 pb-0">
 		<p class="card-text">
@@ -2218,7 +2278,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/velocitas/docs/concepts/val/dataflow_service_hu2c631cbebd9c8512318cb5903df1828b_24831_800x0_resize_catmullrom_3.png" width="800" height="130">
+	<img class="card-img-top" src="/velocitas/docs/about/development_model/val/dataflow_service_hu2c631cbebd9c8512318cb5903df1828b_24831_800x0_resize_catmullrom_3.png" width="800" height="130">
 	
 	<figcaption class="card-body px-0 pt-2 pb-0">
 		<p class="card-text">
@@ -2259,6 +2319,10 @@ Service implementations may also interact as feeders with the data broker.</p>
     
 	
   
+
+    
+	
+  
     
     
 	
@@ -2266,7 +2330,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-745cbbc500d280d83e9fcaf94ecea84b">1.4 - Deployment Model</h1>
+	<h1 id="pg-92f99cc503f41935e98f632ac2195a8d">1.3 - Deployment Model</h1>
     <div class="lead">Learn more about our deployment model and guiding principles.</div>
 	<p>The Velocitas project uses a common deployment model. It uses OCI-compliant containers to increase the flexibility for the support of different programming languages and runtimes, which accelerates innovation and development. OCI-compliant containers also allow for a standardized yet flexible deployment process, which increases the ease of operation. Using OCI-compliant is portable to different architectures as long as there is support for OCI-compliant containers on the desired platform (e.g., like a container runtime for arm32, arm64 or amd64).</p>
 <h2 id="guiding-principles">Guiding principles</h2>
@@ -2306,7 +2370,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9128db8048cd1b7aedfb97ce89217631">1.4.1 - Build and Release Process</h1>
+	<h1 id="pg-910209e7563d9f3e5537b198974f1128">1.3.1 - Build and Release Process</h1>
     <div class="lead">Learn more about the provided continuous integration, and release process of a Vehicle App.</div>
 	<p>The Velocitas project provides a two-stage process for development, continuous integration, and release of a new version of a Vehicle App.</p>
 <ul>
@@ -2384,6 +2448,90 @@ Once the application is ready to be released in a new version, a dedicated relea
     
 	
   
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2c63eee46c0f8f9183b9da4a108ddf3f">1.4 - Repository Overview</h1>
+    <div class="lead">The repositories of the Eclipse <em>Velocitas</em> and their relations between each other</div>
+	<p><img src="./project-overview.png" alt="Project Overview"></p>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a></td>
+<td>GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the <em>sdv-vehicle-app-python-sdk</em>. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk" target="_blank" rel="noopener">vehicle-app-python-sdk</a></td>
+<td>Provides basic functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp; rule support.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-model-python" target="_blank" rel="noopener">vehicle-model-python</a></td>
+<td>Basic vehicle model for Python generated from <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec" target="_blank" rel="noopener">VSS</a> with addition of some specialized vehicle services.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">vehicle-app-cpp-sdk</a></td>
+<td>Provided basic functionality to write a Vehicle App which has access to vehicle data points and services. This includes publish &amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp; rule support.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-model-cpp" target="_blank" rel="noopener">vehicle-model-cpp</a></td>
+<td>Basic vehicle model for C++ generated from <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec" target="_blank" rel="noopener">VSS</a> with addition of some specialized vehicle services.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">kuksa.val</a></td>
+<td>Is a part of the Vehicle Abstraction Layer (VAL) of the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a> and provides the KUKSA Data Broker. The KUKSA Data Broker offers data points available in the vehicle to the Vehicle Apps semantically aligned to a data model like the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a>.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">kuksa.val.feeders</a></td>
+<td>The KUKSA DBC Feeder is a generic data feeder that reads data from the vehicle&rsquo;s <a href="https://en.wikipedia.org/wiki/CAN_bus" target="_blank" rel="noopener">CAN bus</a> defined by a DBC file, maps them to a set of data points (e.g. according to the VSS) and feeds it into the Data Broker.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse/kuksa.val.services" target="_blank" rel="noopener">kuksa.val.services</a></td>
+<td>Provides exemplary vehicle services and respective implementations that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described e.g. in the <a href="https://github.com/COVESA/vehicle_service_catalog" target="_blank" rel="noopener">Vehicle Service Catalog (VSC)</a>.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/release-documentation-action" target="_blank" rel="noopener">release-documentation-action</a></td>
+<td>GitHub Action to generate a release documentation from the CI workflow output by rendering it to markdown files so that this can be easily published with GitHub Pages.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/license-check" target="_blank" rel="noopener">license-check</a></td>
+<td>GitHub Action to collect the licenses of the used components and can be configured to fail with an error message on invalid licenses.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a></td>
+<td>Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
 
     
 	
@@ -2396,9 +2544,9 @@ Once the application is ready to be released in a new version, a dedicated relea
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-68ec2370d0409cc27325be36693f9368">2 - Tutorials</h1>
-    <div class="lead">Learn how to get started with Eclipse Velocitas™, including setting up the development enviroment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
-<img src="./userJourney.png" alt="Customer Journey"></div>
-	
+    <div class="lead">Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.</div>
+	<p><img src="./userJourney.png" alt="Customer Journey"></p>
+
 </div>
 
 
@@ -2425,6 +2573,15 @@ Once the application is ready to be released in a new version, a dedicated relea
     <div class="lead">Learn how to setup and explore the provided development environment.</div>
 	<p>The following information describes how to setup and configure the <a href="https://code.visualstudio.com/docs/remote/containers" target="_blank" rel="noopener">Development Container (DevContainer)</a>, and how to build, customize and test the sample <em>Vehicle App</em>, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.</p>
 <p>Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> for your own <em>Vehicle App</em> develpment project.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    Before you start, we recommend that you familiarize yourself with our <a href="/velocitas/docs/about/development-model">basic concept</a> to understand the terms mentioned.
+
+</div>
+
 <h2 id="creating-vehicle-app-repository">Creating Vehicle App Repository</h2>
 <p>For the orginization and <em>Vehicle App</em> repository the name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of the document.</p>
 
@@ -2485,20 +2642,20 @@ Once the application is ready to be released in a new version, a dedicated relea
 
 
 
-<ul class="nav nav-tabs" id="tabs-0" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-1" role="tablist"><li class="nav-item">
       <a class="nav-link active"
-          id="tabs-00-00-tab" data-toggle="tab" href="#tabs-00-00" role="tab"
+          id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
           
-        aria-controls="tabs-00-00" aria-selected="false">Python</a>
+        aria-controls="tabs-01-00" aria-selected="false">Python</a>
     </li>
 
     
       
     <li class="nav-item">
       <a class="nav-link"
-          id="tabs-00-01-tab" data-toggle="tab" href="#tabs-00-01" role="tab"
+          id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
           
-        aria-controls="tabs-00-01" aria-selected="false">C++</a>
+        aria-controls="tabs-01-01" aria-selected="false">C++</a>
     </li>
 
     
@@ -2508,8 +2665,8 @@ Once the application is ready to be released in a new version, a dedicated relea
 
 
 
-<div class="tab-content" id="tabs-0-content"><div class="tab-body tab-pane fade show active"
-        id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab">
+<div class="tab-content" id="tabs-1-content"><div class="tab-body tab-pane fade show active"
+        id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
         <p>Create your own repository copy from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
 </div>
 
@@ -2518,7 +2675,7 @@ Once the application is ready to be released in a new version, a dedicated relea
     
 
   <div class="tab-body tab-pane fade"
-        id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab">
+        id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
         <p>C++ currently has only an <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">SDK repository</a>. To create your own <em>Vehicle App</em> repository, fork the repository into your own organization. For the fork, only the <code>main</code> branch needs to be copied over.</p>
 </div>
 
@@ -2548,7 +2705,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 </ul>
 
 
-<div class="alert alert-primary" role="alert">
+<div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">Proxy configuration</h4>
 
     A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: <a href="/velocitas/docs/tutorials/quickstart/behind_proxy">Working behind a proxy</a>
@@ -2688,7 +2845,6 @@ You can either try it out directly in the browser or also use it inside Visual S
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model">Creating a Vehicle Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/development-model.md">Development Model</a></li>
 </ul>
 
 </div>
@@ -3800,12 +3956,12 @@ After creating the mock, you can test the method and check the response. Use ass
 <p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/vehicle_app_sdk_overview">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes mode</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Python Vehicle Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/">Deployment Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
@@ -4074,12 +4230,12 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/vehicle_app_sdk_overview.md">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes mode</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Vehicle Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model.md">Deployment Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Vehicle App with Helm</a></li>
 </ul>
 
@@ -4192,8 +4348,8 @@ A new service can be easily started by calling it from bash script, however rest
 <ul>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in local Kubernetes cluster</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/quickstart">Setup and Explore Development Enviroment</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_releases">Build and release process</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/vehicle_app_releases/">Build and release process</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
@@ -4257,8 +4413,8 @@ All the files that are located in <code>deploy/runtime/k3d/volume</code> will be
 <ul>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_releases">Build and release process</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment_model/vehicle_app_releases">Build and release process</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
@@ -4389,8 +4545,8 @@ All the files that are located in <code>deploy/runtime/k3d/volume</code> will be
 </ul>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_releases">Build and release process</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/vehicle_app_releases/">Build and release process</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
@@ -4541,8 +4697,8 @@ Execute the script:</p>
 </span></span></code></pre></div><p>This script builds the local source code of the application into a container, pushes that container to the local cluster registry and deploys the app via a helm chart to the K3D cluster. Rerun this script after you have changed the source code of your application to re-deploy with the latest changes.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_releases">Build and release process</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally.md">Start runtime services locally</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment_model/vehicle_app_releases">Build and release process</a></li>
 </ul>
 
 </div>
@@ -4563,213 +4719,7 @@ Execute the script:</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-b00a88a07ceb21b1a83e5822e0c86c1d">3 - References</h1>
-    <div class="lead">Explore the basic concepts of Eclipse Velocitas™.</div>
-	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-    
-    
-	
-    
-
-<div class="td-content" style="">
-    
-	<h1 id="pg-56d4312e157b56f80e10920f0e229664">3.1 - Example Use Case</h1>
-    
-	<p>The example of the seat adjuster provides the option of requesting the new seat position and publishing the current seat position to the customer and demonstrating so the content of the Eclipse project <strong>Velocitas</strong> in this way. The following chapter describes the data flow for the use cases.</p>
-<h2 id="requesting-new-seat-position">Requesting new seat position</h2>
-
-
-
-
-
-
-
-<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/velocitas/docs/reference/seat_adjuster_use_case/seat_adjuster_dataflow_1_hu3bf97c4e61796e11582c60109bcd27ef_237711_800x0_resize_catmullrom_3.png" width="800" height="477">
-	
-	<figcaption class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
-  Architectural diagram of the seat adjuster example use case
-</p>
-	</figcaption>
-	
-</figure>
-
-<ol>
-<li>The <strong>Customer</strong> requests the change of the seat position as MQTT message on the topic <code>seatadjuster/setPosition/request</code> with the payload:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;position&#34;</span>: 300<span style="color:#ce5c00;font-weight:bold">}</span>
-</span></span></code></pre></div></li>
-<li>The <strong>Seat Adjuster Vehicle App</strong> that has subscribed to this topic, receives the request to change the seat position as a MQTT message.</li>
-<li>The <strong>Seat Adjuster Vehicle App</strong> gets the current vehicle speed from the data broker, which is fed by the <strong>CAN Feeder (KUKSA DBC Feeder)</strong>.</li>
-<li>With the support of the <strong>Vehicle App SDK</strong>, the <strong>Seat Adjuster Vehicle App</strong> triggers a seat adjustment command of the <strong>Seat Service</strong> via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.</li>
-<li>The <strong>Seat Service</strong> moves the seat to the new position via CAN messages.</li>
-<li>The <strong>Seat Service</strong> returns OK or an error code as grpc status to the <strong>Seat Adjuster Vehicle App</strong>.</li>
-<li>If everything went well, the <strong>Seat Adjuster Vehicle App</strong> returns a success message for the topic <code>seatadjuster/setPosition/response</code> with the payload:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;status&#34;</span>: <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#ce5c00;font-weight:bold">}</span>
-</span></span></code></pre></div>Otherwise, an error message will be returned:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span>requestId<span style="color:#4e9a06">&#34;: &#34;</span>xyz<span style="color:#4e9a06">&#34;, &#34;</span>status<span style="color:#4e9a06">&#34;: 1, &#34;</span>message<span style="color:#4e9a06">&#34; = &#34;</span>&lt;error message&gt;<span style="color:#4e9a06">&#34; }
-</span></span></span></code></pre></div></li>
-<li>This success or error message will be returned to the <strong>Customer</strong>.</li>
-</ol>
-<h2 id="publishing-current-seat-position">Publishing current seat position</h2>
-
-
-
-
-
-
-
-<figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/velocitas/docs/reference/seat_adjuster_use_case/seat_adjuster_dataflow_2_hu69015de4a83f48072f5d9f4a269080bf_222663_800x0_resize_catmullrom_3.png" width="800" height="477">
-	
-	<figcaption class="card-body px-0 pt-2 pb-0">
-		<p class="card-text">
-  Architectural diagram of the data flow for publishing a new seat position
-</p>
-	</figcaption>
-	
-</figure>
-
-<ol>
-<li>If the seat position will be changed by the driver, the new seat position will be sent to the <strong>Seat Service</strong> via CAN.</li>
-<li>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>KUKSA Data Broker</strong> since it was registered beforehand.</li>
-<li>The <strong>Seat Adjuster Vehicle App</strong> that subscribed to the seat position receives the new seat position from the <strong>KUKSA Data Broker</strong> as a result.</li>
-<li>The <strong>Seat Adjuster Vehicle App</strong> publishes this on topic <code>seatadjuster/currentPosition</code> with the payload:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 350<span style="color:#ce5c00;font-weight:bold">}</span>
-</span></span></code></pre></div></li>
-<li>The <strong>Customer</strong> who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.</li>
-</ol>
-
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-e80ffe32a2ea184a96cb77e55beee356">3.2 - Repository Overview</h1>
-    
-	<p><img src="./project-overview.png" alt="Project Overview"></p>
-<table>
-<thead>
-<tr>
-<th>Repository</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a></td>
-<td>GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the <em>sdv-vehicle-app-python-sdk</em>. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk" target="_blank" rel="noopener">vehicle-app-python-sdk</a></td>
-<td>Provides basic functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp; rule support.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/vehicle-model-python" target="_blank" rel="noopener">vehicle-model-python</a></td>
-<td>Basic vehicle model for Python generated from <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec" target="_blank" rel="noopener">VSS</a> with addition of some specialized vehicle services.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">vehicle-app-cpp-sdk</a></td>
-<td>Provided basic functionality to write a Vehicle App which has access to vehicle data points and services. This includes publish &amp; subscribe messaging, talent abstraction, vehicle data model ontology and function-based query &amp; rule support.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/vehicle-model-cpp" target="_blank" rel="noopener">vehicle-model-cpp</a></td>
-<td>Basic vehicle model for C++ generated from <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec" target="_blank" rel="noopener">VSS</a> with addition of some specialized vehicle services.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">kuksa.val</a></td>
-<td>Is a part of the Vehicle Abstraction Layer (VAL) of the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a> and provides the KUKSA Data Broker. The KUKSA Data Broker offers data points available in the vehicle to the Vehicle Apps semantically aligned to a data model like the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a>.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">kuksa.val.feeders</a></td>
-<td>The KUKSA DBC Feeder is a generic data feeder that reads data from the vehicle&rsquo;s <a href="https://en.wikipedia.org/wiki/CAN_bus" target="_blank" rel="noopener">CAN bus</a> defined by a DBC file, maps them to a set of data points (e.g. according to the VSS) and feeds it into the Data Broker.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse/kuksa.val.services" target="_blank" rel="noopener">kuksa.val.services</a></td>
-<td>Provides exemplary vehicle services and respective implementations that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described e.g. in the <a href="https://github.com/COVESA/vehicle_service_catalog" target="_blank" rel="noopener">Vehicle Service Catalog (VSC)</a>.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/release-documentation-action" target="_blank" rel="noopener">release-documentation-action</a></td>
-<td>GitHub Action to generate a release documentation from the CI workflow output by rendering it to markdown files so that this can be easily published with GitHub Pages.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/license-check" target="_blank" rel="noopener">license-check</a></td>
-<td>GitHub Action to collect the licenses of the used components and can be configured to fail with an error message on invalid licenses.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a></td>
-<td>Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-
-    
-	
-  
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-99a93ef9534d11fef4be3e4b3b1a6381">4 - Contribution Guidelines</h1>
+	<h1 id="pg-99a93ef9534d11fef4be3e4b3b1a6381">3 - Contribution Guidelines</h1>
     <div class="lead">Read how you can contribute to Eclipse Veloctias.</div>
 	<p>Thanks for thinking about contributing to <strong>Eclipse Velocitas</strong>. We really appreciate the time and effort you want to spend helping to improve Eclipse Velocitas.</p>
 <p>However, in order to get you started as fast as possible, we need to go through some organizational issues first.</p>

@@ -21,23 +21,19 @@
 <link rel="icon" type="image/png" href="/velocitas/favicons/android-192x192.png" sizes="192x192">
 
 <title>Tutorials | Velocitas</title>
-<meta name="description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development enviroment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
-![Customer Journey](./userJourney.png)
+<meta name="description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
 ">
 <meta property="og:title" content="Tutorials" />
-<meta property="og:description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development enviroment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
-![Customer Journey](./userJourney.png)
+<meta property="og:description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas/docs/tutorials/" />
 
 <meta itemprop="name" content="Tutorials">
-<meta itemprop="description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development enviroment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
-![Customer Journey](./userJourney.png)
+<meta itemprop="description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
 "><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tutorials"/>
-<meta name="twitter:description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development enviroment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
-![Customer Journey](./userJourney.png)
+<meta name="twitter:description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
 "/>
 
 
@@ -93,7 +89,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.e7236ea6e952c899add7de00efeeded9.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.2c7ebd337d62cb7e352b40b543dbcd45.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -123,8 +119,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Tutorials</h1>
-<div class="lead">Learn how to get started with Eclipse Velocitas™, including setting up the development enviroment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
-<img src="./userJourney.png" alt="Customer Journey"></div>
+<div class="lead">Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.</div>
 
 
 
@@ -325,7 +320,8 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p><img src="./userJourney.png" alt="Customer Journey"></p>
+
 </div>
 </div>
 
@@ -350,6 +346,15 @@ This is the multi-page printable view of this section.
     <div class="lead">Learn how to setup and explore the provided development environment.</div>
 	<p>The following information describes how to setup and configure the <a href="https://code.visualstudio.com/docs/remote/containers" target="_blank" rel="noopener">Development Container (DevContainer)</a>, and how to build, customize and test the sample <em>Vehicle App</em>, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.</p>
 <p>Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> for your own <em>Vehicle App</em> develpment project.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    Before you start, we recommend that you familiarize yourself with our <a href="/velocitas/docs/about/development-model">basic concept</a> to understand the terms mentioned.
+
+</div>
+
 <h2 id="creating-vehicle-app-repository">Creating Vehicle App Repository</h2>
 <p>For the orginization and <em>Vehicle App</em> repository the name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of the document.</p>
 
@@ -410,20 +415,20 @@ This is the multi-page printable view of this section.
 
 
 
-<ul class="nav nav-tabs" id="tabs-0" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-1" role="tablist"><li class="nav-item">
       <a class="nav-link active"
-          id="tabs-00-00-tab" data-toggle="tab" href="#tabs-00-00" role="tab"
+          id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
           
-        aria-controls="tabs-00-00" aria-selected="false">Python</a>
+        aria-controls="tabs-01-00" aria-selected="false">Python</a>
     </li>
 
     
       
     <li class="nav-item">
       <a class="nav-link"
-          id="tabs-00-01-tab" data-toggle="tab" href="#tabs-00-01" role="tab"
+          id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
           
-        aria-controls="tabs-00-01" aria-selected="false">C++</a>
+        aria-controls="tabs-01-01" aria-selected="false">C++</a>
     </li>
 
     
@@ -433,8 +438,8 @@ This is the multi-page printable view of this section.
 
 
 
-<div class="tab-content" id="tabs-0-content"><div class="tab-body tab-pane fade show active"
-        id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab">
+<div class="tab-content" id="tabs-1-content"><div class="tab-body tab-pane fade show active"
+        id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
         <p>Create your own repository copy from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
 </div>
 
@@ -443,7 +448,7 @@ This is the multi-page printable view of this section.
     
 
   <div class="tab-body tab-pane fade"
-        id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab">
+        id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
         <p>C++ currently has only an <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">SDK repository</a>. To create your own <em>Vehicle App</em> repository, fork the repository into your own organization. For the fork, only the <code>main</code> branch needs to be copied over.</p>
 </div>
 
@@ -473,7 +478,7 @@ This is the multi-page printable view of this section.
 </ul>
 
 
-<div class="alert alert-primary" role="alert">
+<div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">Proxy configuration</h4>
 
     A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: <a href="/velocitas/docs/tutorials/quickstart/behind_proxy">Working behind a proxy</a>
@@ -613,7 +618,6 @@ You can either try it out directly in the browser or also use it inside Visual S
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model">Creating a Vehicle Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/development-model.md">Development Model</a></li>
 </ul>
 
 </div>
@@ -1725,12 +1729,12 @@ After creating the mock, you can test the method and check the response. Use ass
 <p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/vehicle_app_sdk_overview">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes mode</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Python Vehicle Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/">Deployment Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
@@ -1999,12 +2003,12 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/vehicle_app_sdk_overview.md">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes mode</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Vehicle Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model.md">Deployment Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Vehicle App with Helm</a></li>
 </ul>
 
@@ -2117,8 +2121,8 @@ A new service can be easily started by calling it from bash script, however rest
 <ul>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in local Kubernetes cluster</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/quickstart">Setup and Explore Development Enviroment</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_releases">Build and release process</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/vehicle_app_releases/">Build and release process</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
@@ -2182,8 +2186,8 @@ All the files that are located in <code>deploy/runtime/k3d/volume</code> will be
 <ul>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_releases">Build and release process</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment_model/vehicle_app_releases">Build and release process</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
@@ -2314,8 +2318,8 @@ All the files that are located in <code>deploy/runtime/k3d/volume</code> will be
 </ul>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment-model.md">Deployment Model</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_releases">Build and release process</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment-model/vehicle_app_releases/">Build and release process</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
@@ -2466,8 +2470,8 @@ Execute the script:</p>
 </span></span></code></pre></div><p>This script builds the local source code of the application into a container, pushes that container to the local cluster registry and deploys the app via a helm chart to the K3D cluster. Rerun this script after you have changed the source code of your application to re-deploy with the latest changes.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_releases">Build and release process</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally.md">Start runtime services locally</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment_model/vehicle_app_releases">Build and release process</a></li>
 </ul>
 
 </div>
