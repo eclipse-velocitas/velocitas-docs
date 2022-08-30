@@ -16,7 +16,7 @@ aliases:
 * Dapr (```Local - Ensure Dapr```): installs Dapr CLI and initializes Dapr if required
 * Mosquitto (```Local - Mosquitto```): runs _Mosquitto_ as a container (```docker run```)
 * KUKSA Data Broker (```Local - VehicleDataBroker```): runs _KUKSA Data Broker_ as a container
-* (Optional) Vehicle Services (```Local - VehicleServices```): runs the _Vehicle Services_ (e.g. the `Seat Service`) configured in the `AppManifest.json` as each a separate container
+* (Optional) Vehicle Services (```Local - VehicleServices```): runs the _Vehicle Services_ (e.g. the `Seat Service`) configured in the `AppManifest.json` each as a separate container
 * (Optional) Feeder Can (```Local - FeederCan```): runs _FeederCAN_ as a container
 
 **Run as Bundle:** To orchestrate these tasks, a task called `Start Vehicle App runtime` is available. This task runs the other tasks in the correct order. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `Start Vehicle App runtime`.
