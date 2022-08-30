@@ -39,8 +39,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.190eed3a685f1e2c82e3a091ca824a891749562d5a9a13247d2f94d7feb607c1.css" as="style">
-<link href="/velocitas/scss/main.min.190eed3a685f1e2c82e3a091ca824a891749562d5a9a13247d2f94d7feb607c1.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.f9cf27fd6c4e3e9d93bf71d840b5aa8a3123607180e0598dcbee7d98d3592a75.css" as="style">
+<link href="/velocitas/scss/main.min.f9cf27fd6c4e3e9d93bf71d840b5aa8a3123607180e0598dcbee7d98d3592a75.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -89,7 +89,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.2c7ebd337d62cb7e352b40b543dbcd45.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.9d845edd6f66c755008d15b63dd2abcb.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -182,20 +182,26 @@ This is the multi-page printable view of this section.
 <ul>
 <li>Dapr (<code>Local - Ensure Dapr</code>): installs Dapr CLI and initializes Dapr if required</li>
 <li>Mosquitto (<code>Local - Mosquitto</code>): runs <em>Mosquitto</em> as a container (<code>docker run</code>)</li>
-<li>KUKSA Data Broker (<code>Local - VehicleDataBroker</code>): downloads and runs <em>KUKSA Data Broker</em></li>
-<li>(Optional) Seat Service (<code>Local - SeatService</code>): downloads and runs <em>Seat Service</em>, an example <code>Vehicle Service</code></li>
-<li>(Optional) Feeder Can (<code>Local - FeederCan</code>): downloads and runs <em>FeederCAN</em></li>
+<li>KUKSA Data Broker (<code>Local - VehicleDataBroker</code>): runs <em>KUKSA Data Broker</em> as a container</li>
+<li>(Optional) Vehicle Services (<code>Local - VehicleServices</code>): runs the <em>Vehicle Services</em> (e.g. the <code>Seat Service</code>) configured in the <code>AppManifest.json</code> each as a separate container</li>
+<li>(Optional) Feeder Can (<code>Local - FeederCan</code>): runs <em>FeederCAN</em> as a container</li>
 </ul>
 <p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>Start Vehicle App runtime</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Start Vehicle App runtime</code>.</p>
 <p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
 <p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
 <p><strong>Scripting:</strong> The tasks itself are executing scripts that are located in <code>.vscode/scripts</code>. These scripts download the specified version of the runtime components and execute them along with Dapr. The same mechanism can be used to register additional services or prerequisites by adding new task definitions in the <code>tasks.json</code> file.</p>
-<h2 id="change-version-of-runtime-services">Change version of runtime services</h2>
-<p>The version for the runtime services is defined in the file <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/prerequisite_settings.json" target="_blank" rel="noopener"><code>./prerequisite_settings.json</code></a>. If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.</p>
-<h2 id="using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</h2>
+<h2 id="addchange-service-configuration">Add/Change service configuration</h2>
+<p>The configuration for the services is defined in the file <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json" target="_blank" rel="noopener"><code>./AppManifest.json</code></a>. If you want to add a new service, adapt <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json" target="_blank" rel="noopener"><code>./AppManifest.json</code></a>. If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.</p>
+<h3 id="addchange-service-configuration-helper">Add/Change service configuration helper</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;NAME&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;image&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;IMAGE&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;VERSION&gt;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</h2>
 <p>A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task <code>Local - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local - VehicleDataBroker CLI</code>). The <em>KUKSA Data Broker</em> needs to be running for you to be able to use the tool.</p>
-<h2 id="integrating-a-new-service-into-visual-studio-code-task">Integrating a new service into Visual Studio Code Task</h2>
-<p>Integration of a new service can be done by duplicating one of the existing tasks.</p>
+<h2 id="integrating-a-new-runtime-service-into-visual-studio-code-task">Integrating a new runtime service into Visual Studio Code Task</h2>
+<p>Integration of a new runtime service can be done by duplicating one of the existing tasks.</p>
 <ul>
 <li>Create a new script based on template script <code>.vscode/scripts/run-vehicledatabroker.sh</code></li>
 <li>In <code>.vscode/tasks.json</code>, duplicate section from task <code>run-vehicledatabroker</code></li>
@@ -231,6 +237,30 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">},</span>
+</span></span></code></pre></div><h2 id="integrating-a-new-vehicle-service">Integrating a new vehicle service</h2>
+<p>Integration of a new vehicle service can be done by adding an additional case and following the template <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.vscode/scripts/runtime/local/run-vehicleservices.sh" target="_blank" rel="noopener"><code>run-vehicleservices.sh</code></a>.</p>
+<h3 id="vehicle-service-codeblock-helper">Vehicle Service CodeBlock helper</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Configure Service Specific Requirements
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">configure_service</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000">in</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">seatservice</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">;;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">NEW_SERVICE</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure ports for docker to expose
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DOCKER_PORTS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-p &lt;PORT_TO_EXPOSE&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure ENVs need to run docker container
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DOCKER_ENVS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-e &lt;ENV_TO_RUN_CONTAINER&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure Dapr App Port
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DAPR_APP_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure Dapr Grpc Port
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DAPR_GRPC_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">;;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">echo</span> <span style="color:#4e9a06">&#34;Unknown Service to configure.&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">;;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>      
 </span></span></code></pre></div><h2 id="troubleshooting">Troubleshooting</h2>
 <p><strong>Problem description:</strong> When integrating new services into an existing dev environment, it is highly recommended to use the Visual Studio Code Task Feature.
 A new service can be easily started by calling it from bash script, however restarting the same service might lead to port conflicts (GRPC Port or APP port). That can be easily avoided by using the Visual Studio Code Task Feature.</p>
