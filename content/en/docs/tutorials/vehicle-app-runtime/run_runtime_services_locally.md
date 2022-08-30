@@ -29,7 +29,7 @@ aliases:
 
 ## Add/Change service configuration
 
-The configuration for the services is defined in the file [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json). If you want to add new service, adapt [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json). If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.
+The configuration for the services is defined in the file [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json). If you want to add a new service, adapt [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json). If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.
 
 
 ### Add/Change service configuration helper
