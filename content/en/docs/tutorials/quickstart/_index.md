@@ -15,7 +15,7 @@ The following information describes how to setup and configure the [Development 
 Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own _Vehicle App_ develpment project.
 
 {{% alert title="Note" %}}
-Before you start, we recommend that you familiarize yourself with our [basic concept](/docs/about/development-model) to understand the terms mentioned.
+Before you start, we recommend that you familiarize yourself with our [basic concept](/docs/about/development_model) to understand the terms mentioned.
 {{% /alert %}}
 
 ## Creating Vehicle App Repository
@@ -52,7 +52,6 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
 {{% alert title="Proxy configuration" color="warning" %}}
 A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/quickstart/behind_proxy)
 {{% /alert %}}
-
 
 With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
 
@@ -120,7 +119,7 @@ A Visual Studio Code task called `Start Vehicle App runtime` is available to run
 3. Select `Start VehicleApp runtime`
 4. Choose `Continue without scanning the output`
 
-You should see the tasks `run-mosquitto`, `run-vehicledatabroker`, `run-seatservice` and `run-feedercan` being executed in the Visual Studio Code output panel.
+You should see the tasks `run-mosquitto`, `run-vehicledatabroker`, `run-vehicleservices` and `run-feedercan` being executed in the Visual Studio Code output panel.
 
 More information about the tasks are available [here](/docs/run_runtime_services_locally.md).
 
@@ -128,9 +127,29 @@ More information about the tasks are available [here](/docs/run_runtime_services
 
 Now that the [runtime services](#starting-runtime-services) are all up and running, let's start a debug session for the Vehicle App as next step.
 
+{{< tabpane text=true >}}
+{{% tab header="Template" %}}
+
 1. Open the main source file and set a breakpoint in the given method:
-   * Python main source file: `src/VehicleApp/main.py`, set breakpoint in method: `on_set_position_request_received`
-   * C++ main source file: `app/src/VehicleApp.cpp`, set breakpoint in method: `onSetPositionRequestReceived`
+   - Python main source file: `/app/src/main.py`, set breakpoint in method: `on_get_speed_request_received`
+   - C++: Continue on the `Seat Adjuster` tab.
+2. Press <kbd>F5</kbd> to start a debug session of the _Vehicle App_ and see the log output on the `DEBUG CONSOLE`
+
+To trigger this breakpoint, let's send a message to the Vehicle App using the mqtt broker that is running in the background.
+
+3. Open `VSMqtt` extension in Visual Studio Code and connect to `mosquitto (local)`
+4. Set `Subscribe Topic` = `myvehicleapp/getSpeed/response` and click subscribe
+6. Set `Publish Topic` = `myvehicleapp/getSpeed`
+7. Press publish with an empty payload field.
+{{% /tab %}}
+{{% tab header="Seat Adjuster" %}}
+
+For Python: Follow the guide provided in: [Import examples](/docs/tutorials/quickstart/import_examples/) and import [`seat-adjuster`](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster). </br>
+For C++: Continue with the next steps.
+
+1. Open the main source file and set a breakpoint in the given method:
+   - Python main source file: `/app/src/main.py`, set breakpoint in method: `on_set_position_request_received`
+   - C++ main source file: `/app/src/VehicleApp.cpp`, set breakpoint in method: `onSetPositionRequestReceived`
 2. Press <kbd>F5</kbd> to start a debug session of the _Vehicle App_ and see the log output on the `DEBUG CONSOLE`
 
 To trigger this breakpoint, let's send a message to the Vehicle App using the mqtt broker that is running in the background.
@@ -144,7 +163,9 @@ To trigger this breakpoint, let's send a message to the Vehicle App using the mq
    ```json
    { "position": 300, "requestId": "xyz" }
    ```
-  
+
+{{% /tab %}}
+{{< /tabpane >}}
 Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.
 
 ## Triggering CI Workflow

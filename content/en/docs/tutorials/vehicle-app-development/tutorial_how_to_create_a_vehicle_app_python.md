@@ -19,16 +19,16 @@ Once you have completed all steps, you will have a solid understanding of the de
 This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read the other manuals:
 
 - [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
-- [How to create a Vehicle Model](/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md)
+- [How to create a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 
 Once you have established your development environment, you will be able to start developing your first Vehicle App.
 
-For this tutorial, you will recreate the vehicle app that is included with the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template):
+For this tutorial, you will recreate the vehicle app that is included with the [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster):
 The Vehicle app allows to change the positions of the seats in the car and also provide their current positions to other applications.
 
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
 
-At first, you have to create the main python script called `main.py` in `src/VehicleApp/`. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:
+At first, you have to create the main python script called `main.py` in `/app/src`. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:
 
 1. Manage your imports
 2. Enable logging
@@ -105,15 +105,15 @@ The app is now running. In order to use it properly, we will enhance the app wit
 
 ## Vehicle Model
 
-In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check [tutorial about creating models](/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md) for more details about this topic. In this section, the focus is on using the models.
+In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check [tutorial about creating models](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md) for more details about this topic. In this section, the focus is on using the models.
 
 ### Import the model
 
-The first thing you need to do to get access to the Vehicle Model. In the section about [distributing a model](/docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md#distributing-your-python-vehicle-model), you got to know the different methods.
+The first thing you need to do to get access to the Vehicle Model. In the section about [distributing a model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model/vehicle_model_distribution/distribution_python), you got to know the different methods.
 
-If you just want to use your model in one app, you can simply copy the classes into your `src`-folder. In this example, you find the classes inside the `vehicle_model`-folder. As you have already seen in the section about [initializing the app](/docs/getting-started/tutorials/tutorial_how_to_create_a_vehicle_app/#initialize-your-class), we need the `vehicle model`to use the app.
+If you just want to use your model in one app, you can simply copy the classes into your `/app/src`-folder. In this example, you find the classes inside the `vehicle_model`-folder. As you have already seen in the section about [initializing the app](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#initialize-your-class), we need the `vehicle model`to use the app.
 
-As you know, the model has a single [Datapoint](#datapoints) for the speed and a reference to the `cabin`-model.
+As you know, the model has a single [Datapoint](/docs/about/development_model/vehicle_app_sdk/#datapoint) for the speed and a reference to the `cabin`-model.
 
 Accessing the speed can be done via
 
@@ -134,7 +134,6 @@ self.DriverSeatPosition = await self.vehicle_client.Cabin.Seat.Row1.Pos1.Positio
 If you want to get notified about changes of a specific `Datapoint`, you can subscribe to this event, e.g. as part of the "on_start"-method in your app.
 
 ```Python
-
     async def on_start(self):
         """Run when the vehicle app starts"""
         await self.Vehicle.Cabin.Seat.element_at(1, 1).Position.subscribe(
@@ -146,7 +145,6 @@ If you want to get notified about changes of a specific `Datapoint`, you can sub
         response_topic = "seatadjuster/currentPosition"
         seat_path = self.Vehicle.Cabin.Seat.element_at(1, 1).Position.get_path()
         response_data = {"position": data.fields[seat_path].uint32_value}
-
 ```
 
 Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked envery datapoint update. Subscribed data is available in the respective *data.fields* value and are accessed by their complete path.
@@ -166,7 +164,7 @@ Similarly, subscribed data is available in the respective *data.fields* value an
 
 ## Services
 
-Services are used to communicate with other parts of the vehicle. Please read the basics about them [here]( /docs/python-sdk/tutorial_how_to_create_a_vehicle_model.md/#add-a-vehicle-service).
+Services are used to communicate with other parts of the vehicle. Please read the basics about them [here](/docs/tutorials/tutorial_how_to_create_a_vehicle_model/manual_creation_python/#add-a-vehicle-service).
 
 The following few lines show you how to use the `MoveComponent`-method of the `SeatService` you have created:
 
@@ -185,7 +183,7 @@ In order to know which seat to move, you have to pass a `SeatLocation` object as
 
 Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.
 
-In the [general section](/docs/getting-started/quickstart/#send-mqtt-messages-to-vehicle-app) about the Vehicle App, you already tested sending MQTT messages to the app.
+In the [quickstart section](/docs/tutorials/quickstart/#debugging-vehicle-app) about the Vehicle App, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `Datapoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
 
 In order to receive and process MQTT messages inside your app, simply use the `@subscribe_topic` annotations from the SDK:
@@ -218,7 +216,7 @@ The above example illustrates how one can easily publish messages. In this case,
 
 ## UnitTests
 
-Unit testing is an important part of the development, so let's have a look at how to do that. You can find some example tests in `test/integration_test.py`.
+Unit testing is an important part of the development, so let's have a look at how to do that. You can find some example tests in `/app/tests/unit`.
 First, you have to import the relevant packages for unit testing and everything you need for your implementation:
 
 ```Python
@@ -261,10 +259,10 @@ Once the implementation is done, it is time to run and debug the app.
 If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the "dapr run ..." command to start your app:
 
 ```bash
-dapr run --app-id seatadjuster --app-protocol grpc --app-port 50008 --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./src/VehicleApp/main.py
+dapr run --app-id seatadjuster --app-protocol grpc --app-port 50008 --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./app/src/main.py
 ```
 
-You already have seen this command and how to check if it is working in the [general setup](/docs/getting-started/quickstart/#start-and-test-vehicle-app).
+You already have seen this command and how to check if it is working in the [general setup](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#debug-your-vehicle-app).
 
 2 parameters may be unclear in this command:
 
@@ -318,10 +316,9 @@ If you want to know more about dapr and the configuration, please visit <https:/
 
 ### Debug your Vehicle App
 
-In the [introduction about debugging](/docs/getting-started/quickstart/#debug-vehicle-app), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
+In the [introduction about debugging](/docs/tutorials/quickstart/#debugging-vehicle-app), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
 
-The debug session launch settings are already prepared for the `VehicleApp`.
-
+The debug session launch settings are already prepared for the `VehicleApp` in `/.vscode/launch.json`.
 
 ```JSON
 "configurations": [
@@ -330,21 +327,21 @@ The debug session launch settings are already prepared for the `VehicleApp`.
         "justMyCode": false,
         "request": "launch",
         "name": "VehicleApp",
-        "program": "${workspaceFolder}/src/VehicleApp/main.py",
+        "program": "${workspaceFolder}/app/src/main.py",
         "console": "integratedTerminal",
         "preLaunchTask": "dapr-VehicleApp-run",
         "postDebugTask": "dapr-VehicleApp-stop",
         "env": {
-            "DAPR_GRPC_PORT":"50001",
-            "DAPR_HTTP_PORT":"3500",
-            "SEATSERVICE_DAPR_APP_ID": "seatservice",
+            "DAPR_HTTP_PORT": "3500",
+            "DAPR_GRPC_PORT": "${input:DAPR_GRPC_PORT}",
+            "SERVICE_DAPR_APP_ID": "${input:SERVICE_NAME}",
             "VEHICLEDATABROKER_DAPR_APP_ID": "vehicledatabroker"
         }
     }
 ]
 ```
 
-We specify which python-script to run using the `program` key. With the `preLaunchTask` and `postDebugTask` keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks.
+We specify which python-script to run using the `program` key. With the `preLaunchTask` and `postDebugTask` keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks to find in `/.vscode/tasks.json`.
 
 ```JSON
 {
@@ -380,7 +377,34 @@ We specify which python-script to run using the `program` key. With the `preLaun
 
 Lastly, the environment variables can also be specified.
 
-You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.
+You can adapt the configuration in `/.vscode/launch.json` to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.
+
+Environment Variables can also be configured on the central [`/app/AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json) and read out by the launch configuration in Visual Studio Code through a preinstalled extension in the devcontainer [Tasks Shell Input](https://marketplace.visualstudio.com/items?itemName=augustocdias.tasks-shell-input).
+
+```JSON
+"inputs": [
+    {
+        "id": "DAPR_GRPC_PORT",
+        "type": "command",
+        "command": "shellCommand.execute",
+        "args": {
+            "useSingleResult": true,
+            "command": "cat ./app/AppManifest.json | jq .[].DAPR_GRPC_PORT | tr -d '\"'",
+            "cwd": "${workspaceFolder}",
+        }
+    },
+    {
+        "id": "SERVICE_NAME",
+        "type": "command",
+        "command": "shellCommand.execute",
+        "args": {
+            "useSingleResult": true,
+            "command": "cat ./app/AppManifest.json | jq .[].Name | tr -d '\"'",
+            "cwd": "${workspaceFolder}",
+        }
+    }
+]
+```
 
 Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.
 

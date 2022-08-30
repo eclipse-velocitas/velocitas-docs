@@ -28,7 +28,7 @@ The _Vehicle App_ allows to change the positions of the seats in the car and als
 
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
 
-At first, you have to create the main c++ file which we will call `App.cpp` in `app/src/`. All the relevant code for new _Vehicle App_ goes there. Afterwards, there are several steps you need to consider when developing the app:
+At first, you have to create the main c++ file which we will call `App.cpp` in `/app/src`. All the relevant code for new _Vehicle App_ goes there. Afterwards, there are several steps you need to consider when developing the app:
 
 1. Manage your includes
 2. Initialize your class
@@ -100,7 +100,7 @@ The first thing you need to do to get access to the Vehicle Model. In the sectio
 
 If you just want to use your model in one app, you can simply copy the classes into your `src`-folder. In this example, you find the classes inside the `vehicle_model`-folder. As you have already seen in the section about [initializing the app]({{< ref "#initialize-your-class" >}}), we need the `vehicle model` to use the app.
 
-As you know, the model has a single [Datapoint](#datapoints) for the speed and a reference to the `cabin`-model.
+As you know, the model has a single [Datapoint](/docs/about/development_model/vehicle_app_sdk/#datapoint) for the speed and a reference to the `cabin`-model.
 
 Accessing the speed can be done via
 
@@ -163,7 +163,7 @@ In order to know which seat to move, you have to pass a `SeatLocation` object as
 
 Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.
 
-In the [general section]({{< ref "/docs/tutorials/quickstart" >}}) about the Vehicle App, you already tested sending MQTT messages to the app.
+In the [quickstart section]({{< ref "/docs/tutorials/quickstart" >}}) about the Vehicle App, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `Datapoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
 
 In order to receive and process MQTT messages inside your app, simply use the `VehicleApp::subscribeTopic` method provided by the SDK:
@@ -205,7 +205,7 @@ Once the implementation is done, it is time to run and debug the app.
 
 ### Build your App
 
-Before you can run the _Vehicle App_ you need to build it first. To do so, simply run the provided `build.sh` script found in the root of the SDK. It does accept some arguments, but that is out of scope for this tutorial. 
+Before you can run the _Vehicle App_ you need to build it first. To do so, simply run the provided `build.sh` script found in the root of the SDK. It does accept some arguments, but that is out of scope for this tutorial.
 
 {{% alert title="Warning" color="warning" %}}
 If this is your first time building, you might have to run `install_dependencies.sh` first.
@@ -276,7 +276,6 @@ If you want to know more about dapr and the configuration, please visit the [dap
 In the [introduction about debugging]({{< ref "/docs/tutorials/quickstart#debug-vehicle-app" >}}), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
 
 The debug session launch settings are already prepared for the `VehicleApp`.
-
 
 ```JSON
 "configurations": [

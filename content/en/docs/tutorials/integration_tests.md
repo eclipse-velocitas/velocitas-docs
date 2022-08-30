@@ -17,7 +17,7 @@ To execute an integration test, the dependant components need to be running and 
 
 1. Make sure that the local execution of runtime components is working and started.
 2. Start the application (Debugger or run as task).
-3. Extend the test file `/test/integration_test.py` or create a new test file.
+3. Extend the test file `/app/tests/integration/integration_test.py` or create a new test file.
 4. Run/debug tests with the Visual Studio Code Test runner.
 
 ## Runtime components
@@ -52,7 +52,7 @@ If you want to execute the integration tests in Kubernetes mode, make sure that 
 
 ## Writing Test Cases
 
-To write an integration test, you should check the sample that comes with the template ([`/test/integration_test.py`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py)). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:
+To write an integration test, you should check the sample that comes with the template ([`/app/tests/integration/integration_test.py`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py)). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:
 
 - `MqttClient`: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:
 
