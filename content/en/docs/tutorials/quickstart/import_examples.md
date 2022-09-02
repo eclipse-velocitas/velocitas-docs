@@ -18,7 +18,7 @@ Be aware that this task will replace all of the content in your `/app` directory
 2. Select command `Tasks: Run Task`
 3. Select `Get example app from SDK package`
 4. Choose `Continue without scanning the output`
-5. Select one of the provided options: `seat-adjuster`, `dog-mode`, `array-datatype`, `vdb-queries`, `static-rule`, `dynamic-rule`
+5. Select `seat-adjuster`
 
 ## Run the example Vehicle App
 
