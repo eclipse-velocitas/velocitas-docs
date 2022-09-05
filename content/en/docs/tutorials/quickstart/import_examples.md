@@ -8,15 +8,15 @@ description: >
 
 This guide will help you to import examples provided by the [SDK](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster) package into your template repository.
 
-A Visual Studio Code task called `Get example app from SDK package` is available in the `/.vscode/tasks.json` which can replace your `/app` directory in your template repository with some example _Vehicle Apps_ from the [SDK](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples) package.
+A Visual Studio Code task called `Import example app from SDK` is available in the `/.vscode/tasks.json` which can replace your `/app` directory in your template repository with some example _Vehicle Apps_ from the [SDK](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples) package.
 
 {{% alert color="warning" %}}
-Be aware that this task will replace all of the content in your `/app` directory.
+To avoid overwriting existing changes in your `/app` directory, commit or stash changes before importing the example app.
 {{% /alert %}}
 
 1. Press <kbd>F1</kbd>
 2. Select command `Tasks: Run Task`
-3. Select `Get example app from SDK package`
+3. Select `Import example app from SDK`
 4. Choose `Continue without scanning the output`
 5. Select `seat-adjuster`
 
