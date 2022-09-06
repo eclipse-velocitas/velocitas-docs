@@ -39,8 +39,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.f9cf27fd6c4e3e9d93bf71d840b5aa8a3123607180e0598dcbee7d98d3592a75.css" as="style">
-<link href="/velocitas/scss/main.min.f9cf27fd6c4e3e9d93bf71d840b5aa8a3123607180e0598dcbee7d98d3592a75.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.effeb7933d7922f4f223a1cdac4649fb00298e6c312b900c585ce91f1e50fd7f.css" as="style">
+<link href="/velocitas/scss/main.min.effeb7933d7922f4f223a1cdac4649fb00298e6c312b900c585ce91f1e50fd7f.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -89,7 +89,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.9d845edd6f66c755008d15b63dd2abcb.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.9be812b3fcaaafd032cfdbabba9aca41.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -209,10 +209,10 @@ This is the multi-page printable view of this section.
     <div class="lead">Learn how to distribute a Vehicle Model written in Python.</div>
 	<p>Now you a have a Python package containing your first Python <em>Vehicle Model</em> and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the <a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener">Python Packaging User Guide</a> to learn more about packaging and package distribution in Python.</p>
 <h2 id="distribute-to-single-vehicle-app">Distribute to single Vehicle App</h2>
-<p>If you want to distribute your Python <em>Vehicle Model</em> to a single <em>Vehicle App</em>, you can do so by copying the entire folder <code>my_vehicle_model</code> under the <code>src</code> folder of your <em>Vehicle App</em> repository and treat it as a sub-package of the <em>Vehicle App</em>.</p>
+<p>If you want to distribute your Python <em>Vehicle Model</em> to a single <em>Vehicle App</em>, you can do so by copying the entire folder <code>my_vehicle_model</code> under the <code>/app/src</code> folder of your <em>Vehicle App</em> repository and treat it as a sub-package of the <em>Vehicle App</em>.</p>
 <ol>
-<li>Create a new folder <code>my_vehicle_model</code> under <code>src</code> in your <em>Vehicle App</em> repository.</li>
-<li>Copy the <code>my_vehicle_model</code> folder to the <code>src</code> folder of your <em>Vehicle App</em> repository.</li>
+<li>Create a new folder <code>my_vehicle_model</code> under <code>/app/src</code> in your <em>Vehicle App</em> repository.</li>
+<li>Copy the <code>my_vehicle_model</code> folder to the <code>/app/src</code> folder of your <em>Vehicle App</em> repository.</li>
 <li>Import the package <code>my_vehicle_model</code> in your <em>Vehicle App</em>:</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">my_app</span><span style="color:#ce5c00;font-weight:bold">&gt;.</span><span style="color:#000">my_vehicle_model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">vehicle</span>

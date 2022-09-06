@@ -30,7 +30,7 @@
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
-    Before you start, we recommend that you familiarize yourself with our &lt;a href=&#34;/velocitas/velocitas/docs/about/development-model&#34;&gt;basic concept&lt;/a&gt; to understand the terms mentioned.
+    Before you start, we recommend that you familiarize yourself with our &lt;a href=&#34;/velocitas/velocitas/docs/about/development_model&#34;&gt;basic concept&lt;/a&gt; to understand the terms mentioned.
 
 &lt;/div&gt;
 
@@ -232,15 +232,124 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;li&gt;Select &lt;code&gt;Start VehicleApp runtime&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Choose &lt;code&gt;Continue without scanning the output&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;You should see the tasks &lt;code&gt;run-mosquitto&lt;/code&gt;, &lt;code&gt;run-vehicledatabroker&lt;/code&gt;, &lt;code&gt;run-seatservice&lt;/code&gt; and &lt;code&gt;run-feedercan&lt;/code&gt; being executed in the Visual Studio Code output panel.&lt;/p&gt;
+&lt;p&gt;You should see the tasks &lt;code&gt;run-mosquitto&lt;/code&gt;, &lt;code&gt;run-vehicledatabroker&lt;/code&gt;, &lt;code&gt;run-vehicleservices&lt;/code&gt; and &lt;code&gt;run-feedercan&lt;/code&gt; being executed in the Visual Studio Code output panel.&lt;/p&gt;
 &lt;p&gt;More information about the tasks are available &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;debugging-vehicle-app&#34;&gt;Debugging Vehicle App&lt;/h2&gt;
 &lt;p&gt;Now that the &lt;a href=&#34;#starting-runtime-services&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the Vehicle App as next step.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-5&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active&#34;
+          id=&#34;tabs-05-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-05-00&#34; role=&#34;tab&#34;
+          
+        aria-controls=&#34;tabs-05-00&#34; aria-selected=&#34;false&#34;&gt;Template&lt;/a&gt;
+    &lt;/li&gt;
+
+    
+      
+    &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-05-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-05-01&#34; role=&#34;tab&#34;
+          
+        aria-controls=&#34;tabs-05-01&#34; aria-selected=&#34;false&#34;&gt;Seat Adjuster&lt;/a&gt;
+    &lt;/li&gt;
+
+    
+      
+    &lt;/ul&gt;
+
+
+
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-5-content&#34;&gt;&lt;div class=&#34;tab-body tab-pane fade show active&#34;
+        id=&#34;tabs-05-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-05-00-tab&#34;&gt;
+        &lt;ol&gt;
+&lt;li&gt;Open the main source file and set a breakpoint in the given method:
+&lt;ul&gt;
+&lt;li&gt;Python main source file: &lt;code&gt;/app/src/main.py&lt;/code&gt;, set breakpoint in method: &lt;code&gt;on_get_speed_request_received&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;C++: Continue on the &lt;code&gt;Seat Adjuster&lt;/code&gt; tab.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the &lt;em&gt;Vehicle App&lt;/em&gt; and see the log output on the &lt;code&gt;DEBUG CONSOLE&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in Visual Studio Code and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;sampleapp/getSpeed/response&lt;/code&gt; and click subscribe&lt;/li&gt;
+&lt;li&gt;Set &lt;code&gt;Publish Topic&lt;/code&gt; = &lt;code&gt;sampleapp/getSpeed&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Press publish with an empty payload field.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+    
+      
+    
+
+  &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-05-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-05-01-tab&#34;&gt;
+        &lt;p&gt;For Python: Follow the guide provided in: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart/import_examples/&#34;&gt;Import examples&lt;/a&gt; and import &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;seat-adjuster&lt;/code&gt;&lt;/a&gt;. &lt;/br&gt;
+For C++: Continue with the next steps.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Open the main source file and set a breakpoint in the given method:
 &lt;ul&gt;
-&lt;li&gt;Python main source file: &lt;code&gt;src/VehicleApp/main.py&lt;/code&gt;, set breakpoint in method: &lt;code&gt;on_set_position_request_received&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;C++ main source file: &lt;code&gt;app/src/VehicleApp.cpp&lt;/code&gt;, set breakpoint in method: &lt;code&gt;onSetPositionRequestReceived&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Python main source file: &lt;code&gt;/app/src/main.py&lt;/code&gt;, set breakpoint in method: &lt;code&gt;on_set_position_request_received&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;C++ main source file: &lt;code&gt;/app/src/VehicleApp.cpp&lt;/code&gt;, set breakpoint in method: &lt;code&gt;onSetPositionRequestReceived&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the &lt;em&gt;Vehicle App&lt;/em&gt; and see the log output on the &lt;code&gt;DEBUG CONSOLE&lt;/code&gt;&lt;/li&gt;
@@ -264,7 +373,16 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;300&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (&lt;kbd&gt;F5&lt;/kbd&gt;), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.&lt;/p&gt;
+&lt;/div&gt;
+
+    
+      
+    
+
+  
+&lt;/div&gt;
+
+Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (&lt;kbd&gt;F5&lt;/kbd&gt;), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.&lt;/p&gt;
 &lt;h2 id=&#34;triggering-ci-workflow&#34;&gt;Triggering CI Workflow&lt;/h2&gt;
 &lt;p&gt;The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find &lt;a href=&#34;https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By pushing a change to GitHub the CI Workflow will be triggered:&lt;/p&gt;
@@ -440,7 +558,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;ol&gt;
 &lt;li&gt;Make sure that the local execution of runtime components is working and started.&lt;/li&gt;
 &lt;li&gt;Start the application (Debugger or run as task).&lt;/li&gt;
-&lt;li&gt;Extend the test file &lt;code&gt;/test/integration_test.py&lt;/code&gt; or create a new test file.&lt;/li&gt;
+&lt;li&gt;Extend the test file &lt;code&gt;/app/tests/integration/integration_test.py&lt;/code&gt; or create a new test file.&lt;/li&gt;
 &lt;li&gt;Run/debug tests with the Visual Studio Code Test runner.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;runtime-components&#34;&gt;Runtime components&lt;/h2&gt;
@@ -464,7 +582,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MQTT_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31883&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;VDB_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30555&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; pytest
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
-&lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/test/integration_test.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;/test/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
+&lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;/app/tests/integration/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;MqttClient&lt;/code&gt;: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:&lt;/p&gt;

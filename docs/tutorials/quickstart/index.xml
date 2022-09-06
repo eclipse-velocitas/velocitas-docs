@@ -15,6 +15,42 @@
     
     
     <item>
+      <title>Docs: Import examples</title>
+      <link>/velocitas/docs/tutorials/quickstart/import_examples/</link>
+      <pubDate>Tue, 30 Aug 2022 14:56:21 +0530</pubDate>
+      
+      <guid>/velocitas/docs/tutorials/quickstart/import_examples/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide will help you to import examples provided by the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SDK&lt;/a&gt; package into your template repository.&lt;/p&gt;
+&lt;p&gt;A Visual Studio Code task called &lt;code&gt;Import example app from SDK&lt;/code&gt; is available in the &lt;code&gt;/.vscode/tasks.json&lt;/code&gt; which can replace your &lt;code&gt;/app&lt;/code&gt; directory in your template repository with some example &lt;em&gt;Vehicle Apps&lt;/em&gt; from the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SDK&lt;/a&gt; package.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+
+
+    To avoid overwriting existing changes in your &lt;code&gt;/app&lt;/code&gt; directory, commit or stash changes before importing the example app.
+
+&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt;&lt;/li&gt;
+&lt;li&gt;Select command &lt;code&gt;Tasks: Run Task&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;Import example app from SDK&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Choose &lt;code&gt;Continue without scanning the output&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;seat-adjuster&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;run-the-example-vehicle-app&#34;&gt;Run the example Vehicle App&lt;/h2&gt;
+&lt;p&gt;The launch settings are already prepared for the &lt;code&gt;VehicleApp&lt;/code&gt; in the template repository &lt;code&gt;/.vscode/launch.json&lt;/code&gt;. The configuration is meant to be as generic as possible to make it possible to run all provided example apps.&lt;/p&gt;
+&lt;p&gt;Every example app comes with its own &lt;code&gt;/app/AppManifest.json&lt;/code&gt; to see which &lt;em&gt;Vehicle Services&lt;/em&gt; are configured and needed as a dependency.&lt;/p&gt;
+&lt;p&gt;To start the app:
+Just press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the example &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Working behind proxy</title>
       <link>/velocitas/docs/tutorials/quickstart/behind_proxy/</link>
       <pubDate>Fri, 19 Aug 2022 17:46:21 +0530</pubDate>

@@ -39,8 +39,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.f9cf27fd6c4e3e9d93bf71d840b5aa8a3123607180e0598dcbee7d98d3592a75.css" as="style">
-<link href="/velocitas/scss/main.min.f9cf27fd6c4e3e9d93bf71d840b5aa8a3123607180e0598dcbee7d98d3592a75.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.effeb7933d7922f4f223a1cdac4649fb00298e6c312b900c585ce91f1e50fd7f.css" as="style">
+<link href="/velocitas/scss/main.min.effeb7933d7922f4f223a1cdac4649fb00298e6c312b900c585ce91f1e50fd7f.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -89,7 +89,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.9d845edd6f66c755008d15b63dd2abcb.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.9be812b3fcaaafd032cfdbabba9aca41.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -135,7 +135,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-defa8f4653ef49762113635364d18b4e">Working behind proxy</a></li>
+<li>1: <a href="#pg-799584008e267d8100ef70eefcc7ccf5">Import examples</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-defa8f4653ef49762113635364d18b4e">Working behind proxy</a></li>
 
 
     
@@ -152,7 +160,7 @@ This is the multi-page printable view of this section.
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    Before you start, we recommend that you familiarize yourself with our <a href="/velocitas/docs/about/development-model">basic concept</a> to understand the terms mentioned.
+    Before you start, we recommend that you familiarize yourself with our <a href="/velocitas/docs/about/development_model">basic concept</a> to understand the terms mentioned.
 
 </div>
 
@@ -354,15 +362,124 @@ You can either try it out directly in the browser or also use it inside Visual S
 <li>Select <code>Start VehicleApp runtime</code></li>
 <li>Choose <code>Continue without scanning the output</code></li>
 </ol>
-<p>You should see the tasks <code>run-mosquitto</code>, <code>run-vehicledatabroker</code>, <code>run-seatservice</code> and <code>run-feedercan</code> being executed in the Visual Studio Code output panel.</p>
+<p>You should see the tasks <code>run-mosquitto</code>, <code>run-vehicledatabroker</code>, <code>run-vehicleservices</code> and <code>run-feedercan</code> being executed in the Visual Studio Code output panel.</p>
 <p>More information about the tasks are available <a href="/velocitas/docs/run_runtime_services_locally.md">here</a>.</p>
 <h2 id="debugging-vehicle-app">Debugging Vehicle App</h2>
 <p>Now that the <a href="#starting-runtime-services">runtime services</a> are all up and running, let&rsquo;s start a debug session for the Vehicle App as next step.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+<ul class="nav nav-tabs" id="tabs-5" role="tablist"><li class="nav-item">
+      <a class="nav-link active"
+          id="tabs-05-00-tab" data-toggle="tab" href="#tabs-05-00" role="tab"
+          
+        aria-controls="tabs-05-00" aria-selected="false">Template</a>
+    </li>
+
+    
+      
+    <li class="nav-item">
+      <a class="nav-link"
+          id="tabs-05-01-tab" data-toggle="tab" href="#tabs-05-01" role="tab"
+          
+        aria-controls="tabs-05-01" aria-selected="false">Seat Adjuster</a>
+    </li>
+
+    
+      
+    </ul>
+
+
+
+
+<div class="tab-content" id="tabs-5-content"><div class="tab-body tab-pane fade show active"
+        id="tabs-05-00" role="tabpanel" aria-labelled-by="tabs-05-00-tab">
+        <ol>
+<li>Open the main source file and set a breakpoint in the given method:
+<ul>
+<li>Python main source file: <code>/app/src/main.py</code>, set breakpoint in method: <code>on_get_speed_request_received</code></li>
+<li>C++: Continue on the <code>Seat Adjuster</code> tab.</li>
+</ul>
+</li>
+<li>Press <kbd>F5</kbd> to start a debug session of the <em>Vehicle App</em> and see the log output on the <code>DEBUG CONSOLE</code></li>
+</ol>
+<p>To trigger this breakpoint, let&rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.</p>
+<ol start="3">
+<li>Open <code>VSMqtt</code> extension in Visual Studio Code and connect to <code>mosquitto (local)</code></li>
+<li>Set <code>Subscribe Topic</code> = <code>sampleapp/getSpeed/response</code> and click subscribe</li>
+<li>Set <code>Publish Topic</code> = <code>sampleapp/getSpeed</code></li>
+<li>Press publish with an empty payload field.</li>
+</ol>
+</div>
+
+    
+      
+    
+
+  <div class="tab-body tab-pane fade"
+        id="tabs-05-01" role="tabpanel" aria-labelled-by="tabs-05-01-tab">
+        <p>For Python: Follow the guide provided in: <a href="/velocitas/docs/tutorials/quickstart/import_examples/">Import examples</a> and import <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener"><code>seat-adjuster</code></a>. </br>
+For C++: Continue with the next steps.</p>
 <ol>
 <li>Open the main source file and set a breakpoint in the given method:
 <ul>
-<li>Python main source file: <code>src/VehicleApp/main.py</code>, set breakpoint in method: <code>on_set_position_request_received</code></li>
-<li>C++ main source file: <code>app/src/VehicleApp.cpp</code>, set breakpoint in method: <code>onSetPositionRequestReceived</code></li>
+<li>Python main source file: <code>/app/src/main.py</code>, set breakpoint in method: <code>on_set_position_request_received</code></li>
+<li>C++ main source file: <code>/app/src/VehicleApp.cpp</code>, set breakpoint in method: <code>onSetPositionRequestReceived</code></li>
 </ul>
 </li>
 <li>Press <kbd>F5</kbd> to start a debug session of the <em>Vehicle App</em> and see the log output on the <code>DEBUG CONSOLE</code></li>
@@ -386,7 +503,16 @@ You can either try it out directly in the browser or also use it inside Visual S
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 </ol>
-<p>Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.</p>
+</div>
+
+    
+      
+    
+
+  
+</div>
+
+Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.</p>
 <h2 id="triggering-ci-workflow">Triggering CI Workflow</h2>
 <p>The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find <a href="https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md" target="_blank" rel="noopener">here</a>.</p>
 <p>By pushing a change to GitHub the CI Workflow will be triggered:</p>
@@ -441,7 +567,47 @@ You can either try it out directly in the browser or also use it inside Visual S
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-defa8f4653ef49762113635364d18b4e">1 - Working behind proxy</h1>
+	<h1 id="pg-799584008e267d8100ef70eefcc7ccf5">1 - Import examples</h1>
+    <div class="lead">Learn how to import examples provided by the Vehicle App SDK.</div>
+	<p>This guide will help you to import examples provided by the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener">SDK</a> package into your template repository.</p>
+<p>A Visual Studio Code task called <code>Import example app from SDK</code> is available in the <code>/.vscode/tasks.json</code> which can replace your <code>/app</code> directory in your template repository with some example <em>Vehicle Apps</em> from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples" target="_blank" rel="noopener">SDK</a> package.</p>
+
+
+<div class="alert alert-warning" role="alert">
+
+
+    To avoid overwriting existing changes in your <code>/app</code> directory, commit or stash changes before importing the example app.
+
+</div>
+
+<ol>
+<li>Press <kbd>F1</kbd></li>
+<li>Select command <code>Tasks: Run Task</code></li>
+<li>Select <code>Import example app from SDK</code></li>
+<li>Choose <code>Continue without scanning the output</code></li>
+<li>Select <code>seat-adjuster</code></li>
+</ol>
+<h2 id="run-the-example-vehicle-app">Run the example Vehicle App</h2>
+<p>The launch settings are already prepared for the <code>VehicleApp</code> in the template repository <code>/.vscode/launch.json</code>. The configuration is meant to be as generic as possible to make it possible to run all provided example apps.</p>
+<p>Every example app comes with its own <code>/app/AppManifest.json</code> to see which <em>Vehicle Services</em> are configured and needed as a dependency.</p>
+<p>To start the app:
+Just press <kbd>F5</kbd> to start a debug session of the example <em>Vehicle App</em>.</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-defa8f4653ef49762113635364d18b4e">2 - Working behind proxy</h1>
     <div class="lead">Learn how to setup your docker desktop and Visual Studio Code behind a coorperate proxy.</div>
 	<p>We know how time consuming it could be to setup your environment behind a cooperate proxy. This guide will help you to set it up correctly.</p>
 <h1 id="https-proxy-server">HTTP(s) proxy server</h1>

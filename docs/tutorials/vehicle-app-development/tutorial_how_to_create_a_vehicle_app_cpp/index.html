@@ -27,12 +27,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_cpp/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2022-08-30T13:04:06+02:00" />
+<meta property="article:modified_time" content="2022-09-06T18:05:13+02:00" />
 
 <meta itemprop="name" content="C&#43;&#43; Vehicle App Development">
 <meta itemprop="description" content="Learn how to develop and test a Vehicle App using C&#43;&#43;.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2022-08-30T13:04:06+02:00" />
+<meta itemprop="dateModified" content="2022-09-06T18:05:13+02:00" />
 <meta itemprop="wordCount" content="1850">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="C&#43;&#43; Vehicle App Development"/>
@@ -42,8 +42,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.f9cf27fd6c4e3e9d93bf71d840b5aa8a3123607180e0598dcbee7d98d3592a75.css" as="style">
-<link href="/velocitas/scss/main.min.f9cf27fd6c4e3e9d93bf71d840b5aa8a3123607180e0598dcbee7d98d3592a75.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.effeb7933d7922f4f223a1cdac4649fb00298e6c312b900c585ce91f1e50fd7f.css" as="style">
+<link href="/velocitas/scss/main.min.effeb7933d7922f4f223a1cdac4649fb00298e6c312b900c585ce91f1e50fd7f.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -92,7 +92,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.9d845edd6f66c755008d15b63dd2abcb.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.9be812b3fcaaafd032cfdbabba9aca41.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -115,7 +115,7 @@ if (!doNotTrack) {
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.9d845edd6f66c755008d15b63dd2abcb.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.9be812b3fcaaafd032cfdbabba9aca41.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -192,7 +192,11 @@ if (!doNotTrack) {
   <label for="m-velocitasdocstutorialsquickstart-check"><a href="/velocitas/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsquickstart"><span class="">Quickstart</span></a></label>
   
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsquickstartbehind_proxy-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsquickstartimport_examples-li">
+  <input type="checkbox" id="m-velocitasdocstutorialsquickstartimport_examples-check"/>
+  <label for="m-velocitasdocstutorialsquickstartimport_examples-check"><a href="/velocitas/docs/tutorials/quickstart/import_examples/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsquickstartimport_examples"><span class="">Import examples</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsquickstartbehind_proxy-li">
   <input type="checkbox" id="m-velocitasdocstutorialsquickstartbehind_proxy-check"/>
   <label for="m-velocitasdocstutorialsquickstartbehind_proxy-check"><a href="/velocitas/docs/tutorials/quickstart/behind_proxy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsquickstartbehind_proxy"><span class="">Working behind proxy</span></a></label>
   
@@ -410,7 +414,7 @@ if (!doNotTrack) {
 <p>For this tutorial, you will recreate the vehicle app that is included with the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">SDK repository</a>:
 The <em>Vehicle App</em> allows to change the positions of the seats in the car and also provide their current positions to other applications.</p>
 <p>A detailed explanation of the use case and the example is available <a href="/velocitas/docs/velocitas/docs/seat_adjuster_use_case.md">here</a>.</p>
-<p>At first, you have to create the main c++ file which we will call <code>App.cpp</code> in <code>app/src/</code>. All the relevant code for new <em>Vehicle App</em> goes there. Afterwards, there are several steps you need to consider when developing the app:</p>
+<p>At first, you have to create the main c++ file which we will call <code>App.cpp</code> in <code>/app/src</code>. All the relevant code for new <em>Vehicle App</em> goes there. Afterwards, there are several steps you need to consider when developing the app:</p>
 <ol>
 <li>Manage your includes</li>
 <li>Initialize your class</li>
@@ -456,7 +460,7 @@ The <em>Vehicle App</em> allows to change the positions of the seats in the car 
 <h3 id="import-the-model">Import the model</h3>
 <p>The first thing you need to do to get access to the Vehicle Model. In the section about <a href="/velocitas/docs/tutorials/how_to_create_a_vehicle_model/distribution_cpp.md">distributing a model</a>, you got to know the different methods.</p>
 <p>If you just want to use your model in one app, you can simply copy the classes into your <code>src</code>-folder. In this example, you find the classes inside the <code>vehicle_model</code>-folder. As you have already seen in the section about <a href="#initialize-your-class">initializing the app</a>, we need the <code>vehicle model</code> to use the app.</p>
-<p>As you know, the model has a single <a href="#datapoints">Datapoint</a> for the speed and a reference to the <code>cabin</code>-model.</p>
+<p>As you know, the model has a single <a href="/velocitas/docs/about/development_model/vehicle_app_sdk/#datapoint">Datapoint</a> for the speed and a reference to the <code>cabin</code>-model.</p>
 <p>Accessing the speed can be done via</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeedBlocking</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoints</span><span style="color:#000;font-weight:bold">({</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">})</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">getDataPoints</span><span style="color:#000;font-weight:bold">({</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">})</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onResult</span><span style="color:#000;font-weight:bold">([](</span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeed</span><span style="color:#000;font-weight:bold">){</span>
@@ -493,7 +497,7 @@ The <em>Vehicle App</em> allows to change the positions of the seats in the car 
 </blockquote>
 <h3 id="mqtt">MQTT</h3>
 <p>Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.</p>
-<p>In the <a href="/velocitas/docs/tutorials/quickstart/">general section</a> about the Vehicle App, you already tested sending MQTT messages to the app.
+<p>In the <a href="/velocitas/docs/tutorials/quickstart/">quickstart section</a> about the Vehicle App, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use <code>Vehicle Models</code>, <code>Datapoints</code> and <code>GRPC Services</code>. In this section, you will learn how to combine them with MQTT.</p>
 <p>In order to receive and process MQTT messages inside your app, simply use the <code>VehicleApp::subscribeTopic</code> method provided by the SDK:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onStart</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#000;font-weight:bold">{</span>
@@ -656,7 +660,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified August 30, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/f2122b04899df1398ae1c492a68a7964792de9ff">Documentation update according to changes in Vehicle Template (#26) (f2122b0)</a>
+  Last modified September 6, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/1953118a43fd3b1a77ba7a2dd50d0a0cf1c34539">Doc/10868 extract seatadjuster app to sdk (#32) (1953118)</a>
 </div>
 
 </div>
