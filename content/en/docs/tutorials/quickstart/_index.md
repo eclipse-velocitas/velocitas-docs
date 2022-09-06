@@ -196,6 +196,12 @@ Now that the `CI Workflow` was successful, you are ready to build your first rel
 
 The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open `Actions` on the repoitory and see the result.
 
+## Deploying Vehicle App
+
+After releasing the Vehicle App to the GitHub container registry you might ask how to bring the Vehicle App on a device and have the required Runtime Stack on the device. Here _Eclipse Leda_ comes into the game. 
+
+Please checkout the documentation of [Eclipse Leda](https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/) to get more information.
+
 ## Next steps
 
 - Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model)
