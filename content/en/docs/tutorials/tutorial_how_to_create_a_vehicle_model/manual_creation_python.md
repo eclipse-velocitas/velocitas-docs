@@ -74,15 +74,15 @@ aliases:
 
   1. Install the Python Vehicle App SDK:
 
-          ```bash
-          pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git@v0.4.0
-          ```
+        ```bash
+        pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git
+        ```
 
-          The output of the above command should end with:
+      The output of the above command should end with:
 
-          ```bash
-          Successfully installed sdv-0.4.0
-          ```
+        ```bash
+        Successfully installed sdv-x.y.z
+        ```
 
       Now it is time to add some _Vehicle Models_ to the Python package. At the end of this section you will have a _Vehicle Model_, that contains a `Cabin` model, a `Seat`model and has the following tree structure:
 
