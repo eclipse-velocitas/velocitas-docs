@@ -81,7 +81,7 @@ aliases:
       The output of the above command should end with:
 
         ```bash
-        Successfully installed sdv-x.x.x
+        Successfully installed sdv-x.y.z
         ```
 
       Now it is time to add some _Vehicle Models_ to the Python package. At the end of this section you will have a _Vehicle Model_, that contains a `Cabin` model, a `Seat`model and has the following tree structure:

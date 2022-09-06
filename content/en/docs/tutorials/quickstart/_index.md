@@ -138,8 +138,8 @@ Now that the [runtime services](#starting-runtime-services) are all up and runni
 To trigger this breakpoint, let's send a message to the Vehicle App using the mqtt broker that is running in the background.
 
 3. Open `VSMqtt` extension in Visual Studio Code and connect to `mosquitto (local)`
-4. Set `Subscribe Topic` = `myvehicleapp/getSpeed/response` and click subscribe
-6. Set `Publish Topic` = `myvehicleapp/getSpeed`
+4. Set `Subscribe Topic` = `sampleapp/getSpeed/response` and click subscribe
+6. Set `Publish Topic` = `sampleapp/getSpeed`
 7. Press publish with an empty payload field.
 {{% /tab %}}
 {{% tab header="Seat Adjuster" %}}

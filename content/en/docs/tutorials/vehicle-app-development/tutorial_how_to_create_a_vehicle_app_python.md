@@ -23,8 +23,8 @@ This section describes how to develop your first Vehicle App. Before you start b
 
 Once you have established your development environment, you will be able to start developing your first Vehicle App.
 
-For this tutorial, you will recreate the vehicle app that is included with the [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster):
-The Vehicle app allows to change the positions of the seats in the car and also provide their current positions to other applications.
+For this tutorial, you will recreate the Vehicle App that is included with the [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster):
+The Vehicle App allows to change the positions of the seats in the car and also provide their current positions to other applications.
 
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
 
@@ -121,7 +121,7 @@ Accessing the speed can be done via
 vehicle_speed = await self.Vehicle.Speed.get()
 ```
 
-As the `get`-method of the Datapoint-class there is a coroutine and you have to use the `await` keyword when using it.
+As the `get`-method of the Datapoint-class there is a coroutine you have to use the `await` keyword when using it.
 
 If you want to get deeper inside the vehicle, to access a single seat for example, you just have to go the model-chain down:
 
@@ -131,7 +131,7 @@ self.DriverSeatPosition = await self.vehicle_client.Cabin.Seat.Row1.Pos1.Positio
 
 ## Subscription to Datapoints
 
-If you want to get notified about changes of a specific `Datapoint`, you can subscribe to this event, e.g. as part of the "on_start"-method in your app.
+If you want to get notified about changes of a specific `Datapoint`, you can subscribe to this event, e.g. as part of the `on_start`-method in your app.
 
 ```Python
     async def on_start(self):
@@ -139,16 +139,20 @@ If you want to get notified about changes of a specific `Datapoint`, you can sub
         await self.Vehicle.Cabin.Seat.element_at(1, 1).Position.subscribe(
             self.on_seat_position_changed
         )
+```
 
+Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective *data.fields* value and are accessed by their complete path.
+Therefore the `on_seat_position_changed` callback function needs to be implemented:
+
+```Python
     async def on_seat_position_changed(self, data):
         # handle the event here
         response_topic = "seatadjuster/currentPosition"
         seat_path = self.Vehicle.Cabin.Seat.element_at(1, 1).Position.get_path()
-        response_data = {"position": data.fields[seat_path].uint32_value}
+        # ...
 ```
 
-Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked envery datapoint update. Subscribed data is available in the respective *data.fields* value and are accessed by their complete path.
-
+{{% alert title="Note" %}}
 The SDK also supports annotations for subscribing to datapoint changes  with`@subscribe_data_points` defined by the whole path to the `Datapoint` of interest.
 
 ```Python
@@ -161,23 +165,24 @@ async def on_vehicle_seat_change(self, data):
 ```
 
 Similarly, subscribed data is available in the respective *data.fields* value and are accessed by their complete path.
+{{% /alert %}}
 
 ## Services
 
 Services are used to communicate with other parts of the vehicle. Please read the basics about them [here](/docs/tutorials/tutorial_how_to_create_a_vehicle_model/manual_creation_python/#add-a-vehicle-service).
 
-The following few lines show you how to use the `MoveComponent`-method of the `SeatService` you have created:
+The following lines show you how to use the `MoveComponent`-method of the `SeatService` from the vehicle model:
 
 ```Python
 location = SeatLocation(row=1, index=1)
 await self.vehicle_client.Cabin.SeatService.MoveComponent(
-    location, BASE, 300
+    location, BASE, data["position"]
     )
 ```
 
 In order to know which seat to move, you have to pass a `SeatLocation` object as the first parameter. The second argument specifies the component to be moved. The possible components are defined in the proto-files. The last parameter to be passed into the method is the final position of the component.
 
-> Make sure to use the `await` keyword when calling service methods, since these methods are co-routines.
+> Make sure to use the `await` keyword when calling service methods, since these methods are coroutines.
 
 ### MQTT
 
@@ -186,7 +191,7 @@ Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto M
 In the [quickstart section](/docs/tutorials/quickstart/#debugging-vehicle-app) about the Vehicle App, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `Datapoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
 
-In order to receive and process MQTT messages inside your app, simply use the `@subscribe_topic` annotations from the SDK:
+In order to receive and process MQTT messages inside your app, simply use the `@subscribe_topic` annotations from the SDK for an additional method `on_set_position_request_received` you have to implement:
 
 ```Python
     @subscribe_topic("seatadjuster/setPosition/request")
@@ -198,9 +203,9 @@ In order to receive and process MQTT messages inside your app, simply use the `@
         # ...
 ```
 
-The `on_set_position_request_received` method will now be invoked every time a message is created on the subscribed topic `"seatadjuster/setPosition/response"`. The message data (string) is provided as parameter. In the example above the data is parsed to json (`data = json.loads(data_str)`).
+The `on_set_position_request_received` method will now be invoked every time a message is published to the subscribed topic `"seatadjuster/setPosition/response"`. The message data (string) is provided as parameter. In the example above the data is parsed to json (`data = json.loads(data_str)`).
 
-In order to publish data to other subscribers, the SDK provides the appropriate convenience method: `self.publish_mqtt_event()`
+In order to publish data to topics, the SDK provides the appropriate convenience method: `self.publish_mqtt_event()` which will be added to the `on_seat_position_changed` callback function from before.
 
 ```Python
     async def on_seat_position_changed(self, data):
@@ -213,6 +218,17 @@ In order to publish data to other subscribers, the SDK provides the appropriate 
 ```
 
 The above example illustrates how one can easily publish messages. In this case, every time the seat position changes, the new position is published to `seatadjuster/currentPosition`
+
+Your `main.py` should now have a full implementation for `class MyVehicleApp(VehicleApp):` containing:
+
+- `__init__()`
+- `on_start()`
+- `on_seat_position_changed()`
+- `on_set_position_request_received()`
+
+and last but not least a `main()`-method to run the app.
+
+Check the [`seat-adjuster`](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster) example to see a more detailed implementation including error handling.
 
 ## UnitTests
 
@@ -247,7 +263,7 @@ def get_sample_request_data():
     return {"position": 330, "requestId": "123456789"}
 ```
 
-Looking at a test you notice the annotation `@pytest.mark.asyncio`. This is required if the test is defined as a co-routine. The next step is to create a mock from all the external dependencies. The method takes 4 arguments: first is the object to be mocked, second the method for which you want to modify the return value, third a callable and the last argument is the return value.
+Looking at a test you notice the annotation `@pytest.mark.asyncio`. This is required if the test is defined as a coroutine. The next step is to create a mock from all the external dependencies. The method takes 4 arguments: first is the object to be mocked, second the method for which you want to modify the return value, third a callable and the last argument is the return value.
 After creating the mock, you can test the method and check the response. Use asserts to make your test fail if the response does not match.
 
 ## See the results
@@ -255,6 +271,8 @@ After creating the mock, you can test the method and check the response. Use ass
 Once the implementation is done, it is time to run and debug the app.
 
 ### Run your App
+
+In order to run the app make sure you have the `seatservice` configured as a dependency in your [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json). Read more about it in the [run runtime services](/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally.md) section.
 
 If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the "dapr run ..." command to start your app:
 
