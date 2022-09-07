@@ -11,7 +11,7 @@ description: >
 The Velocitas project provides a two-stage process for development, continuous integration, and release of a new version of a Vehicle App.
 
 - **Stage 1 - Build & Test**
-  On every new push to the `main` branch or every update to Pull Request, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts for future reference with the default retention period of 90 days.
+  On every new push to the `main` branch or every update to a pull request, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts for future reference with a default retention period of 90 days.
 
   The workflow provides quick feedback during development and improves efficient collaboration.
 
