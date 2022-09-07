@@ -46,7 +46,7 @@ On creating a new release with a specific new version, GitHub creates a tag and 
 The set of actions included in the `Release workflow` cover:
 
 - **Generating and publishing QA information** - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.
-- **Pull & label container image** - actions pull the Vehicle App container image based on the current commit hash from the GitHub Artifacts and label it with the specified tag version. If the image cannot be found, the workflow will fail.
+- **Pull & label container image** - actions pull the Vehicle App container image based on the current commit hash from the GitHub artifacts and label it with the specified tag version. If the image cannot be found, the workflow will fail.
 - **Publish as GitHub pages** - all information from the release together with the project's documentation is built as a static page using hugo. the result can be published as a GitHub page in your repository.
 
 ## GitHub Actions artifacts
