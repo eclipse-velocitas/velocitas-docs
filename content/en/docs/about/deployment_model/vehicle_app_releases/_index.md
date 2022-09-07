@@ -26,7 +26,7 @@ The drawing below illustrates the different workflows, actions and artifacts tha
 
 ## CI Workflow (ci.yml)
 
-The `Continuous Integration (CI) workflow` is triggered on every commit to the main branch or when creating/updating a Pull Request and contains a set of different actions that cover:
+The `Continuous Integration (CI) workflow` is triggered on every commit to the main branch or when creating/updating a pull request and contains a set of different actions that cover:
 
 - **Building a container for the app** - actions create a containerized version of the Vehicle App, the actions also support creating an image for multiple platforms and CPU architectures.
 - **Scanning for vulnerabilities** - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as "failed".
