@@ -18,7 +18,7 @@ The Velocitas project provides a two-stage process for development, continuous i
 - **Stage 2 - Release**
   Once the application is ready to be released in a new version, a dedicated release workflow is automatically executed as soon as you create a new release via GitHub.
 
-  The release workflow bundles all relevant images and artifacts into one tagged set of files and makes it possible to be pushed to the GitHub Container Registry as well as for the information to be used for quality assurance and documentation accordingly.
+  The release workflow bundles all relevant images and artifacts into one tagged set of files and push it to the GitHub Container Registry. In addition, it makes the information ready to be used for quality assurance and documentation accordingly. The image in GitHub Container Registry can be used in your preferred  Over-The-Air (OTA) update system of your choice.
 
 The drawing below illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project's needs.
 
