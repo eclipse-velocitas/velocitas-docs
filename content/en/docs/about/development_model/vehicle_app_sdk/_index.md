@@ -42,6 +42,10 @@ A model contains services, data points and other models. It corresponds to branc
 
 ### ModelCollection
 
+{{% alert title="Info" %}}
+The ModelCollection is deprecated since SDK v0.4.0. The generated vehicle model must reflect the actual representation of the data points. Please use the *Model* base class instead.
+{{% /alert %}}
+
 Specifications like VSS support a concept that is called [Instances](https://covesa.github.io/vehicle_signal_specification/rule_set/instances/). It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with [Relationships](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship). In the SDK, these structures are mapped with the `ModelCollection` class. A `ModelCollection` is a collection of models, which make it possible to reference an individual model either by a `NamedRange` (e.g., Row [1-3]), a `Dictionary` (e.g., "Left", "Right") or a combination of both.
 
 ### Service
@@ -74,7 +78,9 @@ An example of a Vehicle Model created with the described ontology is shown below
 
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
+
 # import ontology classes
+
 from sdv import (
     DataPointDouble,
     Model,
@@ -83,13 +89,12 @@ from sdv import (
     DataPointBool,
     DataPointArray,
     DataPointString,
-    ModelCollection,
-    NamedRange
 )
 
 class Seat(Model):
-    def __init__(self, parent):
+    def __init__(self, name, parent):
         super().__init__(parent)
+        self.name = name
         self.Position = DataPointBool("Position", self)
         self.IsOccupied = DataPointBool("IsOccupied", self)
         self.IsBelted = DataPointBool("IsBelted", self)
@@ -97,41 +102,78 @@ class Seat(Model):
         self.Recline = DataPointInt32("Recline", self)
 
 class Cabin(Model):
-    def __init__(self, parent: Model):
+    def __init__(self, name, parent):
         super().__init__(parent)
-
+        self.name = name
         self.DriverPosition = DataPointInt32("DriverPosition", self)
-        self.Seat = ModelCollection[Seat](
-            [NamedRange("Row", 1, 2), NamedRange("Pos", 1, 3)], Seat(self)
-        )
+        self.Seat = SeatCollection("Seat", self)
+
+class SeatCollection(Model):
+    def __init__(self, name, parent):
+        super().__init__(parent)
+        self.name = name
+        self.Row1 = self.SeatType("Row1", self)
+        self.Row2 = self.SeatType("Row2", self)
+
+    def Row(self, index: int):
+        if index < 1 or index > 2:
+            raise IndexError(f"Index {index} is out of range")
+        _options = {
+            1 : self.Row1,
+            2 : self.Row2,
+        }
+        return _options.get(index)
+
+    class SeatType(Model):
+        def __init__(self, name, parent):
+            super().__init__(parent)
+            self.name = name
+            self.Pos1 = Seat("Pos1", self)
+            self.Pos2 = Seat("Pos2", self)
+            self.Pos3 = Seat("Pos3", self)
+
+        def Pos(self, index: int):
+            if index < 1 or index > 3:
+                raise IndexError(f"Index {index} is out of range")
+            _options = {
+                1 : self.Pos1,
+                2 : self.Pos2,
+                3 : self.Pos3,
+            }
+            return _options.get(index)
 
 class VehicleIdentification(Model):
-    def __init__(self, parent):
+    def __init__(self, name, parent):
         super().__init__(parent)
+        self.name = name
         self.VIN = DataPointString("VIN", self)
         self.Model = DataPointString("Model", self)
 
 class CurrentLocation(Model):
-    def __init__(self, parent):
+    def __init__(self, name, parent):
         super().__init__(parent)
+        self.name = name
         self.Latitude = DataPointDouble("Latitude", self)
         self.Longitude = DataPointDouble("Longitude", self)
         self.Timestamp = DataPointString("Timestamp", self)
         self.Altitude = DataPointDouble("Altitude", self)
 
 class Vehicle(Model):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, name, parent):
+        super().__init__(parent)
+        self.name = name
         self.Speed = DataPointFloat("Speed", self)
-        self.CurrentLocation = CurrentLocation(self)
-        self.Cabin = Cabin(self)
+        self.CurrentLocation = CurrentLocation("CurrentLocation", self)
+        self.Cabin = Cabin("Cabin", self)
 
-vehicle = Vehicle()
+vehicle = Vehicle("Vehicle")
 
 {{< /tab >}}
 {{< tab "C++" >}}
-#include "sdk/DataPoint.h"
-#include "sdk/Model.h"
+
+# include "sdk/DataPoint.h"
+
+# include "sdk/Model.h"
 
 using namespace velocitas;
 
@@ -255,7 +297,7 @@ private:
 
 ### Service discovery
 
-The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through _dapr_ middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that _dapr_ can discover the corresponding vehicle services. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
+The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through *dapr* middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that *dapr* can discover the corresponding vehicle services. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
 
 ## Fluent query & rule construction
 
@@ -271,8 +313,10 @@ The following examples show you how to query data points.
 {{< tab "Python" >}}
 driver_pos: int = vehicle.Cabin.DriverPosition.get()
 
-# Call to broker:
+# Call to broker
+
 # GetDataPoint(rule="SELECT Vehicle.Cabin.DriverPosition")
+
 {{< /tab >}}
 {{< tab "C++" >}}
 auto driverPos = getDataPoints({Vehicle.Cabin.DriverPosition})->await();
@@ -294,8 +338,10 @@ print(f'
     Longitude: {vehicle_data.CurrentLocation.Longitude}
     ')
 
-# Call to broker:
+# Call to broker
+
 # GetDataPoint(rule="SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude")
+
 {{< /tab >}}
 {{< tab "C++" >}}
   auto datapoints =
@@ -313,17 +359,19 @@ print(f'
 {{< tabpane langEqualsHeader=true >}}
   {{< tab "Python" >}}
 self.rule = (
-    await self.vehicle.Cabin.Seat.element_at(2,1).Position
+    await self.vehicle.Cabin.Seat.Row(2).Pos(1).Position
     .subscribe(self.on_seat_position_change)
 )
 
 def on_seat_position_change(int position):
     print(f'Seat position changed to {position}')
 
-# Call to broker:
+# Call to broker
+
 # Subscribe(rule="SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position")
 
-# If needed, the subscription can be stopped like this:
+# If needed, the subscription can be stopped like this
+
 await self.rule.subscription.unsubscribe()
 {{< /tab >}}
 {{< tab "C++" >}}
@@ -346,15 +394,17 @@ void onSeatPositionChanged(const DataPointMap_t datapoints) {
 
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
-vehicle.Cabin.Seat.element_at(2,1).Position.where(
+vehicle.Cabin.Seat.Row(2).Pos(1).Position.where(
     "Cabin.Seat.Row2.Pos1.Position > 50")
     .subscribe(on_seat_position_change)
 
 def on_seat_position_change(int position):
     print(f'Seat position changed to {position}')
 
-# Call to broker:
+# Call to broker
+
 # Subscribe(rule="SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position WHERE Vehicle.Cabin.Seat.Row2.Pos1.Position > 50")
+
 {{< /tab >}}
 {{< tab "C++" >}}
 auto query = QueryBuilder::select(Vehicle.Cabin.Seat.Row(2).Pos(1).Position)
@@ -402,8 +452,10 @@ async def on_set_position_request_received(self, data: str) -> None:
     logger.info("Set Position Request received: data=%s", data)
 {{< /tab >}}
 {{< tab "C++" >}}
-#include <fmt/core.h>
-#include <nlohmann/json.hpp>
+
+# include <fmt/core.h>
+
+# include <nlohmann/json.hpp>
 
 subscribeToTopic("seatadjuster/setPosition/request")->onItem([this](auto&& item){
     const auto jsonData = nlohmann::json::parse(item);
@@ -434,7 +486,7 @@ async def main():
 
 The `Vehicle Model` instance is passed to the constructor of the `VehicleApp` class and should be stored in a member variable (e.g. `self.vehicle` for Python, `std::shared_ptr<Vehicle> m_vehicle;` for C++), to be used by all methods within the application.
 
-Finally, the `run()` method of the `VehicleApp` class is called to start the `Vehicle App` and register all MQTT topic and Data Broker subscriptions. 
+Finally, the `run()` method of the `VehicleApp` class is called to start the `Vehicle App` and register all MQTT topic and Data Broker subscriptions.
 
 {{% alert title="Implementation detail" color="warning" %}}
 In Python, the subscriptions are based on `asyncio`, which makes it necessary to call the `run()` method with an active `asyncio event_loop`.
@@ -455,15 +507,16 @@ async def main():
     seat_adjuster_app = SeatAdjusterApp(vehicle)
     await seat_adjuster_app.run()
 
-
 LOOP = asyncio.get_event_loop()
 LOOP.add_signal_handler(signal.SIGTERM, LOOP.stop)
 LOOP.run_until_complete(main())
 LOOP.close()
 {{< /tab >}}
 {{< tab "C++" >}}
-#include "VehicleApp.h"
-#include "vehicle_model/Vehicle.h"
+
+# include "VehicleApp.h"
+
+# include "vehicle_model/Vehicle.h"
 
 using namespace velocitas;
 

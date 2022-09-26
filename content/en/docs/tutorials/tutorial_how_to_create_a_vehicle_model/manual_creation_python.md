@@ -110,17 +110,48 @@ aliases:
       ```python
       from sdv.model import Model
 
-      class Cabin(Model):
+        class Cabin(Model):
+            def __init__(self, parent):
+                super().__init__(parent)
+                self.Seat = SeatCollection("Seat", self)
+        
+        class SeatCollection(Model):
+            def __init__(self, name, parent):
+                super().__init__(parent)
+                self.name = name
+                self.Row1 = self.SeatType("Row1", self)
+                self.Row2 = self.SeatType("Row2", self)
 
-          def __init__(self, parent):
-              super().__init__(parent)
+            def Row(self, index: int):
+                if index < 1 or index > 2:
+                    raise IndexError(f"Index {index} is out of range")
+                _options = {
+                    1 : self.Row1,
+                    2 : self.Row2,
+                }
+                return _options.get(index)
 
-              self.Seat = ModelCollection[Seat](
-                  [NamedRange("Row", 1, 2), NamedRange("Pos", 1, 3)], Seat(self)
-          )
+            class SeatType(Model):
+                def __init__(self, name, parent):
+                    super().__init__(parent)
+                    self.name = name
+                    self.Pos1 = Seat("Pos1", self)
+                    self.Pos2 = Seat("Pos2", self)
+                    self.Pos3 = Seat("Pos3", self)
+
+                def Pos(self, index: int):
+                    if index < 1 or index > 3:
+                        raise IndexError(f"Index {index} is out of range")
+                    _options = {
+                        1 : self.Pos1,
+                        2 : self.Pos2,
+                        3 : self.Pos3,
+                    }
+                    return _options.get(index)
+
       ```
 
-      This creates the `Cabin` model, which contains a set of six `Seat` models, referenced by their rows and positions:
+      This creates the `Cabin` model, which contains a set of six `Seat` models, referenced by their names or by rows and positions:
 
       - row=1, pos=1
       - row=1, pos=2
@@ -139,12 +170,13 @@ aliases:
       class Vehicle(Model):
           """Vehicle model"""
 
-          def __init__(self):
+          def __init__(self, name):
               super().__init__()
+              self.name = name
               self.Speed = DataPointFloat("Speed", self)
-              self.Cabin = Cabin(self)
+              self.Cabin = Cabin("Cabin", self)
 
-      vehicle = Vehicle()
+      vehicle = Vehicle("Vehicle")
 
       ```
 
