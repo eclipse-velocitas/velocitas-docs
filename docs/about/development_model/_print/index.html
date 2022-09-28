@@ -39,8 +39,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.effeb7933d7922f4f223a1cdac4649fb00298e6c312b900c585ce91f1e50fd7f.css" as="style">
-<link href="/velocitas/scss/main.min.effeb7933d7922f4f223a1cdac4649fb00298e6c312b900c585ce91f1e50fd7f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.6295f0331770376b324fefeb2ee81d6cca9d5e095eaa0b9e4d32013ad0a562ab.css" as="style">
+<link href="/velocitas/scss/main.min.6295f0331770376b324fefeb2ee81d6cca9d5e095eaa0b9e4d32013ad0a562ab.css" rel="stylesheet" integrity="">
 
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -1665,7 +1665,7 @@ Filter- and rule-based subscriptions of datapoints can be used to reduce the num
 <h3 id="data-feeders">Data Feeders</h3>
 <p>Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
 The source of the contents of the data points provided is specific to the respective feeder.</p>
-<p>As of today, the Vehicle Abstraction Layer contains a generic <a href="https://github.com/eclipse/kuksa.val/tree/main/kuksa_feeders" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python,
+<p>As of today, the Vehicle Abstraction Layer contains a generic <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python,
 which reads data from a CAN bus based on specifications in a e.g., CAN network description (dbc) file.
 The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.</p>
@@ -1726,7 +1726,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 <p>Source code and build instructions are available in the respective KUKSA.VAL repositories:</p>
 <ul>
 <li><a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">KUKSA Data Broker</a></li>
-<li><a href="https://github.com/eclipse/kuksa.val/tree/main/kuksa_feeders" target="_blank" rel="noopener">KUKSA DBC Feeder</a></li>
+<li><a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">KUKSA DBC Feeder</a></li>
 <li><a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA example services</a></li>
 </ul>
 <h2 id="guidelines">Guidelines</h2>
