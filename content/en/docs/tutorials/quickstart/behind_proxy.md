@@ -92,27 +92,31 @@ Proxy settings in `.devcontainer/Dockerfile.Proxy` will be overridden by `~/.doc
    {{% tab header="Windows & MacOS" %}}
    ```json
    {
-    "proxies":{
-         "default":{
-            "httpProxy":"http://host.docker.internal:3128",
-            "httpsProxy":"http://host.docker.internal:3128",
-            "noProxy":"host.docker.internal,localhost,127.0.0.1"
-         }
-      }
-   }
+      "proxies": {
+          "default": {
+              "httpProxy": "http://host.docker.internal:3128",
+              "httpsProxy": "http://host.docker.internal:3128",
+              "ftpProxy": "http://host.docker.internal:3128",
+              "allProxy": "http://host.docker.internal:3128",
+              "noProxy": "localhost,127.*,0.0.0.0,10.*,192.*,172.*,cattle-system.svc,.svc,.cluster.local"
+               }
+            }
+    }
    ```
    {{% /tab %}}
    {{% tab header="Linux" %}}
    ```json
    {
-    "proxies":{
-         "default":{
-            "httpProxy":"http://172.17.0.1:3128",
-            "httpsProxy":"http://172.17.0.1:3128",
-            "noProxy":"host.docker.internal,localhost,127.0.0.1"
-         }
-      }
-   }
+      "proxies": {
+          "default": {
+              "httpProxy": "http://172.17.0.1:3128",
+              "httpsProxy": "http://172.17.0.1:3128",
+              "ftpProxy": "http://172.17.0.1:3128",
+              "allProxy": "http://172.17.0.1:3128",
+              "noProxy": "localhost,127.*,0.0.0.0,10.*,192.*,172.*,cattle-system.svc,.svc,.cluster.local"
+               }
+            }
+    }
    ```
    {{% /tab %}}
    {{< /tabpane >}}
