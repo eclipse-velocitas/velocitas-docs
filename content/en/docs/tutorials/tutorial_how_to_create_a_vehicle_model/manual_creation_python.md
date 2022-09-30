@@ -119,8 +119,8 @@ aliases:
             def __init__(self, name, parent):
                 super().__init__(parent)
                 self.name = name
-                self.Row1 = self.SeatType("Row1", self)
-                self.Row2 = self.SeatType("Row2", self)
+                self.Row1 = self.RowType("Row1", self)
+                self.Row2 = self.RowType("Row2", self)
 
             def Row(self, index: int):
                 if index < 1 or index > 2:
@@ -131,7 +131,7 @@ aliases:
                 }
                 return _options.get(index)
 
-            class SeatType(Model):
+            class RowType(Model):
                 def __init__(self, name, parent):
                     super().__init__(parent)
                     self.name = name
