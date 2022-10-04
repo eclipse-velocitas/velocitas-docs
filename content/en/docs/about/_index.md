@@ -6,11 +6,11 @@ description: >
   Explore the goal, benefits and basic concepts of Eclipse _Velocitas™_ 
 ---
 
-The Eclipse _Velocitas™_ provides an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (_Vehicle Apps_) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.
+Eclipse _Velocitas™_ provides an end-to-end, scalable and modular development tool chain to create containerized in-vehicle applications (_Vehicle Apps_), offering a comfortable, fast and efficient development experience to increase the speed of a development team.
 
 <img src="dev_ops_cycle.png" >
 
-## What offers Velocitas? 
+## What does Velocitas offer?
 
 - Predefined CI/CD workflows that build (for multi architectures), test, document and deploy a Vehicle App help saving setup time
 - DevContainer helps to install everything to start the local development immediately in Microsoft Visual Studio Code

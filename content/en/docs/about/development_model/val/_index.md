@@ -7,13 +7,13 @@ resources:
 - src: "**dataflow_service*.png"
 - - src: "**val_architecture_overview*.png"
 description: >
-  Learn about the main concepts and components of the vehicle abstraction and how this interrelates with the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
+  Learn about the main concepts and components of the vehicle abstraction and how it relates to the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
 ---
 
 ## Introduction
 
 The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/), also called KUKSA.VAL.
-It is is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
+It is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
 It currently consists of a data broker, a CAN feeder, and a set of example services.
 
 ## Architecture
@@ -37,8 +37,8 @@ Conceptually, a data feeder is a provider of a certain set of data points to the
 The source of the contents of the data points provided is specific to the respective feeder.
 
 As of today, the Vehicle Abstraction Layer contains a generic [CAN feeder (KUKSA DBC Feeder)](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val) implemented in Python,
-which reads data from a CAN bus based on specifications in a e.g., CAN network description (dbc) file.
-The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the data broker using its `Collector` gRPC interface.
+which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
+The feeder uses a mapping file and data point meta data to convert the source data to data points and injects them into the data broker using its `Collector` gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.
 
 ### Vehicle Services
@@ -47,7 +47,7 @@ A vehicle service offers a gRPC interface allowing vehicle apps to interact with
 It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
 It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.
 
-The KUKSA.VAL is providing examples how such kind of vehicle services could be built-up in the [kuksa.val.services repository](https://github.com/eclipse/kuksa.val.services/).
+The [KUKSA.VAL Services repository](https://github.com/eclipse/kuksa.val.services/) contains examples illustrating how such kind of vehicle services can be built.
 
 ### Hardware Abstraction
 
