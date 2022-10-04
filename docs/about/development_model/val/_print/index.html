@@ -21,19 +21,19 @@
 <link rel="icon" type="image/png" href="/velocitas/favicons/android-192x192.png" sizes="192x192">
 
 <title>Vehicle Abstraction Layer (VAL) | Velocitas</title>
-<meta name="description" content="Learn about the main concepts and components of the vehicle abstraction and how this interrelates with the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
+<meta name="description" content="Learn about the main concepts and components of the vehicle abstraction and how it relates to the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
 ">
 <meta property="og:title" content="Vehicle Abstraction Layer (VAL)" />
-<meta property="og:description" content="Learn about the main concepts and components of the vehicle abstraction and how this interrelates with the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
+<meta property="og:description" content="Learn about the main concepts and components of the vehicle abstraction and how it relates to the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas/docs/about/development_model/val/" />
 
 <meta itemprop="name" content="Vehicle Abstraction Layer (VAL)">
-<meta itemprop="description" content="Learn about the main concepts and components of the vehicle abstraction and how this interrelates with the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
+<meta itemprop="description" content="Learn about the main concepts and components of the vehicle abstraction and how it relates to the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
 "><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vehicle Abstraction Layer (VAL)"/>
-<meta name="twitter:description" content="Learn about the main concepts and components of the vehicle abstraction and how this interrelates with the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
+<meta name="twitter:description" content="Learn about the main concepts and components of the vehicle abstraction and how it relates to the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
 "/>
 
 
@@ -78,7 +78,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.532b250600d14f3aed262503ef3307bf.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.a2b06ff1f1387cc8335720d1095558d2.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -108,7 +108,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Vehicle Abstraction Layer (VAL)</h1>
-<div class="lead">Learn about the main concepts and components of the vehicle abstraction and how this interrelates with the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>.</div>
+<div class="lead">Learn about the main concepts and components of the vehicle abstraction and how it relates to the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>.</div>
 
 
 
@@ -128,7 +128,7 @@ This is the multi-page printable view of this section.
 <div class="content">
       <h2 id="introduction">Introduction</h2>
 <p>The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>, also called KUKSA.VAL.
-It is is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
+It is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
 It currently consists of a data broker, a CAN feeder, and a set of example services.</p>
 <h2 id="architecture">Architecture</h2>
 <p>The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the <a href="/velocitas/docs/development-model.md">Velocitas Development Model</a>.</p>
@@ -159,14 +159,14 @@ Filter- and rule-based subscriptions of datapoints can be used to reduce the num
 <p>Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
 The source of the contents of the data points provided is specific to the respective feeder.</p>
 <p>As of today, the Vehicle Abstraction Layer contains a generic <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python,
-which reads data from a CAN bus based on specifications in a e.g., CAN network description (dbc) file.
-The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
+which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
+The feeder uses a mapping file and data point meta data to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
 <p>A vehicle service offers a gRPC interface allowing vehicle apps to interact with underlying services of the vehicle.
 It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
 It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.</p>
-<p>The KUKSA.VAL is providing examples how such kind of vehicle services could be built-up in the <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">kuksa.val.services repository</a>.</p>
+<p>The <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a> contains examples illustrating how such kind of vehicle services can be built.</p>
 <h3 id="hardware-abstraction">Hardware Abstraction</h3>
 <p>Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
 The reference implementation relies on <strong>SocketCAN</strong> and <strong>vxcan</strong>, see <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val</a>.

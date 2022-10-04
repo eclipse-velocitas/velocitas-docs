@@ -1377,7 +1377,7 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
         
         &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the &lt;a href=&#34;https://www.eclipse.org/kuksa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse KUKSA project&lt;/a&gt;, also called KUKSA.VAL.
-It is is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
+It is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
 It currently consists of a data broker, a CAN feeder, and a set of example services.&lt;/p&gt;
 &lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
 &lt;p&gt;The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the &lt;a href=&#34;/velocitas/velocitas/docs/development-model.md&#34;&gt;Velocitas Development Model&lt;/a&gt;.&lt;/p&gt;
@@ -1408,14 +1408,14 @@ Filter- and rule-based subscriptions of datapoints can be used to reduce the num
 &lt;p&gt;Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
 The source of the contents of the data points provided is specific to the respective feeder.&lt;/p&gt;
 &lt;p&gt;As of today, the Vehicle Abstraction Layer contains a generic &lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CAN feeder (KUKSA DBC Feeder)&lt;/a&gt; implemented in Python,
-which reads data from a CAN bus based on specifications in a e.g., CAN network description (dbc) file.
-The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the data broker using its &lt;code&gt;Collector&lt;/code&gt; gRPC interface.
+which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
+The feeder uses a mapping file and data point meta data to convert the source data to data points and injects them into the data broker using its &lt;code&gt;Collector&lt;/code&gt; gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-services&#34;&gt;Vehicle Services&lt;/h3&gt;
 &lt;p&gt;A vehicle service offers a gRPC interface allowing vehicle apps to interact with underlying services of the vehicle.
 It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
 It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.&lt;/p&gt;
-&lt;p&gt;The KUKSA.VAL is providing examples how such kind of vehicle services could be built-up in the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val.services repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA.VAL Services repository&lt;/a&gt; contains examples illustrating how such kind of vehicle services can be built.&lt;/p&gt;
 &lt;h3 id=&#34;hardware-abstraction&#34;&gt;Hardware Abstraction&lt;/h3&gt;
 &lt;p&gt;Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
 The reference implementation relies on &lt;strong&gt;SocketCAN&lt;/strong&gt; and &lt;strong&gt;vxcan&lt;/strong&gt;, see &lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&lt;/a&gt;.

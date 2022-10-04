@@ -74,7 +74,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.532b250600d14f3aed262503ef3307bf.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.a2b06ff1f1387cc8335720d1095558d2.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -565,9 +565,9 @@ This is the multi-page printable view of this section.
     
 	<h1 id="pg-c43b6569b496f1a6d7d9012ee3bc204f">1 - About Velocitas</h1>
     <div class="lead">Explore the goal, benefits and basic concepts of Eclipse <em>Velocitas™</em></div>
-	<p>The Eclipse <em>Velocitas™</em> provides an end-to-end, scalable and modular development toolchain to create containerized in-vehicle applications (<em>Vehicle Apps</em>) that offers a comfortable, fast and efficient development experience to increase the speed of a development team.</p>
+	<p>Eclipse <em>Velocitas™</em> provides an end-to-end, scalable and modular development tool chain to create containerized in-vehicle applications (<em>Vehicle Apps</em>), offering a comfortable, fast and efficient development experience to increase the speed of a development team.</p>
 <img src="dev_ops_cycle.png" >
-<h2 id="what-offers-velocitas">What offers Velocitas?</h2>
+<h2 id="what-does-velocitas-offer">What does Velocitas offer?</h2>
 <ul>
 <li>Predefined CI/CD workflows that build (for multi architectures), test, document and deploy a Vehicle App help saving setup time</li>
 <li>DevContainer helps to install everything to start the local development immediately in Microsoft Visual Studio Code</li>
@@ -630,13 +630,13 @@ This is the multi-page printable view of this section.
     
 	<h1 id="pg-14994cdfceb19b97cd58870a0d746743">1.1.1 - Seat Adjuster</h1>
     <div class="lead">Provides option to request a new seat position and to publish the current seat position</div>
-	<p>Image a carsharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The carsharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle. That&rsquo;s where your implementation starts.</p>
-<p>The <em>Seat Adjuster Vehicle App</em> receives the seat position as a MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the <em>Seat Adjuster Vehicle App</em> subscribes to the seat position and receives the new seat position from the <em>Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
+	<p>Imagine a car sharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The car sharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle. That&rsquo;s where your implementation starts.</p>
+<p>The <em>Seat Adjuster Vehicle App</em> receives the seat position as an MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the car sharing company and used for the next trip. As a result, the <em>Seat Adjuster Vehicle App</em> subscribes to the seat position and receives the new seat position from the <em>Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
 <h2 id="requesting-new-seat-position">Requesting new seat position</h2>
 <p><img src="./seat_adjuster_dataflow_1.png" alt=""></p>
 <ol>
 <li>The <strong>Customer</strong> requests the change of the seat position as MQTT message on the topic <code>seatadjuster/setPosition/request</code> with the payload:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;position&#34;</span>: 300<span style="color:#ce5c00;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 <li>The <strong>Seat Adjuster Vehicle App</strong> that has subscribed to this topic, receives the request to change the seat position as a MQTT message.</li>
 <li>The <strong>Seat Adjuster Vehicle App</strong> gets the current vehicle speed from the data broker, which is fed by the <strong>CAN Feeder (KUKSA DBC Feeder)</strong>.</li>
@@ -644,10 +644,10 @@ This is the multi-page printable view of this section.
 <li>The <strong>Seat Service</strong> moves the seat to the new position via CAN messages.</li>
 <li>The <strong>Seat Service</strong> returns OK or an error code as grpc status to the <strong>Seat Adjuster Vehicle App</strong>.</li>
 <li>If everything went well, the <strong>Seat Adjuster Vehicle App</strong> returns a success message for the topic <code>seatadjuster/setPosition/response</code> with the payload:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;status&#34;</span>: <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div>Otherwise, an error message will be returned:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span>requestId<span style="color:#4e9a06">&#34;: &#34;</span>xyz<span style="color:#4e9a06">&#34;, &#34;</span>status<span style="color:#4e9a06">&#34;: 1, &#34;</span>message<span style="color:#4e9a06">&#34; = &#34;</span>&lt;error message&gt;<span style="color:#4e9a06">&#34; }
-</span></span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;error message&gt;&#34;</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
 <li>This success or error message will be returned to the <strong>Customer</strong>.</li>
 </ol>
 <h2 id="publishing-current-seat-position">Publishing current seat position</h2>
@@ -657,7 +657,7 @@ This is the multi-page printable view of this section.
 <li>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>KUKSA Data Broker</strong> since it was registered beforehand.</li>
 <li>The <strong>Seat Adjuster Vehicle App</strong> that subscribed to the seat position receives the new seat position from the <strong>KUKSA Data Broker</strong> as a result.</li>
 <li>The <strong>Seat Adjuster Vehicle App</strong> publishes this on topic <code>seatadjuster/currentPosition</code> with the payload:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 350<span style="color:#ce5c00;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">350</span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 <li>The <strong>Customer</strong> who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.</li>
 </ol>
@@ -2195,10 +2195,10 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-0e9483f5b3711eec853bb55b42c519ad">1.2.2 - Vehicle Abstraction Layer (VAL)</h1>
-    <div class="lead">Learn about the main concepts and components of the vehicle abstraction and how this interrelates with the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>.</div>
+    <div class="lead">Learn about the main concepts and components of the vehicle abstraction and how it relates to the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>.</div>
 	<h2 id="introduction">Introduction</h2>
 <p>The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>, also called KUKSA.VAL.
-It is is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
+It is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
 It currently consists of a data broker, a CAN feeder, and a set of example services.</p>
 <h2 id="architecture">Architecture</h2>
 <p>The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the <a href="/velocitas/docs/development-model.md">Velocitas Development Model</a>.</p>
@@ -2229,14 +2229,14 @@ Filter- and rule-based subscriptions of datapoints can be used to reduce the num
 <p>Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
 The source of the contents of the data points provided is specific to the respective feeder.</p>
 <p>As of today, the Vehicle Abstraction Layer contains a generic <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python,
-which reads data from a CAN bus based on specifications in a e.g., CAN network description (dbc) file.
-The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
+which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
+The feeder uses a mapping file and data point meta data to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
 <p>A vehicle service offers a gRPC interface allowing vehicle apps to interact with underlying services of the vehicle.
 It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
 It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.</p>
-<p>The KUKSA.VAL is providing examples how such kind of vehicle services could be built-up in the <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">kuksa.val.services repository</a>.</p>
+<p>The <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a> contains examples illustrating how such kind of vehicle services can be built.</p>
 <h3 id="hardware-abstraction">Hardware Abstraction</h3>
 <p>Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
 The reference implementation relies on <strong>SocketCAN</strong> and <strong>vxcan</strong>, see <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val</a>.

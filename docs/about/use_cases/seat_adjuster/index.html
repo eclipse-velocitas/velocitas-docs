@@ -78,7 +78,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.532b250600d14f3aed262503ef3307bf.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.a2b06ff1f1387cc8335720d1095558d2.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -101,7 +101,7 @@
   aria-label="Search this site…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/velocitas/offline-search-index.532b250600d14f3aed262503ef3307bf.json"
+  data-offline-search-index-json-src="/velocitas/offline-search-index.a2b06ff1f1387cc8335720d1095558d2.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -362,13 +362,13 @@
 
 		
 	</header>
-	<p>Image a carsharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The carsharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle. That&rsquo;s where your implementation starts.</p>
-<p>The <em>Seat Adjuster Vehicle App</em> receives the seat position as a MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the carsharing company and used for the next trip. As a result, the <em>Seat Adjuster Vehicle App</em> subscribes to the seat position and receives the new seat position from the <em>Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
+	<p>Imagine a car sharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The car sharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle. That&rsquo;s where your implementation starts.</p>
+<p>The <em>Seat Adjuster Vehicle App</em> receives the seat position as an MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the car sharing company and used for the next trip. As a result, the <em>Seat Adjuster Vehicle App</em> subscribes to the seat position and receives the new seat position from the <em>Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
 <h2 id="requesting-new-seat-position">Requesting new seat position</h2>
 <p><img src="./seat_adjuster_dataflow_1.png" alt=""></p>
 <ol>
 <li>The <strong>Customer</strong> requests the change of the seat position as MQTT message on the topic <code>seatadjuster/setPosition/request</code> with the payload:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;position&#34;</span>: 300<span style="color:#ce5c00;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 <li>The <strong>Seat Adjuster Vehicle App</strong> that has subscribed to this topic, receives the request to change the seat position as a MQTT message.</li>
 <li>The <strong>Seat Adjuster Vehicle App</strong> gets the current vehicle speed from the data broker, which is fed by the <strong>CAN Feeder (KUKSA DBC Feeder)</strong>.</li>
@@ -376,10 +376,10 @@
 <li>The <strong>Seat Service</strong> moves the seat to the new position via CAN messages.</li>
 <li>The <strong>Seat Service</strong> returns OK or an error code as grpc status to the <strong>Seat Adjuster Vehicle App</strong>.</li>
 <li>If everything went well, the <strong>Seat Adjuster Vehicle App</strong> returns a success message for the topic <code>seatadjuster/setPosition/response</code> with the payload:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span>: <span style="color:#4e9a06">&#34;xyz&#34;</span>, <span style="color:#4e9a06">&#34;status&#34;</span>: <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#ce5c00;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div>Otherwise, an error message will be returned:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span>requestId<span style="color:#4e9a06">&#34;: &#34;</span>xyz<span style="color:#4e9a06">&#34;, &#34;</span>status<span style="color:#4e9a06">&#34;: 1, &#34;</span>message<span style="color:#4e9a06">&#34; = &#34;</span>&lt;error message&gt;<span style="color:#4e9a06">&#34; }
-</span></span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;error message&gt;&#34;</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div></li>
 <li>This success or error message will be returned to the <strong>Customer</strong>.</li>
 </ol>
 <h2 id="publishing-current-seat-position">Publishing current seat position</h2>
@@ -389,7 +389,7 @@
 <li>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>KUKSA Data Broker</strong> since it was registered beforehand.</li>
 <li>The <strong>Seat Adjuster Vehicle App</strong> that subscribed to the seat position receives the new seat position from the <strong>KUKSA Data Broker</strong> as a result.</li>
 <li>The <strong>Seat Adjuster Vehicle App</strong> publishes this on topic <code>seatadjuster/currentPosition</code> with the payload:
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span>: 350<span style="color:#ce5c00;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">350</span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 <li>The <strong>Customer</strong> who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.</li>
 </ol>
@@ -412,7 +412,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified September 30, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/0d4316dae5f3b17a60b07debd285520eba29ce6a">hosting jquery and lunr locally (#42) (0d4316d)</a>
+  Last modified October 4, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/8096b5e91f008999fba0f319fa20e72dca8c599a">Fix some typos, improve wording (#43) (8096b5e)</a>
 </div>
 
 </div>
