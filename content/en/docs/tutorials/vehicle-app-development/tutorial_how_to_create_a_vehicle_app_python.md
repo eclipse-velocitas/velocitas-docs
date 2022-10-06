@@ -136,7 +136,7 @@ If you want to get notified about changes of a specific `Datapoint`, you can sub
 ```Python
     async def on_start(self):
         """Run when the vehicle app starts"""
-        await self.Vehicle.Cabin.Seat.element_at(1, 1).Position.subscribe(
+        await self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position.subscribe(
             self.on_seat_position_changed
         )
 ```
@@ -148,7 +148,7 @@ Therefore the `on_seat_position_changed` callback function needs to be implement
     async def on_seat_position_changed(self, data):
         # handle the event here
         response_topic = "seatadjuster/currentPosition"
-        seat_path = self.Vehicle.Cabin.Seat.element_at(1, 1).Position.get_path()
+        seat_path = self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position.get_path()
         # ...
 ```
 
@@ -210,7 +210,7 @@ In order to publish data to topics, the SDK provides the appropriate convenience
 ```Python
     async def on_seat_position_changed(self, data):
         response_topic = "seatadjuster/currentPosition"
-        seat_path = self.Vehicle.Cabin.Seat.element_at(1, 1).Position.get_path()
+        seat_path = self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position.get_path()
         await self.publish_mqtt_event(
             response_topic,
             json.dumps({"position": data.fields[seat_path].uint32_value}),
