@@ -141,7 +141,7 @@ If you want to get notified about changes of a specific `Datapoint`, you can sub
         )
 ```
 
-Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective *DataPointReply* object and are accessed by their complete datapoint.
+Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective *DataPointReply* object and are accessed by the reference of the subscribed datapoint.
 Therefore the `on_seat_position_changed` callback function needs to be implemented:
 
 ```Python
@@ -164,7 +164,7 @@ async def on_vehicle_seat_change(self, data: DataPointReply):
     await self.publish_mqtt_event(response_topic, json.dumps(response_data))
 ```
 
-Similarly, subscribed data is available in the respective *DataPointReply* object and are accessed by their complete datapoint.
+Similarly, subscribed data is available in the respective *DataPointReply* object and are accessed by the reference of the subscribed datapoint.
 {{% /alert %}}
 
 ## Services
