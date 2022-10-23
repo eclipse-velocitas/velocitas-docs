@@ -141,14 +141,14 @@ If you want to get notified about changes of a specific `Datapoint`, you can sub
         )
 ```
 
-Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective *data.fields* value and are accessed by their complete path.
+Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective *DataPointReply* object and are accessed by the reference of the subscribed datapoint.
 Therefore the `on_seat_position_changed` callback function needs to be implemented:
 
 ```Python
-    async def on_seat_position_changed(self, data):
+    async def on_seat_position_changed(self, data: DataPointReply):
         # handle the event here
         response_topic = "seatadjuster/currentPosition"
-        seat_path = self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position.get_path()
+        position = data.get(self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position)
         # ...
 ```
 
@@ -157,14 +157,14 @@ The SDK also supports annotations for subscribing to datapoint changes  with`@su
 
 ```Python
 @subscribe_data_points("Vehicle.Cabin.Seat.Row1.Pos1.Position")
-async def on_vehicle_seat_change(self, data):
+async def on_vehicle_seat_change(self, data: DataPointReply):
     response_topic = "seatadjuster/currentPosition"
-    response_data = {"position": data.fields["Vehicle.Cabin.Seat.Row1.Pos1.Position"].uint32_value}
+    response_data = {"position": data.get(self.Vehicle.Cabin.Seat.Row1.Pos1.Position)}
 
     await self.publish_mqtt_event(response_topic, json.dumps(response_data))
 ```
 
-Similarly, subscribed data is available in the respective *data.fields* value and are accessed by their complete path.
+Similarly, subscribed data is available in the respective *DataPointReply* object and are accessed by the reference of the subscribed datapoint.
 {{% /alert %}}
 
 ## Services
@@ -208,12 +208,12 @@ The `on_set_position_request_received` method will now be invoked every time a m
 In order to publish data to topics, the SDK provides the appropriate convenience method: `self.publish_mqtt_event()` which will be added to the `on_seat_position_changed` callback function from before.
 
 ```Python
-    async def on_seat_position_changed(self, data):
+    async def on_seat_position_changed(self, data: DataPointReply):
         response_topic = "seatadjuster/currentPosition"
-        seat_path = self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position.get_path()
+        position = data.get(self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position)
         await self.publish_mqtt_event(
             response_topic,
-            json.dumps({"position": data.fields[seat_path].uint32_value}),
+            json.dumps({"position": position}),
         )
 ```
 

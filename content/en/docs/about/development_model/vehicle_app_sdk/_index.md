@@ -363,7 +363,8 @@ self.rule = (
     .subscribe(self.on_seat_position_change)
 )
 
-def on_seat_position_change(int position):
+def on_seat_position_change(self, data: DataPointReply):
+    position = data.get(self.vehicle.Cabin.Seat.Row2.Pos1.Position)
     print(f'Seat position changed to {position}')
 
 # Call to broker
@@ -394,11 +395,12 @@ void onSeatPositionChanged(const DataPointMap_t datapoints) {
 
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
-vehicle.Cabin.Seat.Row(2).Pos(1).Position.where(
+Vehicle.Cabin.Seat.Row(2).Pos(1).Position.where(
     "Cabin.Seat.Row2.Pos1.Position > 50")
     .subscribe(on_seat_position_change)
 
-def on_seat_position_change(int position):
+def on_seat_position_change(data: DataPointReply):
+    position = data.get(Vehicle.Cabin.Seat.Row2.Pos1.Position)
     print(f'Seat position changed to {position}')
 
 # Call to broker
