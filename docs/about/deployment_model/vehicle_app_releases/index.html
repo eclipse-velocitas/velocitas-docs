@@ -39,8 +39,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.e161628c40dfd8fc66bd091ebbc808caec5324f73cfc3947c4c9305e59a2453f.css" as="style">
-<link href="/velocitas/scss/main.min.e161628c40dfd8fc66bd091ebbc808caec5324f73cfc3947c4c9305e59a2453f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.c2dba854ce5782d2bcc6ad914c23e229e92d066f615f9d65db7596a48eb1c06f.css" as="style">
+<link href="/velocitas/scss/main.min.c2dba854ce5782d2bcc6ad914c23e229e92d066f615f9d65db7596a48eb1c06f.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas/js/jquery-3.6.0.min.js
@@ -70,17 +70,20 @@
       </ul>
   </div>
   <div class="navbar-nav d-none d-lg-block">
-    <input
-  type="search"
-  class="form-control td-search-input"
-  placeholder="&#xf002; Search this site…"
-  aria-label="Search this site…"
-  autocomplete="off"
-  
-  data-offline-search-index-json-src="/velocitas/offline-search-index.4b1bd33de5d916f65b95aee3fce43658.json"
-  data-offline-search-base-href="/"
-  data-offline-search-max-results="10"
->
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/velocitas/offline-search-index.28ce2963b1afc851334353896986419f.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
 
   </div>
 </nav>
@@ -93,17 +96,20 @@
 <div id="td-sidebar-menu" class="td-sidebar__inner">
   <div id="content-mobile">
   <form class="td-sidebar__search d-flex align-items-center">
-    <input
-  type="search"
-  class="form-control td-search-input"
-  placeholder="&#xf002; Search this site…"
-  aria-label="Search this site…"
-  autocomplete="off"
-  
-  data-offline-search-index-json-src="/velocitas/offline-search-index.4b1bd33de5d916f65b95aee3fce43658.json"
-  data-offline-search-base-href="/"
-  data-offline-search-max-results="10"
->
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/velocitas/offline-search-index.28ce2963b1afc851334353896986419f.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -436,7 +442,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified October 11, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/563013a6eb98c2ff86a90440a7583266a5cd2eb4">add name and version (#47) (563013a)</a>
+  Last modified October 23, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/921b61039d803e4b66300ee3eb0ec7ec10e8500e">adapt datapoint subscribtion callback (#48) (921b610)</a>
 </div>
 
 </div>
@@ -573,7 +579,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 
 
     </div>
-    <script src="/velocitas/js/main.min.26c0edc60df31f4255eb353302ce65703ba34ca2c6a2777bc6a1256badb09879.js" integrity="sha256-JsDtxg3zH0JV6zUzAs5lcDujTKLGond7xqEla62wmHk=" crossorigin="anonymous"></script>
+    <script src="/velocitas/js/main.min.22bc0f996f541e97740bf4615d3764ed90351cb0c470d505a8dd217bf18fa080.js" integrity="sha256-IrwPmW9UHpd0C/RhXTdk7ZA1HLDEcNUFqN0he/GPoIA=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>

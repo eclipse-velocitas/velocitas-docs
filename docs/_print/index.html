@@ -35,8 +35,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.e161628c40dfd8fc66bd091ebbc808caec5324f73cfc3947c4c9305e59a2453f.css" as="style">
-<link href="/velocitas/scss/main.min.e161628c40dfd8fc66bd091ebbc808caec5324f73cfc3947c4c9305e59a2453f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.c2dba854ce5782d2bcc6ad914c23e229e92d066f615f9d65db7596a48eb1c06f.css" as="style">
+<link href="/velocitas/scss/main.min.c2dba854ce5782d2bcc6ad914c23e229e92d066f615f9d65db7596a48eb1c06f.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas/js/jquery-3.6.0.min.js
@@ -66,17 +66,20 @@
       </ul>
   </div>
   <div class="navbar-nav d-none d-lg-block">
-    <input
-  type="search"
-  class="form-control td-search-input"
-  placeholder="&#xf002; Search this site…"
-  aria-label="Search this site…"
-  autocomplete="off"
-  
-  data-offline-search-index-json-src="/velocitas/offline-search-index.4b1bd33de5d916f65b95aee3fce43658.json"
-  data-offline-search-base-href="/"
-  data-offline-search-max-results="10"
->
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/velocitas/offline-search-index.28ce2963b1afc851334353896986419f.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
 
   </div>
 </nav>
@@ -884,83 +887,24 @@ Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-1" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-1" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active persistLang-Python"
           id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"
-        aria-controls="tabs-01-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-01-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
           id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"
-        aria-controls="tabs-01-01" aria-selected="false">C++</a>
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-01-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-1-content"><div class="tab-pane fade show active"
+<div class="tab-content" id="tabs-1-content">
+    <div class="tab-pane fade show active"
         id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># import ontology classes</span>
 </span></span><span style="display:flex;"><span>
@@ -1049,13 +993,9 @@ Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-
 </span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">CurrentLocation</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;CurrentLocation&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Cabin&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000">vehicle</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Vehicle&#34;</span><span style="color:#000;font-weight:bold">)</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-pane fade"
+</span></span><span style="display:flex;"><span><span style="color:#000">vehicle</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Vehicle&#34;</span><span style="color:#000;font-weight:bold">)</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &#34;sdk/DataPoint.h&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
@@ -1120,13 +1060,8 @@ Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-
 </span></span><span style="display:flex;"><span>  <span style="color:#000">DataPointFloat</span> <span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;Speed&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">};</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">CurrentLocation</span> <span style="color:#000">CurrentLocation</span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">};</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Cabin</span> <span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">};</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">};</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">};</span></span></span></code></pre></div>
+    </div>
 </div>
 
 <h2 id="middleware-integration">Middleware integration</h2>
@@ -1147,83 +1082,24 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-3" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-3" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active persistLang-Python"
           id="tabs-03-00-tab" data-toggle="tab" href="#tabs-03-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"
-        aria-controls="tabs-03-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-03-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
           id="tabs-03-01-tab" data-toggle="tab" href="#tabs-03-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"
-        aria-controls="tabs-03-01" aria-selected="false">C++</a>
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-03-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-3-content"><div class="tab-pane fade show active"
+<div class="tab-content" id="tabs-3-content">
+    <div class="tab-pane fade show active"
         id="tabs-03-00" role="tabpanel" aria-labelled-by="tabs-03-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
@@ -1234,13 +1110,9 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_stub</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Move</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000">MoveRequest</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">seat</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">seat</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">metadata</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">metadata</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-pane fade"
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
         id="tabs-03-01" role="tabpanel" aria-labelled-by="tabs-03-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatService</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Service</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
@@ -1266,13 +1138,8 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">private</span><span style="color:#ce5c00;font-weight:bold">:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">shared_ptr</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">SeatServiceAsyncGrpcFacade</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">m_asyncGrpcFacade</span><span style="color:#000;font-weight:bold">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">};</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">};</span></span></span></code></pre></div>
+    </div>
 </div>
 
 <h3 id="service-discovery">Service discovery</h3>
@@ -1285,190 +1152,63 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-4" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-4" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active persistLang-Python"
           id="tabs-04-00-tab" data-toggle="tab" href="#tabs-04-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"
-        aria-controls="tabs-04-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-04-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
           id="tabs-04-01-tab" data-toggle="tab" href="#tabs-04-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"
-        aria-controls="tabs-04-01" aria-selected="false">C++</a>
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-04-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-4-content"><div class="tab-pane fade show active"
+<div class="tab-content" id="tabs-4-content">
+    <div class="tab-pane fade show active"
         id="tabs-04-00" role="tabpanel" aria-labelled-by="tabs-04-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">driver_pos</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DriverPosition</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Call to broker</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># GetDataPoint(rule=&#34;SELECT Vehicle.Cabin.DriverPosition&#34;)</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-pane fade"
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># GetDataPoint(rule=&#34;SELECT Vehicle.Cabin.DriverPosition&#34;)</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
         id="tabs-04-01" role="tabpanel" aria-labelled-by="tabs-04-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">driverPos</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoints</span><span style="color:#000;font-weight:bold">({</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DriverPosition</span><span style="color:#000;font-weight:bold">})</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Call to broker:
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// GetDataPoint(rule=&#34;SELECT Vehicle.Cabin.DriverPosition&#34;)
-</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span></span></code></pre></div>
+    </div>
 </div>
 
 <h4 id="get-datapoints-from-multiple-branches">Get datapoints from multiple branches</h4>
 
-
-
-
-
-
-
-
-
-
-
-
   
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-5" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-5" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active persistLang-Python"
           id="tabs-05-00-tab" data-toggle="tab" href="#tabs-05-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"
-        aria-controls="tabs-05-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-05-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
           id="tabs-05-01-tab" data-toggle="tab" href="#tabs-05-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"
-        aria-controls="tabs-05-01" aria-selected="false">C++</a>
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-05-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-5-content"><div class="tab-pane fade show active"
+<div class="tab-content" id="tabs-5-content">
+    <div class="tab-pane fade show active"
         id="tabs-05-00" role="tabpanel" aria-labelled-by="tabs-05-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">vehicle_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Latitude</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">join</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
@@ -1480,117 +1220,50 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Call to broker</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># GetDataPoint(rule=&#34;SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude&#34;)</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-pane fade"
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># GetDataPoint(rule=&#34;SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude&#34;)</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
         id="tabs-05-01" role="tabpanel" aria-labelled-by="tabs-05-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">datapoints</span> <span style="color:#ce5c00;font-weight:bold">=</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#000">getDataPoints</span><span style="color:#000;font-weight:bold">({</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Latitude</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">})</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Call to broker:
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// GetDataPoint(rule=&#34;SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude&#34;)
-</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span></span></code></pre></div>
+    </div>
 </div>
 
 <h3 id="subscription-examples">Subscription examples</h3>
 <h4 id="subscribe-and-unsubscribe-to-a-single-datapoint">Subscribe and Unsubscribe to a single datapoint</h4>
 
-
-
-
-
-
-
-
-
-
-
-
   
 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-6" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-6" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active persistLang-Python"
           id="tabs-06-00-tab" data-toggle="tab" href="#tabs-06-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"
-        aria-controls="tabs-06-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-06-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
           id="tabs-06-01-tab" data-toggle="tab" href="#tabs-06-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"
-        aria-controls="tabs-06-01" aria-selected="false">C++</a>
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-06-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-6-content"><div class="tab-pane fade show active"
+<div class="tab-content" id="tabs-6-content">
+    <div class="tab-pane fade show active"
         id="tabs-06-00" role="tabpanel" aria-labelled-by="tabs-06-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rule</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">int</span> <span style="color:#000">position</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#39;Seat position changed to </span><span style="color:#4e9a06">{</span><span style="color:#000">position</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#39;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Call to broker</span>
@@ -1599,13 +1272,9 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># If needed, the subscription can be stopped like this</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rule</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscription</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">unsubscribe</span><span style="color:#000;font-weight:bold">()</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-pane fade"
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rule</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscription</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">unsubscribe</span><span style="color:#000;font-weight:bold">()</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
         id="tabs-06-01" role="tabpanel" aria-labelled-by="tabs-06-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">subscription</span> <span style="color:#ce5c00;font-weight:bold">=</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">subscribeDataPoints</span><span style="color:#000;font-weight:bold">(</span>
@@ -1618,113 +1287,46 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DataPointMap_t</span> <span style="color:#000">datapoints</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;SeatPosition has changed to: &#34;</span><span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">datapoints</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">at</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">asFloat</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">());</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
+    </div>
 </div>
 
 <h4 id="subscribe-to-a-single-datapoint-with-a-filter">Subscribe to a single datapoint with a filter</h4>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-7" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-7" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active persistLang-Python"
           id="tabs-07-00-tab" data-toggle="tab" href="#tabs-07-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"
-        aria-controls="tabs-07-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-07-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
           id="tabs-07-01-tab" data-toggle="tab" href="#tabs-07-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"
-        aria-controls="tabs-07-01" aria-selected="false">C++</a>
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-07-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-7-content"><div class="tab-pane fade show active"
+<div class="tab-content" id="tabs-7-content">
+    <div class="tab-pane fade show active"
         id="tabs-07-00" role="tabpanel" aria-labelled-by="tabs-07-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">where</span><span style="color:#000;font-weight:bold">(</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">where</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;Cabin.Seat.Row2.Pos1.Position &gt; 50&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">int</span> <span style="color:#000">position</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#39;Seat position changed to </span><span style="color:#4e9a06">{</span><span style="color:#000">position</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#39;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Call to broker</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Subscribe(rule=&#34;SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position WHERE Vehicle.Cabin.Seat.Row2.Pos1.Position &gt; 50&#34;)</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-pane fade"
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Subscribe(rule=&#34;SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position WHERE Vehicle.Cabin.Seat.Row2.Pos1.Position &gt; 50&#34;)</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
         id="tabs-07-01" role="tabpanel" aria-labelled-by="tabs-07-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">query</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">QueryBuilder</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">select</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">.</span><span style="color:#000">where</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
@@ -1738,13 +1340,8 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Call to broker:
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Subscribe(rule=&#34;SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position WHERE Vehicle.Cabin.Seat.Row2.Pos1.Position &gt; 50&#34;)
-</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span></span></code></pre></div>
+    </div>
 </div>
 
 <h2 id="publish--subscribe-messaging">Publish &amp; subscribe messaging</h2>
@@ -1754,100 +1351,32 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-8" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-8" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active persistLang-Python"
           id="tabs-08-00-tab" data-toggle="tab" href="#tabs-08-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"
-        aria-controls="tabs-08-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-08-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
           id="tabs-08-01-tab" data-toggle="tab" href="#tabs-08-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"
-        aria-controls="tabs-08-01" aria-selected="false">C++</a>
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-08-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-8-content"><div class="tab-pane fade show active"
+<div class="tab-content" id="tabs-8-content">
+    <div class="tab-pane fade show active"
         id="tabs-08-00" role="tabpanel" aria-labelled-by="tabs-08-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">req_data</span><span style="color:#000;font-weight:bold">))</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-pane fade"
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">req_data</span><span style="color:#000;font-weight:bold">))</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
         id="tabs-08-01" role="tabpanel" aria-labelled-by="tabs-08-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#000">publishToTopic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;{ </span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">position</span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">: 40 }&#34;</span><span style="color:#000;font-weight:bold">);</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#000">publishToTopic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;{ </span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">position</span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">: 40 }&#34;</span><span style="color:#000;font-weight:bold">);</span></span></span></code></pre></div>
+    </div>
 </div>
 
 <h3 id="subscribe-to-mqtt-topics">Subscribe to MQTT Topics</h3>
@@ -1855,94 +1384,31 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-9" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-9" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active persistLang-Python"
           id="tabs-09-00-tab" data-toggle="tab" href="#tabs-09-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"
-        aria-controls="tabs-09-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-09-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
           id="tabs-09-01-tab" data-toggle="tab" href="#tabs-09-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"
-        aria-controls="tabs-09-01" aria-selected="false">C++</a>
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-09-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-9-content"><div class="tab-pane fade show active"
+<div class="tab-content" id="tabs-9-content">
+    <div class="tab-pane fade show active"
         id="tabs-09-00" role="tabpanel" aria-labelled-by="tabs-09-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@subscribe_topic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_set_position_request_received</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">None</span><span style="color:#000;font-weight:bold">:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">loads</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Set Position Request received: data=</span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-pane fade"
+</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Set Position Request received: data=</span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
         id="tabs-09-01" role="tabpanel" aria-labelled-by="tabs-09-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &lt;fmt/core.h&gt;
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
@@ -1951,13 +1417,8 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span><span style="color:#000">subscribeToTopic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">){</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">jsonData</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">nlohmann</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">parse</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">fmt</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">format</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Set Position Request received: data={}&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">jsonData</span><span style="color:#000;font-weight:bold">));</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">});</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">});</span></span></span></code></pre></div>
+    </div>
 </div>
 
 <p>Under the hood, the vehicle app creates a grpc endpoint on port <code>50008</code>, which is exposed to the dapr middleware. The dapr middleware will then subscribe to the MQTT broker and forward the messages to the vehicle app.</p>
@@ -1965,103 +1426,35 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-10" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-10" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active persistLang-Python"
           id="tabs-10-00-tab" data-toggle="tab" href="#tabs-10-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"
-        aria-controls="tabs-10-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-10-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
           id="tabs-10-01-tab" data-toggle="tab" href="#tabs-10-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"
-        aria-controls="tabs-10-01" aria-selected="false">C++</a>
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-10-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-10-content"><div class="tab-pane fade show active"
+<div class="tab-content" id="tabs-10-content">
+    <div class="tab-pane fade show active"
         id="tabs-10-00" role="tabpanel" aria-labelled-by="tabs-10-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">conf</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">():</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">conf</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DAPR_APP_PORT</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">your</span> <span style="color:#000">port</span><span style="color:#ce5c00;font-weight:bold">&gt;</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-pane fade"
+</span></span><span style="display:flex;"><span>    <span style="color:#000">conf</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DAPR_APP_PORT</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">your</span> <span style="color:#000">port</span><span style="color:#ce5c00;font-weight:bold">&gt;</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
         id="tabs-10-01" role="tabpanel" aria-labelled-by="tabs-10-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// c++ does not use dapr for Pub/Sub messaging at this point
-</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span></span></code></pre></div>
+    </div>
 </div>
 
 <h2 id="vehicle-app-abstraction">Vehicle App abstraction</h2>
@@ -2081,83 +1474,24 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-12" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-12" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active persistLang-Python"
           id="tabs-12-00-tab" data-toggle="tab" href="#tabs-12-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"
-        aria-controls="tabs-12-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-12-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
           id="tabs-12-01-tab" data-toggle="tab" href="#tabs-12-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"
-        aria-controls="tabs-12-01" aria-selected="false">C++</a>
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-12-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-12-content"><div class="tab-pane fade show active"
+<div class="tab-content" id="tabs-12-content">
+    <div class="tab-pane fade show active"
         id="tabs-12-00" role="tabpanel" aria-labelled-by="tabs-12-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatAdjusterApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">):</span>
@@ -2173,13 +1507,9 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">asyncio</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_event_loop</span><span style="color:#000;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add_signal_handler</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">signal</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">SIGTERM</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">stop</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">run_until_complete</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">main</span><span style="color:#000;font-weight:bold">())</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">close</span><span style="color:#000;font-weight:bold">()</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-pane fade"
+</span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">close</span><span style="color:#000;font-weight:bold">()</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
         id="tabs-12-01" role="tabpanel" aria-labelled-by="tabs-12-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &#34;VehicleApp.h&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
@@ -2201,13 +1531,8 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span>    <span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatAdjusterApp</span> <span style="color:#000">app</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">();</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
+    </div>
 </div>
 
 <h2 id="further-information">Further information</h2>
@@ -2634,103 +1959,33 @@ Once the application is ready to be released in a new version, a dedicated relea
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-1" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-1" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active"
           id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
-          
-        aria-controls="tabs-01-00" aria-selected="false">Python</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          aria-controls="tabs-01-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link"
           id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
-          
-        aria-controls="tabs-01-01" aria-selected="false">C++</a>
+          aria-controls="tabs-01-01" aria-selected="false">
+        C++
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-1-content"><div class="tab-body tab-pane fade show active"
+<div class="tab-content" id="tabs-1-content">
+    <div class="tab-body tab-pane fade show active"
         id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
         <p>Create your own repository copy from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
-</div>
 
-    
-      
-    
-
-  <div class="tab-body tab-pane fade"
+    </div>
+    <div class="tab-body tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
         <p>C++ currently has only an <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">SDK repository</a>. To create your own <em>Vehicle App</em> repository, fork the repository into your own organization. For the fork, only the <code>main</code> branch needs to be copied over.</p>
-</div>
 
-    
-      
-    
-
-  
+    </div>
 </div>
 
 <h2 id="starting-development-environment">Starting Development Environment</h2>
@@ -2834,85 +2089,24 @@ You can either try it out directly in the browser or also use it inside Visual S
 <p>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-5" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-5" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active"
           id="tabs-05-00-tab" data-toggle="tab" href="#tabs-05-00" role="tab"
-          
-        aria-controls="tabs-05-00" aria-selected="false">Template</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          aria-controls="tabs-05-00" aria-selected="false">
+        Template
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link"
           id="tabs-05-01-tab" data-toggle="tab" href="#tabs-05-01" role="tab"
-          
-        aria-controls="tabs-05-01" aria-selected="false">Seat Adjuster</a>
+          aria-controls="tabs-05-01" aria-selected="false">
+        Seat Adjuster
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-5-content"><div class="tab-body tab-pane fade show active"
+<div class="tab-content" id="tabs-5-content">
+    <div class="tab-body tab-pane fade show active"
         id="tabs-05-00" role="tabpanel" aria-labelled-by="tabs-05-00-tab">
         <ol>
 <li>Open the main source file and set a breakpoint in the given method:
@@ -2930,13 +2124,9 @@ You can either try it out directly in the browser or also use it inside Visual S
 <li>Set <code>Publish Topic</code> = <code>sampleapp/getSpeed</code></li>
 <li>Press publish with an empty payload field.</li>
 </ol>
-</div>
 
-    
-      
-    
-
-  <div class="tab-body tab-pane fade"
+    </div>
+    <div class="tab-body tab-pane fade"
         id="tabs-05-01" role="tabpanel" aria-labelled-by="tabs-05-01-tab">
         <p>For Python: Follow the guide provided in: <a href="/velocitas/docs/tutorials/quickstart/import_examples/">Import examples</a> and import <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener"><code>seat-adjuster</code></a>. </br>
 For C++: Continue with the next steps.</p>
@@ -2968,13 +2158,8 @@ For C++: Continue with the next steps.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span> <span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;xyz&#34;</span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
 </ol>
-</div>
 
-    
-      
-    
-
-  
+    </div>
 </div>
 
 Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.</p>
@@ -3116,153 +2301,54 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-0" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-0" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active"
           id="tabs-00-00-tab" data-toggle="tab" href="#tabs-00-00" role="tab"
-          
-        aria-controls="tabs-00-00" aria-selected="false">Windows</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          aria-controls="tabs-00-00" aria-selected="false">
+        Windows
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link"
           id="tabs-00-01-tab" data-toggle="tab" href="#tabs-00-01" role="tab"
-          
-        aria-controls="tabs-00-01" aria-selected="false">MacOS</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          aria-controls="tabs-00-01" aria-selected="false">
+        MacOS
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link"
           id="tabs-00-02-tab" data-toggle="tab" href="#tabs-00-02" role="tab"
-          
-        aria-controls="tabs-00-02" aria-selected="false">Linux</a>
+          aria-controls="tabs-00-02" aria-selected="false">
+        Linux
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-0-content"><div class="tab-body tab-pane fade show active"
+<div class="tab-content" id="tabs-0-content">
+    <div class="tab-body tab-pane fade show active"
         id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">set</span>
 </span></span><span style="display:flex;"><span>setx DEVCONTAINER_PROXY <span style="color:#4e9a06">&#34;.Proxy&#34;</span>
 </span></span><span style="display:flex;"><span>setx HTTP_PROXY <span style="color:#4e9a06">&#34;http://localhost:3128&#34;</span>
 </span></span><span style="display:flex;"><span>setx HTTPS_PROXY <span style="color:#4e9a06">&#34;http://localhost:3128&#34;</span>
-</span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-body tab-pane fade"
+</span></span></code></pre></div>
+    </div>
+    <div class="tab-body tab-pane fade"
         id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export DEVCONTAINER_PROXY=.Proxy&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTP_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTPS_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> ~/.bash_profile
-</span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-body tab-pane fade"
+</span></span></code></pre></div>
+    </div>
+    <div class="tab-body tab-pane fade"
         id="tabs-00-02" role="tabpanel" aria-labelled-by="tabs-00-02-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export DEVCONTAINER_PROXY=.Proxy&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTP_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTPS_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export DEVCONTAINER_PROXY_HOST=172.17.0.1&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> ~/.bash_profile
-</span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span></code></pre></div>
+    </div>
 </div>
 
 <h1 id="visual-studio-code">Visual Studio Code</h1>
@@ -3278,87 +2364,26 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 <p><strong>Case 2</strong>:</p>
 <p>Proxy settings in <code>.devcontainer/Dockerfile.Proxy</code> will be overridden by <code>~/.docker/config.json</code>, which can cause problems. In case the DevContainer is still not working, check if the <code>~/.docker/config.json</code> contains the following content:</p>
 
-
-
-
-
-
-
-
-
-
-
-
    
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
    
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-   <ul class="nav nav-tabs" id="tabs-1" role="tablist"><li class="nav-item">
+   <ul class="nav nav-tabs" id="tabs-1" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active"
           id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
-          
-        aria-controls="tabs-01-00" aria-selected="false">Windows &amp; MacOS</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          aria-controls="tabs-01-00" aria-selected="false">
+        Windows &amp; MacOS
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link"
           id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
-          
-        aria-controls="tabs-01-01" aria-selected="false">Linux</a>
+          aria-controls="tabs-01-01" aria-selected="false">
+        Linux
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-1-content"><div class="tab-body tab-pane fade show active"
+<div class="tab-content" id="tabs-1-content">
+    <div class="tab-body tab-pane fade show active"
         id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">&#34;proxies&#34;</span><span style="color:#000;font-weight:bold">:{</span>
@@ -3369,13 +2394,9 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 </span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-body tab-pane fade"
+</span></span></code></pre></div>
+    </div>
+    <div class="tab-body tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">&#34;proxies&#34;</span><span style="color:#000;font-weight:bold">:{</span>
@@ -3386,13 +2407,8 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 </span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span></code></pre></div>
+    </div>
 </div>
 
 <p>For more details see: <a href="https://docs.docker.com/network/proxy/" target="_blank" rel="noopener">Docker Documentation</a></p>
@@ -4014,12 +3030,12 @@ The Vehicle App allows to change the positions of the seats in the car and also 
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">on_seat_position_changed</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><p>Every Datapoint provides a <em>.subscribe()</em> method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective <em>data.fields</em> value and are accessed by their complete path.
+</span></span></code></pre></div><p>Every Datapoint provides a <em>.subscribe()</em> method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective <em>DataPointReply</em> object and are accessed by the reference of the subscribed datapoint.
 Therefore the <code>on_seat_position_changed</code> callback function needs to be implemented:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">):</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># handle the event here</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">seat_path</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_path</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># ...</span>
 </span></span></code></pre></div>
 
@@ -4028,12 +3044,12 @@ Therefore the <code>on_seat_position_changed</code> callback function needs to b
 
     <p>The SDK also supports annotations for subscribing to datapoint changes  with<code>@subscribe_data_points</code> defined by the whole path to the <code>Datapoint</code> of interest.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@subscribe_data_points</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_vehicle_seat_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_vehicle_seat_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fields</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">uint32_value</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">))</span>
-</span></span></code></pre></div><p>Similarly, subscribed data is available in the respective <em>data.fields</em> value and are accessed by their complete path.</p>
+</span></span></code></pre></div><p>Similarly, subscribed data is available in the respective <em>DataPointReply</em> object and are accessed by the reference of the subscribed datapoint.</p>
 
 
 </div>
@@ -4063,12 +3079,12 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># ...</span>
 </span></span></code></pre></div><p>The <code>on_set_position_request_received</code> method will now be invoked every time a message is published to the subscribed topic <code>&quot;seatadjuster/setPosition/response&quot;</code>. The message data (string) is provided as parameter. In the example above the data is parsed to json (<code>data = json.loads(data_str)</code>).</p>
 <p>In order to publish data to topics, the SDK provides the appropriate convenience method: <code>self.publish_mqtt_event()</code> which will be added to the <code>on_seat_position_changed</code> callback function from before.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">):</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">seat_path</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_path</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">({</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fields</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">seat_path</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">uint32_value</span><span style="color:#000;font-weight:bold">}),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">({</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">position</span><span style="color:#000;font-weight:bold">}),</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
 </span></span></code></pre></div><p>The above example illustrates how one can easily publish messages. In this case, every time the seat position changes, the new position is published to <code>seatadjuster/currentPosition</code></p>
 <p>Your <code>main.py</code> should now have a full implementation for <code>class MyVehicleApp(VehicleApp):</code> containing:</p>
@@ -5276,7 +4292,7 @@ Contributor Agreement (ECA) on file.</p>
 
 
     </div>
-    <script src="/velocitas/js/main.min.26c0edc60df31f4255eb353302ce65703ba34ca2c6a2777bc6a1256badb09879.js" integrity="sha256-JsDtxg3zH0JV6zUzAs5lcDujTKLGond7xqEla62wmHk=" crossorigin="anonymous"></script>
+    <script src="/velocitas/js/main.min.22bc0f996f541e97740bf4615d3764ed90351cb0c470d505a8dd217bf18fa080.js" integrity="sha256-IrwPmW9UHpd0C/RhXTdk7ZA1HLDEcNUFqN0he/GPoIA=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>

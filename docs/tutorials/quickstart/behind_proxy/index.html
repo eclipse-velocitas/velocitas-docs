@@ -27,12 +27,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/quickstart/behind_proxy/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-08-19T17:46:21+05:30" />
-<meta property="article:modified_time" content="2022-10-11T14:01:05+02:00" />
+<meta property="article:modified_time" content="2022-10-23T10:24:32+02:00" />
 
 <meta itemprop="name" content="Working behind proxy">
 <meta itemprop="description" content="Learn how to setup your docker desktop and Visual Studio Code behind a coorperate proxy.
 "><meta itemprop="datePublished" content="2022-08-19T17:46:21+05:30" />
-<meta itemprop="dateModified" content="2022-10-11T14:01:05+02:00" />
+<meta itemprop="dateModified" content="2022-10-23T10:24:32+02:00" />
 <meta itemprop="wordCount" content="499">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Working behind proxy"/>
@@ -42,8 +42,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.e161628c40dfd8fc66bd091ebbc808caec5324f73cfc3947c4c9305e59a2453f.css" as="style">
-<link href="/velocitas/scss/main.min.e161628c40dfd8fc66bd091ebbc808caec5324f73cfc3947c4c9305e59a2453f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.c2dba854ce5782d2bcc6ad914c23e229e92d066f615f9d65db7596a48eb1c06f.css" as="style">
+<link href="/velocitas/scss/main.min.c2dba854ce5782d2bcc6ad914c23e229e92d066f615f9d65db7596a48eb1c06f.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas/js/jquery-3.6.0.min.js
@@ -73,17 +73,20 @@
       </ul>
   </div>
   <div class="navbar-nav d-none d-lg-block">
-    <input
-  type="search"
-  class="form-control td-search-input"
-  placeholder="&#xf002; Search this site…"
-  aria-label="Search this site…"
-  autocomplete="off"
-  
-  data-offline-search-index-json-src="/velocitas/offline-search-index.4b1bd33de5d916f65b95aee3fce43658.json"
-  data-offline-search-base-href="/"
-  data-offline-search-max-results="10"
->
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/velocitas/offline-search-index.28ce2963b1afc851334353896986419f.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
 
   </div>
 </nav>
@@ -96,17 +99,20 @@
 <div id="td-sidebar-menu" class="td-sidebar__inner">
   <div id="content-mobile">
   <form class="td-sidebar__search d-flex align-items-center">
-    <input
-  type="search"
-  class="form-control td-search-input"
-  placeholder="&#xf002; Search this site…"
-  aria-label="Search this site…"
-  autocomplete="off"
-  
-  data-offline-search-index-json-src="/velocitas/offline-search-index.4b1bd33de5d916f65b95aee3fce43658.json"
-  data-offline-search-base-href="/"
-  data-offline-search-max-results="10"
->
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/velocitas/offline-search-index.28ce2963b1afc851334353896986419f.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -392,153 +398,54 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-<ul class="nav nav-tabs" id="tabs-0" role="tablist"><li class="nav-item">
+<ul class="nav nav-tabs" id="tabs-0" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active"
           id="tabs-00-00-tab" data-toggle="tab" href="#tabs-00-00" role="tab"
-          
-        aria-controls="tabs-00-00" aria-selected="false">Windows</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          aria-controls="tabs-00-00" aria-selected="false">
+        Windows
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link"
           id="tabs-00-01-tab" data-toggle="tab" href="#tabs-00-01" role="tab"
-          
-        aria-controls="tabs-00-01" aria-selected="false">MacOS</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          aria-controls="tabs-00-01" aria-selected="false">
+        MacOS
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link"
           id="tabs-00-02-tab" data-toggle="tab" href="#tabs-00-02" role="tab"
-          
-        aria-controls="tabs-00-02" aria-selected="false">Linux</a>
+          aria-controls="tabs-00-02" aria-selected="false">
+        Linux
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-0-content"><div class="tab-body tab-pane fade show active"
+<div class="tab-content" id="tabs-0-content">
+    <div class="tab-body tab-pane fade show active"
         id="tabs-00-00" role="tabpanel" aria-labelled-by="tabs-00-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">set</span>
 </span></span><span style="display:flex;"><span>setx DEVCONTAINER_PROXY <span style="color:#4e9a06">&#34;.Proxy&#34;</span>
 </span></span><span style="display:flex;"><span>setx HTTP_PROXY <span style="color:#4e9a06">&#34;http://localhost:3128&#34;</span>
 </span></span><span style="display:flex;"><span>setx HTTPS_PROXY <span style="color:#4e9a06">&#34;http://localhost:3128&#34;</span>
-</span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-body tab-pane fade"
+</span></span></code></pre></div>
+    </div>
+    <div class="tab-body tab-pane fade"
         id="tabs-00-01" role="tabpanel" aria-labelled-by="tabs-00-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export DEVCONTAINER_PROXY=.Proxy&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTP_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTPS_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> ~/.bash_profile
-</span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-body tab-pane fade"
+</span></span></code></pre></div>
+    </div>
+    <div class="tab-body tab-pane fade"
         id="tabs-00-02" role="tabpanel" aria-labelled-by="tabs-00-02-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export DEVCONTAINER_PROXY=.Proxy&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTP_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export HTTPS_PROXY=http://localhost:3128&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">echo</span> <span style="color:#4e9a06">&#34;export DEVCONTAINER_PROXY_HOST=172.17.0.1&#34;</span> &gt;&gt; ~/.bash_profile
 </span></span><span style="display:flex;"><span><span style="color:#204a87">source</span> ~/.bash_profile
-</span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span></code></pre></div>
+    </div>
 </div>
 
 <h1 id="visual-studio-code">Visual Studio Code</h1>
@@ -554,87 +461,26 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 <p><strong>Case 2</strong>:</p>
 <p>Proxy settings in <code>.devcontainer/Dockerfile.Proxy</code> will be overridden by <code>~/.docker/config.json</code>, which can cause problems. In case the DevContainer is still not working, check if the <code>~/.docker/config.json</code> contains the following content:</p>
 
-
-
-
-
-
-
-
-
-
-
-
    
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
    
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-   <ul class="nav nav-tabs" id="tabs-1" role="tablist"><li class="nav-item">
+   <ul class="nav nav-tabs" id="tabs-1" role="tablist">
+  <li class="nav-item">
       <a class="nav-link active"
           id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
-          
-        aria-controls="tabs-01-00" aria-selected="false">Windows &amp; MacOS</a>
-    </li>
-
-    
-      
-    <li class="nav-item">
+          aria-controls="tabs-01-00" aria-selected="false">
+        Windows &amp; MacOS
+      </a>
+    </li><li class="nav-item">
       <a class="nav-link"
           id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
-          
-        aria-controls="tabs-01-01" aria-selected="false">Linux</a>
+          aria-controls="tabs-01-01" aria-selected="false">
+        Linux
+      </a>
     </li>
+</ul>
 
-    
-      
-    </ul>
-
-
-
-
-<div class="tab-content" id="tabs-1-content"><div class="tab-body tab-pane fade show active"
+<div class="tab-content" id="tabs-1-content">
+    <div class="tab-body tab-pane fade show active"
         id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">&#34;proxies&#34;</span><span style="color:#000;font-weight:bold">:{</span>
@@ -645,13 +491,9 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 </span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div></div>
-
-    
-      
-    
-
-  <div class="tab-body tab-pane fade"
+</span></span></code></pre></div>
+    </div>
+    <div class="tab-body tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">&#34;proxies&#34;</span><span style="color:#000;font-weight:bold">:{</span>
@@ -662,13 +504,8 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 </span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div></div>
-
-    
-      
-    
-
-  
+</span></span></code></pre></div>
+    </div>
 </div>
 
 <p>For more details see: <a href="https://docs.docker.com/network/proxy/" target="_blank" rel="noopener">Docker Documentation</a></p>
@@ -676,7 +513,7 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified October 11, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/563013a6eb98c2ff86a90440a7583266a5cd2eb4">add name and version (#47) (563013a)</a>
+  Last modified October 23, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/921b61039d803e4b66300ee3eb0ec7ec10e8500e">adapt datapoint subscribtion callback (#48) (921b610)</a>
 </div>
 
 </div>
@@ -814,7 +651,7 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 
 
     </div>
-    <script src="/velocitas/js/main.min.26c0edc60df31f4255eb353302ce65703ba34ca2c6a2777bc6a1256badb09879.js" integrity="sha256-JsDtxg3zH0JV6zUzAs5lcDujTKLGond7xqEla62wmHk=" crossorigin="anonymous"></script>
+    <script src="/velocitas/js/main.min.22bc0f996f541e97740bf4615d3764ed90351cb0c470d505a8dd217bf18fa080.js" integrity="sha256-IrwPmW9UHpd0C/RhXTdk7ZA1HLDEcNUFqN0he/GPoIA=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>

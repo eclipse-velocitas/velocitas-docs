@@ -27,13 +27,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2022-10-11T14:01:05+02:00" />
+<meta property="article:modified_time" content="2022-10-23T10:24:32+02:00" />
 
 <meta itemprop="name" content="Python Vehicle App Development">
 <meta itemprop="description" content="Learn how to develop and test the Vehicle App using Python.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2022-10-11T14:01:05+02:00" />
-<meta itemprop="wordCount" content="2046">
+<meta itemprop="dateModified" content="2022-10-23T10:24:32+02:00" />
+<meta itemprop="wordCount" content="2055">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python Vehicle App Development"/>
 <meta name="twitter:description" content="Learn how to develop and test the Vehicle App using Python.
@@ -42,8 +42,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.e161628c40dfd8fc66bd091ebbc808caec5324f73cfc3947c4c9305e59a2453f.css" as="style">
-<link href="/velocitas/scss/main.min.e161628c40dfd8fc66bd091ebbc808caec5324f73cfc3947c4c9305e59a2453f.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.c2dba854ce5782d2bcc6ad914c23e229e92d066f615f9d65db7596a48eb1c06f.css" as="style">
+<link href="/velocitas/scss/main.min.c2dba854ce5782d2bcc6ad914c23e229e92d066f615f9d65db7596a48eb1c06f.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas/js/jquery-3.6.0.min.js
@@ -73,17 +73,20 @@
       </ul>
   </div>
   <div class="navbar-nav d-none d-lg-block">
-    <input
-  type="search"
-  class="form-control td-search-input"
-  placeholder="&#xf002; Search this site…"
-  aria-label="Search this site…"
-  autocomplete="off"
-  
-  data-offline-search-index-json-src="/velocitas/offline-search-index.4b1bd33de5d916f65b95aee3fce43658.json"
-  data-offline-search-base-href="/"
-  data-offline-search-max-results="10"
->
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/velocitas/offline-search-index.28ce2963b1afc851334353896986419f.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
 
   </div>
 </nav>
@@ -96,17 +99,20 @@
 <div id="td-sidebar-menu" class="td-sidebar__inner">
   <div id="content-mobile">
   <form class="td-sidebar__search d-flex align-items-center">
-    <input
-  type="search"
-  class="form-control td-search-input"
-  placeholder="&#xf002; Search this site…"
-  aria-label="Search this site…"
-  autocomplete="off"
-  
-  data-offline-search-index-json-src="/velocitas/offline-search-index.4b1bd33de5d916f65b95aee3fce43658.json"
-  data-offline-search-base-href="/"
-  data-offline-search-max-results="10"
->
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/velocitas/offline-search-index.28ce2963b1afc851334353896986419f.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -467,12 +473,12 @@ The Vehicle App allows to change the positions of the seats in the car and also 
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">on_seat_position_changed</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><p>Every Datapoint provides a <em>.subscribe()</em> method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective <em>data.fields</em> value and are accessed by their complete path.
+</span></span></code></pre></div><p>Every Datapoint provides a <em>.subscribe()</em> method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective <em>DataPointReply</em> object and are accessed by the reference of the subscribed datapoint.
 Therefore the <code>on_seat_position_changed</code> callback function needs to be implemented:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">):</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># handle the event here</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">seat_path</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_path</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># ...</span>
 </span></span></code></pre></div>
 
@@ -481,12 +487,12 @@ Therefore the <code>on_seat_position_changed</code> callback function needs to b
 
     <p>The SDK also supports annotations for subscribing to datapoint changes  with<code>@subscribe_data_points</code> defined by the whole path to the <code>Datapoint</code> of interest.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@subscribe_data_points</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_vehicle_seat_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_vehicle_seat_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fields</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">uint32_value</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">))</span>
-</span></span></code></pre></div><p>Similarly, subscribed data is available in the respective <em>data.fields</em> value and are accessed by their complete path.</p>
+</span></span></code></pre></div><p>Similarly, subscribed data is available in the respective <em>DataPointReply</em> object and are accessed by the reference of the subscribed datapoint.</p>
 
 
 </div>
@@ -516,12 +522,12 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># ...</span>
 </span></span></code></pre></div><p>The <code>on_set_position_request_received</code> method will now be invoked every time a message is published to the subscribed topic <code>&quot;seatadjuster/setPosition/response&quot;</code>. The message data (string) is provided as parameter. In the example above the data is parsed to json (<code>data = json.loads(data_str)</code>).</p>
 <p>In order to publish data to topics, the SDK provides the appropriate convenience method: <code>self.publish_mqtt_event()</code> which will be added to the <code>on_seat_position_changed</code> callback function from before.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">):</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">seat_path</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_path</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">({</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fields</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">seat_path</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">uint32_value</span><span style="color:#000;font-weight:bold">}),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">({</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">position</span><span style="color:#000;font-weight:bold">}),</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
 </span></span></code></pre></div><p>The above example illustrates how one can easily publish messages. In this case, every time the seat position changes, the new position is published to <code>seatadjuster/currentPosition</code></p>
 <p>Your <code>main.py</code> should now have a full implementation for <code>class MyVehicleApp(VehicleApp):</code> containing:</p>
@@ -694,7 +700,7 @@ After creating the mock, you can test the method and check the response. Use ass
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified October 11, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/563013a6eb98c2ff86a90440a7583266a5cd2eb4">add name and version (#47) (563013a)</a>
+  Last modified October 23, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/921b61039d803e4b66300ee3eb0ec7ec10e8500e">adapt datapoint subscribtion callback (#48) (921b610)</a>
 </div>
 
 </div>
@@ -832,7 +838,7 @@ After creating the mock, you can test the method and check the response. Use ass
 
 
     </div>
-    <script src="/velocitas/js/main.min.26c0edc60df31f4255eb353302ce65703ba34ca2c6a2777bc6a1256badb09879.js" integrity="sha256-JsDtxg3zH0JV6zUzAs5lcDujTKLGond7xqEla62wmHk=" crossorigin="anonymous"></script>
+    <script src="/velocitas/js/main.min.22bc0f996f541e97740bf4615d3764ed90351cb0c470d505a8dd217bf18fa080.js" integrity="sha256-IrwPmW9UHpd0C/RhXTdk7ZA1HLDEcNUFqN0he/GPoIA=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>
