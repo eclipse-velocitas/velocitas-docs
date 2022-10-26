@@ -55,11 +55,11 @@ A non proxy configuration is used by default. If you are working behind a corpor
 
 With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
 
-1. Start Visual Studio Code
-2. Press <kbd>F1</kbd> and run the command `Remote-Containers: Clone Repository in Container Volume...`
-3. Select `Clone a repository from GitHub in a Container Volume` and choose the repository / branch to clone
-4. Enter the GitHub organization and repository name (e.g. `MyOrg/MyFirstVehicleApp`) and select the repository from the list
-5. Select the branch to clone from the list
+1. Clone repository localy in <working_directory>/<repo_name>
+2. Start Visual Studio Code
+3. Press <kbd>F1</kbd> and run the command `Dev Containers: Open Folder in Container...` and 
+4. In prompt, select proper folder where you clone a repo, e.g. <working_directory>/<repo_name>
+5. Press open folder
 
 The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.
   
