@@ -97,10 +97,6 @@ See (one of) those articles to get how to achieve that:
 https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers
 https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/
 
-We found a solution (but did not yet publish it) to automate the certificate installation into our devcontainers 
-if those are executed in a (Ubuntu) Linux environement. But we are lacking solutions for MacOS and Windows. So, your
-support would be appreciated here!
-
 # Troubleshooting
 
 **Case 1**:
