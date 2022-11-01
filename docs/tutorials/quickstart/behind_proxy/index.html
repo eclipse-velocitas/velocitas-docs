@@ -27,13 +27,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/quickstart/behind_proxy/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-08-19T17:46:21+05:30" />
-<meta property="article:modified_time" content="2022-10-23T10:24:32+02:00" />
+<meta property="article:modified_time" content="2022-11-01T13:02:27+01:00" />
 
 <meta itemprop="name" content="Working behind proxy">
 <meta itemprop="description" content="Learn how to setup your docker desktop and Visual Studio Code behind a coorperate proxy.
 "><meta itemprop="datePublished" content="2022-08-19T17:46:21+05:30" />
-<meta itemprop="dateModified" content="2022-10-23T10:24:32+02:00" />
-<meta itemprop="wordCount" content="499">
+<meta itemprop="dateModified" content="2022-11-01T13:02:27+01:00" />
+<meta itemprop="wordCount" content="760">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Working behind proxy"/>
 <meta name="twitter:description" content="Learn how to setup your docker desktop and Visual Studio Code behind a coorperate proxy.
@@ -82,7 +82,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.28ce2963b1afc851334353896986419f.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.dc98c5364d9d5b91485dc432ca4e60b6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -108,7 +108,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.28ce2963b1afc851334353896986419f.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.dc98c5364d9d5b91485dc432ca4e60b6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -361,7 +361,8 @@
 
 		
 	</header>    
-	<p>We know how time consuming it could be to setup your environment behind a cooperate proxy. This guide will help you to set it up correctly.</p>
+	<p>We know what a pain and how time consuming it can be to setup your environment behind a cooperate proxy. This guide will help you to set it up correctly.</p>
+<p>Be aware that correct proxy configuration depends on the setup of your organisation and of course of your personal development environment (hardware, OS, virtualization setup, &hellip;). So, we most probably do not cover all issues out there in the developers world. So, we encourage you to share hints and improvements with us.</p>
 <h1 id="https-proxy-server">HTTP(s) proxy server</h1>
 <p>Install and configure the proxy server as recommented or required by your company. For example you could use <a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>, which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: <a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>)</p>
 <ul>
@@ -390,7 +391,7 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 <ul>
 <li><code>HTTP_PROXY</code> - proxy server, e.g. <code>http://localhost:3128</code></li>
 <li><code>HTTPS_PROXY</code> - secure proxy server, e.g. <code>http://localhost:3128</code></li>
-<li><code>DEVCONTAINER_PROXY</code> - Enables proxy configuration for the devContainer. Please use <code>.Proxy</code> as value and don&rsquo;t forget (dot).</li>
+<li><code>DEVCONTAINER_PROXY</code> - Enables proxy configuration for the devContainer. Please use <code>.Proxy</code> as value (and don&rsquo;t forget the dot).</li>
 </ul>
 <p><strong>Unix users</strong>: If you are running on Unix you have to define in addition the environment variable <code>DEVCONTAINER_PROXY_HOST</code> to define the internal docker host <code>172.17.0.1</code>.</p>
 <p>In addition you have the opportunity to use the environment variable <code>DEVCONTAINER_PROXY_PORT</code> to define the port in case your proxy is running on a different port than <code>3128</code>.</p>
@@ -451,6 +452,21 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 <h1 id="visual-studio-code">Visual Studio Code</h1>
 <p>A template configuration using proxy settings is provided by our template repository with <code>.devcontainer/Dockerfile.Proxy</code>. By setting the environment variable <code>DEVCONTAINER_PROXY</code> to <code>.Proxy</code> the file
 <code>.devcontainer/Dockerfile.Proxy</code> will be used instead of <code>.devcontainer/Dockerfile</code>.</p>
+<h1 id="solving-issues-with-tls-ssl-certificate-validation-using-https-connections-from-containers">Solving issues with TLS (SSL) certificate validation using https connections from containers</h1>
+<p>If you are behind a so-called intercept proxy (which you most probably are), you can run into certificate issues:
+Your corporate proxy works as a &ldquo;man-in-the-middle&rdquo; to be able to check the transfered data for malicious content.
+Means, there is a protected connection between the application in your local runtime environment and the proxy and
+another from the proxy to the external server your application wants to interact with.</p>
+<p>For the authentication corporate proxies often use self-signed certificates (certificates which are not signed by
+a (well-known official) certificate authority. Those kind of certificates need to be added to the database of
+trusted certificates of your local runtime environment. This task is typically handled by the IT department of
+your corporation (if the OS and software installed on it is managed by them) and you will not run into problems,
+normally.</p>
+<p>If it comes to executing containers, those are typically not managed by your IT department and the proxy certificate(s)
+is/are missing. So, you need to find a way to install those into the (dev) container you want to execute.</p>
+<p>See (one of) those articles to get how to achieve that:
+<a href="https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers" target="_blank" rel="noopener">https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers</a>
+<a href="https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/" target="_blank" rel="noopener">https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/</a></p>
 <h1 id="troubleshooting">Troubleshooting</h1>
 <p><strong>Case 1</strong>:</p>
 <p>If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used:</p>
@@ -513,7 +529,7 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified October 23, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/921b61039d803e4b66300ee3eb0ec7ec10e8500e">adapt datapoint subscribtion callback (#48) (921b610)</a>
+  Last modified November 1, 2022: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/4a18ee42e243cd8ed4181bf69b2f798fcf987c8c">Update behind_proxy.md: How to overcome TLS/SSL validation issues on … (#49) (4a18ee4)</a>
 </div>
 
 </div>
@@ -651,7 +667,9 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 
 
     </div>
-    <script src="/velocitas/js/main.min.22bc0f996f541e97740bf4615d3764ed90351cb0c470d505a8dd217bf18fa080.js" integrity="sha256-IrwPmW9UHpd0C/RhXTdk7ZA1HLDEcNUFqN0he/GPoIA=" crossorigin="anonymous"></script>
+    
+
+<script src="/velocitas/js/main.min.22bc0f996f541e97740bf4615d3764ed90351cb0c470d505a8dd217bf18fa080.js" integrity="sha256-IrwPmW9UHpd0C/RhXTdk7ZA1HLDEcNUFqN0he/GPoIA=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>
