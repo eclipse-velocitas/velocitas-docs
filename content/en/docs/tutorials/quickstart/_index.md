@@ -24,10 +24,11 @@ For the orginization and _Vehicle App_ repository the name `MyOrg/MyFirstVehicle
 
 {{< tabpane text=true >}}
 {{% tab header="Python" %}}
-Create your own repository copy from the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) by clicking the green button `Use this template`. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
+Create your own repository copy from the [Python Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) by clicking the green button `Use this template`. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
 {{% /tab %}}
 {{% tab header="C++" %}}
-C++ currently has only an [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk). To create your own _Vehicle App_ repository, fork the repository into your own organization. For the fork, only the `main` branch needs to be copied over.
+Create your own repository copy from the [C++ Template Repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template) by clicking the green button `Use this template`. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
+
 {{% /tab %}}
 {{< /tabpane >}}
 
@@ -55,38 +56,24 @@ A non proxy configuration is used by default. If you are working behind a corpor
 
 With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
 
+1. Clone the repo locally using your favorite Git tooling
 1. Start Visual Studio Code
-2. Press <kbd>F1</kbd> and run the command `Remote-Containers: Clone Repository in Container Volume...`
-3. Select `Clone a repository from GitHub in a Container Volume` and choose the repository / branch to clone
-4. Enter the GitHub organization and repository name (e.g. `MyOrg/MyFirstVehicleApp`) and select the repository from the list
-5. Select the branch to clone from the list
+1. Select `Open Folder` from the `File` menu
+1. Open the root of the cloned repo
+1. A popup appears on the lower left side of Visual Studio Code. If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command `Dev-Containers: Open Folder in Container`
+1. Click on `Reopen in Container`
+1. Wait for the container to be set up
 
 The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.
   
 {{% alert title="Note" %}}
-When opening the DevContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.
+> When opening the devContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.
+
+> If the devContainer fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command `Dev-Containers: Rebuild Container Without Cache`
+
+> The devContainer is using the [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md)-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.
+
 {{% /alert %}}
-
-<details>
-<summary>Please expand for information on troubleshooting</summary>
-
-> If Visual Studio Code [fails to directly clone your repository](https://github.com/microsoft/vscode-dev-containers/issues/1585)  you can also use a workaround:
->
-> 1. Clone the repo locally using your favorite Git tooling
-> 1. Start Visual Studio Code
-> 1. Select `Open Folder` from the `File` menu
-> 1. Open the root of the cloned repo
-> 1. A popup appears on the lower left side of Visual Studio Code
-> 1. Click on `Reopen in Container`
-> 1. Wait for the container to be set up
->
-> If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command `Remote-Containers: Open Folder in Container`
-
-> If the development container fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command `Remote-Containers: Rebuild Container Without Cache`
-
-The devContainer is using the [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md)-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.
-
-</details>
 
 ### Codespaces
 
