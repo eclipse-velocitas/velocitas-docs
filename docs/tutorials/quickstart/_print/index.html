@@ -79,7 +79,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dc98c5364d9d5b91485dc432ca4e60b6.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.fcd1d6a4942418fa3000fbd5c1f856f3.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -157,38 +157,7 @@ This is the multi-page printable view of this section.
 
 <h2 id="creating-vehicle-app-repository">Creating Vehicle App Repository</h2>
 <p>For the orginization and <em>Vehicle App</em> repository the name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of the document.</p>
-
-
-
-<ul class="nav nav-tabs" id="tabs-1" role="tablist">
-  <li class="nav-item">
-      <a class="nav-link active"
-          id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
-          aria-controls="tabs-01-00" aria-selected="false">
-        Python
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link"
-          id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
-          aria-controls="tabs-01-01" aria-selected="false">
-        C++
-      </a>
-    </li>
-</ul>
-
-<div class="tab-content" id="tabs-1-content">
-    <div class="tab-body tab-pane fade show active"
-        id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
-        <p>Create your own repository copy from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
-
-    </div>
-    <div class="tab-body tab-pane fade"
-        id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
-        <p>C++ currently has only an <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">SDK repository</a>. To create your own <em>Vehicle App</em> repository, fork the repository into your own organization. For the fork, only the <code>main</code> branch needs to be copied over.</p>
-
-    </div>
-</div>
-
+<p>Create your own repository copy from the template repository of your choice <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python</a>/<a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">C++</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
 <h2 id="starting-development-environment">Starting Development Environment</h2>
 <p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
 <h3 id="visual-studio-code">Visual Studio Code</h3>
@@ -217,11 +186,13 @@ This is the multi-page printable view of this section.
 
 <p>With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.</p>
 <ol>
+<li>Clone the repo locally using your favorite Git tooling</li>
 <li>Start Visual Studio Code</li>
-<li>Press <kbd>F1</kbd> and run the command <code>Remote-Containers: Clone Repository in Container Volume...</code></li>
-<li>Select <code>Clone a repository from GitHub in a Container Volume</code> and choose the repository / branch to clone</li>
-<li>Enter the GitHub organization and repository name (e.g. <code>MyOrg/MyFirstVehicleApp</code>) and select the repository from the list</li>
-<li>Select the branch to clone from the list</li>
+<li>Select <code>Open Folder</code> from the <code>File</code> menu</li>
+<li>Open the root of the cloned repo</li>
+<li>A popup appears on the lower left side of Visual Studio Code. If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command <code>Dev-Containers: Open Folder in Container</code></li>
+<li>Click on <code>Reopen in Container</code></li>
+<li>Wait for the container to be set up</li>
 </ol>
 <p>The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.</p>
 
@@ -229,30 +200,19 @@ This is the multi-page printable view of this section.
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    When opening the DevContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.
+    <blockquote>
+<p>When opening the devContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.</p>
+</blockquote>
+<blockquote>
+<p>If the devContainer fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command <code>Dev-Containers: Rebuild Container Without Cache</code></p>
+</blockquote>
+<blockquote>
+<p>The devContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a>-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.</p>
+</blockquote>
+
 
 </div>
 
-<details>
-<summary>Please expand for information on troubleshooting</summary>
-<blockquote>
-<p>If Visual Studio Code <a href="https://github.com/microsoft/vscode-dev-containers/issues/1585" target="_blank" rel="noopener">fails to directly clone your repository</a>  you can also use a workaround:</p>
-<ol>
-<li>Clone the repo locally using your favorite Git tooling</li>
-<li>Start Visual Studio Code</li>
-<li>Select <code>Open Folder</code> from the <code>File</code> menu</li>
-<li>Open the root of the cloned repo</li>
-<li>A popup appears on the lower left side of Visual Studio Code</li>
-<li>Click on <code>Reopen in Container</code></li>
-<li>Wait for the container to be set up</li>
-</ol>
-<p>If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command <code>Remote-Containers: Open Folder in Container</code></p>
-</blockquote>
-<blockquote>
-<p>If the development container fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command <code>Remote-Containers: Rebuild Container Without Cache</code></p>
-</blockquote>
-<p>The devContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a>-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.</p>
-</details>
 <h3 id="codespaces">Codespaces</h3>
 <p>Another possibility to use your newly created repository is via <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.
 You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.</p>
@@ -290,25 +250,25 @@ You can either try it out directly in the browser or also use it inside Visual S
 <p>
 
 
-<ul class="nav nav-tabs" id="tabs-5" role="tablist">
+<ul class="nav nav-tabs" id="tabs-4" role="tablist">
   <li class="nav-item">
       <a class="nav-link active"
-          id="tabs-05-00-tab" data-toggle="tab" href="#tabs-05-00" role="tab"
-          aria-controls="tabs-05-00" aria-selected="false">
+          id="tabs-04-00-tab" data-toggle="tab" href="#tabs-04-00" role="tab"
+          aria-controls="tabs-04-00" aria-selected="false">
         Template
       </a>
     </li><li class="nav-item">
       <a class="nav-link"
-          id="tabs-05-01-tab" data-toggle="tab" href="#tabs-05-01" role="tab"
-          aria-controls="tabs-05-01" aria-selected="false">
+          id="tabs-04-01-tab" data-toggle="tab" href="#tabs-04-01" role="tab"
+          aria-controls="tabs-04-01" aria-selected="false">
         Seat Adjuster
       </a>
     </li>
 </ul>
 
-<div class="tab-content" id="tabs-5-content">
+<div class="tab-content" id="tabs-4-content">
     <div class="tab-body tab-pane fade show active"
-        id="tabs-05-00" role="tabpanel" aria-labelled-by="tabs-05-00-tab">
+        id="tabs-04-00" role="tabpanel" aria-labelled-by="tabs-04-00-tab">
         <ol>
 <li>Open the main source file and set a breakpoint in the given method:
 <ul>
@@ -328,7 +288,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 
     </div>
     <div class="tab-body tab-pane fade"
-        id="tabs-05-01" role="tabpanel" aria-labelled-by="tabs-05-01-tab">
+        id="tabs-04-01" role="tabpanel" aria-labelled-by="tabs-04-01-tab">
         <p>For Python: Follow the guide provided in: <a href="/velocitas/docs/tutorials/quickstart/import_examples/">Import examples</a> and import <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener"><code>seat-adjuster</code></a>. </br>
 For C++: Continue with the next steps.</p>
 <ol>

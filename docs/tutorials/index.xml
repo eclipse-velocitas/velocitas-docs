@@ -36,38 +36,7 @@
 
 &lt;h2 id=&#34;creating-vehicle-app-repository&#34;&gt;Creating Vehicle App Repository&lt;/h2&gt;
 &lt;p&gt;For the orginization and &lt;em&gt;Vehicle App&lt;/em&gt; repository the name &lt;code&gt;MyOrg/MyFirstVehicleApp&lt;/code&gt; is used as a reference during the rest of the document.&lt;/p&gt;
-
-
-
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-1&#34; role=&#34;tablist&#34;&gt;
-  &lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link active&#34;
-          id=&#34;tabs-01-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-00&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-01-00&#34; aria-selected=&#34;false&#34;&gt;
-        Python
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link&#34;
-          id=&#34;tabs-01-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-01&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-01-01&#34; aria-selected=&#34;false&#34;&gt;
-        C++
-      &lt;/a&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;
-    &lt;div class=&#34;tab-body tab-pane fade show active&#34;
-        id=&#34;tabs-01-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-00-tab&#34;&gt;
-        &lt;p&gt;Create your own repository copy from the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Template Repository&lt;/a&gt; by clicking the green button &lt;code&gt;Use this template&lt;/code&gt;. You don&amp;rsquo;t have to include all branches. For more information on Template Repositories take a look at this &lt;a href=&#34;https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Tutorial&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;/div&gt;
-    &lt;div class=&#34;tab-body tab-pane fade&#34;
-        id=&#34;tabs-01-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-01-tab&#34;&gt;
-        &lt;p&gt;C++ currently has only an &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SDK repository&lt;/a&gt;. To create your own &lt;em&gt;Vehicle App&lt;/em&gt; repository, fork the repository into your own organization. For the fork, only the &lt;code&gt;main&lt;/code&gt; branch needs to be copied over.&lt;/p&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-
+&lt;p&gt;Create your own repository copy from the template repository of your choice &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python&lt;/a&gt;/&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-cpp-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;C++&lt;/a&gt; by clicking the green button &lt;code&gt;Use this template&lt;/code&gt;. You don&amp;rsquo;t have to include all branches. For more information on Template Repositories take a look at this &lt;a href=&#34;https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Tutorial&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;starting-development-environment&#34;&gt;Starting Development Environment&lt;/h2&gt;
 &lt;p&gt;In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;visual-studio-code&#34;&gt;Visual Studio Code&lt;/h3&gt;
@@ -96,11 +65,13 @@
 
 &lt;p&gt;With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.&lt;/p&gt;
 &lt;ol&gt;
+&lt;li&gt;Clone the repo locally using your favorite Git tooling&lt;/li&gt;
 &lt;li&gt;Start Visual Studio Code&lt;/li&gt;
-&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Remote-Containers: Clone Repository in Container Volume...&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Select &lt;code&gt;Clone a repository from GitHub in a Container Volume&lt;/code&gt; and choose the repository / branch to clone&lt;/li&gt;
-&lt;li&gt;Enter the GitHub organization and repository name (e.g. &lt;code&gt;MyOrg/MyFirstVehicleApp&lt;/code&gt;) and select the repository from the list&lt;/li&gt;
-&lt;li&gt;Select the branch to clone from the list&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;Open Folder&lt;/code&gt; from the &lt;code&gt;File&lt;/code&gt; menu&lt;/li&gt;
+&lt;li&gt;Open the root of the cloned repo&lt;/li&gt;
+&lt;li&gt;A popup appears on the lower left side of Visual Studio Code. If the popup does not appear, you can also hit &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Dev-Containers: Open Folder in Container&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Click on &lt;code&gt;Reopen in Container&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Wait for the container to be set up&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.&lt;/p&gt;
 
@@ -108,30 +79,19 @@
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
-    When opening the DevContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.
+    &lt;blockquote&gt;
+&lt;p&gt;When opening the devContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If the devContainer fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Dev-Containers: Rebuild Container Without Cache&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The devContainer is using the &lt;a href=&#34;https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker-in-docker&lt;/a&gt;-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 
 &lt;/div&gt;
 
-&lt;details&gt;
-&lt;summary&gt;Please expand for information on troubleshooting&lt;/summary&gt;
-&lt;blockquote&gt;
-&lt;p&gt;If Visual Studio Code &lt;a href=&#34;https://github.com/microsoft/vscode-dev-containers/issues/1585&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;fails to directly clone your repository&lt;/a&gt;  you can also use a workaround:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Clone the repo locally using your favorite Git tooling&lt;/li&gt;
-&lt;li&gt;Start Visual Studio Code&lt;/li&gt;
-&lt;li&gt;Select &lt;code&gt;Open Folder&lt;/code&gt; from the &lt;code&gt;File&lt;/code&gt; menu&lt;/li&gt;
-&lt;li&gt;Open the root of the cloned repo&lt;/li&gt;
-&lt;li&gt;A popup appears on the lower left side of Visual Studio Code&lt;/li&gt;
-&lt;li&gt;Click on &lt;code&gt;Reopen in Container&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Wait for the container to be set up&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;If the popup does not appear, you can also hit &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Remote-Containers: Open Folder in Container&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;If the development container fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Remote-Containers: Rebuild Container Without Cache&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The devContainer is using the &lt;a href=&#34;https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker-in-docker&lt;/a&gt;-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.&lt;/p&gt;
-&lt;/details&gt;
 &lt;h3 id=&#34;codespaces&#34;&gt;Codespaces&lt;/h3&gt;
 &lt;p&gt;Another possibility to use your newly created repository is via &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.
 You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.&lt;/p&gt;
@@ -169,25 +129,25 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;p&gt;
 
 
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-5&#34; role=&#34;tablist&#34;&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-4&#34; role=&#34;tablist&#34;&gt;
   &lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link active&#34;
-          id=&#34;tabs-05-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-05-00&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-05-00&#34; aria-selected=&#34;false&#34;&gt;
+          id=&#34;tabs-04-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-04-00&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-04-00&#34; aria-selected=&#34;false&#34;&gt;
         Template
       &lt;/a&gt;
     &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link&#34;
-          id=&#34;tabs-05-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-05-01&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-05-01&#34; aria-selected=&#34;false&#34;&gt;
+          id=&#34;tabs-04-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-04-01&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-04-01&#34; aria-selected=&#34;false&#34;&gt;
         Seat Adjuster
       &lt;/a&gt;
     &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-5-content&#34;&gt;
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-4-content&#34;&gt;
     &lt;div class=&#34;tab-body tab-pane fade show active&#34;
-        id=&#34;tabs-05-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-05-00-tab&#34;&gt;
+        id=&#34;tabs-04-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-04-00-tab&#34;&gt;
         &lt;ol&gt;
 &lt;li&gt;Open the main source file and set a breakpoint in the given method:
 &lt;ul&gt;
@@ -207,7 +167,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 
     &lt;/div&gt;
     &lt;div class=&#34;tab-body tab-pane fade&#34;
-        id=&#34;tabs-05-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-05-01-tab&#34;&gt;
+        id=&#34;tabs-04-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-04-01-tab&#34;&gt;
         &lt;p&gt;For Python: Follow the guide provided in: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart/import_examples/&#34;&gt;Import examples&lt;/a&gt; and import &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;seat-adjuster&lt;/code&gt;&lt;/a&gt;. &lt;/br&gt;
 For C++: Continue with the next steps.&lt;/p&gt;
 &lt;ol&gt;
@@ -304,7 +264,9 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
-    A &lt;em&gt;Vehicle Model&lt;/em&gt; should be defined in its own package. This makes it possible to distribute the &lt;em&gt;Vehicle Model&lt;/em&gt; later as a standalone package and to use it in different &lt;em&gt;Vehicle App&lt;/em&gt; projects.
+    &lt;p&gt;A &lt;em&gt;Vehicle Model&lt;/em&gt; should be defined in its own package. This makes it possible to distribute the &lt;em&gt;Vehicle Model&lt;/em&gt; later as a standalone package and to use it in different &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
+&lt;p&gt;The creation of a new vehicle model is only required if the vehicle signals (like sensors and actuators) defined in the current version of the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;COVESA Vehicle Signal Specification&lt;/a&gt; (VSS) is not sufficient for the definition of your vehicle API. Otherwise you could use the default vehicle model we geneated for you, see &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Vehicle Model&lt;/a&gt; and &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-cpp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;C++ Vehicle Model&lt;/a&gt;.&lt;/p&gt;
+
 
 &lt;/div&gt;
 
