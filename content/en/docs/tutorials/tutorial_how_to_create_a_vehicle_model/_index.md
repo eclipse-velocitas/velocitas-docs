@@ -1,7 +1,7 @@
 ---
 title: "Vehicle Model Creation"
 date: 2022-05-09T13:43:25+05:30
-weight: 1
+weight: 3
 description: >
   Learn how to create a Vehicle Model to access vehicle data or execute remote procedure calls.
 aliases:

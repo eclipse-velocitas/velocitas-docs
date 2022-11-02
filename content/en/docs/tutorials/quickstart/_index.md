@@ -198,7 +198,7 @@ The provided release workflow will be triggered by the release. The release work
 
 ## Deploying Vehicle App
 
-After releasing the Vehicle App to the GitHub container registry you might ask how to bring the Vehicle App on a device and have the required Runtime Stack on the device. Here _Eclipse Leda_ comes into the game. 
+After releasing the Vehicle App to the GitHub container registry you might ask how to bring the Vehicle App on a device and have the required Runtime Stack on the device. Here _Eclipse Leda_ comes into the game.
 
 Please checkout the documentation of [Eclipse Leda](https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/) to get more information.
 
