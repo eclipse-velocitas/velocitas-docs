@@ -18,6 +18,9 @@ This tutorial will show you how to:
 
 {{% alert title="Note" %}}
 A _Vehicle Model_ should be defined in its own package. This makes it possible to distribute the _Vehicle Model_ later as a standalone package and to use it in different _Vehicle App_ projects.
+
+The creation of a new vehicle model is only required if the vehicle signals (like sensors and actuators) defined in the current version of the [COVESA Vehicle Signal Specification](https://covesa.github.io/vehicle_signal_specification/) (VSS) is not sufficient for the definition of your vehicle API. Otherwise you could use the default vehicle model we geneated for you, see [Python Vehicle Model](https://github.com/eclipse-velocitas/vehicle-model-python) and [C++ Vehicle Model](https://github.com/eclipse-velocitas/vehicle-model-cpp).  
+
 {{% /alert %}}
 
 ## Prerequisites
