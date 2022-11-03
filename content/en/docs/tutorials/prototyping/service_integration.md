@@ -1,23 +1,10 @@
 ---
-title: "Extend the prototype"
+title: "Service Integration"
 date: 2022-11-02T10:09:25+05:30
 weight: 3
 description: >
-  Learn how to extend your prototype with Eclipse Velocitas
+  Learn how to integrate a Vehicle Service that executes the request on vehicle side
 ---
-
-## Extend the prototype and test locally
-
-Your prototype _Vehicle Application_ transfered into a GitHub repository and is now ready to be extended.
-Clone your newly created repository and open the _Vehicle Application_ in Microsoft Visual Studio Code. Detailed information you can find here:
-[Starting development environment]({{< ref "/docs/tutorials/quickstart/#starting-development-environment" >}})
-
-Depending on your prototype idea you could e.g.:
-
-- Add cloud connectivity to trigger your applictaion or to provide information to the cloud
-- Integrate a _Vehicle Service_ that executes the request on vehicle side
-
-### Service Integration
 
 Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your _Vehicle App_ makes use of e.g. `Vehicle.Cabin.Seat.Row1.Pos1.Position`, `Vehicle.Body.Lights.IsBackupOn`, `Vehicle.Body.Lights.IsHighBeamOn`, `Vehicle.Body.Lights.IsLowBeamOn` you are in for some real action. To learn more, visit [_Vehicle Services_]({{< ref "/docs/about/development_model/val/#vehicle-services" >}}).
 

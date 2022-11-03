@@ -1,5 +1,5 @@
 ---
-title: "Prototyping integration"
+title: "Prototyping Integration"
 date: 2022-11-02T10:09:25+05:30
 weight: 2
 description: >
@@ -49,13 +49,9 @@ In the previous step you started with envision and prototyping your Vehicle App 
 
 In the 'Code' section of your prototype in the [playground.digital.auto](https://digitalauto.netlify.app/) you have the Button 'Create Eclipse Velocitas Project'.
 
-If you press this button you will be forwarded to [GitHub](https://github.com/) to login with your GitHub Account and authorize _velocitas-project-generator_ to create the repository for you. After you authorized the project generator you will be redirected to the [playground.digital.auto](https://digitalauto.netlify.app/) and asked for a repository name (Which also is the app's name). After pressing "Create repository" the project generator takes over your prototype code, adapts it to the structure in the [vehicle-app-python-template](https://github.com/eclipse-velocitas/vehicle-app-python-template) and creates a new private repository under your GitHub User.
-
 ![generate](./generate.png)
 
-{{% alert title="Note" %}}
-If you would like to know what exactly the generator is doing, please have a look in the code: [velocitas-project-generator-npm](https://github.com/eclipse-velocitas/velocitas-project-generator-npm).
-{{% /alert %}}
+If you press this button you will be forwarded to [GitHub](https://github.com/) to login with your GitHub Account and authorize [velocitas-project-generator](https://github.com/eclipse-velocitas/velocitas-project-generator-npm) to create the repository for you. After you authorized the project generator you will be redirected to the [playground.digital.auto](https://digitalauto.netlify.app/) and asked for a repository name (Which also is the app's name). After pressing "Create repository" the project generator takes over your prototype code, adapts it to the structure in the [vehicle-app-python-template](https://github.com/eclipse-velocitas/vehicle-app-python-template) and creates a new private repository under your GitHub User.
 
 After the generation of the repository is completed a pop-up dialogue with the URL of your repository will be displayed. Among other things the newly created repository will contain:
 
@@ -65,7 +61,10 @@ After the generation of the repository is completed a pop-up dialogue with the U
 - _/.devcontainer_/ required scripts to install every prerequisite in Microsoft Visual Studio Code
 - _/.github/workflows/_ with all required CI/CD pipelines to build, test and deploy the vehicle application as container image to the GitHub container registry
 
-Your prototype Vehicle App transferred into a GitHub repository is now ready to be extended. Clone your newly created repository and open the Vehicle Appl in Microsoft Visual Studio Code. Detailed information you can find here: [Starting development environment](https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment)
+Your prototype _Vehicle App_ transferred into a GitHub repository is now ready to be extended. Clone your newly created repository and open the _Vehicle App_ in Microsoft Visual Studio Code and start to extend it. More information you can find here:
+
+- [Starting development environment](https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment)
+- [Vehicle App Development](<https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/>)
 
 {{% alert title="Note" %}}
 By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a [GitHub advanced security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) license in your org or if your repository is public. To do so: Go to your repository settings -> General -> Danger Zone (at the bottom) -> Change repository visibility -> Change visibility to public.
