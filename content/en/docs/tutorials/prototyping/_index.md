@@ -48,7 +48,7 @@ Feel free to add your own Plugins with addition widgets for additional car featu
 In the previous step you started with envision and prototyping your Vehicle App idea and tested it against mocked vehicle components in Digital.Auto. To transfer the prototype from [playground.digital.auto](https://digitalauto.netlify.app/) to your development environment and test it with real [_Vehicle Services_]({{< ref "/docs/about/development_model/val/#vehicle-services" >}}) we provide a project generator. This generator allows you to generate a Vehicle App GitHub repository using your prototype code based on our [vehicle-app-python-template](https://github.com/eclipse-velocitas/vehicle-app-python-template).
 
 In the 'Code' section of your prototype in the [playground.digital.auto](https://digitalauto.netlify.app/) you have the Button 'Create Eclipse Velocitas Project'.
-
+![generate](./generate.png)
 If you press this button you will be forwarded to [GitHub](https://github.com/) to login with your GitHub Account and authorize _velocitas-project-generator_ to create the repository for you. After you authorized the project generator you will be redirected to the [playground.digital.auto](https://digitalauto.netlify.app/) and asked for a repository name (Which also is the app's name). After pressing "Create repository" the project generator takes over your prototype code, adapts it to the structure in the [vehicle-app-python-template](https://github.com/eclipse-velocitas/vehicle-app-python-template) and creates a new private repository under your GitHub User.
 
 ![generate](./generate.png)
