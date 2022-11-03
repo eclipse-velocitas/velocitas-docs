@@ -1,0 +1,371 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.98.0" />
+<link rel="canonical" type="text/html" href="/velocitas/docs/tutorials/prototyping/">
+<link rel="alternate" type="application/rss&#43;xml" href="/velocitas/docs/tutorials/prototyping/index.xml">
+<meta name="robots" content="noindex, nofollow">
+
+
+<link rel="shortcut icon" href="/velocitas/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/velocitas/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/velocitas/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/velocitas/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/velocitas/favicons/android-192x192.png" sizes="192x192">
+
+<title>Prototyping Integration | Velocitas</title>
+<meta name="description" content="Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.
+">
+<meta property="og:title" content="Prototyping Integration" />
+<meta property="og:description" content="Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/velocitas/docs/tutorials/prototyping/" />
+
+<meta itemprop="name" content="Prototyping Integration">
+<meta itemprop="description" content="Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Prototyping Integration"/>
+<meta name="twitter:description" content="Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.
+"/>
+
+
+
+
+<link rel="preload" href="/velocitas/scss/main.min.c2dba854ce5782d2bcc6ad914c23e229e92d066f615f9d65db7596a48eb1c06f.css" as="style">
+<link href="/velocitas/scss/main.min.c2dba854ce5782d2bcc6ad914c23e229e92d066f615f9d65db7596a48eb1c06f.css" rel="stylesheet" integrity="">
+
+<script
+  src=/velocitas/js/jquery-3.6.0.min.js
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script defer
+  src="/velocitas/js/lunr-2.3.9.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/velocitas/"><span class="navbar-brand__logo navbar-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="180mm" height="40mm" style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision" viewBox="0 0 7086.6144 1574.8032" id="svg983" sodipodi:docname="logo.svg" inkscape:version="1.0 (4035a4f, 2020-05-01)"><sodipodi:namedview inkscape:document-rotation="0" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1080" id="namedview985" showgrid="false" showguides="false" units="mm" inkscape:zoom=".69602273" inkscape:cx="408" inkscape:cy="528" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="Layer_x0020_1"/><defs id="defs967"><style id="style956">.fil5{fill:#24b2e4}.fil4{fill:#2e95c9}.fil3{fill:#2477b6}.fil2{fill:#2c5aa0}.fil1{fill:#364b95}.fil0{fill:url(#id0);fill-rule:nonzero}</style><linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="3149.4299" y1="5635.5898" x2="7771.9399" y2="5635.5898"><stop offset="0" style="stop-opacity:1;stop-color:#2B6FB5" id="stop958"/><stop offset=".870588" style="stop-opacity:1;stop-color:#7DC5ED" id="stop960"/><stop offset=".988235" style="stop-opacity:1;stop-color:#7DC5ED" id="stop962"/><stop offset="1" style="stop-opacity:1;stop-color:#7DC5ED" id="stop964"/></linearGradient></defs><g id="Layer_x0020_1" transform="matrix(0.98370981,0,0,0.98370981,-626.40511,-4616.899)"><path class="fil0" d="m3395.11 6027.9h147.19l246.79-709.92h-116.2l-203.63 611.98-205.28-611.98h-114.54l245.68 709.92zm968.32-244.57v0-170.98c0-99.6-76.36-154.37-183.7-154.37h-131.69c-107.35.0-183.7 54.78-183.7 154.37v261.17c0 99.6 76.36 154.38 183.7 154.38h315.39v-82.44h-353.02c-28.22.0-37.63-18.26-37.63-47.59v-114.54zm-108.45-83v0h-282.2v-112.88c0-22.13 9.41-47.03 37.63-47.03h206.94c28.22.0 37.63 24.9 37.63 47.03zm258.95 327.57v0h108.45v-784.62h-108.45zm760.83-415.55v0c0-99.6-65.29-154.37-171.53-154.37h-158.81c-106.24.0-172.09 54.78-172.09 154.37v261.17c0 99.6 65.85 154.38 172.09 154.38h158.81c106.24.0 171.53-54.78 171.53-154.38zm-393.97 275.01v0-288.84c0-42.06 12.17-58.1 48.69-58.1h188.69c36.52.0 48.14 16.04 48.14 58.1v288.84c0 41.5-11.62 58.1-48.14 58.1h-188.69c-36.52.0-48.69-16.6-48.69-58.1zm631.35.0v0-288.84c0-42.06 11.62-58.1 48.14-58.1h272.79v-82.44h-256.19c-107.35.0-173.19 54.78-173.19 154.37v261.17c0 99.6 65.85 154.38 173.19 154.38h256.19v-82.44h-272.79c-36.52.0-48.14-16.6-48.14-58.1zm460.93 140.54v0h107.9v-569.93h-107.9zM5962 5362.25v0h130.03V5243.28H5962zm621.94 178.17v0-82.44h-168.76v-139.99h-76.36l-32.09 139.99h-85.77v82.44h85.77v332c0 96.28 54.78 155.48 180.39 155.48h96.83v-82.44h-120.63c-41.5.0-48.14-21.58-48.14-61.42v-343.61h168.76zm107.35 333.1v0c0 99.6 65.3 154.38 172.64 154.38h33.2c83.56.0 143.87-2.21 169.87-65.29v65.29h107.35v-415.55c0-99.6-76.36-154.37-183.71-154.37h-241.8v82.44h280.54c27.67.0 37.63 18.26 37.63 47.03v95.72h-203.07c-107.35.0-172.64 54.78-172.64 154.93v35.41zm108.45 13.83v0-63.63c0-39.29 10.52-55.89 42.61-57.55H7067v141.65c-3.32 26.56-13.28 37.63-43.16 37.63h-175.96c-36.52.0-48.14-16.6-48.14-58.1zm863.75 27.67v0c0 22.69-11.62 30.43-48.14 30.43H7324.3v82.44h275c107.35.0 172.64-54.78 172.64-154.38v-40.94c0-68.61-47.03-90.19-146.63-113.99-80.78-19.37-101.26-26.56-203.07-51.46v-96.83c0-22.13 11.62-29.88 48.14-29.88h282.2v-82.44h-266.15c-107.34.0-172.64 54.78-172.64 154.37v37.63c0 64.19 43.71 89.08 132.8 109.56 106.8 24.9 151.61 36.52 216.91 50.35v105.13z" id="path970" style="fill:url(#id0)"/><path class="fil1" d="m728.06 5018.07c722.09-309.86 1087.3 423.3 1320.24 889.75 88.54 177.62 156.59 313.19 195.88 317.61 67.5 8.3 132.24-294.37 240.7-1228.94l85.77 7.19C2455 5996.35 2361.49 6315.07 2233.12 6300.13 2145.14 6289.62 2069.33 6137.45 1969.73 5937.7c-219.12-438.78-562.74-1127.13-1203.49-852.12z" id="path972"/><path class="fil2" d="m900.14 4963.85c686.68-298.8 1022 350.81 1244.44 781.3 87.43 168.77 155.49 301.01 202.52 309.31 74.7 12.17 156.04-257.3 299.35-1107.76l85.22 10.51c-153.28 909.67-266.15 1193.53-400.61 1170.84-90.74-15.49-167.11-163.23-265.04-352.47C1857.97 5373.32 1544.78 4766.86 938.89 5030.8l-38.73-66.95z" id="path974"/><path class="fil3" d="m1056.18 4905.75c651.27-287.18 957.26 282.2 1168.63 675.61 85.21 158.25 153.27 285.52 207.5 298.24 82.45 18.81 180.94-216.35 359.11-986.03l84.66 14.39c-192.56 828.88-324.8 1076.78-465.35 1044.13-93.51-21.58-169.32-163.23-263.94-339.19-195.88-364.64-479.74-892.52-1051.88-640.2z" id="path976"/><path class="fil4" d="m1238.22 4844.88c616.96-276.66 894.18 216.35 1094.49 572.7 80.79 144.42 148.29 263.94 209.16 282.75 90.19 28.22 205.29-171.53 421.09-863.74l83.55 19.37c-234.61 751.97-386.78 961.13-533.96 915.2-93.51-29.33-167.66-161.57-257.3-320.93-183.71-327.57-438.79-780.75-977.74-538.39l-39.29-66.95z" id="path978"/><path class="fil5" d="m1406.99 4784.02c583.76-266.7 832.76 153.83 1020.89 471.99 75.25 127.27 139.99 236.83 205.28 263.38 99.05 40.94 231.85-120.07 489.15-740.91l80.79 25.45c-281.65 680.59-453.73 847.15-607 783.51-91.3-37.63-162.13-157.7-244.57-297.13-171.54-289.39-397.85-671.74-904.7-439.9l-39.84-66.4z" id="path980"/></g></svg></span><span class="navbar-brand__name">Velocitas</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/velocitas/docs/"><span class="active">Documentation</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="/velocitas/community/"><span>Community</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/velocitas/offline-search-index.8d228ca952f958a848ac259c1a88aad4.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/velocitas/docs/tutorials/prototyping/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Prototyping Integration</h1>
+<div class="lead">Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1: <a href="#pg-b739b86ab630d926fca95b542c42eb18">Service Integration</a></li>
+
+
+    
+  
+
+    </ul>
+
+
+<div class="content">
+      <p>The open and web based <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> offers a rapid prototyping environment to explore and validate ideas of a vehicle app which interact with different vehicle sensors and actuators via standardized APIs specified by the COVESA <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a> without custom setup requirements. It provides the opportunity:</p>
+<ul>
+<li>To browse, navigate and enhance the vehicle signals (sensors, actuators and branches) in the <a href="">Vehicle API Catalogue</a> mapped to a 3D model of the vehicle</li>
+<li>To build vehicle app prototypes in the browser using Python and the Vehicle API Catalogue</li>
+<li>To test the vehicle app prototype in a dashboard with 3D animation for API calls</li>
+<li>To create new plugins, which usually represent UX widgets or remote server communication to enhance the vehicle mockup experience in the playground</li>
+<li>To collect and evaluate user feedback to prioritize your development portfolio</li>
+</ul>
+<h2 id="prototype-an-idea-of-a-_vehicle-app_">Prototype an idea of a <em>Vehicle App</em></h2>
+<p>As first step open <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a>, select <a href="https://digitalauto.netlify.app/model" target="_blank" rel="noopener"><em>Get Started</em></a> in the Prototyping section of the landing page and use the Vehicle Model of your choice.</p>
+<p><img src="./digital-auto.png" alt="playground.digital.auto">
+<img src="./vehicle-models.png" alt="vehicle-models"></p>
+<p>You now have the option to browse existing vehicle signals for the selected vehicle model which you can use for prototyping your <em>Vehicle App</em> by clicking on <em>Vehicle APIs</em>.</p>
+<p><img src="./cvi-catalogue.png" alt="cvi-catalogue"></p>
+<p>The next step would be to prototype your idea. To do so:</p>
+<ul>
+<li>Click on <em>Prototypes</em> (in the top right toolbar),</li>
+<li>Create a new prototype, by clicking on <em>New Prototype</em> and filling out the information or select one from the list,</li>
+<li>Click on the <em>Open</em> button (right side),</li>
+<li>Go to the <em>Code</em> section and</li>
+<li>Start your prototype right away.</li>
+</ul>
+<p><img src="./code-section.png" alt="code-section"></p>
+<p>To test your prototype go to the <em>Run</em> section, which opens a dashboard consisting all vehicle and application components similar to mockups. The control center on the right side has an integrated terminal showing all of your prototyped outputs as well as a list of all called VSS API&rsquo;s. The <em>Run</em> button executes all your prototype code from top to button. The <em>Debug</em> button allows you to step through your prototype line for line.</p>
+<p><img src="./run-section.png" alt="run-section"></p>
+<p>To get started quickly, the digital.auto team has added a number of widgets to simulate related elements of the vehicle – like doors, seats, light, etc. – and made them available in the playground.</p>
+<p>Feel free to add your own Plugins with addition widgets for additional car features (maybe an antenna waving a warm “welcome”…?).</p>
+<h2 id="transfer-your-prototype-into-a-velocitas-vehicle-app">Transfer your prototype into a Velocitas Vehicle App</h2>
+<p>In the previous step you started with envision and prototyping your Vehicle App idea and tested it against mocked vehicle components in Digital.Auto. To transfer the prototype from <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> to your development environment and test it with real <a href="/velocitas/docs/about/development_model/val/#vehicle-services"><em>Vehicle Services</em></a> we provide a project generator. This generator allows you to generate a Vehicle App GitHub repository using your prototype code based on our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a>.</p>
+<p>In the &lsquo;Code&rsquo; section of your prototype in the <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> you have the Button &lsquo;Create Eclipse Velocitas Project&rsquo;.</p>
+<p><img src="./generate.png" alt="generate"></p>
+<p>If you press this button you will be forwarded to <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> to login with your GitHub Account and authorize <a href="https://github.com/eclipse-velocitas/velocitas-project-generator-npm" target="_blank" rel="noopener">velocitas-project-generator</a> to create the repository for you. After you authorized the project generator you will be redirected to the <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> and asked for a repository name (Which also is the app&rsquo;s name). After pressing &ldquo;Create repository&rdquo; the project generator takes over your prototype code, adapts it to the structure in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a> and creates a new private repository under your GitHub User.</p>
+<p>After the generation of the repository is completed a pop-up dialogue with the URL of your repository will be displayed. Among other things the newly created repository will contain:</p>
+<ul>
+<li><em>/app/src/main.py</em> containing your modified prototype code</li>
+<li><em>/app/AppManifest.json</em> with definition of required services</li>
+<li><em>/app/requirements.txt</em> with definition of dependencies</li>
+<li><em>/.devcontainer</em>/ required scripts to install every prerequisite in Microsoft Visual Studio Code</li>
+<li><em>/.github/workflows/</em> with all required CI/CD pipelines to build, test and deploy the vehicle application as container image to the GitHub container registry</li>
+</ul>
+<p>Your prototype <em>Vehicle App</em> transferred into a GitHub repository is now ready to be extended. Clone your newly created repository and open the <em>Vehicle App</em> in Microsoft Visual Studio Code and start to extend it. More information you can find here:</p>
+<ul>
+<li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment" target="_blank" rel="noopener">Starting development environment</a></li>
+<li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/" target="_blank" rel="noopener">Vehicle App Development</a></li>
+</ul>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a <a href="https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security" target="_blank" rel="noopener">GitHub advanced security</a> license in your org or if your repository is public. To do so: Go to your repository settings -&gt; General -&gt; Danger Zone (at the bottom) -&gt; Change repository visibility -&gt; Change visibility to public.
+
+</div>
+
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b739b86ab630d926fca95b542c42eb18">1 - Service Integration</h1>
+    <div class="lead">Learn how to integrate a Vehicle Service that executes the request on vehicle side</div>
+	<p>Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your <em>Vehicle App</em> makes use of e.g. <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code>, <code>Vehicle.Body.Lights.IsBackupOn</code>, <code>Vehicle.Body.Lights.IsHighBeamOn</code>, <code>Vehicle.Body.Lights.IsLowBeamOn</code> you are in for some real action. To learn more, visit <a href="/velocitas/docs/about/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>.</p>
+<p>You can validate the interaction of the service with your <em>Vehicle App</em> by adding a <em>Vehicle Service</em> to the <code>/app/AppManifest.json</code>, <a href="/velocitas/docs/tutorials/quickstart/#starting-runtime-services">start the services</a> locally and <a href="/velocitas/docs/tutorials/quickstart/#debugging-vehicle-app">debug</a> it.</p>
+<h3 id="modify-services">Modify services</h3>
+<p>For more advanced usage you can als try modifying existing services. Check out <a href="https://github.com/boschglobal/kuksa.val.services/tree/feature/subscribe_actuator_targets/seat_service" target="_blank" rel="noopener">the seat service</a> for example, modify it and integrate it into your <em>Vehicle App</em> repository.</p>
+<h3 id="create-your-own-services">Create your own services</h3>
+<p>If you want to create your own service the <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.val Services repository</a> contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to <em>KUKSA.val</em> listening to changes of a <em>target value</em> of some VSS datapoint and then do whatever you want. You can achieve this by using the <em>KUKSA.val</em> <a href="https://github.com/eclipse/kuksa.val/tree/master/proto/kuksa/val/v1" target="_blank" rel="noopener">GRPC API</a> with any programming language of your choice (learn more about <a href="https://grpc.io" target="_blank" rel="noopener">GRPC</a>).</p>
+
+</div>
+
+
+
+    
+	
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Eclipse Velocitas Project" aria-label="Eclipse Velocitas Project">
+    <a class="text-white" target="_blank" rel="noopener" href="https://projects.eclipse.org/projects/automotive.velocitas" aria-label="Eclipse Velocitas Project">
+      <i class="fas fa-external-link-alt"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Developer mailing list" aria-label="Developer mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://accounts.eclipse.org/mailing-list/velocitas-dev" aria-label="Developer mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener" href="https://twitter.com/velocitas_sdv" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/eclipse-velocitas" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org">
+        Eclipse Foundation
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/privacy.php">
+        Privacy Policy
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/termsofuse.php">
+        Terms of Use
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/copyright.php">
+        Copyright Agent
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/">
+        Legal
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/epl-2.0/">
+        License
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/security/">
+        Report a Vulnerability
+      </a>
+    </small>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+
+<script src="/velocitas/js/main.min.99b1fd5cfe039de12e218fa61dcde03ce89236c4453266795002a36ecf960617.js" integrity="sha256-mbH9XP4DneEuIY&#43;mHc3gPOiSNsRFMmZ5UAKjbs&#43;WBhc=" crossorigin="anonymous"></script>
+<script src='/velocitas/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

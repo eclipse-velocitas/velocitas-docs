@@ -244,6 +244,86 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
     </item>
     
     <item>
+      <title>Docs: Prototyping Integration</title>
+      <link>/velocitas/docs/tutorials/prototyping/</link>
+      <pubDate>Wed, 02 Nov 2022 10:09:25 +0530</pubDate>
+      
+      <guid>/velocitas/docs/tutorials/prototyping/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The open and web based &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playground.digital.auto&lt;/a&gt; offers a rapid prototyping environment to explore and validate ideas of a vehicle app which interact with different vehicle sensors and actuators via standardized APIs specified by the COVESA &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/introduction/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt; without custom setup requirements. It provides the opportunity:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To browse, navigate and enhance the vehicle signals (sensors, actuators and branches) in the &lt;a href=&#34;&#34;&gt;Vehicle API Catalogue&lt;/a&gt; mapped to a 3D model of the vehicle&lt;/li&gt;
+&lt;li&gt;To build vehicle app prototypes in the browser using Python and the Vehicle API Catalogue&lt;/li&gt;
+&lt;li&gt;To test the vehicle app prototype in a dashboard with 3D animation for API calls&lt;/li&gt;
+&lt;li&gt;To create new plugins, which usually represent UX widgets or remote server communication to enhance the vehicle mockup experience in the playground&lt;/li&gt;
+&lt;li&gt;To collect and evaluate user feedback to prioritize your development portfolio&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;prototype-an-idea-of-a-_vehicle-app_&#34;&gt;Prototype an idea of a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;As first step open &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playground.digital.auto&lt;/a&gt;, select &lt;a href=&#34;https://digitalauto.netlify.app/model&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Get Started&lt;/em&gt;&lt;/a&gt; in the Prototyping section of the landing page and use the Vehicle Model of your choice.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./digital-auto.png&#34; alt=&#34;playground.digital.auto&#34;&gt;
+&lt;img src=&#34;./vehicle-models.png&#34; alt=&#34;vehicle-models&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You now have the option to browse existing vehicle signals for the selected vehicle model which you can use for prototyping your &lt;em&gt;Vehicle App&lt;/em&gt; by clicking on &lt;em&gt;Vehicle APIs&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./cvi-catalogue.png&#34; alt=&#34;cvi-catalogue&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The next step would be to prototype your idea. To do so:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Click on &lt;em&gt;Prototypes&lt;/em&gt; (in the top right toolbar),&lt;/li&gt;
+&lt;li&gt;Create a new prototype, by clicking on &lt;em&gt;New Prototype&lt;/em&gt; and filling out the information or select one from the list,&lt;/li&gt;
+&lt;li&gt;Click on the &lt;em&gt;Open&lt;/em&gt; button (right side),&lt;/li&gt;
+&lt;li&gt;Go to the &lt;em&gt;Code&lt;/em&gt; section and&lt;/li&gt;
+&lt;li&gt;Start your prototype right away.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;./code-section.png&#34; alt=&#34;code-section&#34;&gt;&lt;/p&gt;
+&lt;p&gt;To test your prototype go to the &lt;em&gt;Run&lt;/em&gt; section, which opens a dashboard consisting all vehicle and application components similar to mockups. The control center on the right side has an integrated terminal showing all of your prototyped outputs as well as a list of all called VSS API&amp;rsquo;s. The &lt;em&gt;Run&lt;/em&gt; button executes all your prototype code from top to button. The &lt;em&gt;Debug&lt;/em&gt; button allows you to step through your prototype line for line.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./run-section.png&#34; alt=&#34;run-section&#34;&gt;&lt;/p&gt;
+&lt;p&gt;To get started quickly, the digital.auto team has added a number of widgets to simulate related elements of the vehicle – like doors, seats, light, etc. – and made them available in the playground.&lt;/p&gt;
+&lt;p&gt;Feel free to add your own Plugins with addition widgets for additional car features (maybe an antenna waving a warm “welcome”…?).&lt;/p&gt;
+&lt;h2 id=&#34;transfer-your-prototype-into-a-velocitas-vehicle-app&#34;&gt;Transfer your prototype into a Velocitas Vehicle App&lt;/h2&gt;
+&lt;p&gt;In the previous step you started with envision and prototyping your Vehicle App idea and tested it against mocked vehicle components in Digital.Auto. To transfer the prototype from &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playground.digital.auto&lt;/a&gt; to your development environment and test it with real &lt;a href=&#34;/velocitas/velocitas/docs/about/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt; we provide a project generator. This generator allows you to generate a Vehicle App GitHub repository using your prototype code based on our &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the &amp;lsquo;Code&amp;rsquo; section of your prototype in the &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playground.digital.auto&lt;/a&gt; you have the Button &amp;lsquo;Create Eclipse Velocitas Project&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./generate.png&#34; alt=&#34;generate&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If you press this button you will be forwarded to &lt;a href=&#34;https://github.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub&lt;/a&gt; to login with your GitHub Account and authorize &lt;a href=&#34;https://github.com/eclipse-velocitas/velocitas-project-generator-npm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;velocitas-project-generator&lt;/a&gt; to create the repository for you. After you authorized the project generator you will be redirected to the &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playground.digital.auto&lt;/a&gt; and asked for a repository name (Which also is the app&amp;rsquo;s name). After pressing &amp;ldquo;Create repository&amp;rdquo; the project generator takes over your prototype code, adapts it to the structure in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt; and creates a new private repository under your GitHub User.&lt;/p&gt;
+&lt;p&gt;After the generation of the repository is completed a pop-up dialogue with the URL of your repository will be displayed. Among other things the newly created repository will contain:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;/app/src/main.py&lt;/em&gt; containing your modified prototype code&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;/app/AppManifest.json&lt;/em&gt; with definition of required services&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;/app/requirements.txt&lt;/em&gt; with definition of dependencies&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;/.devcontainer&lt;/em&gt;/ required scripts to install every prerequisite in Microsoft Visual Studio Code&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;/.github/workflows/&lt;/em&gt; with all required CI/CD pipelines to build, test and deploy the vehicle application as container image to the GitHub container registry&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Your prototype &lt;em&gt;Vehicle App&lt;/em&gt; transferred into a GitHub repository is now ready to be extended. Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt; in Microsoft Visual Studio Code and start to extend it. More information you can find here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Starting development environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle App Development&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a &lt;a href=&#34;https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub advanced security&lt;/a&gt; license in your org or if your repository is public. To do so: Go to your repository settings -&amp;gt; General -&amp;gt; Danger Zone (at the bottom) -&amp;gt; Change repository visibility -&amp;gt; Change visibility to public.
+
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Vehicle App Development</title>
+      <link>/velocitas/docs/tutorials/vehicle-app-development/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas/docs/tutorials/vehicle-app-development/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Vehicle Model Creation</title>
       <link>/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
@@ -339,19 +419,6 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle-app-development/&#34;&gt;Create a Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Vehicle App Development</title>
-      <link>/velocitas/docs/tutorials/vehicle-app-development/</link>
-      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
-      
-      <guid>/velocitas/docs/tutorials/vehicle-app-development/</guid>
-      <description>
-        
-        
-        
       </description>
     </item>
     

@@ -79,7 +79,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.fcd1d6a4942418fa3000fbd5c1f856f3.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.8d228ca952f958a848ac259c1a88aad4.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -161,7 +161,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-6f8454d4f021c0578c44232252177174">Vehicle Model Creation</a></li>
+<li>2: <a href="#pg-b2e6933434fac21d41e03227b37cadb5">Prototyping Integration</a></li>
 
 
     
@@ -176,52 +176,9 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1: <a href="#pg-ee57588137f3f92a95f31716940a499b">C&#43;&#43; Manual Vehicle Model Creation</a></li>
+<li>2.1: <a href="#pg-b739b86ab630d926fca95b542c42eb18">Service Integration</a></li>
 
 
-    
-  
-    
-    
-	
-<li>2.2: <a href="#pg-462c93b46226b8caf4c20c95ceb7f112">Python Manual Vehicle Model Creation</a></li>
-
-
-    
-  
-    
-    
-	
-<li>2.3: <a href="#pg-1a3dba522d6fe6e7d0aeeb36dd6a67ce">Vehicle Model Distribution</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-    
-    
-	
-<li>2.3.1: <a href="#pg-bfaa8fcd3b7a15bb51ae53c86657d272">C&#43;&#43; Vehicle Model Distribution</a></li>
-
-
-    
-  
-    
-    
-	
-<li>2.3.2: <a href="#pg-b9aab03a5a8a9719e24203501290d935">Python Vehicle Model Distribution</a></li>
-
-
-    
-  
-
-    </ul>
     
   
 
@@ -266,7 +223,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-af1e26e08e2411fd02427d07db1461fd">Run Vehicle App Runtime Services</a></li>
+<li>4: <a href="#pg-6f8454d4f021c0578c44232252177174">Vehicle Model Creation</a></li>
 
 
     
@@ -281,7 +238,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.1: <a href="#pg-21a49bbb7f31d56a4183e92841b43364">Run runtime services locally</a></li>
+<li>4.1: <a href="#pg-ee57588137f3f92a95f31716940a499b">C&#43;&#43; Manual Vehicle Model Creation</a></li>
 
 
     
@@ -289,7 +246,77 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4.2: <a href="#pg-6c0f92a29289f1cf2b52a16ab29a6404">Run runtime services in Kubernetes</a></li>
+<li>4.2: <a href="#pg-462c93b46226b8caf4c20c95ceb7f112">Python Manual Vehicle Model Creation</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4.3: <a href="#pg-1a3dba522d6fe6e7d0aeeb36dd6a67ce">Vehicle Model Distribution</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>4.3.1: <a href="#pg-bfaa8fcd3b7a15bb51ae53c86657d272">C&#43;&#43; Vehicle Model Distribution</a></li>
+
+
+    
+  
+    
+    
+	
+<li>4.3.2: <a href="#pg-b9aab03a5a8a9719e24203501290d935">Python Vehicle Model Distribution</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-af1e26e08e2411fd02427d07db1461fd">Run Vehicle App Runtime Services</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>5.1: <a href="#pg-21a49bbb7f31d56a4183e92841b43364">Run runtime services locally</a></li>
+
+
+    
+  
+    
+    
+	
+<li>5.2: <a href="#pg-6c0f92a29289f1cf2b52a16ab29a6404">Run runtime services in Kubernetes</a></li>
 
 
     
@@ -301,7 +328,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-bd5d2fada9d4690d2d19153cda021984">Vehicle App Integration Testing</a></li>
+<li>6: <a href="#pg-bd5d2fada9d4690d2d19153cda021984">Vehicle App Integration Testing</a></li>
 
 
     
@@ -309,7 +336,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6: <a href="#pg-c00f710a2154467bd207fbd4d2835c70">Vehicle App Deployment with Helm</a></li>
+<li>7: <a href="#pg-c00f710a2154467bd207fbd4d2835c70">Vehicle App Deployment with Helm</a></li>
 
 
     
@@ -807,94 +834,62 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-6f8454d4f021c0578c44232252177174">2 - Vehicle Model Creation</h1>
-    <div class="lead">Learn how to create a Vehicle Model to access vehicle data or execute remote procedure calls.</div>
-	<p>A <em>Vehicle Model</em> makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against <em>Vehicle Services</em> and other <em>Vehicle Apps</em>. It is generated from the underlying semantic models for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library.</p>
-<p>This tutorial will show you how to:</p>
+	<h1 id="pg-b2e6933434fac21d41e03227b37cadb5">2 - Prototyping Integration</h1>
+    <div class="lead">Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.</div>
+	<p>The open and web based <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> offers a rapid prototyping environment to explore and validate ideas of a vehicle app which interact with different vehicle sensors and actuators via standardized APIs specified by the COVESA <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a> without custom setup requirements. It provides the opportunity:</p>
 <ul>
-<li>Create a <em>Vehicle Model</em></li>
-<li>Add a <em>Vehicle Service</em> to the <em>Vehicle Model</em></li>
-<li>Distribute your Python Vehicle Model</li>
+<li>To browse, navigate and enhance the vehicle signals (sensors, actuators and branches) in the <a href="">Vehicle API Catalogue</a> mapped to a 3D model of the vehicle</li>
+<li>To build vehicle app prototypes in the browser using Python and the Vehicle API Catalogue</li>
+<li>To test the vehicle app prototype in a dashboard with 3D animation for API calls</li>
+<li>To create new plugins, which usually represent UX widgets or remote server communication to enhance the vehicle mockup experience in the playground</li>
+<li>To collect and evaluate user feedback to prioritize your development portfolio</li>
+</ul>
+<h2 id="prototype-an-idea-of-a-_vehicle-app_">Prototype an idea of a <em>Vehicle App</em></h2>
+<p>As first step open <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a>, select <a href="https://digitalauto.netlify.app/model" target="_blank" rel="noopener"><em>Get Started</em></a> in the Prototyping section of the landing page and use the Vehicle Model of your choice.</p>
+<p><img src="./digital-auto.png" alt="playground.digital.auto">
+<img src="./vehicle-models.png" alt="vehicle-models"></p>
+<p>You now have the option to browse existing vehicle signals for the selected vehicle model which you can use for prototyping your <em>Vehicle App</em> by clicking on <em>Vehicle APIs</em>.</p>
+<p><img src="./cvi-catalogue.png" alt="cvi-catalogue"></p>
+<p>The next step would be to prototype your idea. To do so:</p>
+<ul>
+<li>Click on <em>Prototypes</em> (in the top right toolbar),</li>
+<li>Create a new prototype, by clicking on <em>New Prototype</em> and filling out the information or select one from the list,</li>
+<li>Click on the <em>Open</em> button (right side),</li>
+<li>Go to the <em>Code</em> section and</li>
+<li>Start your prototype right away.</li>
+</ul>
+<p><img src="./code-section.png" alt="code-section"></p>
+<p>To test your prototype go to the <em>Run</em> section, which opens a dashboard consisting all vehicle and application components similar to mockups. The control center on the right side has an integrated terminal showing all of your prototyped outputs as well as a list of all called VSS API&rsquo;s. The <em>Run</em> button executes all your prototype code from top to button. The <em>Debug</em> button allows you to step through your prototype line for line.</p>
+<p><img src="./run-section.png" alt="run-section"></p>
+<p>To get started quickly, the digital.auto team has added a number of widgets to simulate related elements of the vehicle – like doors, seats, light, etc. – and made them available in the playground.</p>
+<p>Feel free to add your own Plugins with addition widgets for additional car features (maybe an antenna waving a warm “welcome”…?).</p>
+<h2 id="transfer-your-prototype-into-a-velocitas-vehicle-app">Transfer your prototype into a Velocitas Vehicle App</h2>
+<p>In the previous step you started with envision and prototyping your Vehicle App idea and tested it against mocked vehicle components in Digital.Auto. To transfer the prototype from <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> to your development environment and test it with real <a href="/velocitas/docs/about/development_model/val/#vehicle-services"><em>Vehicle Services</em></a> we provide a project generator. This generator allows you to generate a Vehicle App GitHub repository using your prototype code based on our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a>.</p>
+<p>In the &lsquo;Code&rsquo; section of your prototype in the <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> you have the Button &lsquo;Create Eclipse Velocitas Project&rsquo;.</p>
+<p><img src="./generate.png" alt="generate"></p>
+<p>If you press this button you will be forwarded to <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> to login with your GitHub Account and authorize <a href="https://github.com/eclipse-velocitas/velocitas-project-generator-npm" target="_blank" rel="noopener">velocitas-project-generator</a> to create the repository for you. After you authorized the project generator you will be redirected to the <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> and asked for a repository name (Which also is the app&rsquo;s name). After pressing &ldquo;Create repository&rdquo; the project generator takes over your prototype code, adapts it to the structure in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a> and creates a new private repository under your GitHub User.</p>
+<p>After the generation of the repository is completed a pop-up dialogue with the URL of your repository will be displayed. Among other things the newly created repository will contain:</p>
+<ul>
+<li><em>/app/src/main.py</em> containing your modified prototype code</li>
+<li><em>/app/AppManifest.json</em> with definition of required services</li>
+<li><em>/app/requirements.txt</em> with definition of dependencies</li>
+<li><em>/.devcontainer</em>/ required scripts to install every prerequisite in Microsoft Visual Studio Code</li>
+<li><em>/.github/workflows/</em> with all required CI/CD pipelines to build, test and deploy the vehicle application as container image to the GitHub container registry</li>
+</ul>
+<p>Your prototype <em>Vehicle App</em> transferred into a GitHub repository is now ready to be extended. Clone your newly created repository and open the <em>Vehicle App</em> in Microsoft Visual Studio Code and start to extend it. More information you can find here:</p>
+<ul>
+<li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment" target="_blank" rel="noopener">Starting development environment</a></li>
+<li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/" target="_blank" rel="noopener">Vehicle App Development</a></li>
 </ul>
 
 
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    <p>A <em>Vehicle Model</em> should be defined in its own package. This makes it possible to distribute the <em>Vehicle Model</em> later as a standalone package and to use it in different <em>Vehicle App</em> projects.</p>
-<p>The creation of a new vehicle model is only required if the vehicle signals (like sensors and actuators) defined in the current version of the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification</a> (VSS) is not sufficient for the definition of your vehicle API. Otherwise you could use the default vehicle model we geneated for you, see <a href="https://github.com/eclipse-velocitas/vehicle-model-python" target="_blank" rel="noopener">Python Vehicle Model</a> and <a href="https://github.com/eclipse-velocitas/vehicle-model-cpp" target="_blank" rel="noopener">C++ Vehicle Model</a>.</p>
-
+    By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a <a href="https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security" target="_blank" rel="noopener">GitHub advanced security</a> license in your org or if your repository is public. To do so: Go to your repository settings -&gt; General -&gt; Danger Zone (at the bottom) -&gt; Change repository visibility -&gt; Change visibility to public.
 
 </div>
 
-<h2 id="prerequisites">Prerequisites</h2>
-<ul>
-<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank" rel="noopener">Python extension</a> installed. For information on how to install extensions on Visual Studio Code, see <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank" rel="noopener">VS Code Extension Marketplace</a>.</li>
-</ul>
-<h2 id="create-a-vehicle-model-from-vss-specification">Create a Vehicle Model from VSS specification</h2>
-<p>A <em>Vehicle Model</em> can be generated from a <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification</a> (VSS). VSS introduces a domain taxonomy for vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data. The Velocitas <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> creates a <em>Vehicle Model</em> from the given specification and generates a package for use in <em>Vehicle App</em> projects.</p>
-<p>Follow the steps to generate a <em>Vehicle Model</em>.</p>
-<ol>
-<li>
-<p>Clone the <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> repository in a container volume.</p>
-</li>
-<li>
-<p>In this container volume, clone the <a href="https://github.com/COVESA/vehicle_signal_specification" target="_blank" rel="noopener">vehicle-signal-specification</a> repository and if required checkout a particular branch:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/COVESA/vehicle_signal_specification
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87">cd</span> vehicle_signal_specification
-</span></span><span style="display:flex;"><span>git checkout &lt;branch-name&gt;
-</span></span></code></pre></div><p>In case the VSS vspec doesn&rsquo;t contain the required signals, you can create a vspec using the <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/" target="_blank" rel="noopener">VSS Rule Set</a>.</p>
-</li>
-<li>
-<p>Execute the command</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 gen_vehicle_model.py -I ./vehicle_signal_specification/spec ./vehicle_signal_specification/spec/VehicleSignalSpecification.vspec -l &lt;lang&gt; -T sdv_model -N sdv_model
-</span></span></code></pre></div><p>Depending on the value of <code>lang</code>, which can assume the values <code>python</code> and <code>cpp</code>, this creates a <code>sdv_model</code> directory in the root of repository along with all generated source files for the given programming language.</p>
-<p>Here is an overview of what is generated for every available value of <code>lang</code>:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">lang</th>
-<th style="text-align:left">output</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>python</code></td>
-<td style="text-align:left">python sources and a <code>setup.py</code> ready to be used as python package</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>cpp</code></td>
-<td style="text-align:left">c++ sources, headers and a CMakeLists.txt ready to be used as a CMake project</td>
-</tr>
-</tbody>
-</table>
-<p>To have a custom model name, refer to README of <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> repository.</p>
-</li>
-<li>
-<p>For python: Change the version of package in <code>setup.py</code> manually (defaults to 0.1.0).</p>
-</li>
-<li>
-<p>Now the newly generated <code>sdv_model</code> can be used for distribution. (See <a href="/velocitas/docs/tutorials/vehicle_model_distribution">Distributing your Vehicle Model</a>)</p>
-</li>
-</ol>
-<h2 id="create-a-vehicle-model-manually">Create a Vehicle Model Manually</h2>
-<p>Alternative to the generation from a VSS specification you could create the <em>Vehicle Model</em> manually. The following sections describing the required steps.</p>
-<ul>
-<li><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/manual_creation_python/">Python</a></li>
-</ul>
-<h2 id="distributing-your-vehicle-model">Distributing your Vehicle Model</h2>
-<p>Once you have created your Vehicle Model either manually or via the Vehicle Model Generator, you need to distribute your model to use it in an application. Follow the links below for language specific tutorials on how to distribute your freshly created Vehicle Model.</p>
-<ul>
-<li><a href="/velocitas/docs/tutorials/how_to_create_a_vehicle_model/distribution_python.md">Python</a></li>
-<li><a href="/velocitas/docs/tutorials/how_to_create_a_vehicle_model/distribution_cpp.md">C++</a></li>
-</ul>
-<h2 id="further-information">Further information</h2>
-<ul>
-<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/quickstart">Setup and Explore Development Enviroment</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development/">Create a Vehicle App</a></li>
-</ul>
 
 </div>
 
@@ -918,372 +913,18 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ee57588137f3f92a95f31716940a499b">2.1 - C&#43;&#43; Manual Vehicle Model Creation</h1>
-    <div class="lead">Learn how to create a Vehicle Model manually for C++</div>
-	<p>Not yet done for C++</p>
+	<h1 id="pg-b739b86ab630d926fca95b542c42eb18">2.1 - Service Integration</h1>
+    <div class="lead">Learn how to integrate a Vehicle Service that executes the request on vehicle side</div>
+	<p>Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your <em>Vehicle App</em> makes use of e.g. <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code>, <code>Vehicle.Body.Lights.IsBackupOn</code>, <code>Vehicle.Body.Lights.IsHighBeamOn</code>, <code>Vehicle.Body.Lights.IsLowBeamOn</code> you are in for some real action. To learn more, visit <a href="/velocitas/docs/about/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>.</p>
+<p>You can validate the interaction of the service with your <em>Vehicle App</em> by adding a <em>Vehicle Service</em> to the <code>/app/AppManifest.json</code>, <a href="/velocitas/docs/tutorials/quickstart/#starting-runtime-services">start the services</a> locally and <a href="/velocitas/docs/tutorials/quickstart/#debugging-vehicle-app">debug</a> it.</p>
+<h3 id="modify-services">Modify services</h3>
+<p>For more advanced usage you can als try modifying existing services. Check out <a href="https://github.com/boschglobal/kuksa.val.services/tree/feature/subscribe_actuator_targets/seat_service" target="_blank" rel="noopener">the seat service</a> for example, modify it and integrate it into your <em>Vehicle App</em> repository.</p>
+<h3 id="create-your-own-services">Create your own services</h3>
+<p>If you want to create your own service the <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.val Services repository</a> contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to <em>KUKSA.val</em> listening to changes of a <em>target value</em> of some VSS datapoint and then do whatever you want. You can achieve this by using the <em>KUKSA.val</em> <a href="https://github.com/eclipse/kuksa.val/tree/master/proto/kuksa/val/v1" target="_blank" rel="noopener">GRPC API</a> with any programming language of your choice (learn more about <a href="https://grpc.io" target="_blank" rel="noopener">GRPC</a>).</p>
 
 </div>
 
 
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-462c93b46226b8caf4c20c95ceb7f112">2.2 - Python Manual Vehicle Model Creation</h1>
-    <div class="lead">Learn how to create a Vehicle Model manually for python</div>
-	<h2 id="setup-a-python-package-manually">Setup a Python Package manually</h2>
-<p>A <em>Vehicle Model</em> should be defined in its own Python Package. This allows to distribute the <em>Vehicle Model</em> later as a standalone package and to use it in different <em>Vehicle App</em> projects.</p>
-<p>The name of the <em>Vehicle Model</em> package will be <code>my_vehicle_model</code> for this walkthrough.</p>
-<ol>
-<li>
-<p>Start Visual Studio Code</p>
-</li>
-<li>
-<p>Select <strong>File &gt; Open Folder (File &gt; Open</strong>&hellip; on macOS) from the main menu.</p>
-</li>
-<li>
-<p>In the Open Folder dialog, create a <code>my_vehicle_model</code> folder and select it. Then click Select Folder (Open on macOS).</p>
-</li>
-<li>
-<p>Create a new file <code>setup.py</code> under <code>my_vehicle_model</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">setuptools</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">setup</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000">setup</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;my_vehicle_model&#39;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">version</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;0.1&#39;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">description</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;My Vehicle Model&#39;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">packages</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;my_vehicle_model&#39;</span><span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">zip_safe</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">False</span><span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><p>This is the Python package distribution script.</p>
-</li>
-<li>
-<p>Create an empty folder <code>my_vehicle_model</code> under <code>my_vehicle_model</code>.</p>
-</li>
-<li>
-<p>Create a new file <code>__init__.py</code> under <code>my_vehicle_model/my_vehicle_model</code>.</p>
-</li>
-</ol>
-<p>At this point the source tree of the Python package should look like this:</p>
-<pre tabindex="0"><code>my_vehicle_model
-├── my_vehicle_model
-│   └── __init__.py
-└── setup.py
-</code></pre><p>To verify that the package is created correctly, install it locally:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install .
-</span></span></code></pre></div><p>The output of the above command should look like this:</p>
-<pre tabindex="0"><code>Defaulting to user installation because normal site-packages is not writeable
-Processing /home/user/projects/my-vehicle-model
-Preparing metadata (setup.py) ... done
-Building wheels for collected packages: my-vehicle-model
-Building wheel for my-vehicle-model (setup.py) ... done
-Created wheel for my-vehicle-model: filename=my_vehicle_model-0.1-py3-none-any.whl size=1238 sha256=a619bc9fbea21d587f9f0b1c1c1134ca07e1d9d1fdc1a451da93d918723ce2a2
-Stored in directory: /home/user/.cache/pip/wheels/95/c8/a8/80545fb4ff73c974ac1716a7bff6f7f753f92022c41c2e376f
-Successfully built my-vehicle-model
-Installing collected packages: my-vehicle-model
-Successfully installed my-vehicle-model-0.1
-</code></pre><p>Finally, uninstall the package again:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 uninstall my_vehicle_model
-</span></span></code></pre></div><h2 id="add-vehicle-models-manually">Add Vehicle Models manually</h2>
-<ol>
-<li>
-<p>Install the Python Vehicle App SDK:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git
-</span></span></code></pre></div><p>The output of the above command should end with:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Successfully installed sdv-x.y.z
-</span></span></code></pre></div><p>Now it is time to add some <em>Vehicle Models</em> to the Python package. At the end of this section you will have a <em>Vehicle Model</em>, that contains a <code>Cabin</code> model, a <code>Seat</code>model and has the following tree structure:</p>
-<pre><code> Vehicle
- └── Cabin
-     └── Seat (Row, Pos)
-</code></pre>
-</li>
-<li>
-<p>Create a new file <code>Seat.py</code> under <code>my_vehicle_model/my_vehicle_model</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Model</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Model</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">parent</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">parent</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">DataPointFloat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Position&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><p>This creates the Seat model with a single data point of type <code>float</code> named <code>Position</code>.</p>
-</li>
-<li>
-<p>Create a new file <code>Cabin.py</code> under <code>my_vehicle_model/my_vehicle_model</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Model</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Model</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">parent</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">parent</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">SeatCollection</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Seat&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatCollection</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Model</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">parent</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">parent</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">RowType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Row1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">RowType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Row2&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">IndexError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Index </span><span style="color:#4e9a06">{</span><span style="color:#000">index</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> is out of range&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#000">_options</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">_options</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">RowType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Model</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">parent</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">parent</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Pos1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Pos2&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos3</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Pos3&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">IndexError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Index </span><span style="color:#4e9a06">{</span><span style="color:#000">index</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> is out of range&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#000">_options</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                  <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos3</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">_options</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><p>This creates the <code>Cabin</code> model, which contains a set of six <code>Seat</code> models, referenced by their names or by rows and positions:</p>
-<ul>
-<li>row=1, pos=1</li>
-<li>row=1, pos=2</li>
-<li>row=1, pos=3</li>
-<li>row=2, pos=1</li>
-<li>row=2, pos=2</li>
-<li>row=2, pos=3</li>
-</ul>
-</li>
-<li>
-<p>Create a new file <code>vehicle.py</code> under <code>my_vehicle_model/my_vehicle_model</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Model</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">my_vehicle_model.Cabin</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Cabin</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Model</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;&#34;&#34;Vehicle model&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Speed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">DataPointFloat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Speed&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Cabin&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000">vehicle</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Vehicle&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div></li>
-</ol>
-<p>The root model of the <em>Vehicle Model</em> tree should be called <em>Vehicle</em> by convention and is specified, by setting parent to <code>None</code>. For all other models a parent model must be specified as the 2nd argument of the <code>Model</code> constructor, as can be seen by the <code>Cabin</code> and the <code>Seat</code> models above.</p>
-<p>A singleton instance of the <em>Vehicle Model</em> called <code>vehicle</code> is created at the end of the file. This instance is supposed to be used in the <em>Vehicle Apps</em>. Creating multiple instances of the <em>Vehicle Model</em> should be avoided for performance reasons.</p>
-<h3 id="add-a-vehicle-service">Add a Vehicle Service</h3>
-<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
-<p>In this section, we add a <em>Vehicle Service</em> to the <em>Vehicle Model</em>.</p>
-<ol>
-<li>
-<p>Create a new folder <code>proto</code> under <code>my_vehicle_model/my_vehicle_model</code>.</p>
-</li>
-<li>
-<p>Copy your proto file under <code>my_vehicle_model/my_vehicle_model/proto</code></p>
-<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
-</li>
-<li>
-<p>Install the grpcio tools including mypy types to generate the python classes out of the proto-file:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install grpcio-tools mypy_protobuf
-</span></span></code></pre></div></li>
-<li>
-<p>Generate Python classes from the <code>SeatService</code> message definition:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m grpc_tools.protoc -I my_vehicle_model/proto --grpc_python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --mypy_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto my_vehicle_model/proto/seats.proto
-</span></span></code></pre></div><p>This creates the following grpc files under the <code>proto</code> folder:</p>
-<ul>
-<li>seats_pb2.py</li>
-<li>seats_pb2_grpc.py</li>
-<li>seats_pb2.pyi</li>
-</ul>
-</li>
-<li>
-<p>Create the <code>SeatService</code> class and wrap the gRPC service:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Service</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">my_vehicle_model.proto.seats_pb2</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">CurrentPositionRequest</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">MoveComponentRequest</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">MoveRequest</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">SeatComponent</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">SeatLocation</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">my_vehicle_model.proto.seats_pb2_grpc</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">SeatsStub</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;SeatService model&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_stub</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">SeatsStub</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Move</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">seat</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_stub</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Move</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">MoveRequest</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">seat</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">seat</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">metadata</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">metadata</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">MoveComponent</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">seatLocation</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">SeatLocation</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">component</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">SeatComponent</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_stub</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">MoveComponent</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000">MoveComponentRequest</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000">seat</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">seatLocation</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000">component</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">component</span><span style="color:#000;font-weight:bold">,</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#000">position</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">position</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">),</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000">metadata</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">metadata</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">CurrentPosition</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">row</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_stub</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentPosition</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000">CurrentPositionRequest</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">),</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000">metadata</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">metadata</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span>
-</span></span></code></pre></div><p>Some important remarks about the wrapping <code>SeatService</code> class
-shown above:</p>
-<ul>
-<li>The <code>SeatService</code> class must derive from the <code>Service</code> class provided by the Python SDK.</li>
-<li>The <code>SeatService</code> class must use the grpc channel from the <code>Service</code> base class and provide it to the <code>_stub</code> in the <code>__init__</code> method. This allows the SDK to manage the physical connection to the grpc service and use service discovery of the middleware.</li>
-<li>Every method needs to pass the metadata from the <code>Service</code> base class to the gRPC call. This is done by passing the <code>self.metadata</code> argument to the metadata of the gRPC call.</li>
-</ul>
-</li>
-</ol>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-1a3dba522d6fe6e7d0aeeb36dd6a67ce">2.3 - Vehicle Model Distribution</h1>
-    <div class="lead">Learn how to distribute a Vehicle Model.</div>
-	
-</div>
-
-
-
-    
-      
-  
-  
-  
-  
-
-  
-  
-
-  
-    
-    
-	
-    
-
-<div class="td-content" style="">
-    
-	<h1 id="pg-bfaa8fcd3b7a15bb51ae53c86657d272">2.3.1 - C&#43;&#43; Vehicle Model Distribution</h1>
-    <div class="lead">Learn how to distribute a Vehicle Model written in C++.</div>
-	<p>Now that you have created your own Vehicle Model, we can distribute it to make use of it in <em>Vehicle Apps</em>.</p>
-<h2 id="copying-the-folder-to-your-vehicle-app-repo">Copying the folder to your Vehicle App repo</h2>
-<p>The easiest way to get started quickly is to copy the created model, presumably stored in <code>vehicle_model</code> into your <em>Vehicle App</em> repository to use it. To do so, simply copy and paste the directory into the <code>&lt;sdk_root&gt;/app</code> directory and replace the existing model.</p>
-<h2 id="using-a-git-submodule">Using a git submodule</h2>
-<p>A similar approach to the one above but a bit more difficult to set up is to create a git repository for the created model. The advantage of this approach is that you can share the same model between multiple <em>Vehicle Apps</em> without any manual effort.</p>
-<ol>
-<li>Create a new git repository on i.e. <a href="github.com">Github</a></li>
-<li>Clone it locally, add the created <code>vehicle_model</code> folder to the git repository</li>
-<li>Commit everything and push the branch</li>
-</ol>
-<p>In your <em>Vehicle App</em> repo, add a new git submodule via</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add &lt;checkout URL of your new repo&gt; app/vehicle_model
-</span></span><span style="display:flex;"><span>git submodule init
-</span></span></code></pre></div><p>Now you are ready to develop new <em>Vehicle Apps</em> with your custom Vehicle Model!</p>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-b9aab03a5a8a9719e24203501290d935">2.3.2 - Python Vehicle Model Distribution</h1>
-    <div class="lead">Learn how to distribute a Vehicle Model written in Python.</div>
-	<p>Now you a have a Python package containing your first Python <em>Vehicle Model</em> and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the <a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener">Python Packaging User Guide</a> to learn more about packaging and package distribution in Python.</p>
-<h2 id="distribute-to-single-vehicle-app">Distribute to single Vehicle App</h2>
-<p>If you want to distribute your Python <em>Vehicle Model</em> to a single <em>Vehicle App</em>, you can do so by copying the entire folder <code>my_vehicle_model</code> under the <code>/app/src</code> folder of your <em>Vehicle App</em> repository and treat it as a sub-package of the <em>Vehicle App</em>.</p>
-<ol>
-<li>Create a new folder <code>my_vehicle_model</code> under <code>/app/src</code> in your <em>Vehicle App</em> repository.</li>
-<li>Copy the <code>my_vehicle_model</code> folder to the <code>/app/src</code> folder of your <em>Vehicle App</em> repository.</li>
-<li>Import the package <code>my_vehicle_model</code> in your <em>Vehicle App</em>:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">my_app</span><span style="color:#ce5c00;font-weight:bold">&gt;.</span><span style="color:#000">my_vehicle_model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">vehicle</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">...</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000">my_app</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">MyVehicleApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><h2 id="distribute-inside-an-organization">Distribute inside an organization</h2>
-<p>If you want to distribute your Python <em>Vehicle Model</em> inside an organization and use it to develop multiple <em>Vehicle Apps</em>, you can do so by creating a dedicated Git repository and copying the files there.</p>
-<ol>
-<li>
-<p>Create new Git repository called <code>my_vehicle_model</code></p>
-</li>
-<li>
-<p>Copy the content under <code>my_vehicle_model</code> to the repository.</p>
-</li>
-<li>
-<p>Release the <em>Vehicle Model</em> by creating a version tag (e.g., <code>v1.0.0</code>).</p>
-</li>
-<li>
-<p>Install the <em>Vehicle Model</em> package to your <em>Vehicle App</em>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000">pip3</span> <span style="color:#000">install</span> <span style="color:#000">git</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">https</span><span style="color:#000;font-weight:bold">:</span><span style="color:#ce5c00;font-weight:bold">//</span><span style="color:#000">github</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">com</span><span style="color:#ce5c00;font-weight:bold">/&lt;</span><span style="color:#000">yourorg</span><span style="color:#ce5c00;font-weight:bold">&gt;/</span><span style="color:#000">my_vehicle_model</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">git</span><span style="color:#5c35cc;font-weight:bold">@v1</span><span style="color:#0000cf;font-weight:bold">.0.0</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Import the package <code>my_vehicle_model</code> in your <em>Vehicle App</em> and use it as shown in the previous section.</p>
-</li>
-</ol>
-<h2 id="distribute-publicly-as-open-source">Distribute publicly as open source</h2>
-<p>If you want to distribute your Python <em>Vehicle Model</em> publicly, you can do so by creating a Python package and distributing it on the <a href="https://pypi.org/" target="_blank" rel="noopener">Python Package Index (PyPI)</a>. PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the <code>pip</code> command, you are already using PyPI.</p>
-<p>Detailed instructions on how to make a Python package available on PyPI can be found <a href="https://packaging.python.org/tutorials/packaging-projects/" target="_blank" rel="noopener">here</a>.</p>
-
-</div>
-
-
-
-    
-	
-  
 
     
 	
@@ -1924,7 +1565,499 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-af1e26e08e2411fd02427d07db1461fd">4 - Run Vehicle App Runtime Services</h1>
+	<h1 id="pg-6f8454d4f021c0578c44232252177174">4 - Vehicle Model Creation</h1>
+    <div class="lead">Learn how to create a Vehicle Model to access vehicle data or execute remote procedure calls.</div>
+	<p>A <em>Vehicle Model</em> makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against <em>Vehicle Services</em> and other <em>Vehicle Apps</em>. It is generated from the underlying semantic models for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library.</p>
+<p>This tutorial will show you how to:</p>
+<ul>
+<li>Create a <em>Vehicle Model</em></li>
+<li>Add a <em>Vehicle Service</em> to the <em>Vehicle Model</em></li>
+<li>Distribute your Python Vehicle Model</li>
+</ul>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    <p>A <em>Vehicle Model</em> should be defined in its own package. This makes it possible to distribute the <em>Vehicle Model</em> later as a standalone package and to use it in different <em>Vehicle App</em> projects.</p>
+<p>The creation of a new vehicle model is only required if the vehicle signals (like sensors and actuators) defined in the current version of the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification</a> (VSS) is not sufficient for the definition of your vehicle API. Otherwise you could use the default vehicle model we geneated for you, see <a href="https://github.com/eclipse-velocitas/vehicle-model-python" target="_blank" rel="noopener">Python Vehicle Model</a> and <a href="https://github.com/eclipse-velocitas/vehicle-model-cpp" target="_blank" rel="noopener">C++ Vehicle Model</a>.</p>
+
+
+</div>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank" rel="noopener">Python extension</a> installed. For information on how to install extensions on Visual Studio Code, see <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank" rel="noopener">VS Code Extension Marketplace</a>.</li>
+</ul>
+<h2 id="create-a-vehicle-model-from-vss-specification">Create a Vehicle Model from VSS specification</h2>
+<p>A <em>Vehicle Model</em> can be generated from a <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification</a> (VSS). VSS introduces a domain taxonomy for vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data. The Velocitas <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> creates a <em>Vehicle Model</em> from the given specification and generates a package for use in <em>Vehicle App</em> projects.</p>
+<p>Follow the steps to generate a <em>Vehicle Model</em>.</p>
+<ol>
+<li>
+<p>Clone the <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> repository in a container volume.</p>
+</li>
+<li>
+<p>In this container volume, clone the <a href="https://github.com/COVESA/vehicle_signal_specification" target="_blank" rel="noopener">vehicle-signal-specification</a> repository and if required checkout a particular branch:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/COVESA/vehicle_signal_specification
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">cd</span> vehicle_signal_specification
+</span></span><span style="display:flex;"><span>git checkout &lt;branch-name&gt;
+</span></span></code></pre></div><p>In case the VSS vspec doesn&rsquo;t contain the required signals, you can create a vspec using the <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/" target="_blank" rel="noopener">VSS Rule Set</a>.</p>
+</li>
+<li>
+<p>Execute the command</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 gen_vehicle_model.py -I ./vehicle_signal_specification/spec ./vehicle_signal_specification/spec/VehicleSignalSpecification.vspec -l &lt;lang&gt; -T sdv_model -N sdv_model
+</span></span></code></pre></div><p>Depending on the value of <code>lang</code>, which can assume the values <code>python</code> and <code>cpp</code>, this creates a <code>sdv_model</code> directory in the root of repository along with all generated source files for the given programming language.</p>
+<p>Here is an overview of what is generated for every available value of <code>lang</code>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">lang</th>
+<th style="text-align:left">output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>python</code></td>
+<td style="text-align:left">python sources and a <code>setup.py</code> ready to be used as python package</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>cpp</code></td>
+<td style="text-align:left">c++ sources, headers and a CMakeLists.txt ready to be used as a CMake project</td>
+</tr>
+</tbody>
+</table>
+<p>To have a custom model name, refer to README of <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> repository.</p>
+</li>
+<li>
+<p>For python: Change the version of package in <code>setup.py</code> manually (defaults to 0.1.0).</p>
+</li>
+<li>
+<p>Now the newly generated <code>sdv_model</code> can be used for distribution. (See <a href="/velocitas/docs/tutorials/vehicle_model_distribution">Distributing your Vehicle Model</a>)</p>
+</li>
+</ol>
+<h2 id="create-a-vehicle-model-manually">Create a Vehicle Model Manually</h2>
+<p>Alternative to the generation from a VSS specification you could create the <em>Vehicle Model</em> manually. The following sections describing the required steps.</p>
+<ul>
+<li><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/manual_creation_python/">Python</a></li>
+</ul>
+<h2 id="distributing-your-vehicle-model">Distributing your Vehicle Model</h2>
+<p>Once you have created your Vehicle Model either manually or via the Vehicle Model Generator, you need to distribute your model to use it in an application. Follow the links below for language specific tutorials on how to distribute your freshly created Vehicle Model.</p>
+<ul>
+<li><a href="/velocitas/docs/tutorials/how_to_create_a_vehicle_model/distribution_python.md">Python</a></li>
+<li><a href="/velocitas/docs/tutorials/how_to_create_a_vehicle_model/distribution_cpp.md">C++</a></li>
+</ul>
+<h2 id="further-information">Further information</h2>
+<ul>
+<li>Concept: <a href="/velocitas/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/quickstart">Setup and Explore Development Enviroment</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development/">Create a Vehicle App</a></li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ee57588137f3f92a95f31716940a499b">4.1 - C&#43;&#43; Manual Vehicle Model Creation</h1>
+    <div class="lead">Learn how to create a Vehicle Model manually for C++</div>
+	<p>Not yet done for C++</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-462c93b46226b8caf4c20c95ceb7f112">4.2 - Python Manual Vehicle Model Creation</h1>
+    <div class="lead">Learn how to create a Vehicle Model manually for python</div>
+	<h2 id="setup-a-python-package-manually">Setup a Python Package manually</h2>
+<p>A <em>Vehicle Model</em> should be defined in its own Python Package. This allows to distribute the <em>Vehicle Model</em> later as a standalone package and to use it in different <em>Vehicle App</em> projects.</p>
+<p>The name of the <em>Vehicle Model</em> package will be <code>my_vehicle_model</code> for this walkthrough.</p>
+<ol>
+<li>
+<p>Start Visual Studio Code</p>
+</li>
+<li>
+<p>Select <strong>File &gt; Open Folder (File &gt; Open</strong>&hellip; on macOS) from the main menu.</p>
+</li>
+<li>
+<p>In the Open Folder dialog, create a <code>my_vehicle_model</code> folder and select it. Then click Select Folder (Open on macOS).</p>
+</li>
+<li>
+<p>Create a new file <code>setup.py</code> under <code>my_vehicle_model</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">setuptools</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">setup</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">setup</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;my_vehicle_model&#39;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">version</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;0.1&#39;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">description</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;My Vehicle Model&#39;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">packages</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;my_vehicle_model&#39;</span><span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">zip_safe</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">False</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>This is the Python package distribution script.</p>
+</li>
+<li>
+<p>Create an empty folder <code>my_vehicle_model</code> under <code>my_vehicle_model</code>.</p>
+</li>
+<li>
+<p>Create a new file <code>__init__.py</code> under <code>my_vehicle_model/my_vehicle_model</code>.</p>
+</li>
+</ol>
+<p>At this point the source tree of the Python package should look like this:</p>
+<pre tabindex="0"><code>my_vehicle_model
+├── my_vehicle_model
+│   └── __init__.py
+└── setup.py
+</code></pre><p>To verify that the package is created correctly, install it locally:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install .
+</span></span></code></pre></div><p>The output of the above command should look like this:</p>
+<pre tabindex="0"><code>Defaulting to user installation because normal site-packages is not writeable
+Processing /home/user/projects/my-vehicle-model
+Preparing metadata (setup.py) ... done
+Building wheels for collected packages: my-vehicle-model
+Building wheel for my-vehicle-model (setup.py) ... done
+Created wheel for my-vehicle-model: filename=my_vehicle_model-0.1-py3-none-any.whl size=1238 sha256=a619bc9fbea21d587f9f0b1c1c1134ca07e1d9d1fdc1a451da93d918723ce2a2
+Stored in directory: /home/user/.cache/pip/wheels/95/c8/a8/80545fb4ff73c974ac1716a7bff6f7f753f92022c41c2e376f
+Successfully built my-vehicle-model
+Installing collected packages: my-vehicle-model
+Successfully installed my-vehicle-model-0.1
+</code></pre><p>Finally, uninstall the package again:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 uninstall my_vehicle_model
+</span></span></code></pre></div><h2 id="add-vehicle-models-manually">Add Vehicle Models manually</h2>
+<ol>
+<li>
+<p>Install the Python Vehicle App SDK:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git
+</span></span></code></pre></div><p>The output of the above command should end with:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Successfully installed sdv-x.y.z
+</span></span></code></pre></div><p>Now it is time to add some <em>Vehicle Models</em> to the Python package. At the end of this section you will have a <em>Vehicle Model</em>, that contains a <code>Cabin</code> model, a <code>Seat</code>model and has the following tree structure:</p>
+<pre><code> Vehicle
+ └── Cabin
+     └── Seat (Row, Pos)
+</code></pre>
+</li>
+<li>
+<p>Create a new file <code>Seat.py</code> under <code>my_vehicle_model/my_vehicle_model</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Model</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Model</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">parent</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">parent</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">DataPointFloat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Position&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>This creates the Seat model with a single data point of type <code>float</code> named <code>Position</code>.</p>
+</li>
+<li>
+<p>Create a new file <code>Cabin.py</code> under <code>my_vehicle_model/my_vehicle_model</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Model</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Model</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">parent</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">parent</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">SeatCollection</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Seat&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatCollection</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Model</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">parent</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">parent</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">RowType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Row1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">RowType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Row2&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">IndexError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Index </span><span style="color:#4e9a06">{</span><span style="color:#000">index</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> is out of range&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000">_options</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">_options</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">RowType</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Model</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">parent</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">parent</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Pos1&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Pos2&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos3</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Pos3&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">index</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">IndexError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Index </span><span style="color:#4e9a06">{</span><span style="color:#000">index</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> is out of range&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000">_options</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos3</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">_options</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>This creates the <code>Cabin</code> model, which contains a set of six <code>Seat</code> models, referenced by their names or by rows and positions:</p>
+<ul>
+<li>row=1, pos=1</li>
+<li>row=1, pos=2</li>
+<li>row=1, pos=3</li>
+<li>row=2, pos=1</li>
+<li>row=2, pos=2</li>
+<li>row=2, pos=3</li>
+</ul>
+</li>
+<li>
+<p>Create a new file <code>vehicle.py</code> under <code>my_vehicle_model/my_vehicle_model</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Model</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">my_vehicle_model.Cabin</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Cabin</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Model</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;&#34;&#34;Vehicle model&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">name</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">name</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Speed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">DataPointFloat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Speed&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Cabin&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">vehicle</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Vehicle&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div></li>
+</ol>
+<p>The root model of the <em>Vehicle Model</em> tree should be called <em>Vehicle</em> by convention and is specified, by setting parent to <code>None</code>. For all other models a parent model must be specified as the 2nd argument of the <code>Model</code> constructor, as can be seen by the <code>Cabin</code> and the <code>Seat</code> models above.</p>
+<p>A singleton instance of the <em>Vehicle Model</em> called <code>vehicle</code> is created at the end of the file. This instance is supposed to be used in the <em>Vehicle Apps</em>. Creating multiple instances of the <em>Vehicle Model</em> should be avoided for performance reasons.</p>
+<h3 id="add-a-vehicle-service">Add a Vehicle Service</h3>
+<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
+<p>In this section, we add a <em>Vehicle Service</em> to the <em>Vehicle Model</em>.</p>
+<ol>
+<li>
+<p>Create a new folder <code>proto</code> under <code>my_vehicle_model/my_vehicle_model</code>.</p>
+</li>
+<li>
+<p>Copy your proto file under <code>my_vehicle_model/my_vehicle_model/proto</code></p>
+<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
+</li>
+<li>
+<p>Install the grpcio tools including mypy types to generate the python classes out of the proto-file:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install grpcio-tools mypy_protobuf
+</span></span></code></pre></div></li>
+<li>
+<p>Generate Python classes from the <code>SeatService</code> message definition:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m grpc_tools.protoc -I my_vehicle_model/proto --grpc_python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --mypy_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto my_vehicle_model/proto/seats.proto
+</span></span></code></pre></div><p>This creates the following grpc files under the <code>proto</code> folder:</p>
+<ul>
+<li>seats_pb2.py</li>
+<li>seats_pb2_grpc.py</li>
+<li>seats_pb2.pyi</li>
+</ul>
+</li>
+<li>
+<p>Create the <code>SeatService</code> class and wrap the gRPC service:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Service</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">my_vehicle_model.proto.seats_pb2</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">CurrentPositionRequest</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">MoveComponentRequest</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">MoveRequest</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">SeatComponent</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">SeatLocation</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">my_vehicle_model.proto.seats_pb2_grpc</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">SeatsStub</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;SeatService model&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_stub</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">SeatsStub</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">channel</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">Move</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">seat</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_stub</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Move</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">MoveRequest</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">seat</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">seat</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">metadata</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">metadata</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">MoveComponent</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">seatLocation</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">SeatLocation</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">component</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">SeatComponent</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_stub</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">MoveComponent</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">MoveComponentRequest</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">seat</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">seatLocation</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">component</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">component</span><span style="color:#000;font-weight:bold">,</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000">position</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">position</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">metadata</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">metadata</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">CurrentPosition</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">row</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_stub</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentPosition</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">CurrentPositionRequest</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">),</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">metadata</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">metadata</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span>
+</span></span></code></pre></div><p>Some important remarks about the wrapping <code>SeatService</code> class
+shown above:</p>
+<ul>
+<li>The <code>SeatService</code> class must derive from the <code>Service</code> class provided by the Python SDK.</li>
+<li>The <code>SeatService</code> class must use the grpc channel from the <code>Service</code> base class and provide it to the <code>_stub</code> in the <code>__init__</code> method. This allows the SDK to manage the physical connection to the grpc service and use service discovery of the middleware.</li>
+<li>Every method needs to pass the metadata from the <code>Service</code> base class to the gRPC call. This is done by passing the <code>self.metadata</code> argument to the metadata of the gRPC call.</li>
+</ul>
+</li>
+</ol>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1a3dba522d6fe6e7d0aeeb36dd6a67ce">4.3 - Vehicle Model Distribution</h1>
+    <div class="lead">Learn how to distribute a Vehicle Model.</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-bfaa8fcd3b7a15bb51ae53c86657d272">4.3.1 - C&#43;&#43; Vehicle Model Distribution</h1>
+    <div class="lead">Learn how to distribute a Vehicle Model written in C++.</div>
+	<p>Now that you have created your own Vehicle Model, we can distribute it to make use of it in <em>Vehicle Apps</em>.</p>
+<h2 id="copying-the-folder-to-your-vehicle-app-repo">Copying the folder to your Vehicle App repo</h2>
+<p>The easiest way to get started quickly is to copy the created model, presumably stored in <code>vehicle_model</code> into your <em>Vehicle App</em> repository to use it. To do so, simply copy and paste the directory into the <code>&lt;sdk_root&gt;/app</code> directory and replace the existing model.</p>
+<h2 id="using-a-git-submodule">Using a git submodule</h2>
+<p>A similar approach to the one above but a bit more difficult to set up is to create a git repository for the created model. The advantage of this approach is that you can share the same model between multiple <em>Vehicle Apps</em> without any manual effort.</p>
+<ol>
+<li>Create a new git repository on i.e. <a href="github.com">Github</a></li>
+<li>Clone it locally, add the created <code>vehicle_model</code> folder to the git repository</li>
+<li>Commit everything and push the branch</li>
+</ol>
+<p>In your <em>Vehicle App</em> repo, add a new git submodule via</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add &lt;checkout URL of your new repo&gt; app/vehicle_model
+</span></span><span style="display:flex;"><span>git submodule init
+</span></span></code></pre></div><p>Now you are ready to develop new <em>Vehicle Apps</em> with your custom Vehicle Model!</p>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b9aab03a5a8a9719e24203501290d935">4.3.2 - Python Vehicle Model Distribution</h1>
+    <div class="lead">Learn how to distribute a Vehicle Model written in Python.</div>
+	<p>Now you a have a Python package containing your first Python <em>Vehicle Model</em> and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the <a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener">Python Packaging User Guide</a> to learn more about packaging and package distribution in Python.</p>
+<h2 id="distribute-to-single-vehicle-app">Distribute to single Vehicle App</h2>
+<p>If you want to distribute your Python <em>Vehicle Model</em> to a single <em>Vehicle App</em>, you can do so by copying the entire folder <code>my_vehicle_model</code> under the <code>/app/src</code> folder of your <em>Vehicle App</em> repository and treat it as a sub-package of the <em>Vehicle App</em>.</p>
+<ol>
+<li>Create a new folder <code>my_vehicle_model</code> under <code>/app/src</code> in your <em>Vehicle App</em> repository.</li>
+<li>Copy the <code>my_vehicle_model</code> folder to the <code>/app/src</code> folder of your <em>Vehicle App</em> repository.</li>
+<li>Import the package <code>my_vehicle_model</code> in your <em>Vehicle App</em>:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">my_app</span><span style="color:#ce5c00;font-weight:bold">&gt;.</span><span style="color:#000">my_vehicle_model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">vehicle</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">my_app</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">MyVehicleApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h2 id="distribute-inside-an-organization">Distribute inside an organization</h2>
+<p>If you want to distribute your Python <em>Vehicle Model</em> inside an organization and use it to develop multiple <em>Vehicle Apps</em>, you can do so by creating a dedicated Git repository and copying the files there.</p>
+<ol>
+<li>
+<p>Create new Git repository called <code>my_vehicle_model</code></p>
+</li>
+<li>
+<p>Copy the content under <code>my_vehicle_model</code> to the repository.</p>
+</li>
+<li>
+<p>Release the <em>Vehicle Model</em> by creating a version tag (e.g., <code>v1.0.0</code>).</p>
+</li>
+<li>
+<p>Install the <em>Vehicle Model</em> package to your <em>Vehicle App</em>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#000">pip3</span> <span style="color:#000">install</span> <span style="color:#000">git</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">https</span><span style="color:#000;font-weight:bold">:</span><span style="color:#ce5c00;font-weight:bold">//</span><span style="color:#000">github</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">com</span><span style="color:#ce5c00;font-weight:bold">/&lt;</span><span style="color:#000">yourorg</span><span style="color:#ce5c00;font-weight:bold">&gt;/</span><span style="color:#000">my_vehicle_model</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">git</span><span style="color:#5c35cc;font-weight:bold">@v1</span><span style="color:#0000cf;font-weight:bold">.0.0</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Import the package <code>my_vehicle_model</code> in your <em>Vehicle App</em> and use it as shown in the previous section.</p>
+</li>
+</ol>
+<h2 id="distribute-publicly-as-open-source">Distribute publicly as open source</h2>
+<p>If you want to distribute your Python <em>Vehicle Model</em> publicly, you can do so by creating a Python package and distributing it on the <a href="https://pypi.org/" target="_blank" rel="noopener">Python Package Index (PyPI)</a>. PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the <code>pip</code> command, you are already using PyPI.</p>
+<p>Detailed instructions on how to make a Python package available on PyPI can be found <a href="https://packaging.python.org/tutorials/packaging-projects/" target="_blank" rel="noopener">here</a>.</p>
+
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-af1e26e08e2411fd02427d07db1461fd">5 - Run Vehicle App Runtime Services</h1>
     <div class="lead">Learn how to run the  Vehicle App Runtime Services locally or in Kubernetes.</div>
 	
 </div>
@@ -1949,7 +2082,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 
 <div class="td-content" style="">
     
-	<h1 id="pg-21a49bbb7f31d56a4183e92841b43364">4.1 - Run runtime services locally</h1>
+	<h1 id="pg-21a49bbb7f31d56a4183e92841b43364">5.1 - Run runtime services locally</h1>
     
 	<h2 id="using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</h2>
 <p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are available for local execution as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>.</p>
@@ -2064,7 +2197,7 @@ A new service can be easily started by calling it from bash script, however rest
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-6c0f92a29289f1cf2b52a16ab29a6404">4.2 - Run runtime services in Kubernetes</h1>
+	<h1 id="pg-6c0f92a29289f1cf2b52a16ab29a6404">5.2 - Run runtime services in Kubernetes</h1>
     
 	<p>Besides <a href="/velocitas/docs/run_runtime_services_locally.md">local execution</a> of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>.</p>
 <p><strong>Quick Start:</strong> Each step has a task that is defined in <em>.vscode/tasks.json</em>:</p>
@@ -2133,7 +2266,7 @@ All the files that are located in <code>deploy/runtime/k3d/volume</code> will be
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-bd5d2fada9d4690d2d19153cda021984">5 - Vehicle App Integration Testing</h1>
+	<h1 id="pg-bd5d2fada9d4690d2d19153cda021984">6 - Vehicle App Integration Testing</h1>
     <div class="lead">Learn how to test that a Vehicle App together with the KUKSA Data Broker and potentially other dependant Vehicle Services or Vehicle Apps runs as expected.</div>
 	<p>To be sure that a newly created <em>Vehicle App</em> will run together with the <em>KUKSA Data Broker</em> and potentially other dependant <em>Vehicle Services</em> or <em>Vehicle Apps</em>, it&rsquo;s essential to write integration tests along with developing the app.</p>
 <p>To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.</p>
@@ -2261,7 +2394,7 @@ All the files that are located in <code>deploy/runtime/k3d/volume</code> will be
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c00f710a2154467bd207fbd4d2835c70">6 - Vehicle App Deployment with Helm</h1>
+	<h1 id="pg-c00f710a2154467bd207fbd4d2835c70">7 - Vehicle App Deployment with Helm</h1>
     <div class="lead">Learn how to prepare a Helm chart for the deployment of a Vehicle App.</div>
 	<p>This tutorial will show you how to:</p>
 <ul>

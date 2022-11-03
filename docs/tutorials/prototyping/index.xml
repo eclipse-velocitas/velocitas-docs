@@ -1,0 +1,37 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Velocitas – Prototyping Integration</title>
+    <link>/velocitas/docs/tutorials/prototyping/</link>
+    <description>Recent content in Prototyping Integration on Velocitas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 02 Nov 2022 10:09:25 +0530</lastBuildDate>
+    
+	  <atom:link href="/velocitas/docs/tutorials/prototyping/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Service Integration</title>
+      <link>/velocitas/docs/tutorials/prototyping/service_integration/</link>
+      <pubDate>Wed, 02 Nov 2022 10:09:25 +0530</pubDate>
+      
+      <guid>/velocitas/docs/tutorials/prototyping/service_integration/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your &lt;em&gt;Vehicle App&lt;/em&gt; makes use of e.g. &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt;, &lt;code&gt;Vehicle.Body.Lights.IsBackupOn&lt;/code&gt;, &lt;code&gt;Vehicle.Body.Lights.IsHighBeamOn&lt;/code&gt;, &lt;code&gt;Vehicle.Body.Lights.IsLowBeamOn&lt;/code&gt; you are in for some real action. To learn more, visit &lt;a href=&#34;/velocitas/velocitas/docs/about/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can validate the interaction of the service with your &lt;em&gt;Vehicle App&lt;/em&gt; by adding a &lt;em&gt;Vehicle Service&lt;/em&gt; to the &lt;code&gt;/app/AppManifest.json&lt;/code&gt;, &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart/#starting-runtime-services&#34;&gt;start the services&lt;/a&gt; locally and &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart/#debugging-vehicle-app&#34;&gt;debug&lt;/a&gt; it.&lt;/p&gt;
+&lt;h3 id=&#34;modify-services&#34;&gt;Modify services&lt;/h3&gt;
+&lt;p&gt;For more advanced usage you can als try modifying existing services. Check out &lt;a href=&#34;https://github.com/boschglobal/kuksa.val.services/tree/feature/subscribe_actuator_targets/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the seat service&lt;/a&gt; for example, modify it and integrate it into your &lt;em&gt;Vehicle App&lt;/em&gt; repository.&lt;/p&gt;
+&lt;h3 id=&#34;create-your-own-services&#34;&gt;Create your own services&lt;/h3&gt;
+&lt;p&gt;If you want to create your own service the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA.val Services repository&lt;/a&gt; contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to &lt;em&gt;KUKSA.val&lt;/em&gt; listening to changes of a &lt;em&gt;target value&lt;/em&gt; of some VSS datapoint and then do whatever you want. You can achieve this by using the &lt;em&gt;KUKSA.val&lt;/em&gt; &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/proto/kuksa/val/v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GRPC API&lt;/a&gt; with any programming language of your choice (learn more about &lt;a href=&#34;https://grpc.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GRPC&lt;/a&gt;).&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
