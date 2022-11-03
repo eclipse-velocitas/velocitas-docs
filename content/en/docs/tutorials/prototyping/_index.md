@@ -1,9 +1,9 @@
 ---
-title: "Prototyping"
+title: "Prototyping integration"
 date: 2022-11-02T10:09:25+05:30
 weight: 2
 description: >
-    Learn how to prototype with the playground.digital.auto integration.
+    Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.
 ---
 
 The open and web based [playground.digital.auto](https://digitalauto.netlify.app/) offers a rapid prototyping environment to explore and validate ideas of a vehicle app which interact with different vehicle sensors and actuators via standardized APIs specified by the COVESA [Vehicle Signal Specification (VSS)](https://covesa.github.io/vehicle_signal_specification/introduction/) without custom setup requirements. It provides the opportunity:
@@ -43,4 +43,30 @@ To get started quickly, the digital.auto team has added a number of widgets to s
 
 Feel free to add your own Plugins with addition widgets for additional car features (maybe an antenna waving a warm “welcome”…?).
 
-## Next steps
+## Transfer your prototype into a Velocitas Vehicle App
+
+In the previous step you started with envision and prototyping your Vehicle App idea and tested it against mocked vehicle components in Digital.Auto. To transfer the prototype from [playground.digital.auto](https://digitalauto.netlify.app/) to your development environment and test it with real [_Vehicle Services_]({{< ref "/docs/about/development_model/val/#vehicle-services" >}}) we provide a project generator. This generator allows you to generate a Vehicle App GitHub repository using your prototype code based on our [vehicle-app-python-template](https://github.com/eclipse-velocitas/vehicle-app-python-template).
+
+In the 'Code' section of your prototype in the [playground.digital.auto](https://digitalauto.netlify.app/) you have the Button 'Create Eclipse Velocitas Project'.
+
+If you press this button you will be forwarded to [GitHub](https://github.com/) to login with your GitHub Account and authorize _velocitas-project-generator_ to create the repository for you. After you authorized the project generator you will be redirected to the [playground.digital.auto](https://digitalauto.netlify.app/) and asked for a repository name (Which also is the app's name). After pressing "Create repository" the project generator takes over your prototype code, adapts it to the structure in the [vehicle-app-python-template](https://github.com/eclipse-velocitas/vehicle-app-python-template) and creates a new private repository under your GitHub User.
+
+![generate](./generate.png)
+
+{{% alert title="Note" %}}
+If you would like to know what exactly the generator is doing, please have a look in the code: [velocitas-project-generator-npm](https://github.com/eclipse-velocitas/velocitas-project-generator-npm).
+{{% /alert %}}
+
+After the generation of the repository is completed a pop-up dialogue with the URL of your repository will be displayed. Among other things the newly created repository will contain:
+
+- _/app/src/main.py_ containing your modified prototype code
+- _/app/AppManifest.json_ with definition of required services
+- _/app/requirements.txt_ with definition of dependencies
+- _/.devcontainer_/ required scripts to install every prerequisite in Microsoft Visual Studio Code
+- _/.github/workflows/_ with all required CI/CD pipelines to build, test and deploy the vehicle application as container image to the GitHub container registry
+
+Your prototype Vehicle App transferred into a GitHub repository is now ready to be extended. Clone your newly created repository and open the Vehicle Appl in Microsoft Visual Studio Code. Detailed information you can find here: [Starting development environment](https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment)
+
+{{% alert title="Note" %}}
+By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a [GitHub advanced security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) license in your org or if your repository is public. To do so: Go to your repository settings -> General -> Danger Zone (at the bottom) -> Change repository visibility -> Change visibility to public.
+{{% /alert %}}
