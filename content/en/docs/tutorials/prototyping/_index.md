@@ -51,7 +51,6 @@ In the 'Code' section of your prototype in the [playground.digital.auto](https:/
 ![generate](./generate.png)
 If you press this button you will be forwarded to [GitHub](https://github.com/) to login with your GitHub Account and authorize _velocitas-project-generator_ to create the repository for you. After you authorized the project generator you will be redirected to the [playground.digital.auto](https://digitalauto.netlify.app/) and asked for a repository name (Which also is the app's name). After pressing "Create repository" the project generator takes over your prototype code, adapts it to the structure in the [vehicle-app-python-template](https://github.com/eclipse-velocitas/vehicle-app-python-template) and creates a new private repository under your GitHub User.
 
-![generate](./generate.png)
 
 {{% alert title="Note" %}}
 If you would like to know what exactly the generator is doing, please have a look in the code: [velocitas-project-generator-npm](https://github.com/eclipse-velocitas/velocitas-project-generator-npm).
