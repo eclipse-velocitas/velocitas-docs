@@ -141,30 +141,31 @@ If you want to get notified about changes of a specific `Datapoint`, you can sub
         )
 ```
 
-Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective *DataPointReply* object and are accessed by the reference of the subscribed datapoint.
-Therefore the `on_seat_position_changed` callback function needs to be implemented:
+Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective *DataPointReply* object and need to be accessed via the reference to the subscribed datapoint. The returned object is of type `TypedDataPointResult` which holds the `value` of the data point
+and the `timestamp` at which the value was captured by the data broker.
+Therefore the `on_seat_position_changed` callback function needs to be implemented like this:
 
 ```Python
     async def on_seat_position_changed(self, data: DataPointReply):
         # handle the event here
         response_topic = "seatadjuster/currentPosition"
-        position = data.get(self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position)
+        position = data.get(self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position).value
         # ...
 ```
 
 {{% alert title="Note" %}}
-The SDK also supports annotations for subscribing to datapoint changes  with`@subscribe_data_points` defined by the whole path to the `Datapoint` of interest.
+The SDK also supports annotations for subscribing to datapoint changes with `@subscribe_data_points` defined by the whole path to the `Datapoint` of interest.
 
 ```Python
 @subscribe_data_points("Vehicle.Cabin.Seat.Row1.Pos1.Position")
 async def on_vehicle_seat_change(self, data: DataPointReply):
     response_topic = "seatadjuster/currentPosition"
-    response_data = {"position": data.get(self.Vehicle.Cabin.Seat.Row1.Pos1.Position)}
+    response_data = {"position": data.get(self.Vehicle.Cabin.Seat.Row1.Pos1.Position).value}
 
     await self.publish_mqtt_event(response_topic, json.dumps(response_data))
 ```
 
-Similarly, subscribed data is available in the respective *DataPointReply* object and are accessed by the reference of the subscribed datapoint.
+Similarly, subscribed data is available in the respective *DataPointReply* object and needs to be accessed via the reference to the subscribed datapoint.
 {{% /alert %}}
 
 ## Services
@@ -210,7 +211,7 @@ In order to publish data to topics, the SDK provides the appropriate convenience
 ```Python
     async def on_seat_position_changed(self, data: DataPointReply):
         response_topic = "seatadjuster/currentPosition"
-        position = data.get(self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position)
+        position = data.get(self.Vehicle.Cabin.Seat.Row(1).Pos(1).Position).value
         await self.publish_mqtt_event(
             response_topic,
             json.dumps({"position": position}),

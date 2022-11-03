@@ -105,23 +105,23 @@ As you know, the model has a single [Datapoint](/docs/about/development_model/ve
 Accessing the speed can be done via
 
 ```Cpp
-auto vehicleSpeedBlocking = getDataPoints({Vehicle.Speed})->await();
-getDataPoints({Vehicle.Speed})->onResult([](auto vehicleSpeed){
+auto vehicleSpeedBlocking = getDataPoint(Vehicle.Speed)->await();
+getDataPoint(Vehicle.Speed)->onResult([](auto vehicleSpeed){
     logger().info("Got speed!");
 })
 ```
 
-`getDatapoint()` returns a `shared_ptr` to an `AsyncResult` which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use `await()` and block the calling thread until a result is available or use `onResult(...)` which allows us to inject a function pointer or a lambda which is called once the result becomes available.
+`getDataPoint()` returns a `shared_ptr` to an `AsyncResult` which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use `await()` and block the calling thread until a result is available or use `onResult(...)` which allows us to inject a function pointer or a lambda which is called once the result becomes available.
 
 If you want to get deeper inside the vehicle, to access a single seat for example, you just have to go the model-chain down:
 
 ```Cpp
-auto driverSeatPosition = getDatapoint(m_vehicle->Cabin.Seat.Row(1).Pos(1).Position.getPath())->await();
+auto driverSeatPosition = getDataPoint(Vehicle.Cabin.Seat.Row(1).Pos(1).Position)->await();
 ```
 
 ## Subscription to Datapoints
 
-If you want to get notified about changes of a specific `Datapoint`, you can subscribe to this event, e.g. as part of the `onStart`-method in your app.
+If you want to get notified about changes of a specific `DataPoint`, you can subscribe to this event, e.g. as part of the `onStart`-method in your app.
 
 ```Cpp
 void onStart() override {
@@ -130,9 +130,9 @@ void onStart() override {
         ->onError([this](auto&& status) { onError(std::forward<decltype(status)>(status)); });
 }
 
-void onSeatPositionChanged(const DataPointMap_t& dataPoints) {
-    const auto dataPoint = dataPoints.at(Vehicle.Cabin.Seat.Row(1).Pos(1).Position.getPath());
-    logger().info(dataPoint->asUint32().get());
+void onSeatPositionChanged(const DataPointsResult& result) {
+    const auto dataPoint = result.get(Vehicle.Cabin.Seat.Row(1).Pos(1).Position);
+    logger().info(dataPoint->value());
     // do something with the data point value
 }
 
@@ -140,7 +140,7 @@ void onSeatPositionChanged(const DataPointMap_t& dataPoints) {
 
 The `VehicleApp` class provides the `subscribeDataPoints`-method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via `AsyncSubscription::onItem` is called. Conversely, the callback registered via `AsyncSubscription::onError` is called once there is any error during communication with the KUKSA data broker.
 
-The result passed to the callback registered via `onItem` is a map of data points containing all data points that have changed. Individual data points can be accessed via their respective path within the vehicle model (i.e. `Vehile.Cabin.Seat.Row(1).Pos(1).Position.getPath()`)
+The result passed to the callback registered via `onItem` is an object of type `DataPointsResult` which holds all data points that have changed. Individual data points can be accessed directly by their reference: `result.get(Vehicle.Cabin.Seat.Row(1).Pos(1).Position)`)
 
 ## Services
 
@@ -186,10 +186,9 @@ The `onSetPositionRequestReceived` method will now be invoked every time a messa
 In order to publish data to other subscribers, the SDK provides the appropriate convenience method: `VehicleApp::publishToTopic(...)`
 
 ```Cpp
-void MyVehicleApp::onSeatPositionChanged(const DataPointMap_t& dataPoints):
+void MyVehicleApp::onSeatPositionChanged(const DataPointsResult& result):
     const auto responseTopic = "seatadjuster/currentPosition";
-    const auto seatPath = Vehicle.Cabin.Seat.Row(1).Pos(1).Position.getPath();
-    nlohmann::json respData({"position": dataPoints.at(seatPath).asUint32().get()});
+    nlohmann::json respData({"position": result.get(Vehicle.Cabin.Seat.Row(1).Pos(1).Position)->value()});
 
     publishToTopic(
         responseTopic,
