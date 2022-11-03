@@ -134,7 +134,7 @@ deploy
 
 ### Prerequisites
 
-- A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/run_runtime_services_kubernetes.md).
+- A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/run_runtime_services_kubernetes).
 
 After the Helm chart has been prepared, you can deploy it to local K3D.
 Execute the script:
