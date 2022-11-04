@@ -66,6 +66,29 @@ Your prototype _Vehicle App_ transferred into a GitHub repository is now ready t
 - [Starting development environment](https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment)
 - [Vehicle App Development](<https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/>)
 
-{{% alert title="Note" %}}
-By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a [GitHub advanced security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) license in your org or if your repository is public. To do so: Go to your repository settings -> General -> Danger Zone (at the bottom) -> Change repository visibility -> Change visibility to public.
+{{% alert title="CodeQL Analysis" %}}
+By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a [GitHub advanced security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) license in your org or if your repository is public. To change visibility: Go to your repository settings -> General -> Danger Zone (at the bottom) -> Change repository visibility -> Change visibility to public.
+{{% /alert %}}
+
+{{% alert title="Disable Linters in CI" %}}
+[playground.digital.auto](https://digitalauto.netlify.app/) does not include automated code formatting/linting.\
+To avoid failing CI workflows due to linting errors in your new repository you have two options:
+
+- Fix linting issues manually by running the linter in Visual Studio Code
+- Comment out following lines in `./.github/workflows/ci.yml`
+
+```yaml
+      - name: Run Linters
+        uses: ./.github/actions/pre-commit-action
+```
+
+{{% /alert %}}
+
+{{% alert color="warning" title="Manual Adaptions" %}}
+Since the project-generator identifies typical python syntax and patterns out of the prototype there could be several cases where manual code adaptions cannot be excluded.\
+Most of the prototype code is extracted into the `on_start`-method of velocitas.
+
+- Prototyped local variables which need to be accessed e.g. in callback methods need to be global (move them out above the VehicleApp class).
+- Depending on how using variables in a Print/Logging statement is implemented, statements need to be adapted in Velocitas.
+- Have in mind that Velocitas uses the standard [VSS](https://covesa.github.io/vehicle_signal_specification/) model. If you use custom signals in your prototype, you have to find similar standard signals to use in Velocitas.
 {{% /alert %}}
