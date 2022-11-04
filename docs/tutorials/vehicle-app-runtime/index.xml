@@ -47,6 +47,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;using-kuksa-data-broker-cli&#34;&gt;Using KUKSA Data Broker CLI&lt;/h2&gt;
 &lt;p&gt;A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task &lt;code&gt;Local - VehicleDataBroker CLI&lt;/code&gt;(by pressing &lt;em&gt;F1&lt;/em&gt;, type &lt;em&gt;Run Task&lt;/em&gt; followed by &lt;code&gt;Local - VehicleDataBroker CLI&lt;/code&gt;). The &lt;em&gt;KUKSA Data Broker&lt;/em&gt; needs to be running for you to be able to use the tool.&lt;/p&gt;
+&lt;h2 id=&#34;using-kuksa-feedercan&#34;&gt;Using KUKSA FeederCan&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;FeederCan&lt;/em&gt; is a provider of a certain set of data points to the data broker.
+To run &lt;em&gt;FeederCan&lt;/em&gt; as task please use &lt;code&gt;[F1 -&amp;gt; Tasks: Run Task -&amp;gt; Local - FeederCan]&lt;/code&gt; and it will be run as a docker container.&lt;/p&gt;
+&lt;p&gt;By default it will use the same file, that is used for the k3d environment: &lt;code&gt;deploy/runtime/k3d/volume/dbcfileDefault.dbc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;For more flexible configuration please follow &lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CAN feeder (KUKSA DBC Feeder)&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;integrating-a-new-runtime-service-into-visual-studio-code-task&#34;&gt;Integrating a new runtime service into Visual Studio Code Task&lt;/h2&gt;
 &lt;p&gt;Integration of a new runtime service can be done by duplicating one of the existing tasks.&lt;/p&gt;
 &lt;ul&gt;

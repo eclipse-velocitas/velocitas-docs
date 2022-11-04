@@ -75,7 +75,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.8d228ca952f958a848ac259c1a88aad4.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.3882ee42319da330e27024f5f8d00c01.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -3708,6 +3708,11 @@ shown above:</p>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><h2 id="using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</h2>
 <p>A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task <code>Local - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local - VehicleDataBroker CLI</code>). The <em>KUKSA Data Broker</em> needs to be running for you to be able to use the tool.</p>
+<h2 id="using-kuksa-feedercan">Using KUKSA FeederCan</h2>
+<p><em>FeederCan</em> is a provider of a certain set of data points to the data broker.
+To run <em>FeederCan</em> as task please use <code>[F1 -&gt; Tasks: Run Task -&gt; Local - FeederCan]</code> and it will be run as a docker container.</p>
+<p>By default it will use the same file, that is used for the k3d environment: <code>deploy/runtime/k3d/volume/dbcfileDefault.dbc</code></p>
+<p>For more flexible configuration please follow <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a></p>
 <h2 id="integrating-a-new-runtime-service-into-visual-studio-code-task">Integrating a new runtime service into Visual Studio Code Task</h2>
 <p>Integration of a new runtime service can be done by duplicating one of the existing tasks.</p>
 <ul>
