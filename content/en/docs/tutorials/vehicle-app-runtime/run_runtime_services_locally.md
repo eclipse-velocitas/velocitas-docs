@@ -50,7 +50,7 @@ A CLI tool is provided for the interact with a running instance of the KUKSA Dat
 _FeederCan_ is a provider of a certain set of data points to the data broker.
 To run _FeederCan_ as task please use `[F1 -> Tasks: Run Task -> Local - FeederCan]` and it will be run as a docker container.
 
-By default it will be use same file, that used for k3d environment: ```deploy/runtime/k3d/volume/dbcfileDefault.dbc```
+By default it will use the same file, that is used for the k3d environment: ```deploy/runtime/k3d/volume/dbcfileDefault.dbc```
 
 For more flexible configuration please follow [CAN feeder (KUKSA DBC Feeder)](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val)
 
