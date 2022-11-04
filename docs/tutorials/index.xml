@@ -300,9 +300,25 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 
 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;CodeQL Analysis&lt;/h4&gt;
 
-    By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a &lt;a href=&#34;https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub advanced security&lt;/a&gt; license in your org or if your repository is public. To do so: Go to your repository settings -&amp;gt; General -&amp;gt; Danger Zone (at the bottom) -&amp;gt; Change repository visibility -&amp;gt; Change visibility to public.
+    By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a &lt;a href=&#34;https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub advanced security&lt;/a&gt; license in your org or if your repository is public. To change visibility: Go to your repository settings -&amp;gt; General -&amp;gt; Danger Zone (at the bottom) -&amp;gt; Change repository visibility -&amp;gt; Change visibility to public.
+
+&lt;/div&gt;
+
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Manual Adaptions&lt;/h4&gt;
+
+    &lt;p&gt;Since the project-generator identifies typical python syntax and patterns out of the prototype there could be several cases where manual code adaptions cannot be excluded.&lt;br&gt;
+Most of the prototype code is extracted into the &lt;code&gt;on_start&lt;/code&gt;-method of velocitas.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prototyped local variables which need to be accessed e.g. in callback methods need to be global (move them out above the VehicleApp class).&lt;/li&gt;
+&lt;li&gt;Depending on how using variables in a Print/Logging statement is implemented, statements need to be adapted in Velocitas.&lt;/li&gt;
+&lt;li&gt;Have in mind that Velocitas uses the standard &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt; model. If you use custom signals in your prototype, you have to find similar standard signals to use in Velocitas.&lt;/li&gt;
+&lt;/ul&gt;
+
 
 &lt;/div&gt;
 

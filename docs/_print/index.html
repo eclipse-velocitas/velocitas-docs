@@ -75,7 +75,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.25d6131a64813fe6db22811c5b3dcb2a.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.22c36374871c43e49b748a8e75755ee0.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -2488,9 +2488,25 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
 
 
 <div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Note</h4>
+<h4 class="alert-heading">CodeQL Analysis</h4>
 
-    By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a <a href="https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security" target="_blank" rel="noopener">GitHub advanced security</a> license in your org or if your repository is public. To do so: Go to your repository settings -&gt; General -&gt; Danger Zone (at the bottom) -&gt; Change repository visibility -&gt; Change visibility to public.
+    By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a <a href="https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security" target="_blank" rel="noopener">GitHub advanced security</a> license in your org or if your repository is public. To change visibility: Go to your repository settings -&gt; General -&gt; Danger Zone (at the bottom) -&gt; Change repository visibility -&gt; Change visibility to public.
+
+</div>
+
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Manual Adaptions</h4>
+
+    <p>Since the project-generator identifies typical python syntax and patterns out of the prototype there could be several cases where manual code adaptions cannot be excluded.<br>
+Most of the prototype code is extracted into the <code>on_start</code>-method of velocitas.</p>
+<ul>
+<li>Prototyped local variables which need to be accessed e.g. in callback methods need to be global (move them out above the VehicleApp class).</li>
+<li>Depending on how using variables in a Print/Logging statement is implemented, statements need to be adapted in Velocitas.</li>
+<li>Have in mind that Velocitas uses the standard <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a> model. If you use custom signals in your prototype, you have to find similar standard signals to use in Velocitas.</li>
+</ul>
+
 
 </div>
 
