@@ -45,6 +45,15 @@ The configuration for the services is defined in the file [`./AppManifest.json`]
 
 A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task `Local - VehicleDataBroker CLI`(by pressing _F1_, type _Run Task_ followed by `Local - VehicleDataBroker CLI`). The _KUKSA Data Broker_ needs to be running for you to be able to use the tool.
 
+## Using KUKSA FeederCan
+
+_FeederCan_ is a provider of a certain set of data points to the data broker.
+To run _FeederCan_ as task please use `[F1 -> Tasks: Run Task -> Local - FeederCan]` and it will be run as a docker container.
+
+By default it will use the same file, that is used for the k3d environment: ```deploy/runtime/k3d/volume/dbcfileDefault.dbc```
+
+For more flexible configuration please follow [CAN feeder (KUKSA DBC Feeder)](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val)
+
 ## Integrating a new runtime service into Visual Studio Code Task
 
 Integration of a new runtime service can be done by duplicating one of the existing tasks.
