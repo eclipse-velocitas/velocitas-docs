@@ -21,8 +21,8 @@ This tutorial will show you how to:
 
 ## Use the sample Helm chart
 
-If the Vehicle App has been created from one of our template repositories, a sample Helm chart is already available under `deploy/VehicleApp` and can be used as it is without any modification.
-This sample chart is using the values from `deploy/VehicleApp/values.yaml` file, during the deployment of the VehicleApp, the neccessary app attributes from the `AppManifest.json` (e.g. `app name` and `app port`) will overwite the default values from the sample helm chart via the `deploy_vehicleapp.sh` script.
+If the Vehicle App has been created from one of our template repositories, a sample Helm chart is already available under `deploy/VehicleApp/helm` and can be used as it is without any modification.
+This sample chart is using the values from `deploy/VehicleApp/helm/values.yaml` file, during the deployment of the VehicleApp, the neccessary app attributes from the `AppManifest.json` (e.g. `app name` and `app port`) will overwite the default values from the sample helm chart via the `.vscode/runtime/k3d/deploy_vehicleapp.sh` script.
 
 ## Prepare a new Helm chart
 
