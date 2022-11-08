@@ -75,7 +75,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.22c36374871c43e49b748a8e75755ee0.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.8072dcfacb1146ba794355d88953fc46.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -537,7 +537,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.7: <a href="#pg-c00f710a2154467bd207fbd4d2835c70">Vehicle App Deployment with Helm</a></li>
+<li>2.7: <a href="#pg-3512601b4cd4657b4cf6c244cbff17b1">Vehicle App Deployment via PodSpecs</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2.8: <a href="#pg-c00f710a2154467bd207fbd4d2835c70">Vehicle App Deployment with Helm</a></li>
 
 
     
@@ -4019,7 +4027,91 @@ All the files that are located in <code>deploy/runtime/k3d/volume</code> will be
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c00f710a2154467bd207fbd4d2835c70">2.7 - Vehicle App Deployment with Helm</h1>
+	<h1 id="pg-3512601b4cd4657b4cf6c244cbff17b1">2.7 - Vehicle App Deployment via PodSpecs</h1>
+    <div class="lead">Learn how to prepare PodSpecs for the deployment of a Vehicle App.</div>
+	<p>This tutorial will show you how to:</p>
+<ul>
+<li>Prepare PodSpecs</li>
+<li>Deploy your Vehicle App to local K3D</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">Visual Studio Code</a> with the <a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank" rel="noopener">Python extension</a> installed. For information on how to install extensions on Visual Studio Code, see <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank" rel="noopener">VS Code Extension Marketplace</a>.</li>
+<li>Completed the tutorial <a href="/velocitas/docs/tutorials/vehicle-app-development">How to create a vehicle app</a></li>
+</ul>
+<h2 id="use-the-sample-podspecs">Use the sample PodSpecs</h2>
+<p>If the Vehicle App has been created from one of our template repositories, a sample PodSpec is already available under <code>deploy/VehicleApp/podspec</code> and can be used as it is without any modification. Another example can also be found in the <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/" target="_blank" rel="noopener">documentation of Leda</a>.</p>
+<h3 id="content">Content</h3>
+<p>Looking at the content of the sample-podspec, it is starting with some general information about the app and the dapr configuration. You can define e.g. the app-port and the log-level. You could also add more labels to your app, which might help to identify the app for later usages.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Pod</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sampleapp</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">annotations</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/enabled</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/app-id</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sampleapp</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/app-port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;50008&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/app-protocol</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">grpc</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/log-level</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">info</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">labels</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sampleapp</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>Afterwards the configuration of the container is specified. Please be aware that the container-port should match the app-port from the dapr-config above. In the example the app-id of the VehicleDataBroker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see <a href="/velocitas/docs/run_runtime_services_kubernetes.md">here</a> for details).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">spec</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">containers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sampleapp</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">imagePullPolicy</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">IfNotPresent</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">ports</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">containerPort</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">50008</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">env</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">VEHICLEDATABROKER_DAPR_APP_ID</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">k3d-registry.localhost:12345/sampleapp:local</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div>
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    Please make sure that you already pushed your image to the local registry before trying to deploy it. If you used the provided tasks (see <a href="/velocitas/docs/run_runtime_services_kubernetes.md">here</a> for details), you can use the following commands:
+<code>docker tag localhost:12345/sampleapp:local k3d-registry.localhost:12345/sampleapp:local</code>
+<code>docker push k3d-registry.localhost:12345/sampleapp:local</code>
+
+</div>
+
+<h3 id="local-registry-or-remote-registry">Local registry or remote registry</h3>
+<p>In the example above we used the local registry, but you can also define a remote registry in the image tag, e.g.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ghcr.io/eclipse-velocitas/vehicle-app-python-template/sampleapp:0.0.1-bcx</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>If your registry is not public, you might to add secrets to your Kubernets config, see the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials" target="_blank" rel="noopener">official documentation</a> for details. Afterwards you have to add the secrets also to the PodSpec:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">imagePullSecrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">regcred</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><h2 id="deploy-your-vehicle-app-to-local-k3d">Deploy your Vehicle App to local K3D</h2>
+<h3 id="prerequisites-1">Prerequisites</h3>
+<ul>
+<li>A local K3D installation must be available. For how to setup K3D, check out this <a href="/velocitas/run_runtime_services_kubernetes">tutorial</a>.</li>
+</ul>
+<p>Deploying your app with PodSpecs can be done with one simple command:</p>
+<p><code>kubectl apply -f &lt;podspec.yaml&gt;</code></p>
+<p>In parallel you can check with K9S if the deployment is working correctly.</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally">Start runtime services locally</a></li>
+<li>Concept: <a href="/velocitas/docs/about/deployment_model/vehicle_app_releases">Build and release process</a></li>
+</ul>
+
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-c00f710a2154467bd207fbd4d2835c70">2.8 - Vehicle App Deployment with Helm</h1>
     <div class="lead">Learn how to prepare a Helm chart for the deployment of a Vehicle App.</div>
 	<p>This tutorial will show you how to:</p>
 <ul>
@@ -4032,8 +4124,8 @@ All the files that are located in <code>deploy/runtime/k3d/volume</code> will be
 <li>Completed the tutorial <a href="/velocitas/docs/tutorials/vehicle-app-development">How to create a vehicle app</a></li>
 </ul>
 <h2 id="use-the-sample-helm-chart">Use the sample Helm chart</h2>
-<p>If the Vehicle App has been created from one of our template repositories, a sample Helm chart is already available under <code>deploy/VehicleApp</code> and can be used as it is without any modification.
-This sample chart is using the values from <code>deploy/VehicleApp/values.yaml</code> file, during the deployment of the VehicleApp, the neccessary app attributes from the <code>AppManifest.json</code> (e.g. <code>app name</code> and <code>app port</code>) will overwite the default values from the sample helm chart via the <code>deploy_vehicleapp.sh</code> script.</p>
+<p>If the Vehicle App has been created from one of our template repositories, a sample Helm chart is already available under <code>deploy/VehicleApp/helm</code> and can be used as it is without any modification.
+This sample chart is using the values from <code>deploy/VehicleApp/helm/values.yaml</code> file, during the deployment of the VehicleApp, the neccessary app attributes from the <code>AppManifest.json</code> (e.g. <code>app name</code> and <code>app port</code>) will overwite the default values from the sample helm chart via the <code>.vscode/runtime/k3d/deploy_vehicleapp.sh</code> script.</p>
 <h2 id="prepare-a-new-helm-chart">Prepare a new Helm chart</h2>
 <p>If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called <code>my_vehicle_app</code> for this walkthrough.</p>
 <ol>
