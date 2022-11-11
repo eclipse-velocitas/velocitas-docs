@@ -28,7 +28,8 @@ Eclipse _Velocitas™_ provides an end-to-end, scalable and modular development 
 
 |Vehicle Model Generator| + | + |
 
-|DevConatiner for esay IDE setup | + | + |
+|DevContainer for easy IDE setup | + | + |
+
 |CI/CD workflows | + | + |
 |Unit test support| + | + |
 |Integration test support| + | |
