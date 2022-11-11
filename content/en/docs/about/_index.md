@@ -24,7 +24,8 @@ Eclipse _Velocitas™_ provides an end-to-end, scalable and modular development 
 |-|-|-|
 |Vehicle App Template | + | + |
 
-|Vehilce App SDK | + | + |
+|Vehicle App SDK | + | + |
+
 |Vehicle Model generator| + | + |
 |DevConatiner for esay IDE setup | + | + |
 |CI/CD workflows | + | + |
