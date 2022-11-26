@@ -3,16 +3,14 @@ title: "Quickstart"
 date: 2022-05-09T13:43:25+05:30
 weight: 1
 description: >
-  Learn how to setup and explore the provided development environment.
+  Learn how to setup and explore the provided development environment. We will describe how to build, customize and test a example _Vehicle App_, how to use the Vehicle App SDK and interact with the vehicle API as well as how to do CI/CD using the pre-configured GitHub workflows that come with the repository.                  
 aliases:
   - /docs/tutorials/setup_and_explore_development_environment.md
   - /docs/tutorials/quickstart.md
   - /docs/setup_and_explore_development_environment.md
 ---
 
-The following information describes how to setup and configure the [Development Container (DevContainer)](https://code.visualstudio.com/docs/remote/containers), and how to build, customize and test the sample _Vehicle App_, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.
-
-Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own _Vehicle App_ develpment project.
+Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the provided template repositories for your own _Vehicle App_ develpment project. In this tutorial we will use for the GitHub organization and _Vehicle App_ repository the name `MyOrg/MyFirstVehicleApp` as a reference.
 
 {{% alert title="Note" %}}
 Before you start, we recommend that you familiarize yourself with our [basic concept](/docs/about/development_model) to understand the terms mentioned.
@@ -20,13 +18,25 @@ Before you start, we recommend that you familiarize yourself with our [basic con
 
 ## Creating Vehicle App Repository
 
-For the orginization and _Vehicle App_ repository the name `MyOrg/MyFirstVehicleApp` is used as a reference during the rest of the document.
-
 Create your own repository copy from the template repository of your choice [Python](https://github.com/eclipse-velocitas/vehicle-app-python-template)/[C++](https://github.com/eclipse-velocitas/vehicle-app-cpp-template) by clicking the green button `Use this template`. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
+
+We provide some [example Vehicle Apps](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/) to help understand the concepts easily.
+To import the provided package into your Vehicle App repository a Visual Studio Code task called `Import example app from SDK` is available in the `/.vscode/tasks.json` which can replace your `/app` directory in your template repository with some example _Vehicle Apps_ from the [SDK](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples) package.
+
+{{% alert color="warning" %}}
+To avoid overwriting existing changes in your `/app` directory, commit or stash changes before importing the example app.
+{{% /alert %}}
+
+1. Press <kbd>F1</kbd>
+2. Select command `Tasks: Run Task`
+3. Select `Import example app from SDK`
+4. Choose `Continue without scanning the output`
+5. Select `seat-adjuster`
+
 
 ## Starting Development Environment
 
-In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
+To develop on your newly created Vehicle App repository you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
 
 ### Visual Studio Code
 
@@ -36,7 +46,7 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
 
 - Install Docker Engine / [Docker Desktop](https://www.docker.com/products/docker-desktop)
 - Install [Visual Studio Code](https://code.visualstudio.com)
-- Add [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension via the marketplace or using the command line
+- Add [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension via the marketplace or using the command line 
 
   ```bash
   code --install-extension ms-vscode-remote.remote-containers
@@ -46,7 +56,7 @@ To be able to use the DevContainer, you have to make sure that you fulfill the f
 A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/quickstart/behind_proxy)
 {{% /alert %}}
 
-With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
+With the following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
 
 1. Clone the repo locally using your favorite Git tooling
 1. Start Visual Studio Code
@@ -109,9 +119,8 @@ Now that the [runtime services](#starting-runtime-services) are all up and runni
 {{< tabpane text=true >}}
 {{% tab header="Template" %}}
 
-1. Open the main source file and set a breakpoint in the given method:
-   - Python main source file: `/app/src/main.py`, set breakpoint in method: `on_get_speed_request_received`
-   - C++: Continue on the `Seat Adjuster` tab.
+1. Open the main source file and set a breakpoint:
+   - For more details continue on the `Seat Adjuster` tab.
 2. Press <kbd>F5</kbd> to start a debug session of the _Vehicle App_ and see the log output on the `DEBUG CONSOLE`
 
 To trigger this breakpoint, let's send a message to the Vehicle App using the mqtt broker that is running in the background.
@@ -120,6 +129,7 @@ To trigger this breakpoint, let's send a message to the Vehicle App using the mq
 4. Set `Subscribe Topic` = `sampleapp/getSpeed/response` and click subscribe
 6. Set `Publish Topic` = `sampleapp/getSpeed`
 7. Press publish with an empty payload field.
+
 {{% /tab %}}
 {{% tab header="Seat Adjuster" %}}
 
@@ -138,7 +148,6 @@ To trigger this breakpoint, let's send a message to the Vehicle App using the mq
 5. Set `Subscribe Topic` = `seatadjuster/currentPosition` and click subscribe
 6. Set `Publish Topic` = `seatadjuster/setPosition/request`
 7. Set and publish a dummy payload:
-
    ```json
    { "position": 300, "requestId": "xyz" }
    ```
