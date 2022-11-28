@@ -26,89 +26,14 @@ In the next step you need to enter your proxy settings:
 - Open Docker Desktop and go to the Settings
 - From `Resources`, select `Proxies`
 - Enable `Manual proxy configuration`
-- Enter your proxy settings, e.g.:
+- Enter your proxy settings, this depends on the configuration you did while setting up your proxy tool e.g.:
   - Web Server (HTTP): `http://localhost:3128`
   - Secure Web Server (HTTPS): `http://localhost:3128`
   - Bypass: `localhost,127.0.0.1`
 - Apply & Restart.
 
-# Environment Variables
-
-It is required to set the following environment variables:
-
-- `HTTP_PROXY` - proxy server, e.g. `http://localhost:3128`
-- `HTTPS_PROXY` - secure proxy server, e.g. `http://localhost:3128`
-- `DEVCONTAINER_PROXY` - Enables proxy configuration for the devContainer. Please use `.Proxy` as value (and don't forget the dot).
-
-**Unix users**: If you are running on Unix you have to define in addition the environment variable `DEVCONTAINER_PROXY_HOST` to define the internal docker host `172.17.0.1`.
-
-In addition you have the opportunity to use the environment variable `DEVCONTAINER_PROXY_PORT` to define the port in case your proxy is running on a different port than `3128`.
-
-{{< tabpane text=true >}}
-{{% tab header="Windows" %}}
-```bash
-set
-setx DEVCONTAINER_PROXY ".Proxy"
-setx HTTP_PROXY "http://localhost:3128"
-setx HTTPS_PROXY "http://localhost:3128"
-```
-{{% /tab %}}
-{{% tab header="MacOS" %}}
-```bash
-echo "export DEVCONTAINER_PROXY=.Proxy" >> ~/.bash_profile
-echo "export HTTP_PROXY=http://localhost:3128" >> ~/.bash_profile
-echo "export HTTPS_PROXY=http://localhost:3128" >> ~/.bash_profile
-source ~/.bash_profile
-```
-{{% /tab %}}
-{{% tab header="Linux" %}}
-```bash
-echo "export DEVCONTAINER_PROXY=.Proxy" >> ~/.bash_profile
-echo "export HTTP_PROXY=http://localhost:3128" >> ~/.bash_profile
-echo "export HTTPS_PROXY=http://localhost:3128" >> ~/.bash_profile
-echo "export DEVCONTAINER_PROXY_HOST=172.17.0.1" >> ~/.bash_profile
-source ~/.bash_profile
-```
-{{% /tab %}}
-{{< /tabpane >}}
-
-# Visual Studio Code
-
-A template configuration using proxy settings is provided by our template repository with `.devcontainer/Dockerfile.Proxy`. By setting the environment variable `DEVCONTAINER_PROXY` to `.Proxy` the file
-`.devcontainer/Dockerfile.Proxy` will be used instead of `.devcontainer/Dockerfile`.
-
-# Solving issues with TLS (SSL) certificate validation using https connections from containers
-
-If you are behind a so-called intercept proxy (which you most probably are), you can run into certificate issues:
-Your corporate proxy works as a "man-in-the-middle" to be able to check the transfered data for malicious content.
-Means, there is a protected connection between the application in your local runtime environment and the proxy and
-another from the proxy to the external server your application wants to interact with.
-
-For the authentication corporate proxies often use self-signed certificates (certificates which are not signed by
-a (well-known official) certificate authority. Those kind of certificates need to be added to the database of
-trusted certificates of your local runtime environment. This task is typically handled by the IT department of
-your corporation (if the OS and software installed on it is managed by them) and you will not run into problems,
-normally.
-
-If it comes to executing containers, those are typically not managed by your IT department and the proxy certificate(s)
-is/are missing. So, you need to find a way to install those into the (dev) container you want to execute.
-
-See (one of) those articles to get how to achieve that:
-https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers
-https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/
-
-# Troubleshooting
-
-**Case 1**:
-
-If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used: 
-
-   - Open Docker Desktop 
-   - From `Troubleshooting` choose `Clean / Purge data`
-
-**Case 2**:
-
-Proxy settings in `.devcontainer/Dockerfile.Proxy` will be overridden by `~/.docker/config.json`, which can cause problems. In case the DevContainer is still not working, check if the `~/.docker/config.json` contains the following content:
+# Docker daemon
+You also have to configure the Docker daemon, which is running the containers basically, to forward the proxy settings. For this you have to add the proxy configuration to the `~/.docker/config.json`. Here is an example of a proper config (Port and noProxy settings might differ for your setup):
 
    {{< tabpane text=true >}}
    {{% tab header="Windows & MacOS" %}}
@@ -140,3 +65,64 @@ Proxy settings in `.devcontainer/Dockerfile.Proxy` will be overridden by `~/.doc
    {{< /tabpane >}}
 
 For more details see: [Docker Documentation](https://docs.docker.com/network/proxy/)
+
+
+# Environment Variables
+
+It is required to set the following environment variables:
+
+- `HTTP_PROXY` - proxy server, e.g. `http://localhost:3128`
+- `HTTPS_PROXY` - secure proxy server, e.g. `http://localhost:3128`
+
+{{< tabpane text=true >}}
+{{% tab header="Windows" %}}
+```bash
+set
+setx HTTP_PROXY "http://localhost:3128"
+setx HTTPS_PROXY "http://localhost:3128"
+```
+{{% /tab %}}
+{{% tab header="MacOS" %}}
+```bash
+echo "export HTTP_PROXY=http://localhost:3128" >> ~/.bash_profile
+echo "export HTTPS_PROXY=http://localhost:3128" >> ~/.bash_profile
+source ~/.bash_profile
+```
+{{% /tab %}}
+{{% tab header="Linux" %}}
+```bash
+echo "export HTTP_PROXY=http://localhost:3128" >> ~/.bash_profile
+echo "export HTTPS_PROXY=http://localhost:3128" >> ~/.bash_profile
+source ~/.bash_profile
+```
+{{% /tab %}}
+{{< /tabpane >}}
+
+# Solving issues with TLS (SSL) certificate validation using https connections from containers
+
+If you are behind a so-called intercept proxy (which you most probably are), you can run into certificate issues:
+Your corporate proxy works as a "man-in-the-middle" to be able to check the transfered data for malicious content.
+Means, there is a protected connection between the application in your local runtime environment and the proxy and
+another from the proxy to the external server your application wants to interact with.
+
+For the authentication corporate proxies often use self-signed certificates (certificates which are not signed by
+a (well-known official) certificate authority. Those kind of certificates need to be added to the database of
+trusted certificates of your local runtime environment. This task is typically handled by the IT department of
+your corporation (if the OS and software installed on it is managed by them) and you will not run into problems,
+normally.
+
+If it comes to executing containers, those are typically not managed by your IT department and the proxy certificate(s)
+is/are missing. So, you need to find a way to install those into the (dev) container you want to execute.
+
+See (one of) those articles to get how to achieve that:
+https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers
+https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/
+
+# Troubleshooting
+
+**Case 1**:
+
+If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used: 
+
+   - Open Docker Desktop 
+   - From `Troubleshooting` choose `Clean / Purge data`
