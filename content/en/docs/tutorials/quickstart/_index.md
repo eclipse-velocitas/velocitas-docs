@@ -59,8 +59,6 @@ With following steps you will clone and set up your development environment on y
 The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.
   
 {{% alert title="Note" %}}
-> When opening the devContainer for the first time, a manual reload of the dapr extension is required, if the extension hasn´t been installed before. The reload button appears next to Dapr extension in extension menue.
-
 > If the devContainer fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command `Dev-Containers: Rebuild Container Without Cache`
 
 > The devContainer is using the [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md)-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.
