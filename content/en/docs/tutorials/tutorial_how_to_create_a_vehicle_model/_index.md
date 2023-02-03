@@ -65,6 +65,13 @@ Follow the steps to generate a _Vehicle Model_.
   4. For python: Change the version of package in `setup.py` manually (defaults to 0.1.0).
   5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Vehicle Model](/docs/tutorials/vehicle_model_distribution))
 
+Vehicle Signal Specification for model generation is refferenced from `AppManifest.json`:
+  ```json
+    "VehicleModel": {
+        "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"
+    }
+  ```
+
 ## Create a Vehicle Model Manually
 
 Alternative to the generation from a VSS specification you could create the _Vehicle Model_ manually. The following sections describing the required steps.
