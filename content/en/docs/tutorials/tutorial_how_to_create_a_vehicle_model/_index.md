@@ -74,7 +74,9 @@ The used model specification of an app is referenced like this in the `AppManife
     "VehicleModel": {
         "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"
     }
-  Instead of an URI you could also reference a local file containing the specification.
+  ```
+Instead of an URI you could also reference a local file containing the specification.
+  
 ## Create a Vehicle Model Manually
 
 Alternative to the generation from a VSS specification you could create the _Vehicle Model_ manually. The following sections describing the required steps.
