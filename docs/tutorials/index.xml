@@ -414,6 +414,13 @@ Most of the prototype code is extracted into the &lt;code&gt;on_start&lt;/code&g
 &lt;p&gt;Now the newly generated &lt;code&gt;sdv_model&lt;/code&gt; can be used for distribution. (See &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_model_distribution&#34;&gt;Distributing your Vehicle Model&lt;/a&gt;)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&#34;referencing-the-model-specification-work-in-progress&#34;&gt;Referencing the Model Specification (Work in Progress!)&lt;/h2&gt;
+&lt;p&gt;We are currently working to further automate the process of model generation: The model specification shall be referenced from the AppManifest and the model code is generated on container creation - or after updating the specification - into a subfolder of the app&amp;rsquo;s repositiory.&lt;/p&gt;
+&lt;p&gt;The used model specification of an app is referenced like this in the &lt;code&gt;AppManifest.json&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;VehicleModel&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Instead of an URI you could also reference a local file containing the specification.&lt;/p&gt;
 &lt;h2 id=&#34;create-a-vehicle-model-manually&#34;&gt;Create a Vehicle Model Manually&lt;/h2&gt;
 &lt;p&gt;Alternative to the generation from a VSS specification you could create the &lt;em&gt;Vehicle Model&lt;/em&gt; manually. The following sections describing the required steps.&lt;/p&gt;
 &lt;ul&gt;

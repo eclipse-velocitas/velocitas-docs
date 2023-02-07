@@ -52,8 +52,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.bdd8ec3fe6ffec10d164832932477b1dc461f85a31780e9b5393b4f42837c936.css" as="style">
-<link href="/velocitas/scss/main.min.bdd8ec3fe6ffec10d164832932477b1dc461f85a31780e9b5393b4f42837c936.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.aae529f7dffcc6e9861c5d68e73e54cef7f46953519f9068a1e53554021110ba.css" as="style">
+<link href="/velocitas/scss/main.min.aae529f7dffcc6e9861c5d68e73e54cef7f46953519f9068a1e53554021110ba.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas/js/jquery-3.6.0.min.js
@@ -92,7 +92,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.e499a64f21bfcd0f656bfbe5f2ee4932.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.1d57d4879bd7851e005824d3edd33911.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -261,6 +261,13 @@ This is the multi-page printable view of this section.
 <p>Now the newly generated <code>sdv_model</code> can be used for distribution. (See <a href="/velocitas/docs/tutorials/vehicle_model_distribution">Distributing your Vehicle Model</a>)</p>
 </li>
 </ol>
+<h2 id="referencing-the-model-specification-work-in-progress">Referencing the Model Specification (Work in Progress!)</h2>
+<p>We are currently working to further automate the process of model generation: The model specification shall be referenced from the AppManifest and the model code is generated on container creation - or after updating the specification - into a subfolder of the app&rsquo;s repositiory.</p>
+<p>The used model specification of an app is referenced like this in the <code>AppManifest.json</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#4e9a06">&#34;VehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Instead of an URI you could also reference a local file containing the specification.</p>
 <h2 id="create-a-vehicle-model-manually">Create a Vehicle Model Manually</h2>
 <p>Alternative to the generation from a VSS specification you could create the <em>Vehicle Model</em> manually. The following sections describing the required steps.</p>
 <ul>
