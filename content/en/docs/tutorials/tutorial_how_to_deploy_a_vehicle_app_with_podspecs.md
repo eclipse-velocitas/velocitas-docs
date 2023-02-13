@@ -1,7 +1,7 @@
 ---
 title: "Vehicle App Deployment via PodSpecs"
 date: 2022-05-09T13:43:25+05:30
-weight: 6
+weight: 8
 description: >
   Learn how to prepare PodSpecs for the deployment of a Vehicle App.
 aliases:
@@ -26,6 +26,7 @@ If the Vehicle App has been created from one of our template repositories, a sam
 ### Content
 
 Looking at the content of the sample-podspec, it is starting with some general information about the app and the dapr configuration. You can define e.g. the app-port and the log-level. You could also add more labels to your app, which might help to identify the app for later usages.
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -40,6 +41,7 @@ metadata:
   labels:
     app: sampleapp
 ```
+
 Afterwards the configuration of the container is specified. Please be aware that the container-port should match the app-port from the dapr-config above. In the example the app-id of the VehicleDataBroker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see [here](/docs/run_runtime_services_kubernetes.md) for details).
 
 ```yaml
@@ -54,8 +56,9 @@ spec:
           value: "vehicledatabroker"
       image: k3d-registry.localhost:12345/sampleapp:local
 ```
+
 {{% alert title="Note" %}}
-Please make sure that you already pushed your image to the local registry before trying to deploy it. If you used the provided tasks (see [here](/docs/run_runtime_services_kubernetes.md) for details), you can use the following commands: 
+Please make sure that you already pushed your image to the local registry before trying to deploy it. If you used the provided tasks (see [here](/docs/run_runtime_services_kubernetes.md) for details), you can use the following commands:
 `docker tag localhost:12345/sampleapp:local k3d-registry.localhost:12345/sampleapp:local`
 `docker push k3d-registry.localhost:12345/sampleapp:local`
 {{% /alert %}}

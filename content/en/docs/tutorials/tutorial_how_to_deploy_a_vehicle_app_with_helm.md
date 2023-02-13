@@ -1,7 +1,7 @@
 ---
 title: "Vehicle App Deployment with Helm"
 date: 2022-05-09T13:43:25+05:30
-weight: 6
+weight: 8
 description: >
   Learn how to prepare a Helm chart for the deployment of a Vehicle App.
 aliases:
