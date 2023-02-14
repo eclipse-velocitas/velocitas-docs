@@ -18,4 +18,19 @@ Eclipse _Velocitas™_ provides an end-to-end, scalable and modular development 
 - Vehicle Apps skeleton and example Vehicle Apps helps to understand easily how to write a Vehicle Apps using the KUKSA VAL runtime services
 - Higher development velocity through self-contained, containerized Apps with no dependencies to E/E architecture
 
+## Feature Overview
+
+|Feature |Python|C++ |
+|-|-|-|
+|Vehicle App Template | + | + |
+|Vehicle App SDK | + | + |
+|CLI | + | + |
+|Vehicle Model Generator| + | + |
+|DevContainer for easy IDE setup | + | + |
+|CI/CD workflows | + | + |
+|Unit test support| + | + |
+|Integration test support| + | |
+|Digital Auto integration| + | |
+
+
 ## Concepts
