@@ -31,11 +31,7 @@ The driver for this is our [Velocitas CLI](https://github.com/eclipse-velocitas/
 
 Here we can see how the `MyVehicleApp` repository references package repositories by _Velocitas_, customer specific packages and some packages from a totally different development platform (Gitee).
 
-Currently, the packages provided by the _Velocitas_ team are the following:
-
-| Name | Description |
-|:----:|:-------:|
-| [devenv-devcontainer-setup](https://github.com/eclipse-velocitas/devenv-devcontainer-setup) | Basic configuration for the devcontainer, like proxy configuration, post create scripts, entry points for the lifecycle management. See its [README]() for details.
+If you want to learn more about how to reference and use packages check the [Packages section](/docs/lifecycle_management/packages/usage/).
 
 ## Concept
 
