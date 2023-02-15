@@ -181,4 +181,4 @@ Packages will be downloaded by default to `~/.velocitas/packages/<package_name>`
 
 ## Next steps
 
-- Tutorials: [Velocitas CLI](/docs/lifecycle_management/cli/)
+- Lifecycle Management: [Velocitas CLI](/docs/lifecycle_management/cli/)

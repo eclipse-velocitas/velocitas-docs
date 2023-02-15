@@ -8,10 +8,17 @@ aliases:
   - /docs/lifecycle_management/troubleshoot.md
 ---
 
-### Proxy usage
+### GitHub rate limit exceeded
 
-When working behind a proxy and to avoid exceeding GitHubs rate limit we suggest to generate a personal access token in your [GitHub settings](https://github.com/settings/tokens) and set it in your environment variables:
+To avoid exceeding GitHubs rate limit we suggest to generate a personal access token in your [GitHub settings](https://github.com/settings/tokens) and set it in your environment variables:
 
+{{< tabpane text=true >}}
+{{% tab header="Mac/Linux" %}}
 `export GITHUB_API_TOKEN=<your_api_token>`
-
-on windows (via system settings) then restart VSCode
+{{% /tab %}}
+{{% tab header="Windows" %}}
+Set environment variable via system settings and restart VSCode.
+</br>
+GITHUB_API_TOKEN=<your_api_token>
+{{% /tab %}}
+{{< /tabpane >}}

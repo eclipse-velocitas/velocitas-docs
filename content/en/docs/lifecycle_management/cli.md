@@ -14,6 +14,28 @@ aliases:
 Our [Velocitas CLI](https://github.com/eclipse-velocitas/cli) is introduced to support the process of the lifecycle of a _Vehicle App_ as a package manager.
 It is written in TypeScript and based on the open CLI framework [oclif](https://oclif.io/).
 
+## Usage
+
+- [`velocitas init`](https://github.com/eclipse-velocitas/cli#velocitas-init):
+
+  Checks content of `.velocitas.json` and downloads configured packages to `~/.velocitas/packages/<package_name>`.
+
+- [`velocitas sync`](https://github.com/eclipse-velocitas/cli#velocitas-sync):
+
+  Checks content of `~/.velocitas/packages/<package_name>` and synchronizes files inside the _Vehicle App_ repository.
+
+- [`velocitas upgrade`](https://github.com/eclipse-velocitas/cli#velocitas-upgrade):
+
+  Compares installed/configured versions inside `.velocitas.json` with latest version of respective package repository.
+
+- [`velocitas package`](https://github.com/eclipse-velocitas/cli#velocitas-package-name):
+
+  Lists installed packages and scripts inside of `~/.velocitas/packages`.
+
+- [`velocitas exec`](https://github.com/eclipse-velocitas/cli#velocitas-exec-component-id-args):
+
+  Executes programs of a component found inside of specific package `~/.velocitas/packages/<package_name>`.
+
 ## Additional Information
 
 ### Cache Usage
@@ -58,15 +80,6 @@ FOO=$(echo $VELOCITAS_CACHE_DATA | jq .foo | tr -d '"')
 BAZ=$(echo $VELOCITAS_APP_MANIFEST | jq .foo.bar.baz | tr -d '"')
 ```
 
-## Implementation
+## Next steps
 
-[CLI repository](https://github.com/eclipse-velocitas/cli)
-
-available commands:
-
-- [velocitas help](https://github.com/eclipse-velocitas/cli#velocitas-help-command)
-- [velocitas init](https://github.com/eclipse-velocitas/cli#velocitas-init)
-- [velocitas upgrade](https://github.com/eclipse-velocitas/cli#velocitas-upgrade)
-- [velocitas sync](https://github.com/eclipse-velocitas/cli#velocitas-sync)
-- [velocitas package](https://github.com/eclipse-velocitas/cli#velocitas-package-name)
-- [velocitas exec](https://github.com/eclipse-velocitas/cli#velocitas-exec-component-id-args)
+- Lifecycle Management: [Troubleshooting](/docs/lifecycle_management/troubleshooting/)

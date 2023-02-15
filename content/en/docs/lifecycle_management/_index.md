@@ -21,7 +21,7 @@ All of our main components of the development environment
 * CI workflows
 * ...
 
-are (or will be) provided as versioned packages which can be updated individually, if required.
+are (or will be) provided as versioned [packages](/docs/lifecycle_management/packages/) which can be updated individually, if required.
 
 The driver for this is our [Velocitas CLI](https://github.com/eclipse-velocitas/cli) which is our package manager for _Vehicle App_ repositories.
 
@@ -31,7 +31,7 @@ The driver for this is our [Velocitas CLI](https://github.com/eclipse-velocitas/
 
 Here we can see how the `MyVehicleApp` repository references package repositories by _Velocitas_, customer specific packages and some packages from a totally different development platform (Gitee).
 
-If you want to learn more about how to reference and use packages check the [Packages section](/docs/lifecycle_management/packages/usage/).
+If you want to learn more about how to reference and use packages check the sections for [project configuration](/docs/lifecycle_management/project-configuration/) and [packages](/docs/lifecycle_management/packages/usage/).
 
 ## Concept
 
