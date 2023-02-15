@@ -6,7 +6,7 @@ description: >
   Learn how to develop an own package.
 aliases:
   - /docs/lifecycle_management/packages/development.md
-  - /docs/lifecycle_management/development
+  - /docs/lifecycle_management/packages/development
 ---
 
 ## Configuration of Packages
@@ -176,7 +176,7 @@ Each component entry of a package has the following fields:
 The package repositories can hold configuration files which can be synced (for setup components) inside a velocitas repository, or scripts which will be executed by the velocitas CLI.
 <br/>
 
-Packages will be downloaded by default to `$HOME/.velocitas/packages/<package_name>` folder inside the home directory.
+Packages will be downloaded by default to `~/.velocitas/packages/<package_name>` folder inside the home directory.
 <br/>
 
 ## Next steps

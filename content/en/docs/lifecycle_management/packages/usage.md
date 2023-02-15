@@ -37,11 +37,11 @@ After creation of a devcontainer a [postCreateCommand](https://github.com/eclips
 
 - Purpose of `velocitas init`:
 
-  Checks content of `.velocitas.json` and downloads configured packages to `$HOME/.velocitas/packages/<package_name>`
+  Checks content of `.velocitas.json` and downloads configured packages to `~/.velocitas/packages/<package_name>`
 
 - Purpose of `velocitas sync`:
 
-  Checks content of `$HOME/.velocitas/packages/<package_name>` and synchronizes files inside the Vehicle App repository
+  Checks content of `~/.velocitas/packages/<package_name>` and synchronizes files inside the Vehicle App repository
 
 - Purpose of `velocitas upgrade`:
 
@@ -49,11 +49,11 @@ After creation of a devcontainer a [postCreateCommand](https://github.com/eclips
 
 - Purpose of `velocitas package`:
 
-  Lists installed packages and scripts inside of `$HOME/.velocitas/packages`
+  Lists installed packages and scripts inside of `~/.velocitas/packages`
 
 - Purpose of `velocitas exec`:
 
-  Executes scripts found inside of specific package `$HOME/.velocitas/packages/<package_name>`
+  Executes programs of a component found inside of specific package `~/.velocitas/packages/<package_name>`
 
 ## Next steps
 
