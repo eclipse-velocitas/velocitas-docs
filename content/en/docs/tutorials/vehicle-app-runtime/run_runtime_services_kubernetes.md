@@ -38,7 +38,7 @@ To check the status of your K3D instance (running pods, containers, logs, ...) y
 ## Uploading files to persistentVolume
 
 Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
-All the files that are located in ```deploy/runtime/k3d/volume``` will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: [```deploy/runtime/k3d/helm/templates/bash.yaml```](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/scripts/k3d/helm/templates/persistentVolume.yaml).
+All the files that are located in ```deploy/runtime/k3d/volume``` will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: [```deploy/runtime/k3d/helm/templates/bash.yaml```](https://github.com/eclipse-velocitas/devenv-runtime-k3d/blob/main/src/runtime/config/helm/templates/persistentVolume.yaml).
 
 Changes in ```deploy/runtime/k3d/volume``` are automatically reflected in PersistentVolume.
 
@@ -52,8 +52,9 @@ FeederCAN requires candump file. Pre-defined candump file is part of docker cont
 More information about FeederCan can be found [here](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val)
 
 ## Next steps
+
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
-- Concept: [Deployment Model](/docs/about/deployment-model)
+- Concept: [Deployment Model](/docs/about/deployment_model)
 - Concept: [Build and release process](/docs/about/deployment_model/vehicle_app_releases)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

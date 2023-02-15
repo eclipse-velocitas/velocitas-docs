@@ -272,7 +272,7 @@ If you want to know more about dapr and the configuration, please visit the [dap
 
 ### Debug your Vehicle App
 
-In the [introduction about debugging]({{< ref "/docs/tutorials/quickstart#debug-vehicle-app" >}}), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
+In the [introduction about debugging]({{< ref "/docs/tutorials/quickstart#debugging-vehicle-app" >}}), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
 
 The debug session launch settings are already prepared for the `VehicleApp`.
 
@@ -356,10 +356,10 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 ## Next steps
 
-- Concept: [SDK Overview](/docs/about/deployment-model/vehicle_app_sdk_overview.md)
-- Tutorial: [Deploy runtime services in Kubernetes mode](/docs/tutorials/run_runtime_services_kubernetes.md)
+- Concept: [SDK Overview](/docs/about/development_model/vehicle_app_sdk)
+- Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
 - Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
-- Concept: [Deployment Model](/docs/about/deployment-model.md)
+- Concept: [Deployment Model](/docs/about/deployment_model)
 - Tutorial: [Deploy a Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

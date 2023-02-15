@@ -273,7 +273,7 @@ Once the implementation is done, it is time to run and debug the app.
 
 ### Run your App
 
-In order to run the app make sure you have the `seatservice` configured as a dependency in your [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json). Read more about it in the [run runtime services](/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally.md) section.
+In order to run the app make sure you have the `seatservice` configured as a dependency in your [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json). Read more about it in the [run runtime services](/docs/run_runtime_services_locally.md) section.
 
 If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the "dapr run ..." command to start your app:
 
@@ -429,10 +429,10 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 ## Next steps
 
-- Concept: [SDK Overview](/docs/about/deployment-model/vehicle_app_sdk_overview)
-- Tutorial: [Deploy runtime services in Kubernetes mode](/docs/tutorials/run_runtime_services_kubernetes.md)
+- Concept: [SDK Overview](/docs/about/development_model/vehicle_app_sdk)
+- Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
-- Concept: [Deployment Model](/docs/about/deployment-model/)
+- Concept: [Deployment Model](/docs/about/deployment_model/)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

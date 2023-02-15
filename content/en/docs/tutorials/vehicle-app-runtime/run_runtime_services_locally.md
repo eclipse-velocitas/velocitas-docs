@@ -29,7 +29,7 @@ aliases:
 
 ## Add/Change service configuration
 
-The configuration for the services is defined in the file [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json). If you want to add a new service, adapt [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json). If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.
+The configuration for the services is defined in the file [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json). If you want to add a new service, adapt [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json). If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.
 
 
 ### Add/Change service configuration helper
@@ -98,7 +98,8 @@ Integration of a new runtime service can be done by duplicating one of the exist
 
 ## Integrating a new vehicle service
 
-Integration of a new vehicle service can be done by adding an additional case and following the template [`run-vehicleservices.sh`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.vscode/scripts/runtime/local/run-vehicleservices.sh).
+Integration of a new vehicle service can be done by adding an additional case and following the template [`run-vehicleservices.sh`](https://github.com/eclipse-velocitas/devenv-runtime-local/blob/main/src/run-vehicleservices.sh).
+
 ### Vehicle Service CodeBlock helper
 ```c
 # Configure Service Specific Requirements
@@ -137,6 +138,6 @@ If you are using Codespaces, remember that you are working on a remote agent. Th
 
 - Tutorial: [Deploy runtime services in local Kubernetes cluster](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/quickstart)
-- Concept: [Deployment Model](/docs/about/deployment-model/)
-- Concept: [Build and release process](/docs/about/deployment-model/vehicle_app_releases/)
+- Concept: [Deployment Model](/docs/about/deployment_model/)
+- Concept: [Build and release process](/docs/about/deployment_model/vehicle_app_releases/)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

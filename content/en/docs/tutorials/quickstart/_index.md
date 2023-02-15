@@ -147,7 +147,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 
 ## Triggering CI Workflow
 
-The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find [here](https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md).
+The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find [here](/docs/about/deployment_model/vehicle_app_releases/).
   
 By pushing a change to GitHub the CI Workflow will be triggered:
 

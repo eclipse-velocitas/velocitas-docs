@@ -49,7 +49,7 @@ The Vehicle Service Catalog ([VSC](https://github.com/COVESA/vehicle_service_cat
 
 As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language ([DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)) or BAMM Aspect Meta Model [BAMM](https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model) as well.
 
-The Velocitas SDK is using ([VSS](https://covesa.github.io/vehicle_signal_specification/)) as the sementic model for the Vehicle Model.
+The Velocitas SDK is using [VSS](https://covesa.github.io/vehicle_signal_specification/) as the semantic model for the Vehicle Model.
 
 ### Communication Protocols
 

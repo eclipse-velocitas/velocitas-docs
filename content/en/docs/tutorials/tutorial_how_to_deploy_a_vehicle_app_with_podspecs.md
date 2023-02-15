@@ -82,7 +82,7 @@ If your registry is not public, you might to add secrets to your Kubernets confi
 
 ### Prerequisites
 
-- A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/run_runtime_services_kubernetes).
+- A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/docs/run_runtime_services_kubernetes.md).
 
 Deploying your app with PodSpecs can be done with one simple command:
 
