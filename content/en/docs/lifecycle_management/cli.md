@@ -26,6 +26,85 @@ It is written in TypeScript and based on the open CLI framework [oclif](https://
 |[`velocitas exec`](https://github.com/eclipse-velocitas/cli#velocitas-exec-component-id-args)|Executes programs of a component found inside of specific package `~/.velocitas/packages/<package_name>`.|
 {{</table>}}
 
+### CLI Flow examples
+
+#### velocitas init
+
+```bash
+vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas init
+Initializing Velocitas packages ...
+... Downloading package: 'devenv-runtime-local:v1.0.2'
+... Downloading package: 'devenv-runtime-k3d:v1.0.0'
+... Downloading package: 'devenv-github-workflows:v1.0.6'
+... Downloading package: 'devenv-github-templates:v1.0.0'
+... Downloading package: 'devenv-devcontainer-setup:v1.0.5'
+Running post init hook for model-generator
+Running 'install-deps'
+...
+```
+
+### velocitas sync
+
+```bash
+vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas sync
+Syncing Velocitas components!
+... syncing 'devenv-github-workflows'
+... syncing 'devenv-github-templates'
+... syncing 'devenv-devcontainer-setup'
+```
+
+### velocitas upgrade
+
+```bash
+vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas upgrade --dry-run
+Checking for updates!
+... 'devenv-runtime-local' is up to date!
+... 'devenv-runtime-k3d' is up to date!
+... 'devenv-github-workflows' is up to date!
+... 'devenv-github-templates' is up to date!
+... 'devenv-devcontainer-setup' is currently at v1.0.4, can be updated to v1.0.5
+... Do you wish to continue? [y/n] [y]: y
+```
+
+### velocitas package
+
+```bash
+vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas package devenv-devcontainer-setup
+devenv-devcontainer-setup
+    version: v1.0.4
+    components:
+      - id: devcontainer-setup
+        type: setup
+        variables:
+            language
+                type: string
+                description: The programming language of the project. Either 'python' or 'cpp'
+                required: true
+            repoType
+                type: string
+                description: The type of the repository: 'app' or 'sdk'
+                required: true
+            appManifestPath
+                type: string
+                description: Path of the AppManifest file, relative to the .velocitas.json
+                required: true
+```
+
+```bash
+vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas package devenv-devcontainer-setup -p
+/home/vscode/.velocitas/packages/devenv-devcontainer-setup/v1.0.4
+```
+
+### velocitas exec
+
+```bash
+vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ ./velocitas-cli/bin/dev exec runtime-local run-vehicledatabroker
+#######################################################
+### Running Databroker                              ###
+#######################################################
+...
+```
+
 More detailed usage can be found at the [CLI README](https://github.com/eclipse-velocitas/cli/blob/main/README.md).
 
 ## Additional Information

@@ -22,7 +22,7 @@ Here are examples of this configuration:
 - [devenv-runtime-local manifest](https://github.com/eclipse-velocitas/devenv-runtime-local/blob/main/manifest.json)
 - [devenv-devcontainer-setup](https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json)
 
-The package repositories can hold configuration files which can be synced (e.g., for setup components) inside a velocitas repository, or scripts which will be executed by the [Velocitas CLI](/docs/lifecycle_management/cli/).
+The package repositories can hold configuration files which can be synced inside a velocitas repository, or scripts which will be executed by the [Velocitas CLI](/docs/lifecycle_management/cli/).
 <br/>
 
 More detailed information and explanation about configuration fields of the `manifest.json`can be found [here](https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PACKAGES.md).
