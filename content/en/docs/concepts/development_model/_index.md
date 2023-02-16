@@ -4,7 +4,6 @@ date: 2022-05-09T13:45:12+05:30
 weight: 3
 aliases:
   - /docs/concepts/development-model.md
-  - /docs/development-model.md
 resources:
 - src: "**programming_model*.png"
 - src: "**build_procedure*.png"
@@ -31,7 +30,7 @@ A Vehicle Model makes it possible to easily get vehicle data from the [Data Brok
 ### SDKs
 
 To reduce the effort required to implement [Vehicle Apps](#vehicle-apps), Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
-Next to a Vehicle Apps abstraction, the SDKs are [Middleware](#middleware)-enabled, provide connectivity to the [Data Broker](#data-broker) and contain the ontology in the form of base classes to create [Vehicle Models](#vehicle-models).
+Next to a Vehicle Apps abstraction, the SDKs are [Middleware](#middleware-abstraction)-enabled, provide connectivity to the [Data Broker](#data-broker) and contain the ontology in the form of base classes to create [Vehicle Models](#vehicle-models).
 
 ### Vehicle Services
 

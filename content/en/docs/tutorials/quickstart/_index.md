@@ -15,7 +15,7 @@ The following information describes how to setup and configure the [Development 
 Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own _Vehicle App_ develpment project.
 
 {{% alert title="Note" %}}
-Before you start, we recommend that you familiarize yourself with our [basic concept](/docs/about/development_model) to understand the terms mentioned.
+Before you start, we recommend that you familiarize yourself with our [basic concept](/docs/concepts/development_model) to understand the terms mentioned.
 {{% /alert %}}
 
 ## Creating Vehicle App Repository
@@ -147,7 +147,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 
 ## Triggering CI Workflow
 
-The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find [here](/docs/about/deployment_model/vehicle_app_releases/).
+The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find [here](/docs/concepts/deployment_model/vehicle_app_releases/).
   
 By pushing a change to GitHub the CI Workflow will be triggered:
 

@@ -113,7 +113,7 @@ The first thing you need to do to get access to the Vehicle Model. In the sectio
 
 If you just want to use your model in one app, you can simply copy the classes into your `/app/src`-folder. In this example, you find the classes inside the `vehicle_model`-folder. As you have already seen in the section about [initializing the app](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#initialize-your-class), we need the `vehicle model`to use the app.
 
-As you know, the model has a single [Datapoint](/docs/about/development_model/vehicle_app_sdk/#datapoint) for the speed and a reference to the `cabin`-model.
+As you know, the model has a single [Datapoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) for the speed and a reference to the `cabin`-model.
 
 Accessing the speed can be done via
 
@@ -429,10 +429,10 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 ## Next steps
 
-- Concept: [SDK Overview](/docs/about/development_model/vehicle_app_sdk)
+- Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk)
 - Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
-- Concept: [Deployment Model](/docs/about/deployment_model/)
+- Concept: [Deployment Model](/docs/concepts/deployment_model/)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

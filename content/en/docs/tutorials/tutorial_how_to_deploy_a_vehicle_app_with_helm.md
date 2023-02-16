@@ -148,4 +148,4 @@ This script builds the local source code of the application into a container, pu
 ## Next steps
 
 - Tutorial: [Start runtime services locally](/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally)
-- Concept: [Build and release process](/docs/about/deployment_model/vehicle_app_releases)
+- Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases)

@@ -4,7 +4,6 @@ date: 2022-05-09T13:43:25+05:30
 weight: 2
 aliases:
   - /docs/concepts/vehicle_app_sdk_overview.md
-  - /Concepts/vehicle_app_sdk_overview.md
 resources:
 - src: "**sdk_overview*.png"
 description: >
@@ -92,8 +91,8 @@ from sdv import (
 )
 
 class Seat(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.Position = DataPointBool("Position", self)
         self.IsOccupied = DataPointBool("IsOccupied", self)
@@ -102,15 +101,15 @@ class Seat(Model):
         self.Recline = DataPointInt32("Recline", self)
 
 class Cabin(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.DriverPosition = DataPointInt32("DriverPosition", self)
         self.Seat = SeatCollection("Seat", self)
 
 class SeatCollection(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.Row1 = self.RowType("Row1", self)
         self.Row2 = self.RowType("Row2", self)
@@ -143,15 +142,15 @@ class SeatCollection(Model):
             return _options.get(index)
 
 class VehicleIdentification(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.VIN = DataPointString("VIN", self)
         self.Model = DataPointString("Model", self)
 
 class CurrentLocation(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.Latitude = DataPointDouble("Latitude", self)
         self.Longitude = DataPointDouble("Longitude", self)
@@ -159,8 +158,8 @@ class CurrentLocation(Model):
         self.Altitude = DataPointDouble("Altitude", self)
 
 class Vehicle(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.Speed = DataPointFloat("Speed", self)
         self.CurrentLocation = CurrentLocation("CurrentLocation", self)
@@ -256,8 +255,8 @@ The convencience layer of C++ is abit more extensive than in Python. The complex
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
 class SeatService(Service):
-    def __init__(self):
-        super().__init__()
+    def **init**(self):
+        super().**init**()
         self._stub = SeatsStub(self.channel)
 
     async def Move(self, seat: Seat):
@@ -499,8 +498,8 @@ A typical skeleton of a `Vehicle App` looks like this:
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
 class SeatAdjusterApp(VehicleApp):
-    def __init__(self, vehicle: Vehicle):
-        super().__init__()
+    def **init**(self, vehicle: Vehicle):
+        super().**init**()
         self.vehicle = vehicle
 
 async def main():

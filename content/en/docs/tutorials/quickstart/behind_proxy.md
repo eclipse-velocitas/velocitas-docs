@@ -141,7 +141,7 @@ If you experience issues during initial DevContainer build, clean all images and
 ### GitHub rate limit exceeded
 
 When working behind a proxy, you share one single IP adress with other users.
-To avoid exceeding GitHubs rate limit - which can occur when working with our [lifecycle management setup](/docs/lifecycle_management/) - we suggest to generate a personal access token in your [GitHub settings](https://github.com/settings/tokens) and set it in your environment variables:
+To avoid exceeding GitHubs rate limit - which can occur when working with our [lifecycle management setup](/docs/concepts/lifecycle_management/) - we suggest to generate a personal access token in your [GitHub settings](https://github.com/settings/tokens) and set it in your environment variables:
 
 {{< tabpane text=true >}}
 {{% tab header="Mac/Linux" %}}

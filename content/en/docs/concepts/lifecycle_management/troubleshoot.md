@@ -5,7 +5,7 @@ weight: 4
 description: >
   Known issues and fixes.
 aliases:
-  - /docs/lifecycle_management/troubleshoot.md
+  - /docs/concepts/lifecycle_management/troubleshoot.md
 ---
 
 ### GitHub rate limit exceeded

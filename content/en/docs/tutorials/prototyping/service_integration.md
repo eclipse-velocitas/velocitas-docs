@@ -6,7 +6,7 @@ description: >
   Learn how to integrate a Vehicle Service that executes the request on vehicle side
 ---
 
-Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your _Vehicle App_ makes use of e.g. `Vehicle.Cabin.Seat.Row1.Pos1.Position`, `Vehicle.Body.Lights.IsBackupOn`, `Vehicle.Body.Lights.IsHighBeamOn`, `Vehicle.Body.Lights.IsLowBeamOn` you are in for some real action. To learn more, visit [_Vehicle Services_]({{< ref "/docs/about/development_model/val/#vehicle-services" >}}).
+Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your _Vehicle App_ makes use of e.g. `Vehicle.Cabin.Seat.Row1.Pos1.Position`, `Vehicle.Body.Lights.IsBackupOn`, `Vehicle.Body.Lights.IsHighBeamOn`, `Vehicle.Body.Lights.IsLowBeamOn` you are in for some real action. To learn more, visit [_Vehicle Services_]({{< ref "/docs/concepts/development_model/val/#vehicle-services" >}}).
 
 You can validate the interaction of the service with your _Vehicle App_ by adding a _Vehicle Service_ to the `/app/AppManifest.json`, [start the services]({{< ref "/docs/tutorials/quickstart/#starting-runtime-services" >}}) locally and [debug]({{< ref "/docs/tutorials/quickstart/#debugging-vehicle-app" >}}) it.
 

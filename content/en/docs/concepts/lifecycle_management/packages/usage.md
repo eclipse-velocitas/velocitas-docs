@@ -5,13 +5,13 @@ weight: 1
 description: >
   Learn how to use velocitas packages.
 aliases:
-  - /docs/lifecycle_management/packages/usage.md
-  - /docs/lifecycle_management/packages/usage
+  - /docs/concepts/lifecycle_management/packages/usage.md
+  - /docs/concepts/lifecycle_management/packages/usage
 ---
 
 ## Overview
 
-After you have set up the `.velocitas.json` for your [project configuration](/docs/lifecycle_management/project-configuration.md), using packages is pretty straight forward.
+After you have set up the `.velocitas.json` for your [project configuration](/docs/concepts/lifecycle_management/project-configuration.md), using packages is pretty straight forward.
 
 Currently, the packages provided by the _Velocitas_ team are the following:
 {{<table "table table-bordered">}}
@@ -33,9 +33,9 @@ The [Velocitas CLI](https://github.com/eclipse-velocitas/cli) - acting as a pack
 </br>
 After creation of a devcontainer a [postCreateCommand](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.devcontainer/scripts/postCreateCommand.sh#L18) is configured to be executed which for the first time runs `velocitas init` and `velocitas sync`
 
-Check the section about our [Velocitas CLI](/docs/lifecycle_management/cli/) to learn more about the background and usage of it.
+Check the section about our [Velocitas CLI](/docs/concepts/lifecycle_management/cli/) to learn more about the background and usage of it.
 
 ## Next steps
 
-- Lifecycle Management: [Development of Packages](/docs/lifecycle_management/packages/development/)
-- Lifecycle Management: [Velocitas CLI](/docs/lifecycle_management/cli/)
+- Lifecycle Management: [Development of Packages](/docs/concepts/lifecycle_management/packages/development/)
+- Lifecycle Management: [Velocitas CLI](/docs/concepts/lifecycle_management/cli/)

@@ -5,8 +5,8 @@ date: 2023-02-13T09:43:25+05:30
 description: >
   Learn everything about the Velocitas CLI.
 aliases:
-  - /docs/lifecycle_management/cli.md
-  - /docs/lifecycle_management/cli
+  - /docs/concepts/lifecycle_management/cli.md
+  - /docs/concepts/lifecycle_management/cli
 ---
 
 ## Background
@@ -134,4 +134,4 @@ More detailed information about _Built-In Variables_ can be found [here](https:/
 
 ## Next steps
 
-- Lifecycle Management: [Troubleshoot](/docs/lifecycle_management/troubleshooting/)
+- Lifecycle Management: [Troubleshoot](/docs/concepts/lifecycle_management/troubleshooting/)

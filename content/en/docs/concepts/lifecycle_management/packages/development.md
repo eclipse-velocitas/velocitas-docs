@@ -5,8 +5,8 @@ weight: 2
 description: >
   Learn how to develop an own package.
 aliases:
-  - /docs/lifecycle_management/packages/development.md
-  - /docs/lifecycle_management/packages/development
+  - /docs/concepts/lifecycle_management/packages/development.md
+  - /docs/concepts/lifecycle_management/packages/development
 ---
 
 ## Start
@@ -22,13 +22,13 @@ Here are examples of this configuration:
 - [devenv-runtime-local manifest](https://github.com/eclipse-velocitas/devenv-runtime-local/blob/main/manifest.json)
 - [devenv-devcontainer-setup](https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json)
 
-The package repositories can hold configuration files which can be synced inside a velocitas repository, or scripts which will be executed by the [Velocitas CLI](/docs/lifecycle_management/cli/).
+The package repositories can hold configuration files which can be synced inside a velocitas repository, or scripts which will be executed by the [Velocitas CLI](/docs/concepts/lifecycle_management/cli/).
 <br/>
 
 More detailed information and explanation about configuration fields of the `manifest.json`can be found [here](https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PACKAGES.md).
 
-The [CLI](/docs/lifecycle_management/cli/) will download the packages by default to `~/.velocitas/packages/<package_name>`.
+The [CLI](/docs/concepts/lifecycle_management/cli/) will download the packages by default to `~/.velocitas/packages/<package_name>`.
 
 ## Next steps
 
-- Lifecycle Management: [Velocitas CLI](/docs/lifecycle_management/cli/)
+- Lifecycle Management: [Velocitas CLI](/docs/concepts/lifecycle_management/cli/)

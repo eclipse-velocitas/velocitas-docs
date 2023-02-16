@@ -5,5 +5,5 @@ weight: 1
 description: >
   Learn everything about Velocitas packages.
 aliases:
-  - /docs/lifecycle_management/packages
+  - /docs/concepts/lifecycle_management/packages
 ---

@@ -31,8 +31,8 @@ aliases:
 
 The configuration for the services is defined in the file [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json). If you want to add a new service, adapt [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json). If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.
 
-
 ### Add/Change service configuration helper
+
 ```json
 {
   "name": "<NAME>",
@@ -58,12 +58,12 @@ For more flexible configuration please follow [CAN feeder (KUKSA DBC Feeder)](ht
 
 Integration of a new runtime service can be done by duplicating one of the existing tasks.
 
-- Create a new script based on template script `.vscode/scripts/run-vehicledatabroker.sh`
-- In `.vscode/tasks.json`, duplicate section from task `run-vehicledatabroker`
-- Correct names in a new code block
-- **Disclaimer:** `Problem Matcher` defined in `tasks.json` is a feature of the Visual Studio Code Task, to ensure that the process runs in background
-- Run task using `[F1 -> Tasks: Run Task -> <Your new task name>]`
-- Task should be visible in Terminal section of Visual Studio Code
+* Create a new script based on template script `.vscode/scripts/run-vehicledatabroker.sh`
+* In `.vscode/tasks.json`, duplicate section from task `run-vehicledatabroker`
+* Correct names in a new code block
+* **Disclaimer:** `Problem Matcher` defined in `tasks.json` is a feature of the Visual Studio Code Task, to ensure that the process runs in background
+* Run task using `[F1 -> Tasks: Run Task -> <Your new task name>]`
+* Task should be visible in Terminal section of Visual Studio Code
 
 ### Task CodeBlock helper
 
@@ -101,6 +101,7 @@ Integration of a new runtime service can be done by duplicating one of the exist
 Integration of a new vehicle service can be done by adding an additional case and following the template [`run-vehicleservices.sh`](https://github.com/eclipse-velocitas/devenv-runtime-local/blob/main/src/run-vehicleservices.sh).
 
 ### Vehicle Service CodeBlock helper
+
 ```c
 # Configure Service Specific Requirements
 configure_service() {
@@ -136,8 +137,8 @@ If you are using Codespaces, remember that you are working on a remote agent. Th
 
 ## Next steps
 
-- Tutorial: [Deploy runtime services in local Kubernetes cluster](/docs/tutorials/run_runtime_services_kubernetes.md)
-- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/quickstart)
-- Concept: [Deployment Model](/docs/about/deployment_model/)
-- Concept: [Build and release process](/docs/about/deployment_model/vehicle_app_releases/)
-- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+* Tutorial: [Deploy runtime services in local Kubernetes cluster](/docs/tutorials/run_runtime_services_kubernetes.md)
+* Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/quickstart)
+* Concept: [Deployment Model](/docs/concepts/deployment_model/)
+* Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases/)
+* Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
