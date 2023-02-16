@@ -16,7 +16,7 @@
 </script>
 
 
-<meta name="generator" content="Hugo 0.98.0" />
+<meta name="generator" content="Hugo 0.110.0">
 <link rel="canonical" type="text/html" href="/velocitas/docs/about/">
 <link rel="alternate" type="application/rss&#43;xml" href="/velocitas/docs/about/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -41,7 +41,6 @@
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas/docs/about/" />
-
 <meta itemprop="name" content="About Velocitas">
 <meta itemprop="description" content="Explore the goal, benefits and basic concepts of Eclipse _Velocitas™_ 
 "><meta name="twitter:card" content="summary"/>
@@ -52,8 +51,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.aae529f7dffcc6e9861c5d68e73e54cef7f46953519f9068a1e53554021110ba.css" as="style">
-<link href="/velocitas/scss/main.min.aae529f7dffcc6e9861c5d68e73e54cef7f46953519f9068a1e53554021110ba.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.f5c3119a755c510de8cb8a86ccbc04dd633e62eff5d963d1e97475cddfc0c30a.css" as="style">
+<link href="/velocitas/scss/main.min.f5c3119a755c510de8cb8a86ccbc04dd633e62eff5d963d1e97475cddfc0c30a.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas/js/jquery-3.6.0.min.js
@@ -92,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.1d57d4879bd7851e005824d3edd33911.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.9529e63de8b9cbff69902ecc55a0c190.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -322,6 +321,63 @@ This is the multi-page printable view of this section.
 <li>Vehicle Apps skeleton and example Vehicle Apps helps to understand easily how to write a Vehicle Apps using the KUKSA VAL runtime services</li>
 <li>Higher development velocity through self-contained, containerized Apps with no dependencies to E/E architecture</li>
 </ul>
+<h2 id="feature-overview">Feature Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Python</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vehicle App Template</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>Vehicle App SDK</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>CLI</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>Vehicle Model Generator</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>DevContainer for easy IDE setup</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>CI/CD workflows</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>Unit test support</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>Integration test support</td>
+<td>+</td>
+<td></td>
+</tr>
+<tr>
+<td>Digital Auto integration</td>
+<td>+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="concepts">Concepts</h2>
 
 </div>
@@ -503,8 +559,9 @@ Next to a Vehicle Apps abstraction, the SDKs are <a href="#middleware">Middlewar
 <p>The Velocitas SDK is using (<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>) as the sementic model for the Vehicle Model.</p>
 <h3 id="communication-protocols">Communication Protocols</h3>
 <p>Asynchronous communication between <a href="#vehicle-apps">Vehicle Apps</a> and other vehicle components, as well as cloud connectivity, is facilitated through <a href="https://mqtt.org/" target="_blank" rel="noopener">MQTT</a> messaging. Direct, synchronous communication between <a href="#vehicle-apps">Vehicle Apps</a>, <a href="#vehicle-services">Vehicle Services</a> and the <a href="#data-broker">Data Broker</a> is based on the <a href="https://grpc.io/" target="_blank" rel="noopener">gRPC</a> protocol.</p>
-<h3 id="middleware">Middleware</h3>
-<p>Velocitas leverages <a href="https://dapr.io" target="_blank" rel="noopener">dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/" target="_blank" rel="noopener">publish/subscribe building block</a> which provides an abstraction of the MQTT messaging protocol.</p>
+<h3 id="middleware-abstraction">Middleware Abstraction</h3>
+<p>Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
+By default, Velocitas leverages <a href="https://dapr.io" target="_blank" rel="noopener">dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/" target="_blank" rel="noopener">publish/subscribe building block</a>.</p>
 <h3 id="vehicle-edge-operating-system">Vehicle Edge Operating System</h3>
 <p><a href="#vehicle-apps">Vehicle Apps</a> are expected to run on a <a href="https://www.linux.org/" target="_blank" rel="noopener">Linux</a>-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., <a href="https://mosquitto.org/" target="_blank" rel="noopener">Eclipse Mosquitto</a>).</p>
 <h2 id="vehicle-app-characteristics">Vehicle App Characteristics</h2>
@@ -1793,7 +1850,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 
     </div>
     
-  <script src="/velocitas/js/main.min.b671a59c5b86cdbfc17e4c1c2db8c832613727a3e1bf00c27ddab56b30360c8a.js" integrity="sha256-tnGlnFuGzb/BfkwcLbjIMmE3J6PhvwDCfdq1azA2DIo=" crossorigin="anonymous"></script>
+  <script src="/velocitas/js/main.min.c757e9fe8e272200cc2eb080e394af6e5b71a93e1720dfff7feafddd98d9f829.js" integrity="sha256-x1fp/o4nIgDMLrCA45SvbltxqT4XIN//f&#43;r93ZjZ&#43;Ck=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>

@@ -16,7 +16,7 @@
 </script>
 
 
-<meta name="generator" content="Hugo 0.98.0" />
+<meta name="generator" content="Hugo 0.110.0">
 <link rel="canonical" type="text/html" href="/velocitas/docs/">
 <link rel="alternate" type="application/rss&#43;xml" href="/velocitas/docs/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -39,7 +39,6 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas/docs/" />
-
 <meta itemprop="name" content="Velocitas">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Velocitas"/>
@@ -48,8 +47,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.aae529f7dffcc6e9861c5d68e73e54cef7f46953519f9068a1e53554021110ba.css" as="style">
-<link href="/velocitas/scss/main.min.aae529f7dffcc6e9861c5d68e73e54cef7f46953519f9068a1e53554021110ba.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.f5c3119a755c510de8cb8a86ccbc04dd633e62eff5d963d1e97475cddfc0c30a.css" as="style">
+<link href="/velocitas/scss/main.min.f5c3119a755c510de8cb8a86ccbc04dd633e62eff5d963d1e97475cddfc0c30a.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas/js/jquery-3.6.0.min.js
@@ -88,7 +87,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.1d57d4879bd7851e005824d3edd33911.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.9529e63de8b9cbff69902ecc55a0c190.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -625,6 +624,63 @@ This is the multi-page printable view of this section.
 <li>Vehicle Apps skeleton and example Vehicle Apps helps to understand easily how to write a Vehicle Apps using the KUKSA VAL runtime services</li>
 <li>Higher development velocity through self-contained, containerized Apps with no dependencies to E/E architecture</li>
 </ul>
+<h2 id="feature-overview">Feature Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Python</th>
+<th>C++</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vehicle App Template</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>Vehicle App SDK</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>CLI</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>Vehicle Model Generator</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>DevContainer for easy IDE setup</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>CI/CD workflows</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>Unit test support</td>
+<td>+</td>
+<td>+</td>
+</tr>
+<tr>
+<td>Integration test support</td>
+<td>+</td>
+<td></td>
+</tr>
+<tr>
+<td>Digital Auto integration</td>
+<td>+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="concepts">Concepts</h2>
 
 </div>
@@ -808,8 +864,9 @@ Next to a Vehicle Apps abstraction, the SDKs are <a href="#middleware">Middlewar
 <p>The Velocitas SDK is using (<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>) as the sementic model for the Vehicle Model.</p>
 <h3 id="communication-protocols">Communication Protocols</h3>
 <p>Asynchronous communication between <a href="#vehicle-apps">Vehicle Apps</a> and other vehicle components, as well as cloud connectivity, is facilitated through <a href="https://mqtt.org/" target="_blank" rel="noopener">MQTT</a> messaging. Direct, synchronous communication between <a href="#vehicle-apps">Vehicle Apps</a>, <a href="#vehicle-services">Vehicle Services</a> and the <a href="#data-broker">Data Broker</a> is based on the <a href="https://grpc.io/" target="_blank" rel="noopener">gRPC</a> protocol.</p>
-<h3 id="middleware">Middleware</h3>
-<p>Velocitas leverages <a href="https://dapr.io" target="_blank" rel="noopener">dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/" target="_blank" rel="noopener">publish/subscribe building block</a> which provides an abstraction of the MQTT messaging protocol.</p>
+<h3 id="middleware-abstraction">Middleware Abstraction</h3>
+<p>Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
+By default, Velocitas leverages <a href="https://dapr.io" target="_blank" rel="noopener">dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/" target="_blank" rel="noopener">publish/subscribe building block</a>.</p>
 <h3 id="vehicle-edge-operating-system">Vehicle Edge Operating System</h3>
 <p><a href="#vehicle-apps">Vehicle Apps</a> are expected to run on a <a href="https://www.linux.org/" target="_blank" rel="noopener">Linux</a>-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., <a href="https://mosquitto.org/" target="_blank" rel="noopener">Eclipse Mosquitto</a>).</p>
 <h2 id="vehicle-app-characteristics">Vehicle App Characteristics</h2>
@@ -2282,7 +2339,7 @@ Just press <kbd>F5</kbd> to start a debug session of the example <em>Vehicle App
 <li>Start your HTTP(s) proxy server</li>
 </ul>
 <h1 id="docker-desktop">Docker Desktop</h1>
-<p>You need to install <a href="https://www.docker.com/get-started/" target="_blank" rel="noopener">Docker Desktop</a> using the right version. 
+<p>You need to install <a href="https://www.docker.com/get-started/" target="_blank" rel="noopener">Docker Desktop</a> using the right version.
 As we recognized a proxy issue in Docker Desktop <a href="https://github.com/docker/for-win/issues/12672" target="_blank" rel="noopener">#12672</a> we strongly recomment to use a Docker Desktop version &gt;= 4.8.2. In case you have an older version on your machine please update to the current version.</p>
 <p>In the next step you need to enter your proxy settings:</p>
 <ul>
@@ -2753,7 +2810,7 @@ First, you have to import the relevant packages for unit testing and everything 
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.vehicle_app</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">VehicleApp</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv_model.Cabin.SeatService</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">SeatService</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv_model.proto.seats_pb2</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">BASE</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">SeatLocation</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@pytest</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">mark</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">asyncio</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@pytest.mark.asyncio</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">test_for_publish_to_topic</span><span style="color:#000;font-weight:bold">():</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic"># Disable no-value-for-parameter, seems to be false positive with mock lib</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic"># pylint: disable=no-value-for-parameter</span>
@@ -4534,7 +4591,7 @@ Contributor Agreement (ECA) on file.</p>
 
     </div>
     
-  <script src="/velocitas/js/main.min.b671a59c5b86cdbfc17e4c1c2db8c832613727a3e1bf00c27ddab56b30360c8a.js" integrity="sha256-tnGlnFuGzb/BfkwcLbjIMmE3J6PhvwDCfdq1azA2DIo=" crossorigin="anonymous"></script>
+  <script src="/velocitas/js/main.min.c757e9fe8e272200cc2eb080e394af6e5b71a93e1720dfff7feafddd98d9f829.js" integrity="sha256-x1fp/o4nIgDMLrCA45SvbltxqT4XIN//f&#43;r93ZjZ&#43;Ck=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>

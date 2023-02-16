@@ -16,7 +16,7 @@
 </script>
 
 
-<meta name="generator" content="Hugo 0.98.0" />
+<meta name="generator" content="Hugo 0.110.0">
 <meta name="robots" content="index, follow">
 
 
@@ -34,33 +34,32 @@
 <title>Run runtime services in Kubernetes | Velocitas</title>
 <meta name="description" content="Besides local execution of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code Tasks, a feature of Visual Studio Code. Additional information on tasks can be found here.
 Quick Start: Each step has a task that is defined in .vscode/tasks.json:
- Core tasks (dependent on each other in the given order):  K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them.">
+Core tasks (dependent on each other in the given order): K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them.">
 <meta property="og:title" content="Run runtime services in Kubernetes" />
 <meta property="og:description" content="Besides local execution of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code Tasks, a feature of Visual Studio Code. Additional information on tasks can be found here.
 Quick Start: Each step has a task that is defined in .vscode/tasks.json:
- Core tasks (dependent on each other in the given order):  K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them." />
+Core tasks (dependent on each other in the given order): K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2023-02-07T11:11:27+01:00" />
-
+<meta property="article:modified_time" content="2023-02-16T10:53:29+01:00" />
 <meta itemprop="name" content="Run runtime services in Kubernetes">
 <meta itemprop="description" content="Besides local execution of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code Tasks, a feature of Visual Studio Code. Additional information on tasks can be found here.
 Quick Start: Each step has a task that is defined in .vscode/tasks.json:
- Core tasks (dependent on each other in the given order):  K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them."><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-02-07T11:11:27+01:00" />
+Core tasks (dependent on each other in the given order): K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them."><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
+<meta itemprop="dateModified" content="2023-02-16T10:53:29+01:00" />
 <meta itemprop="wordCount" content="617">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Run runtime services in Kubernetes"/>
 <meta name="twitter:description" content="Besides local execution of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code Tasks, a feature of Visual Studio Code. Additional information on tasks can be found here.
 Quick Start: Each step has a task that is defined in .vscode/tasks.json:
- Core tasks (dependent on each other in the given order):  K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them."/>
+Core tasks (dependent on each other in the given order): K3D - Install prerequisites: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them."/>
 
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.aae529f7dffcc6e9861c5d68e73e54cef7f46953519f9068a1e53554021110ba.css" as="style">
-<link href="/velocitas/scss/main.min.aae529f7dffcc6e9861c5d68e73e54cef7f46953519f9068a1e53554021110ba.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.f5c3119a755c510de8cb8a86ccbc04dd633e62eff5d963d1e97475cddfc0c30a.css" as="style">
+<link href="/velocitas/scss/main.min.f5c3119a755c510de8cb8a86ccbc04dd633e62eff5d963d1e97475cddfc0c30a.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas/js/jquery-3.6.0.min.js
@@ -99,7 +98,7 @@ Quick Start: Each step has a task that is defined in .vscode/tasks.json:
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.1d57d4879bd7851e005824d3edd33911.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.9529e63de8b9cbff69902ecc55a0c190.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -125,13 +124,13 @@ Quick Start: Each step has a task that is defined in .vscode/tasks.json:
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.1d57d4879bd7851e005824d3edd33911.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.9529e63de8b9cbff69902ecc55a0c190.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
 </div>
 
-    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
   </form>
   </div>
@@ -371,17 +370,13 @@ Quick Start: Each step has a task that is defined in .vscode/tasks.json:
             <nav aria-label="breadcrumb" class="td-breadcrumbs">
   <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="/velocitas/docs/">Documentation</a>
-  </li>
+    <a href="/velocitas/docs/">Documentation</a></li>
   <li class="breadcrumb-item">
-    <a href="/velocitas/docs/tutorials/">Tutorials</a>
-  </li>
+    <a href="/velocitas/docs/tutorials/">Tutorials</a></li>
   <li class="breadcrumb-item">
-    <a href="/velocitas/docs/tutorials/vehicle-app-runtime/">Run Vehicle App Runtime Services</a>
-  </li>
+    <a href="/velocitas/docs/tutorials/vehicle-app-runtime/">Run Vehicle App Runtime Services</a></li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/" aria-disabled="true" class="btn-link disabled">Run runtime services in Kubernetes</a>
-  </li>
+    Run runtime services in Kubernetes</li>
   </ol>
 </nav>
             
@@ -457,7 +452,7 @@ All the files that are located in <code>deploy/runtime/k3d/volume</code> will be
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified February 7, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/13af36a50f7a2290e857cd6ac5f2a5bd1d4664c0">Explanation of vspec added to AppManifest.json (#71) (13af36a)</a>
+  Last modified February 16, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/c16782b1ec6b8dbcfbef636b6866f050c5e0cb4f">Try fixing ci (#74) (c16782b)</a>
 </div>
 
 </div>
@@ -602,7 +597,7 @@ All the files that are located in <code>deploy/runtime/k3d/volume</code> will be
 
     </div>
     
-  <script src="/velocitas/js/main.min.b671a59c5b86cdbfc17e4c1c2db8c832613727a3e1bf00c27ddab56b30360c8a.js" integrity="sha256-tnGlnFuGzb/BfkwcLbjIMmE3J6PhvwDCfdq1azA2DIo=" crossorigin="anonymous"></script>
+  <script src="/velocitas/js/main.min.c757e9fe8e272200cc2eb080e394af6e5b71a93e1720dfff7feafddd98d9f829.js" integrity="sha256-x1fp/o4nIgDMLrCA45SvbltxqT4XIN//f&#43;r93ZjZ&#43;Ck=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>
