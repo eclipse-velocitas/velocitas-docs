@@ -9,9 +9,13 @@ aliases:
   - /docs/lifecycle_management/packages/development
 ---
 
+## Start
+
+Create a repo at `https://my-organization/repos/my-velocitas-package.git` (e.g., `https://github.com/my-organisation/my-velocitas-package`).
+
 ## Configuration of Packages
 
-Every _Package_ repo comes with a `manifest.json` which is the package configuration. It holds package relevant information and its behaviour.
+Every _Package_ repo needs a `manifest.json` which is the package configuration. It holds package relevant information and its behaviour.
 
 Here are examples of this configuration:
 
@@ -118,17 +122,23 @@ Here are examples of this configuration:
 ```
 
 {{< /details >}}
-
-</br>
+<br/>
 
 We divided the packages to hold components with a type of either `runtime` or `setup`.
+<br/>
+
+The package repositories can hold configuration files which can be synced (e.g., for setup components) inside a velocitas repository, or scripts which will be executed by the [Velocitas CLI](/docs/lifecycle_management/cli/).
+<br/>
+
+The [CLI](/docs/lifecycle_management/cli/) will download the packages by default to `~/.velocitas/packages/<package_name>`.
 
 ### Components
 
-Each component entry of a package has the following fields:
+Each component entry of a package can have the following fields:
 
+{{<table "table table-bordered">}}
 | name | type | description | componentType |
-|:--------:|:--------:|:---------------:|:---------------:|
+|:--------|:--------|:---------------|:---------------|
 | id | string | Unique ID of component inside a package |general|
 | alias | string | Additional shortname, can be used in the CLI |general|
 | type | string | Either `runtime` or `setup`|general|
@@ -137,47 +147,54 @@ Each component entry of a package has the following fields:
 | start | start[] | Preconfigured list of start scripts & order|`runtime`|
 | files | file[] | Preconfigured list of start scripts & order|`setup`|
 | onPostInit | list | List of objects containing an id referencing a program to run after `velocitas init`|`setup`|
+{{</table>}}
 
 #### Types
 
 ##### variable
 
+{{<table "table table-bordered">}}
 | name | type | description | componentType |
-|:--------:|:--------:|:---------------:|:---------------:|
+|:--------|:--------|:---------------|:---------------|
 | name | string | Name of variable used in `.velocitas.json` of the _Vehicle App_ |general|
 | type | string | Datatype of exposed variable |general|
 | required | boolean | Defines if variable is essential to run the component|general|
+| default | any | Can be used to set a default value |general|
 | description | string | Description of purpose of variable |general|
+{{</table>}}
 
 ##### program
 
+{{<table "table table-bordered">}}
 | name | type | description | componentType |
-|:--------:|:--------:|:---------------:|:---------------:|
+|:--------|:--------|:---------------|:---------------|
 | id | string | Unique ID of components program |general|
 | executable | string | Path to an executable script or type of script inside the package repository |general|
 | args | string | Additional arguments/Path to script |general|
+{{</table>}}
 
 ##### start
 
+{{<table "table table-bordered">}}
 | name | type | description | componentType | optional |
-|:--------:|:--------:|:---------------:|:---------------:|:---------------:|
+|:--------|:--------|:---------------|:---------------|:---------------|
 | id | string | Reference to a program ID |`runtime`||
 | dependsOn | string | Dependant program can be defined|`runtime`|x|
 | startupLine | string | When line is reached, start of the program is ensured|`runtime`|x|
+{{</table>}}
 
 ##### file
 
+{{<table "table table-bordered">}}
 | name | type | description | componentType |
-|:--------:|:--------:|:---------------:|:---------------:|
+|:--------|:--------|:---------------|:---------------|
 | src | string | Path to a folder inside _Package_ Repository containing files to sync |`setup`|
 | dst | string | Destination to sync files inside _Vehicle App_ Repository|`runtime`|
+{{</table>}}
 
-<br/>
-The package repositories can hold configuration files which can be synced (for setup components) inside a velocitas repository, or scripts which will be executed by the velocitas CLI.
-<br/>
+### Content of a package
 
-Packages will be downloaded by default to `~/.velocitas/packages/<package_name>` folder inside the home directory.
-<br/>
+A package can hold scripts or configurations for any kind of
 
 ## Next steps
 

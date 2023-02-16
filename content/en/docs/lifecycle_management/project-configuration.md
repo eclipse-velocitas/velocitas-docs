@@ -35,16 +35,20 @@ Here is an example of this configuration:
 
 Each package entry has the following fields:
 
+{{<table "table table-bordered">}}
 | name | type | description |
-|:--------:|:--------:|:---------------:|
+|:--------|:--------|:---------------|
 | name | string | Can either be a fully qualified https URL to a git repository e.g. `https://my-organization/repos/my-velocitas-package.git` or a short name e.g. `devenv-devcontainer-setup` which would then be resolved to `https://github.com/eclipse-velocitas/<name>`|
 | version | string | A git reference. May either be a tag, branch name or SHA. If it is a tag and your remote repository has valid semver tags, the CLI will suggest newer versions when running `velocitas upgrade`|
+{{</table>}}
 
 ### Variables
 
+{{<table "table table-bordered">}}
 | name | type | description |
-|:--------:|:--------:|:---------------:|
+|:--------|:--------|:---------------|
 | variables | list | Key-Value pair|
+{{</table>}}
 
 </br>
 
