@@ -14,7 +14,7 @@ aliases:
 Our [Velocitas CLI](https://github.com/eclipse-velocitas/cli) is introduced to support the process of the lifecycle of a _Vehicle App_ as a package manager.
 It is written in TypeScript and based on the open CLI framework [oclif](https://oclif.io/).
 
-## Usage
+## Basic Usage
 
 {{<table "table table-bordered">}}
 | command | purpose |
@@ -26,12 +26,19 @@ It is written in TypeScript and based on the open CLI framework [oclif](https://
 |[`velocitas exec`](https://github.com/eclipse-velocitas/cli#velocitas-exec-component-id-args)|Executes programs of a component found inside of specific package `~/.velocitas/packages/<package_name>`.|
 {{</table>}}
 
+More detailed usage can be found at the [CLI README](https://github.com/eclipse-velocitas/cli/blob/main/README.md).
+
 ## Additional Information
 
 ### Cache Usage
 
-The CLI supports to cache data for a _Vehicle App_ project.
+The CLI supports caching data for a _Vehicle App_ project.
+<br/>
 The cache data makes it easy for any script/program of a component to read from or write to.
+<br/>
+More detailed information about the _Project Cache_ can be found [here](https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PROJECT-CACHE.md).
+
+### Built-In Variables
 
 The CLI creates default environment variables which are available to every script/program.
 
@@ -44,34 +51,8 @@ The CLI creates default environment variables which are available to every scrip
 |`VELOCITAS_APP_MANIFEST`| JSON string of the _Vehicle App_ AppManifest |
 {{</table>}}
 
-#### Writing to Cache inside of a component script
-
-```python
-echo "foo=bar >> VELOCITAS_CACHE"
-```
-
-```python
-print(f"foo='{bar}' >> VELOCITAS_CACHE")
-```
-
-#### Reading from Cache or AppManifest inside of a component script
-
-```python
-# From cache data
-foo = json.loads(require_env('VELOCITAS_CACHE_DATA'))['foo']
-# From AppManifest
-manifest_data_str = os.getenv('VELOCITAS_APP_MANIFEST')
-manifest_data = json.loads(manifest_data_str)
-baz = manifest_data['foo']['bar']['baz']
-```
-
-```bash
-# From cache data
-FOO=$(echo $VELOCITAS_CACHE_DATA | jq .foo | tr -d '"')
-# From AppManifest
-BAZ=$(echo $VELOCITAS_APP_MANIFEST | jq .foo.bar.baz | tr -d '"')
-```
+More detailed information about _Built-In Variables_ can be found [here](https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PROJECT-CACHE.md).
 
 ## Next steps
 
-- Lifecycle Management: [Troubleshooting](/docs/lifecycle_management/troubleshooting/)
+- Lifecycle Management: [Troubleshoot](/docs/lifecycle_management/troubleshooting/)

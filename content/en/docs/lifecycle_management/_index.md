@@ -32,13 +32,3 @@ The driver for this is our [Velocitas CLI](https://github.com/eclipse-velocitas/
 Here we can see how the `MyVehicleApp` repository references package repositories by _Velocitas_, customer specific packages and some packages from a totally different development platform (Gitee).
 
 If you want to learn more about how to reference and use packages check the sections for [project configuration](/docs/lifecycle_management/project-configuration/) and [packages](/docs/lifecycle_management/packages/usage/).
-
-## Concept
-
-Placeholder
-
-## Architecture
-
-Placeholder
-
-**Overview:** Placeholder
