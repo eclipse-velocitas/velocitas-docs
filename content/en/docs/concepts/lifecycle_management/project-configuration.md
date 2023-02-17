@@ -58,5 +58,5 @@ Each variable is a key-value pair which maps the variable to a particular value.
 
 ## Next steps
 
-- Lifecycle Management: [Usage of Packages](/docs/concepts/lifecycle_management/packages/usage/)
-- Lifecycle Management: [Development of Packages](/docs/concepts/lifecycle_management/packages/development/)
+* Lifecycle Management: [Usage of Packages](/docs/concepts/lifecycle_management/packages/usage/)
+* Lifecycle Management: [Development of Packages](/docs/concepts/lifecycle_management/packages/development/)

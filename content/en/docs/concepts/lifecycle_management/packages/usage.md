@@ -31,11 +31,18 @@ To see how these provided packages are used inside a `.velocitas.json` you can u
 
 The [Velocitas CLI](https://github.com/eclipse-velocitas/cli) - acting as a package manager for _Vehicle App_ repositories - is installed inside our [devcontainer-base-images](https://github.com/eclipse-velocitas/devcontainer-base-images).
 </br>
-After creation of a devcontainer a [postCreateCommand](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.devcontainer/scripts/postCreateCommand.sh#L18) is configured to be executed which for the first time runs `velocitas init` and `velocitas sync`
+After creation of a devcontainer a [postCreateCommand](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.devcontainer/scripts/postCreateCommand.sh#L18) is configured to be executed which runs:
+
+* `velocitas init` which will download and initialize all referenced packages of the `.velocitas.json`.
+* `velocitas sync` to sync files provided by some packages.
 
 Check the section about our [Velocitas CLI](/docs/concepts/lifecycle_management/cli/) to learn more about the background and usage of it.
 
+## Velocitas Home Directory
+
+The packages will be downloaded by the [CLI](/docs/concepts/lifecycle_management/cli/) to `~/.velocitas/packages/<package_name>`. More Information: [VELOCITAS_HOME](https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory).
+
 ## Next steps
 
-- Lifecycle Management: [Development of Packages](/docs/concepts/lifecycle_management/packages/development/)
-- Lifecycle Management: [Velocitas CLI](/docs/concepts/lifecycle_management/cli/)
+* Lifecycle Management: [Development of Packages](/docs/concepts/lifecycle_management/packages/development/)
+* Lifecycle Management: [Velocitas CLI](/docs/concepts/lifecycle_management/cli/)
