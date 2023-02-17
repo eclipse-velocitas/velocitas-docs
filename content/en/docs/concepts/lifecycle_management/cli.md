@@ -11,20 +11,11 @@ aliases:
 
 ## Background
 
-Our [Velocitas CLI](https://github.com/eclipse-velocitas/cli) is introduced to support the process of the lifecycle of a _Vehicle App_ as a package manager.
-It is written in TypeScript and based on the open CLI framework [oclif](https://oclif.io/).
+Our [Velocitas CLI](https://github.com/eclipse-velocitas/cli) is introduced to support the process of the lifecycle of a _Vehicle App_ as a project manager.
 
-## Basic Usage
+## Commands
 
-{{<table "table table-bordered">}}
-| command | purpose |
-|:--------|:--------|
-|[`velocitas init`](https://github.com/eclipse-velocitas/cli#velocitas-init)|Checks content of `.velocitas.json` and downloads configured packages to [`$VELOCITAS_HOME/.velocitas`](https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory).|
-|[`velocitas sync`](https://github.com/eclipse-velocitas/cli#velocitas-sync)|Checks content of `$VELOCITAS_HOME/.velocitas/packages/<package_name>` and synchronizes files inside the _Vehicle App_ repository.|
-|[`velocitas upgrade`](https://github.com/eclipse-velocitas/cli#velocitas-upgrade)|Compares installed/configured versions inside `.velocitas.json` with latest version of respective package repository.|
-|[`velocitas package`](https://github.com/eclipse-velocitas/cli#velocitas-package-name)|Lists installed packages and scripts inside of `$VELOCITAS_HOME/.velocitas/packages`.|
-|[`velocitas exec`](https://github.com/eclipse-velocitas/cli#velocitas-exec-component-id-args)|Executes programs of a component found inside of specific package `$VELOCITAS_HOME/.velocitas/packages/<package_name>`.|
-{{</table>}}
+You can find all information about available commands [here](https://github.com/eclipse-velocitas/cli/blob/main/README.md#commands).
 
 ### CLI Flow examples
 
@@ -134,4 +125,4 @@ More detailed information about _Built-In Variables_ can be found [here](https:/
 
 ## Next steps
 
-* Lifecycle Management: [Troubleshoot](/docs/concepts/lifecycle_management/troubleshooting/)
+* Lifecycle Management: [Troubleshooting](/docs/concepts/lifecycle_management/troubleshooting/)

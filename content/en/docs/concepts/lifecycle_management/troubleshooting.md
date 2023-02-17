@@ -1,11 +1,11 @@
 ---
-title: "Troubleshoot"
+title: "Troubleshooting"
 date: 2023-02-13T09:43:25+05:30
 weight: 4
 description: >
   Known issues and fixes.
 aliases:
-  - /docs/concepts/lifecycle_management/troubleshoot.md
+  - /docs/concepts/lifecycle_management/troubleshooting.md
 ---
 
 ### GitHub rate limit exceeded

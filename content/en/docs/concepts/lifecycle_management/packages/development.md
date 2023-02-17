@@ -20,7 +20,7 @@ Every _Package_ repository needs a `manifest.json` at their root. The `manifest.
 Here are examples of this configuration:
 
 * [devenv-runtime-local manifest](https://github.com/eclipse-velocitas/devenv-runtime-local/blob/main/manifest.json)
-* [devenv-devcontainer-setup](https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json)
+* [devenv-devcontainer-setup manifest](https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json)
 
 The manifest of a package describes a list of components. They are a collection of programs or files that serve a similar purpose or are inheritly connected. I.e. they provide a single runtime, a deployment for a runtime or add configuration required for Github Workflows or the devcontainer.
 <br/>
