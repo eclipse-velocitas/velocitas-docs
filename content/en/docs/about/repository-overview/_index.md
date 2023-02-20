@@ -8,7 +8,7 @@ description: >
   The repositories of the Eclipse _Velocitas_ and their relations between each other
 ---
 
-![Project Overview](./project-overview.png)
+![Project Overview](./project-overview.drawio.svg)
 
 {{<table "table table-bordered">}}
 | Repository                                                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
