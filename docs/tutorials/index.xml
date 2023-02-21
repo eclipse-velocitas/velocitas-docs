@@ -30,7 +30,7 @@
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
-    Before you start, we recommend that you familiarize yourself with our &lt;a href=&#34;/velocitas/velocitas/docs/about/development_model&#34;&gt;basic concept&lt;/a&gt; to understand the terms mentioned.
+    Before you start, we recommend that you familiarize yourself with our &lt;a href=&#34;/velocitas/velocitas/docs/concepts/development_model&#34;&gt;basic concept&lt;/a&gt; to understand the terms mentioned.
 
 &lt;/div&gt;
 
@@ -201,7 +201,7 @@ For C++: Continue with the next steps.&lt;/p&gt;
 
 Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (&lt;kbd&gt;F5&lt;/kbd&gt;), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.&lt;/p&gt;
 &lt;h2 id=&#34;triggering-ci-workflow&#34;&gt;Triggering CI Workflow&lt;/h2&gt;
-&lt;p&gt;The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find &lt;a href=&#34;https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/vehicle_app_releases/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By pushing a change to GitHub the CI Workflow will be triggered:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -277,7 +277,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 &lt;p&gt;To get started quickly, the digital.auto team has added a number of widgets to simulate related elements of the vehicle – like doors, seats, light, etc. – and made them available in the playground.&lt;/p&gt;
 &lt;p&gt;Feel free to add your own Plugins with addition widgets for additional car features (maybe an antenna waving a warm “welcome”…?).&lt;/p&gt;
 &lt;h2 id=&#34;transfer-your-prototype-into-a-velocitas-vehicle-app&#34;&gt;Transfer your prototype into a Velocitas Vehicle App&lt;/h2&gt;
-&lt;p&gt;In the previous step you started with envision and prototyping your Vehicle App idea and tested it against mocked vehicle components in Digital.Auto. To transfer the prototype from &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playground.digital.auto&lt;/a&gt; to your development environment and test it with real &lt;a href=&#34;/velocitas/velocitas/docs/about/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt; we provide a project generator. This generator allows you to generate a Vehicle App GitHub repository using your prototype code based on our &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the previous step you started with envision and prototyping your Vehicle App idea and tested it against mocked vehicle components in Digital.Auto. To transfer the prototype from &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playground.digital.auto&lt;/a&gt; to your development environment and test it with real &lt;a href=&#34;/velocitas/velocitas/docs/concepts/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt; we provide a project generator. This generator allows you to generate a Vehicle App GitHub repository using your prototype code based on our &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In the &amp;lsquo;Code&amp;rsquo; section of your prototype in the &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playground.digital.auto&lt;/a&gt; you have the Button &amp;lsquo;Create Eclipse Velocitas Project&amp;rsquo;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./generate.png&#34; alt=&#34;generate&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If you press this button you will be forwarded to &lt;a href=&#34;https://github.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub&lt;/a&gt; to login with your GitHub Account and authorize &lt;a href=&#34;https://github.com/eclipse-velocitas/velocitas-project-generator-npm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;velocitas-project-generator&lt;/a&gt; to create the repository for you. After you authorized the project generator you will be redirected to the &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;playground.digital.auto&lt;/a&gt; and asked for a repository name (Which also is the app&amp;rsquo;s name). After pressing &amp;ldquo;Create repository&amp;rdquo; the project generator takes over your prototype code, adapts it to the structure in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt; and creates a new private repository under your GitHub User.&lt;/p&gt;
@@ -571,8 +571,8 @@ Most of the prototype code is extracted into the &lt;code&gt;on_start&lt;/code&g
 &lt;/ul&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/about/deployment-model/&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/about/deployment-model/vehicle_app_releases/&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/vehicle_app_releases/&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -645,7 +645,7 @@ Most of the prototype code is extracted into the &lt;code&gt;on_start&lt;/code&g
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-vehicle-app-to-local-k3d&#34;&gt;Deploy your Vehicle App to local K3D&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites-1&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas/velocitas/run_runtime_services_kubernetes&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Deploying your app with PodSpecs can be done with one simple command:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;kubectl apply -f &amp;lt;podspec.yaml&amp;gt;&lt;/code&gt;&lt;/p&gt;
@@ -653,7 +653,7 @@ Most of the prototype code is extracted into the &lt;code&gt;on_start&lt;/code&g
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/about/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -791,7 +791,7 @@ This sample chart is using the values from &lt;code&gt;deploy/VehicleApp/helm/va
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-vehicle-app-to-local-k3d&#34;&gt;Deploy your Vehicle App to local K3D&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites-1&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas/velocitas/run_runtime_services_kubernetes&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas/velocitas/docs/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After the Helm chart has been prepared, you can deploy it to local K3D.
 Execute the script:&lt;/p&gt;
@@ -800,7 +800,7 @@ Execute the script:&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/about/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

@@ -38,7 +38,7 @@
 &lt;p&gt;&lt;strong&gt;Logging:&lt;/strong&gt; Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Scripting:&lt;/strong&gt; The tasks itself are executing scripts that are located in &lt;code&gt;.vscode/scripts&lt;/code&gt;. These scripts download the specified version of the runtime components and execute them along with Dapr. The same mechanism can be used to register additional services or prerequisites by adding new task definitions in the &lt;code&gt;tasks.json&lt;/code&gt; file.&lt;/p&gt;
 &lt;h2 id=&#34;addchange-service-configuration&#34;&gt;Add/Change service configuration&lt;/h2&gt;
-&lt;p&gt;The configuration for the services is defined in the file &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./AppManifest.json&lt;/code&gt;&lt;/a&gt;. If you want to add a new service, adapt &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/AppManifest.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./AppManifest.json&lt;/code&gt;&lt;/a&gt;. If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.&lt;/p&gt;
+&lt;p&gt;The configuration for the services is defined in the file &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./AppManifest.json&lt;/code&gt;&lt;/a&gt;. If you want to add a new service, adapt &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./AppManifest.json&lt;/code&gt;&lt;/a&gt;. If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.&lt;/p&gt;
 &lt;h3 id=&#34;addchange-service-configuration-helper&#34;&gt;Add/Change service configuration helper&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;NAME&amp;gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
@@ -90,7 +90,7 @@ To run &lt;em&gt;FeederCan&lt;/em&gt; as task please use &lt;code&gt;[F1 -&amp;g
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;integrating-a-new-vehicle-service&#34;&gt;Integrating a new vehicle service&lt;/h2&gt;
-&lt;p&gt;Integration of a new vehicle service can be done by adding an additional case and following the template &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.vscode/scripts/runtime/local/run-vehicleservices.sh&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;run-vehicleservices.sh&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Integration of a new vehicle service can be done by adding an additional case and following the template &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtime-local/blob/main/src/run-vehicleservices.sh&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;run-vehicleservices.sh&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-service-codeblock-helper&#34;&gt;Vehicle Service CodeBlock helper&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Configure Service Specific Requirements
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;configure_service&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
@@ -122,8 +122,8 @@ A new service can be easily started by calling it from bash script, however rest
 &lt;ul&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_kubernetes.md&#34;&gt;Deploy runtime services in local Kubernetes cluster&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/about/deployment-model/&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/about/deployment-model/vehicle_app_releases/&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/vehicle_app_releases/&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -170,7 +170,7 @@ A new service can be easily started by calling it from bash script, however rest
 &lt;p&gt;&lt;strong&gt;Logging:&lt;/strong&gt; Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.&lt;/p&gt;
 &lt;h2 id=&#34;uploading-files-to-persistentvolume&#34;&gt;Uploading files to persistentVolume&lt;/h2&gt;
 &lt;p&gt;Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
-All the files that are located in &lt;code&gt;deploy/runtime/k3d/volume&lt;/code&gt; will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/scripts/k3d/helm/templates/persistentVolume.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;deploy/runtime/k3d/helm/templates/bash.yaml&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+All the files that are located in &lt;code&gt;deploy/runtime/k3d/volume&lt;/code&gt; will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtime-k3d/blob/main/src/runtime/config/helm/templates/persistentVolume.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;deploy/runtime/k3d/helm/templates/bash.yaml&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Changes in &lt;code&gt;deploy/runtime/k3d/volume&lt;/code&gt; are automatically reflected in PersistentVolume.&lt;/p&gt;
 &lt;h3 id=&#34;uploading-custom-candump-file-to-feedercan&#34;&gt;Uploading custom candump file to FeederCAN&lt;/h3&gt;
 &lt;p&gt;FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:&lt;/p&gt;
@@ -183,8 +183,8 @@ All the files that are located in &lt;code&gt;deploy/runtime/k3d/volume&lt;/code
 &lt;ul&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/run_runtime_services_locally.md&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/setup_and_explore_development_environment.md&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/about/deployment-model&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/about/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

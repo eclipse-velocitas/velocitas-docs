@@ -32,115 +32,6 @@
     </item>
     
     <item>
-      <title>Docs: Development Model</title>
-      <link>/velocitas/docs/about/development_model/</link>
-      <pubDate>Mon, 09 May 2022 13:45:12 +0530</pubDate>
-      
-      <guid>/velocitas/docs/about/development_model/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The Velocitas development model is centered around what are known as &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. Automation allows engineers to make high-impact changes frequently and deploy Vehicle Apps through cloud backends as over-the-air updates. The Vehicle App development model is about &lt;em&gt;speed&lt;/em&gt; and &lt;em&gt;agility&lt;/em&gt; paired with state-of-the-art software quality.&lt;/p&gt;
-&lt;h2 id=&#34;development-architecture&#34;&gt;Development Architecture&lt;/h2&gt;
-&lt;p&gt;Velocitas provides a flexible development architecture for &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. The following diagram shows the major components of the Velocitas stack.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./programming_model.png&#34; alt=&#34;Programming Model&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;vehicle-apps&#34;&gt;Vehicle Apps&lt;/h3&gt;
-&lt;p&gt;The Vehicle Applications (aka. Vehicle Apps) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; and its underlying language-specific &lt;a href=&#34;#sdks&#34;&gt;SDK&lt;/a&gt;. Many concepts of cloud-native and &lt;a href=&#34;https://12factor.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;twelve-factor&lt;/a&gt; applications apply to Vehicle Apps as well and are summarized in the next chapter.&lt;/p&gt;
-&lt;h3 id=&#34;vehicle-models&#34;&gt;Vehicle Models&lt;/h3&gt;
-&lt;p&gt;A Vehicle Model makes it possible to easily get vehicle data from the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and to execute remote procedure calls over gRPC against &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and other &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. It is generated from the underlying &lt;a href=&#34;#semantic-models&#34;&gt;semantic models&lt;/a&gt; for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the &lt;a href=&#34;#sdks&#34;&gt;SDKs&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;sdks&#34;&gt;SDKs&lt;/h3&gt;
-&lt;p&gt;To reduce the effort required to implement &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;, Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
-Next to a Vehicle Apps abstraction, the SDKs are &lt;a href=&#34;#middleware&#34;&gt;Middleware&lt;/a&gt;-enabled, provide connectivity to the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and contain the ontology in the form of base classes to create &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;vehicle-services&#34;&gt;Vehicle Services&lt;/h3&gt;
-&lt;p&gt;Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and may expose gRPC endpoints, which can be invoked by &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; over a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;data-broker&#34;&gt;Data Broker&lt;/h3&gt;
-&lt;p&gt;Vehicle data is stored in the KUKSA Data Broker conforming to an underlying &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; like &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt;. &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.&lt;/p&gt;
-&lt;h3 id=&#34;semantic-models&#34;&gt;Semantic models&lt;/h3&gt;
-&lt;p&gt;The Vehicle Signal Specification (&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt;) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between Vehicle Apps and the Data Broker.&lt;/p&gt;
-&lt;p&gt;The Vehicle Service Catalog (&lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSC&lt;/a&gt;) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and Vehicle Apps.&lt;/p&gt;
-&lt;p&gt;As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language (&lt;a href=&#34;https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DTDL&lt;/a&gt;) or BAMM Aspect Meta Model &lt;a href=&#34;https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BAMM&lt;/a&gt; as well.&lt;/p&gt;
-&lt;p&gt;The Velocitas SDK is using (&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt;) as the sementic model for the Vehicle Model.&lt;/p&gt;
-&lt;h3 id=&#34;communication-protocols&#34;&gt;Communication Protocols&lt;/h3&gt;
-&lt;p&gt;Asynchronous communication between &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; and other vehicle components, as well as cloud connectivity, is facilitated through &lt;a href=&#34;https://mqtt.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MQTT&lt;/a&gt; messaging. Direct, synchronous communication between &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;, &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; is based on the &lt;a href=&#34;https://grpc.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC&lt;/a&gt; protocol.&lt;/p&gt;
-&lt;h3 id=&#34;middleware-abstraction&#34;&gt;Middleware Abstraction&lt;/h3&gt;
-&lt;p&gt;Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
-By default, Velocitas leverages &lt;a href=&#34;https://dapr.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;dapr&lt;/a&gt; for gRPC service discovery, Open Telemetry tracing and the &lt;a href=&#34;https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publish/subscribe building block&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;vehicle-edge-operating-system&#34;&gt;Vehicle Edge Operating System&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; are expected to run on a &lt;a href=&#34;https://www.linux.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux&lt;/a&gt;-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., &lt;a href=&#34;https://mosquitto.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse Mosquitto&lt;/a&gt;).&lt;/p&gt;
-&lt;h2 id=&#34;vehicle-app-characteristics&#34;&gt;Vehicle App Characteristics&lt;/h2&gt;
-&lt;p&gt;The following aspects are important characteristics for &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Code base&lt;/strong&gt;:
-Every Vehicle App is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Polyglot&lt;/strong&gt;:
-Vehicle Apps can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;OCI-compliant containers&lt;/strong&gt;:
-Vehicle Apps are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Isolation&lt;/strong&gt;:
-Each Vehicle App should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Configurations&lt;/strong&gt;:
-Configuration information is separated from the code base of the Vehicle App, so that the same deployment can propagate across environments with their respective configuration applied.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Disposability&lt;/strong&gt;:
-Favor fast startup and support graceful shutdowns to leave the system in a correct state.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Observability&lt;/strong&gt;:
-Vehicle Apps provide traces, metrics and logs of every part of the application using &lt;em&gt;Open Telemetry&lt;/em&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Over-the-air updatability&lt;/strong&gt;:
-Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bosch Mobility Cloud&lt;/a&gt; and can be updated in vehicles frequently over the air.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;development-process&#34;&gt;Development Process&lt;/h2&gt;
-&lt;p&gt;The starting point for developing &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; is a &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; of the vehicle data and vehicle services. Based on the Semantic Model, language-specific &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt; are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &amp;hellip;).&lt;/p&gt;
-&lt;p&gt;After a Vehicle Model is available for the chosen programming language, the Vehicle App can be developed using the generated Vehicle Model and its SDK.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./build_procedure.png&#34; alt=&#34;Development Process&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Deployment Model</title>
-      <link>/velocitas/docs/about/deployment_model/</link>
-      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
-      
-      <guid>/velocitas/docs/about/deployment_model/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The Velocitas project uses a common deployment model. It uses OCI-compliant containers to increase the flexibility for the support of different programming languages and runtimes, which accelerates innovation and development. OCI-compliant containers also allow for a standardized yet flexible deployment process, which increases the ease of operation. Using OCI-compliant is portable to different architectures as long as there is support for OCI-compliant containers on the desired platform (e.g., like a container runtime for arm32, arm64 or amd64).&lt;/p&gt;
-&lt;h2 id=&#34;guiding-principles&#34;&gt;Guiding principles&lt;/h2&gt;
-&lt;p&gt;The deployment model is guided by the following principles&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Applications are provided as OCI-compatible container images.&lt;/li&gt;
-&lt;li&gt;The container runtime offers a Kubernetes-compatible control plane and API to manage the container lifecycle.&lt;/li&gt;
-&lt;li&gt;Helm charts are used as deployment descriptor specification.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The template projects provided come with a preconfigured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation, of all required artifacts which are needed to follow the Velocitas principles.&lt;/p&gt;
-&lt;h2 id=&#34;testing-your-container-during-development&#34;&gt;Testing your container during development&lt;/h2&gt;
-&lt;p&gt;The Velocitas project provides developers with a repository template and devcontainer that contains everything to build a containerized version of your app locally and test it. Check out our tutorial e.g., for python template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/eclipse-velocitas/vehicle-app-python-template&lt;/a&gt;) to learn more.&lt;/p&gt;
-&lt;h2 id=&#34;automated-container-image-builds&#34;&gt;Automated container image builds&lt;/h2&gt;
-&lt;p&gt;Velocitas uses GitHub workflows to automate the creation of your containerized application. A workflow is started with every increment of your application code that you push to your GitHub repository. The workflow creates a containerized version of your application and stores this container image in a registry. Further actions are carried out using this container (e.g., integration tests).&lt;/p&gt;
-&lt;p&gt;The workflows are set up to support multi-platform container creation and generate container images for amd64 and arm64 out of the box. This provides a great starting point for developers and lets you add additional support for further platforms easily.&lt;/p&gt;
-&lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Repository Overview</title>
       <link>/velocitas/docs/about/repository-overview/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
@@ -149,8 +40,13 @@ Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www
       <description>
         
         
-        &lt;p&gt;&lt;img src=&#34;./project-overview.png&#34; alt=&#34;Project Overview&#34;&gt;&lt;/p&gt;
-&lt;table&gt;
+        &lt;p&gt;&lt;img src=&#34;./project-overview.drawio.svg&#34; alt=&#34;Project Overview&#34;&gt;&lt;/p&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Repository&lt;/th&gt;
@@ -160,27 +56,27 @@ Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-python-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.&lt;/td&gt;
+&lt;td&gt;GitHub Template repository contains an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-python-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-sdk&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Provides basic functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, VehicleApp API, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
+&lt;td&gt;Provides basic functionality to write a SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, VehicleApp API, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-python&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Basic vehicle model for Python generated from &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/tree/master/spec&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt; with addition of some specialized vehicle services.&lt;/td&gt;
+&lt;td&gt;Basic vehicle model for Python is generated from &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/tree/master/spec&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt; with addition of some specialized vehicle services.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-cpp-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-cpp-template&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-cpp-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in C++.&lt;/td&gt;
+&lt;td&gt;GitHub Template repository contains an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-cpp-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in C++.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-cpp-sdk&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Provides basic functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, VehicleApp API, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
+&lt;td&gt;Provides basic functionality to write a SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, VehicleApp API, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-cpp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-cpp&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Basic vehicle model for C++ generated from &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/tree/master/spec&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt; with addition of some specialized vehicle services.&lt;/td&gt;
+&lt;td&gt;Basic vehicle model for C++ is generated from &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/tree/master/spec&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt; with addition of some specialized vehicle services.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val&lt;/a&gt;&lt;/td&gt;
@@ -204,10 +100,58 @@ Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-generator&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.&lt;/td&gt;
+&lt;td&gt;Provides basic functionality to create a vehicle model from the given vspec specification for the target programming&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/cli&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cli&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;The CLI implements Velocitas &lt;a href=&#34;/velocitas/velocitas/docs/concepts/lifecycle_management&#34;&gt;lifecyle management concept&lt;/a&gt; of the development environment of a Vehicle App. It allows us to take care of the development environment while you focus on the business logic of your vehicle application.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devcontainer-base-images&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devcontainer-base-images&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration to create base docker images for specific languages to be used in devcontainer&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+
+
+&lt;h3 id=&#34;package-repositories&#34;&gt;Package Repositories&lt;/h3&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Repository&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtime-local&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-runtime-local&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for local runtime execution&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtime-k3d&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-runtime-k3d&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for k3d runtime execution&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-devcontainer-setup&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-devcontainer-setup&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for setting up devcontainer environment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-github-workflows&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-github-workflows&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for syncing github workflows&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-github-templates&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-github-templates&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for syncing github templates&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
 
       </description>
     </item>

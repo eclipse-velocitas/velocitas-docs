@@ -1,0 +1,257 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Velocitas – Lifecycle Management</title>
+    <link>/velocitas/docs/concepts/lifecycle_management/</link>
+    <description>Recent content in Lifecycle Management on Velocitas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 13 Feb 2023 09:43:25 +0530</lastBuildDate>
+    
+	  <atom:link href="/velocitas/docs/concepts/lifecycle_management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Project Configuration</title>
+      <link>/velocitas/docs/concepts/lifecycle_management/project-configuration/</link>
+      <pubDate>Mon, 13 Feb 2023 09:43:25 +0530</pubDate>
+      
+      <guid>/velocitas/docs/concepts/lifecycle_management/project-configuration/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Every &lt;em&gt;Vehicle App&lt;/em&gt; repo comes with a &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;.velocitas.json&lt;/code&gt;&lt;/a&gt; which is the project configuration of your app. It holds references to the packages and their respective versions you are using in your project.&lt;/p&gt;
+&lt;p&gt;Here is an example of this configuration:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;packages&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;devenv-devcontainer-setup&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;version&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;v1.0.0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;devenv-runtime-local&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;version&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;v1.0.0&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;variables&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;foo&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;bar&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;baz&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;More detailed information and explanation about the project configuration and fields of the &lt;code&gt;.velocitas.json&lt;/code&gt; can be found &lt;a href=&#34;https://github.com/eclipse-velocitas/cli/blob/main/docs/PROJECT-CONFIG.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lifecycle Management: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/lifecycle_management/packages/usage/&#34;&gt;Usage of Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lifecycle Management: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/lifecycle_management/packages/development/&#34;&gt;Development of Packages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Packages</title>
+      <link>/velocitas/docs/concepts/lifecycle_management/packages/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas/docs/concepts/lifecycle_management/packages/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Velocitas CLI</title>
+      <link>/velocitas/docs/concepts/lifecycle_management/velocitas-cli/</link>
+      <pubDate>Mon, 13 Feb 2023 09:43:25 +0530</pubDate>
+      
+      <guid>/velocitas/docs/concepts/lifecycle_management/velocitas-cli/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
+&lt;p&gt;Our &lt;a href=&#34;https://github.com/eclipse-velocitas/cli&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Velocitas CLI&lt;/a&gt; is introduced to support the process of the lifecycle of a &lt;em&gt;Vehicle App&lt;/em&gt; as a project manager.&lt;/p&gt;
+&lt;h2 id=&#34;commands&#34;&gt;Commands&lt;/h2&gt;
+&lt;p&gt;You can find all information about available commands &lt;a href=&#34;https://github.com/eclipse-velocitas/cli/blob/main/README.md#commands&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;cli-flow-examples&#34;&gt;CLI Flow examples&lt;/h3&gt;
+&lt;h4 id=&#34;velocitas-init&#34;&gt;velocitas init&lt;/h4&gt;
+&lt;p&gt;Download packages configured in your &lt;code&gt;.velocitas.json&lt;/code&gt; to &lt;a href=&#34;https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VELOCITAS_HOME&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vscode ➜ /workspaces/eclipse-vehicle-app-python-template &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ velocitas init
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Initializing Velocitas packages ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... Downloading package: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-runtime-local:v1.0.2&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... Downloading package: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-runtime-k3d:v1.0.0&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... Downloading package: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-github-workflows:v1.0.6&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... Downloading package: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-github-templates:v1.0.0&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... Downloading package: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-devcontainer-setup:v1.0.5&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Running post init hook &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; model-generator
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Running &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;install-deps&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;velocitas-sync&#34;&gt;velocitas sync&lt;/h3&gt;
+&lt;p&gt;If any package provides files they will be synchronized into your repository.
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    This will overwrite any changes you have made to the files manually! Affected files are prefixed with an auto generated notice:
+
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vscode ➜ /workspaces/eclipse-vehicle-app-python-template &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ velocitas sync
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Syncing Velocitas components!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... syncing &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-github-workflows&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... syncing &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-github-templates&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... syncing &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-devcontainer-setup&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;velocitas-upgrade&#34;&gt;velocitas upgrade&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vscode ➜ /workspaces/eclipse-vehicle-app-python-template &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ velocitas upgrade --dry-run
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Checking &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; updates!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-runtime-local&amp;#39;&lt;/span&gt; is up to date!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-runtime-k3d&amp;#39;&lt;/span&gt; is up to date!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-github-workflows&amp;#39;&lt;/span&gt; is up to date!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-github-templates&amp;#39;&lt;/span&gt; is up to date!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;devenv-devcontainer-setup&amp;#39;&lt;/span&gt; is currently at v1.0.4, can be updated to v1.0.5
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... Do you wish to &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;continue&lt;/span&gt;? &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;y/n&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;y&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;: y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;velocitas-package&#34;&gt;velocitas package&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vscode ➜ /workspaces/eclipse-vehicle-app-python-template &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ velocitas package devenv-devcontainer-setup
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;devenv-devcontainer-setup
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    version: v1.0.4
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    components:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - id: devcontainer-setup
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        type: setup
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        variables:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            language
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                type: string
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                description: The programming language of the project. Either &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;python&amp;#39;&lt;/span&gt; or &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;cpp&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                required: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            repoType
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                type: string
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                description: The &lt;span style=&#34;color:#204a87&#34;&gt;type&lt;/span&gt; of the repository: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;app&amp;#39;&lt;/span&gt; or &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;sdk&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                required: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            appManifestPath
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                type: string
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                description: Path of the AppManifest file, relative to the .velocitas.json
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                required: &lt;span style=&#34;color:#204a87&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vscode ➜ /workspaces/eclipse-vehicle-app-python-template &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ velocitas package devenv-devcontainer-setup -p
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/home/vscode/.velocitas/packages/devenv-devcontainer-setup/v1.0.4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;velocitas-exec&#34;&gt;velocitas exec&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vscode ➜ /workspaces/eclipse-vehicle-app-python-template &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ velocitas &lt;span style=&#34;color:#204a87&#34;&gt;exec&lt;/span&gt; runtime-local run-vehicledatabroker
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;### Running Databroker                              ###&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;More detailed usage can be found at the &lt;a href=&#34;https://github.com/eclipse-velocitas/cli/blob/main/README.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Velocitas CLI README&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;additional-information&#34;&gt;Additional Information&lt;/h2&gt;
+&lt;h3 id=&#34;cache-usage&#34;&gt;Cache Usage&lt;/h3&gt;
+&lt;p&gt;The Velocitas CLI supports caching data for a &lt;em&gt;Vehicle App&lt;/em&gt; project.
+&lt;br/&gt;
+The cache data makes it easy for any script/program of a component to read from or write to.
+&lt;br/&gt;
+More detailed information about the &lt;em&gt;Project Cache&lt;/em&gt; can be found &lt;a href=&#34;https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PROJECT-CACHE.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;built-in-variables&#34;&gt;Built-In Variables&lt;/h3&gt;
+&lt;p&gt;The Velocitas CLI also creates default environment variables which are available to every script/program.&lt;/p&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;variable&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VELOCITAS_WORKSPACE_DIR&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Current working directory of the &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VELOCITAS_CACHE_DIR&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;em&gt;Vehicle App&lt;/em&gt; project specific cache directory. e.g, &lt;code&gt;~/.velocitas/cache/&amp;lt;generatedMd5Hash&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VELOCITAS_CACHE_DATA&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;JSON string of &lt;code&gt;~/.velocitas/cache/&amp;lt;generatedMd5Hash&amp;gt;/cache.json&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;VELOCITAS_APP_MANIFEST&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;JSON string of the &lt;em&gt;Vehicle App&lt;/em&gt; AppManifest&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;More detailed information about &lt;em&gt;Built-In Variables&lt;/em&gt; can be found &lt;a href=&#34;https://github.com/eclipse-velocitas/cli/blob/main/docs/features/VARIABLES.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Lifecycle Management: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/lifecycle_management/troubleshooting/&#34;&gt;Troubleshooting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Troubleshooting</title>
+      <link>/velocitas/docs/concepts/lifecycle_management/troubleshooting/</link>
+      <pubDate>Mon, 13 Feb 2023 09:43:25 +0530</pubDate>
+      
+      <guid>/velocitas/docs/concepts/lifecycle_management/troubleshooting/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;github-rate-limit-exceeded&#34;&gt;GitHub rate limit exceeded&lt;/h3&gt;
+&lt;p&gt;To avoid exceeding GitHubs rate limit we suggest to generate a personal access token in your &lt;a href=&#34;https://github.com/settings/tokens&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub settings&lt;/a&gt; and set it as an environment variable:&lt;/p&gt;
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-0&#34; role=&#34;tablist&#34;&gt;
+  &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;button class=&#34;nav-link active&#34;
+          id=&#34;tabs-00-00-tab&#34; data-bs-toggle=&#34;tab&#34; data-bs-target=&#34;#tabs-00-00&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-00-00&#34; aria-selected=&#34;true&#34;&gt;
+        Mac/Linux
+      &lt;/button&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;button class=&#34;nav-link&#34;
+          id=&#34;tabs-00-01-tab&#34; data-bs-toggle=&#34;tab&#34; data-bs-target=&#34;#tabs-00-01&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-00-01&#34; aria-selected=&#34;false&#34;&gt;
+        Windows
+      &lt;/button&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-0-content&#34;&gt;
+    &lt;div class=&#34;tab-body tab-pane fade show active&#34;
+        id=&#34;tabs-00-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-00-tab&#34; tabindex=&#34;0&#34;&gt;
+        &lt;p&gt;&lt;code&gt;export GITHUB_API_TOKEN=&amp;lt;your_api_token&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-00-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-01-tab&#34; tabindex=&#34;0&#34;&gt;
+        &lt;p&gt;&lt;code&gt;set GITHUB_API_TOKEN=&amp;lt;your_api_token&amp;gt;&lt;/code&gt;
+&lt;/br&gt;
+or
+&lt;/br&gt;
+Set environment variable via system settings GITHUB_API_TOKEN=&amp;lt;your_api_token&amp;gt;&lt;/p&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;After you have set the ENV consider to restart VSCode.&lt;/p&gt;
+&lt;p&gt;It is important that VSCode has access to this ENV during the &lt;code&gt;postCreateCommand&lt;/code&gt; inside the devcontainer.
+If you experienced this error and the devcontainer still has started correctly please run either:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vscode ➜ /workspaces/eclipse-vehicle-app-python-template &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ ./.devcontainer/scripts/postCreateCommand.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vscode ➜ /workspaces/eclipse-vehicle-app-python-template &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ velocitas init
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vscode ➜ /workspaces/eclipse-vehicle-app-python-template &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;main&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; $ velocitas sync
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

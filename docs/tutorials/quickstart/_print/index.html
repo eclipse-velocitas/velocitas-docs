@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.9529e63de8b9cbff69902ecc55a0c190.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.923f334bdf5f2c3ba7b7491c11737213.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -163,7 +163,7 @@ This is the multi-page printable view of this section.
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    Before you start, we recommend that you familiarize yourself with our <a href="/velocitas/docs/about/development_model">basic concept</a> to understand the terms mentioned.
+    Before you start, we recommend that you familiarize yourself with our <a href="/velocitas/docs/concepts/development_model">basic concept</a> to understand the terms mentioned.
 
 </div>
 
@@ -334,7 +334,7 @@ For C++: Continue with the next steps.</p>
 
 Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.</p>
 <h2 id="triggering-ci-workflow">Triggering CI Workflow</h2>
-<p>The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find <a href="https://github.com/eclipse-velocitas/velocitas-docs/blob/main/docs/vehicle_app_releases.md" target="_blank" rel="noopener">here</a>.</p>
+<p>The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find <a href="/velocitas/docs/concepts/deployment_model/vehicle_app_releases/">here</a>.</p>
 <p>By pushing a change to GitHub the CI Workflow will be triggered:</p>
 <ol>
 <li>
@@ -580,12 +580,14 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
 <a href="https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers" target="_blank" rel="noopener">https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers</a>
 <a href="https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/" target="_blank" rel="noopener">https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/</a></p>
 <h1 id="troubleshooting">Troubleshooting</h1>
-<p><strong>Case 1</strong>:</p>
+<h3 id="initial-devcontainer-build-issue">Initial DevContainer build issue</h3>
 <p>If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used:</p>
 <ul>
 <li>Open Docker Desktop</li>
 <li>From <code>Troubleshooting</code> choose <code>Clean / Purge data</code></li>
 </ul>
+<h3 id="github-rate-limit-exceeded">GitHub rate limit exceeded</h3>
+<p>How to fix can be found at <a href="/velocitas/docs/concepts/lifecycle_management/troubleshooting/#github-rate-limit-exceeded">Lifecycle Management Troubleshooting</a>.</p>
 
 </div>
 

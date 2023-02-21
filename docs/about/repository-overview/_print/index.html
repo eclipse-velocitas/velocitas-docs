@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.9529e63de8b9cbff69902ecc55a0c190.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.923f334bdf5f2c3ba7b7491c11737213.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -140,8 +140,13 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p><img src="./project-overview.png" alt="Project Overview"></p>
-<table>
+      <p><img src="./project-overview.drawio.svg" alt="Project Overview"></p>
+
+
+
+
+
+<table class="table table-bordered">
 <thead>
 <tr>
 <th>Repository</th>
@@ -151,27 +156,27 @@ This is the multi-page printable view of this section.
 <tbody>
 <tr>
 <td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a></td>
-<td>GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the <em>sdv-vehicle-app-python-sdk</em>. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.</td>
+<td>GitHub Template repository contains an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the <em>sdv-vehicle-app-python-sdk</em>. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk" target="_blank" rel="noopener">vehicle-app-python-sdk</a></td>
-<td>Provides basic functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp; subscribe messaging, VehicleApp API, vehicle data model ontology and function-based query &amp; rule support.</td>
+<td>Provides basic functionality to write a SDK to allow access to vehicle data points and method. This includes publishing &amp; subscribe messaging, VehicleApp API, vehicle data model ontology and function-based query &amp; rule support.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/eclipse-velocitas/vehicle-model-python" target="_blank" rel="noopener">vehicle-model-python</a></td>
-<td>Basic vehicle model for Python generated from <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec" target="_blank" rel="noopener">VSS</a> with addition of some specialized vehicle services.</td>
+<td>Basic vehicle model for Python is generated from <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec" target="_blank" rel="noopener">VSS</a> with addition of some specialized vehicle services.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">vehicle-app-cpp-template</a></td>
-<td>GitHub Template repository containing an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the <em>sdv-vehicle-app-cpp-sdk</em>. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in C++.</td>
+<td>GitHub Template repository contains an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the <em>sdv-vehicle-app-cpp-sdk</em>. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in C++.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">vehicle-app-cpp-sdk</a></td>
-<td>Provides basic functionality to write an SDK to allow access to vehicle data points and method. This includes publishing &amp; subscribe messaging, VehicleApp API, vehicle data model ontology and function-based query &amp; rule support.</td>
+<td>Provides basic functionality to write a SDK to allow access to vehicle data points and method. This includes publishing &amp; subscribe messaging, VehicleApp API, vehicle data model ontology and function-based query &amp; rule support.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/eclipse-velocitas/vehicle-model-cpp" target="_blank" rel="noopener">vehicle-model-cpp</a></td>
-<td>Basic vehicle model for C++ generated from <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec" target="_blank" rel="noopener">VSS</a> with addition of some specialized vehicle services.</td>
+<td>Basic vehicle model for C++ is generated from <a href="https://github.com/COVESA/vehicle_signal_specification/tree/master/spec" target="_blank" rel="noopener">VSS</a> with addition of some specialized vehicle services.</td>
 </tr>
 <tr>
 <td><a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">kuksa.val</a></td>
@@ -195,10 +200,58 @@ This is the multi-page printable view of this section.
 </tr>
 <tr>
 <td><a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a></td>
-<td>Provides basic functionality to create a vehicle model from the given vspec specification for the target programming language.</td>
+<td>Provides basic functionality to create a vehicle model from the given vspec specification for the target programming</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/cli" target="_blank" rel="noopener">cli</a></td>
+<td>The CLI implements Velocitas <a href="/velocitas/docs/concepts/lifecycle_management">lifecyle management concept</a> of the development environment of a Vehicle App. It allows us to take care of the development environment while you focus on the business logic of your vehicle application.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/devcontainer-base-images" target="_blank" rel="noopener">devcontainer-base-images</a></td>
+<td>Central configuration to create base docker images for specific languages to be used in devcontainer</td>
 </tr>
 </tbody>
 </table>
+
+
+<h3 id="package-repositories">Package Repositories</h3>
+
+
+
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Repository</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/devenv-runtime-local" target="_blank" rel="noopener">devenv-runtime-local</a></td>
+<td>Central configuration for local runtime execution</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/devenv-runtime-k3d" target="_blank" rel="noopener">devenv-runtime-k3d</a></td>
+<td>Central configuration for k3d runtime execution</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup" target="_blank" rel="noopener">devenv-devcontainer-setup</a></td>
+<td>Central configuration for setting up devcontainer environment</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/devenv-github-workflows" target="_blank" rel="noopener">devenv-github-workflows</a></td>
+<td>Central configuration for syncing github workflows</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eclipse-velocitas/devenv-github-templates" target="_blank" rel="noopener">devenv-github-templates</a></td>
+<td>Central configuration for syncing github templates</td>
+</tr>
+</tbody>
+</table>
+
+
 
 </div>
 </div>
