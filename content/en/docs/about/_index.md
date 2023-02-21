@@ -1,7 +1,7 @@
 ---
 title: "About Velocitas"
 date: 2022-08-24T17:24:56+05:30
-weight: 1
+weight: 10
 description: >
   Explore the goal, benefits and basic concepts of Eclipse _Velocitas™_ 
 ---
@@ -20,17 +20,18 @@ Eclipse _Velocitas™_ provides an end-to-end, scalable and modular development 
 
 ## Feature Overview
 
-|Feature |Python|C++ |
-|-|-|-|
-|Vehicle App Template | + | + |
-|Vehicle App SDK | + | + |
-|CLI | + | + |
-|Vehicle Model Generator| + | + |
-|DevContainer for easy IDE setup | + | + |
-|CI/CD workflows | + | + |
-|Unit test support| + | + |
-|Integration test support| + | |
-|Digital Auto integration| + | |
-
+{{<table "table table-bordered">}}
+| Feature                         | Python | C++ |
+|---------------------------------|--------|-----|
+| Vehicle App Template            | +      | +   |
+| Vehicle App SDK                 | +      | +   |
+| CLI                             | +      | +   |
+| Vehicle Model Generator         | +      | +   |
+| DevContainer for easy IDE setup | +      | +   |
+| CI/CD workflows                 | +      | +   |
+| Unit test support               | +      | +   |
+| Integration test support        | +      |     |
+| Digital Auto integration        | +      |     |
+{{</table>}}
 
 ## Concepts

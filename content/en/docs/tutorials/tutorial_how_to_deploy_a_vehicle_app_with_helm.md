@@ -1,7 +1,7 @@
 ---
 title: "Vehicle App Deployment with Helm"
 date: 2022-05-09T13:43:25+05:30
-weight: 6
+weight: 8
 description: >
   Learn how to prepare a Helm chart for the deployment of a Vehicle App.
 aliases:
@@ -134,7 +134,7 @@ deploy
 
 ### Prerequisites
 
-- A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/run_runtime_services_kubernetes).
+- A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/docs/run_runtime_services_kubernetes.md).
 
 After the Helm chart has been prepared, you can deploy it to local K3D.
 Execute the script:
@@ -148,4 +148,4 @@ This script builds the local source code of the application into a container, pu
 ## Next steps
 
 - Tutorial: [Start runtime services locally](/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally)
-- Concept: [Build and release process](/docs/about/deployment_model/vehicle_app_releases)
+- Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases)

@@ -1,7 +1,7 @@
 ---
 title: "Vehicle Model Creation"
 date: 2022-05-09T13:43:25+05:30
-weight: 3
+weight: 4
 description: >
   Learn how to create a Vehicle Model to access vehicle data or execute remote procedure calls.
 aliases:
@@ -70,11 +70,13 @@ Follow the steps to generate a _Vehicle Model_.
 We are currently working to further automate the process of model generation: The model specification shall be referenced from the AppManifest and the model code is generated on container creation - or after updating the specification - into a subfolder of the app's repositiory.
 
 The used model specification of an app is referenced like this in the `AppManifest.json`:
+
   ```json
     "VehicleModel": {
         "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"
     }
   ```
+
 Instead of an URI you could also reference a local file containing the specification.
   
 ## Create a Vehicle Model Manually

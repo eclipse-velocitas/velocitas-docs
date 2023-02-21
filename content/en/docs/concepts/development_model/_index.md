@@ -4,7 +4,6 @@ date: 2022-05-09T13:45:12+05:30
 weight: 3
 aliases:
   - /docs/concepts/development-model.md
-  - /docs/development-model.md
 resources:
 - src: "**programming_model*.png"
 - src: "**build_procedure*.png"
@@ -31,7 +30,7 @@ A Vehicle Model makes it possible to easily get vehicle data from the [Data Brok
 ### SDKs
 
 To reduce the effort required to implement [Vehicle Apps](#vehicle-apps), Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
-Next to a Vehicle Apps abstraction, the SDKs are [Middleware](#middleware)-enabled, provide connectivity to the [Data Broker](#data-broker) and contain the ontology in the form of base classes to create [Vehicle Models](#vehicle-models).
+Next to a Vehicle Apps abstraction, the SDKs are [Middleware](#middleware-abstraction)-enabled, provide connectivity to the [Data Broker](#data-broker) and contain the ontology in the form of base classes to create [Vehicle Models](#vehicle-models).
 
 ### Vehicle Services
 
@@ -49,7 +48,7 @@ The Vehicle Service Catalog ([VSC](https://github.com/COVESA/vehicle_service_cat
 
 As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language ([DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)) or BAMM Aspect Meta Model [BAMM](https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model) as well.
 
-The Velocitas SDK is using ([VSS](https://covesa.github.io/vehicle_signal_specification/)) as the sementic model for the Vehicle Model.
+The Velocitas SDK is using [VSS](https://covesa.github.io/vehicle_signal_specification/) as the semantic model for the Vehicle Model.
 
 ### Communication Protocols
 

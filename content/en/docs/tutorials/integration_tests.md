@@ -1,7 +1,7 @@
 ---
 title: "Vehicle App Integration Testing"
 date: 2022-05-09T13:46:21+05:30
-weight: 5
+weight: 8
 description: >
   Learn how to test that a Vehicle App together with the KUKSA Data Broker and potentially other dependant Vehicle Services or Vehicle Apps runs as expected.
 aliases:
@@ -132,6 +132,6 @@ The tests will be discovered and executed automatically in the [CI pipeline](htt
 
 ## Next steps
 
-- Concept: [Deployment Model](/docs/about/deployment-model/)
-- Concept: [Build and release process](/docs/about/deployment-model/vehicle_app_releases/)
+- Concept: [Deployment Model](/docs/concepts/deployment_model/)
+- Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases/)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

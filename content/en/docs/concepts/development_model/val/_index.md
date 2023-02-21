@@ -18,7 +18,7 @@ It currently consists of a data broker, a CAN feeder, and a set of example servi
 
 ## Architecture
 
-The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the [Velocitas Development Model](/docs/development-model.md).
+The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the [Velocitas Development Model](/docs/concepts/development-model.md).
 
 {{< imgproc val_architecture_overview Resize "800x" >}}
   Overview of the vehicle abstraction layer architecture
@@ -52,7 +52,7 @@ The [KUKSA.VAL Services repository](https://github.com/eclipse/kuksa.val.service
 ### Hardware Abstraction
 
 Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
-The reference implementation relies on **SocketCAN** and **vxcan**, see https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val.
+The reference implementation relies on **SocketCAN** and **vxcan**, see <https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val>.
 The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.
 
 ## Information Flow
@@ -63,14 +63,13 @@ The KUKSA Data Broker offers read/subscribe access to data points based on a gRP
 Services (like the [seat service](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service)) define which CAN signals they listen to and which CAN signals they send themselves, see [documentation](https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md).
 Service implementations may also interact as feeders with the data broker.
 
-
-### Data flow when a Vehicle Application uses the KUKSA Data Broker.
+### Data flow when a Vehicle Application uses the KUKSA Data Broker
 
 {{< imgproc dataflow_broker Resize "800x" >}}
   Architectural representation of the KUKSA data broker data flow
 {{< /imgproc >}}
 
-### Data flow when a Vehicle Application uses a Vehicle Service.
+### Data flow when a Vehicle Application uses a Vehicle Service
 
 {{< imgproc dataflow_service Resize "800x" >}}
   Architectural representation of the vehicle service data flow
@@ -86,4 +85,4 @@ Source code and build instructions are available in the respective KUKSA.VAL rep
 
 ## Guidelines
 
-- Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the [kuksa.val.services repository](https://github.com/eclipse/kuksa.val.services/docs).
+* Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the [kuksa.val.services repository](https://github.com/eclipse/kuksa.val.services/docs).

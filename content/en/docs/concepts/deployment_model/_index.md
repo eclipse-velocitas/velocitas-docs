@@ -4,7 +4,6 @@ date: 2022-05-09T13:43:25+05:30
 weight: 4
 aliases:
   - /docs/concepts/deployment-model.md
-  - /docs/velocitas/docs/runtime-deployment-model.md
 description: >
   Learn more about our deployment model and guiding principles.
 ---
@@ -23,7 +22,7 @@ The template projects provided come with a preconfigured developer toolchain tha
 
 ## Testing your container during development
 
-The Velocitas project provides developers with a repository template and devcontainer that contains everything to build a containerized version of your app locally and test it. Check out our tutorial e.g., for python template (https://github.com/eclipse-velocitas/vehicle-app-python-template) to learn more.
+The Velocitas project provides developers with a repository template and devcontainer that contains everything to build a containerized version of your app locally and test it. Check out our tutorial e.g., for the [python template](https://github.com/eclipse-velocitas/vehicle-app-python-template) to learn more.
 
 ## Automated container image builds
 
