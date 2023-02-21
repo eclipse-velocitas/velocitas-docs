@@ -29,4 +29,4 @@ More detailed information and explanation about configuration fields of the `man
 
 ## Next steps
 
-* Lifecycle Management: [Velocitas CLI](/docs/concepts/lifecycle_management/cli/)
+* Lifecycle Management: [Velocitas CLI](/docs/concepts/lifecycle_management/velocitas-cli/)

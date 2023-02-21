@@ -17,8 +17,12 @@ To avoid exceeding GitHubs rate limit we suggest to generate a personal access t
 `export GITHUB_API_TOKEN=<your_api_token>`
 {{% /tab %}}
 {{% tab header="Windows" %}}
-Set environment variable via system settings and restart VSCode.
+`set GITHUB_API_TOKEN=<your_api_token>`
 </br>
-GITHUB_API_TOKEN=<your_api_token>
+or
+</br>
+Set environment variable via system settings GITHUB_API_TOKEN=<your_api_token>
 {{% /tab %}}
 {{< /tabpane >}}
+
+After you have set the ENV consider to restart VSCode.

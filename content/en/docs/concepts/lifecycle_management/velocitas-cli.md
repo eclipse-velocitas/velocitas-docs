@@ -1,12 +1,12 @@
 ---
-title: "CLI"
+title: "Velocitas CLI"
 weight: 3
 date: 2023-02-13T09:43:25+05:30
 description: >
   Learn everything about the Velocitas CLI.
 aliases:
-  - /docs/concepts/lifecycle_management/cli.md
-  - /docs/concepts/lifecycle_management/cli
+  - /docs/concepts/lifecycle_management/velocitas-cli.md
+  - /docs/concepts/lifecycle_management/velocitas-cli
 ---
 
 ## Background
@@ -89,20 +89,20 @@ vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas pa
 ### velocitas exec
 
 ```bash
-vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ ./velocitas-cli/bin/dev exec runtime-local run-vehicledatabroker
+vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas exec runtime-local run-vehicledatabroker
 #######################################################
 ### Running Databroker                              ###
 #######################################################
 ...
 ```
 
-More detailed usage can be found at the [CLI README](https://github.com/eclipse-velocitas/cli/blob/main/README.md).
+More detailed usage can be found at the [Velocitas CLI README](https://github.com/eclipse-velocitas/cli/blob/main/README.md).
 
 ## Additional Information
 
 ### Cache Usage
 
-The CLI supports caching data for a _Vehicle App_ project.
+The Velocitas CLI supports caching data for a _Vehicle App_ project.
 <br/>
 The cache data makes it easy for any script/program of a component to read from or write to.
 <br/>
@@ -110,7 +110,7 @@ More detailed information about the _Project Cache_ can be found [here](https://
 
 ### Built-In Variables
 
-The CLI creates default environment variables which are available to every script/program.
+The Velocitas CLI also creates default environment variables which are available to every script/program.
 
 {{<table "table table-bordered">}}
 | variable | description |

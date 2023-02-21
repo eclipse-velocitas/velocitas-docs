@@ -140,16 +140,4 @@ If you experience issues during initial DevContainer build, clean all images and
 
 ### GitHub rate limit exceeded
 
-When working behind a proxy, you share one single IP adress with other users.
-To avoid exceeding GitHubs rate limit - which can occur when working with our [lifecycle management setup](/docs/concepts/lifecycle_management/) - we suggest to generate a personal access token in your [GitHub settings](https://github.com/settings/tokens) and set it in your environment variables:
-
-{{< tabpane text=true >}}
-{{% tab header="Mac/Linux" %}}
-`export GITHUB_API_TOKEN=<your_api_token>`
-{{% /tab %}}
-{{% tab header="Windows" %}}
-Set environment variable via system settings and restart VSCode.
-</br>
-GITHUB_API_TOKEN=<your_api_token>
-{{% /tab %}}
-{{< /tabpane >}}
+How to fix can be found at [Lifecycle Management Troubleshooting](/docs/concepts/lifecycle_management/troubleshooting/#github-rate-limit-exceeded).
