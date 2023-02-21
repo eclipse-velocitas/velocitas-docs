@@ -21,6 +21,8 @@ You can find all information about available commands [here](https://github.com/
 
 #### velocitas init
 
+Download packages configured in your `.velocitas.json` to [VELOCITAS_HOME](https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory)
+
 ```bash
 vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas init
 Initializing Velocitas packages ...
@@ -35,6 +37,11 @@ Running 'install-deps'
 ```
 
 ### velocitas sync
+
+If any package provides files they will be synchronized into your repository.
+{{% alert title="Note" %}}
+This will overwrite any changes you have made to the files manually! Affected files are prefixed with an auto generated notice:
+{{% /alert %}}
 
 ```bash
 vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas sync

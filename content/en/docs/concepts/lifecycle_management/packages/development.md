@@ -11,7 +11,7 @@ aliases:
 
 ## Getting started
 
-Create a repo at `https://my-organization/repos/my-velocitas-package.git` (e.g., `https://github.com/my-organisation/my-velocitas-package`).
+First thing you need to do is to create a repository at e.g., `https://github.com/my-organisation/my-velocitas-package`. The URL needs to be referenced in the `.velocitas.json` of your _Vehicle App_ repository.
 
 ## Configuration of Packages
 

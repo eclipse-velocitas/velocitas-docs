@@ -10,7 +10,7 @@ resources:
 
 ## Introduction
 
-Once a repository has been created from one of our _Vehicle App_ templates, the only way to receive updates into your derived repository is to manually pull changes - This can be quite tedious and error prone. This is where our _Lifecycle Management_ comes to the rescue!
+Once a repository has been created from one of our _Vehicle App_ templates, the only way to receive updates into your derived repository is to manually pull changes - This can be quite tidious and error prone. This is where our _Lifecycle Management_ comes to the rescue!
 
 All of our main components of the development environment
 
