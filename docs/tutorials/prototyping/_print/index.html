@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.923f334bdf5f2c3ba7b7491c11737213.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.eaf76f63015dab6be6a64467ce267082.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -193,31 +193,6 @@ This is the multi-page printable view of this section.
 <li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment" target="_blank" rel="noopener">Starting development environment</a></li>
 <li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/" target="_blank" rel="noopener">Vehicle App Development</a></li>
 </ul>
-
-
-<div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">CodeQL Analysis</h4>
-
-    By default the template repository comes with automated CodeQL Analysis to automatically detect common vulnerabilities and coding errors. It is available if you have a <a href="https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security" target="_blank" rel="noopener">GitHub advanced security</a> license in your org or if your repository is public. To change visibility: Go to your repository settings -&gt; General -&gt; Danger Zone (at the bottom) -&gt; Change repository visibility -&gt; Change visibility to public.
-
-</div>
-
-
-
-<div class="alert alert-warning" role="alert">
-<h4 class="alert-heading">Manual Adaptions</h4>
-
-    <p>Since the project-generator identifies typical python syntax and patterns out of the prototype there could be several cases where manual code adaptions cannot be excluded.<br>
-Most of the prototype code is extracted into the <code>on_start</code>-method of velocitas.</p>
-<ul>
-<li>Prototyped local variables which need to be accessed e.g. in callback methods need to be global (move them out above the VehicleApp class).</li>
-<li>Depending on how using variables in a Print/Logging statement is implemented, statements need to be adapted in Velocitas.</li>
-<li>Have in mind that Velocitas uses the standard <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a> model. If you use custom signals in your prototype, you have to find similar standard signals to use in Velocitas.</li>
-</ul>
-
-
-</div>
-
 
 </div>
 </div>
