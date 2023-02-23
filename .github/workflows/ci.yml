@@ -37,15 +37,6 @@ jobs:
           hugo-version: "0.110.0"
           extended: true
 
-      - name: Download theme
-        run: |
-          git clone https://github.com/google/docsy.git themes/docsy
-
-      - name: Install theme
-        working-directory: ./themes/docsy
-        run: |
-          npm i
-
       - name: Build
         run: |
           export NODE_PATH=$NODE_PATH:`npm root -g`
