@@ -1,5 +1,5 @@
 # Update the NODE_VERSION arg in docker-compose.yml to pick a Node version: 18, 16, 14
-ARG NODE_VERSION=16
+ARG NODE_VERSION=18
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${NODE_VERSION}
 
 # VARIANT can be either 'hugo' for the standard version or 'hugo_extended' for the extended version.
@@ -25,6 +25,13 @@ RUN apt-get update && apt-get install -y ca-certificates openssl git curl && \
     wget -O ${VERSION}.tar.gz https://github.com/gohugoio/hugo/releases/download/v${VERSION}/${VARIANT}_${VERSION}_Linux-${ARCH}.tar.gz && \
     tar xf ${VERSION}.tar.gz && \
     mv hugo /usr/bin/hugo
+
+# Install GO for using hugo modules
+RUN wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz && \
+    sudo tar -C /usr/local/ -xzf go1.13.5.linux-amd64.tar.gz && \
+    rm go1.13.5.linux-amd64.tar.gz
+
+ENV PATH=$PATH:/usr/local/go/bin
 
 # Hugo dev server port
 EXPOSE 1313
