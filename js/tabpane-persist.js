@@ -4,17 +4,16 @@ if (typeof Storage !== 'undefined') {
         document
             .querySelectorAll('.persistLang-' + activeLanguage)
             .forEach((element) => {
-                new bootstrap.Tab(element).show();
+              $('#' + element.id).tab('show');
             });
     }
 }
 function persistLang(language) {
-    console.log("Klicked persistlang");
     if (typeof Storage !== 'undefined') {
         localStorage.setItem('active_language', language);
         document.querySelectorAll('.persistLang-' + language)
-            .forEach((element) => {
-                new bootstrap.Tab(element).show();
+          .forEach((element) => {
+            $('#' + element.id).tab('show');
         });
     }
 }

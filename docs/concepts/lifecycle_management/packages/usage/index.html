@@ -40,11 +40,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/concepts/lifecycle_management/packages/usage/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2023-02-22T18:07:45+01:00" />
+<meta property="article:modified_time" content="2023-02-24T11:32:20+01:00" />
 <meta itemprop="name" content="Usage">
 <meta itemprop="description" content="Learn how to use velocitas packages.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-02-22T18:07:45+01:00" />
+<meta itemprop="dateModified" content="2023-02-24T11:32:20+01:00" />
 <meta itemprop="wordCount" content="206">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Usage"/>
@@ -54,8 +54,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.f5c3119a755c510de8cb8a86ccbc04dd633e62eff5d963d1e97475cddfc0c30a.css" as="style">
-<link href="/velocitas/scss/main.min.f5c3119a755c510de8cb8a86ccbc04dd633e62eff5d963d1e97475cddfc0c30a.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.7acb6140d853e3a1cf8f8d4047bd2eab3df5b60df3023c241de5fcc298291ab3.css" as="style">
+<link href="/velocitas/scss/main.min.7acb6140d853e3a1cf8f8d4047bd2eab3df5b60df3023c241de5fcc298291ab3.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas/js/jquery-3.6.0.min.js
@@ -71,15 +71,15 @@
     <header>
       <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
   <a class="navbar-brand" href="/velocitas/"><span class="navbar-brand__logo navbar-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="180mm" height="40mm" style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision" viewBox="0 0 7086.6144 1574.8032" id="svg983" sodipodi:docname="logo.svg" inkscape:version="1.0 (4035a4f, 2020-05-01)"><sodipodi:namedview inkscape:document-rotation="0" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1080" id="namedview985" showgrid="false" showguides="false" units="mm" inkscape:zoom=".69602273" inkscape:cx="408" inkscape:cy="528" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="Layer_x0020_1"/><defs id="defs967"><style id="style956">.fil5{fill:#24b2e4}.fil4{fill:#2e95c9}.fil3{fill:#2477b6}.fil2{fill:#2c5aa0}.fil1{fill:#364b95}.fil0{fill:url(#id0);fill-rule:nonzero}</style><linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="3149.4299" y1="5635.5898" x2="7771.9399" y2="5635.5898"><stop offset="0" style="stop-opacity:1;stop-color:#2B6FB5" id="stop958"/><stop offset=".870588" style="stop-opacity:1;stop-color:#7DC5ED" id="stop960"/><stop offset=".988235" style="stop-opacity:1;stop-color:#7DC5ED" id="stop962"/><stop offset="1" style="stop-opacity:1;stop-color:#7DC5ED" id="stop964"/></linearGradient></defs><g id="Layer_x0020_1" transform="matrix(0.98370981,0,0,0.98370981,-626.40511,-4616.899)"><path class="fil0" d="m3395.11 6027.9h147.19l246.79-709.92h-116.2l-203.63 611.98-205.28-611.98h-114.54l245.68 709.92zm968.32-244.57v0-170.98c0-99.6-76.36-154.37-183.7-154.37h-131.69c-107.35.0-183.7 54.78-183.7 154.37v261.17c0 99.6 76.36 154.38 183.7 154.38h315.39v-82.44h-353.02c-28.22.0-37.63-18.26-37.63-47.59v-114.54zm-108.45-83v0h-282.2v-112.88c0-22.13 9.41-47.03 37.63-47.03h206.94c28.22.0 37.63 24.9 37.63 47.03zm258.95 327.57v0h108.45v-784.62h-108.45zm760.83-415.55v0c0-99.6-65.29-154.37-171.53-154.37h-158.81c-106.24.0-172.09 54.78-172.09 154.37v261.17c0 99.6 65.85 154.38 172.09 154.38h158.81c106.24.0 171.53-54.78 171.53-154.38zm-393.97 275.01v0-288.84c0-42.06 12.17-58.1 48.69-58.1h188.69c36.52.0 48.14 16.04 48.14 58.1v288.84c0 41.5-11.62 58.1-48.14 58.1h-188.69c-36.52.0-48.69-16.6-48.69-58.1zm631.35.0v0-288.84c0-42.06 11.62-58.1 48.14-58.1h272.79v-82.44h-256.19c-107.35.0-173.19 54.78-173.19 154.37v261.17c0 99.6 65.85 154.38 173.19 154.38h256.19v-82.44h-272.79c-36.52.0-48.14-16.6-48.14-58.1zm460.93 140.54v0h107.9v-569.93h-107.9zM5962 5362.25v0h130.03V5243.28H5962zm621.94 178.17v0-82.44h-168.76v-139.99h-76.36l-32.09 139.99h-85.77v82.44h85.77v332c0 96.28 54.78 155.48 180.39 155.48h96.83v-82.44h-120.63c-41.5.0-48.14-21.58-48.14-61.42v-343.61h168.76zm107.35 333.1v0c0 99.6 65.3 154.38 172.64 154.38h33.2c83.56.0 143.87-2.21 169.87-65.29v65.29h107.35v-415.55c0-99.6-76.36-154.37-183.71-154.37h-241.8v82.44h280.54c27.67.0 37.63 18.26 37.63 47.03v95.72h-203.07c-107.35.0-172.64 54.78-172.64 154.93v35.41zm108.45 13.83v0-63.63c0-39.29 10.52-55.89 42.61-57.55H7067v141.65c-3.32 26.56-13.28 37.63-43.16 37.63h-175.96c-36.52.0-48.14-16.6-48.14-58.1zm863.75 27.67v0c0 22.69-11.62 30.43-48.14 30.43H7324.3v82.44h275c107.35.0 172.64-54.78 172.64-154.38v-40.94c0-68.61-47.03-90.19-146.63-113.99-80.78-19.37-101.26-26.56-203.07-51.46v-96.83c0-22.13 11.62-29.88 48.14-29.88h282.2v-82.44h-266.15c-107.34.0-172.64 54.78-172.64 154.37v37.63c0 64.19 43.71 89.08 132.8 109.56 106.8 24.9 151.61 36.52 216.91 50.35v105.13z" id="path970" style="fill:url(#id0)"/><path class="fil1" d="m728.06 5018.07c722.09-309.86 1087.3 423.3 1320.24 889.75 88.54 177.62 156.59 313.19 195.88 317.61 67.5 8.3 132.24-294.37 240.7-1228.94l85.77 7.19C2455 5996.35 2361.49 6315.07 2233.12 6300.13 2145.14 6289.62 2069.33 6137.45 1969.73 5937.7c-219.12-438.78-562.74-1127.13-1203.49-852.12z" id="path972"/><path class="fil2" d="m900.14 4963.85c686.68-298.8 1022 350.81 1244.44 781.3 87.43 168.77 155.49 301.01 202.52 309.31 74.7 12.17 156.04-257.3 299.35-1107.76l85.22 10.51c-153.28 909.67-266.15 1193.53-400.61 1170.84-90.74-15.49-167.11-163.23-265.04-352.47C1857.97 5373.32 1544.78 4766.86 938.89 5030.8l-38.73-66.95z" id="path974"/><path class="fil3" d="m1056.18 4905.75c651.27-287.18 957.26 282.2 1168.63 675.61 85.21 158.25 153.27 285.52 207.5 298.24 82.45 18.81 180.94-216.35 359.11-986.03l84.66 14.39c-192.56 828.88-324.8 1076.78-465.35 1044.13-93.51-21.58-169.32-163.23-263.94-339.19-195.88-364.64-479.74-892.52-1051.88-640.2z" id="path976"/><path class="fil4" d="m1238.22 4844.88c616.96-276.66 894.18 216.35 1094.49 572.7 80.79 144.42 148.29 263.94 209.16 282.75 90.19 28.22 205.29-171.53 421.09-863.74l83.55 19.37c-234.61 751.97-386.78 961.13-533.96 915.2-93.51-29.33-167.66-161.57-257.3-320.93-183.71-327.57-438.79-780.75-977.74-538.39l-39.29-66.95z" id="path978"/><path class="fil5" d="m1406.99 4784.02c583.76-266.7 832.76 153.83 1020.89 471.99 75.25 127.27 139.99 236.83 205.28 263.38 99.05 40.94 231.85-120.07 489.15-740.91l80.79 25.45c-281.65 680.59-453.73 847.15-607 783.51-91.3-37.63-162.13-157.7-244.57-297.13-171.54-289.39-397.85-671.74-904.7-439.9l-39.84-66.4z" id="path980"/></g></svg></span><span class="navbar-brand__name">Velocitas</span></a>
-  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
     <ul class="navbar-nav mt-2 mt-lg-0">
-      <li class="nav-item me-4 mb-2 mb-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link active" href="/velocitas/docs/"><span class="active">Documentation</span></a>
       </li>
-      <li class="nav-item me-4 mb-2 mb-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="/velocitas/community/"><span>Community</span></a>
       </li>
-      <li class="nav-item me-4 mb-2 mb-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -126,104 +126,104 @@
   >
 </div>
 
-    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
   </form>
   </div>
   <div id="content-desktop"></div>
   <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
-    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
       <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitasdocs-li">
-  <a href="/velocitas/docs/" title="Velocitas" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-velocitasdocs"><span class="">Documentation</span></a>
+  <a href="/velocitas/docs/" title="Velocitas" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-velocitasdocs"><span class="">Documentation</span></a>
   <ul class="ul-1">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocsabout-li">
   <input type="checkbox" id="m-velocitasdocsabout-check"/>
-  <label for="m-velocitasdocsabout-check"><a href="/velocitas/docs/about/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsabout"><span class="">About Velocitas</span></a></label>
+  <label for="m-velocitasdocsabout-check"><a href="/velocitas/docs/about/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsabout"><span class="">About Velocitas</span></a></label>
   
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocsaboutuse_cases-li">
   <input type="checkbox" id="m-velocitasdocsaboutuse_cases-check"/>
-  <label for="m-velocitasdocsaboutuse_cases-check"><a href="/velocitas/docs/about/use_cases/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsaboutuse_cases"><span class="">Use Cases</span></a></label>
+  <label for="m-velocitasdocsaboutuse_cases-check"><a href="/velocitas/docs/about/use_cases/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsaboutuse_cases"><span class="">Use Cases</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsaboutuse_casesseat_adjuster-li">
   <input type="checkbox" id="m-velocitasdocsaboutuse_casesseat_adjuster-check"/>
-  <label for="m-velocitasdocsaboutuse_casesseat_adjuster-check"><a href="/velocitas/docs/about/use_cases/seat_adjuster/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsaboutuse_casesseat_adjuster"><span class="">Seat Adjuster</span></a></label>
+  <label for="m-velocitasdocsaboutuse_casesseat_adjuster-check"><a href="/velocitas/docs/about/use_cases/seat_adjuster/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsaboutuse_casesseat_adjuster"><span class="">Seat Adjuster</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsaboutuse_casesdog_mode-li">
   <input type="checkbox" id="m-velocitasdocsaboutuse_casesdog_mode-check"/>
-  <label for="m-velocitasdocsaboutuse_casesdog_mode-check"><a href="/velocitas/docs/about/use_cases/dog_mode/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsaboutuse_casesdog_mode"><span class="">Dog Mode</span></a></label>
+  <label for="m-velocitasdocsaboutuse_casesdog_mode-check"><a href="/velocitas/docs/about/use_cases/dog_mode/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsaboutuse_casesdog_mode"><span class="">Dog Mode</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsaboutrepository-overview-li">
   <input type="checkbox" id="m-velocitasdocsaboutrepository-overview-check"/>
-  <label for="m-velocitasdocsaboutrepository-overview-check"><a href="/velocitas/docs/about/repository-overview/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsaboutrepository-overview"><span class="">Repository Overview</span></a></label>
+  <label for="m-velocitasdocsaboutrepository-overview-check"><a href="/velocitas/docs/about/repository-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsaboutrepository-overview"><span class="">Repository Overview</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitasdocsconcepts-li">
   <input type="checkbox" id="m-velocitasdocsconcepts-check" checked/>
-  <label for="m-velocitasdocsconcepts-check"><a href="/velocitas/docs/concepts/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconcepts"><span class="">Concepts</span></a></label>
+  <label for="m-velocitasdocsconcepts-check"><a href="/velocitas/docs/concepts/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconcepts"><span class="">Concepts</span></a></label>
   
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocsconceptsdevelopment_model-li">
   <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_model-check"/>
-  <label for="m-velocitasdocsconceptsdevelopment_model-check"><a href="/velocitas/docs/concepts/development_model/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_model"><span class="">Development Model</span></a></label>
+  <label for="m-velocitasdocsconceptsdevelopment_model-check"><a href="/velocitas/docs/concepts/development_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_model"><span class="">Development Model</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk-li">
   <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk-check"/>
-  <label for="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk-check"><a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk"><span class="">Vehicle App SDK</span></a></label>
+  <label for="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk-check"><a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk"><span class="">Vehicle App SDK</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptsdevelopment_modelval-li">
   <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_modelval-check"/>
-  <label for="m-velocitasdocsconceptsdevelopment_modelval-check"><a href="/velocitas/docs/concepts/development_model/val/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_modelval"><span class="">Vehicle Abstraction Layer (VAL)</span></a></label>
+  <label for="m-velocitasdocsconceptsdevelopment_modelval-check"><a href="/velocitas/docs/concepts/development_model/val/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_modelval"><span class="">Vehicle Abstraction Layer (VAL)</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocsconceptsdeployment_model-li">
   <input type="checkbox" id="m-velocitasdocsconceptsdeployment_model-check"/>
-  <label for="m-velocitasdocsconceptsdeployment_model-check"><a href="/velocitas/docs/concepts/deployment_model/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdeployment_model"><span class="">Deployment Model</span></a></label>
+  <label for="m-velocitasdocsconceptsdeployment_model-check"><a href="/velocitas/docs/concepts/deployment_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdeployment_model"><span class="">Deployment Model</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptsdeployment_modelvehicle_app_releases-li">
   <input type="checkbox" id="m-velocitasdocsconceptsdeployment_modelvehicle_app_releases-check"/>
-  <label for="m-velocitasdocsconceptsdeployment_modelvehicle_app_releases-check"><a href="/velocitas/docs/concepts/deployment_model/vehicle_app_releases/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdeployment_modelvehicle_app_releases"><span class="">Build and Release Process</span></a></label>
+  <label for="m-velocitasdocsconceptsdeployment_modelvehicle_app_releases-check"><a href="/velocitas/docs/concepts/deployment_model/vehicle_app_releases/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdeployment_modelvehicle_app_releases"><span class="">Build and Release Process</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitasdocsconceptslifecycle_management-li">
   <input type="checkbox" id="m-velocitasdocsconceptslifecycle_management-check" checked/>
-  <label for="m-velocitasdocsconceptslifecycle_management-check"><a href="/velocitas/docs/concepts/lifecycle_management/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptslifecycle_management"><span class="">Lifecycle Management</span></a></label>
+  <label for="m-velocitasdocsconceptslifecycle_management-check"><a href="/velocitas/docs/concepts/lifecycle_management/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptslifecycle_management"><span class="">Lifecycle Management</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptslifecycle_managementproject-configuration-li">
   <input type="checkbox" id="m-velocitasdocsconceptslifecycle_managementproject-configuration-check"/>
-  <label for="m-velocitasdocsconceptslifecycle_managementproject-configuration-check"><a href="/velocitas/docs/concepts/lifecycle_management/project-configuration/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptslifecycle_managementproject-configuration"><span class="">Project Configuration</span></a></label>
+  <label for="m-velocitasdocsconceptslifecycle_managementproject-configuration-check"><a href="/velocitas/docs/concepts/lifecycle_management/project-configuration/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptslifecycle_managementproject-configuration"><span class="">Project Configuration</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitasdocsconceptslifecycle_managementpackages-li">
   <input type="checkbox" id="m-velocitasdocsconceptslifecycle_managementpackages-check" checked/>
-  <label for="m-velocitasdocsconceptslifecycle_managementpackages-check"><a href="/velocitas/docs/concepts/lifecycle_management/packages/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptslifecycle_managementpackages"><span class="">Packages</span></a></label>
+  <label for="m-velocitasdocsconceptslifecycle_managementpackages-check"><a href="/velocitas/docs/concepts/lifecycle_management/packages/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptslifecycle_managementpackages"><span class="">Packages</span></a></label>
   
   <ul class="ul-4 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-velocitasdocsconceptslifecycle_managementpackagesusage-li">
   <input type="checkbox" id="m-velocitasdocsconceptslifecycle_managementpackagesusage-check" checked/>
-  <label for="m-velocitasdocsconceptslifecycle_managementpackagesusage-check"><a href="/velocitas/docs/concepts/lifecycle_management/packages/usage/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptslifecycle_managementpackagesusage"><span class="td-sidebar-nav-active-item">Usage</span></a></label>
+  <label for="m-velocitasdocsconceptslifecycle_managementpackagesusage-check"><a href="/velocitas/docs/concepts/lifecycle_management/packages/usage/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptslifecycle_managementpackagesusage"><span class="td-sidebar-nav-active-item">Usage</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptslifecycle_managementpackagesdevelopment-li">
   <input type="checkbox" id="m-velocitasdocsconceptslifecycle_managementpackagesdevelopment-check"/>
-  <label for="m-velocitasdocsconceptslifecycle_managementpackagesdevelopment-check"><a href="/velocitas/docs/concepts/lifecycle_management/packages/development/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptslifecycle_managementpackagesdevelopment"><span class="">Development</span></a></label>
+  <label for="m-velocitasdocsconceptslifecycle_managementpackagesdevelopment-check"><a href="/velocitas/docs/concepts/lifecycle_management/packages/development/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptslifecycle_managementpackagesdevelopment"><span class="">Development</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptslifecycle_managementvelocitas-cli-li">
   <input type="checkbox" id="m-velocitasdocsconceptslifecycle_managementvelocitas-cli-check"/>
-  <label for="m-velocitasdocsconceptslifecycle_managementvelocitas-cli-check"><a href="/velocitas/docs/concepts/lifecycle_management/velocitas-cli/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptslifecycle_managementvelocitas-cli"><span class="">Velocitas CLI</span></a></label>
+  <label for="m-velocitasdocsconceptslifecycle_managementvelocitas-cli-check"><a href="/velocitas/docs/concepts/lifecycle_management/velocitas-cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptslifecycle_managementvelocitas-cli"><span class="">Velocitas CLI</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptslifecycle_managementtroubleshooting-li">
   <input type="checkbox" id="m-velocitasdocsconceptslifecycle_managementtroubleshooting-check"/>
-  <label for="m-velocitasdocsconceptslifecycle_managementtroubleshooting-check"><a href="/velocitas/docs/concepts/lifecycle_management/troubleshooting/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptslifecycle_managementtroubleshooting"><span class="">Troubleshooting</span></a></label>
+  <label for="m-velocitasdocsconceptslifecycle_managementtroubleshooting-check"><a href="/velocitas/docs/concepts/lifecycle_management/troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptslifecycle_managementtroubleshooting"><span class="">Troubleshooting</span></a></label>
   
 </li>
   </ul>
@@ -231,75 +231,75 @@
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocstutorials-li">
   <input type="checkbox" id="m-velocitasdocstutorials-check"/>
-  <label for="m-velocitasdocstutorials-check"><a href="/velocitas/docs/tutorials/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorials"><span class="">Tutorials</span></a></label>
+  <label for="m-velocitasdocstutorials-check"><a href="/velocitas/docs/tutorials/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorials"><span class="">Tutorials</span></a></label>
   
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocstutorialsquickstart-li">
   <input type="checkbox" id="m-velocitasdocstutorialsquickstart-check"/>
-  <label for="m-velocitasdocstutorialsquickstart-check"><a href="/velocitas/docs/tutorials/quickstart/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsquickstart"><span class="">Quickstart</span></a></label>
+  <label for="m-velocitasdocstutorialsquickstart-check"><a href="/velocitas/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsquickstart"><span class="">Quickstart</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsquickstartimport_examples-li">
   <input type="checkbox" id="m-velocitasdocstutorialsquickstartimport_examples-check"/>
-  <label for="m-velocitasdocstutorialsquickstartimport_examples-check"><a href="/velocitas/docs/tutorials/quickstart/import_examples/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsquickstartimport_examples"><span class="">Import examples</span></a></label>
+  <label for="m-velocitasdocstutorialsquickstartimport_examples-check"><a href="/velocitas/docs/tutorials/quickstart/import_examples/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsquickstartimport_examples"><span class="">Import examples</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsquickstartbehind_proxy-li">
   <input type="checkbox" id="m-velocitasdocstutorialsquickstartbehind_proxy-check"/>
-  <label for="m-velocitasdocstutorialsquickstartbehind_proxy-check"><a href="/velocitas/docs/tutorials/quickstart/behind_proxy/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsquickstartbehind_proxy"><span class="">Working behind proxy</span></a></label>
+  <label for="m-velocitasdocstutorialsquickstartbehind_proxy-check"><a href="/velocitas/docs/tutorials/quickstart/behind_proxy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsquickstartbehind_proxy"><span class="">Working behind proxy</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocstutorialsprototyping-li">
   <input type="checkbox" id="m-velocitasdocstutorialsprototyping-check"/>
-  <label for="m-velocitasdocstutorialsprototyping-check"><a href="/velocitas/docs/tutorials/prototyping/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsprototyping"><span class="">Prototyping Integration</span></a></label>
+  <label for="m-velocitasdocstutorialsprototyping-check"><a href="/velocitas/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsprototyping"><span class="">Prototyping Integration</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsprototypingservice_integration-li">
   <input type="checkbox" id="m-velocitasdocstutorialsprototypingservice_integration-check"/>
-  <label for="m-velocitasdocstutorialsprototypingservice_integration-check"><a href="/velocitas/docs/tutorials/prototyping/service_integration/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsprototypingservice_integration"><span class="">Service Integration</span></a></label>
+  <label for="m-velocitasdocstutorialsprototypingservice_integration-check"><a href="/velocitas/docs/tutorials/prototyping/service_integration/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsprototypingservice_integration"><span class="">Service Integration</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocstutorialsvehicle-app-development-li">
   <input type="checkbox" id="m-velocitasdocstutorialsvehicle-app-development-check"/>
-  <label for="m-velocitasdocstutorialsvehicle-app-development-check"><a href="/velocitas/docs/tutorials/vehicle-app-development/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsvehicle-app-development"><span class="">Vehicle App Development</span></a></label>
+  <label for="m-velocitasdocstutorialsvehicle-app-development-check"><a href="/velocitas/docs/tutorials/vehicle-app-development/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsvehicle-app-development"><span class="">Vehicle App Development</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_python-li">
   <input type="checkbox" id="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_python-check"/>
-  <label for="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_python-check"><a href="/velocitas/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_python"><span class="">Python Vehicle App Development</span></a></label>
+  <label for="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_python-check"><a href="/velocitas/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_python"><span class="">Python Vehicle App Development</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_cpp-li">
   <input type="checkbox" id="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_cpp-check"/>
-  <label for="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_cpp-check"><a href="/velocitas/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_cpp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_cpp"><span class="">C&#43;&#43; Vehicle App Development</span></a></label>
+  <label for="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_cpp-check"><a href="/velocitas/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_cpp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle-app-developmenttutorial_how_to_create_a_vehicle_app_cpp"><span class="">C&#43;&#43; Vehicle App Development</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_model-li">
   <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_model-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_model-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_model"><span class="">Vehicle Model Creation</span></a></label>
+  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_model-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_model"><span class="">Vehicle Model Creation</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_cpp-li">
   <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_cpp-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_cpp-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/manual_creation_cpp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_cpp"><span class="">C&#43;&#43; Manual Vehicle Model Creation</span></a></label>
+  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_cpp-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/manual_creation_cpp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_cpp"><span class="">C&#43;&#43; Manual Vehicle Model Creation</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_python-li">
   <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_python-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_python-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/manual_creation_python/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_python"><span class="">Python Manual Vehicle Model Creation</span></a></label>
+  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_python-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/manual_creation_python/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelmanual_creation_python"><span class="">Python Manual Vehicle Model Creation</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distribution-li">
   <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distribution-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distribution-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/vehicle_model_distribution/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distribution"><span class="">Vehicle Model Distribution</span></a></label>
+  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distribution-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/vehicle_model_distribution/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distribution"><span class="">Vehicle Model Distribution</span></a></label>
   
   <ul class="ul-4 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_cpp-li">
   <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_cpp-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_cpp-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/vehicle_model_distribution/distribution_cpp/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_cpp"><span class="">C&#43;&#43; Vehicle Model Distribution</span></a></label>
+  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_cpp-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/vehicle_model_distribution/distribution_cpp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_cpp"><span class="">C&#43;&#43; Vehicle Model Distribution</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_python-li">
   <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_python-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_python-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/vehicle_model_distribution/distribution_python/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_python"><span class="">Python Vehicle Model Distribution</span></a></label>
+  <label for="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_python-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/vehicle_model_distribution/distribution_python/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_create_a_vehicle_modelvehicle_model_distributiondistribution_python"><span class="">Python Vehicle Model Distribution</span></a></label>
   
 </li>
   </ul>
@@ -307,36 +307,36 @@
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocstutorialsvehicle-app-runtime-li">
   <input type="checkbox" id="m-velocitasdocstutorialsvehicle-app-runtime-check"/>
-  <label for="m-velocitasdocstutorialsvehicle-app-runtime-check"><a href="/velocitas/docs/tutorials/vehicle-app-runtime/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsvehicle-app-runtime"><span class="">Run Vehicle App Runtime Services</span></a></label>
+  <label for="m-velocitasdocstutorialsvehicle-app-runtime-check"><a href="/velocitas/docs/tutorials/vehicle-app-runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsvehicle-app-runtime"><span class="">Run Vehicle App Runtime Services</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_locally-li">
   <input type="checkbox" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_locally-check"/>
-  <label for="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_locally-check"><a href="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_locally"><span class="">Run runtime services locally</span></a></label>
+  <label for="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_locally-check"><a href="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_locally"><span class="">Run runtime services locally</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-li">
   <input type="checkbox" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-check"/>
-  <label for="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-check"><a href="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes"><span class="">Run runtime services in Kubernetes</span></a></label>
+  <label for="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes-check"><a href="/velocitas/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle-app-runtimerun_runtime_services_kubernetes"><span class="">Run runtime services in Kubernetes</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsintegration_tests-li">
   <input type="checkbox" id="m-velocitasdocstutorialsintegration_tests-check"/>
-  <label for="m-velocitasdocstutorialsintegration_tests-check"><a href="/velocitas/docs/tutorials/integration_tests/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsintegration_tests"><span class="">Vehicle App Integration Testing</span></a></label>
+  <label for="m-velocitasdocstutorialsintegration_tests-check"><a href="/velocitas/docs/tutorials/integration_tests/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsintegration_tests"><span class="">Vehicle App Integration Testing</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_podspecs-li">
   <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_podspecs-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_podspecs-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_podspecs/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_podspecs"><span class="">Vehicle App Deployment via PodSpecs</span></a></label>
+  <label for="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_podspecs-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_podspecs/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_podspecs"><span class="">Vehicle App Deployment via PodSpecs</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-li">
   <input type="checkbox" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"/>
-  <label for="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm"><span class="">Vehicle App Deployment with Helm</span></a></label>
+  <label for="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm-check"><a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialstutorial_how_to_deploy_a_vehicle_app_with_helm"><span class="">Vehicle App Deployment with Helm</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocscontribution-guidelines-li">
   <input type="checkbox" id="m-velocitasdocscontribution-guidelines-check"/>
-  <label for="m-velocitasdocscontribution-guidelines-check"><a href="/velocitas/docs/contribution-guidelines/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocscontribution-guidelines"><span class="">Contribution Guidelines</span></a></label>
+  <label for="m-velocitasdocscontribution-guidelines-check"><a href="/velocitas/docs/contribution-guidelines/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocscontribution-guidelines"><span class="">Contribution Guidelines</span></a></label>
   
 </li>
   </ul>
@@ -348,7 +348,7 @@
           </aside>
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
-<div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
 <a href="https://github.com/eclipse-velocitas/velocitas-docs/tree/main/content/en/docs/concepts/lifecycle_management/packages/usage.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
   <a href="https://github.com/eclipse-velocitas/velocitas-docs/edit/main/content/en/docs/concepts/lifecycle_management/packages/usage.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
   <a href="https://github.com/eclipse-velocitas/velocitas-docs/new/main/content/en/docs/concepts/lifecycle_management/packages/usage.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
@@ -398,22 +398,27 @@
 	
 
           </aside>
-          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
             
   
 
             <nav aria-label="breadcrumb" class="td-breadcrumbs">
   <ol class="breadcrumb">
   <li class="breadcrumb-item">
-    <a href="/velocitas/docs/">Documentation</a></li>
+    <a href="/velocitas/docs/">Documentation</a>
+  </li>
   <li class="breadcrumb-item">
-    <a href="/velocitas/docs/concepts/">Concepts</a></li>
+    <a href="/velocitas/docs/concepts/">Concepts</a>
+  </li>
   <li class="breadcrumb-item">
-    <a href="/velocitas/docs/concepts/lifecycle_management/">Lifecycle Management</a></li>
+    <a href="/velocitas/docs/concepts/lifecycle_management/">Lifecycle Management</a>
+  </li>
   <li class="breadcrumb-item">
-    <a href="/velocitas/docs/concepts/lifecycle_management/packages/">Packages</a></li>
+    <a href="/velocitas/docs/concepts/lifecycle_management/packages/">Packages</a>
+  </li>
   <li class="breadcrumb-item active" aria-current="page">
-    Usage</li>
+    <a href="/velocitas/docs/concepts/lifecycle_management/packages/usage/" aria-disabled="true" class="btn-link disabled">Usage</a>
+  </li>
   </ol>
 </nav>
             
@@ -499,7 +504,7 @@ After creation of a devcontainer a <a href="https://github.com/eclipse-velocitas
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified February 22, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/10cb8cef6a7722702cb752b043421bcbef80c608">Remove digital auto prototyping notes (#77) (10cb8ce)</a>
+  Last modified February 24, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/ec93246a399f1be089f3a1108b53247426e2749f">Migrate to hugo mods (#78) (ec93246)</a>
 </div>
 
 </div>
@@ -644,7 +649,7 @@ After creation of a devcontainer a <a href="https://github.com/eclipse-velocitas
 
     </div>
     
-  <script src="/velocitas/js/main.min.c757e9fe8e272200cc2eb080e394af6e5b71a93e1720dfff7feafddd98d9f829.js" integrity="sha256-x1fp/o4nIgDMLrCA45SvbltxqT4XIN//f&#43;r93ZjZ&#43;Ck=" crossorigin="anonymous"></script>
+  <script src="/velocitas/js/main.min.2aff983e9d0d8ecff9ed53e14b657216e2d8d2aff059bf4a5651283020995f1b.js" integrity="sha256-Kv&#43;YPp0Njs/57VPhS2VyFuLY0q/wWb9KVlEoMCCZXxs=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>
