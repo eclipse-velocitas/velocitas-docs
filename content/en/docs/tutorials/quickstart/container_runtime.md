@@ -8,9 +8,9 @@ description: >
 
 In the past the recommended runtime would for sure be [Docker Desktop](https://www.docker.com/products/docker-desktop). But since Docker Inc. changed their license model it is fair enough for an open source project to look for free alternatives.
 
-# MacOS
+# macOS
 
-For MacOS there are several solutions. Good results could be achieved using [Colima](https://github.com/abiosoft/colima).
+Since the Docker Engine is not working out of the box on macOS, a virtualisation tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using [Colima](https://github.com/abiosoft/colima).
 
 ## Setup Colima
 
