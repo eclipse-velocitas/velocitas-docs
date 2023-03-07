@@ -1,5 +1,5 @@
 ---
-title: "Vehicle Model Creation"
+title: "Vehicle Model Creation (old)"
 date: 2022-05-09T13:43:25+05:30
 weight: 50
 description: >
@@ -9,6 +9,11 @@ aliases:
 ---
 
 A _Vehicle Model_ makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against _Vehicle Services_ and other _Vehicle Apps_. It is generated from the underlying semantic models for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library.
+
+{{% alert title="Info" %}} On Friday, 2023-03-03 we released our [new model lifecycle approach](/docs/tutorials/automated_model_lifecycle.md). With that, the model is now automatically generated with the instantiation of the dev-container. The model is generated from the vehicle API referenced in the AppManifest. For the time being, the integration of services is not supported any more.
+
+The "old" approach, using pre-generated model repositories, is still available and described here. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.
+{{% /alert %}}
 
 This tutorial will show you how to:
 
@@ -65,20 +70,6 @@ Follow the steps to generate a _Vehicle Model_.
   4. For python: Change the version of package in `setup.py` manually (defaults to 0.1.0).
   5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Vehicle Model](/docs/tutorials/vehicle_model_distribution))
 
-## Referencing the Model Specification (Work in Progress!)
-
-We are currently working to further automate the process of model generation: The model specification shall be referenced from the AppManifest and the model code is generated on container creation - or after updating the specification - into a subfolder of the app's repositiory.
-
-The used model specification of an app is referenced like this in the `AppManifest.json`:
-
-  ```json
-    "VehicleModel": {
-        "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"
-    }
-  ```
-
-Instead of an URI you could also reference a local file containing the specification.
-  
 ## Create a Vehicle Model Manually
 
 Alternative to the generation from a VSS specification you could create the _Vehicle Model_ manually. The following sections describing the required steps.
