@@ -1,7 +1,7 @@
 ---
 title: "Automated Vehicle Model Lifecycle"
 date: 2023-03-07T13:43:25+05:30
-weight: 4
+weight: 40
 description: >
   Learn how to refer a model source API and how the automated model lifecycle is working.
 aliases:
