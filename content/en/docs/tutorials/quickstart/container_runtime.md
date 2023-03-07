@@ -30,3 +30,7 @@ After the installation you need to start the runtime:
 For M1 Macs it might be neccessary to add `--arch aarch64`
 
 That's all you have to do. After these few steps you can go on with the devcontainer setup.
+
+### Drawbacks
+
+The only drawback noticed so far is, that K9S is not working properly on M1 Macs. Since the container runtime and deployment are working also without K9S, this is just a minor issue. Nevertheless, the team is working on a solution.
