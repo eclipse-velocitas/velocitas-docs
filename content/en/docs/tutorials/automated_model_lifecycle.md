@@ -45,7 +45,7 @@ Instead of an URI you could also reference a local file containing the specifica
 ## Model Creation
 
 The generation of the model is taking place:
-* automatically during the instantiation of the dev-container through our Velocitas lifecycle management,
+* automatically during the instantiation of the dev-container through our [Velocitas lifecycle management](/docs/concepts/lifecycle_management/),
 * when an `velocitas init` is triggered manually, or
 * you trigger the VS Code task `(Re-)generate vehicle model` explicitly.
 
