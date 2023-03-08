@@ -22,7 +22,7 @@ The _Seat Adjuster Vehicle App_ receives the seat position as an MQTT message an
 
 1. The **Customer** requests the change of the seat position as MQTT message on the topic `seatadjuster/setPosition/request` with the payload:
    ```json
-   {"requestId": "xyz", "position": 300}
+   {"requestId": 42, "position": 300}
    ```
 2. The **Seat Adjuster Vehicle App** that has subscribed to this topic, receives the request to change the seat position as a MQTT message.
 3. The **Seat Adjuster Vehicle App** gets the current vehicle speed from the data broker, which is fed by the **CAN Feeder (KUKSA DBC Feeder)**.
@@ -31,11 +31,11 @@ The _Seat Adjuster Vehicle App_ receives the seat position as an MQTT message an
 6. The **Seat Service** returns OK or an error code as grpc status to the **Seat Adjuster Vehicle App**.
 7. If everything went well, the **Seat Adjuster Vehicle App** returns a success message for the topic `seatadjuster/setPosition/response` with the payload:
    ```json
-   {"requestId": "xyz", "status": 0 }
+   {"requestId": 42, "status": 0 }
    ```
    Otherwise, an error message will be returned:
    ```json
-   {"requestId": "xyz", "status": 1, "message": "<error message>" }
+   {"requestId": 42, "status": 1, "message": "<error message>" }
    ```
 8. This success or error message will be returned to the **Customer**.
 
