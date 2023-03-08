@@ -14,7 +14,7 @@ A _Vehicle Model_ makes it possible to easily access vehicle data at the [KUKSA 
 
 For the time being, the integration of services is not supported by the new approach.
 
-The "old" approach, using pre-generated model repositories, is still available and [described here](/docs/tutorials/tutorial_how_to_create_a_vehicle_model/).
+The previous approach, using pre-generated model repositories, is now deprecated. But it is still available and [described here](/docs/tutorials/tutorial_how_to_create_a_vehicle_model/).
 {{% /alert %}}
 
 This tutorial will show you how:
