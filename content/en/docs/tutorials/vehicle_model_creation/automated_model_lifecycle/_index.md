@@ -39,7 +39,7 @@ The generation of the model is taking place:
 
 - through a [onPostInit hook](/docs/concepts/lifecycle_management/packages/usage/#installation) when `velocitas init` is called:
   - either triggered manually, or
-  - automatically during the instantiation of the devContainer through our Velocitas lifecycle management
+  - automatically during the instantiation of the devContainer through our [Velocitas lifecycle management](/docs/concepts/lifecycle_management)
 - when you trigger the VS Code task `(Re-)generate vehicle model` explicitly.
 
 The model generation is a three step process:
