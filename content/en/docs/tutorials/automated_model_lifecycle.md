@@ -8,9 +8,9 @@ aliases:
   - /docs/tutorials/automated_model_lifecycle.md
 ---
 
-A _Vehicle Model_ makes it possible to easily access vehicle data at the KUKSA Data Broker. It is generated from the underlying semantic model specification for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library.
+A _Vehicle Model_ makes it possible to easily access vehicle data at the [KUKSA Data Broker](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker). It is generated from the underlying semantic model specification for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library.
 
-{{% alert title="Info" %}} This article describes our new model lifecycle approach released on Friday, 2023-03-03. With that, the model is now automatically generated with the instantiation of the dev-container. It is generated from the vehicle API referenced in the AppManifest.
+{{% alert title="Info" %}} This article describes our new model lifecycle approach released on Friday, 2023-03-03. With that, the model is now automatically generated with the instantiation of the devContainer. It is generated from the vehicle model source file referenced in the AppManifest.
 
 For the time being, the integration of services is not supported by the new approach.
 
@@ -29,7 +29,7 @@ This tutorial will show you how:
 
 ## How to Reference a Model Specification
 
-The model specification defines the vehicle API to be used by your project. It is referenced in the `AppManifest.json` via an URI like this: 
+The model specification defines the vehicle API to be used by your project. It is referenced in the `AppManifest.json` via a URI like this: 
 
   ```json
     "VehicleModel": {

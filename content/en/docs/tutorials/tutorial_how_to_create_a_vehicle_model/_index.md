@@ -10,7 +10,7 @@ aliases:
 
 A _Vehicle Model_ makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against _Vehicle Services_ and other _Vehicle Apps_. It is generated from the underlying semantic models for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library.
 
-{{% alert title="Info" %}} On Friday, 2023-03-03 we released our [new model lifecycle approach](/docs/tutorials/automated_model_lifecycle.md). With that, the model is now automatically generated with the instantiation of the dev-container. The model is generated from the vehicle API referenced in the AppManifest. For the time being, the integration of services is not supported any more.
+{{% alert title="Info" %}} On Friday, 2023-03-03 we released our [new model lifecycle approach](/docs/tutorials/automated_model_lifecycle.md). With that, the model is now automatically generated with the instantiation of the devContainer. The model is generated from the vehicle API referenced in the AppManifest. For the time being, the integration of services is not supported any more.
 
 The "old" approach, using pre-generated model repositories, is still available and described here. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.
 {{% /alert %}}
