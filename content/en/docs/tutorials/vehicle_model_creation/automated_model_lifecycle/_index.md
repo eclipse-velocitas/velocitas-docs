@@ -1,31 +1,22 @@
 ---
 title: "Automated Vehicle Model Lifecycle"
-date: 2023-03-07T13:43:25+05:30
-weight: 40
+date: 2023-03-08T13:43:25+05:30
+weight: 10
 description: >
-  Learn how to refer a model source API and how the automated model lifecycle is working.
-aliases:
-  - /docs/tutorials/automated_model_lifecycle.md
+  Learn how to refer a model source and how the automated model lifecycle is working.
 ---
-
-A _Vehicle Model_ makes it possible to easily access vehicle data at the [KUKSA Data Broker](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker). It is generated from the underlying semantic model specification for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library.
 
 {{% alert title="Info" %}} This article describes our new model lifecycle approach released on Friday, 2023-03-03. With that, the model is now automatically generated with the instantiation of the devContainer. It is generated from the vehicle model source file referenced in the AppManifest.
 
 For the time being, the integration of services is not supported by the new approach.
 
-The previous approach, using pre-generated model repositories, is now deprecated. But it is still available and [described here](/docs/tutorials/tutorial_how_to_create_a_vehicle_model/).
-{{% /alert %}}
+The previous approach, using pre-generated model repositories, is now deprecated. But it is still available and [described here](../manual_model_creation).{{% /alert %}}
 
 This tutorial will show you how:
 
 - the vehicle API used as the source to generate the model is referenced in the app manifest,
 - the automatic generation of the model works,
 - you can trigger manual recreation of the model (after adding extensions to the API required by your project)
-
-## Prerequisites
-
-- [Visual Studio Code](https://code.visualstudio.com/) with the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) installed. For information on how to install extensions on Visual Studio Code, see [VS Code Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery).
 
 ## How to Reference a Model Specification
 
@@ -45,16 +36,18 @@ Instead of an URI you could also reference a local file containing the specifica
 ## Model Creation
 
 The generation of the model is taking place:
-* automatically during the instantiation of the dev-container through our [Velocitas lifecycle management](/docs/concepts/lifecycle_management/),
-* when an `velocitas init` is triggered manually, or
-* you trigger the VS Code task `(Re-)generate vehicle model` explicitly.
+
+- automatically during the instantiation of the dev-container through our [Velocitas lifecycle management](/docs/concepts/lifecycle_management),
+- when an `velocitas init` is triggered manually, or
+- you trigger the VS Code task `(Re-)generate vehicle model` explicitly.
 
 The model generation is a three step process:
+
 1. The model generator is installed as a Python package (if not already present)
 2. The referenced model specification is downloaded (if no local reference)
 3. The model code is generated and installed.
 
-![](./model_lifecycle.svg)
+![Model lifecycle overview](./model_lifecycle.drawio.svg)
 
 The model is generated using our [Velocitas vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator). By default version 0.3.0 is used.
 The used version and also the repository of the generator can be altered via the `variables` section of the project configuration in the `.velocitas.json`.
@@ -76,4 +69,4 @@ In Python template based projects the generated model is finally installed in th
 
 - Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/quickstart)
-- Tutorial: [Create a Vehicle App]({{< ref "/docs/tutorials/vehicle-app-development" >}})
+- Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)

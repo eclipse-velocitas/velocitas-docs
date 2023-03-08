@@ -1,7 +1,7 @@
 ---
 title: "Vehicle App Deployment via PodSpecs"
 date: 2022-05-09T13:43:25+05:30
-weight: 80
+weight: 70
 description: >
   Learn how to prepare PodSpecs for the deployment of a Vehicle App.
 aliases:
