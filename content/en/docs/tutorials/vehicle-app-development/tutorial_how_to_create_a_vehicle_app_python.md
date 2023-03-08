@@ -165,7 +165,7 @@ Similarly, subscribed data is available in the respective *DataPointReply* objec
 
 {{% alert title="Note" %}}Services are not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for the time being. If you need access to services please read [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/#add-a-vehicle-service") how to achieve that.{{% /alert %}}
 
-Services are used to communicate with other parts of the vehicle. Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
+Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
 
 The following lines show you how to use the `MoveComponent`-method of the `SeatService` from the vehicle model:
 

@@ -139,6 +139,8 @@ The result passed to the callback registered via `onItem` is an object of type `
 
 {{% alert title="Note" %}}Services are not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for the time being. If you need access to services please read [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/#add-a-vehicle-service") how to achieve that.{{% /alert %}}
 
+Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
+
 The following few lines show you how to use the `moveComponent`-method of the `SeatService` you have created:
 
 ```Cpp

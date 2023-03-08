@@ -1,6 +1,6 @@
 ---
 title: "Automated Vehicle Model Lifecycle"
-date: 2023-03-08T13:43:25+05:30
+date: 2023-03-08T15:00:00+01:00
 weight: 10
 description: >
   Learn how to refer a model source and how the automated model lifecycle is working.

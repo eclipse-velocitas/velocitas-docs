@@ -1,6 +1,6 @@
 ---
 title: "Vehicle Model Creation"
-date: 2023-03-08T11:12:00+01:00
+date: 2023-03-08T15:00:00+01:00
 weight: 40
 description: >
   Learn how creation of vehicle models work and how to adapt it to your needs.
