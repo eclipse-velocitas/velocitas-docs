@@ -104,7 +104,7 @@ The app is now running. In order to use it properly, we will enhance the app wit
 
 ## Vehicle Model Access
 
-In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check [tutorial about creating models](/docs/tutorials/vehicle_model_creation/) for more details about this topic. In this section, the focus is on using the models.
+In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check [tutorial about creating models](/docs/tutorials/vehicle_model_creation) for more details about this topic. In this section, the focus is on using the models.
 
 The first thing you need to do to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model installed as a Python package named `vehicle`. So, most probably you need nothing to do. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.
 
@@ -163,7 +163,7 @@ Similarly, subscribed data is available in the respective *DataPointReply* objec
 
 ## Services
 
-{{% alert title="Note" %}}Services are not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for the time being. If you need access to services please read [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/#add-a-vehicle-service") how to achieve that.{{% /alert %}}
+{{% alert title="Note" %}}Services are not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for the time being. If you need access to services please read [here](/docs/tutorials/vehicle_model_creation/manual_model_creation) how you can create a model and add services to it manually.{{% /alert %}}
 
 Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
 
@@ -427,7 +427,7 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 - Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk)
 - Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
-- Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/vehicle_model_creation.md)
+- Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 - Concept: [Deployment Model](/docs/concepts/deployment_model/)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
