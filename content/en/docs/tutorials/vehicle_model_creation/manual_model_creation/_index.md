@@ -71,8 +71,8 @@ Alternative to the generation from a VSS specification you could create the _Veh
 
 Once you have created your Vehicle Model either manually or via the Vehicle Model Generator, you need to distribute your model to use it in an application. Follow the links below for language specific tutorials on how to distribute your freshly created Vehicle Model.
 
-- [Python](vehicle_model_distribution/distribution_python.md)
-- [C++](vehicle_model_distribution/distribution_cpp.md)
+- [Python](vehicle_model_distribution/distribution_python)
+- [C++](vehicle_model_distribution/distribution_cpp)
 
 ## Further information
 
