@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.488f9763435fe7b0f26e221645138a94.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.3b0644eced251424500a0e81902676af.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -185,10 +185,9 @@ This is the multi-page printable view of this section.
 <p>The following information describes how to develop and test the sample Vehicle App that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">template repository</a>. You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.</p>
 <p>Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own Vehicle App development project.</p>
 <h2 id="develop-your-first-vehicle-app">Develop your first Vehicle App</h2>
-<p>This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read the other manuals:</p>
+<p>This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read this manual:</p>
 <ul>
 <li><a href="/velocitas/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">How to create a Vehicle Model</a></li>
 </ul>
 <p>Once you have established your development environment, you will be able to start developing your first Vehicle App.</p>
 <p>For this tutorial, you will recreate the Vehicle App that is included with the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener">SDK repository</a>:
@@ -214,7 +213,7 @@ The Vehicle App allows to change the positions of the seats in the car and also 
 </span></span><span style="display:flex;"><span>    <span style="color:#000">get_opentelemetry_log_format</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.vehicle_app</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">subscribe_topic</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv_model</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">vehicle</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv_model.proto.seats_pb2</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">BASE</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">SeatLocation</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
 </span></span></code></pre></div><h4 id="enable-logging">Enable logging</h4>
 <p>The following logging configuration applies the default log format provided by the SDK and sets the log level to INFO:</p>
@@ -243,13 +242,10 @@ The Vehicle App allows to change the positions of the seats in the car and also 
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">run_until_complete</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">main</span><span style="color:#000;font-weight:bold">())</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">close</span><span style="color:#000;font-weight:bold">()</span>
 </span></span></code></pre></div><p>The app is now running. In order to use it properly, we will enhance the app with more features in the next sections.</p>
-<h2 id="vehicle-model">Vehicle Model</h2>
-<p>In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">tutorial about creating models</a> for more details about this topic. In this section, the focus is on using the models.</p>
-<h3 id="import-the-model">Import the model</h3>
-<p>The first thing you need to do to get access to the Vehicle Model. In the section about <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/vehicle_model_distribution/distribution_python">distributing a model</a>, you got to know the different methods.</p>
-<p>If you just want to use your model in one app, you can simply copy the classes into your <code>/app/src</code>-folder. In this example, you find the classes inside the <code>vehicle_model</code>-folder. As you have already seen in the section about <a href="/velocitas/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#initialize-your-class">initializing the app</a>, we need the <code>vehicle model</code>to use the app.</p>
-<p>As you know, the model has a single <a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/#datapoint">Datapoint</a> for the speed and a reference to the <code>cabin</code>-model.</p>
-<p>Accessing the speed can be done via</p>
+<h2 id="vehicle-model-access">Vehicle Model Access</h2>
+<p>In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check <a href="/velocitas/docs/tutorials/vehicle_model_creation">tutorial about creating models</a> for more details about this topic. In this section, the focus is on using the models.</p>
+<p>The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model installed as a Python package named <code>vehicle</code>. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.</p>
+<p>If you want to access a single <a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/#datapoint">Datapoint</a> for the vehicle speed, this can be done via</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">vehicle_speed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
 </span></span></code></pre></div><p>As the <code>get</code>-method of the Datapoint-class there is a coroutine you have to use the <code>await</code> keyword when using it.</p>
 <p>If you want to get deeper inside the vehicle, to access a single seat for example, you just have to go the model-chain down:</p>
@@ -287,7 +283,16 @@ Therefore the <code>on_seat_position_changed</code> callback function needs to b
 </div>
 
 <h2 id="services">Services</h2>
-<p>Services are used to communicate with other parts of the vehicle. Please read the basics about them <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/manual_creation_python/#add-a-vehicle-service">here</a>.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    Services are not supported by our <a href="/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a> for the time being. If you need access to services please read <a href="/velocitas/docs/tutorials/vehicle_model_creation/manual_model_creation">here</a> how you can create a model and add services to it manually.
+
+</div>
+
+<p>Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them <a href="/velocitas/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service">here</a>.</p>
 <p>The following lines show you how to use the <code>MoveComponent</code>-method of the <code>SeatService</code> from the vehicle model:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">location</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">SeatLocation</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">vehicle_client</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">SeatService</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">MoveComponent</span><span style="color:#000;font-weight:bold">(</span>
@@ -480,7 +485,7 @@ After creating the mock, you can test the method and check the response. Use ass
 <li>Concept: <a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Python Vehicle Model</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_model_creation">Creating a Python Vehicle Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
 <li>Concept: <a href="/velocitas/docs/concepts/deployment_model/">Deployment Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
@@ -505,16 +510,15 @@ After creating the mock, you can test the method and check the response. Use ass
 	<blockquote>
 <p>We recommend that you make yourself familiar with the <a href="/velocitas/docs/concepts/vehicle_app_sdk_overview.md">Vehicle App SDK</a> first, before going through this tutorial.</p>
 </blockquote>
-<p>The following information describes how to develop and test the sample Vehicle App that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">SDK repository</a>. You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.</p>
+<p>The following information describes how to develop and test the sample Vehicle App that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">template repository</a>. You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.</p>
 <p>Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own <em>Vehicle App</em> development project.</p>
 <h2 id="develop-your-first-vehicle-app">Develop your first Vehicle App</h2>
-<p>This section describes how to develop your first <em>Vehicle App</em>. Before you start building a new <em>Vehicle App</em>, make sure you have already read the other manuals:</p>
+<p>This section describes how to develop your first <em>Vehicle App</em>. Before you start building a new <em>Vehicle App</em>, make sure you have already read this manual:</p>
 <ul>
 <li><a href="/velocitas/docs/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li><a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">How to create a Vehicle Model</a></li>
 </ul>
 <p>Once you have established your development environment, you will be able to start developing your first <em>Vehicle App</em>.</p>
-<p>For this tutorial, you will recreate the vehicle app that is included with the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">SDK repository</a>:
+<p>For this tutorial, you will recreate the vehicle app that is included with the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">template repository</a>:
 The <em>Vehicle App</em> allows to change the positions of the seats in the car and also provide their current positions to other applications.</p>
 <p>A detailed explanation of the use case and the example is available <a href="/velocitas/docs/velocitas/docs/seat_adjuster_use_case.md">here</a>.</p>
 <p>At first, you have to create the main c++ file which we will call <code>App.cpp</code> in <code>/app/src</code>. All the relevant code for new <em>Vehicle App</em> goes there. Afterwards, there are several steps you need to consider when developing the app:</p>
@@ -530,7 +534,7 @@ The <em>Vehicle App</em> allows to change the positions of the seats in the car 
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/IVehicleDataBrokerClient.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/Logger.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;vehicle_model/Vehicle.h&#34;</span><span style="color:#8f5902;font-style:italic">
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;vehicle/Vehicle.hpp&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;memory&gt;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
@@ -558,13 +562,10 @@ The <em>Vehicle App</em> allows to change the positions of the seats in the car 
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>The app is now running. In order to use it properly, we will enhance the app with more features in the next sections.</p>
-<h2 id="vehicle-model">Vehicle Model</h2>
-<p>In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/">tutorial about creating models</a> for more details about this topic. In this section, the focus is on using the models.</p>
-<h3 id="import-the-model">Import the model</h3>
-<p>The first thing you need to do to get access to the Vehicle Model. In the section about <a href="/velocitas/docs/tutorials/how_to_create_a_vehicle_model/distribution_cpp.md">distributing a model</a>, you got to know the different methods.</p>
-<p>If you just want to use your model in one app, you can simply copy the classes into your <code>src</code>-folder. In this example, you find the classes inside the <code>vehicle_model</code>-folder. As you have already seen in the section about <a href="#initialize-your-class">initializing the app</a>, we need the <code>vehicle model</code> to use the app.</p>
-<p>As you know, the model has a single <a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/#datapoint">Datapoint</a> for the speed and a reference to the <code>cabin</code>-model.</p>
-<p>Accessing the speed can be done via</p>
+<h2 id="vehicle-model-access">Vehicle Model Access</h2>
+<p>In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check <a href="/velocitas/docs/tutorials/vehicle_model_creation">tutorial about creating models</a> for more details about this topic. In this section, the focus is on using the models.</p>
+<p>The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model in the folder <code>app/vehicle_model/include/</code>. This folder is already configured as &ldquo;include folder&rdquo; of the CMake tooling. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.</p>
+<p>If you want to access a single <a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/#datapoint">Datapoint</a> for the vehicle speed, this can be done via</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeedBlocking</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onResult</span><span style="color:#000;font-weight:bold">([](</span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeed</span><span style="color:#000;font-weight:bold">){</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Got speed!&#34;</span><span style="color:#000;font-weight:bold">);</span>
@@ -588,7 +589,16 @@ The <em>Vehicle App</em> allows to change the positions of the seats in the car 
 </span></span></code></pre></div><p>The <code>VehicleApp</code> class provides the <code>subscribeDataPoints</code>-method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via <code>AsyncSubscription::onItem</code> is called. Conversely, the callback registered via <code>AsyncSubscription::onError</code> is called once there is any error during communication with the KUKSA data broker.</p>
 <p>The result passed to the callback registered via <code>onItem</code> is an object of type <code>DataPointsResult</code> which holds all data points that have changed. Individual data points can be accessed directly by their reference: <code>result.get(Vehicle.Cabin.Seat.Row(1).Pos(1).Position)</code>)</p>
 <h2 id="services">Services</h2>
-<p>Services are used to communicate with other parts of the vehicle. Please read the basics about them <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model/#add-a-vehicle-service">here</a>.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    Services are not supported by our <a href="/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a> for the time being. If you need access to services please read <a href="/velocitas/docs/tutorials/vehicle_model_creation/manual_model_creation">here</a> how you can create a model and add services to it manually.
+
+</div>
+
+<p>Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them <a href="/velocitas/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service">here</a>.</p>
 <p>The following few lines show you how to use the <code>moveComponent</code>-method of the <code>SeatService</code> you have created:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">cabin</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatService</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatLocation</span> <span style="color:#000">location</span><span style="color:#000;font-weight:bold">{</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">};</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">SeatService</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">moveComponent</span><span style="color:#000;font-weight:bold">(</span>
@@ -753,7 +763,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <li>Concept: <a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Creating a Vehicle Model</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_model_creation">Creating a Vehicle Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
 <li>Concept: <a href="/velocitas/docs/concepts/deployment_model">Deployment Model</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Vehicle App with Helm</a></li>

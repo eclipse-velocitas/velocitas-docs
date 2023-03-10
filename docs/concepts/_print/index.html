@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.488f9763435fe7b0f26e221645138a94.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.3b0644eced251424500a0e81902676af.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -1137,7 +1137,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <h2 id="further-information">Further information</h2>
 <ul>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md">Vehicle Model Creation</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_model_creation">Vehicle Model Creation</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development">Vehicle App Development</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
 </ul>
@@ -1585,7 +1585,7 @@ Once the application is ready to be released in a new version, a dedicated relea
 </br>
 After creation of a devcontainer a <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.devcontainer/scripts/postCreateCommand.sh#L18" target="_blank" rel="noopener">postCreateCommand</a> is configured to be executed which runs:</p>
 <ul>
-<li><code>velocitas init</code> which will download and initialize all referenced packages of the <code>.velocitas.json</code>.</li>
+<li><code>velocitas init</code> which will initialize all packages referenced in your <code>.velocitas.json</code>. That means, it will download them and run their respective <a href="https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PACKAGES.md#onpostinit---arrayexecspec" target="_blank" rel="noopener">onPostInit</a> programs, if any. (e.g, <a href="/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated model generation</a>)</li>
 <li><code>velocitas sync</code> to sync files provided by some packages.</li>
 </ul>
 <p>Check the section about our <a href="/velocitas/docs/concepts/lifecycle_management/velocitas-cli/">Velocitas CLI</a> to learn more about the background and usage of it.</p>
