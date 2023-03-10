@@ -1,7 +1,7 @@
 ---
 title: "Quickstart"
 date: 2022-05-09T13:43:25+05:30
-weight: 1
+weight: 10
 description: >
   Learn how to setup and explore the provided development environment.
 aliases:
@@ -181,6 +181,6 @@ Please checkout the documentation of [Eclipse Leda](https://eclipse-leda.github.
 
 ## Next steps
 
-- Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model)
+- Tutorial: [Creating a Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)

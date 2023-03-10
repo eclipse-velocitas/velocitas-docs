@@ -33,7 +33,7 @@ The [Velocitas CLI](https://github.com/eclipse-velocitas/cli) - acting as a pack
 </br>
 After creation of a devcontainer a [postCreateCommand](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.devcontainer/scripts/postCreateCommand.sh#L18) is configured to be executed which runs:
 
-* `velocitas init` which will download and initialize all referenced packages of the `.velocitas.json`.
+* `velocitas init` which will initialize all packages referenced in your `.velocitas.json`. That means, it will download them and run their respective [onPostInit](https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PACKAGES.md#onpostinit---arrayexecspec) programs, if any. (e.g, [automated model generation](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle))
 * `velocitas sync` to sync files provided by some packages.
 
 Check the section about our [Velocitas CLI](/docs/concepts/lifecycle_management/velocitas-cli/) to learn more about the background and usage of it.

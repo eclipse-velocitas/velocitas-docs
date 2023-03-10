@@ -10,20 +10,19 @@ aliases:
 
 > We recommend that you make yourself familiar with the [Vehicle App SDK](/docs/concepts/vehicle_app_sdk_overview.md) first, before going through this tutorial.
 
-The following information describes how to develop and test the sample Vehicle App that is included in the [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
+The following information describes how to develop and test the sample Vehicle App that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
 
 Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own _Vehicle App_ development project.
 
 ## Develop your first Vehicle App
 
-This section describes how to develop your first _Vehicle App_. Before you start building a new _Vehicle App_, make sure you have already read the other manuals:
+This section describes how to develop your first _Vehicle App_. Before you start building a new _Vehicle App_, make sure you have already read this manual:
 
 - [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
-- [How to create a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 
 Once you have established your development environment, you will be able to start developing your first _Vehicle App_.
 
-For this tutorial, you will recreate the vehicle app that is included with the [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk):
+For this tutorial, you will recreate the vehicle app that is included with the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template):
 The _Vehicle App_ allows to change the positions of the seats in the car and also provide their current positions to other applications.
 
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
@@ -44,7 +43,7 @@ Before you start development in the `App.cpp` you just created, it will be neces
 #include "sdk/IVehicleDataBrokerClient.h"
 #include "sdk/Logger.h"
 
-#include "vehicle_model/Vehicle.h"
+#include "vehicle/Vehicle.hpp"
 
 #include <memory>
 
@@ -90,19 +89,13 @@ int main(int argc, char** argv) {
 
 The app is now running. In order to use it properly, we will enhance the app with more features in the next sections.
 
-## Vehicle Model
+## Vehicle Model Access
 
-In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check [tutorial about creating models]({{< ref "docs/tutorials/tutorial_how_to_create_a_vehicle_model" >}}) for more details about this topic. In this section, the focus is on using the models.
+In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check [tutorial about creating models](/docs/tutorials/vehicle_model_creation) for more details about this topic. In this section, the focus is on using the models.
 
-### Import the model
+The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model in the folder `app/vehicle_model/include/`. This folder is already configured as "include folder" of the CMake tooling. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.
 
-The first thing you need to do to get access to the Vehicle Model. In the section about [distributing a model](/docs/tutorials/how_to_create_a_vehicle_model/distribution_cpp.md), you got to know the different methods.
-
-If you just want to use your model in one app, you can simply copy the classes into your `src`-folder. In this example, you find the classes inside the `vehicle_model`-folder. As you have already seen in the section about [initializing the app]({{< ref "#initialize-your-class" >}}), we need the `vehicle model` to use the app.
-
-As you know, the model has a single [Datapoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) for the speed and a reference to the `cabin`-model.
-
-Accessing the speed can be done via
+If you want to access a single [Datapoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) for the vehicle speed, this can be done via
 
 ```Cpp
 auto vehicleSpeedBlocking = getDataPoint(Vehicle.Speed)->await();
@@ -144,7 +137,9 @@ The result passed to the callback registered via `onItem` is an object of type `
 
 ## Services
 
-Services are used to communicate with other parts of the vehicle. Please read the basics about them [here]({{< ref "tutorial_how_to_create_a_vehicle_model.md#add-a-vehicle-service" >}}).
+{{% alert title="Note" %}}Services are not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for the time being. If you need access to services please read [here](/docs/tutorials/vehicle_model_creation/manual_model_creation) how you can create a model and add services to it manually.{{% /alert %}}
+
+Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
 
 The following few lines show you how to use the `moveComponent`-method of the `SeatService` you have created:
 
@@ -359,7 +354,7 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 - Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk)
 - Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
-- Tutorial: [Creating a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Creating a Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 - Concept: [Deployment Model](/docs/concepts/deployment_model)
 - Tutorial: [Deploy a Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

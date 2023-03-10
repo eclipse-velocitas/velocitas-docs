@@ -542,6 +542,6 @@ int main(int argc, char** argv) {
 ## Further information
 
 - Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
-- Tutorial: [Vehicle Model Creation](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Vehicle App Development](/docs/tutorials/vehicle-app-development)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)

@@ -16,10 +16,9 @@ Once you have completed all steps, you will have a solid understanding of the de
 
 ## Develop your first Vehicle App
 
-This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read the other manuals:
+This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read this manual:
 
 - [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
-- [How to create a Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
 
 Once you have established your development environment, you will be able to start developing your first Vehicle App.
 
@@ -51,7 +50,7 @@ from sdv.util.log import (  # type: ignore
     get_opentelemetry_log_format,
 )
 from sdv.vehicle_app import VehicleApp, subscribe_topic
-from sdv_model import Vehicle, vehicle  # type: ignore
+from vehicle import Vehicle, vehicle  # type: ignore
 from sdv_model.proto.seats_pb2 import BASE, SeatLocation  # type: ignore
 ```
 
@@ -103,19 +102,13 @@ LOOP.close()
 
 The app is now running. In order to use it properly, we will enhance the app with more features in the next sections.
 
-## Vehicle Model
+## Vehicle Model Access
 
-In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check [tutorial about creating models](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md) for more details about this topic. In this section, the focus is on using the models.
+In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check [tutorial about creating models](/docs/tutorials/vehicle_model_creation) for more details about this topic. In this section, the focus is on using the models.
 
-### Import the model
+The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model installed as a Python package named `vehicle`. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.
 
-The first thing you need to do to get access to the Vehicle Model. In the section about [distributing a model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model/vehicle_model_distribution/distribution_python), you got to know the different methods.
-
-If you just want to use your model in one app, you can simply copy the classes into your `/app/src`-folder. In this example, you find the classes inside the `vehicle_model`-folder. As you have already seen in the section about [initializing the app](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#initialize-your-class), we need the `vehicle model`to use the app.
-
-As you know, the model has a single [Datapoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) for the speed and a reference to the `cabin`-model.
-
-Accessing the speed can be done via
+If you want to access a single [Datapoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) for the vehicle speed, this can be done via
 
 ```Python
 vehicle_speed = await self.Vehicle.Speed.get()
@@ -170,7 +163,9 @@ Similarly, subscribed data is available in the respective *DataPointReply* objec
 
 ## Services
 
-Services are used to communicate with other parts of the vehicle. Please read the basics about them [here](/docs/tutorials/tutorial_how_to_create_a_vehicle_model/manual_creation_python/#add-a-vehicle-service).
+{{% alert title="Note" %}}Services are not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for the time being. If you need access to services please read [here](/docs/tutorials/vehicle_model_creation/manual_model_creation) how you can create a model and add services to it manually.{{% /alert %}}
+
+Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
 
 The following lines show you how to use the `MoveComponent`-method of the `SeatService` from the vehicle model:
 
@@ -432,7 +427,7 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 - Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk)
 - Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
-- Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/tutorial_how_to_create_a_vehicle_model.md)
+- Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 - Concept: [Deployment Model](/docs/concepts/deployment_model/)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

@@ -1,7 +1,7 @@
 ---
 title: "Prototyping Integration"
 date: 2022-11-02T10:09:25+05:30
-weight: 2
+weight: 20
 description: >
     Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.
 ---
