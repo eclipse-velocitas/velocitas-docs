@@ -20,13 +20,20 @@ This tutorial will show you how:
 
 ## How to Reference a Model Specification
 
-The model specification defines the vehicle API to be used by your project. It is referenced in the `AppManifest.json` via a URI like this: 
+The model specification defines the vehicle API to be used by your project. It is referenced in the `AppManifest.json` via a URI or local file path like this:
 
-  ```json
-    "VehicleModel": {
-        "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"
-    }
-  ```
+{{< tabpane lang=json >}}
+{{< tab "URI reference" >}}
+"VehicleModel": {
+    "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"
+}
+{{< /tab >}}
+{{< tab "Local file reference" >}}
+"VehicleModel": {
+    "src": "./my_model/my_model.json"
+}
+{{< /tab >}}
+{{< /tabpane >}}
 
 Instead of an URI you could also reference a local file containing the specification.
 
@@ -52,6 +59,7 @@ The model generation is a three step process:
 
 The model is generated using our [Velocitas vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator).
 The used version and also the repository of the generator can be altered via the `variables` section of the project configuration in the `.velocitas.json`.
+The default values for those are defined in the [`manifest.json`](https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json) of the [devContainer setup package](https://github.com/eclipse-velocitas/devenv-devcontainer-setup).
 Also, the target folder for the generated model source code is specified here:
 
 ```json
