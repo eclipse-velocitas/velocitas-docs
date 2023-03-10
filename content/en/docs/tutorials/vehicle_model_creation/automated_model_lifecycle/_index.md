@@ -50,7 +50,7 @@ The model generation is a three step process:
 
 ![Model lifecycle overview](./model_lifecycle.drawio.svg)
 
-The model is generated using our [Velocitas vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator). By default version 0.3.0 is used.
+The model is generated using our [Velocitas vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator).
 The used version and also the repository of the generator can be altered via the `variables` section of the project configuration in the `.velocitas.json`.
 Also, the target folder for the generated model source code is specified here:
 
@@ -64,7 +64,7 @@ Also, the target folder for the generated model source code is specified here:
 }
 ```
 
-In Python template based projects the generated model is finally installed in the site-packages folder, whereat in C++ projects it is made available as a cmake include folder.
+In Python template based projects the generated model is finally installed in the site-packages folder, while in C++ projects it is made available as a CMake include folder.
   
 ## Further information
 
