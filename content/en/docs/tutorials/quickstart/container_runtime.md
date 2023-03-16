@@ -14,6 +14,8 @@ Since the Docker Engine is not working out of the box on macOS, a virtualisation
 
 ## Setup Colima
 
+*Please uninstall or at least quit Docker Desktop if you already used it, before starting the setup.*
+
 For Colima to work properly you need Colima itself and a container client e.g. the Docker client, which is still free to use:
 
 ```bash
@@ -28,6 +30,12 @@ After the installation you need to start the runtime:
 ```
 
 For M1 Macs it might be neccessary to add `--arch aarch64`
+
+Docker Desktop uses 5 cores and 12 GB of RAM by default on an M1 MacBook Pro. The equivalent in Colima can be achieved with
+
+```bash
+    colima start --cpu 5 --memory 12
+```
 
 That's all you have to do. After these few steps you can go on with the devcontainer setup.
 
