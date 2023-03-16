@@ -34,7 +34,7 @@ The Visual Studio Code [Development Containers](https://code.visualstudio.com/do
 
 To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:
 
-- Install Docker Engine / [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- [Install a working container runtime](/docs/tutorials/quickstart/container_runtime)
 - Install [Visual Studio Code](https://code.visualstudio.com)
 - Add [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension via the marketplace or using the command line
 
