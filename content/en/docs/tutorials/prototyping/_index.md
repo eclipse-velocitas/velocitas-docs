@@ -99,7 +99,7 @@ Among other things the newly created repository will contain:
 {{<table "table table-bordered">}}
 | Files | Description |
 |-------|-------------|
-|_/app/src/main.py_| containing your modified prototype code |
+|_/app/src/main.py_| Main class of the app, containing your modified prototype code |
 |_/app/AppManifest.json_| with definition of required services |
 |_/app/requirements.txt_| with definition of dependencies |
 |_/.devcontainer/_| required scripts to install every prerequisite in Microsoft Visual Studio Code |
