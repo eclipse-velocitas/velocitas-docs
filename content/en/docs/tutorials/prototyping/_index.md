@@ -84,7 +84,7 @@ After pressing the button you will be forwarded to [GitHub](https://github.com/)
 </br>
 Login with your GitHub Account and authorize [velocitas-project-generator](https://github.com/eclipse-velocitas/velocitas-project-generator-npm) to create the repository for you.
 </br>
-You will be redirected to [digital.auto](https://digitalauto.netlify.app/) and asked for a repository name (Equals to the app's name).
+You will be redirected to [digital.auto](https://digitalauto.netlify.app/) and asked for a repository name (equals to the name of the app).
 </br>
 By clicking on "Create repository":
 
