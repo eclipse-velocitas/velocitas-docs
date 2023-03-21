@@ -20,7 +20,8 @@ Writing Vehicle App in a **vehicle independent** way by using a vehicle API, con
 
 - **Speeds up** the development by **reducing complexity**
 
-- **Empowers developers** of OEMs and suppliers to write easily Vehicle App
+- **Empowers developers** of OEMs and suppliers to write Vehicle Apps easily
+
 - Allows to **focus on differentiating business logic** to innovate quickly
 - **Enables portability** through containerized Apps with no dependencies to E/E architecture 
 
