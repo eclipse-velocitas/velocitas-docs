@@ -8,9 +8,10 @@ description: >
 
 ## Problem
 
-- Many (time consuming) steps to be taken from setting up the development environment to deployment of a in-vehicle applications (_Vehicle Apps_), even for demo cases.
-- Understanding required vehicle's E/E architecture details and specific API is difficult.
-- Porting Vehicle App to another vehicle platform is complex.
+- Many (time consuming) steps to be taken from setting up the development environment up to the deployment of in-vehicle applications (_Vehicle Apps_), even for demo cases.
+- Understanding required vehicle's E/E architecture details and specific APIs is difficult.
+- Porting a Vehicle App to another vehicle platform is complex.
+
 
 
 ## Solution
