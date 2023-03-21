@@ -16,7 +16,7 @@ description: >
 
 ## Solution
 
-Writing Vehicle App in a **vehicle independent** way by using a vehicle API, container technology and a pre-configured project setup​
+Writing Vehicle App in a **vehicle independent** way by using a standardized vehicle API, container technology and a pre-configured project setup​
 
 - **Speeds up** the development by **reducing complexity**
 
