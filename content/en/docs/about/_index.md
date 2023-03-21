@@ -18,7 +18,8 @@ description: >
 
 Writing Vehicle App in a **vehicle independent** way by using a vehicle API, container technology and a pre-configured project setup​
 
-- **Speeds up** the development by **reducing the complexity**
+- **Speeds up** the development by **reducing complexity**
+
 - **Empowers developers** of OEMs and suppliers to write easily Vehicle App
 - Allows to **focus on differentiating business logic** to innovate quickly
 - **Enables portability** through containerized Apps with no dependencies to E/E architecture 
