@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.54224d3a2411738e021520944fa354b1.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d6b90ed55150f75599c14aadc52e20bd.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -924,47 +924,127 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
     
 	<h1 id="pg-b2e6933434fac21d41e03227b37cadb5">2 - Prototyping Integration</h1>
     <div class="lead">Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.</div>
-	<p>The open and web based <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> offers a rapid prototyping environment to explore and validate ideas of a vehicle app which interact with different vehicle sensors and actuators via standardized APIs specified by the COVESA <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a> without custom setup requirements. It provides the opportunity:</p>
+	<p>The open and web based <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> offers a rapid prototyping environment to explore and validate ideas of a vehicle app.
+</br>
+<a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> interacts with different vehicle sensors and actuators via standardized APIs specified by the COVESA <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a> without custom setup requirements.
+</br>
+Within the platform you can:</p>
 <ul>
-<li>To browse, navigate and enhance the vehicle signals (sensors, actuators and branches) in the <a href="">Vehicle API Catalogue</a> mapped to a 3D model of the vehicle</li>
-<li>To build vehicle app prototypes in the browser using Python and the Vehicle API Catalogue</li>
-<li>To test the vehicle app prototype in a dashboard with 3D animation for API calls</li>
-<li>To create new plugins, which usually represent UX widgets or remote server communication to enhance the vehicle mockup experience in the playground</li>
-<li>To collect and evaluate user feedback to prioritize your development portfolio</li>
+<li>browse, navigate and enhance vehicle signals (sensors, actuators and branches) in the <a href="https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list" target="_blank" rel="noopener">Vehicle API Catalogue</a> mapped to a 3D model of the vehicle</li>
+<li>build vehicle app prototypes in the browser using Python and the Vehicle API Catalogue</li>
+<li>test the vehicle app prototype in a dashboard with 3D animation for API calls</li>
+<li>create new plugins, which usually represent UX widgets or remote server communication to enhance the vehicle mockup experience in the playground</li>
+<li>collect and evaluate user feedback to prioritize your development portfolio</li>
 </ul>
-<h2 id="prototype-an-idea-of-a-_vehicle-app_">Prototype an idea of a <em>Vehicle App</em></h2>
-<p>As first step open <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a>, select <a href="https://digitalauto.netlify.app/model" target="_blank" rel="noopener"><em>Get Started</em></a> in the Prototyping section of the landing page and use the Vehicle Model of your choice.</p>
-<p><img src="./digital-auto.png" alt="playground.digital.auto">
+<h2 id="start-the-journey-of-a-_vehicle-app_">Start the journey of a <em>Vehicle App</em></h2>
+<p>As first step open <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a>, select <a href="https://digitalauto.netlify.app/model" target="_blank" rel="noopener"><em>Get Started</em></a> in the prototyping section of the landing page and use the Vehicle Model of your choice.</p>
+<p><img src="./digital-auto.png" alt="digital.auto">
 <img src="./vehicle-models.png" alt="vehicle-models"></p>
-<p>You now have the option to browse existing vehicle signals for the selected vehicle model which you can use for prototyping your <em>Vehicle App</em> by clicking on <em>Vehicle APIs</em>.</p>
-<p><img src="./cvi-catalogue.png" alt="cvi-catalogue"></p>
+<p>You now have the possibility to browse existing vehicle signals for the selected vehicle model which you can use for prototyping your <em>Vehicle App</em> by clicking on <em>Vehicle APIs</em>.</p>
+<p><img src="./selected-model.png" alt="selected-model">
+<img src="./cvi-catalogue.png" alt="cvi-catalogue"></p>
+<h3 id="add-additional-_vehicle-apis_">Add additional <em>Vehicle APIs</em></h3>
+<p>If the ideation of your vehicle app prototype comes with any new Vehicle API which is not part of the standard <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">VSS</a> you also have the option to include it into your pre-selected model by clicking the <em>+ New Wishlist API</em> button. After filling out all required fields, simply click the <em>create</em> button - this will commit the new API to the existing model.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    For this feature, a digital.auto account is required. Get in touch with us or the digital.auto team in case you want to explore this feature
+
+</div>
+
+<p><img src="./wishlist.png" alt="wishlist"></p>
+<h2 id="prototype-an-idea-of-a-_vehicle-app_">Prototype an idea of a <em>Vehicle App</em></h2>
 <p>The next step would be to prototype your idea. To do so:</p>
 <ul>
-<li>Click on <em>Prototypes</em> (in the top right toolbar),</li>
+<li>Click on <em>Prototype Library</em> of your selected model,
+<img src="./prototype-library.png" alt="prototype-library"></li>
 <li>Create a new prototype, by clicking on <em>New Prototype</em> and filling out the information or select one from the list,</li>
-<li>Click on the <em>Open</em> button (right side),</li>
-<li>Go to the <em>Code</em> section and</li>
-<li>Start your prototype right away.</li>
+<li>Click on the <em>Open</em> button,
+<img src="./select-prototype.png" alt="select-prototype"></li>
+<li>Go to the <em>Code</em> section and start your prototype right away.
+<img src="./code-section.png" alt="code-section"></li>
 </ul>
-<p><img src="./code-section.png" alt="code-section"></p>
-<p>To test your prototype go to the <em>Run</em> section, which opens a dashboard consisting all vehicle and application components similar to mockups. The control center on the right side has an integrated terminal showing all of your prototyped outputs as well as a list of all called VSS API&rsquo;s. The <em>Run</em> button executes all your prototype code from top to button. The <em>Debug</em> button allows you to step through your prototype line for line.</p>
+<h2 id="test-the-prototype-of-a-_vehicle-app_">Test the prototype of a <em>Vehicle App</em></h2>
+<p>Testing of your prototype starts in the <em>Run</em> section.
+</br>
+You will find a dashboard consisting all vehicle and application components similar to mockups.
+</br>
+The control center on the right side has an integrated terminal showing all of your prototyped outputs as well as a list of all called VSS API&rsquo;s.
+</br>
+The <em>Run</em> button executes all your prototype code from top to bottom. The <em>Debug</em> button allows you to step through your prototype line by line.</p>
 <p><img src="./run-section.png" alt="run-section"></p>
 <p>To get started quickly, the digital.auto team has added a number of widgets to simulate related elements of the vehicle – like doors, seats, light, etc. – and made them available in the playground.</p>
-<p>Feel free to add your own Plugins with addition widgets for additional car features (maybe an antenna waving a warm “welcome”…?).</p>
+<p>Feel free to add your own Plugins with widgets for additional car features (maybe an antenna waving a warm “welcome”…?).</p>
 <h2 id="transfer-your-prototype-into-a-velocitas-vehicle-app">Transfer your prototype into a Velocitas Vehicle App</h2>
-<p>In the previous step you started with envision and prototyping your Vehicle App idea and tested it against mocked vehicle components in Digital.Auto. To transfer the prototype from <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> to your development environment and test it with real <a href="/velocitas/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a> we provide a project generator. This generator allows you to generate a Vehicle App GitHub repository using your prototype code based on our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a>.</p>
-<p>In the &lsquo;Code&rsquo; section of your prototype in the <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> you have the Button &lsquo;Create Eclipse Velocitas Project&rsquo;.</p>
+<p>In the previous steps you started with envisioning and prototyping your <em>Vehicle App</em> idea and tested it against mocked vehicle components in digital.auto.
+</br>
+The Velocitas team provides a project generator to transfer the prototype from <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> into your own development environment where you are able to test it with real <a href="/velocitas/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>.
+</br>
+The generator creates a <em>Vehicle App</em> GitHub repository using your prototype code based on our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a>.
+</br>
+In the &lsquo;Code&rsquo; section of your prototype in <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> you have the button &lsquo;Create Eclipse Velocitas Project&rsquo;.</p>
 <p><img src="./generate.png" alt="generate"></p>
-<p>If you press this button you will be forwarded to <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> to login with your GitHub Account and authorize <a href="https://github.com/eclipse-velocitas/velocitas-project-generator-npm" target="_blank" rel="noopener">velocitas-project-generator</a> to create the repository for you. After you authorized the project generator you will be redirected to the <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">playground.digital.auto</a> and asked for a repository name (Which also is the app&rsquo;s name). After pressing &ldquo;Create repository&rdquo; the project generator takes over your prototype code, adapts it to the structure in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a> and creates a new private repository under your GitHub User.</p>
-<p>After the generation of the repository is completed a pop-up dialogue with the URL of your repository will be displayed. Among other things the newly created repository will contain:</p>
+<p>After pressing the button you will be forwarded to <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>.
+</br>
+Login with your GitHub Account and authorize <a href="https://github.com/eclipse-velocitas/velocitas-project-generator-npm" target="_blank" rel="noopener">velocitas-project-generator</a> to create the repository for you.
+</br>
+You will be redirected to <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> and asked for a repository name (equals to the name of the app).
+</br>
+By clicking on &ldquo;Create repository&rdquo;:</p>
 <ul>
-<li><em>/app/src/main.py</em> containing your modified prototype code</li>
-<li><em>/app/AppManifest.json</em> with definition of required services</li>
-<li><em>/app/requirements.txt</em> with definition of dependencies</li>
-<li><em>/.devcontainer</em>/ required scripts to install every prerequisite in Microsoft Visual Studio Code</li>
-<li><em>/.github/workflows/</em> with all required CI/CD pipelines to build, test and deploy the vehicle application as container image to the GitHub container registry</li>
+<li>the project generator takes over your prototype code</li>
+<li>the code is adapted to the structure in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a></li>
+<li>a new private repository under your specified GitHub User will be created.</li>
 </ul>
-<p>Your prototype <em>Vehicle App</em> transferred into a GitHub repository is now ready to be extended. Clone your newly created repository and open the <em>Vehicle App</em> in Microsoft Visual Studio Code and start to extend it. More information you can find here:</p>
+<p>A succesful generation of the repository is followed by a pop-up dialogue with the URL of your repository.</p>
+<p>Among other things the newly created repository will contain:</p>
+
+
+
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Files</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>/app/src/main.py</em></td>
+<td>Main class of the app, containing your modified prototype code</td>
+</tr>
+<tr>
+<td><em>/app/AppManifest.json</em></td>
+<td>Settings file defining required services</td>
+</tr>
+<tr>
+<td><em>/app/requirements.txt</em></td>
+<td>Requirements file defining all python dependencies</td>
+</tr>
+<tr>
+<td><em>/.devcontainer/</em></td>
+<td>Required scripts and settings to setup the devcontainer in Microsoft Visual Studio Code</td>
+</tr>
+<tr>
+<td><em>/.github/workflows/</em></td>
+<td>All required CI/CD pipelines to build, test and deploy the vehicle application as container image to the GitHub container registry</td>
+</tr>
+<tr>
+<td><em>/gen/vehicle_model/</em></td>
+<td>The generated model classes. If your prototype includes any exceptional API you added beforehand our <a href="/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a> takes care of handling the custom VSS vspec file coming from digital.auto and generates a vehicle_model when starting the devContainer</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Your prototype <em>Vehicle App</em> transferred into a GitHub repository is now ready to be extended.
+</br>
+Clone your newly created repository and open the <em>Vehicle App</em> in Microsoft Visual Studio Code and start to extend it.</p>
+<p>You can proceed with the following topics:</p>
 <ul>
 <li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment" target="_blank" rel="noopener">Starting development environment</a></li>
 <li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/" target="_blank" rel="noopener">Vehicle App Development</a></li>
