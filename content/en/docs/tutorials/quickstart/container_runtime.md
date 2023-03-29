@@ -55,4 +55,6 @@ There is currently no recommended alternative for Windows except using GitHub co
 
 Besides our recommendations above there are further alternatives, that were not evaluated by us so far or we decided, not to give our recommendation so far.
 
-For example, you could try [Podman](https://podman.io/) and [Buildah](https://buildah.io/), which can replace `docker run` and `docker build`, respectively.
+For example, you could try [Podman](https://podman.io/)/[Buildah](https://buildah.io/), which can replace `docker run` and `docker build`, respectively.
+Podman is available for MacOS, Windows, and several Linux distributions.
+Buildah seems just being available for several Linux distributions.
