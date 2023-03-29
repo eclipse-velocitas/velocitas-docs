@@ -8,11 +8,15 @@ description: >
 
 In the past the recommended runtime would for sure be [Docker Desktop](https://www.docker.com/products/docker-desktop). But since Docker Inc. changed their license model it is fair enough for an open source project to look for free alternatives.
 
-# macOS
+## Linux
+
+The obvious (and our recommended) alternative to Docker Desktop on Linux is [Docker Engine](https://docs.docker.com/engine/), a pure CLI-based solution available for most popular Linux distributions licensed under the Apache License, version 2.0. Installation instructions can be found [here](https://docs.docker.com/engine/install/).
+
+## macOS
 
 Since the Docker Engine is not working out of the box on macOS, a virtualisation tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using [Colima](https://github.com/abiosoft/colima).
 
-## Setup Colima
+### Setup Colima
 
 *Please uninstall or at least quit Docker Desktop if you already used it, before starting the setup.*
 
@@ -42,3 +46,13 @@ That's all you have to do. After these few steps you can go on with the devconta
 ### Drawbacks
 
 The only drawback noticed so far is, that K9S is not working properly on M1 Macs. Since the container runtime and deployment are working also without K9S, this is just a minor issue. Nevertheless, the team is working on a solution.
+
+## Microsoft Windows
+
+There is currently no recommended alternative for Windows except using GitHub codespaces, a cloud-based development environment.
+
+## Other alternatives
+
+Besides our recommendations above there are further alternatives, that were not evaluated by us so far or we decided, not to give our recommendation so far.
+
+For example, you could try [Podman](https://podman.io/) and [Buildah](https://buildah.io/), which can replace `docker run` and `docker build`, respectively.
