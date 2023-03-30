@@ -10,7 +10,7 @@ In the past the recommended runtime would for sure be [Docker Desktop](https://w
 
 ## Linux
 
-The obvious (and our recommended) alternative to Docker Desktop on Linux is [Docker Engine](https://docs.docker.com/engine/), a pure CLI-based solution available for most popular Linux distributions licensed under the Apache License, version 2.0. Installation instructions can be found [here](https://docs.docker.com/engine/install/).
+The obvious (and our recommended) "alternative" to Docker Desktop on Linux is to just use the [Docker Engine](https://docs.docker.com/engine/) (without Docker Desktop), a pure CLI-based solution available for most popular Linux distributions licensed under the Apache License, version 2.0. Installation instructions can be found [here](https://docs.docker.com/engine/install/).
 
 ## macOS
 
@@ -51,9 +51,11 @@ The only drawback noticed so far is, that K9S is not working properly on M1 Macs
 
 There is currently no recommended alternative for Windows except using GitHub codespaces, a cloud-based development environment.
 
+An option would be to setup a VM (e.g. with VirtualBox or VMWare) running a Linux system with Docker Engine (see above).
+
 ## Other alternatives
 
-Besides our recommendations above there are further alternatives, that were not evaluated by us so far or we decided, not to give our recommendation so far.
+Besides our recommendations above, there are further alternatives, which are not yet evaluated by this project or have some other drawbacks, blocking a recommendation. 
 
 For example, you could try [Podman](https://podman.io/)/[Buildah](https://buildah.io/), which can replace `docker run` and `docker build`, respectively.
 Podman is available for MacOS, Windows, and several Linux distributions.
