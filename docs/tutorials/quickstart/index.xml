@@ -60,9 +60,11 @@ Just press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the example &lt
         
         
         &lt;p&gt;In the past the recommended runtime would for sure be &lt;a href=&#34;https://www.docker.com/products/docker-desktop&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Desktop&lt;/a&gt;. But since Docker Inc. changed their license model it is fair enough for an open source project to look for free alternatives.&lt;/p&gt;
-&lt;h1 id=&#34;macos&#34;&gt;macOS&lt;/h1&gt;
+&lt;h2 id=&#34;linux&#34;&gt;Linux&lt;/h2&gt;
+&lt;p&gt;The obvious (and our recommended) &amp;ldquo;alternative&amp;rdquo; to Docker Desktop on Linux is to just use the &lt;a href=&#34;https://docs.docker.com/engine/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Engine&lt;/a&gt; (without Docker Desktop), a pure CLI-based solution available for most popular Linux distributions licensed under the Apache License, version 2.0. Installation instructions can be found &lt;a href=&#34;https://docs.docker.com/engine/install/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;macos&#34;&gt;macOS&lt;/h2&gt;
 &lt;p&gt;Since the Docker Engine is not working out of the box on macOS, a virtualisation tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using &lt;a href=&#34;https://github.com/abiosoft/colima&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Colima&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;setup-colima&#34;&gt;Setup Colima&lt;/h2&gt;
+&lt;h3 id=&#34;setup-colima&#34;&gt;Setup Colima&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;Please uninstall or at least quit Docker Desktop if you already used it, before starting the setup.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;For Colima to work properly you need Colima itself and a container client e.g. the Docker client, which is still free to use:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    brew install colima
@@ -73,8 +75,16 @@ Just press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the example &lt
 &lt;p&gt;Docker Desktop uses 5 cores and 12 GB of RAM by default on an M1 MacBook Pro. The equivalent in Colima can be achieved with&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    colima start --cpu &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt; --memory &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s all you have to do. After these few steps you can go on with the devcontainer setup.&lt;/p&gt;
-&lt;h3 id=&#34;drawbacks&#34;&gt;Drawbacks&lt;/h3&gt;
+&lt;h4 id=&#34;drawbacks&#34;&gt;Drawbacks&lt;/h4&gt;
 &lt;p&gt;The only drawback noticed so far is, that K9S is not working properly on M1 Macs. Since the container runtime and deployment are working also without K9S, this is just a minor issue. Nevertheless, the team is working on a solution.&lt;/p&gt;
+&lt;h2 id=&#34;microsoft-windows&#34;&gt;Microsoft Windows&lt;/h2&gt;
+&lt;p&gt;There is currently no recommended alternative for Windows except using GitHub codespaces, a cloud-based development environment.&lt;/p&gt;
+&lt;p&gt;An option would be to setup a VM (e.g. with VirtualBox or VMWare) running a Linux system with Docker Engine (see above).&lt;/p&gt;
+&lt;h2 id=&#34;other-alternatives&#34;&gt;Other alternatives&lt;/h2&gt;
+&lt;p&gt;Besides our recommendations above, there are further alternatives, which are not yet evaluated by this project or have some other drawbacks, blocking a recommendation.&lt;/p&gt;
+&lt;p&gt;For example, you could try &lt;a href=&#34;https://podman.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Podman&lt;/a&gt;/&lt;a href=&#34;https://buildah.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Buildah&lt;/a&gt;, which can replace &lt;code&gt;docker run&lt;/code&gt; and &lt;code&gt;docker build&lt;/code&gt;, respectively.
+Podman is available for MacOS, Windows, and several Linux distributions.
+Buildah seems just being available for several Linux distributions.&lt;/p&gt;
 
       </description>
     </item>

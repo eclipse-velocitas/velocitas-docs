@@ -40,12 +40,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/quickstart/container_runtime/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-08-19T17:46:21+05:30" />
-<meta property="article:modified_time" content="2023-03-21T09:08:51+01:00" />
+<meta property="article:modified_time" content="2023-03-30T10:17:16+02:00" />
 <meta itemprop="name" content="Install a working container runtime">
 <meta itemprop="description" content="Overview about the setup of tested container runtimes
 "><meta itemprop="datePublished" content="2022-08-19T17:46:21+05:30" />
-<meta itemprop="dateModified" content="2023-03-21T09:08:51+01:00" />
-<meta itemprop="wordCount" content="237">
+<meta itemprop="dateModified" content="2023-03-30T10:17:16+02:00" />
+<meta itemprop="wordCount" content="382">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Install a working container runtime"/>
 <meta name="twitter:description" content="Overview about the setup of tested container runtimes
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.d6b90ed55150f75599c14aadc52e20bd.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.cac5606a034a6c48a8fec66f352fd7cb.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.d6b90ed55150f75599c14aadc52e20bd.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.cac5606a034a6c48a8fec66f352fd7cb.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -376,11 +376,14 @@
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#setup-colima">Setup Colima</a>
+    <li><a href="#linux">Linux</a></li>
+    <li><a href="#macos">macOS</a>
       <ul>
-        <li><a href="#drawbacks">Drawbacks</a></li>
+        <li><a href="#setup-colima">Setup Colima</a></li>
       </ul>
     </li>
+    <li><a href="#microsoft-windows">Microsoft Windows</a></li>
+    <li><a href="#other-alternatives">Other alternatives</a></li>
   </ul>
 </nav>
       </div>
@@ -456,9 +459,11 @@
 		
 	</header>    
 	<p>In the past the recommended runtime would for sure be <a href="https://www.docker.com/products/docker-desktop" target="_blank" rel="noopener">Docker Desktop</a>. But since Docker Inc. changed their license model it is fair enough for an open source project to look for free alternatives.</p>
-<h1 id="macos">macOS</h1>
+<h2 id="linux">Linux</h2>
+<p>The obvious (and our recommended) &ldquo;alternative&rdquo; to Docker Desktop on Linux is to just use the <a href="https://docs.docker.com/engine/" target="_blank" rel="noopener">Docker Engine</a> (without Docker Desktop), a pure CLI-based solution available for most popular Linux distributions licensed under the Apache License, version 2.0. Installation instructions can be found <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="macos">macOS</h2>
 <p>Since the Docker Engine is not working out of the box on macOS, a virtualisation tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using <a href="https://github.com/abiosoft/colima" target="_blank" rel="noopener">Colima</a>.</p>
-<h2 id="setup-colima">Setup Colima</h2>
+<h3 id="setup-colima">Setup Colima</h3>
 <p><em>Please uninstall or at least quit Docker Desktop if you already used it, before starting the setup.</em></p>
 <p>For Colima to work properly you need Colima itself and a container client e.g. the Docker client, which is still free to use:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    brew install colima
@@ -469,13 +474,21 @@
 <p>Docker Desktop uses 5 cores and 12 GB of RAM by default on an M1 MacBook Pro. The equivalent in Colima can be achieved with</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    colima start --cpu <span style="color:#0000cf;font-weight:bold">5</span> --memory <span style="color:#0000cf;font-weight:bold">12</span>
 </span></span></code></pre></div><p>That&rsquo;s all you have to do. After these few steps you can go on with the devcontainer setup.</p>
-<h3 id="drawbacks">Drawbacks</h3>
+<h4 id="drawbacks">Drawbacks</h4>
 <p>The only drawback noticed so far is, that K9S is not working properly on M1 Macs. Since the container runtime and deployment are working also without K9S, this is just a minor issue. Nevertheless, the team is working on a solution.</p>
+<h2 id="microsoft-windows">Microsoft Windows</h2>
+<p>There is currently no recommended alternative for Windows except using GitHub codespaces, a cloud-based development environment.</p>
+<p>An option would be to setup a VM (e.g. with VirtualBox or VMWare) running a Linux system with Docker Engine (see above).</p>
+<h2 id="other-alternatives">Other alternatives</h2>
+<p>Besides our recommendations above, there are further alternatives, which are not yet evaluated by this project or have some other drawbacks, blocking a recommendation.</p>
+<p>For example, you could try <a href="https://podman.io/" target="_blank" rel="noopener">Podman</a>/<a href="https://buildah.io/" target="_blank" rel="noopener">Buildah</a>, which can replace <code>docker run</code> and <code>docker build</code>, respectively.
+Podman is available for MacOS, Windows, and several Linux distributions.
+Buildah seems just being available for several Linux distributions.</p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified March 21, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/2e5b63fa2dea531b4684aaca97bb64ed9734bfe1">Add custom vspec handling from digital auto (#84) (2e5b63f)</a>
+  Last modified March 30, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/5c7aaf46324deac96f39d31982a7ad788b71d190">Document Docker Desktop alternatives for Linux (#87) (5c7aaf4)</a>
 </div>
 
 </div>
