@@ -47,8 +47,8 @@
 
 
 
-<link rel="preload" href="/velocitas/scss/main.min.7acb6140d853e3a1cf8f8d4047bd2eab3df5b60df3023c241de5fcc298291ab3.css" as="style">
-<link href="/velocitas/scss/main.min.7acb6140d853e3a1cf8f8d4047bd2eab3df5b60df3023c241de5fcc298291ab3.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" as="style">
+<link href="/velocitas/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas/js/jquery-3.6.0.min.js
@@ -87,7 +87,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.cac5606a034a6c48a8fec66f352fd7cb.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.234addf5df849e02a9ca987271f8a6ed.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -757,17 +757,41 @@ This is the multi-page printable view of this section.
     
 	<h1 id="pg-c43b6569b496f1a6d7d9012ee3bc204f">1 - About Velocitas</h1>
     <div class="lead">Explore the goal, benefits and basic concepts of Eclipse <em>Velocitas™</em></div>
-	<p>Eclipse <em>Velocitas™</em> provides an end-to-end, scalable and modular development tool chain to create containerized in-vehicle applications (<em>Vehicle Apps</em>), offering a comfortable, fast and efficient development experience to increase the speed of a development team.</p>
-<img src="dev_ops_cycle.png" >
-<h2 id="what-does-velocitas-offer">What does Velocitas offer?</h2>
+	<h2 id="problem">Problem</h2>
+<p>In-vehicle application (<em>Vehicle Apps</em>) development can currently be overly complex and cumbersome:</p>
 <ul>
-<li>Predefined CI/CD workflows that build (for multi architectures), test, document and deploy a Vehicle App help saving setup time</li>
-<li>DevContainer helps to install everything to start the local development immediately in Microsoft Visual Studio Code</li>
-<li>Vehicle API to abstract the vehicle&rsquo;s signals and E/E architecture helps to focus on business logic and enables <em>Vehicle Apps</em> to be portable across different electric and electronic vehicle architectures</li>
-<li>Vehicle Apps skeleton and example Vehicle Apps helps to understand easily how to write a Vehicle Apps using the KUKSA VAL runtime services</li>
-<li>Higher development velocity through self-contained, containerized Apps with no dependencies to E/E architecture</li>
+<li>Many (time consuming) steps to be taken from setting up the development environment up to the deployment of Vehicle Apps, even for demo cases.</li>
+<li>Understanding required vehicle&rsquo;s E/E architecture details and specific APIs is difficult.</li>
+<li>Porting a Vehicle App to another vehicle platform is complex.</li>
 </ul>
-<h2 id="feature-overview">Feature Overview</h2>
+<h2 id="solution">Solution</h2>
+<p>Writing Vehicle App in a <strong>vehicle independent</strong> way by using a standardized vehicle API, container technology and a pre-configured project setup​</p>
+<ul>
+<li>
+<p><strong>Speeds up</strong> the development by <strong>reducing complexity</strong></p>
+</li>
+<li>
+<p><strong>Empowers developers</strong> of OEMs and suppliers to write Vehicle Apps easily</p>
+</li>
+<li>
+<p>Allows to <strong>focus on differentiating business logic</strong> to innovate quickly</p>
+</li>
+<li>
+<p><strong>Enables portability</strong> through containerized Apps with no dependencies to E/E architecture</p>
+</li>
+</ul>
+<h2 id="product">Product</h2>
+<p>Eclipse <em>Velocitas™</em> provides an end-to-end, scalable and modular development tool chain to create containerized Vehicle Apps, offering a comfortable, fast and efficient development experience to increase the speed of a development team (velocity).</p>
+<img src="dev_ops_cycle.png" >
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Project lifecycle management</strong> to update Vehicle App repositories via CLI</li>
+<li><strong>Vehicle abstraction support</strong> helps to focus on business logic by using a generated vehicle model <em>on code level</em> with type safety and auto-completion. The vehicle model is generated from a standardized API that hides the details of vehicle-specific signals and E/E architecture, allowing Vehicle Apps to be portable across different electronics and software architectures.</li>
+<li>Microsoft <strong>Visual Studio Code integration</strong> with DevContainer helps to install everything required to start the local development immediately, while tasks and launch configurations help to launch runtime services, other apps, and tests</li>
+<li><strong>Vehicle App skeleton and examples</strong> helps to understand easily how to write a Vehicle Apps using the KUKSA VAL runtime services</li>
+<li>Ready-to-use <strong>CI/CD workflows</strong> that build (for multi architectures), test, document and deploy a containerized Vehicle App with no dependencies to E/E architecture help saving setup time</li>
+</ul>
+<h2 id="language-support">Language Support</h2>
 
 
 
@@ -783,27 +807,22 @@ This is the multi-page printable view of this section.
 </thead>
 <tbody>
 <tr>
-<td>Vehicle App Template</td>
+<td>Project lifecycle management</td>
 <td>+</td>
 <td>+</td>
 </tr>
 <tr>
-<td>Vehicle App SDK</td>
+<td>Vehicle abstraction support</td>
 <td>+</td>
 <td>+</td>
 </tr>
 <tr>
-<td>CLI</td>
+<td>Visual Studio Code integration</td>
 <td>+</td>
 <td>+</td>
 </tr>
 <tr>
-<td>Vehicle Model Generator</td>
-<td>+</td>
-<td>+</td>
-</tr>
-<tr>
-<td>DevContainer for easy IDE setup</td>
+<td>Vehicle App skeleton and examples</td>
 <td>+</td>
 <td>+</td>
 </tr>
