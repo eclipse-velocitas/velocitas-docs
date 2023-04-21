@@ -24,6 +24,10 @@ For the orginization and _Vehicle App_ repository the name `MyOrg/MyFirstVehicle
 
 Create your own repository copy from the template repository of your choice [Python](https://github.com/eclipse-velocitas/vehicle-app-python-template)/[C++](https://github.com/eclipse-velocitas/vehicle-app-cpp-template) by clicking the green button `Use this template`. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
 
+{{% alert title="Note" %}}
+After generating your repository please make sure to change the default workflow permissions for GitHub Actions to "Read and write permissions" in Settings -> Actions -> General 
+{{% /alert %}}
+
 ## Starting Development Environment
 
 In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
