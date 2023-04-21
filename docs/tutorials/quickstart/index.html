@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.234addf5df849e02a9ca987271f8a6ed.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.08111ee2f8d215ea3ed3350373596038.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -117,7 +117,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.234addf5df849e02a9ca987271f8a6ed.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.08111ee2f8d215ea3ed3350373596038.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -471,6 +471,15 @@
 <h2 id="creating-vehicle-app-repository">Creating Vehicle App Repository</h2>
 <p>For the orginization and <em>Vehicle App</em> repository the name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of the document.</p>
 <p>Create your own repository copy from the template repository of your choice <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python</a>/<a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">C++</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    After generating your repository please make sure to change the default workflow permissions for GitHub Actions to &ldquo;Read and write permissions&rdquo; in Settings -&gt; Actions -&gt; General
+
+</div>
+
 <h2 id="starting-development-environment">Starting Development Environment</h2>
 <p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
 <h3 id="visual-studio-code">Visual Studio Code</h3>
@@ -560,25 +569,25 @@ You can either try it out directly in the browser or also use it inside Visual S
 <p>
 
 
-<ul class="nav nav-tabs" id="tabs-4" role="tablist">
+<ul class="nav nav-tabs" id="tabs-5" role="tablist">
   <li class="nav-item">
       <a class="nav-link active"
-          id="tabs-04-00-tab" data-toggle="tab" href="#tabs-04-00" role="tab"
-          aria-controls="tabs-04-00" aria-selected="false">
+          id="tabs-05-00-tab" data-toggle="tab" href="#tabs-05-00" role="tab"
+          aria-controls="tabs-05-00" aria-selected="false">
         Template
       </a>
     </li><li class="nav-item">
       <a class="nav-link"
-          id="tabs-04-01-tab" data-toggle="tab" href="#tabs-04-01" role="tab"
-          aria-controls="tabs-04-01" aria-selected="false">
+          id="tabs-05-01-tab" data-toggle="tab" href="#tabs-05-01" role="tab"
+          aria-controls="tabs-05-01" aria-selected="false">
         Seat Adjuster
       </a>
     </li>
 </ul>
 
-<div class="tab-content" id="tabs-4-content">
+<div class="tab-content" id="tabs-5-content">
     <div class="tab-body tab-pane fade show active"
-        id="tabs-04-00" role="tabpanel" aria-labelled-by="tabs-04-00-tab">
+        id="tabs-05-00" role="tabpanel" aria-labelled-by="tabs-05-00-tab">
         <ol>
 <li>Open the main source file and set a breakpoint in the given method:
 <ul>
@@ -598,7 +607,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 
     </div>
     <div class="tab-body tab-pane fade"
-        id="tabs-04-01" role="tabpanel" aria-labelled-by="tabs-04-01-tab">
+        id="tabs-05-01" role="tabpanel" aria-labelled-by="tabs-05-01-tab">
         <p>For Python: Follow the guide provided in: <a href="/velocitas/docs/tutorials/quickstart/import_examples/">Import examples</a> and import <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener"><code>seat-adjuster</code></a>. </br>
 For C++: Continue with the next steps.</p>
 <ol>
@@ -712,7 +721,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified April 21, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/0e0503431f1a771c01e3061f39e5760c9003961b">Add CODE_OF_CONDUCT.md and SECURITY.md (#89) (0e05034)</a>
+  Last modified April 21, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/708a5fa50a48d50836ecffe9cb7051ce545c29f7">Add note for changing default workflow permissions (#92) (708a5fa)</a>
 </div>
 
 </div>
