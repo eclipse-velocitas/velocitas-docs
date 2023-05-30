@@ -56,7 +56,7 @@ The next step would be to prototype your idea. To do so:
 
 Testing of your prototype starts in the _Run_ section.
 </br>
-You will find a dashboard consisting all vehicle and application components similar to mockups. 
+You will find a dashboard consisting all vehicle and application components similar to mockups.
 </br>
 The control center on the right side has an integrated terminal showing all of your prototyped outputs as well as a list of all called VSS API's.
 </br>
@@ -92,7 +92,7 @@ By clicking on "Create repository":
 - the code is adapted to the structure in the [vehicle-app-python-template](https://github.com/eclipse-velocitas/vehicle-app-python-template)
 - a new private repository under your specified GitHub User will be created.
 
-A succesful generation of the repository is followed by a pop-up dialogue with the URL of your repository. 
+A succesful generation of the repository is followed by a pop-up dialogue with the URL of your repository.
 
 Among other things the newly created repository will contain:
 
@@ -113,5 +113,5 @@ Clone your newly created repository and open the _Vehicle App_ in Microsoft Visu
 
 You can proceed with the following topics:
 
-- [Starting development environment](https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment)
-- [Vehicle App Development](<https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/>)
+- [Starting development environment](/docs/tutorials/quickstart/#starting-development-environment)
+- [Vehicle App Development](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/)
