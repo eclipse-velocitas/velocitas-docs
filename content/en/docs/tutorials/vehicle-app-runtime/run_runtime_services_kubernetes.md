@@ -11,9 +11,7 @@ Besides [local execution](/docs/run_runtime_services_locally.md) of the vehicle 
 **Quick Start:** Each step has a task that is defined in _.vscode/tasks.json_:
 
 * Core tasks (dependent on each other in the given order):
-  * ```K3D - Install prerequisites```: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them.
-  * ```K3D - Configure control plane```: Creates a local container registry used by K3D as well as an K3D cluster with Dapr enabled.
-  * ```K3D - Deploy runtime```: Deploys the runtime components (like KUKSA Data Broker, Seat Service, ...) within the K3D cluster.
+  * ```K3D - Runtime Up```: Starts up the K3D runtime.
   * ```K3D - Build VehicleApp```: Builds the VehicleApp and pushes it to the local K3D registry.
   * ```K3D - Deploy VehicleApp```: Builds and deploys the VehicleApp via Helm to the K3D cluster.
 
@@ -21,9 +19,7 @@ Each task has the required dependencies defined. If you want to run the runtime 
 
 * Optional helper tasks:
   * ```K3D - Deploy VehicleApp (without rebuild)```: Deploys the VehicleApp via Helm to the K3D cluster (without rebuilding it). That requires, that the task ```K3D - Build VehicleApp``` has been executed once before.
-  * ```K3D - Install tooling```: Installs tooling for local debugging (K9s)
-  * ```K3D - Uninstall runtime```: Uninstalls the runtime components from the K3D cluster (without deleting the cluster).
-  * ```K3D - Reset control plane```: Deletes the K3D cluster and the registry with all deployed pods/services.
+  * ```K3D - Runtime Down```: Stops up the local runtime.
 
 K3D is configured so that _Mosquitto_ and the _KUKSA Data Broker_ can be reached from outside the container over the ports ```31883``` (Mosquitto) and ```30555```(KUKSA Data Broker). The test runner, that is running outside of the cluster, can interact with these services over those ports.
 
@@ -38,7 +34,7 @@ To check the status of your K3D instance (running pods, containers, logs, ...) y
 ## Uploading files to persistentVolume
 
 Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
-All the files that are located in ```deploy/runtime/k3d/volume``` will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: [```deploy/runtime/k3d/helm/templates/bash.yaml```](https://github.com/eclipse-velocitas/devenv-runtime-k3d/blob/main/src/runtime/config/helm/templates/persistentVolume.yaml).
+All the files that are located in ```deploy/runtime/k3d/volume``` will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: [```deploy/runtime/k3d/helm/templates/bash.yaml```](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/scripts/k3d/helm/templates/persistentVolume.yaml).
 
 Changes in ```deploy/runtime/k3d/volume``` are automatically reflected in PersistentVolume.
 
@@ -52,9 +48,8 @@ FeederCAN requires candump file. Pre-defined candump file is part of docker cont
 More information about FeederCan can be found [here](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val)
 
 ## Next steps
-
-* Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
-* Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
-* Concept: [Deployment Model](/docs/concepts/deployment_model)
-* Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases)
-* Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+- Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
+- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
+- Concept: [Deployment Model](/docs/about/deployment-model)
+- Concept: [Build and release process](/docs/about/deployment_model/vehicle_app_releases)
+- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
