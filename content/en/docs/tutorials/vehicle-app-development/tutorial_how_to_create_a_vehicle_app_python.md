@@ -268,20 +268,21 @@ Once the implementation is done, it is time to run and debug the app.
 
 ### Run your App
 
-In order to run the app make sure you have the `seatservice` configured as a dependency in your [`./AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json). Read more about it in the [run runtime services](/docs/run_runtime_services_locally.md) section.
+In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) and the runtime is up and running. Read more about it in the [run runtime services](/docs/run_runtime_services_locally.md) section.
 
-If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the "dapr run ..." command to start your app:
+Now chose one of the options to start the VehicleApp under development (including Dapr sidecar if middleware type is Dapr):
 
-```bash
-dapr run --app-id seatadjuster --app-protocol grpc --app-port 50008 --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./app/src/main.py
-```
+1. Press <kbd>F5</kbd>
+
+or:
+
+1. Press <kbd>F1</kbd>
+2. Select command `Tasks: Run Task`
+3. Select `Local Runtime - Run VehicleApp`
+
+### The following dapr configuration is part of the devenv-runtimes package (WIP: TBD)
 
 You already have seen this command and how to check if it is working in the [general setup](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#debug-your-vehicle-app).
-
-2 parameters may be unclear in this command:
-
-- the config file `config.yaml`
-- the components-path
 
 For now, you just need to know that these parameters are needed to make everything work together.
 
@@ -343,12 +344,12 @@ The debug session launch settings are already prepared for the `VehicleApp` in `
         "name": "VehicleApp",
         "program": "${workspaceFolder}/app/src/main.py",
         "console": "integratedTerminal",
-        "preLaunchTask": "dapr-VehicleApp-run",
-        "postDebugTask": "dapr-VehicleApp-stop",
+        "preLaunchTask": "dapr-sidecar-start",
+        "postDebugTask": "dapr-sidecar-stop",
         "env": {
+            "APP_PORT": "50008",
             "DAPR_HTTP_PORT": "3500",
-            "DAPR_GRPC_PORT": "${input:DAPR_GRPC_PORT}",
-            "SERVICE_DAPR_APP_ID": "${input:SERVICE_NAME}",
+            "DAPR_GRPC_PORT": "50001",
             "VEHICLEDATABROKER_DAPR_APP_ID": "vehicledatabroker"
         }
     }
@@ -358,26 +359,40 @@ The debug session launch settings are already prepared for the `VehicleApp` in `
 We specify which python-script to run using the `program` key. With the `preLaunchTask` and `postDebugTask` keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks to find in `/.vscode/tasks.json`.
 
 ```JSON
-{
-    "label": "dapr-VehicleApp-run",
-    "appId": "vehicleapp",
-    "appPort": 50008,
-    "componentsPath": "./.dapr/components",
-    "config": "./.dapr/config.yaml",
-    "appProtocol": "grpc",
-    "type": "dapr",
-    "args": [
-        "--dapr-grpc-port",
-        "50001",
-        "--dapr-http-port",
-        "3500"
+  {
+   "label": "dapr-sidecar-start",
+   "detail": "Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).",
+   "type": "shell",
+   "command": "velocitas exec runtime-local run-dapr-sidecar vehicleapp --app-port 50008 --dapr-grpc-port 50001 --dapr-http-port 3500",
+   "group": "none",
+   "isBackground": true,
+   "presentation": {
+    "close": true,
+    "reveal": "never"
+   },
+   "problemMatcher": {
+    "pattern": [
+     {
+      "regexp": ".",
+      "file": 1,
+      "location": 2,
+      "message": 3
+     }
     ],
-}
+    "background": {
+     "activeOnStart": true,
+     "beginsPattern": "^You're up and running! Dapr logs will appear here.",
+     "endsPattern": "."
+    }
+   },
+   "hide": true
+  }
 ```
 
 ```JSON
 {
-    "label": "dapr-VehicleApp-stop",
+    "label": "dapr-sidecar-stop",
+    "detail": "Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).",
     "type": "shell",
     "command": [
         "dapr stop --app-id vehicleapp"
@@ -386,39 +401,11 @@ We specify which python-script to run using the `program` key. With the `preLaun
         "close": true,
         "reveal": "never"
     },
-}
+    "hide": true
+},
 ```
-
-Lastly, the environment variables can also be specified.
 
 You can adapt the configuration in `/.vscode/launch.json` to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.
-
-Environment Variables can also be configured on the central [`/app/AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json) and read out by the launch configuration in Visual Studio Code through a preinstalled extension in the devcontainer [Tasks Shell Input](https://marketplace.visualstudio.com/items?itemName=augustocdias.tasks-shell-input).
-
-```JSON
-"inputs": [
-    {
-        "id": "DAPR_GRPC_PORT",
-        "type": "command",
-        "command": "shellCommand.execute",
-        "args": {
-            "useSingleResult": true,
-            "command": "cat ./app/AppManifest.json | jq .[].DAPR_GRPC_PORT | tr -d '\"'",
-            "cwd": "${workspaceFolder}",
-        }
-    },
-    {
-        "id": "SERVICE_NAME",
-        "type": "command",
-        "command": "shellCommand.execute",
-        "args": {
-            "useSingleResult": true,
-            "command": "cat ./app/AppManifest.json | jq .[].Name | tr -d '\"'",
-            "cwd": "${workspaceFolder}",
-        }
-    }
-]
-```
 
 Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.
 

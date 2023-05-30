@@ -31,8 +31,8 @@ To be able to test the _Vehicle App_ in an integrated way, the following compone
 
 We distinguish between two environments for executing the _Vehicle App_ and the runtime components:
 
-- **Local execution**: components are running locally in the development environment
-- **Kubernetes execution**: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)
+- **Local execution:** components are running locally in the development environment
+- **Kubernetes execution:** components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)
 
 ### Local Execution
 
@@ -95,14 +95,14 @@ The tests will be discovered and executed automatically in the [CI pipeline](htt
 
 ## Run test in local mode
 
-1. Make sure that the [tasks for the runtime components](/docs/run_runtime_services_kubernetes.md) are running (by checking the terminal view).
+1. Make sure that the [Local Runtime](/docs/run_runtime_services_locally.md) is up and running.
 2. Make sure that your application is running (via Debugger or task).
 3. Make sure that you are using the right ports for local execution of runtime components.
 4. Run tests from the test runner.
 
 ## Run tests in Kubernetes mode
 
-1. Make sure that K3D is set up and all vehicle services and vehicle runtime are deployed and running (by executing the task `K3D - Deploy runtime`).
+1. Make sure that K3D is set up and vehicle runtime (including VehicleApp) is deployed and running (by executing the task `K3D Runtime - Deploy VehicleApp`).
 2. Make sure that the tests are using the right ports for Kubernetes execution ([see above](#kubernetes-execution-k3d)).
 3. Run tests from the test runner.
 

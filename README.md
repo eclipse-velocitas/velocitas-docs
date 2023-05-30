@@ -4,7 +4,7 @@
 
 The Eclipse project _Velocitas_ aims to build-up an end-to-end, scalable and modular development toolchain for creating containerized in-vehicle applications (_Vehicle Apps_) that offers a comfortable, fast and efficient development experience to increase the velocity of a development team.
 
-:notebook: **Please visit our documentation to learn more about it**: https://eclipse.dev/velocitas/
+:notebook: **Please visit our documentation to learn more about it:** <https://eclipse.dev/velocitas/>
 
 ## Community
 

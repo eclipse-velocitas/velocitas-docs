@@ -26,11 +26,10 @@ Download packages configured in your `.velocitas.json` to [VELOCITAS_HOME](https
 ```bash
 vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas init
 Initializing Velocitas packages ...
-... Downloading package: 'devenv-runtime-local:v1.0.2'
-... Downloading package: 'devenv-runtime-k3d:v1.0.0'
-... Downloading package: 'devenv-github-workflows:v1.0.6'
-... Downloading package: 'devenv-github-templates:v1.0.0'
-... Downloading package: 'devenv-devcontainer-setup:v1.0.5'
+... Downloading package: 'devenv-runtimes:v1.0.1'
+... Downloading package: 'devenv-github-workflows:v2.0.4'
+... Downloading package: 'devenv-github-templates:v1.0.1'
+... Downloading package: 'devenv-devcontainer-setup:v1.1.7'
 Running post init hook for model-generator
 Running 'install-deps'
 ...
@@ -56,11 +55,10 @@ Syncing Velocitas components!
 ```bash
 vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas upgrade --dry-run
 Checking for updates!
-... 'devenv-runtime-local' is up to date!
-... 'devenv-runtime-k3d' is up to date!
+... 'devenv-runtimes' is up to date!
 ... 'devenv-github-workflows' is up to date!
 ... 'devenv-github-templates' is up to date!
-... 'devenv-devcontainer-setup' is currently at v1.0.4, can be updated to v1.0.5
+... 'devenv-devcontainer-setup' is currently at v1.1.6, can be updated to v1.1.7
 ... Do you wish to continue? [y/n] [y]: y
 ```
 
@@ -69,7 +67,7 @@ Checking for updates!
 ```bash
 vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas package devenv-devcontainer-setup
 devenv-devcontainer-setup
-    version: v1.0.4
+    version: v1.1.7
     components:
       - id: devcontainer-setup
         type: setup
@@ -90,7 +88,7 @@ devenv-devcontainer-setup
 
 ```bash
 vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas package devenv-devcontainer-setup -p
-/home/vscode/.velocitas/packages/devenv-devcontainer-setup/v1.0.4
+/home/vscode/.velocitas/packages/devenv-devcontainer-setup/v1.1.7
 ```
 
 ### velocitas exec

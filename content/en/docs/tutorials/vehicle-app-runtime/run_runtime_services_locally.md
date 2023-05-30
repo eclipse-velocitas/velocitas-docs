@@ -9,21 +9,20 @@ aliases:
 
 ## Using tasks in Visual Studio Code
 
-**Overview:**: If you are developing in Visual Studio Code, the runtime components (like _KUKSA Data Broker_ or _Vehicle Services_) are available for local execution as _Tasks_, a feature of the Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
+**Overview:** If you are developing in Visual Studio Code, the runtime components (like _KUKSA Data Broker_ or _Vehicle Services_) are available for local execution coming from our _devenv-runtimes_ package and are accessible as _Tasks_, a feature of the Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
 
 **Start local runtime:** To start local runtime, a task called `Local Runtime - Up` is available. This task runs the runtime services in the correct order. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `Local Runtime - Up`.
 
 **Tasks Management:** Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/... You can access them by pressing F1 and typing `task`. A list with available task commands will appear.
 
-**Logging:** Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.
+**Logging:** Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task. More detailed logs can be found inside your workspace's logs directory `./logs/*`
 
+## Add/Change runtime service configuration
 
-## Add/Change service configuration
-
-The configuration for the services is defined in the file [`./runtime.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json) in the repository [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main). If you want to add a new service, adapt [`./runtime.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json) and [`./manifest.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json). In order to use newly created service, new changes on [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main) need to be tagged and referenced from [`./velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) via tag or branch name. When [`./velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) gots updated, then last step is to execute `velocitas sync` from the terminal and new package will be installed with the defined service which could be started using velocitas cli command `velocitas exec runtime-local <service_id> <args>` or by creating and executing Visual Studio Code Task.
-
+The configuration for services of the local runtime are defined in the [`runtime.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json) at the root of the repository [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main). If you want to add a new service, adapt [`runtime.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json) and [`manifest.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json). In order to use a newly created or updated service, new changes on [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main) need to be tagged and referenced inside [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) of the respective package version via a tag or branch name of the repository. When a version is changed in your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) you have to initialize it through `velocitas init` from the terminal so the new package version will be installed. A new service can be started by using velocitas cli command `velocitas exec runtime-local <service_id> <args>` which can be also configured inside your `./.vscode/tasks.json`.
 
 ### Add/Change service configuration helper
+
 ```json
 {
     "id": "<service_id>",
@@ -65,22 +64,22 @@ The configuration for the services is defined in the file [`./runtime.json`](htt
 
 ## Using KUKSA Data Broker CLI
 
-A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task `Local Runtime - VehicleDataBroker CLI`(by pressing _F1_, type _Run Task_ followed by `Local Runtime - VehicleDataBroker CLI`). The _Runtime Local_ needs to be running for you to be able to use the tool.
+A CLI tool is provided for interacting with a running instance of the KUKSA Data Broker. It can be started by running the task `Local Runtime - VehicleDataBroker CLI`(by pressing _F1_, type _Run Task_ followed by `Local Runtime - VehicleDataBroker CLI`). The _Runtime Local_ needs to be running for you to be able to use the tool.
 
 ## Integrating a new runtime service into Visual Studio Code Task
 
 Integration of a new runtime service can be done by duplicating one of the existing tasks.
 
 - Create a new service in [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main) as already explained above
-- In `.vscode/tasks.json`, duplicate section from task `Local Runtime - VehicleDataBroker CLI`
+- In `.vscode/tasks.json`, duplicate section from task e.g. `Local Runtime - Up`, `Local Runtime - Run VehicleApp` or `Local Runtime - VehicleDataBroker CLI`
 - Correct names in a new code block
 - **Disclaimer:** `Problem Matcher` defined in `tasks.json` is a feature of the Visual Studio Code Task, to ensure that the process runs in background
-- Run task using `[F1 -> Tasks: Run Task -> <Your new task name>]`
+- Run task using `[F1 -> Tasks: Run Task -> <Your new task label>]`
 - Task should be visible in Terminal section of Visual Studio Code
 
 ### Task CodeBlock helper
 
-```c
+```json
 {
     "label": "<task_name>",
     "detail": "<task_description>",
@@ -94,34 +93,6 @@ Integration of a new runtime service can be done by duplicating one of the exist
     },
     "problemMatcher": []
 }
-```
-
-## Integrating a new vehicle service -> TBD
-
-Integration of a new vehicle service can be done by adding an additional case and following the template [`run-vehicleservices.sh`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.vscode/scripts/runtime/local/run-vehicleservices.sh).
-### Vehicle Service CodeBlock helper
-```c
-# Configure Service Specific Requirements
-configure_service() {
-    case $1 in
-        seatservice)
-            ...
-            ;;
-        <NEW_SERVICE>)
-            # Configure ports for docker to expose
-            DOCKER_PORTS="-p <PORT_TO_EXPOSE>"
-            # Configure ENVs need to run docker container
-            DOCKER_ENVS="-e <ENV_TO_RUN_CONTAINER>"
-            # Configure Dapr App Port
-            DAPR_APP_PORT=
-            # Configure Dapr Grpc Port
-            DAPR_GRPC_PORT=
-            ;;
-        *)
-            echo "Unknown Service to configure."
-            ;;
-    esac
-}      
 ```
 
 ## Troubleshooting

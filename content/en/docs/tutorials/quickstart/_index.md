@@ -24,19 +24,15 @@ For the orginization and _Vehicle App_ repository the name `MyOrg/MyFirstVehicle
 
 Create your own repository copy from the template repository of your choice [Python](https://github.com/eclipse-velocitas/vehicle-app-python-template)/[C++](https://github.com/eclipse-velocitas/vehicle-app-cpp-template) by clicking the green button `Use this template`. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
 
-{{% alert title="Note" %}}
-After generating your repository please make sure to change the default workflow permissions for GitHub Actions to "Read and write permissions" in Settings -> Actions -> General 
-{{% /alert %}}
-
 ## Starting Development Environment
 
 In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
 
 ### Visual Studio Code
 
-The Visual Studio Code [Development Containers](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development & testing tools into a container that is then started within your Visual Studio Code session.
+The Visual Studio Code [DevContainer](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development & testing tools into a container that is then started within your Visual Studio Code session.
 
-To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:
+To be able to use the DevContainer on our computer, you have to make sure that you fulfill the following prerequisites:
 
 - [Install a working container runtime](/docs/tutorials/quickstart/container_runtime)
 - Install [Visual Studio Code](https://code.visualstudio.com)
@@ -81,7 +77,7 @@ To get started with Codespaces, you just have to follow a few steps:
 1. Configure your Codespace if needed (defaults to the main branch and a standard agent)
 1. Click on `create`
 
-A new window will open where you see the logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.
+A new window will open where you see logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.
 
 Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.
 
@@ -93,14 +89,28 @@ Be careful with using Codespaces in browser and Visual Studio Code locally at th
 
 The runtime services (like _KUKSA Data Broker_ or _Vehicle Services_) are required to develop vehicle apps and run integration tests.
 
-A Visual Studio Code task called `Start Vehicle App runtime` is available to run these in the correct order.
+A Visual Studio Code task called `Local Runtime - Up` is available to run these in the correct order.
 
 1. Press <kbd>F1</kbd>
 2. Select command `Tasks: Run Task`
-3. Select `Start VehicleApp runtime`
-4. Choose `Continue without scanning the output`
+3. Select `Local Runtime - Up`
 
-You should see the tasks `run-mosquitto`, `run-vehicledatabroker`, `run-vehicleservices` and `run-feedercan` being executed in the Visual Studio Code output panel.
+You should see the task `Local Runtime - Up` being executed on a separate Visual Studio Code terminal with the following content:
+
+```bash
+Executing task: velocitas exec runtime-local up 
+
+Hint: Log files can be found in your workspace's logs directory
+> mqtt-broker running
+> vehicledatabroker running
+> seatservice running
+> feedercan running
+✅ Runtime is ready to use!
+```
+
+{{% alert title="Note" %}}
+Simply `Ctrl + c` stops the runtime.
+{{% /alert %}}
 
 More information about the tasks are available [here](/docs/run_runtime_services_locally.md).
 
@@ -112,7 +122,7 @@ Now that the [runtime services](#starting-runtime-services) are all up and runni
 {{% tab header="Template" %}}
 
 1. Open the main source file and set a breakpoint in the given method:
-   - Python main source file: `/app/src/main.py`, set breakpoint in method: `on_get_speed_request_received`
+   - Python main source file: `/app/src/main.py`, set a breakpoint inside the method: `on_get_speed_request_received`
    - C++: Continue on the `Seat Adjuster` tab.
 2. Press <kbd>F5</kbd> to start a debug session of the _Vehicle App_ and see the log output on the `DEBUG CONSOLE`
 

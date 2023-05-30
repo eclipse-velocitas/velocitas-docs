@@ -20,7 +20,7 @@ Here is an example of this configuration:
       "version": "v1.0.0"
     },
     {
-      "name": "devenv-runtime-local",
+      "name": "devenv-runtimes",
       "version": "v1.0.0"
     }
   ],
