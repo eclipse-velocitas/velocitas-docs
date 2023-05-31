@@ -19,48 +19,8 @@ aliases:
 
 ## Add/Change runtime service configuration
 
-The configuration for services of the local runtime are defined in the [`runtime.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json) at the root of the repository [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main). If you want to add a new service, adapt [`runtime.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json) and [`manifest.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json). In order to use a newly created or updated service, new changes on [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main) need to be tagged and referenced inside [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) of the respective package version via a tag or branch name of the repository. When a version is changed in your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) you have to initialize it through `velocitas init` from the terminal so the new package version will be installed. A new service can be started by using velocitas cli command `velocitas exec runtime-local <service_id> <args>` which can be also configured inside your `./.vscode/tasks.json`.
-
-### Add/Change service configuration helper
-
-```json
-{
-    "id": "<service_id>",
-    "interfaces": [
-        "<interface>"
-    ],
-    "config": [
-        {
-            "key": "image",
-            "value": "<image>:<tag>"
-        },
-        {
-            "key": "port",
-            "value": "<port_number>"
-        },
-        {
-            "key": "port-forward",
-            "value": "<source_port>:<target_port>"
-        },
-        {
-            "key": "env",
-            "value": "<env_key>=<env_value>"
-        },
-        {
-            "key": "mount",
-            "value": "<path>"
-        },
-        {
-            "key": "arg",
-            "value": "<arg>"
-        },
-        {
-            "key": "start-pattern",
-            "value": ".*Listening on \\d+\\.\\d+\\.\\d+\\.\\d+:\\d+"
-        }
-    ]
-}
-```
+The configuration for services of our provided local runtime are defined in the [`runtime.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json) at the root of the repository [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main).
+For a more detailed view on how to change or add runtime service configuration, please visit: [Lifecylce Management Package Development](/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages)
 
 ## Using KUKSA Data Broker CLI
 
@@ -70,7 +30,7 @@ A CLI tool is provided for interacting with a running instance of the KUKSA Data
 
 Integration of a new runtime service can be done by duplicating one of the existing tasks.
 
-- Create a new service in [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main) as already explained above
+- Create a new service in either a new created _Package_ or branch/fork of [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main) as already explained above
 - In `.vscode/tasks.json`, duplicate section from task e.g. `Local Runtime - Up`, `Local Runtime - Run VehicleApp` or `Local Runtime - VehicleDataBroker CLI`
 - Correct names in a new code block
 - **Disclaimer:** `Problem Matcher` defined in `tasks.json` is a feature of the Visual Studio Code Task, to ensure that the process runs in background
