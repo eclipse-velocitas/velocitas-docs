@@ -89,7 +89,7 @@ The following aspects are important characteristics for [Vehicle Apps](#vehicle-
   Vehicle Apps provide traces, metrics and logs of every part of the application using _Open Telemetry_.
 
 - **Over-the-air updatability:**
-  Vehicle Apps are uploaded to cloud backends like [Pantaris](https://www.etas.com/en/products/pantaris-over-the-air-services.php) and can be updated in vehicles frequently over the air.
+  Vehicle Apps can be deployed via cloud backends like [Pantaris](https://www.etas.com/en/products/pantaris-over-the-air-services.php) and updated in vehicles frequently over the air through [NextGen OTA updates](https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php).
 
 ## Development Process
 
