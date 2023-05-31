@@ -34,7 +34,7 @@ description: >
 {{<table "table table-bordered">}}
 | Repository                                                                                  | Description                                                   |
 |---------------------------------------------------------------------------------------------|---------------------------------------------------------------|
-| [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes)           | Central configuration for maintained runtime executions                 |
+| [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes)                     | Central configuration for maintained runtime services         |
 | [devenv-devcontainer-setup](https://github.com/eclipse-velocitas/devenv-devcontainer-setup) | Central configuration for setting up devcontainer environment |
 | [devenv-github-workflows](https://github.com/eclipse-velocitas/devenv-github-workflows)     | Central configuration for syncing github workflows            |
 | [devenv-github-templates](https://github.com/eclipse-velocitas/devenv-github-templates)     | Central configuration for syncing github templates            |
