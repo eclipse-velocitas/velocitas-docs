@@ -22,7 +22,7 @@ The AppManifest is the only source of truth in our _Vehicle App_ templates for:
 
 ## Purpose
 
-- The AppManifest contains necessary information about required Vehicle Runtime (Services, Environment Variables, VehicleModel)
+- The AppManifest contains necessary information about required Vehicle Runtime (VehicleModel, interfaces)
 - The AppManifest contains all required (or optional) Datapoints that are used in the _Vehicle App_ with the necessary access rights (read, write)
 - The AppManifest is service provider/implementation agnostic, while the service configurations are part of a corresponding [Velocitas Lifecycle Management](/docs/concepts/lifecycle_management) runtime package.
 
