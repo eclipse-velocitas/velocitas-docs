@@ -10,7 +10,7 @@ Services can make sure, that when you write a VSS datapoint, something is actual
 
 You can validate the interaction of the service with your _Vehicle App_ by making use of a _Vehicle Service_.
 
-Our maintained [`devenv-runtimes`](https://github.com/eclipse-velocitas/devenv-runtimes) package ([Velocitas lifecycle management](/docs/concepts/lifecycle_management)) comes with the support of adding further _Vehicle Services_ to the `runtime.json` of a package. More information [here](/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages). (A general vehicle _mock service_ is also coming soon!)
+Our maintained [`devenv-runtimes`](https://github.com/eclipse-velocitas/devenv-runtimes) package ([Velocitas Lifecycle Management](/docs/concepts/lifecycle_management)) comes with the support of adding further _Vehicle Services_ to the `runtime.json` of a package. More information [here](/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages). (A general vehicle _mock service_ is also coming soon!)
 
 ### Modify services
 

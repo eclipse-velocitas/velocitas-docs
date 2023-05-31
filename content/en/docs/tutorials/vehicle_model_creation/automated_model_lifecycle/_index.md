@@ -24,12 +24,12 @@ The model specification defines the vehicle API to be used by your project. It i
 
 {{< tabpane lang=json >}}
 {{< tab "URI reference" >}}
-"VehicleModel": {
+"vehicleModel": {
     "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"
 }
 {{< /tab >}}
 {{< tab "Local file reference" >}}
-"VehicleModel": {
+"vehicleModel": {
     "src": "./my_model/my_model.json"
 }
 {{< /tab >}}
@@ -46,7 +46,7 @@ The generation of the model is taking place:
 
 - through a [onPostInit hook](/docs/concepts/lifecycle_management/packages/usage/#installation) when `velocitas init` is called:
   - either triggered manually or
-  - automatically during the instantiation of the devContainer through our [Velocitas lifecycle management](/docs/concepts/lifecycle_management), or
+  - automatically during the instantiation of the devContainer through our [Velocitas Lifecycle Management](/docs/concepts/lifecycle_management), or
 - when you trigger the VS Code task `(Re-)generate vehicle model` explicitly.
 
 The model generation is a three step process:

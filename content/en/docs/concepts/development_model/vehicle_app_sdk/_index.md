@@ -1,7 +1,7 @@
 ---
 title: "Vehicle App SDK"
 date: 2022-05-09T13:43:25+05:30
-weight: 2
+weight: 10
 aliases:
   - /docs/concepts/vehicle_app_sdk_overview.md
 resources:
