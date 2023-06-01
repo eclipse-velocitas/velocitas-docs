@@ -22,7 +22,7 @@ The scope of the Vehicle Mock is a CLI application without a GUI and without phy
 
 ## Functional requirements
 
-1. Vehicle Mock shall connect to *Kuksa Data Broker* via gRPC and act as a data feeder.
+1. Vehicle Mock shall connect to *Kuksa Data Broker* via gRPC and act as a data provider.
 2. Vehicle Mock shall be able to accept external configuration for each data point that it is supposed to mock (= mocked data point).
 3. Mocked data points shall be programmable with predefined behaviors via configuration.
 4. Mocked data points shall be initializeable with a predefined value via configuration.
@@ -63,11 +63,13 @@ The scope of the Vehicle Mock is a CLI application without a GUI and without phy
 flowchart LR
     ConfigFile[(Config File)]
     ConfigFile-. 2. list of mocked datapoints .->VehicleMock
-    DataBroker-. 4. actuator_target request .->VehicleMock
-    VehicleMock-. 3. subscribe mocked datapoints .->DataBroker
+    DataBroker-. 6. actuator_target request .->VehicleMock
+    VehicleMock-. 3. get metadata .-> DataBroker
+    DataBroker-. 4. metadata .-> VehicleMock
+    VehicleMock-. 5. subscribe mocked datapoints .->DataBroker
     VehicleMock-. 1. read .->ConfigFile
-    VehicleMock-. 5. feed datapoint value .->DataBroker
-    VehicleMock-. 6. execute behaviors .-> VehicleMock
+    VehicleMock-. 8. provide datapoint value .->DataBroker
+    VehicleMock-. 7. execute behaviors .-> VehicleMock
 ```
 
 ### External Configuration
