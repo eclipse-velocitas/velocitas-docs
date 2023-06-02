@@ -22,38 +22,51 @@ The scope of the Vehicle Mock is a CLI application without a GUI and without phy
 
 ## Functional requirements
 
-1. Vehicle Mock shall connect to *Kuksa Data Broker* via gRPC and act as a data provider.
-2. Vehicle Mock shall be able to accept external configuration for each data point that it is supposed to mock (= mocked data point).
-3. Mocked data points shall be programmable with predefined behaviors via configuration.
-4. Mocked data points shall be initializeable with a predefined value via configuration.
-5. A single mocked data point shall be configurable by its exact path (i.e. `Vehicle.Cabin.Seat.Row1.Pos1.Position`)
-6. A collection of mocked data points shall be configurable by specifing the wild card `*` at a specific sub-branch (i.e. `Vehicle.Cabin.Seat.*`)
-7. Vehicle Mock shall be able to execute predefined behaviors once a certain condition is met:
-   1. a condition evaluates to true
-   2. an event is received from *Kuksa Data Broker*
-8. Vehicle Mock shall be able to respond to `actuator_target` requests for all mocked data points.
-   1. `actuator_target` requests shall either be fed back immediately or, if a predefined behavior for the actuator is available, that behavior shall be executed instead.
-9. Behaviors shall be able to do the following for 1 to many data points:
-   1. set
-      1. a value
-      2. continuously set a value from pre-defined list
-   2. animate (for continuous data types only)
-      1. to a target value
-10. Animations shall support the following modes
-    1. interpolation
-       1. linear
-       2. cubic
-    2. replay (loop)
-       1. non-looping
-       2. reset after play, play again
-       3. ping-pong (reverse play)
-11. Values in behavior conditions and target values shall support liteals to indicate the use of dynamic values: `$requested_value` for the requested value of an `actuator_target` event, `$Vehicle.Speed` for dynamic evaluation of the Vehicle's current speed. All VSS sensors and actuators shall be supported in the evaluation of dynamic values.
-12. It shall be possible to re-load the configuration file at runtime
+{{<table "table table-bordered">}}
+| id | version | description |
+|:---|:-------:|:-----------|
+| #F1  | MVP     | Vehicle Mock shall connect to *Kuksa Data Broker* via gRPC and act as a data provider.
+| #F2 | MVP | Vehicle Mock shall be able to accept external configuration for each data point that it is supposed to mock (= mocked data point).
+| #F3 | MVP | Mocked data points shall be programmable with predefined behaviors via configuration.
+| #F4 | MVP | Mocked data points shall be initializeable with a predefined value via configuration.
+| #F5 | MVP | A single mocked data point shall be configurable by its exact path (i.e. `Vehicle.Cabin.Seat.Row1.Pos1.Position`)
+| #F6 | post-MVP | A collection of mocked data points shall be configurable by specifing the wild card `*` at a specific sub-branch (i.e. `Vehicle.Cabin.Seat.*`)
+| #F7 | MVP | Vehicle Mock shall be able to execute predefined behaviors once a certain condition is met ...
+| #F7.1 | MVP | ... a condition evaluates to true
+| #F7.2 | MVP | ... an event is received from *Kuksa Data Broker*
+| #F8 | MVP | Vehicle Mock shall be able to respond to `actuator_target` requests for all mocked data points, even those without a behavior
+| #F8.1 | MVP | if no behavior is available the `actuator_target` request shall be responded to with an immediate setting of the value
+| #F9 | MVP | Behaviors shall be able to do the following for one to many data points:
+| #F9.1 | MVP | set the value of a single data point to ...
+| #F9.1.1 | MVP | ... a static value
+| #F9.1.2 | MVP | ... a dynamically resolved value (i.e. the current value of another data point)
+| #F9.2 | MVP | animate the value of a single data point to ... (for continuous data types only)
+| #F9.2.1 | MVP | ... a static target value
+| #F9.2.2 | MVP | ... a dynamically resolved target value (i.e. the current value of another data point)
+| #F9.3 | post-MVP | randomly set a single data point ...
+| #F9.3.1 | post-MVP | ... within a predefined range
+| #F10 | MVP | Animations shall support the following configurable options:
+| #F10.1 | MVP | interpolation
+| #F10.1.1 | MVP | linear interpolation
+| #F10.1.2 | post-MVP | cubic interpolation
+| #F10.2 | post-MVP | re-play / looping
+| #F10.2.1 | post-MVP | non-looping
+| #F10.2.2 | post-MVP | reset after play, play again
+| #F10.2.3 | post-MVP | ping-pong (reverse play)
+| #F11 | MVP | Values in behavior conditions and target values shall support liteals to indicate the use of dynamic values: `$requested_value` for the requested value of an `actuator_target` event, `$Vehicle.Speed` for dynamic evaluation of the Vehicle's current speed. All VSS sensors and actuators shall be supported in the evaluation of dynamic values.
+| #F12 | MVP | It shall be possible to re-load the configuration file at runtime via external trigger
+
+{{</table>}}
 
 ## Non-funtional requirements
 
-1. External configuration shall be as human readable as possible
-2. No GUI is required
+{{<table "table table-bordered">}}
+| id | version | description |
+|:---|:-------:|:-----------|
+| #NF1 | MVP | External configuration shall be as human readable as possible
+| #NF2 | MVP | No GUI is required
+
+{{</table>}}
 
 ## Concept
 
@@ -110,13 +123,13 @@ Markup:
 
 ```yaml
 mock_datapoints:
-    - at_path: Vehicle.Cabin.Seat.Row1.Pos1.Position
-      behaviors:
-        - if:
-            event_received: actuator_target
-          then:
-            animate:
-               to: $requested_value
+  - at_path: Vehicle.Cabin.Seat.Row1.Pos1.Position
+    behaviors:
+    - if:
+        event_received: actuator_target
+      then:
+        animate:
+          to: $requested_value
 ```
 
 #### Example 3
@@ -138,7 +151,7 @@ mock_datapoints:
                 - datapoint: Vehicle.Body.Windshield.Front.Wiping.System.Mode
                   equals: WIPE
                 - datapoint: Vehicle.Body.Windshield.Front.Wiping.System.ActualPosition
-                  equals: $Vehicle.Body.Windshield.Front.Wiping.System.TargetPosition
+                  not_equals: $Vehicle.Body.Windshield.Front.Wiping.System.TargetPosition
           then:
             set: true
         - else:
