@@ -1,5 +1,5 @@
 ---
-title: "Quickstart"
+title: "Getting Started"
 date: 2022-05-09T13:43:25+05:30
 weight: 10
 description: >
@@ -15,75 +15,81 @@ The following information describes how to setup and configure the [Development 
 Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own _Vehicle App_ develpment project.
 
 {{% alert title="Note" %}}
-Before you start, we recommend that you familiarize yourself with our [basic concept](/docs/concepts/development_model) to understand the terms mentioned.
+Before you start, we recommend that you familiarize yourself with our [Basic Concept](/docs/concepts/development_model) to understand mentioned terms.
 {{% /alert %}}
+
+## Prerequisites
+
+Following is required to create comprehensive Development Envrironment for your _Vehcile App_:
+
+- Install [Visual Studio Code](https://code.visualstudio.com)
+- [Install a working container runtime](/docs/tutorials/quickstart/container_runtime)
+- Add [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension via the marketplace or using the command line
+
+   ```bash
+   code --install-extension ms-vscode-remote.remote-containers
+   ```
 
 ## Creating Vehicle App Repository
 
-For the orginization and _Vehicle App_ repository the name `MyOrg/MyFirstVehicleApp` is used as a reference during the rest of the document.
+For the Orginization and Vehicle App repository the name _MyOrg/MyFirstVehicleApp_ is used as a reference during the rest of the document.
 
 Create your own repository copy from the template repository of your choice [Python](https://github.com/eclipse-velocitas/vehicle-app-python-template)/[C++](https://github.com/eclipse-velocitas/vehicle-app-cpp-template) by clicking the green button `Use this template`. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
 
 ## Starting Development Environment
 
-In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
+In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code's [DevContainer](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
 
-### Visual Studio Code
+{{< tabpane text=true >}}
+   {{% tab header="Visual Studio Code" %}}
 
-The Visual Studio Code [DevContainer](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development & testing tools into a container that is then started within your Visual Studio Code session.
+   The Visual Studio Code's DevContainer makes possible to package a complete _Vehicle App_ development environment, including Visual Studio Code's extensions, [Vehicle App SDK](/docs/concepts/development_model/vehicle_app_sdk/), [Vehicle App Runtimes](/docs/tutorials/vehicle-app-runtime) and all other development & testing tools into a DevContainer that is then started within your Visual Studio Code session.
 
-To be able to use the DevContainer on our computer, you have to make sure that you fulfill the following prerequisites:
+   {{% alert title="Proxy configuration" color="warning" %}}
+   A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/quickstart/behind_proxy)
+   {{% /alert %}}
 
-- [Install a working container runtime](/docs/tutorials/quickstart/container_runtime)
-- Install [Visual Studio Code](https://code.visualstudio.com)
-- Add [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension via the marketplace or using the command line
+   With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
 
-  ```bash
-  code --install-extension ms-vscode-remote.remote-containers
-  ```
+   1. Clone created _MyOrg/MyFirstVehicleApp_ repository locally using your favorite Git tooling
+   1. Go to the just cloned repository folder ```$ cd MyFirstVehicleApp```
+   1. Open Visual Studio Code with project content by using command ```$ code .```
+   1. A popup appears with the button <kbd>Reopen in Container</kbd> on the lower right side of Visual Studio Code. If the popup does not appear, you can also hit <kbd>F1</kbd> and perform the command `Dev-Containers: Open Folder in Container`
+   1. Click on <kbd>Reopen in Container</kbd>
+   1. Wait for the container to be set up
 
-{{% alert title="Proxy configuration" color="warning" %}}
-A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/quickstart/behind_proxy)
-{{% /alert %}}
+   The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.
 
-With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.
+   {{% alert title="Note" %}}
+   If the DevContainer build process fails, then wait for the current build to finish, press <kbd>F1</kbd> and run the command `Dev-Containers: Rebuild Container Without Cache`
+   The DevContainer is using the [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md) feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.
+   {{% /alert %}}
 
-1. Clone the repo locally using your favorite Git tooling
-1. Start Visual Studio Code
-1. Select `Open Folder` from the `File` menu
-1. Open the root of the cloned repo
-1. A popup appears on the lower left side of Visual Studio Code. If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command `Dev-Containers: Open Folder in Container`
-1. Click on `Reopen in Container`
-1. Wait for the container to be set up
+   {{% /tab %}}
+   {{% tab header="GitHub Codespaces" %}}
+   One of the possibilities to use your newly created repository to use it via [GitHub Codespaces](https://github.com/features/codespaces).
+   You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as a "thin-client".
 
-The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.
-  
-{{% alert title="Note" %}}
-> If the devContainer fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command `Dev-Containers: Rebuild Container Without Cache`
+   To get started with GitHub Codespaces, you just have to follow a few steps:
 
-> The devContainer is using the [docker-in-docker](https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md)-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.
+   1. Open your repository on GitHub (e.g. <https://github.com/MyOrg/MyFirstVehicleApp>)
+   1. Click on the green `Code` button and select Codespaces on the top
+   1. Configure your Codespace if needed (defaults to the main branch and a standard agent)
+   1. Click on `create`
 
-{{% /alert %}}
+   A new window will open where you see logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.
 
-### Codespaces
+   Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.
 
-Another possibility to use your newly created repository is via [GitHub Codespaces](https://github.com/features/codespaces).
-You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.
+   {{% alert title="Note" %}}
+   Be careful with using GitHub Codespaces in browser and Visual Studio Code locally at the same time: _Tasks_ that are started using a browser session will not show in Visual Studio Code environment and vice versa that leads for problems.
+   {{% /alert %}}
 
-To get started with Codespaces, you just have to follow a few steps:
-
-1. Open your repository on GitHub (e.g. <https://github.com/MyOrg/MyFirstVehicleApp>)
-1. Click on the green `Code` button and select Codespaces on the top
-1. Configure your Codespace if needed (defaults to the main branch and a standard agent)
-1. Click on `create`
-
-A new window will open where you see logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.
-
-Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.
-
-{{% alert title="Note" %}}
-Be careful with using Codespaces in browser and Visual Studio Code locally at the same time: _Tasks_ that are started using a browser session will not show in Visual Studio Code environment and vice versa. This can lead to problems using the prepared _Tasks_-scripts.
-{{% /alert %}}
+   {{% /tab %}}
+   {{% tab header="Digital.Auto" %}}
+   tbd
+   {{% /tab %}}
+{{< /tabpane >}}
 
 ## Starting runtime services
 
@@ -98,7 +104,7 @@ A Visual Studio Code task called `Local Runtime - Up` is available to run these 
 You should see the task `Local Runtime - Up` being executed on a separate Visual Studio Code terminal with the following content:
 
 ```bash
-Executing task: velocitas exec runtime-local up 
+$ velocitas exec runtime-local up 
 
 Hint: Log files can be found in your workspace's logs directory
 > mqtt-broker running
@@ -109,14 +115,14 @@ Hint: Log files can be found in your workspace's logs directory
 ```
 
 {{% alert title="Note" %}}
-Simply `Ctrl + c` stops the runtime.
+Simply press `ctrl + c` to stop the runtime.
 {{% /alert %}}
 
 More information about the tasks are available [here](/docs/run_runtime_services_locally.md).
 
 ## Debugging Vehicle App
 
-Now that the [runtime services](#starting-runtime-services) are all up and running, let's start a debug session for the Vehicle App as next step.
+Now that the [runtime services](#starting-runtime-services) are all up and running, let's start a debug session for the _Vehicle App_ as next step.
 
 {{< tabpane text=true >}}
 {{% tab header="Template" %}}
@@ -170,7 +176,7 @@ By pushing a change to GitHub the CI Workflow will be triggered:
 
    ```bash
    git add .
-   git commit -m "removed emtpy line"
+   git commit -m "<explain your changes>"
    git push
    ```
 
@@ -182,7 +188,7 @@ Now that the `CI Workflow` was successful, you are ready to build your first rel
 
 1. Open the `Code` page of your repository on GitHub
 1. Click on `Create a new release` in the Releases section on the right side
-1. Enter a version, e.g. v1.0.0, and click on `Publish release`
+1. Enter a version (e.g. v1.0.0) and click on `Publish release`
    - GitHub will automatically create a tag using the version number
 
 The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open `Actions` on the repoitory and see the result.

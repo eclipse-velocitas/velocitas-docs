@@ -38,7 +38,7 @@ We distinguish between two environments for executing the _Vehicle App_ and the 
 
 First, make sure that the runtime services are configured and running like described [here](/docs/run_runtime_services_locally.md).
 
-The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the task `VehicleApp`.
+The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing `VehicleApp` using provided task.
 
 When the runtime services and the application are running, integration tests can be executed locally.
 
@@ -102,14 +102,16 @@ The tests will be discovered and executed automatically in the [CI pipeline](htt
 
 ## Run tests in Kubernetes mode
 
-1. Make sure that K3D is set up and vehicle runtime (including VehicleApp) is deployed and running (by executing the task `K3D Runtime - Deploy VehicleApp`).
+1. Make sure that K3D is set up and vehicle runtime (including VehicleApp) is deployed and running (by executing the task `K3D Runtime - Up`).
 2. Make sure that the tests are using the right ports for Kubernetes execution ([see above](#kubernetes-execution-k3d)).
 3. Run tests from the test runner.
 
 ## Update application when running in Kubernetes mode
 
-1. Re-run the task `K3D - Deploy runtime` that rebuilds and deploys the application to K3D.
-2. Re-run tests from the test runner.
+1. Execute the task `K3D Runtime - Down` which stops up K3D runtime.
+2. Execute the task `K3D Runtime - Up` which starts up K3D runtime.
+3. Execute the task `K3D Runtime - Deploy VehicleApp` .
+4. Re-run tests from the test runner.
 
 # Troubleshooting
 

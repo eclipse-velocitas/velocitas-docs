@@ -12,9 +12,9 @@ description: >
   Provides option to request a new seat position and to publish the current seat position
 ---
 
-Imagine a car sharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The car sharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle. That's where your implementation starts.
+In the scenario of a car sharing company, the goal is to provide the functionality of automatically adjusting the driver's seat position based on their preferred settings stored in their profile. When the driver unlocks the car, a request is sent to the vehicle to retrieve the preferred seat position. This is where your implementation begins.
  
-The _Seat Adjuster Vehicle App_ receives the seat position as an MQTT message and triggers a seat adjustment command of the _Seat Service_ that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the car sharing company and used for the next trip. As a result, the _Seat Adjuster Vehicle App_ subscribes to the seat position and receives the new seat position from the _Data Broker_ that streams the data from the _Seat Service_.
+The _Seat Adjuster Vehicle App_ receives a MQTT message containing the seat position, which then triggers a seat adjustment command through the _Seat Service_ to change the seat position. Additionally, to ensure convenience for future trips, the car sharing company saves the driver's preferred seat position and utilizes it accordingly. _The Seat Adjuster Vehicle App_ subscribes to the seat position, receiving updates from the _Data Broker_, which streams data from the _Seat Service_.
 
 ## Requesting new seat position
 

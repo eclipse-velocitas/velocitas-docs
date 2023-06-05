@@ -12,14 +12,13 @@ resources:
 
 Once a repository has been created from one of our _Vehicle App_ templates, basically the only way to receive updates into your derived repository is to manually pull changes, which would be quite tedious and error prone. This is where our _Lifecycle Management_ comes to the rescue!
 
-All of our main components of the development environment
+All of our main components of the development environment, like
 
 * tools
 * runtimes
 * devcontainer configuration and setup
 * build systems
 * CI workflows
-* ...
 
 are (or will be) provided as versioned [packages](/docs/concepts/lifecycle_management/packages/) which can be updated individually, if required.
 

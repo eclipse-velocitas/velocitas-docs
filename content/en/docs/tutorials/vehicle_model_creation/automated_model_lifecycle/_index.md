@@ -25,7 +25,7 @@ The model specification defines the vehicle API to be used by your project. It i
 {{< tabpane lang=json >}}
 {{< tab "URI reference" >}}
 "vehicleModel": {
-    "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"
+    "src": "<https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json>"
 }
 {{< /tab >}}
 {{< tab "Local file reference" >}}
@@ -34,8 +34,6 @@ The model specification defines the vehicle API to be used by your project. It i
 }
 {{< /tab >}}
 {{< /tabpane >}}
-
-Instead of an URI you could also reference a local file containing the specification.
 
 {{% alert title="Info" %}} The reference must point to a JSON file containing the model specification as VSS vspec. References to a VSS `.vspec` file hierarchy are not supported as of now.
 {{% /alert %}}
@@ -73,7 +71,7 @@ Also, the target folder for the generated model source code is specified here:
 ```
 
 In Python template based projects the generated model is finally installed in the site-packages folder, while in C++ projects it is made available as a CMake include folder.
-  
+
 ## Further information
 
 - Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)

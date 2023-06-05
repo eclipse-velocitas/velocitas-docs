@@ -40,6 +40,6 @@
 	// "postCreateCommand": "uname -a",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node",
-	"postCreateCommand": ".devcontainer/scripts/setup.sh",
+	"postCreateCommand": ".devcontainer/scripts/postCreateCommand.sh",
 	"postStartCommand": "hugo server -b http://localhost/velocitas -w"
 }

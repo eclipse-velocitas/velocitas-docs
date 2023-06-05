@@ -11,7 +11,8 @@ description: >
 
 ## Introduction
 
-The concept of the so called _AppManifest_ is to provide flexibility of splitting _Vehicle App_ requirements and dependencies from _Runtime_ and _Middleware_ requirements in order to provide independent and structured configurations for every component.
+The _AppManifest_ defines the name and the requirements of a _Vehicle App_. The requirements are specified on interface level. The manifest defines the required service interfaces (e.g. gRPC functions) and the used vehicle model and accessed data points, but it does not define certain providers of those interfaces.
+This concept provides flexibility by separating the requirements of a _Vehicle App_ from the definition of a concrete _Runtime_ and _Middleware_ configuration.
 
 The AppManifest is the only source of truth in our _Vehicle App_ templates for:
 
@@ -22,9 +23,9 @@ The AppManifest is the only source of truth in our _Vehicle App_ templates for:
 
 ## Purpose
 
-- The AppManifest contains necessary information about required Vehicle Runtime (VehicleModel, interfaces)
-- The AppManifest contains all required (or optional) Datapoints that are used in the _Vehicle App_ with the necessary access rights (read, write)
-- The AppManifest is service provider/implementation agnostic, while the service configurations are part of a corresponding [Velocitas Lifecycle Management](/docs/concepts/lifecycle_management) runtime package.
+- The AppManifest contains necessary information about the runtime requirements (VehicleModel, interfaces) of the app
+- The AppManifest contains all required (or optional) data points that are used in the _Vehicle App_ with the necessary access rights (read, write)
+- The AppManifest is service provider/implementation agnostic, while the service configurations are part of a corresponding [Velocitas Lifecycle Management](/docs/concepts/lifecycle_management) runtime package
 
 ## Structure
 
@@ -55,10 +56,14 @@ The AppManifest is the only source of truth in our _Vehicle App_ templates for:
 
 The [_Vehicle Model_](/docs/concepts/development_model/#vehicle-models) of the _Vehicle App_ is described with the source and required (or optional) datapoints.
 More information: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creation/)
-</br>
-The source identifies the used _Vehicle Model_ description and the datapoints section defines which signals need to be available for the _Vehicle App_ to run with the path, required flag and access rights.
-</br>
-More to read: [How to Reference a Model Specification](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/#how-to-reference-a-model-specification)
+
+The source ("src") identifies the used _Vehicle Model_ description and the data points section defines which signals (i.e. data points) of that model need to be available for the _Vehicle App_ to run:
+
+- The `path` references the definition (type, data type, unit, and other metadata) of a data point in the specified model
+- The `required` flag tells if that data point is mandatory for the app to run or just optional
+- `access` defines the required access right of the app to that data point (see below)
+
+Further information can be found here: [How to Reference a Model Specification](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/#how-to-reference-a-model-specification)
 </br>
 
 ### Datapoint Access Rights
@@ -66,12 +71,12 @@ More to read: [How to Reference a Model Specification](/docs/tutorials/vehicle_m
 {{<table "table table-bordered">}}
 | Access Right | Description                                                                                                                                                 | Vehicle Databroker Interface |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| read         | app needs to access the value of the datapoint from the provider (e.g. get value from databroker).                                                          | GetDatapoints/Subscribe      |
-| write        | app needs to access and set the value of the datapoint (e.g. set, set_many values via the databroker or services). WRITE access implicitly has READ access. | SetDatapoints                |
+| read         | app needs to read the value of the datapoint from the provider (e.g. get value from databroker).                                                          | GetDatapoints/Subscribe      |
+| write        | app needs to get and set the value of the datapoint (e.g. set, set_many values via the databroker or services). WRITE access implicitly has READ access. | SetDatapoints                |
 {{</table>}}
 
-
 ## AppManifest Examples
+
 {{< tabpane lang="json">}}
 {{< tab "Runtime interface via databroker" >}}
 

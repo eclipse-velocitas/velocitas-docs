@@ -36,8 +36,8 @@ Filter- and rule-based subscriptions of datapoints can be used to reduce the num
 Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
 The source of the contents of the data points provided is specific to the respective feeder.
 
-As of today, the Vehicle Abstraction Layer contains a generic [CAN feeder (KUKSA DBC Feeder)](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val) implemented in Python,
-which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
+Eclipse KUKSA provides several [Data Feeders](https://github.com/eclipse/kuksa.val.feeders) for different datasources.
+As of today, Eclipse Velocitas only utilizes the generic [CAN feeder (KUKSA DBC Feeder)](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val) implemented in Python, which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
 The feeder uses a mapping file and data point meta data to convert the source data to data points and injects them into the data broker using its `Collector` gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.
 

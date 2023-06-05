@@ -8,24 +8,20 @@ description: >
 
 ## Problem
 
-In-vehicle application (_Vehicle Apps_) development can currently be overly complex and cumbersome:
+Currently, the development of in-vehicle applications (_Vehicle Apps_) can be excessively complex and challenging:
 
-- Many (time consuming) steps to be taken from setting up the development environment up to the deployment of Vehicle Apps, even for demo cases.
-- Understanding required vehicle's E/E architecture details and specific APIs is difficult.
-- Porting a Vehicle App to another vehicle platform is complex.
-
-
+{{<beside "time.png" "Many time-consuming steps involved from setting up the development environment to the deployment of a Vehicle App.">}}
+{{<beside "knowledge.png" "Understanding the vehicle's E/E architecture details and specific API requires expert knowledge.">}}
+{{<beside "porting.png" "Porting a Vehicle App to another vehicle platform is complex.">}}
+{{<beside "collab.png" "Specific processes, methods, and tools within each company creates challenges for effective collaboration.">}}
 
 ## Solution
+An open-source end-to-end toolchain for developing vehicle-independent applications with:
 
-Writing Vehicle App in a **vehicle independent** way by using a standardized vehicle API, container technology and a pre-configured project setup​
-
-- **Speeds up** the development by **reducing complexity**
-
-- **Empowers developers** of OEMs and suppliers to write Vehicle Apps easily
-
-- Allows to **focus on differentiating business logic** to innovate quickly
-- **Enables portability** through containerized Apps with no dependencies to E/E architecture 
+{{<beside "unified.png" "Usage of standardized vehicle APIs.">}}
+{{<beside "containerization.png" "Enabling portability through containerized Apps with no dependencies to E/E architecture.">}}
+{{<beside "setup.png" "Pre-configured project setup​.">}}
+{{<beside "simulation.png" "Speeding up the development by reducing complexity focus on differentiating business logic to innovate quickly.">}}
 
 ## Product
 
@@ -35,11 +31,11 @@ Eclipse _Velocitas™_ provides an end-to-end, scalable and modular development 
 
 ## Features
 
-- **Project lifecycle management** to update Vehicle App repositories via CLI 
+- **Project lifecycle management** to update Vehicle App repositories via CLI.
 - **Vehicle abstraction support** helps to focus on business logic by using a generated vehicle model _on code level_ with type safety and auto-completion. The vehicle model is generated from a standardized API that hides the details of vehicle-specific signals and E/E architecture, allowing Vehicle Apps to be portable across different electronics and software architectures.
-- Microsoft **Visual Studio Code integration** with DevContainer helps to install everything required to start the local development immediately, while tasks and launch configurations help to launch runtime services, other apps, and tests
-- **Vehicle App skeleton and examples** helps to understand easily how to write a Vehicle Apps using the KUKSA VAL runtime services
-- Ready-to-use **CI/CD workflows** that build (for multi architectures), test, document and deploy a containerized Vehicle App with no dependencies to E/E architecture help saving setup time
+- Microsoft **Visual Studio Code integration** with DevContainer helps to install everything required to start the local development immediately, while tasks and launch configurations help to launch runtime services, other apps, and tests.
+- **Vehicle App skeleton and examples** helps to understand easily how to write a Vehicle Apps using the KUKSA VAL runtime services.
+- Ready-to-use **CI/CD workflows** that build (for multi architectures), test, document and deploy a containerized Vehicle App with no dependencies to E/E architecture help saving setup time.
 
 ## Language Support
 

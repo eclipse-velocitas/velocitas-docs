@@ -268,7 +268,7 @@ Once the implementation is done, it is time to run and debug the app.
 
 ### Run your App
 
-In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) and the runtime is up and running. Read more about it in the [run runtime services](/docs/run_runtime_services_locally.md) section.
+In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) (which should be the default) and the runtime is up and running. Read more about it in the [run runtime services](/docs/run_runtime_services_locally.md) section.
 
 Now chose one of the options to start the VehicleApp under development (including Dapr sidecar if middleware type is Dapr):
 
