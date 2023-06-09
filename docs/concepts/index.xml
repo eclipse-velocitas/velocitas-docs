@@ -32,10 +32,11 @@
 &lt;h3 id=&#34;vehicle-models&#34;&gt;Vehicle Models&lt;/h3&gt;
 &lt;p&gt;A Vehicle Model makes it possible to easily get vehicle data from the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and to execute remote procedure calls over gRPC against &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and other &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. It is generated from the underlying &lt;a href=&#34;#semantic-models&#34;&gt;semantic models&lt;/a&gt; for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the &lt;a href=&#34;#sdks&#34;&gt;SDKs&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;sdks&#34;&gt;SDKs&lt;/h3&gt;
-&lt;p&gt;To reduce the effort required to implement &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;, Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
-Next to a Vehicle Apps abstraction, the SDKs are &lt;a href=&#34;#middleware-abstraction&#34;&gt;Middleware&lt;/a&gt;-enabled, provide connectivity to the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and contain the ontology in the form of base classes to create &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model and the abstraction of the underlying middleware and communication protocols.
+Besides that, they provide the base classes and utilities for the Vehicle Apps.
+SDKs are available for Python and C++, currently. Further SDKs for Rust and C are planned.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-services&#34;&gt;Vehicle Services&lt;/h3&gt;
-&lt;p&gt;Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and may expose gRPC endpoints, which can be invoked by &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; over a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and may expose gRPC endpoints, which can be invoked by &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; over a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;data-broker&#34;&gt;Data Broker&lt;/h3&gt;
 &lt;p&gt;Vehicle data is stored in the KUKSA Data Broker conforming to an underlying &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; like &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt;. &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.&lt;/p&gt;
 &lt;h3 id=&#34;semantic-models&#34;&gt;Semantic models&lt;/h3&gt;
@@ -54,36 +55,36 @@ By default, Velocitas leverages &lt;a href=&#34;https://dapr.io&#34; target=&#34
 &lt;p&gt;The following aspects are important characteristics for &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Code base&lt;/strong&gt;:
+&lt;p&gt;&lt;strong&gt;Code base:&lt;/strong&gt;
 Every Vehicle App is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Polyglot&lt;/strong&gt;:
+&lt;p&gt;&lt;strong&gt;Polyglot:&lt;/strong&gt;
 Vehicle Apps can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;OCI-compliant containers&lt;/strong&gt;:
+&lt;p&gt;&lt;strong&gt;OCI-compliant containers:&lt;/strong&gt;
 Vehicle Apps are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Isolation&lt;/strong&gt;:
+&lt;p&gt;&lt;strong&gt;Isolation:&lt;/strong&gt;
 Each Vehicle App should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Configurations&lt;/strong&gt;:
+&lt;p&gt;&lt;strong&gt;Configurations:&lt;/strong&gt;
 Configuration information is separated from the code base of the Vehicle App, so that the same deployment can propagate across environments with their respective configuration applied.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Disposability&lt;/strong&gt;:
+&lt;p&gt;&lt;strong&gt;Disposability:&lt;/strong&gt;
 Favor fast startup and support graceful shutdowns to leave the system in a correct state.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Observability&lt;/strong&gt;:
+&lt;p&gt;&lt;strong&gt;Observability:&lt;/strong&gt;
 Vehicle Apps provide traces, metrics and logs of every part of the application using &lt;em&gt;Open Telemetry&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Over-the-air updatability&lt;/strong&gt;:
-Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bosch Mobility Cloud&lt;/a&gt; and can be updated in vehicles frequently over the air.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Over-the-air updatability:&lt;/strong&gt;
+Vehicle Apps can be deployed via cloud backends like &lt;a href=&#34;https://www.etas.com/en/products/pantaris-over-the-air-services.php&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pantaris&lt;/a&gt; and updated in vehicles frequently over the air through &lt;a href=&#34;https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NextGen OTA updates&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;development-process&#34;&gt;Development Process&lt;/h2&gt;
@@ -108,11 +109,11 @@ Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www
 &lt;h2 id=&#34;guiding-principles&#34;&gt;Guiding principles&lt;/h2&gt;
 &lt;p&gt;The deployment model is guided by the following principles&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Applications are provided as OCI-compatible container images.&lt;/li&gt;
+&lt;li&gt;Applications are provided as OCI-compliant container images.&lt;/li&gt;
 &lt;li&gt;The container runtime offers a Kubernetes-compatible control plane and API to manage the container lifecycle.&lt;/li&gt;
 &lt;li&gt;Helm charts are used as deployment descriptor specification.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The template projects provided come with a preconfigured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation, of all required artifacts which are needed to follow the Velocitas principles.&lt;/p&gt;
+&lt;p&gt;The template projects provided come with a preconfigured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation of all required artifacts needed to follow the Velocitas principles.&lt;/p&gt;
 &lt;h2 id=&#34;testing-your-container-during-development&#34;&gt;Testing your container during development&lt;/h2&gt;
 &lt;p&gt;The Velocitas project provides developers with a repository template and devcontainer that contains everything to build a containerized version of your app locally and test it. Check out our tutorial e.g., for the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;python template&lt;/a&gt; to learn more.&lt;/p&gt;
 &lt;h2 id=&#34;automated-container-image-builds&#34;&gt;Automated container image builds&lt;/h2&gt;
@@ -134,14 +135,13 @@ Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www
         
         &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Once a repository has been created from one of our &lt;em&gt;Vehicle App&lt;/em&gt; templates, basically the only way to receive updates into your derived repository is to manually pull changes, which would be quite tedious and error prone. This is where our &lt;em&gt;Lifecycle Management&lt;/em&gt; comes to the rescue!&lt;/p&gt;
-&lt;p&gt;All of our main components of the development environment&lt;/p&gt;
+&lt;p&gt;All of our main components of the development environment, like&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;tools&lt;/li&gt;
 &lt;li&gt;runtimes&lt;/li&gt;
 &lt;li&gt;devcontainer configuration and setup&lt;/li&gt;
 &lt;li&gt;build systems&lt;/li&gt;
 &lt;li&gt;CI workflows&lt;/li&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;are (or will be) provided as versioned &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management/packages/&#34;&gt;packages&lt;/a&gt; which can be updated individually, if required.&lt;/p&gt;
 &lt;p&gt;The driver for this is our &lt;a href=&#34;https://github.com/eclipse-velocitas/cli&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Velocitas CLI&lt;/a&gt; which is our package manager for &lt;em&gt;Vehicle App&lt;/em&gt; repositories.&lt;/p&gt;

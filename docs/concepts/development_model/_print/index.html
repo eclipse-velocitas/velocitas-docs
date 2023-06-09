@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.67219d5b1d6d1de2f2d8e08bc29dd475.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -173,6 +173,25 @@ This is the multi-page printable view of this section.
     </ul>
     
   
+    
+    
+	
+<li>3: <a href="#pg-e8c9a8068d61f8d591fb113a53a16f27">Vehicle App Manifest</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
 
     </ul>
 
@@ -187,10 +206,11 @@ This is the multi-page printable view of this section.
 <h3 id="vehicle-models">Vehicle Models</h3>
 <p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps">Vehicle Apps</a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
 <h3 id="sdks">SDKs</h3>
-<p>To reduce the effort required to implement <a href="#vehicle-apps">Vehicle Apps</a>, Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
-Next to a Vehicle Apps abstraction, the SDKs are <a href="#middleware-abstraction">Middleware</a>-enabled, provide connectivity to the <a href="#data-broker">Data Broker</a> and contain the ontology in the form of base classes to create <a href="#vehicle-models">Vehicle Models</a>.</p>
+<p>Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model and the abstraction of the underlying middleware and communication protocols.
+Besides that, they provide the base classes and utilities for the Vehicle Apps.
+SDKs are available for Python and C++, currently. Further SDKs for Rust and C are planned.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
-<p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a></p>
+<p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a>.</p>
 <h3 id="data-broker">Data Broker</h3>
 <p>Vehicle data is stored in the KUKSA Data Broker conforming to an underlying <a href="#semantic-models">Semantic Model</a> like <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>. <a href="#vehicle-apps">Vehicle Apps</a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.</p>
 <h3 id="semantic-models">Semantic models</h3>
@@ -209,36 +229,36 @@ By default, Velocitas leverages <a href="https://dapr.io" target="_blank" rel="n
 <p>The following aspects are important characteristics for <a href="#vehicle-apps">Vehicle Apps</a>:</p>
 <ul>
 <li>
-<p><strong>Code base</strong>:
+<p><strong>Code base:</strong>
 Every Vehicle App is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.</p>
 </li>
 <li>
-<p><strong>Polyglot</strong>:
+<p><strong>Polyglot:</strong>
 Vehicle Apps can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.</p>
 </li>
 <li>
-<p><strong>OCI-compliant containers</strong>:
+<p><strong>OCI-compliant containers:</strong>
 Vehicle Apps are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.</p>
 </li>
 <li>
-<p><strong>Isolation</strong>:
+<p><strong>Isolation:</strong>
 Each Vehicle App should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.</p>
 </li>
 <li>
-<p><strong>Configurations</strong>:
+<p><strong>Configurations:</strong>
 Configuration information is separated from the code base of the Vehicle App, so that the same deployment can propagate across environments with their respective configuration applied.</p>
 </li>
 <li>
-<p><strong>Disposability</strong>:
+<p><strong>Disposability:</strong>
 Favor fast startup and support graceful shutdowns to leave the system in a correct state.</p>
 </li>
 <li>
-<p><strong>Observability</strong>:
+<p><strong>Observability:</strong>
 Vehicle Apps provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
 </li>
 <li>
-<p><strong>Over-the-air updatability</strong>:
-Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/" target="_blank" rel="noopener">Bosch Mobility Cloud</a> and can be updated in vehicles frequently over the air.</p>
+<p><strong>Over-the-air updatability:</strong>
+Vehicle Apps can be deployed via cloud backends like <a href="https://www.etas.com/en/products/pantaris-over-the-air-services.php" target="_blank" rel="noopener">Pantaris</a> and updated in vehicles frequently over the air through <a href="https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php" target="_blank" rel="noopener">NextGen OTA updates</a>.</p>
 </li>
 </ul>
 <h2 id="development-process">Development Process</h2>
@@ -273,19 +293,19 @@ Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-
 <p>The Vehicle App SDK consists of the following building blocks:</p>
 <ul>
 <li>
-<p><strong><a href="#vehicle-model-ontology">Vehicle Model Ontology</a></strong>: The SDK provides a set of model base classes for the creation of vehicle models.</p>
+<p><strong><a href="#vehicle-model-ontology">Vehicle Model Ontology</a>:</strong> The SDK provides a set of model base classes for the creation of vehicle models.</p>
 </li>
 <li>
-<p><strong><a href="#middleware-integration">Middleware integration</a></strong>: Vehicle Models can contain gRPC stubs to communicate with Vehicle Services. gRPC communication is integrated with the <a href="https://dapr.io" target="_blank" rel="noopener">Dapr</a> middleware for service discovery and <a href="https://opentelemetry.io" target="_blank" rel="noopener">OpenTelemetry</a> tracing.</p>
+<p><strong><a href="#middleware-integration">Middleware integration</a>:</strong> Vehicle Models can contain gRPC stubs to communicate with Vehicle Services. gRPC communication is integrated with the <a href="https://dapr.io" target="_blank" rel="noopener">Dapr</a> middleware for service discovery and <a href="https://opentelemetry.io" target="_blank" rel="noopener">OpenTelemetry</a> tracing.</p>
 </li>
 <li>
-<p><strong><a href="#fluent-query--rule-construction">Fluent query &amp; rule construction</a></strong>: Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.</p>
+<p><strong><a href="#fluent-query--rule-construction">Fluent query &amp; rule construction</a>:</strong> Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.</p>
 </li>
 <li>
-<p><strong><a href="#publish--subscribe-messaging">Publish &amp; subscribe messaging</a></strong>: The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.</p>
+<p><strong><a href="#publish--subscribe-messaging">Publish &amp; subscribe messaging</a>:</strong> The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.</p>
 </li>
 <li>
-<p><strong><a href="#vehicle-app-abstraction">Vehicle App abstraction</a></strong>: Last but not least the SDK provides a Vehicle App base class, which every Vehicle App derives from.</p>
+<p><strong><a href="#vehicle-app-abstraction">Vehicle App abstraction</a>:</strong> Last but not least the SDK provides a Vehicle App base class, which every Vehicle App derives from.</p>
 </li>
 </ul>
 <p>An overview of the Vehicle App SDK and its dependencies is depicted in the following diagram:</p>
@@ -1042,8 +1062,8 @@ Filter- and rule-based subscriptions of datapoints can be used to reduce the num
 <h3 id="data-feeders">Data Feeders</h3>
 <p>Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
 The source of the contents of the data points provided is specific to the respective feeder.</p>
-<p>As of today, the Vehicle Abstraction Layer contains a generic <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python,
-which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
+<p>Eclipse KUKSA provides several <a href="https://github.com/eclipse/kuksa.val.feeders" target="_blank" rel="noopener">Data Feeders</a> for different datasources.
+As of today, Eclipse Velocitas only utilizes the generic <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python, which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
 The feeder uses a mapping file and data point meta data to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
@@ -1109,6 +1129,204 @@ Service implementations may also interact as feeders with the data broker.</p>
 <h2 id="guidelines">Guidelines</h2>
 <ul>
 <li>Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the <a href="https://github.com/eclipse/kuksa.val.services/docs" target="_blank" rel="noopener">kuksa.val.services repository</a>.</li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e8c9a8068d61f8d591fb113a53a16f27">3 - Vehicle App Manifest</h1>
+    <div class="lead">Learn more about the Vehicle App Manifest.</div>
+	<h2 id="introduction">Introduction</h2>
+<p>The <em>AppManifest</em> defines the name and the requirements of a <em>Vehicle App</em>. The requirements are specified on interface level. The manifest defines the required service interfaces (e.g. gRPC functions) and the used vehicle model and accessed data points, but it does not define certain providers of those interfaces.
+This concept provides flexibility by separating the requirements of a <em>Vehicle App</em> from the definition of a concrete <em>Runtime</em> and <em>Middleware</em> configuration.</p>
+<p>The AppManifest is the only source of truth in our <em>Vehicle App</em> templates for:</p>
+<ul>
+<li>Local development environments and configs</li>
+<li>deployment specs generation</li>
+<li>Velocitas CI/CD workflow</li>
+<li>OCI Image creation</li>
+</ul>
+<h2 id="purpose">Purpose</h2>
+<ul>
+<li>The AppManifest contains necessary information about the runtime requirements (VehicleModel, interfaces) of the app</li>
+<li>The AppManifest contains all required (or optional) data points that are used in the <em>Vehicle App</em> with the necessary access rights (read, write)</li>
+<li>The AppManifest is service provider/implementation agnostic, while the service configurations are part of a corresponding <a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a> runtime package</li>
+</ul>
+<h2 id="structure">Structure</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// AppManifest.json
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;SampleApp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;vehicleModel&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;datapoints&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;Vehicle.Speed&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/GetDatapoints&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/Subscribe&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/SetDatapoints&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#4e9a06">&#34;mqtt&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="vehicle-model-description">Vehicle Model Description</h2>
+<p>The <a href="/velocitas-docs/docs/concepts/development_model/#vehicle-models"><em>Vehicle Model</em></a> of the <em>Vehicle App</em> is described with the source and required (or optional) datapoints.
+More information: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/">Vehicle Model Creation</a></p>
+<p>The source (&ldquo;src&rdquo;) identifies the used <em>Vehicle Model</em> description and the data points section defines which signals (i.e. data points) of that model need to be available for the <em>Vehicle App</em> to run:</p>
+<ul>
+<li>The <code>path</code> references the definition (type, data type, unit, and other metadata) of a data point in the specified model</li>
+<li>The <code>required</code> flag tells if that data point is mandatory for the app to run or just optional</li>
+<li><code>access</code> defines the required access right of the app to that data point (see below)</li>
+</ul>
+<p>Further information can be found here: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/#how-to-reference-a-model-specification">How to Reference a Model Specification</a>
+</br></p>
+<h3 id="datapoint-access-rights">Datapoint Access Rights</h3>
+
+
+
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Access Right</th>
+<th>Description</th>
+<th>Vehicle Databroker Interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>read</td>
+<td>app needs to read the value of the datapoint from the provider (e.g. get value from databroker).</td>
+<td>GetDatapoints/Subscribe</td>
+</tr>
+<tr>
+<td>write</td>
+<td>app needs to get and set the value of the datapoint (e.g. set, set_many values via the databroker or services). WRITE access implicitly has READ access.</td>
+<td>SetDatapoints</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="appmanifestexamples">AppManifest Examples</h2>
+
+
+
+<ul class="nav nav-tabs" id="tabs-1" role="tablist">
+  <li class="nav-item">
+      <a class="nav-link active persistLang-json"
+          id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
+          onclick="persistLang(&#34;json&#34;);"aria-controls="tabs-01-00" aria-selected="false">
+        Runtime interface via databroker
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link"
+          id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
+          aria-controls="tabs-01-01" aria-selected="false">
+        Runtime interface via specific service
+      </a>
+    </li>
+</ul>
+
+<div class="tab-content" id="tabs-1-content">
+    <div class="tab-pane fade show active"
+        id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Here we have a dependency to the databroker, the App doesn&#39;t have any direct
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// connection to the SeatService because the databroker forwards the set requests from
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// the app via SetDatapoints to the corresponding SeatService
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;SeatAdjuster&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;vehicleModel&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./app/vehiclemodel/used_vss.json&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;datapoints&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;write&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Speed&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/GetDatapoints&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/Subscribe&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/SetDatapoints&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;mqtt&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
+        id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Here the app establishes a direct gRPC connection to the
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Vehicle SeatService and adjusts the seat position via
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// the MoveComponent Interface
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;SeatAdjuster&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;vehicleModel&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./app/vehiclemodel/used_vss.json&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;datapoints&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;write&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Speed&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/GetDatapoints&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/Subscribe&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.edge.comfort.seats.v1.Seats/MoveComponent&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;mqtt&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
+    </div>
+</div>
+
+<h2 id="further-information">Further information</h2>
+<ul>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Vehicle Model Creation</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Vehicle App Development</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/lifecycle_management">Lifecycle Management</a></li>
 </ul>
 
 </div>
