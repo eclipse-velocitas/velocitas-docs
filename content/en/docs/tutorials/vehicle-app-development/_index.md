@@ -5,3 +5,5 @@ weight: 30
 description: >
   Learn how to develop a new Vehicle App.
 ---
+
+Please visit first [Getting Started page](/docs/tutorials/quickstart/) if you don't know where to start.

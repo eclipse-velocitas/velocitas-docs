@@ -12,9 +12,9 @@ In the past the recommended runtime would for sure be [Docker Desktop](https://w
 
 The obvious (and our recommended) "alternative" to Docker Desktop on Linux is to just use the [Docker Engine](https://docs.docker.com/engine/) (without Docker Desktop), a pure CLI-based solution available for most popular Linux distributions licensed under the Apache License, version 2.0. Installation instructions can be found [here](https://docs.docker.com/engine/install/).
 
-## macOS
+## MacOS
 
-Since the Docker Engine is not working out of the box on macOS, a virtualisation tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using [Colima](https://github.com/abiosoft/colima).
+Since the Docker Engine is not working out of the box on MacOS, a virtualisation tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using [Colima](https://github.com/abiosoft/colima).
 
 ### Setup Colima
 

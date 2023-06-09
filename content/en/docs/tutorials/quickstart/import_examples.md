@@ -20,7 +20,7 @@ To avoid overwriting existing changes in your `/app` directory, commit or stash 
 4. Choose `Continue without scanning the output`
 5. Select `seat-adjuster`
 
-## Run the example Vehicle App
+## Run the _Vehicle App_ from SDK example
 
 The launch settings are already prepared for the `VehicleApp` in the template repository `/.vscode/launch.json`. The configuration is meant to be as generic as possible to make it possible to run all provided example apps.
 
@@ -28,3 +28,5 @@ Every example app comes with its own `/app/AppManifest.json` to see which _Vehic
 
 To start the app:
 Just press <kbd>F5</kbd> to start a debug session of the example _Vehicle App_.
+
+To debug exapmle, please check [How to debug Vehicle App?](/docs/tutorials/quickstart#how-to-debug-_vehicle-app_)

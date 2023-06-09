@@ -6,7 +6,7 @@ export NODE_PATH=$NODE_PATH:`npm root -g`
 npm install -g npm
 npm install -g postcss postcss-cli autoprefixer
 npm install
-hugo mod get -u github.com/google/docsy
+hugo mod get -u github.com/google/docsy@v0.6.0
 
 
 # add repo to git safe.directory & fix hugo issue with server start

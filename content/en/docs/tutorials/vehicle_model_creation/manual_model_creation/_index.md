@@ -48,6 +48,12 @@ Follow the steps to generate a _Vehicle Model_.
         python3 gen_vehicle_model.py -I ./vehicle_signal_specification/spec ./vehicle_signal_specification/spec/VehicleSignalSpecification.vspec -l <lang> -T sdv_model -N sdv_model
         ```
 
+        or if you want to generate it from a .json file
+
+        ```bash
+        python3 gen_vehicle_model.py <path_to_your_json_file> -l <lang> -T sdv_model
+        ```
+
         Depending on the value of `lang`, which can assume the values `python` and `cpp`, this creates a `sdv_model` directory in the root of repository along with all generated source files for the given programming language.
 
         Here is an overview of what is generated for every available value of `lang`:

@@ -184,7 +184,7 @@ In order to know which seat to move, you have to pass a `SeatLocation` object as
 
 Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.
 
-In the [quickstart section](/docs/tutorials/quickstart/#debugging-vehicle-app) about the Vehicle App, you already tested sending MQTT messages to the app.
+In the [quickstart section](/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_) about the Vehicle App, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `Datapoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
 
 In order to receive and process MQTT messages inside your app, simply use the `@subscribe_topic` annotations from the SDK for an additional method `on_set_position_request_received` you have to implement:
@@ -268,7 +268,7 @@ Once the implementation is done, it is time to run and debug the app.
 
 ### Run your App
 
-In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) (which should be the default) and the runtime is up and running. Read more about it in the [run runtime services](/docs/run_runtime_services_locally.md) section.
+In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) (which should be the default) and the runtime is up and running. Read more about it in the [run runtime services](/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally) section.
 
 Now chose one of the options to start the VehicleApp under development (including Dapr sidecar if middleware type is Dapr):
 
@@ -331,7 +331,7 @@ If you want to know more about dapr and the configuration, please visit <https:/
 
 ### Debug your Vehicle App
 
-In the [introduction about debugging](/docs/tutorials/quickstart/#debugging-vehicle-app), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
+In the [introduction about debugging](/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
 
 The debug session launch settings are already prepared for the `VehicleApp` in `/.vscode/launch.json`.
 

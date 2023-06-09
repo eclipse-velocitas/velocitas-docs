@@ -13,43 +13,6 @@ To be sure that a newly created _Vehicle App_ will run together with the _KUKSA 
 
 To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.
 
-## Quickstart
-
-1. Make sure that the local execution of runtime components is working and started.
-2. Start the application (Debugger or run as task).
-3. Extend the test file `/app/tests/integration/integration_test.py` or create a new test file.
-4. Run/debug tests with the Visual Studio Code Test runner.
-
-## Runtime components
-
-To be able to test the _Vehicle App_ in an integrated way, the following components should be running:
-
-- Dapr
-- Mosquitto
-- Data Broker
-- Vehicle Services
-
-We distinguish between two environments for executing the _Vehicle App_ and the runtime components:
-
-- **Local execution:** components are running locally in the development environment
-- **Kubernetes execution:** components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)
-
-### Local Execution
-
-First, make sure that the runtime services are configured and running like described [here](/docs/run_runtime_services_locally.md).
-
-The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing `VehicleApp` using provided task.
-
-When the runtime services and the application are running, integration tests can be executed locally.
-
-### Kubernetes execution (K3D)
-
-If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the [documentation](/docs/run_runtime_services_kubernetes.md). To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:
-
-```bash
-  export MQTT_PORT=31883 && export VDB_PORT=30555 && pytest
-```
-
 ## Writing Test Cases
 
 To write an integration test, you should check the sample that comes with the template ([`/app/tests/integration/integration_test.py`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py)). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:
@@ -83,42 +46,46 @@ To write an integration test, you should check the sample that comes with the te
 
 > **Please make sure that you don't check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).**
 
-## Running Tests locally
 
-Once tests are developed, they can be executed against the running runtime components, either to the **_local runtime_** or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for _Mosquitto_ and _KUKSA Data Broker_ are `1883`/`55555`. In Kubernetes mode, the ports would be the locally exposed ports `31883`/`30555`. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.
+## Runtime components
 
-## Running Tests in CI pipeline
+To be able to test the _Vehicle App_ in an integrated way, the following components should be running:
+
+- Dapr
+- Mosquitto
+- Data Broker
+- Vehicle Services
+
+We distinguish between two environments for executing the _Vehicle App_ and the runtime components:
+
+- **Local execution:** components are running locally in the development environment
+- **Kubernetes execution:** components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)
+
+### Local Execution
+
+First, make sure that the runtime services are configured and running like described [here](/docs/run_runtime_services_locally.md).
+
+The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing `VehicleApp` using provided task.
+
+When the runtime services and the application are running, integration tests can be executed locally.
+
+### Kubernetes execution (K3D)
+
+If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the [documentation](/docs/run_runtime_services_kubernetes.md). Local ports for _Mosquitto_ and _KUKSA Data Broker_ are `1883`/`55555`. In Kubernetes mode, the ports would be the locally exposed ports `31883`/`30555`, to ensure that the tests connect to the containers, please execute the following commands in new bash terminal:
+
+```bash
+  export MQTT_PORT=31883 && export VDB_PORT=30555 && pytest
+```
+
+## Integration Tests in CI pipeline
 
 The tests will be discovered and executed automatically in the [CI pipeline](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml). The job `Run Integration Tests` contains all steps to set up and execute tests in Kubernetes mode. The results are published as test results to the workflow.
-
-# Common Tasks
-
-## Run test in local mode
-
-1. Make sure that the [Local Runtime](/docs/run_runtime_services_locally.md) is up and running.
-2. Make sure that your application is running (via Debugger or task).
-3. Make sure that you are using the right ports for local execution of runtime components.
-4. Run tests from the test runner.
-
-## Run tests in Kubernetes mode
-
-1. Make sure that K3D is set up and vehicle runtime (including VehicleApp) is deployed and running (by executing the task `K3D Runtime - Up`).
-2. Make sure that the tests are using the right ports for Kubernetes execution ([see above](#kubernetes-execution-k3d)).
-3. Run tests from the test runner.
-
-## Update application when running in Kubernetes mode
-
-1. Execute the task `K3D Runtime - Down` which stops up K3D runtime.
-2. Execute the task `K3D Runtime - Up` which starts up K3D runtime.
-3. Execute the task `K3D Runtime - Deploy VehicleApp` .
-4. Re-run tests from the test runner.
 
 # Troubleshooting
 
 ## Check if the services are registered correctly in Dapr
 
-- When running in local mode, call `dapr dashboard` in a terminal and open the given URL to see the Dapr dashboard in the browser.
-- When running in Kubernetes mode, call `dapr dashboard -k` in a terminal and open the given URL to see the Dapr dashboard in the browser.
+- Dapr extension is available as VS Code extension and gives overview of all running Dapr services.
 
 ## Troubleshoot IntTestHelper
 

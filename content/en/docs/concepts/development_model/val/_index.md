@@ -5,45 +5,53 @@ weight: 20
 resources:
 - src: "**dataflow_broker*.png"
 - src: "**dataflow_service*.png"
-- - src: "**val_architecture_overview*.png"
+- src: "**val_architecture*.png"
+- src: "**val_overview*.drawio.svg"
 description: >
   Learn about the main concepts and components of the vehicle abstraction and how it relates to the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/).
 ---
 
 ## Introduction
 
-The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the [Eclipse KUKSA project](https://www.eclipse.org/kuksa/), also called KUKSA.VAL.
-It is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
-It currently consists of a data broker, a CAN feeder, and a set of example services.
+The _Vehicle_Abstraction Layer (VAL)_ enables access to the systems and functions of a vehicle via a unified - or even better - a standardized _Vehicle API_ abstracting from the details of the end-to-end architecture of the vehicle. The unified API enables _Vehicle Apps_ to run on different vehicle architectures of a single OEM. Vehicle Apps can be even implemented OEM-agnostic, if using a API based on a standard like COVESA's Vehicle Signal Specification. The Vehicle API obsoletes the knowledge where signal come from or where to send it and in which format they are provided or needed by the respective vehicle system.
+
+The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the [_Eclipse KUKSA project_](https://www.eclipse.org/kuksa/), also called _KUKSA.VAL_.
+KUKSA.VAL does not provide a concrete VAL. That's up to you as an OEM (vehicle manufacturer) or as a supplier.
+But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an Vehicle App or Service.
+
+KUKSA VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the _KUKSA Data Broker_ and the generic _Data Providers_ (aka _Data Feeders_).
+It also provides you reference implementations of certain _Vehicle Services_, like the _Seat Service_ and the _HVAC Service_.
 
 ## Architecture
 
 The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the [Velocitas Development Model](/docs/concepts/development-model.md).
 
-{{< imgproc val_architecture_overview Resize "800x" >}}
-  Overview of the vehicle abstraction layer architecture
-{{< /imgproc >}}
+![Overview of the vehicle abstraction layer architecture](./val_overview.drawio.svg)
 
 ### KUKSA Data Broker
 
-The [KUKSA Data Broker](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker) is a gRPC service acting as a broker of vehicle data / data points / signals.
-It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the [COVESA Vehicle Signal Specification (VSS)](https://covesa.github.io/vehicle_signal_specification/) or others.
-It is implemented in Rust, can run in a container and provides services to get datapoints, update datapoints and for subscribing to datapoints.
+The [KUKSA Data Broker](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker) is a gRPC service acting as a broker of vehicle data / signals also called _data points_ in the following.
+It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the [COVESA Vehicle Signal Specification (VSS)](https://covesa.github.io/vehicle_signal_specification/) or others. But this is not a must, it is also possible to use your own (propretary) vehicle model or to extend the COVESA VSS with your specific extensions via [VSS _overlays_](https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/).
+
+Data points represent certain states of the vehicle, like the current vehicle speed or the currently applied gear. Data points can represent sensor values like the vehicle speed or engine temperature, actuators like the wiper mode, and immutable attributes of the vehicle like the needed fuel type(s) of the vehicle, engine displacement, maximum power, etc.
+
+Data points factually belonging together are typically arranged in branches and sub-branches of a tree structure (like [this example](https://covesa.github.io/vehicle_signal_specification/introduction/overview/#example) on the COVESA VSS site).
+
+The KUKSA Data Broker is implemented in Rust, can run in a container and provides services to get datapoints, update datapoints and for subscribing to automatic notifications on datapoint changes.
 Filter- and rule-based subscriptions of datapoints can be used to reduce the number of updates sent to the subscriber.
 
-### Data Feeders
+### Data Providers / Data Feeders
 
-Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
-The source of the contents of the data points provided is specific to the respective feeder.
+Conceptually, a data provider is the responsible to take care for a certain set of data points: It provides updates of sensor data from the vehicle to the data broker and forwards updates of actuator values to the vehicle. The set of data points a data provider maintains may depend on the network interface (e.g. CAN bus) via that those data is accessible or it can depend on a certain use case the provider is responsible for (like seat control).
 
-Eclipse KUKSA provides several [Data Feeders](https://github.com/eclipse/kuksa.val.feeders) for different datasources.
+Eclipse KUKSA provides several _generic_ [_Data Providers_](https://github.com/eclipse/kuksa.val.feeders) for different datasources.
 As of today, Eclipse Velocitas only utilizes the generic [CAN feeder (KUKSA DBC Feeder)](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val) implemented in Python, which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
 The feeder uses a mapping file and data point meta data to convert the source data to data points and injects them into the data broker using its `Collector` gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.
 
 ### Vehicle Services
 
-A vehicle service offers a gRPC interface allowing vehicle apps to interact with underlying services of the vehicle.
+A vehicle service offers a vehicle app to interact with the vehicle systems on a RPC-like basis.
 It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
 It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.
 
@@ -54,6 +62,10 @@ The [KUKSA.VAL Services repository](https://github.com/eclipse/kuksa.val.service
 Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
 The reference implementation relies on **SocketCAN** and **vxcan**, see <https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val>.
 The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.
+
+{{< imgproc val_architecture Resize "800x" >}}
+  Overview of the vehicle abstraction layer architecture
+{{< /imgproc >}}
 
 ## Information Flow
 

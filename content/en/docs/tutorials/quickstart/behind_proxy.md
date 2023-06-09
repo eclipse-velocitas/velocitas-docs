@@ -10,14 +10,14 @@ We know what a pain and how time consuming it can be to setup your environment b
 
 Be aware that correct proxy configuration depends on the setup of your organisation and of course of your personal development environment (hardware, OS, virtualization setup, ...). So, we most probably do not cover all issues out there in the developers world. So, we encourage you to share hints and improvements with us.
 
-# HTTP(s) proxy server
+## HTTP(s) proxy server
 
 Install and configure the proxy server as recommented or required by your company. For example you could use [PX](https://github.com/genotrance/px), which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: [PX](https://github.com/genotrance/px))
 
 - Install your HTTP(s) proxy server
 - Start your HTTP(s) proxy server
 
-# Docker Desktop
+## Docker Desktop
 
 You need to install [Docker Desktop](https://www.docker.com/get-started/) using the right version.
 As we recognized a proxy issue in Docker Desktop [#12672](https://github.com/docker/for-win/issues/12672) we strongly recomment to use a Docker Desktop version >= 4.8.2. In case you have an older version on your machine please update to the current version.
@@ -33,12 +33,27 @@ In the next step you need to enter your proxy settings:
   - Bypass: `localhost,127.0.0.1`
 - Apply & Restart.
 
-# Docker daemon
+## Docker daemon
 
 You also have to configure the Docker daemon, which is running the containers basically, to forward the proxy settings. For this you have to add the proxy configuration to the `~/.docker/config.json`. Here is an example of a proper config (Port and noProxy settings might differ for your setup):
 
    {{< tabpane text=true >}}
-   {{% tab header="Windows & MacOS" %}}
+   {{% tab header="Windows" %}}
+
+   ```json
+   {
+    "proxies":{
+         "default":{
+            "httpProxy":"http://host.docker.internal:3128",
+            "httpsProxy":"http://host.docker.internal:3128",
+            "noProxy":"host.docker.internal,localhost,127.0.0.1"
+         }
+      }
+   }
+   ```
+
+   {{% /tab %}}
+   {{% tab header="MacOS" %}}
 
    ```json
    {
@@ -72,7 +87,7 @@ You also have to configure the Docker daemon, which is running the containers ba
 
 For more details see: [Docker Documentation](https://docs.docker.com/network/proxy/)
 
-# Environment Variables
+## Environment Variables
 
 It is required to set the following environment variables:
 
@@ -109,7 +124,9 @@ source ~/.bash_profile
 {{% /tab %}}
 {{< /tabpane >}}
 
-# Solving issues with TLS (SSL) certificate validation using https connections from containers
+## Troubleshooting
+
+### Solving issues with TLS (SSL) certificate validation using https connections from containers
 
 If you are behind a so-called intercept proxy (which you most probably are), you can run into certificate issues:
 Your corporate proxy works as a "man-in-the-middle" to be able to check the transfered data for malicious content.
@@ -126,10 +143,9 @@ If it comes to executing containers, those are typically not managed by your IT 
 is/are missing. So, you need to find a way to install those into the (dev) container you want to execute.
 
 See (one of) those articles to get how to achieve that:
-<https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers>
-<https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/>
 
-# Troubleshooting
+- [Overcoming Proxy Issues with Docker Containers](https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers)
+- [Docker behind SSL intercepting proxy](https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/)
 
 ### Initial DevContainer build issue
 
