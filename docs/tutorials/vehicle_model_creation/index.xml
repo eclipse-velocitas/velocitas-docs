@@ -1,0 +1,235 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Velocitas – Vehicle Model Creation</title>
+    <link>/velocitas-docs/docs/tutorials/vehicle_model_creation/</link>
+    <description>Recent content in Vehicle Model Creation on Velocitas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 08 Mar 2023 15:00:00 +0100</lastBuildDate>
+    
+	  <atom:link href="/velocitas-docs/docs/tutorials/vehicle_model_creation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Automated Vehicle Model Lifecycle</title>
+      <link>/velocitas-docs/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/</link>
+      <pubDate>Wed, 08 Mar 2023 15:00:00 +0100</pubDate>
+      
+      <guid>/velocitas-docs/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Info&lt;/h4&gt;
+
+    &lt;p&gt;This article describes our new model lifecycle approach released on Friday, 2023-03-03. With that, the model is now automatically generated with the instantiation of the devContainer. It is generated from the vehicle model source file referenced in the AppManifest.&lt;/p&gt;
+&lt;p&gt;For the time being, the integration of services is not supported by the new approach.&lt;/p&gt;
+&lt;p&gt;The previous approach, using pre-generated model repositories, is now deprecated. But it is still available and &lt;a href=&#34;../manual_model_creation&#34;&gt;described here&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;/div&gt;
+
+&lt;p&gt;This tutorial will show you how:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the vehicle API used as the source to generate the model is referenced in the app manifest,&lt;/li&gt;
+&lt;li&gt;the automatic generation of the model works,&lt;/li&gt;
+&lt;li&gt;you can trigger manual recreation of the model (after adding extensions to the API required by your project)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;how-to-reference-a-model-specification&#34;&gt;How to Reference a Model Specification&lt;/h2&gt;
+&lt;p&gt;The model specification defines the vehicle API to be used by your project. It is referenced in the &lt;code&gt;AppManifest.json&lt;/code&gt; via a URI or local file path like this:&lt;/p&gt;
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-1&#34; role=&#34;tablist&#34;&gt;
+  &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active persistLang-json&#34;
+          id=&#34;tabs-01-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-00&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;json&amp;#34;);&#34;aria-controls=&#34;tabs-01-00&#34; aria-selected=&#34;false&#34;&gt;
+        URI reference
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-01-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-01&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-01-01&#34; aria-selected=&#34;false&#34;&gt;
+        Local file reference
+      &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;
+    &lt;div class=&#34;tab-pane fade show active&#34;
+        id=&#34;tabs-01-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-00-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vehicleModel&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&amp;gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-01-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-01-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vehicleModel&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./my_model/my_model.json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Info&lt;/h4&gt;
+
+    The reference must point to a JSON file containing the model specification as VSS vspec. References to a VSS &lt;code&gt;.vspec&lt;/code&gt; file hierarchy are not supported as of now.
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;model-creation&#34;&gt;Model Creation&lt;/h2&gt;
+&lt;p&gt;The generation of the model is taking place:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;through a &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management/packages/usage/#installation&#34;&gt;onPostInit hook&lt;/a&gt; when &lt;code&gt;velocitas init&lt;/code&gt; is called:
+&lt;ul&gt;
+&lt;li&gt;either triggered manually or&lt;/li&gt;
+&lt;li&gt;automatically during the instantiation of the devContainer through our &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management&#34;&gt;Velocitas Lifecycle Management&lt;/a&gt;, or&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;when you trigger the VS Code task &lt;code&gt;(Re-)generate vehicle model&lt;/code&gt; explicitly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The model generation is a three step process:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The model generator is installed as a Python package (if not already present)&lt;/li&gt;
+&lt;li&gt;The referenced model specification is downloaded (if no local reference)&lt;/li&gt;
+&lt;li&gt;The model code is generated and installed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;./model_lifecycle.drawio.svg&#34; alt=&#34;Model lifecycle overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The model is generated using our &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Velocitas vehicle-model-generator&lt;/a&gt;.
+The used version and also the repository of the generator can be altered via the &lt;code&gt;variables&lt;/code&gt; section of the project configuration in the &lt;code&gt;.velocitas.json&lt;/code&gt;.
+The default values for those are defined in the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;manifest.json&lt;/code&gt;&lt;/a&gt; of the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-devcontainer-setup&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devContainer setup package&lt;/a&gt;.
+Also, the target folder for the generated model source code is specified here:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;variables&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;modelGeneratorGitRepo&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://github.com/eclipse-velocitas/vehicle-model-generator.git&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;modelGeneratorGitRef&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;v0.3.0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;generatedModelPath&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./gen/vehicle_model&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In Python template based projects the generated model is finally installed in the site-packages folder, while in C++ projects it is made available as a CMake include folder.&lt;/p&gt;
+&lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md&#34;&gt;SDK Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;Create a Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Manual Vehicle Model Creation</title>
+      <link>/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Info&lt;/h4&gt;
+
+    &lt;p&gt;With the release of our new &lt;a href=&#34;../automated_model_lifecycle&#34;&gt;model lifecycle approach&lt;/a&gt; on Friday, 2023-03-03, the model is now automatically generated with the instantiation of the devContainer from a model source referenced in the app manifest.&lt;/p&gt;
+&lt;p&gt;The approach described here, using pre-generated model repositories, is deprecated as of now. But it is still available and must be used if you need access to vehicle services. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.&lt;/p&gt;
+
+
+&lt;/div&gt;
+
+&lt;p&gt;This tutorial will show you how to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a &lt;em&gt;Vehicle Model&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Add a &lt;em&gt;Vehicle Service&lt;/em&gt; to the &lt;em&gt;Vehicle Model&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Distribute your Python Vehicle Model&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    &lt;p&gt;A &lt;em&gt;Vehicle Model&lt;/em&gt; should be defined in its own package. This makes it possible to distribute the &lt;em&gt;Vehicle Model&lt;/em&gt; later as a standalone package and to use it in different &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
+&lt;p&gt;The creation of a new vehicle model is only required if the vehicle signals (like sensors and actuators) defined in the current version of the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;COVESA Vehicle Signal Specification&lt;/a&gt; (VSS) is not sufficient for the definition of your vehicle API. Otherwise you could use the default vehicle model we already generated for you, see &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Vehicle Model&lt;/a&gt; and &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-cpp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;C++ Vehicle Model&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;create-a-vehicle-model-from-vss-specification&#34;&gt;Create a Vehicle Model from VSS specification&lt;/h2&gt;
+&lt;p&gt;A &lt;em&gt;Vehicle Model&lt;/em&gt; can be generated from a &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;COVESA Vehicle Signal Specification&lt;/a&gt; (VSS). VSS introduces a domain taxonomy for vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data. The Velocitas &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-generator&lt;/a&gt; creates a &lt;em&gt;Vehicle Model&lt;/em&gt; from the given specification and generates a package for use in &lt;em&gt;Vehicle App&lt;/em&gt; projects.&lt;/p&gt;
+&lt;p&gt;Follow the steps to generate a &lt;em&gt;Vehicle Model&lt;/em&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-generator&lt;/a&gt; repository in a container volume.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In this container volume, clone the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-signal-specification&lt;/a&gt; repository and if required checkout a particular branch:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/COVESA/vehicle_signal_specification
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; vehicle_signal_specification
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout &amp;lt;branch-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In case the VSS vspec doesn&amp;rsquo;t contain the required signals, you can create a vspec using the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/rule_set/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS Rule Set&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Execute the command&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 gen_vehicle_model.py -I ./vehicle_signal_specification/spec ./vehicle_signal_specification/spec/VehicleSignalSpecification.vspec -l &amp;lt;lang&amp;gt; -T sdv_model -N sdv_model
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Depending on the value of &lt;code&gt;lang&lt;/code&gt;, which can assume the values &lt;code&gt;python&lt;/code&gt; and &lt;code&gt;cpp&lt;/code&gt;, this creates a &lt;code&gt;sdv_model&lt;/code&gt; directory in the root of repository along with all generated source files for the given programming language.&lt;/p&gt;
+&lt;p&gt;Here is an overview of what is generated for every available value of &lt;code&gt;lang&lt;/code&gt;:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;lang&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;output&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;python&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;python sources and a &lt;code&gt;setup.py&lt;/code&gt; ready to be used as python package&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;cpp&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;c++ sources, headers and a CMakeLists.txt ready to be used as a CMake project&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;To have a custom model name, refer to README of &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-generator&lt;/a&gt; repository.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For python: Change the version of package in &lt;code&gt;setup.py&lt;/code&gt; manually (defaults to 0.1.0).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now the newly generated &lt;code&gt;sdv_model&lt;/code&gt; can be used for distribution. (See &lt;a href=&#34;vehicle_model_distribution&#34;&gt;Distributing your Vehicle Model&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;create-a-vehicle-model-manually&#34;&gt;Create a Vehicle Model Manually&lt;/h2&gt;
+&lt;p&gt;Alternative to the generation from a VSS specification you could create the &lt;em&gt;Vehicle Model&lt;/em&gt; manually. The following sections describing the required steps.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/&#34;&gt;Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;distributing-your-vehicle-model&#34;&gt;Distributing your Vehicle Model&lt;/h2&gt;
+&lt;p&gt;Once you have created your Vehicle Model either manually or via the Vehicle Model Generator, you need to distribute your model to use it in an application. Follow the links below for language specific tutorials on how to distribute your freshly created Vehicle Model.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;vehicle_model_distribution/distribution_python&#34;&gt;Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;vehicle_model_distribution/distribution_cpp&#34;&gt;C++&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md&#34;&gt;SDK Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart&#34;&gt;Setup and Explore Development Enviroment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;Create a Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

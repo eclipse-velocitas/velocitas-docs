@@ -1,0 +1,164 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Velocitas – About Velocitas</title>
+    <link>/velocitas-docs/docs/about/</link>
+    <description>Recent content in About Velocitas on Velocitas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 24 Aug 2022 17:24:56 +0530</lastBuildDate>
+    
+	  <atom:link href="/velocitas-docs/docs/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Use Cases</title>
+      <link>/velocitas-docs/docs/about/use_cases/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/about/use_cases/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;em&gt;Velocitas&lt;/em&gt; offers a scalable and modular development toolchain for creating containerized Vehicle Applications that offers an easy to use, fast and efficient development experience to increase the velocity of your development team.&lt;/p&gt;
+&lt;p&gt;Vehicle Apps are implemented on top of a Vehicle Model (which is generated from the underlying semantic models like VSS for a concrete programming language) and its underlying language-specific SDK to provide headless comfort functions or connected application functions like Seat Adjuster, Dog Mode, Trunk Delivery or Data Logging &amp;amp; triggering.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./use_case.drawio.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;examples&#34;&gt;Examples&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Repository Overview</title>
+      <link>/velocitas-docs/docs/about/repository-overview/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/about/repository-overview/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;img src=&#34;./project-overview.drawio.svg&#34; alt=&#34;Project Overview&#34;&gt;&lt;/p&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Repository&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GitHub Template repository contains an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-python-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in Python.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-sdk&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides basic functionality to write a SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, VehicleApp API, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-python&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Basic vehicle model for Python is generated from &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/tree/master/spec&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt; with addition of some specialized vehicle services.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-cpp-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-cpp-template&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GitHub Template repository contains an exemplary Vehicle App that uses an exemplary SDK to provide access to vehicle data points and methods. The sample SDK extends the &lt;em&gt;sdv-vehicle-app-cpp-sdk&lt;/em&gt;. In addition the template repository contains the development environment for Visual Studio Code for a Vehicle App as well as the CI/CD workflows that can be used as blueprint for your own Vehicle App written in C++.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-cpp-sdk&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides basic functionality to write a SDK to allow access to vehicle data points and method. This includes publishing &amp;amp; subscribe messaging, VehicleApp API, vehicle data model ontology and function-based query &amp;amp; rule support.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-cpp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-cpp&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Basic vehicle model for C++ is generated from &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/tree/master/spec&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt; with addition of some specialized vehicle services.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Is a part of the Vehicle Abstraction Layer (VAL) of the &lt;a href=&#34;https://www.eclipse.org/kuksa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse KUKSA project&lt;/a&gt; and provides the KUKSA Data Broker. The KUKSA Data Broker offers data points available in the vehicle to the Vehicle Apps semantically aligned to a data model like the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val.feeders&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;The KUKSA DBC Feeder is a generic data feeder that reads data from the vehicle&amp;rsquo;s &lt;a href=&#34;https://en.wikipedia.org/wiki/CAN_bus&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CAN bus&lt;/a&gt; defined by a DBC file, maps them to a set of data points (e.g. according to the VSS) and feeds it into the Data Broker.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val.services&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides exemplary vehicle services and respective implementations that illustrates how to interact with in-vehicle components and services via an unified access that is semantically described e.g. in the &lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle Service Catalog (VSC)&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/release-documentation-action&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;release-documentation-action&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GitHub Action to generate a release documentation from the CI workflow output by rendering it to markdown files so that this can be easily published with GitHub Pages.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/license-check&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;license-check&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;GitHub Action to collect the licenses of the used components and can be configured to fail with an error message on invalid licenses.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-model-generator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-model-generator&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Provides basic functionality to create a vehicle model from the given vspec specification for the target programming&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/cli&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cli&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;The CLI implements Velocitas &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management&#34;&gt;lifecyle management concept&lt;/a&gt; of the development environment of a Vehicle App. It allows us to take care of the development environment while you focus on the business logic of your vehicle application.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devcontainer-base-images&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devcontainer-base-images&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration to create base docker images for specific languages to be used in devcontainer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h3 id=&#34;package-repositories&#34;&gt;Package Repositories&lt;/h3&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Repository&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtime-local&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-runtime-local&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for local runtime execution (deprecated)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtime-k3d&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-runtime-k3d&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for k3d runtime execution (deprecated)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-runtimes&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for maintained runtime services&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-devcontainer-setup&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-devcontainer-setup&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for setting up devcontainer environment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-github-workflows&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-github-workflows&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for syncing github workflows&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-github-templates&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-github-templates&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Central configuration for syncing github templates&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

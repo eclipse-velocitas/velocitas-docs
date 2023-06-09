@@ -1,0 +1,262 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Velocitas – Getting Started</title>
+    <link>/velocitas-docs/docs/tutorials/quickstart/</link>
+    <description>Recent content in Getting Started on Velocitas</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 May 2022 13:43:25 +0530</lastBuildDate>
+    
+	  <atom:link href="/velocitas-docs/docs/tutorials/quickstart/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Import examples</title>
+      <link>/velocitas-docs/docs/tutorials/quickstart/import_examples/</link>
+      <pubDate>Tue, 30 Aug 2022 14:56:21 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/tutorials/quickstart/import_examples/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This guide will help you to import examples provided by the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SDK&lt;/a&gt; package into your template repository.&lt;/p&gt;
+&lt;p&gt;A Visual Studio Code task called &lt;code&gt;Import example app from SDK&lt;/code&gt; is available in the &lt;code&gt;/.vscode/tasks.json&lt;/code&gt; which can replace your &lt;code&gt;/app&lt;/code&gt; directory in your template repository with some example &lt;em&gt;Vehicle Apps&lt;/em&gt; from the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SDK&lt;/a&gt; package.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+
+
+    To avoid overwriting existing changes in your &lt;code&gt;/app&lt;/code&gt; directory, commit or stash changes before importing the example app.
+
+&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt;&lt;/li&gt;
+&lt;li&gt;Select command &lt;code&gt;Tasks: Run Task&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;Import example app from SDK&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Choose &lt;code&gt;Continue without scanning the output&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;seat-adjuster&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;run-the-example-vehicle-app&#34;&gt;Run the example Vehicle App&lt;/h2&gt;
+&lt;p&gt;The launch settings are already prepared for the &lt;code&gt;VehicleApp&lt;/code&gt; in the template repository &lt;code&gt;/.vscode/launch.json&lt;/code&gt;. The configuration is meant to be as generic as possible to make it possible to run all provided example apps.&lt;/p&gt;
+&lt;p&gt;Every example app comes with its own &lt;code&gt;/app/AppManifest.json&lt;/code&gt; to see which &lt;em&gt;Vehicle Services&lt;/em&gt; are configured and needed as a dependency.&lt;/p&gt;
+&lt;p&gt;To start the app:
+Just press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the example &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Install a working container runtime</title>
+      <link>/velocitas-docs/docs/tutorials/quickstart/container_runtime/</link>
+      <pubDate>Fri, 19 Aug 2022 17:46:21 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/tutorials/quickstart/container_runtime/</guid>
+      <description>
+        
+        
+        &lt;p&gt;In the past the recommended runtime would for sure be &lt;a href=&#34;https://www.docker.com/products/docker-desktop&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Desktop&lt;/a&gt;. But since Docker Inc. changed their license model it is fair enough for an open source project to look for free alternatives.&lt;/p&gt;
+&lt;h2 id=&#34;linux&#34;&gt;Linux&lt;/h2&gt;
+&lt;p&gt;The obvious (and our recommended) &amp;ldquo;alternative&amp;rdquo; to Docker Desktop on Linux is to just use the &lt;a href=&#34;https://docs.docker.com/engine/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Engine&lt;/a&gt; (without Docker Desktop), a pure CLI-based solution available for most popular Linux distributions licensed under the Apache License, version 2.0. Installation instructions can be found &lt;a href=&#34;https://docs.docker.com/engine/install/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;macos&#34;&gt;macOS&lt;/h2&gt;
+&lt;p&gt;Since the Docker Engine is not working out of the box on macOS, a virtualisation tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using &lt;a href=&#34;https://github.com/abiosoft/colima&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Colima&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;setup-colima&#34;&gt;Setup Colima&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Please uninstall or at least quit Docker Desktop if you already used it, before starting the setup.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For Colima to work properly you need Colima itself and a container client e.g. the Docker client, which is still free to use:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    brew install colima
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    brew install docker
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After the installation you need to start the runtime:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    colima start --cpu x --memory y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For M1 Macs it might be neccessary to add &lt;code&gt;--arch aarch64&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Docker Desktop uses 5 cores and 12 GB of RAM by default on an M1 MacBook Pro. The equivalent in Colima can be achieved with&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    colima start --cpu &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt; --memory &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s all you have to do. After these few steps you can go on with the devcontainer setup.&lt;/p&gt;
+&lt;h4 id=&#34;drawbacks&#34;&gt;Drawbacks&lt;/h4&gt;
+&lt;p&gt;The only drawback noticed so far is, that K9S is not working properly on M1 Macs. Since the container runtime and deployment are working also without K9S, this is just a minor issue. Nevertheless, the team is working on a solution.&lt;/p&gt;
+&lt;h2 id=&#34;microsoft-windows&#34;&gt;Microsoft Windows&lt;/h2&gt;
+&lt;p&gt;There is currently no recommended alternative for Windows except using GitHub codespaces, a cloud-based development environment.&lt;/p&gt;
+&lt;p&gt;An option would be to setup a VM (e.g. with VirtualBox or VMWare) running a Linux system with Docker Engine (see above).&lt;/p&gt;
+&lt;h2 id=&#34;other-alternatives&#34;&gt;Other alternatives&lt;/h2&gt;
+&lt;p&gt;Besides our recommendations above, there are further alternatives, which are not yet evaluated by this project or have some other drawbacks, blocking a recommendation.&lt;/p&gt;
+&lt;p&gt;For example, you could try &lt;a href=&#34;https://podman.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Podman&lt;/a&gt;/&lt;a href=&#34;https://buildah.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Buildah&lt;/a&gt;, which can replace &lt;code&gt;docker run&lt;/code&gt; and &lt;code&gt;docker build&lt;/code&gt;, respectively.
+Podman is available for MacOS, Windows, and several Linux distributions.
+Buildah seems just being available for several Linux distributions.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Working behind proxy</title>
+      <link>/velocitas-docs/docs/tutorials/quickstart/behind_proxy/</link>
+      <pubDate>Fri, 19 Aug 2022 17:46:21 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/tutorials/quickstart/behind_proxy/</guid>
+      <description>
+        
+        
+        &lt;p&gt;We know what a pain and how time consuming it can be to setup your environment behind a cooperate proxy. This guide will help you to set it up correctly.&lt;/p&gt;
+&lt;p&gt;Be aware that correct proxy configuration depends on the setup of your organisation and of course of your personal development environment (hardware, OS, virtualization setup, &amp;hellip;). So, we most probably do not cover all issues out there in the developers world. So, we encourage you to share hints and improvements with us.&lt;/p&gt;
+&lt;h1 id=&#34;https-proxy-server&#34;&gt;HTTP(s) proxy server&lt;/h1&gt;
+&lt;p&gt;Install and configure the proxy server as recommented or required by your company. For example you could use &lt;a href=&#34;https://github.com/genotrance/px&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PX&lt;/a&gt;, which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: &lt;a href=&#34;https://github.com/genotrance/px&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PX&lt;/a&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install your HTTP(s) proxy server&lt;/li&gt;
+&lt;li&gt;Start your HTTP(s) proxy server&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;docker-desktop&#34;&gt;Docker Desktop&lt;/h1&gt;
+&lt;p&gt;You need to install &lt;a href=&#34;https://www.docker.com/get-started/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Desktop&lt;/a&gt; using the right version.
+As we recognized a proxy issue in Docker Desktop &lt;a href=&#34;https://github.com/docker/for-win/issues/12672&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;#12672&lt;/a&gt; we strongly recomment to use a Docker Desktop version &amp;gt;= 4.8.2. In case you have an older version on your machine please update to the current version.&lt;/p&gt;
+&lt;p&gt;In the next step you need to enter your proxy settings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Open Docker Desktop and go to the Settings&lt;/li&gt;
+&lt;li&gt;From &lt;code&gt;Resources&lt;/code&gt;, select &lt;code&gt;Proxies&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enable &lt;code&gt;Manual proxy configuration&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Enter your proxy settings, this depends on the configuration you did while setting up your proxy tool e.g.:
+&lt;ul&gt;
+&lt;li&gt;Web Server (HTTP): &lt;code&gt;http://localhost:3128&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Secure Web Server (HTTPS): &lt;code&gt;http://localhost:3128&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Bypass: &lt;code&gt;localhost,127.0.0.1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Apply &amp;amp; Restart.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;docker-daemon&#34;&gt;Docker daemon&lt;/h1&gt;
+&lt;p&gt;You also have to configure the Docker daemon, which is running the containers basically, to forward the proxy settings. For this you have to add the proxy configuration to the &lt;code&gt;~/.docker/config.json&lt;/code&gt;. Here is an example of a proper config (Port and noProxy settings might differ for your setup):&lt;/p&gt;
+
+   
+   
+   &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-0&#34; role=&#34;tablist&#34;&gt;
+  &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active&#34;
+          id=&#34;tabs-00-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-00-00&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-00-00&#34; aria-selected=&#34;false&#34;&gt;
+        Windows &amp;amp; MacOS
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-00-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-00-01&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-00-01&#34; aria-selected=&#34;false&#34;&gt;
+        Linux
+      &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-0-content&#34;&gt;
+    &lt;div class=&#34;tab-body tab-pane fade show active&#34;
+        id=&#34;tabs-00-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-00-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;proxies&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;default&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;httpProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://host.docker.internal:3128&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;httpsProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://host.docker.internal:3128&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;noProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;host.docker.internal,localhost,127.0.0.1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-00-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-00-01-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;proxies&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;default&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;httpProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://172.17.0.1:3128&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;httpsProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://172.17.0.1:3128&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;noProxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;host.docker.internal,localhost,127.0.0.1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;For more details see: &lt;a href=&#34;https://docs.docker.com/network/proxy/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Docker Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;environment-variables&#34;&gt;Environment Variables&lt;/h1&gt;
+&lt;p&gt;It is required to set the following environment variables:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;HTTP_PROXY&lt;/code&gt; - proxy server, e.g. &lt;code&gt;http://localhost:3128&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;HTTPS_PROXY&lt;/code&gt; - secure proxy server, e.g. &lt;code&gt;http://localhost:3128&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-1&#34; role=&#34;tablist&#34;&gt;
+  &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active&#34;
+          id=&#34;tabs-01-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-00&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-01-00&#34; aria-selected=&#34;false&#34;&gt;
+        Windows
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-01-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-01&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-01-01&#34; aria-selected=&#34;false&#34;&gt;
+        MacOS
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-01-02-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-02&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-01-02&#34; aria-selected=&#34;false&#34;&gt;
+        Linux
+      &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;
+    &lt;div class=&#34;tab-body tab-pane fade show active&#34;
+        id=&#34;tabs-01-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-00-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;set&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setx HTTP_PROXY &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://localhost:3128&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;setx HTTPS_PROXY &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://localhost:3128&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-01-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-01-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export HTTP_PROXY=http://localhost:3128&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export HTTPS_PROXY=http://localhost:3128&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-01-02&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-02-tab&#34;&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export HTTP_PROXY=http://localhost:3128&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;echo&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;export HTTPS_PROXY=http://localhost:3128&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;source&lt;/span&gt; ~/.bash_profile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&#34;solving-issues-with-tls-ssl-certificate-validation-using-https-connections-from-containers&#34;&gt;Solving issues with TLS (SSL) certificate validation using https connections from containers&lt;/h1&gt;
+&lt;p&gt;If you are behind a so-called intercept proxy (which you most probably are), you can run into certificate issues:
+Your corporate proxy works as a &amp;ldquo;man-in-the-middle&amp;rdquo; to be able to check the transfered data for malicious content.
+Means, there is a protected connection between the application in your local runtime environment and the proxy and
+another from the proxy to the external server your application wants to interact with.&lt;/p&gt;
+&lt;p&gt;For the authentication corporate proxies often use self-signed certificates (certificates which are not signed by
+a (well-known official) certificate authority. Those kind of certificates need to be added to the database of
+trusted certificates of your local runtime environment. This task is typically handled by the IT department of
+your corporation (if the OS and software installed on it is managed by them) and you will not run into problems,
+normally.&lt;/p&gt;
+&lt;p&gt;If it comes to executing containers, those are typically not managed by your IT department and the proxy certificate(s)
+is/are missing. So, you need to find a way to install those into the (dev) container you want to execute.&lt;/p&gt;
+&lt;p&gt;See (one of) those articles to get how to achieve that:
+&lt;a href=&#34;https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers&lt;/a&gt;
+&lt;a href=&#34;https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h1&gt;
+&lt;h3 id=&#34;initial-devcontainer-build-issue&#34;&gt;Initial DevContainer build issue&lt;/h3&gt;
+&lt;p&gt;If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Open Docker Desktop&lt;/li&gt;
+&lt;li&gt;From &lt;code&gt;Troubleshooting&lt;/code&gt; choose &lt;code&gt;Clean / Purge data&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;github-rate-limit-exceeded&#34;&gt;GitHub rate limit exceeded&lt;/h3&gt;
+&lt;p&gt;How to fix can be found at &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management/troubleshooting/#github-rate-limit-exceeded&#34;&gt;Lifecycle Management Troubleshooting&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
