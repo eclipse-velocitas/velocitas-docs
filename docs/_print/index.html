@@ -87,7 +87,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.67219d5b1d6d1de2f2d8e08bc29dd475.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c01f7586ad50197150f134c6fc320bfd.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -5288,7 +5288,7 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 </ul>
 <h3 id="local-execution">Local Execution</h3>
 <p>First, make sure that the runtime services are configured and running like described <a href="/velocitas-docs/docs/run_runtime_services_locally.md">here</a>.</p>
-<p>The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the task <code>VehicleApp</code>.</p>
+<p>The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing <code>VehicleApp</code> using provided task.</p>
 <p>When the runtime services and the application are running, integration tests can be executed locally.</p>
 <h3 id="kubernetes-execution-k3d">Kubernetes execution (K3D)</h3>
 <p>If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">documentation</a>. To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:</p>
@@ -5342,13 +5342,15 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 </ol>
 <h2 id="run-tests-in-kubernetes-mode">Run tests in Kubernetes mode</h2>
 <ol>
-<li>Make sure that K3D is set up and vehicle runtime (including VehicleApp) is deployed and running (by executing the task <code>K3D Runtime - Deploy VehicleApp</code>).</li>
+<li>Make sure that K3D is set up and vehicle runtime (including VehicleApp) is deployed and running (by executing the task <code>K3D Runtime - Up</code>).</li>
 <li>Make sure that the tests are using the right ports for Kubernetes execution (<a href="#kubernetes-execution-k3d">see above</a>).</li>
 <li>Run tests from the test runner.</li>
 </ol>
 <h2 id="update-application-when-running-in-kubernetes-mode">Update application when running in Kubernetes mode</h2>
 <ol>
-<li>Re-run the task <code>K3D - Deploy runtime</code> that rebuilds and deploys the application to K3D.</li>
+<li>Execute the task <code>K3D Runtime - Down</code> which stops up K3D runtime.</li>
+<li>Execute the task <code>K3D Runtime - Up</code> which starts up K3D runtime.</li>
+<li>Execute the task <code>K3D Runtime - Deploy VehicleApp</code> .</li>
 <li>Re-run tests from the test runner.</li>
 </ol>
 <h1 id="troubleshooting">Troubleshooting</h1>
