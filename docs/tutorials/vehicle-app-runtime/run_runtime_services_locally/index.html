@@ -32,24 +32,28 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Run runtime services locally | Velocitas</title>
-<meta name="description" content="Using tasks in Visual Studio Code Overview: If you are developing in Visual Studio Code, the runtime components (like KUKSA Data Broker or Vehicle Services) are available for local execution coming from our devenv-runtimes package and are accessible as Tasks, a feature of the Visual Studio Code. Additional information on tasks can be found here.
-Start local runtime: To start local runtime, a task called Local Runtime - Up is available.">
+<meta name="description" content="Using tasks in Visual Studio Code Overview: If you are developing in Visual Studio Code, the runtime components (like KUKSA Data Broker or Vehicle Services) are available for local execution as Tasks, a feature of the Visual Studio Code. Additional information on tasks can be found here.
+Quick Start: Each component has a task that is defined in .vscode/tasks.json:
+Dapr (Local - Ensure Dapr): installs Dapr CLI and initializes Dapr if required Mosquitto (Local - Mosquitto): runs Mosquitto as a container (docker run) KUKSA Data Broker (Local - VehicleDataBroker): runs KUKSA Data Broker as a container (Optional) Vehicle Services (Local - VehicleServices): runs the Vehicle Services (e.">
 <meta property="og:title" content="Run runtime services locally" />
-<meta property="og:description" content="Using tasks in Visual Studio Code Overview: If you are developing in Visual Studio Code, the runtime components (like KUKSA Data Broker or Vehicle Services) are available for local execution coming from our devenv-runtimes package and are accessible as Tasks, a feature of the Visual Studio Code. Additional information on tasks can be found here.
-Start local runtime: To start local runtime, a task called Local Runtime - Up is available." />
+<meta property="og:description" content="Using tasks in Visual Studio Code Overview: If you are developing in Visual Studio Code, the runtime components (like KUKSA Data Broker or Vehicle Services) are available for local execution as Tasks, a feature of the Visual Studio Code. Additional information on tasks can be found here.
+Quick Start: Each component has a task that is defined in .vscode/tasks.json:
+Dapr (Local - Ensure Dapr): installs Dapr CLI and initializes Dapr if required Mosquitto (Local - Mosquitto): runs Mosquitto as a container (docker run) KUKSA Data Broker (Local - VehicleDataBroker): runs KUKSA Data Broker as a container (Optional) Vehicle Services (Local - VehicleServices): runs the Vehicle Services (e." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2023-06-09T08:45:10+02:00" />
+<meta property="article:modified_time" content="2023-05-26T21:35:12+02:00" />
 <meta itemprop="name" content="Run runtime services locally">
-<meta itemprop="description" content="Using tasks in Visual Studio Code Overview: If you are developing in Visual Studio Code, the runtime components (like KUKSA Data Broker or Vehicle Services) are available for local execution coming from our devenv-runtimes package and are accessible as Tasks, a feature of the Visual Studio Code. Additional information on tasks can be found here.
-Start local runtime: To start local runtime, a task called Local Runtime - Up is available."><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-06-09T08:45:10+02:00" />
-<meta itemprop="wordCount" content="618">
+<meta itemprop="description" content="Using tasks in Visual Studio Code Overview: If you are developing in Visual Studio Code, the runtime components (like KUKSA Data Broker or Vehicle Services) are available for local execution as Tasks, a feature of the Visual Studio Code. Additional information on tasks can be found here.
+Quick Start: Each component has a task that is defined in .vscode/tasks.json:
+Dapr (Local - Ensure Dapr): installs Dapr CLI and initializes Dapr if required Mosquitto (Local - Mosquitto): runs Mosquitto as a container (docker run) KUKSA Data Broker (Local - VehicleDataBroker): runs KUKSA Data Broker as a container (Optional) Vehicle Services (Local - VehicleServices): runs the Vehicle Services (e."><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
+<meta itemprop="dateModified" content="2023-05-26T21:35:12+02:00" />
+<meta itemprop="wordCount" content="909">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Run runtime services locally"/>
-<meta name="twitter:description" content="Using tasks in Visual Studio Code Overview: If you are developing in Visual Studio Code, the runtime components (like KUKSA Data Broker or Vehicle Services) are available for local execution coming from our devenv-runtimes package and are accessible as Tasks, a feature of the Visual Studio Code. Additional information on tasks can be found here.
-Start local runtime: To start local runtime, a task called Local Runtime - Up is available."/>
+<meta name="twitter:description" content="Using tasks in Visual Studio Code Overview: If you are developing in Visual Studio Code, the runtime components (like KUKSA Data Broker or Vehicle Services) are available for local execution as Tasks, a feature of the Visual Studio Code. Additional information on tasks can be found here.
+Quick Start: Each component has a task that is defined in .vscode/tasks.json:
+Dapr (Local - Ensure Dapr): installs Dapr CLI and initializes Dapr if required Mosquitto (Local - Mosquitto): runs Mosquitto as a container (docker run) KUKSA Data Broker (Local - VehicleDataBroker): runs KUKSA Data Broker as a container (Optional) Vehicle Services (Local - VehicleServices): runs the Vehicle Services (e."/>
 
 
 
@@ -94,7 +98,7 @@ Start local runtime: To start local runtime, a task called Local Runtime - Up is
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c01f7586ad50197150f134c6fc320bfd.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +124,7 @@ Start local runtime: To start local runtime, a task called Local Runtime - Up is
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c01f7586ad50197150f134c6fc320bfd.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -180,10 +184,6 @@ Start local runtime: To start local runtime, a task called Local Runtime - Up is
   <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_modelval-check"/>
   <label for="m-velocitas-docsdocsconceptsdevelopment_modelval-check"><a href="/velocitas-docs/docs/concepts/development_model/val/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_modelval"><span class="">Vehicle Abstraction Layer (VAL)</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-li">
-  <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-check"/>
-  <label for="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-check"><a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_manifest/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest"><span class="">Vehicle App Manifest</span></a></label>
-  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsconceptsdeployment_model-li">
@@ -240,7 +240,7 @@ Start local runtime: To start local runtime, a task called Local Runtime - Up is
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsquickstart-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsquickstart-check"/>
-  <label for="m-velocitas-docsdocstutorialsquickstart-check"><a href="/velocitas-docs/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsquickstart"><span class="">Getting Started</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsquickstart-check"><a href="/velocitas-docs/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsquickstart"><span class="">Quickstart</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsquickstartimport_examples-li">
@@ -381,11 +381,21 @@ Start local runtime: To start local runtime, a task called Local Runtime - Up is
         <nav id="TableOfContents">
   <ul>
     <li><a href="#using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</a></li>
-    <li><a href="#addchange-runtime-service-configuration">Add/Change runtime service configuration</a></li>
+    <li><a href="#addchange-service-configuration">Add/Change service configuration</a>
+      <ul>
+        <li><a href="#addchange-service-configuration-helper">Add/Change service configuration helper</a></li>
+      </ul>
+    </li>
     <li><a href="#using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</a></li>
+    <li><a href="#using-kuksa-feedercan">Using KUKSA FeederCan</a></li>
     <li><a href="#integrating-a-new-runtime-service-into-visual-studio-code-task">Integrating a new runtime service into Visual Studio Code Task</a>
       <ul>
         <li><a href="#task-codeblock-helper">Task CodeBlock helper</a></li>
+      </ul>
+    </li>
+    <li><a href="#integrating-a-new-vehicle-service">Integrating a new vehicle service</a>
+      <ul>
+        <li><a href="#vehicle-service-codeblock-helper">Vehicle Service CodeBlock helper</a></li>
       </ul>
     </li>
     <li><a href="#troubleshooting">Troubleshooting</a>
@@ -469,39 +479,95 @@ Start local runtime: To start local runtime, a task called Local Runtime - Up is
 		
 	</header>    
 	<h2 id="using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</h2>
-<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are available for local execution coming from our <em>devenv-runtimes</em> package and are accessible as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>.</p>
-<p><strong>Start local runtime:</strong> To start local runtime, a task called <code>Local Runtime - Up</code> is available. This task runs the runtime services in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Local Runtime - Up</code>.</p>
+<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are available for local execution as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>.</p>
+<p><strong>Quick Start:</strong> Each component has a task that is defined in <em>.vscode/tasks.json</em>:</p>
+<ul>
+<li>Dapr (<code>Local - Ensure Dapr</code>): installs Dapr CLI and initializes Dapr if required</li>
+<li>Mosquitto (<code>Local - Mosquitto</code>): runs <em>Mosquitto</em> as a container (<code>docker run</code>)</li>
+<li>KUKSA Data Broker (<code>Local - VehicleDataBroker</code>): runs <em>KUKSA Data Broker</em> as a container</li>
+<li>(Optional) Vehicle Services (<code>Local - VehicleServices</code>): runs the <em>Vehicle Services</em> (e.g. the <code>Seat Service</code>) configured in the <code>AppManifest.json</code> each as a separate container</li>
+<li>(Optional) Feeder Can (<code>Local - FeederCan</code>): runs <em>FeederCAN</em> as a container</li>
+</ul>
+<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>Start Vehicle App runtime</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Start Vehicle App runtime</code>.</p>
 <p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
-<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task. More detailed logs can be found inside your workspace&rsquo;s logs directory <code>./logs/*</code></p>
-<h2 id="addchange-runtime-service-configuration">Add/Change runtime service configuration</h2>
-<p>The configuration for services of our provided local runtime are defined in the <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json" target="_blank" rel="noopener"><code>runtime.json</code></a> at the root of the repository <a href="https://github.com/eclipse-velocitas/devenv-runtimes/tree/main" target="_blank" rel="noopener">devenv-runtimes</a>.
-For a more detailed view on how to change or add runtime service configuration, please visit: <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages">Lifecylce Management Package Development</a></p>
-<h2 id="using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</h2>
-<p>A CLI tool is provided for interacting with a running instance of the KUKSA Data Broker. It can be started by running the task <code>Local Runtime - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local Runtime - VehicleDataBroker CLI</code>). The <em>Runtime Local</em> needs to be running for you to be able to use the tool.</p>
+<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
+<p><strong>Scripting:</strong> The tasks itself are executing scripts that are located in <code>.vscode/scripts</code>. These scripts download the specified version of the runtime components and execute them along with Dapr. The same mechanism can be used to register additional services or prerequisites by adding new task definitions in the <code>tasks.json</code> file.</p>
+<h2 id="addchange-service-configuration">Add/Change service configuration</h2>
+<p>The configuration for the services is defined in the file <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json" target="_blank" rel="noopener"><code>./AppManifest.json</code></a>. If you want to add a new service, adapt <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json" target="_blank" rel="noopener"><code>./AppManifest.json</code></a>. If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.</p>
+<h3 id="addchange-service-configuration-helper">Add/Change service configuration helper</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;NAME&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;image&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;IMAGE&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;VERSION&gt;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</h2>
+<p>A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task <code>Local - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local - VehicleDataBroker CLI</code>). The <em>KUKSA Data Broker</em> needs to be running for you to be able to use the tool.</p>
+<h2 id="using-kuksa-feedercan">Using KUKSA FeederCan</h2>
+<p><em>FeederCan</em> is a provider of a certain set of data points to the data broker.
+To run <em>FeederCan</em> as task please use <code>[F1 -&gt; Tasks: Run Task -&gt; Local - FeederCan]</code> and it will be run as a docker container.</p>
+<p>By default it will use the same file, that is used for the k3d environment: <code>deploy/runtime/k3d/volume/dbcfileDefault.dbc</code></p>
+<p>For more flexible configuration please follow <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a></p>
 <h2 id="integrating-a-new-runtime-service-into-visual-studio-code-task">Integrating a new runtime service into Visual Studio Code Task</h2>
 <p>Integration of a new runtime service can be done by duplicating one of the existing tasks.</p>
 <ul>
-<li>Create a new service in either a new created <em>Package</em> or branch/fork of <a href="https://github.com/eclipse-velocitas/devenv-runtimes/tree/main" target="_blank" rel="noopener">devenv-runtimes</a> as already explained above</li>
-<li>In <code>.vscode/tasks.json</code>, duplicate section from task e.g. <code>Local Runtime - Up</code>, <code>Local Runtime - Run VehicleApp</code> or <code>Local Runtime - VehicleDataBroker CLI</code></li>
+<li>Create a new script based on template script <code>.vscode/scripts/run-vehicledatabroker.sh</code></li>
+<li>In <code>.vscode/tasks.json</code>, duplicate section from task <code>run-vehicledatabroker</code></li>
 <li>Correct names in a new code block</li>
 <li><strong>Disclaimer:</strong> <code>Problem Matcher</code> defined in <code>tasks.json</code> is a feature of the Visual Studio Code Task, to ensure that the process runs in background</li>
-<li>Run task using <code>[F1 -&gt; Tasks: Run Task -&gt; &lt;Your new task label&gt;]</code></li>
+<li>Run task using <code>[F1 -&gt; Tasks: Run Task -&gt; &lt;Your new task name&gt;]</code></li>
 <li>Task should be visible in Terminal section of Visual Studio Code</li>
 </ul>
 <h3 id="task-codeblock-helper">Task CodeBlock helper</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;task_name&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;task_description&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;velocitas exec runtime-local &lt;service_id&gt; &lt;args&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;label&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;__CHANGEIT: Task name__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;type&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;command&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.vscode/scripts/&lt;__CHANGEIT: Script Name.sh__&gt; --task&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;group&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;presentation&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;reveal&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;always&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;panel&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dedicated&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;problemMatcher&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;isBackground&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;problemMatcher&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;pattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;regexp&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;file&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;location&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;background&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;activeOnStart&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;beginsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;^&lt;__CHANGEIT: Regex log from your app, decision to send process in background__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;endsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">},</span>
+</span></span></code></pre></div><h2 id="integrating-a-new-vehicle-service">Integrating a new vehicle service</h2>
+<p>Integration of a new vehicle service can be done by adding an additional case and following the template <a href="https://github.com/eclipse-velocitas/devenv-runtime-local/blob/main/src/run-vehicleservices.sh" target="_blank" rel="noopener"><code>run-vehicleservices.sh</code></a>.</p>
+<h3 id="vehicle-service-codeblock-helper">Vehicle Service CodeBlock helper</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Configure Service Specific Requirements
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">configure_service</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000">in</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">seatservice</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">;;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">NEW_SERVICE</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure ports for docker to expose
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DOCKER_PORTS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-p &lt;PORT_TO_EXPOSE&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure ENVs need to run docker container
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DOCKER_ENVS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-e &lt;ENV_TO_RUN_CONTAINER&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure Dapr App Port
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DAPR_APP_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure Dapr Grpc Port
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DAPR_GRPC_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">;;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">echo</span> <span style="color:#4e9a06">&#34;Unknown Service to configure.&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">;;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>      
 </span></span></code></pre></div><h2 id="troubleshooting">Troubleshooting</h2>
 <p><strong>Problem description:</strong> When integrating new services into an existing dev environment, it is highly recommended to use the Visual Studio Code Task Feature.
 A new service can be easily started by calling it from bash script, however restarting the same service might lead to port conflicts (GRPC Port or APP port). That can be easily avoided by using the Visual Studio Code Task Feature.</p>
@@ -511,15 +577,15 @@ A new service can be easily started by calling it from bash script, however rest
 <ul>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in local Kubernetes cluster</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Setup and Explore Development Enviroment</a></li>
-<li>Concept: <a href="/velocitas-docs/docs/about/deployment-model/">Deployment Model</a></li>
-<li>Concept: <a href="/velocitas-docs/docs/about/deployment-model/vehicle_app_releases/">Build and release process</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model/">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases/">Build and release process</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 9, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/ae44de7cc28fcd86608306261f96614465d25936">Integration tests update (ae44de7)</a>
+  Last modified May 26, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/47fc097de8570cc52c02a7e3b48d41cd65ec7d2f">Fix contribution guideline link for official website and github pages (#98) (47fc097)</a>
 </div>
 
 </div>

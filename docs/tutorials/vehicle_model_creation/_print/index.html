@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c01f7586ad50197150f134c6fc320bfd.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -238,7 +238,7 @@ This is the multi-page printable view of this section.
 
 </div>
 
-<p>A <em>Vehicle Model</em> makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against <em>Vehicle Services</em> and other <em>Vehicle Apps</em>. It is generated from the underlying semantic models based e.g. on the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>. The model is generated for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library providing vehicle abstraction &ldquo;on code level&rdquo;.</p>
+<p>A <em>Vehicle Model</em> makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against <em>Vehicle Services</em> and other <em>Vehicle Apps</em>. It is generated from the underlying semantic models based on the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>. The model is generated for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library providing vehicle abstraction &ldquo;on code level&rdquo;.</p>
 <p>By default our app templates now generate the vehicle model during the devContainer initialization - managed by the Velocitas life cycle management. The respective VSS-based model source is referenced in the app manifest allowing to freely choose the model being used in your project. You will find more details about this in section <a href="automated_model_lifecycle/">Automated Model Lifecycle</a>.</p>
 <p>The previous approach, using pre-generated model repositories, is deprecated as of now. But is still available and is described in section <a href="manual_model_creation/">Manual Vehicle Model Creation</a>. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.</p>
 
@@ -306,18 +306,19 @@ This is the multi-page printable view of this section.
 <div class="tab-content" id="tabs-1-content">
     <div class="tab-pane fade show active"
         id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;vehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&gt;&#34;</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;VehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;vehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;VehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./my_model/my_model.json&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
     </div>
 </div>
 
+<p>Instead of an URI you could also reference a local file containing the specification.</p>
 
 
 <div class="alert alert-primary" role="alert">
@@ -333,7 +334,7 @@ This is the multi-page printable view of this section.
 <li>through a <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/usage/#installation">onPostInit hook</a> when <code>velocitas init</code> is called:
 <ul>
 <li>either triggered manually or</li>
-<li>automatically during the instantiation of the devContainer through our <a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>, or</li>
+<li>automatically during the instantiation of the devContainer through our <a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas lifecycle management</a>, or</li>
 </ul>
 </li>
 <li>when you trigger the VS Code task <code>(Re-)generate vehicle model</code> explicitly.</li>
@@ -675,7 +676,7 @@ Successfully installed my-vehicle-model-0.1
 <p>The root model of the <em>Vehicle Model</em> tree should be called <em>Vehicle</em> by convention and is specified, by setting parent to <code>None</code>. For all other models a parent model must be specified as the 2nd argument of the <code>Model</code> constructor, as can be seen by the <code>Cabin</code> and the <code>Seat</code> models above.</p>
 <p>A singleton instance of the <em>Vehicle Model</em> called <code>vehicle</code> is created at the end of the file. This instance is supposed to be used in the <em>Vehicle Apps</em>. Creating multiple instances of the <em>Vehicle Model</em> should be avoided for performance reasons.</p>
 <h3 id="add-a-vehicle-service">Add a Vehicle Service</h3>
-<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
+<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
 <p>In this section, we add a <em>Vehicle Service</em> to the <em>Vehicle Model</em>.</p>
 <ol>
 <li>

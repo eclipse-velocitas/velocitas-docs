@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c01f7586ad50197150f134c6fc320bfd.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -363,19 +363,15 @@ After creating the mock, you can test the method and check the response. Use ass
 <h2 id="see-the-results">See the results</h2>
 <p>Once the implementation is done, it is time to run and debug the app.</p>
 <h3 id="run-your-app">Run your App</h3>
-<p>In order to run the app make sure the <code>devenv-runtimes</code> package is part of your <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> (which should be the default) and the runtime is up and running. Read more about it in the <a href="/velocitas-docs/docs/run_runtime_services_locally.md">run runtime services</a> section.</p>
-<p>Now chose one of the options to start the VehicleApp under development (including Dapr sidecar if middleware type is Dapr):</p>
-<ol>
-<li>Press <kbd>F5</kbd></li>
-</ol>
-<p>or:</p>
-<ol>
-<li>Press <kbd>F1</kbd></li>
-<li>Select command <code>Tasks: Run Task</code></li>
-<li>Select <code>Local Runtime - Run VehicleApp</code></li>
-</ol>
-<h3 id="the-following-dapr-configuration-is-part-of-the-devenv-runtimes-package-wip-tbd">The following dapr configuration is part of the devenv-runtimes package (WIP: TBD)</h3>
-<p>You already have seen this command and how to check if it is working in the <a href="/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#debug-your-vehicle-app">general setup</a>.</p>
+<p>In order to run the app make sure you have the <code>seatservice</code> configured as a dependency in your <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json" target="_blank" rel="noopener"><code>./AppManifest.json</code></a>. Read more about it in the <a href="/velocitas-docs/docs/run_runtime_services_locally.md">run runtime services</a> section.</p>
+<p>If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the &ldquo;dapr run &hellip;&rdquo; command to start your app:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dapr run --app-id seatadjuster --app-protocol grpc --app-port <span style="color:#0000cf;font-weight:bold">50008</span> --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./app/src/main.py
+</span></span></code></pre></div><p>You already have seen this command and how to check if it is working in the <a href="/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#debug-your-vehicle-app">general setup</a>.</p>
+<p>2 parameters may be unclear in this command:</p>
+<ul>
+<li>the config file <code>config.yaml</code></li>
+<li>the components-path</li>
+</ul>
 <p>For now, you just need to know that these parameters are needed to make everything work together.</p>
 <p>The config.yaml has to be placed in the folder called <code>.dapr</code>and has the following content:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Yaml" data-lang="Yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dapr.io/v1alpha1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -421,48 +417,34 @@ After creating the mock, you can test the method and check the response. Use ass
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VehicleApp&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;program&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}/app/src/main.py&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;console&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;integratedTerminal&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;preLaunchTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;postDebugTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;preLaunchTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-run&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;postDebugTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;APP_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;50008&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;DAPR_HTTP_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;3500&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;50001&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${input:DAPR_GRPC_PORT}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;SERVICE_DAPR_APP_ID&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${input:SERVICE_NAME}&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;VEHICLEDATABROKER_DAPR_APP_ID&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">]</span>
 </span></span></code></pre></div><p>We specify which python-script to run using the <code>program</code> key. With the <code>preLaunchTask</code> and <code>postDebugTask</code> keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks to find in <code>/.vscode/tasks.json</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;velocitas exec runtime-local run-dapr-sidecar vehicleapp --app-port 50008 --dapr-grpc-port 50001 --dapr-http-port 3500&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;isBackground&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;problemMatcher&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;pattern&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;regexp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;file&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;location&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#000;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-run&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;appId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicleapp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;appPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50008</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;componentsPath&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.dapr/components&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.dapr/config.yaml&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;appProtocol&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;args&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;--dapr-grpc-port&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;50001&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;--dapr-http-port&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;3500&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;background&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#204a87;font-weight:bold">&#34;activeOnStart&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#204a87;font-weight:bold">&#34;beginsPattern&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;^You&#39;re up and running! Dapr logs will appear here.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#204a87;font-weight:bold">&#34;endsPattern&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;hide&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;dapr stop --app-id vehicleapp&#34;</span>
@@ -471,10 +453,33 @@ After creating the mock, you can test the method and check the response. Use ass
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hide&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">,</span>
-</span></span></code></pre></div><p>You can adapt the configuration in <code>/.vscode/launch.json</code> to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.</p>
-<p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.</p>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Lastly, the environment variables can also be specified.</p>
+<p>You can adapt the configuration in <code>/.vscode/launch.json</code> to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.</p>
+<p>Environment Variables can also be configured on the central <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json" target="_blank" rel="noopener"><code>/app/AppManifest.json</code></a> and read out by the launch configuration in Visual Studio Code through a preinstalled extension in the devcontainer <a href="https://marketplace.visualstudio.com/items?itemName=augustocdias.tasks-shell-input" target="_blank" rel="noopener">Tasks Shell Input</a>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;inputs&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;command&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shellCommand.execute&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;args&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;useSingleResult&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;cat ./app/AppManifest.json | jq .[].DAPR_GRPC_PORT | tr -d &#39;\&#34;&#39;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;cwd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;SERVICE_NAME&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;command&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shellCommand.execute&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;args&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;useSingleResult&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;cat ./app/AppManifest.json | jq .[].Name | tr -d &#39;\&#34;&#39;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;cwd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a></li>

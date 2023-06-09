@@ -65,18 +65,19 @@
 &lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;
     &lt;div class=&#34;tab-pane fade show active&#34;
         id=&#34;tabs-01-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-00-tab&#34;&gt;
-        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vehicleModel&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&amp;gt;&amp;#34;&lt;/span&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;VehicleModel&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&#34;tab-pane fade&#34;
         id=&#34;tabs-01-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-01-tab&#34;&gt;
-        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vehicleModel&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;VehicleModel&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./my_model/my_model.json&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;p&gt;Instead of an URI you could also reference a local file containing the specification.&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
@@ -92,7 +93,7 @@
 &lt;li&gt;through a &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management/packages/usage/#installation&#34;&gt;onPostInit hook&lt;/a&gt; when &lt;code&gt;velocitas init&lt;/code&gt; is called:
 &lt;ul&gt;
 &lt;li&gt;either triggered manually or&lt;/li&gt;
-&lt;li&gt;automatically during the instantiation of the devContainer through our &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management&#34;&gt;Velocitas Lifecycle Management&lt;/a&gt;, or&lt;/li&gt;
+&lt;li&gt;automatically during the instantiation of the devContainer through our &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management&#34;&gt;Velocitas lifecycle management&lt;/a&gt;, or&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;when you trigger the VS Code task &lt;code&gt;(Re-)generate vehicle model&lt;/code&gt; explicitly.&lt;/li&gt;

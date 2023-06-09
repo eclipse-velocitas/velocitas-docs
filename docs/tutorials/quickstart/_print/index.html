@@ -33,18 +33,18 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
-<title>Getting Started | Velocitas</title>
+<title>Quickstart | Velocitas</title>
 <meta name="description" content="Learn how to setup and explore the provided development environment.
 ">
-<meta property="og:title" content="Getting Started" />
+<meta property="og:title" content="Quickstart" />
 <meta property="og:description" content="Learn how to setup and explore the provided development environment.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/quickstart/" />
-<meta itemprop="name" content="Getting Started">
+<meta itemprop="name" content="Quickstart">
 <meta itemprop="description" content="Learn how to setup and explore the provided development environment.
 "><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Getting Started"/>
+<meta name="twitter:title" content="Quickstart"/>
 <meta name="twitter:description" content="Learn how to setup and explore the provided development environment.
 "/>
 
@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c01f7586ad50197150f134c6fc320bfd.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -121,7 +121,7 @@ This is the multi-page printable view of this section.
 
 
 
-<h1 class="title">Getting Started</h1>
+<h1 class="title">Quickstart</h1>
 <div class="lead">Learn how to setup and explore the provided development environment.</div>
 
 
@@ -171,164 +171,134 @@ This is the multi-page printable view of this section.
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    Before you start, we recommend that you familiarize yourself with our <a href="/velocitas-docs/docs/concepts/development_model">Basic Concept</a> to understand mentioned terms.
+    Before you start, we recommend that you familiarize yourself with our <a href="/velocitas-docs/docs/concepts/development_model">basic concept</a> to understand the terms mentioned.
 
 </div>
 
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Following is required to create comprehensive Development Envrironment for your <em>Vehcile App</em>:</p>
+<h2 id="creating-vehicle-app-repository">Creating Vehicle App Repository</h2>
+<p>For the orginization and <em>Vehicle App</em> repository the name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of the document.</p>
+<p>Create your own repository copy from the template repository of your choice <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python</a>/<a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">C++</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    After generating your repository please make sure to change the default workflow permissions for GitHub Actions to &ldquo;Read and write permissions&rdquo; in Settings -&gt; Actions -&gt; General
+
+</div>
+
+<h2 id="starting-development-environment">Starting Development Environment</h2>
+<p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
+<h3 id="visual-studio-code">Visual Studio Code</h3>
+<p>The Visual Studio Code <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">Development Containers</a> makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development &amp; testing tools into a container that is then started within your Visual Studio Code session.</p>
+<p>To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:</p>
 <ul>
 <li>
-<p>Install <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a></p>
+<p><a href="/velocitas-docs/docs/tutorials/quickstart/container_runtime">Install a working container runtime</a></p>
 </li>
 <li>
-<p><a href="/velocitas-docs/docs/tutorials/quickstart/container_runtime">Install a working container runtime</a></p>
+<p>Install <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a></p>
 </li>
 <li>
 <p>Add <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers" target="_blank" rel="noopener">Remote-Containers</a> extension via the marketplace or using the command line</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>code --install-extension ms-vscode-remote.remote-containers
 </span></span></code></pre></div></li>
 </ul>
-<h2 id="creating-vehicle-app-repository">Creating Vehicle App Repository</h2>
-<p>For the Orginization and Vehicle App repository the name <em>MyOrg/MyFirstVehicleApp</em> is used as a reference during the rest of the document.</p>
-<p>Create your own repository copy from the template repository of your choice <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python</a>/<a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">C++</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
-<h2 id="starting-development-environment">Starting Development Environment</h2>
-<p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code&rsquo;s <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">DevContainer</a> or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
 
-   
-   
-   
-<ul class="nav nav-tabs" id="tabs-1" role="tablist">
-  <li class="nav-item">
-      <a class="nav-link active"
-          id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
-          aria-controls="tabs-01-00" aria-selected="false">
-        Visual Studio Code
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link"
-          id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
-          aria-controls="tabs-01-01" aria-selected="false">
-        GitHub Codespaces
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link"
-          id="tabs-01-02-tab" data-toggle="tab" href="#tabs-01-02" role="tab"
-          aria-controls="tabs-01-02" aria-selected="false">
-        Digital.Auto
-      </a>
-    </li>
-</ul>
 
-<div class="tab-content" id="tabs-1-content">
-    <div class="tab-body tab-pane fade show active"
-        id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
-        <p>The Visual Studio Code&rsquo;s DevContainer makes possible to package a complete <em>Vehicle App</em> development environment, including Visual Studio Code&rsquo;s extensions, <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/">Vehicle App SDK</a>, <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime">Vehicle App Runtimes</a> and all other development &amp; testing tools into a DevContainer that is then started within your Visual Studio Code session.</p>
 <div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">Proxy configuration</h4>
-<pre><code>A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &lt;a href=&quot;/velocitas-docs/docs/tutorials/quickstart/behind_proxy&quot;&gt;Working behind a proxy&lt;/a&gt;
-</code></pre>
+
+    A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: <a href="/velocitas-docs/docs/tutorials/quickstart/behind_proxy">Working behind a proxy</a>
+
 </div>
+
 <p>With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.</p>
 <ol>
-<li>Clone created <em>MyOrg/MyFirstVehicleApp</em> repository locally using your favorite Git tooling</li>
-<li>Go to the just cloned repository folder <code>$ cd MyFirstVehicleApp</code></li>
-<li>Open Visual Studio Code with project content by using command <code>$ code .</code></li>
-<li>A popup appears with the button <kbd>Reopen in Container</kbd> on the lower right side of Visual Studio Code. If the popup does not appear, you can also hit <kbd>F1</kbd> and perform the command <code>Dev-Containers: Open Folder in Container</code></li>
-<li>Click on <kbd>Reopen in Container</kbd></li>
+<li>Clone the repo locally using your favorite Git tooling</li>
+<li>Start Visual Studio Code</li>
+<li>Select <code>Open Folder</code> from the <code>File</code> menu</li>
+<li>Open the root of the cloned repo</li>
+<li>A popup appears on the lower left side of Visual Studio Code. If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command <code>Dev-Containers: Open Folder in Container</code></li>
+<li>Click on <code>Reopen in Container</code></li>
 <li>Wait for the container to be set up</li>
 </ol>
 <p>The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.</p>
+
+
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
-<pre><code>If the DevContainer build process fails, then wait for the current build to finish, press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Dev-Containers: Rebuild Container Without Cache&lt;/code&gt;
-</code></pre>
-<p>The DevContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a> feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.</p>
+
+    <blockquote>
+<p>If the devContainer fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command <code>Dev-Containers: Rebuild Container Without Cache</code></p>
+</blockquote>
+<blockquote>
+<p>The devContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a>-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.</p>
+</blockquote>
+
+
 </div>
 
-    </div>
-    <div class="tab-body tab-pane fade"
-        id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
-        <p>One of the possibilities to use your newly created repository to use it via <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.
-You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as a &ldquo;thin-client&rdquo;.</p>
-<p>To get started with GitHub Codespaces, you just have to follow a few steps:</p>
+<h3 id="codespaces">Codespaces</h3>
+<p>Another possibility to use your newly created repository is via <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.
+You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.</p>
+<p>To get started with Codespaces, you just have to follow a few steps:</p>
 <ol>
 <li>Open your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp" target="_blank" rel="noopener">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
 <li>Click on the green <code>Code</code> button and select Codespaces on the top</li>
 <li>Configure your Codespace if needed (defaults to the main branch and a standard agent)</li>
 <li>Click on <code>create</code></li>
 </ol>
-<p>A new window will open where you see logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.</p>
+<p>A new window will open where you see the logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.</p>
 <p>Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.</p>
+
+
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
-<pre><code>Be careful with using GitHub Codespaces in browser and Visual Studio Code locally at the same time: &lt;em&gt;Tasks&lt;/em&gt; that are started using a browser session will not show in Visual Studio Code environment and vice versa that leads for problems.
-</code></pre>
-</div>
 
-    </div>
-    <div class="tab-body tab-pane fade"
-        id="tabs-01-02" role="tabpanel" aria-labelled-by="tabs-01-02-tab">
-        <p>tbd</p>
+    Be careful with using Codespaces in browser and Visual Studio Code locally at the same time: <em>Tasks</em> that are started using a browser session will not show in Visual Studio Code environment and vice versa. This can lead to problems using the prepared <em>Tasks</em>-scripts.
 
-    </div>
 </div>
 
 <h2 id="starting-runtime-services">Starting runtime services</h2>
 <p>The runtime services (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are required to develop vehicle apps and run integration tests.</p>
-<p>A Visual Studio Code task called <code>Local Runtime - Up</code> is available to run these in the correct order.</p>
+<p>A Visual Studio Code task called <code>Start Vehicle App runtime</code> is available to run these in the correct order.</p>
 <ol>
 <li>Press <kbd>F1</kbd></li>
 <li>Select command <code>Tasks: Run Task</code></li>
-<li>Select <code>Local Runtime - Up</code></li>
+<li>Select <code>Start VehicleApp runtime</code></li>
+<li>Choose <code>Continue without scanning the output</code></li>
 </ol>
-<p>You should see the task <code>Local Runtime - Up</code> being executed on a separate Visual Studio Code terminal with the following content:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ velocitas <span style="color:#204a87">exec</span> runtime-local up 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Hint: Log files can be found in your workspace<span style="color:#a40000">&#39;</span>s logs directory
-</span></span><span style="display:flex;"><span>&gt; mqtt-broker running
-</span></span><span style="display:flex;"><span>&gt; vehicledatabroker running
-</span></span><span style="display:flex;"><span>&gt; seatservice running
-</span></span><span style="display:flex;"><span>&gt; feedercan running
-</span></span><span style="display:flex;"><span>✅ Runtime is ready to use!
-</span></span></code></pre></div>
-
-<div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Note</h4>
-
-    Simply press <code>ctrl + c</code> to stop the runtime.
-
-</div>
-
+<p>You should see the tasks <code>run-mosquitto</code>, <code>run-vehicledatabroker</code>, <code>run-vehicleservices</code> and <code>run-feedercan</code> being executed in the Visual Studio Code output panel.</p>
 <p>More information about the tasks are available <a href="/velocitas-docs/docs/run_runtime_services_locally.md">here</a>.</p>
 <h2 id="debugging-vehicle-app">Debugging Vehicle App</h2>
-<p>Now that the <a href="#starting-runtime-services">runtime services</a> are all up and running, let&rsquo;s start a debug session for the <em>Vehicle App</em> as next step.</p>
+<p>Now that the <a href="#starting-runtime-services">runtime services</a> are all up and running, let&rsquo;s start a debug session for the Vehicle App as next step.</p>
 <p>
 
 
-<ul class="nav nav-tabs" id="tabs-3" role="tablist">
+<ul class="nav nav-tabs" id="tabs-5" role="tablist">
   <li class="nav-item">
       <a class="nav-link active"
-          id="tabs-03-00-tab" data-toggle="tab" href="#tabs-03-00" role="tab"
-          aria-controls="tabs-03-00" aria-selected="false">
+          id="tabs-05-00-tab" data-toggle="tab" href="#tabs-05-00" role="tab"
+          aria-controls="tabs-05-00" aria-selected="false">
         Template
       </a>
     </li><li class="nav-item">
       <a class="nav-link"
-          id="tabs-03-01-tab" data-toggle="tab" href="#tabs-03-01" role="tab"
-          aria-controls="tabs-03-01" aria-selected="false">
+          id="tabs-05-01-tab" data-toggle="tab" href="#tabs-05-01" role="tab"
+          aria-controls="tabs-05-01" aria-selected="false">
         Seat Adjuster
       </a>
     </li>
 </ul>
 
-<div class="tab-content" id="tabs-3-content">
+<div class="tab-content" id="tabs-5-content">
     <div class="tab-body tab-pane fade show active"
-        id="tabs-03-00" role="tabpanel" aria-labelled-by="tabs-03-00-tab">
+        id="tabs-05-00" role="tabpanel" aria-labelled-by="tabs-05-00-tab">
         <ol>
 <li>Open the main source file and set a breakpoint in the given method:
 <ul>
-<li>Python main source file: <code>/app/src/main.py</code>, set a breakpoint inside the method: <code>on_get_speed_request_received</code></li>
+<li>Python main source file: <code>/app/src/main.py</code>, set breakpoint in method: <code>on_get_speed_request_received</code></li>
 <li>C++: Continue on the <code>Seat Adjuster</code> tab.</li>
 </ul>
 </li>
@@ -344,7 +314,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 
     </div>
     <div class="tab-body tab-pane fade"
-        id="tabs-03-01" role="tabpanel" aria-labelled-by="tabs-03-01-tab">
+        id="tabs-05-01" role="tabpanel" aria-labelled-by="tabs-05-01-tab">
         <p>For Python: Follow the guide provided in: <a href="/velocitas-docs/docs/tutorials/quickstart/import_examples/">Import examples</a> and import <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener"><code>seat-adjuster</code></a>. </br>
 For C++: Continue with the next steps.</p>
 <ol>
@@ -390,7 +360,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 <li>
 <p>Commit and push your change</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#4e9a06">&#34;&lt;explain your changes&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#4e9a06">&#34;removed emtpy line&#34;</span>
 </span></span><span style="display:flex;"><span>git push
 </span></span></code></pre></div></li>
 </ol>
@@ -400,7 +370,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 <ol>
 <li>Open the <code>Code</code> page of your repository on GitHub</li>
 <li>Click on <code>Create a new release</code> in the Releases section on the right side</li>
-<li>Enter a version (e.g. v1.0.0) and click on <code>Publish release</code>
+<li>Enter a version, e.g. v1.0.0, and click on <code>Publish release</code>
 <ul>
 <li>GitHub will automatically create a tag using the version number</li>
 </ul>

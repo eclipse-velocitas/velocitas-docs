@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c01f7586ad50197150f134c6fc320bfd.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -472,7 +472,7 @@ Successfully installed my-vehicle-model-0.1
 <p>The root model of the <em>Vehicle Model</em> tree should be called <em>Vehicle</em> by convention and is specified, by setting parent to <code>None</code>. For all other models a parent model must be specified as the 2nd argument of the <code>Model</code> constructor, as can be seen by the <code>Cabin</code> and the <code>Seat</code> models above.</p>
 <p>A singleton instance of the <em>Vehicle Model</em> called <code>vehicle</code> is created at the end of the file. This instance is supposed to be used in the <em>Vehicle Apps</em>. Creating multiple instances of the <em>Vehicle Model</em> should be avoided for performance reasons.</p>
 <h3 id="add-a-vehicle-service">Add a Vehicle Service</h3>
-<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
+<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
 <p>In this section, we add a <em>Vehicle Service</em> to the <em>Vehicle Model</em>.</p>
 <ol>
 <li>

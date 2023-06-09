@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c01f7586ad50197150f134c6fc320bfd.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -178,8 +178,8 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p><em>Velocitas</em> offers a scalable and modular development toolchain for creating containerized Vehicle Applications that offers an easy to use, fast and efficient development experience to increase the velocity of your development team.</p>
-<p>Vehicle Apps are implemented on top of a Vehicle Model (which is generated from the underlying semantic models like VSS for a concrete programming language) and its underlying language-specific SDK to provide headless comfort functions or connected application functions like Seat Adjuster, Dog Mode, Trunk Delivery or Data Logging &amp; triggering.</p>
+      <p><em>Velocitas</em> offers a scalable and modular development toolchain for creating containerized Vehicle Applications that offers a easy to use, fast and efficient development experience to increase the velocity of your development team.</p>
+<p>This Vehicle Apps are implemented on top of a Vehicle Model (which is generated from the underlying semantic models like VSS for a concrete programming language) and its underlying language-specific SDK to provide headless comfort functions or connected application functions like Seat Adjuster, Dog Mode, Trunk Delivery or Data Logging &amp; triggering.</p>
 <p><img src="./use_case.drawio.svg" alt=""></p>
 <h2 id="examples">Examples</h2>
 
@@ -205,8 +205,8 @@ This is the multi-page printable view of this section.
     
 	<h1 id="pg-14994cdfceb19b97cd58870a0d746743">1 - Seat Adjuster</h1>
     <div class="lead">Provides option to request a new seat position and to publish the current seat position</div>
-	<p>In the scenario of a car sharing company, the goal is to provide the functionality of automatically adjusting the driver&rsquo;s seat position based on their preferred settings stored in their profile. When the driver unlocks the car, a request is sent to the vehicle to retrieve the preferred seat position. This is where your implementation begins.</p>
-<p>The <em>Seat Adjuster Vehicle App</em> receives a MQTT message containing the seat position, which then triggers a seat adjustment command through the <em>Seat Service</em> to change the seat position. Additionally, to ensure convenience for future trips, the car sharing company saves the driver&rsquo;s preferred seat position and utilizes it accordingly. <em>The Seat Adjuster Vehicle App</em> subscribes to the seat position, receiving updates from the <em>Data Broker</em>, which streams data from the <em>Seat Service</em>.</p>
+	<p>Imagine a car sharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The car sharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle. That&rsquo;s where your implementation starts.</p>
+<p>The <em>Seat Adjuster Vehicle App</em> receives the seat position as an MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the car sharing company and used for the next trip. As a result, the <em>Seat Adjuster Vehicle App</em> subscribes to the seat position and receives the new seat position from the <em>Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
 <h2 id="requesting-new-seat-position">Requesting new seat position</h2>
 <p><img src="./seat_adjuster_dataflow_1.png" alt=""></p>
 <ol>
