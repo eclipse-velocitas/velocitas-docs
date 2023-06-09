@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.67219d5b1d6d1de2f2d8e08bc29dd475.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -117,7 +117,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.67219d5b1d6d1de2f2d8e08bc29dd475.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -177,10 +177,6 @@
   <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_modelval-check"/>
   <label for="m-velocitas-docsdocsconceptsdevelopment_modelval-check"><a href="/velocitas-docs/docs/concepts/development_model/val/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_modelval"><span class="">Vehicle Abstraction Layer (VAL)</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-li">
-  <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-check"/>
-  <label for="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-check"><a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_manifest/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest"><span class="">Vehicle App Manifest</span></a></label>
-  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsconceptsdeployment_model-li">
@@ -237,7 +233,7 @@
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsquickstart-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsquickstart-check"/>
-  <label for="m-velocitas-docsdocstutorialsquickstart-check"><a href="/velocitas-docs/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsquickstart"><span class="">Getting Started</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsquickstart-check"><a href="/velocitas-docs/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsquickstart"><span class="">Quickstart</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsquickstartimport_examples-li">
@@ -473,11 +469,10 @@
 <h3 id="vehicle-models">Vehicle Models</h3>
 <p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps">Vehicle Apps</a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
 <h3 id="sdks">SDKs</h3>
-<p>Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model and the abstraction of the underlying middleware and communication protocols.
-Besides that, they provide the base classes and utilities for the Vehicle Apps.
-SDKs are available for Python and C++, currently. Further SDKs for Rust and C are planned.</p>
+<p>To reduce the effort required to implement <a href="#vehicle-apps">Vehicle Apps</a>, Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
+Next to a Vehicle Apps abstraction, the SDKs are <a href="#middleware-abstraction">Middleware</a>-enabled, provide connectivity to the <a href="#data-broker">Data Broker</a> and contain the ontology in the form of base classes to create <a href="#vehicle-models">Vehicle Models</a>.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
-<p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a>.</p>
+<p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a></p>
 <h3 id="data-broker">Data Broker</h3>
 <p>Vehicle data is stored in the KUKSA Data Broker conforming to an underlying <a href="#semantic-models">Semantic Model</a> like <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>. <a href="#vehicle-apps">Vehicle Apps</a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.</p>
 <h3 id="semantic-models">Semantic models</h3>
@@ -496,36 +491,36 @@ By default, Velocitas leverages <a href="https://dapr.io" target="_blank" rel="n
 <p>The following aspects are important characteristics for <a href="#vehicle-apps">Vehicle Apps</a>:</p>
 <ul>
 <li>
-<p><strong>Code base:</strong>
+<p><strong>Code base</strong>:
 Every Vehicle App is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.</p>
 </li>
 <li>
-<p><strong>Polyglot:</strong>
+<p><strong>Polyglot</strong>:
 Vehicle Apps can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.</p>
 </li>
 <li>
-<p><strong>OCI-compliant containers:</strong>
+<p><strong>OCI-compliant containers</strong>:
 Vehicle Apps are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.</p>
 </li>
 <li>
-<p><strong>Isolation:</strong>
+<p><strong>Isolation</strong>:
 Each Vehicle App should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.</p>
 </li>
 <li>
-<p><strong>Configurations:</strong>
+<p><strong>Configurations</strong>:
 Configuration information is separated from the code base of the Vehicle App, so that the same deployment can propagate across environments with their respective configuration applied.</p>
 </li>
 <li>
-<p><strong>Disposability:</strong>
+<p><strong>Disposability</strong>:
 Favor fast startup and support graceful shutdowns to leave the system in a correct state.</p>
 </li>
 <li>
-<p><strong>Observability:</strong>
+<p><strong>Observability</strong>:
 Vehicle Apps provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
 </li>
 <li>
-<p><strong>Over-the-air updatability:</strong>
-Vehicle Apps can be deployed via cloud backends like <a href="https://www.etas.com/en/products/pantaris-over-the-air-services.php" target="_blank" rel="noopener">Pantaris</a> and updated in vehicles frequently over the air through <a href="https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php" target="_blank" rel="noopener">NextGen OTA updates</a>.</p>
+<p><strong>Over-the-air updatability</strong>:
+Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/" target="_blank" rel="noopener">Bosch Mobility Cloud</a> and can be updated in vehicles frequently over the air.</p>
 </li>
 </ul>
 <h2 id="development-process">Development Process</h2>
@@ -561,21 +556,13 @@ Vehicle Apps can be deployed via cloud backends like <a href="https://www.etas.c
                 <p>Learn about the main concepts and components of the vehicle abstraction and how it relates to the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>.</p>
             </div>
         
-            
-            <div class="entry">
-                <h5>
-                    <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_manifest/">Vehicle App Manifest</a>
-                </h5>
-                <p>Learn more about the Vehicle App Manifest.</p>
-            </div>
-        
     
 </div>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 8, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/ad88f87b946fa5efb973922cd1bbf67b5eefe457">Perform self review (ad88f87)</a>
+  Last modified May 26, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/47fc097de8570cc52c02a7e3b48d41cd65ec7d2f">Fix contribution guideline link for official website and github pages (#98) (47fc097)</a>
 </div>
 
 </div>

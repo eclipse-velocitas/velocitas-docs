@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.67219d5b1d6d1de2f2d8e08bc29dd475.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -117,7 +117,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.67219d5b1d6d1de2f2d8e08bc29dd475.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -177,10 +177,6 @@
   <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_modelval-check"/>
   <label for="m-velocitas-docsdocsconceptsdevelopment_modelval-check"><a href="/velocitas-docs/docs/concepts/development_model/val/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_modelval"><span class="">Vehicle Abstraction Layer (VAL)</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-li">
-  <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-check"/>
-  <label for="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-check"><a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_manifest/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest"><span class="">Vehicle App Manifest</span></a></label>
-  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsconceptsdeployment_model-li">
@@ -237,7 +233,7 @@
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsquickstart-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsquickstart-check"/>
-  <label for="m-velocitas-docsdocstutorialsquickstart-check"><a href="/velocitas-docs/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsquickstart"><span class="">Getting Started</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsquickstart-check"><a href="/velocitas-docs/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsquickstart"><span class="">Quickstart</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsquickstartimport_examples-li">
@@ -452,59 +448,38 @@
 		
 	</header>
 	<h2 id="problem">Problem</h2>
-<p>Currently, the development of in-vehicle applications (<em>Vehicle Apps</em>) can be excessively complex and challenging:</p>
-<p><div style="display: flex; align-items: center;">
-    <img src="time.png" alt="time.png" style="max-width: 5%; height: auto; filter: invert(100%);-webkit-filter: invert(100%);">
-    <p style="margin-left: 10px;">Many time-consuming steps involved from setting up the development environment to the deployment of a Vehicle App.</p>
-</div>
-
-<div style="display: flex; align-items: center;">
-    <img src="knowledge.png" alt="knowledge.png" style="max-width: 5%; height: auto; filter: invert(100%);-webkit-filter: invert(100%);">
-    <p style="margin-left: 10px;">Understanding the vehicle&#39;s E/E architecture details and specific API requires expert knowledge.</p>
-</div>
-
-<div style="display: flex; align-items: center;">
-    <img src="porting.png" alt="porting.png" style="max-width: 5%; height: auto; filter: invert(100%);-webkit-filter: invert(100%);">
-    <p style="margin-left: 10px;">Porting a Vehicle App to another vehicle platform is complex.</p>
-</div>
-
-<div style="display: flex; align-items: center;">
-    <img src="collab.png" alt="collab.png" style="max-width: 5%; height: auto; filter: invert(100%);-webkit-filter: invert(100%);">
-    <p style="margin-left: 10px;">Specific processes, methods, and tools within each company creates challenges for effective collaboration.</p>
-</div>
-</p>
+<p>In-vehicle application (<em>Vehicle Apps</em>) development can currently be overly complex and cumbersome:</p>
+<ul>
+<li>Many (time consuming) steps to be taken from setting up the development environment up to the deployment of Vehicle Apps, even for demo cases.</li>
+<li>Understanding required vehicle&rsquo;s E/E architecture details and specific APIs is difficult.</li>
+<li>Porting a Vehicle App to another vehicle platform is complex.</li>
+</ul>
 <h2 id="solution">Solution</h2>
-<p>An open-source end-to-end toolchain for developing vehicle-independent applications with:</p>
-<p><div style="display: flex; align-items: center;">
-    <img src="unified.png" alt="unified.png" style="max-width: 5%; height: auto; filter: invert(100%);-webkit-filter: invert(100%);">
-    <p style="margin-left: 10px;">Usage of standardized vehicle APIs.</p>
-</div>
-
-<div style="display: flex; align-items: center;">
-    <img src="containerization.png" alt="containerization.png" style="max-width: 5%; height: auto; filter: invert(100%);-webkit-filter: invert(100%);">
-    <p style="margin-left: 10px;">Enabling portability through containerized Apps with no dependencies to E/E architecture.</p>
-</div>
-
-<div style="display: flex; align-items: center;">
-    <img src="setup.png" alt="setup.png" style="max-width: 5%; height: auto; filter: invert(100%);-webkit-filter: invert(100%);">
-    <p style="margin-left: 10px;">Pre-configured project setup​.</p>
-</div>
-
-<div style="display: flex; align-items: center;">
-    <img src="simulation.png" alt="simulation.png" style="max-width: 5%; height: auto; filter: invert(100%);-webkit-filter: invert(100%);">
-    <p style="margin-left: 10px;">Speeding up the development by reducing complexity focus on differentiating business logic to innovate quickly.</p>
-</div>
-</p>
+<p>Writing Vehicle App in a <strong>vehicle independent</strong> way by using a standardized vehicle API, container technology and a pre-configured project setup​</p>
+<ul>
+<li>
+<p><strong>Speeds up</strong> the development by <strong>reducing complexity</strong></p>
+</li>
+<li>
+<p><strong>Empowers developers</strong> of OEMs and suppliers to write Vehicle Apps easily</p>
+</li>
+<li>
+<p>Allows to <strong>focus on differentiating business logic</strong> to innovate quickly</p>
+</li>
+<li>
+<p><strong>Enables portability</strong> through containerized Apps with no dependencies to E/E architecture</p>
+</li>
+</ul>
 <h2 id="product">Product</h2>
 <p>Eclipse <em>Velocitas™</em> provides an end-to-end, scalable and modular development tool chain to create containerized Vehicle Apps, offering a comfortable, fast and efficient development experience to increase the speed of a development team (velocity).</p>
 <img src="dev_ops_cycle.png" >
 <h2 id="features">Features</h2>
 <ul>
-<li><strong>Project lifecycle management</strong> to update Vehicle App repositories via CLI.</li>
+<li><strong>Project lifecycle management</strong> to update Vehicle App repositories via CLI</li>
 <li><strong>Vehicle abstraction support</strong> helps to focus on business logic by using a generated vehicle model <em>on code level</em> with type safety and auto-completion. The vehicle model is generated from a standardized API that hides the details of vehicle-specific signals and E/E architecture, allowing Vehicle Apps to be portable across different electronics and software architectures.</li>
-<li>Microsoft <strong>Visual Studio Code integration</strong> with DevContainer helps to install everything required to start the local development immediately, while tasks and launch configurations help to launch runtime services, other apps, and tests.</li>
-<li><strong>Vehicle App skeleton and examples</strong> helps to understand easily how to write a Vehicle Apps using the KUKSA VAL runtime services.</li>
-<li>Ready-to-use <strong>CI/CD workflows</strong> that build (for multi architectures), test, document and deploy a containerized Vehicle App with no dependencies to E/E architecture help saving setup time.</li>
+<li>Microsoft <strong>Visual Studio Code integration</strong> with DevContainer helps to install everything required to start the local development immediately, while tasks and launch configurations help to launch runtime services, other apps, and tests</li>
+<li><strong>Vehicle App skeleton and examples</strong> helps to understand easily how to write a Vehicle Apps using the KUKSA VAL runtime services</li>
+<li>Ready-to-use <strong>CI/CD workflows</strong> that build (for multi architectures), test, document and deploy a containerized Vehicle App with no dependencies to E/E architecture help saving setup time</li>
 </ul>
 <h2 id="language-support">Language Support</h2>
 
@@ -600,7 +575,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 8, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/ad88f87b946fa5efb973922cd1bbf67b5eefe457">Perform self review (ad88f87)</a>
+  Last modified May 26, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/47fc097de8570cc52c02a7e3b48d41cd65ec7d2f">Fix contribution guideline link for official website and github pages (#98) (47fc097)</a>
 </div>
 
 </div>

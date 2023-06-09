@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.67219d5b1d6d1de2f2d8e08bc29dd475.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -138,7 +138,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-40bd961f711a66e3c101072102c3338b">Getting Started</a></li>
+<li>1: <a href="#pg-40bd961f711a66e3c101072102c3338b">Quickstart</a></li>
 
 
     
@@ -434,7 +434,7 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-40bd961f711a66e3c101072102c3338b">1 - Getting Started</h1>
+	<h1 id="pg-40bd961f711a66e3c101072102c3338b">1 - Quickstart</h1>
     <div class="lead">Learn how to setup and explore the provided development environment.</div>
 	<p>The following information describes how to setup and configure the <a href="https://code.visualstudio.com/docs/remote/containers" target="_blank" rel="noopener">Development Container (DevContainer)</a>, and how to build, customize and test the sample <em>Vehicle App</em>, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.</p>
 <p>Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> for your own <em>Vehicle App</em> develpment project.</p>
@@ -443,164 +443,134 @@ This is the multi-page printable view of this section.
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    Before you start, we recommend that you familiarize yourself with our <a href="/velocitas-docs/docs/concepts/development_model">Basic Concept</a> to understand mentioned terms.
+    Before you start, we recommend that you familiarize yourself with our <a href="/velocitas-docs/docs/concepts/development_model">basic concept</a> to understand the terms mentioned.
 
 </div>
 
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Following is required to create comprehensive Development Envrironment for your <em>Vehcile App</em>:</p>
+<h2 id="creating-vehicle-app-repository">Creating Vehicle App Repository</h2>
+<p>For the orginization and <em>Vehicle App</em> repository the name <code>MyOrg/MyFirstVehicleApp</code> is used as a reference during the rest of the document.</p>
+<p>Create your own repository copy from the template repository of your choice <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python</a>/<a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">C++</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    After generating your repository please make sure to change the default workflow permissions for GitHub Actions to &ldquo;Read and write permissions&rdquo; in Settings -&gt; Actions -&gt; General
+
+</div>
+
+<h2 id="starting-development-environment">Starting Development Environment</h2>
+<p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
+<h3 id="visual-studio-code">Visual Studio Code</h3>
+<p>The Visual Studio Code <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">Development Containers</a> makes it possible to package a complete Vehicle App development environment, including Visual Studio Code extensions, Vehicle App SDK, Vehicle App runtime and all other development &amp; testing tools into a container that is then started within your Visual Studio Code session.</p>
+<p>To be able to use the DevContainer, you have to make sure that you fulfill the following prerequisites:</p>
 <ul>
 <li>
-<p>Install <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a></p>
+<p><a href="/velocitas-docs/docs/tutorials/quickstart/container_runtime">Install a working container runtime</a></p>
 </li>
 <li>
-<p><a href="/velocitas-docs/docs/tutorials/quickstart/container_runtime">Install a working container runtime</a></p>
+<p>Install <a href="https://code.visualstudio.com" target="_blank" rel="noopener">Visual Studio Code</a></p>
 </li>
 <li>
 <p>Add <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers" target="_blank" rel="noopener">Remote-Containers</a> extension via the marketplace or using the command line</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>code --install-extension ms-vscode-remote.remote-containers
 </span></span></code></pre></div></li>
 </ul>
-<h2 id="creating-vehicle-app-repository">Creating Vehicle App Repository</h2>
-<p>For the Orginization and Vehicle App repository the name <em>MyOrg/MyFirstVehicleApp</em> is used as a reference during the rest of the document.</p>
-<p>Create your own repository copy from the template repository of your choice <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python</a>/<a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">C++</a> by clicking the green button <code>Use this template</code>. You don&rsquo;t have to include all branches. For more information on Template Repositories take a look at this <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template" target="_blank" rel="noopener">GitHub Tutorial</a>.</p>
-<h2 id="starting-development-environment">Starting Development Environment</h2>
-<p>In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code&rsquo;s <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">DevContainer</a> or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
 
-   
-   
-   
-<ul class="nav nav-tabs" id="tabs-1" role="tablist">
-  <li class="nav-item">
-      <a class="nav-link active"
-          id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
-          aria-controls="tabs-01-00" aria-selected="false">
-        Visual Studio Code
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link"
-          id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
-          aria-controls="tabs-01-01" aria-selected="false">
-        GitHub Codespaces
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link"
-          id="tabs-01-02-tab" data-toggle="tab" href="#tabs-01-02" role="tab"
-          aria-controls="tabs-01-02" aria-selected="false">
-        Digital.Auto
-      </a>
-    </li>
-</ul>
 
-<div class="tab-content" id="tabs-1-content">
-    <div class="tab-body tab-pane fade show active"
-        id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
-        <p>The Visual Studio Code&rsquo;s DevContainer makes possible to package a complete <em>Vehicle App</em> development environment, including Visual Studio Code&rsquo;s extensions, <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/">Vehicle App SDK</a>, <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime">Vehicle App Runtimes</a> and all other development &amp; testing tools into a DevContainer that is then started within your Visual Studio Code session.</p>
 <div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">Proxy configuration</h4>
-<pre><code>A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &lt;a href=&quot;/velocitas-docs/docs/tutorials/quickstart/behind_proxy&quot;&gt;Working behind a proxy&lt;/a&gt;
-</code></pre>
+
+    A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: <a href="/velocitas-docs/docs/tutorials/quickstart/behind_proxy">Working behind a proxy</a>
+
 </div>
+
 <p>With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.</p>
 <ol>
-<li>Clone created <em>MyOrg/MyFirstVehicleApp</em> repository locally using your favorite Git tooling</li>
-<li>Go to the just cloned repository folder <code>$ cd MyFirstVehicleApp</code></li>
-<li>Open Visual Studio Code with project content by using command <code>$ code .</code></li>
-<li>A popup appears with the button <kbd>Reopen in Container</kbd> on the lower right side of Visual Studio Code. If the popup does not appear, you can also hit <kbd>F1</kbd> and perform the command <code>Dev-Containers: Open Folder in Container</code></li>
-<li>Click on <kbd>Reopen in Container</kbd></li>
+<li>Clone the repo locally using your favorite Git tooling</li>
+<li>Start Visual Studio Code</li>
+<li>Select <code>Open Folder</code> from the <code>File</code> menu</li>
+<li>Open the root of the cloned repo</li>
+<li>A popup appears on the lower left side of Visual Studio Code. If the popup does not appear, you can also hit <kbd>F1</kbd> and run the command <code>Dev-Containers: Open Folder in Container</code></li>
+<li>Click on <code>Reopen in Container</code></li>
 <li>Wait for the container to be set up</li>
 </ol>
 <p>The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.</p>
+
+
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
-<pre><code>If the DevContainer build process fails, then wait for the current build to finish, press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Dev-Containers: Rebuild Container Without Cache&lt;/code&gt;
-</code></pre>
-<p>The DevContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a> feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.</p>
+
+    <blockquote>
+<p>If the devContainer fails to build successfully (e.g. due to network issues), then wait for the current build to finish, press <kbd>F1</kbd> and run the command <code>Dev-Containers: Rebuild Container Without Cache</code></p>
+</blockquote>
+<blockquote>
+<p>The devContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a>-feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a devContainer with the feature enabled can be running at the same time.</p>
+</blockquote>
+
+
 </div>
 
-    </div>
-    <div class="tab-body tab-pane fade"
-        id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
-        <p>One of the possibilities to use your newly created repository to use it via <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.
-You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as a &ldquo;thin-client&rdquo;.</p>
-<p>To get started with GitHub Codespaces, you just have to follow a few steps:</p>
+<h3 id="codespaces">Codespaces</h3>
+<p>Another possibility to use your newly created repository is via <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.
+You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as frontends.</p>
+<p>To get started with Codespaces, you just have to follow a few steps:</p>
 <ol>
 <li>Open your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp" target="_blank" rel="noopener">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
 <li>Click on the green <code>Code</code> button and select Codespaces on the top</li>
 <li>Configure your Codespace if needed (defaults to the main branch and a standard agent)</li>
 <li>Click on <code>create</code></li>
 </ol>
-<p>A new window will open where you see logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.</p>
+<p>A new window will open where you see the logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.</p>
 <p>Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.</p>
+
+
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
-<pre><code>Be careful with using GitHub Codespaces in browser and Visual Studio Code locally at the same time: &lt;em&gt;Tasks&lt;/em&gt; that are started using a browser session will not show in Visual Studio Code environment and vice versa that leads for problems.
-</code></pre>
-</div>
 
-    </div>
-    <div class="tab-body tab-pane fade"
-        id="tabs-01-02" role="tabpanel" aria-labelled-by="tabs-01-02-tab">
-        <p>tbd</p>
+    Be careful with using Codespaces in browser and Visual Studio Code locally at the same time: <em>Tasks</em> that are started using a browser session will not show in Visual Studio Code environment and vice versa. This can lead to problems using the prepared <em>Tasks</em>-scripts.
 
-    </div>
 </div>
 
 <h2 id="starting-runtime-services">Starting runtime services</h2>
 <p>The runtime services (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are required to develop vehicle apps and run integration tests.</p>
-<p>A Visual Studio Code task called <code>Local Runtime - Up</code> is available to run these in the correct order.</p>
+<p>A Visual Studio Code task called <code>Start Vehicle App runtime</code> is available to run these in the correct order.</p>
 <ol>
 <li>Press <kbd>F1</kbd></li>
 <li>Select command <code>Tasks: Run Task</code></li>
-<li>Select <code>Local Runtime - Up</code></li>
+<li>Select <code>Start VehicleApp runtime</code></li>
+<li>Choose <code>Continue without scanning the output</code></li>
 </ol>
-<p>You should see the task <code>Local Runtime - Up</code> being executed on a separate Visual Studio Code terminal with the following content:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ velocitas <span style="color:#204a87">exec</span> runtime-local up 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Hint: Log files can be found in your workspace<span style="color:#a40000">&#39;</span>s logs directory
-</span></span><span style="display:flex;"><span>&gt; mqtt-broker running
-</span></span><span style="display:flex;"><span>&gt; vehicledatabroker running
-</span></span><span style="display:flex;"><span>&gt; seatservice running
-</span></span><span style="display:flex;"><span>&gt; feedercan running
-</span></span><span style="display:flex;"><span>✅ Runtime is ready to use!
-</span></span></code></pre></div>
-
-<div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Note</h4>
-
-    Simply press <code>ctrl + c</code> to stop the runtime.
-
-</div>
-
+<p>You should see the tasks <code>run-mosquitto</code>, <code>run-vehicledatabroker</code>, <code>run-vehicleservices</code> and <code>run-feedercan</code> being executed in the Visual Studio Code output panel.</p>
 <p>More information about the tasks are available <a href="/velocitas-docs/docs/run_runtime_services_locally.md">here</a>.</p>
 <h2 id="debugging-vehicle-app">Debugging Vehicle App</h2>
-<p>Now that the <a href="#starting-runtime-services">runtime services</a> are all up and running, let&rsquo;s start a debug session for the <em>Vehicle App</em> as next step.</p>
+<p>Now that the <a href="#starting-runtime-services">runtime services</a> are all up and running, let&rsquo;s start a debug session for the Vehicle App as next step.</p>
 <p>
 
 
-<ul class="nav nav-tabs" id="tabs-3" role="tablist">
+<ul class="nav nav-tabs" id="tabs-5" role="tablist">
   <li class="nav-item">
       <a class="nav-link active"
-          id="tabs-03-00-tab" data-toggle="tab" href="#tabs-03-00" role="tab"
-          aria-controls="tabs-03-00" aria-selected="false">
+          id="tabs-05-00-tab" data-toggle="tab" href="#tabs-05-00" role="tab"
+          aria-controls="tabs-05-00" aria-selected="false">
         Template
       </a>
     </li><li class="nav-item">
       <a class="nav-link"
-          id="tabs-03-01-tab" data-toggle="tab" href="#tabs-03-01" role="tab"
-          aria-controls="tabs-03-01" aria-selected="false">
+          id="tabs-05-01-tab" data-toggle="tab" href="#tabs-05-01" role="tab"
+          aria-controls="tabs-05-01" aria-selected="false">
         Seat Adjuster
       </a>
     </li>
 </ul>
 
-<div class="tab-content" id="tabs-3-content">
+<div class="tab-content" id="tabs-5-content">
     <div class="tab-body tab-pane fade show active"
-        id="tabs-03-00" role="tabpanel" aria-labelled-by="tabs-03-00-tab">
+        id="tabs-05-00" role="tabpanel" aria-labelled-by="tabs-05-00-tab">
         <ol>
 <li>Open the main source file and set a breakpoint in the given method:
 <ul>
-<li>Python main source file: <code>/app/src/main.py</code>, set a breakpoint inside the method: <code>on_get_speed_request_received</code></li>
+<li>Python main source file: <code>/app/src/main.py</code>, set breakpoint in method: <code>on_get_speed_request_received</code></li>
 <li>C++: Continue on the <code>Seat Adjuster</code> tab.</li>
 </ul>
 </li>
@@ -616,7 +586,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 
     </div>
     <div class="tab-body tab-pane fade"
-        id="tabs-03-01" role="tabpanel" aria-labelled-by="tabs-03-01-tab">
+        id="tabs-05-01" role="tabpanel" aria-labelled-by="tabs-05-01-tab">
         <p>For Python: Follow the guide provided in: <a href="/velocitas-docs/docs/tutorials/quickstart/import_examples/">Import examples</a> and import <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener"><code>seat-adjuster</code></a>. </br>
 For C++: Continue with the next steps.</p>
 <ol>
@@ -662,7 +632,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 <li>
 <p>Commit and push your change</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#4e9a06">&#34;&lt;explain your changes&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#4e9a06">&#34;removed emtpy line&#34;</span>
 </span></span><span style="display:flex;"><span>git push
 </span></span></code></pre></div></li>
 </ol>
@@ -672,7 +642,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 <ol>
 <li>Open the <code>Code</code> page of your repository on GitHub</li>
 <li>Click on <code>Create a new release</code> in the Releases section on the right side</li>
-<li>Enter a version (e.g. v1.0.0) and click on <code>Publish release</code>
+<li>Enter a version, e.g. v1.0.0, and click on <code>Publish release</code>
 <ul>
 <li>GitHub will automatically create a tag using the version number</li>
 </ul>
@@ -1095,8 +1065,8 @@ By clicking on &ldquo;Create repository&rdquo;:</p>
 Clone your newly created repository and open the <em>Vehicle App</em> in Microsoft Visual Studio Code and start to extend it.</p>
 <p>You can proceed with the following topics:</p>
 <ul>
-<li><a href="/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment">Starting development environment</a></li>
-<li><a href="/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/">Vehicle App Development</a></li>
+<li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment" target="_blank" rel="noopener">Starting development environment</a></li>
+<li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/" target="_blank" rel="noopener">Vehicle App Development</a></li>
 </ul>
 
 </div>
@@ -1124,8 +1094,7 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 	<h1 id="pg-b739b86ab630d926fca95b542c42eb18">2.1 - Service Integration</h1>
     <div class="lead">Learn how to integrate a Vehicle Service that executes the request on vehicle side</div>
 	<p>Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your <em>Vehicle App</em> makes use of e.g. <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code>, <code>Vehicle.Body.Lights.IsBackupOn</code>, <code>Vehicle.Body.Lights.IsHighBeamOn</code>, <code>Vehicle.Body.Lights.IsLowBeamOn</code> you are in for some real action. To learn more, visit <a href="/velocitas-docs/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>.</p>
-<p>You can validate the interaction of the service with your <em>Vehicle App</em> by making use of a <em>Vehicle Service</em>.</p>
-<p>Our maintained <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package (<a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>) comes with the support of adding further <em>Vehicle Services</em> to the <code>runtime.json</code> of a package. More information <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages">here</a>. (A general vehicle <em>mock service</em> is also coming soon!)</p>
+<p>You can validate the interaction of the service with your <em>Vehicle App</em> by adding a <em>Vehicle Service</em> to the <code>/app/AppManifest.json</code>, <a href="/velocitas-docs/docs/tutorials/quickstart/#starting-runtime-services">start the services</a> locally and <a href="/velocitas-docs/docs/tutorials/quickstart/#debugging-vehicle-app">debug</a> it.</p>
 <h3 id="modify-services">Modify services</h3>
 <p>For more advanced usage you can als try modifying existing services. Check out <a href="https://github.com/boschglobal/kuksa.val.services/tree/feature/subscribe_actuator_targets/seat_service" target="_blank" rel="noopener">the seat service</a> for example, modify it and integrate it into your <em>Vehicle App</em> repository.</p>
 <h3 id="create-your-own-services">Create your own services</h3>
@@ -1360,19 +1329,15 @@ After creating the mock, you can test the method and check the response. Use ass
 <h2 id="see-the-results">See the results</h2>
 <p>Once the implementation is done, it is time to run and debug the app.</p>
 <h3 id="run-your-app">Run your App</h3>
-<p>In order to run the app make sure the <code>devenv-runtimes</code> package is part of your <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> (which should be the default) and the runtime is up and running. Read more about it in the <a href="/velocitas-docs/docs/run_runtime_services_locally.md">run runtime services</a> section.</p>
-<p>Now chose one of the options to start the VehicleApp under development (including Dapr sidecar if middleware type is Dapr):</p>
-<ol>
-<li>Press <kbd>F5</kbd></li>
-</ol>
-<p>or:</p>
-<ol>
-<li>Press <kbd>F1</kbd></li>
-<li>Select command <code>Tasks: Run Task</code></li>
-<li>Select <code>Local Runtime - Run VehicleApp</code></li>
-</ol>
-<h3 id="the-following-dapr-configuration-is-part-of-the-devenv-runtimes-package-wip-tbd">The following dapr configuration is part of the devenv-runtimes package (WIP: TBD)</h3>
-<p>You already have seen this command and how to check if it is working in the <a href="/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#debug-your-vehicle-app">general setup</a>.</p>
+<p>In order to run the app make sure you have the <code>seatservice</code> configured as a dependency in your <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json" target="_blank" rel="noopener"><code>./AppManifest.json</code></a>. Read more about it in the <a href="/velocitas-docs/docs/run_runtime_services_locally.md">run runtime services</a> section.</p>
+<p>If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the &ldquo;dapr run &hellip;&rdquo; command to start your app:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dapr run --app-id seatadjuster --app-protocol grpc --app-port <span style="color:#0000cf;font-weight:bold">50008</span> --config ./.dapr/config.yaml --components-path ./.dapr/components  python3 ./app/src/main.py
+</span></span></code></pre></div><p>You already have seen this command and how to check if it is working in the <a href="/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#debug-your-vehicle-app">general setup</a>.</p>
+<p>2 parameters may be unclear in this command:</p>
+<ul>
+<li>the config file <code>config.yaml</code></li>
+<li>the components-path</li>
+</ul>
 <p>For now, you just need to know that these parameters are needed to make everything work together.</p>
 <p>The config.yaml has to be placed in the folder called <code>.dapr</code>and has the following content:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Yaml" data-lang="Yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dapr.io/v1alpha1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1418,48 +1383,34 @@ After creating the mock, you can test the method and check the response. Use ass
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VehicleApp&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;program&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}/app/src/main.py&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;console&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;integratedTerminal&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;preLaunchTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;postDebugTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;preLaunchTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-run&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;postDebugTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;APP_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;50008&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;DAPR_HTTP_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;3500&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;50001&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${input:DAPR_GRPC_PORT}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;SERVICE_DAPR_APP_ID&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${input:SERVICE_NAME}&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;VEHICLEDATABROKER_DAPR_APP_ID&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">]</span>
 </span></span></code></pre></div><p>We specify which python-script to run using the <code>program</code> key. With the <code>preLaunchTask</code> and <code>postDebugTask</code> keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks to find in <code>/.vscode/tasks.json</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;velocitas exec runtime-local run-dapr-sidecar vehicleapp --app-port 50008 --dapr-grpc-port 50001 --dapr-http-port 3500&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;isBackground&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;problemMatcher&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;pattern&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;regexp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;file&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;location&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#000;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-run&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;appId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicleapp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;appPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50008</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;componentsPath&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.dapr/components&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.dapr/config.yaml&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;appProtocol&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;args&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;--dapr-grpc-port&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;50001&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;--dapr-http-port&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;3500&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;background&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#204a87;font-weight:bold">&#34;activeOnStart&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#204a87;font-weight:bold">&#34;beginsPattern&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;^You&#39;re up and running! Dapr logs will appear here.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#204a87;font-weight:bold">&#34;endsPattern&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;hide&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;dapr stop --app-id vehicleapp&#34;</span>
@@ -1468,10 +1419,33 @@ After creating the mock, you can test the method and check the response. Use ass
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hide&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">,</span>
-</span></span></code></pre></div><p>You can adapt the configuration in <code>/.vscode/launch.json</code> to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.</p>
-<p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.</p>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Lastly, the environment variables can also be specified.</p>
+<p>You can adapt the configuration in <code>/.vscode/launch.json</code> to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.</p>
+<p>Environment Variables can also be configured on the central <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json" target="_blank" rel="noopener"><code>/app/AppManifest.json</code></a> and read out by the launch configuration in Visual Studio Code through a preinstalled extension in the devcontainer <a href="https://marketplace.visualstudio.com/items?itemName=augustocdias.tasks-shell-input" target="_blank" rel="noopener">Tasks Shell Input</a>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;inputs&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;command&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shellCommand.execute&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;args&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;useSingleResult&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;cat ./app/AppManifest.json | jq .[].DAPR_GRPC_PORT | tr -d &#39;\&#34;&#39;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;cwd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;SERVICE_NAME&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;command&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shellCommand.execute&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;args&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;useSingleResult&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;cat ./app/AppManifest.json | jq .[].Name | tr -d &#39;\&#34;&#39;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;cwd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">]</span>
+</span></span></code></pre></div><p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a></li>
@@ -1790,7 +1764,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 
 </div>
 
-<p>A <em>Vehicle Model</em> makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against <em>Vehicle Services</em> and other <em>Vehicle Apps</em>. It is generated from the underlying semantic models based e.g. on the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>. The model is generated for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library providing vehicle abstraction &ldquo;on code level&rdquo;.</p>
+<p>A <em>Vehicle Model</em> makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against <em>Vehicle Services</em> and other <em>Vehicle Apps</em>. It is generated from the underlying semantic models based on the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>. The model is generated for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library providing vehicle abstraction &ldquo;on code level&rdquo;.</p>
 <p>By default our app templates now generate the vehicle model during the devContainer initialization - managed by the Velocitas life cycle management. The respective VSS-based model source is referenced in the app manifest allowing to freely choose the model being used in your project. You will find more details about this in section <a href="automated_model_lifecycle/">Automated Model Lifecycle</a>.</p>
 <p>The previous approach, using pre-generated model repositories, is deprecated as of now. But is still available and is described in section <a href="manual_model_creation/">Manual Vehicle Model Creation</a>. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.</p>
 
@@ -1860,18 +1834,19 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <div class="tab-content" id="tabs-1-content">
     <div class="tab-pane fade show active"
         id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;vehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&gt;&#34;</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;VehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;vehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;VehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./my_model/my_model.json&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
     </div>
 </div>
 
+<p>Instead of an URI you could also reference a local file containing the specification.</p>
 
 
 <div class="alert alert-primary" role="alert">
@@ -1887,7 +1862,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <li>through a <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/usage/#installation">onPostInit hook</a> when <code>velocitas init</code> is called:
 <ul>
 <li>either triggered manually or</li>
-<li>automatically during the instantiation of the devContainer through our <a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>, or</li>
+<li>automatically during the instantiation of the devContainer through our <a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas lifecycle management</a>, or</li>
 </ul>
 </li>
 <li>when you trigger the VS Code task <code>(Re-)generate vehicle model</code> explicitly.</li>
@@ -2229,7 +2204,7 @@ Successfully installed my-vehicle-model-0.1
 <p>The root model of the <em>Vehicle Model</em> tree should be called <em>Vehicle</em> by convention and is specified, by setting parent to <code>None</code>. For all other models a parent model must be specified as the 2nd argument of the <code>Model</code> constructor, as can be seen by the <code>Cabin</code> and the <code>Seat</code> models above.</p>
 <p>A singleton instance of the <em>Vehicle Model</em> called <code>vehicle</code> is created at the end of the file. This instance is supposed to be used in the <em>Vehicle Apps</em>. Creating multiple instances of the <em>Vehicle Model</em> should be avoided for performance reasons.</p>
 <h3 id="add-a-vehicle-service">Add a Vehicle Service</h3>
-<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
+<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
 <p>In this section, we add a <em>Vehicle Service</em> to the <em>Vehicle Model</em>.</p>
 <ol>
 <li>
@@ -2474,39 +2449,95 @@ shown above:</p>
 	<h1 id="pg-21a49bbb7f31d56a4183e92841b43364">5.1 - Run runtime services locally</h1>
     
 	<h2 id="using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</h2>
-<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are available for local execution coming from our <em>devenv-runtimes</em> package and are accessible as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>.</p>
-<p><strong>Start local runtime:</strong> To start local runtime, a task called <code>Local Runtime - Up</code> is available. This task runs the runtime services in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Local Runtime - Up</code>.</p>
+<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are available for local execution as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>.</p>
+<p><strong>Quick Start:</strong> Each component has a task that is defined in <em>.vscode/tasks.json</em>:</p>
+<ul>
+<li>Dapr (<code>Local - Ensure Dapr</code>): installs Dapr CLI and initializes Dapr if required</li>
+<li>Mosquitto (<code>Local - Mosquitto</code>): runs <em>Mosquitto</em> as a container (<code>docker run</code>)</li>
+<li>KUKSA Data Broker (<code>Local - VehicleDataBroker</code>): runs <em>KUKSA Data Broker</em> as a container</li>
+<li>(Optional) Vehicle Services (<code>Local - VehicleServices</code>): runs the <em>Vehicle Services</em> (e.g. the <code>Seat Service</code>) configured in the <code>AppManifest.json</code> each as a separate container</li>
+<li>(Optional) Feeder Can (<code>Local - FeederCan</code>): runs <em>FeederCAN</em> as a container</li>
+</ul>
+<p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>Start Vehicle App runtime</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Start Vehicle App runtime</code>.</p>
 <p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
-<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task. More detailed logs can be found inside your workspace&rsquo;s logs directory <code>./logs/*</code></p>
-<h2 id="addchange-runtime-service-configuration">Add/Change runtime service configuration</h2>
-<p>The configuration for services of our provided local runtime are defined in the <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json" target="_blank" rel="noopener"><code>runtime.json</code></a> at the root of the repository <a href="https://github.com/eclipse-velocitas/devenv-runtimes/tree/main" target="_blank" rel="noopener">devenv-runtimes</a>.
-For a more detailed view on how to change or add runtime service configuration, please visit: <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages">Lifecylce Management Package Development</a></p>
-<h2 id="using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</h2>
-<p>A CLI tool is provided for interacting with a running instance of the KUKSA Data Broker. It can be started by running the task <code>Local Runtime - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local Runtime - VehicleDataBroker CLI</code>). The <em>Runtime Local</em> needs to be running for you to be able to use the tool.</p>
+<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
+<p><strong>Scripting:</strong> The tasks itself are executing scripts that are located in <code>.vscode/scripts</code>. These scripts download the specified version of the runtime components and execute them along with Dapr. The same mechanism can be used to register additional services or prerequisites by adding new task definitions in the <code>tasks.json</code> file.</p>
+<h2 id="addchange-service-configuration">Add/Change service configuration</h2>
+<p>The configuration for the services is defined in the file <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json" target="_blank" rel="noopener"><code>./AppManifest.json</code></a>. If you want to add a new service, adapt <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/AppManifest.json" target="_blank" rel="noopener"><code>./AppManifest.json</code></a>. If you want to update the version, change it within the file and re-run the runtime services by restarting the tasks or the script.</p>
+<h3 id="addchange-service-configuration-helper">Add/Change service configuration helper</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;NAME&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;image&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;IMAGE&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;VERSION&gt;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</h2>
+<p>A CLI tool is provided for the interact with a running instance of the KUKSA Data Broker. It can be started by running the task <code>Local - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local - VehicleDataBroker CLI</code>). The <em>KUKSA Data Broker</em> needs to be running for you to be able to use the tool.</p>
+<h2 id="using-kuksa-feedercan">Using KUKSA FeederCan</h2>
+<p><em>FeederCan</em> is a provider of a certain set of data points to the data broker.
+To run <em>FeederCan</em> as task please use <code>[F1 -&gt; Tasks: Run Task -&gt; Local - FeederCan]</code> and it will be run as a docker container.</p>
+<p>By default it will use the same file, that is used for the k3d environment: <code>deploy/runtime/k3d/volume/dbcfileDefault.dbc</code></p>
+<p>For more flexible configuration please follow <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a></p>
 <h2 id="integrating-a-new-runtime-service-into-visual-studio-code-task">Integrating a new runtime service into Visual Studio Code Task</h2>
 <p>Integration of a new runtime service can be done by duplicating one of the existing tasks.</p>
 <ul>
-<li>Create a new service in either a new created <em>Package</em> or branch/fork of <a href="https://github.com/eclipse-velocitas/devenv-runtimes/tree/main" target="_blank" rel="noopener">devenv-runtimes</a> as already explained above</li>
-<li>In <code>.vscode/tasks.json</code>, duplicate section from task e.g. <code>Local Runtime - Up</code>, <code>Local Runtime - Run VehicleApp</code> or <code>Local Runtime - VehicleDataBroker CLI</code></li>
+<li>Create a new script based on template script <code>.vscode/scripts/run-vehicledatabroker.sh</code></li>
+<li>In <code>.vscode/tasks.json</code>, duplicate section from task <code>run-vehicledatabroker</code></li>
 <li>Correct names in a new code block</li>
 <li><strong>Disclaimer:</strong> <code>Problem Matcher</code> defined in <code>tasks.json</code> is a feature of the Visual Studio Code Task, to ensure that the process runs in background</li>
-<li>Run task using <code>[F1 -&gt; Tasks: Run Task -&gt; &lt;Your new task label&gt;]</code></li>
+<li>Run task using <code>[F1 -&gt; Tasks: Run Task -&gt; &lt;Your new task name&gt;]</code></li>
 <li>Task should be visible in Terminal section of Visual Studio Code</li>
 </ul>
 <h3 id="task-codeblock-helper">Task CodeBlock helper</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;task_name&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;task_description&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;velocitas exec runtime-local &lt;service_id&gt; &lt;args&gt;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;label&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;__CHANGEIT: Task name__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;type&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;command&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.vscode/scripts/&lt;__CHANGEIT: Script Name.sh__&gt; --task&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;group&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;presentation&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;reveal&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;always&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;panel&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dedicated&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;problemMatcher&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[]</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;isBackground&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;problemMatcher&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;pattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;regexp&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;file&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;location&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#4e9a06">&#34;message&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;background&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;activeOnStart&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;beginsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;^&lt;__CHANGEIT: Regex log from your app, decision to send process in background__&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;endsPattern&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">},</span>
+</span></span></code></pre></div><h2 id="integrating-a-new-vehicle-service">Integrating a new vehicle service</h2>
+<p>Integration of a new vehicle service can be done by adding an additional case and following the template <a href="https://github.com/eclipse-velocitas/devenv-runtime-local/blob/main/src/run-vehicleservices.sh" target="_blank" rel="noopener"><code>run-vehicleservices.sh</code></a>.</p>
+<h3 id="vehicle-service-codeblock-helper">Vehicle Service CodeBlock helper</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Configure Service Specific Requirements
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">configure_service</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000">in</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">seatservice</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">;;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">NEW_SERVICE</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure ports for docker to expose
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DOCKER_PORTS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-p &lt;PORT_TO_EXPOSE&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure ENVs need to run docker container
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DOCKER_ENVS</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;-e &lt;ENV_TO_RUN_CONTAINER&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure Dapr App Port
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DAPR_APP_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8f5902;font-style:italic"># Configure Dapr Grpc Port
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">DAPR_GRPC_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">;;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">echo</span> <span style="color:#4e9a06">&#34;Unknown Service to configure.&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">;;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>      
 </span></span></code></pre></div><h2 id="troubleshooting">Troubleshooting</h2>
 <p><strong>Problem description:</strong> When integrating new services into an existing dev environment, it is highly recommended to use the Visual Studio Code Task Feature.
 A new service can be easily started by calling it from bash script, however restarting the same service might lead to port conflicts (GRPC Port or APP port). That can be easily avoided by using the Visual Studio Code Task Feature.</p>
@@ -2516,8 +2547,8 @@ A new service can be easily started by calling it from bash script, however rest
 <ul>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in local Kubernetes cluster</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Setup and Explore Development Enviroment</a></li>
-<li>Concept: <a href="/velocitas-docs/docs/about/deployment-model/">Deployment Model</a></li>
-<li>Concept: <a href="/velocitas-docs/docs/about/deployment-model/vehicle_app_releases/">Build and release process</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model/">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases/">Build and release process</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
@@ -2538,11 +2569,13 @@ A new service can be easily started by calling it from bash script, however rest
 	<h1 id="pg-6c0f92a29289f1cf2b52a16ab29a6404">5.2 - Run runtime services in Kubernetes</h1>
     
 	<p>Besides <a href="/velocitas-docs/docs/run_runtime_services_locally.md">local execution</a> of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>.</p>
-<p><strong>Quick Start:</strong> Each step has a task that is defined in <code>/.vscode/tasks.json</code>:</p>
+<p><strong>Quick Start:</strong> Each step has a task that is defined in <em>.vscode/tasks.json</em>:</p>
 <ul>
 <li>Core tasks (dependent on each other in the given order):
 <ul>
-<li><code>K3D - Runtime Up</code>: Starts up the K3D runtime (Including configuring control plane and initializing dapr).</li>
+<li><code>K3D - Install prerequisites</code>: Install prerequisite components K3D, Helm, KubeCTL and Dapr without configuring them.</li>
+<li><code>K3D - Configure control plane</code>: Creates a local container registry used by K3D as well as an K3D cluster with Dapr enabled.</li>
+<li><code>K3D - Deploy runtime</code>: Deploys the runtime components (like KUKSA Data Broker, Seat Service, &hellip;) within the K3D cluster.</li>
 <li><code>K3D - Build VehicleApp</code>: Builds the VehicleApp and pushes it to the local K3D registry.</li>
 <li><code>K3D - Deploy VehicleApp</code>: Builds and deploys the VehicleApp via Helm to the K3D cluster.</li>
 </ul>
@@ -2553,23 +2586,25 @@ A new service can be easily started by calling it from bash script, however rest
 <li>Optional helper tasks:
 <ul>
 <li><code>K3D - Deploy VehicleApp (without rebuild)</code>: Deploys the VehicleApp via Helm to the K3D cluster (without rebuilding it). That requires, that the task <code>K3D - Build VehicleApp</code> has been executed once before.</li>
-<li><code>K3D - Runtime Down</code>: Uninstalls and removes K3D runtime configuration.</li>
+<li><code>K3D - Install tooling</code>: Installs tooling for local debugging (K9s)</li>
+<li><code>K3D - Uninstall runtime</code>: Uninstalls the runtime components from the K3D cluster (without deleting the cluster).</li>
+<li><code>K3D - Reset control plane</code>: Deletes the K3D cluster and the registry with all deployed pods/services.</li>
 </ul>
 </li>
 </ul>
 <p>K3D is configured so that <em>Mosquitto</em> and the <em>KUKSA Data Broker</em> can be reached from outside the container over the ports <code>31883</code> (Mosquitto) and <code>30555</code>(KUKSA Data Broker). The test runner, that is running outside of the cluster, can interact with these services over those ports.</p>
-<p>To check the status of your K3D instance (running pods, containers, logs, &hellip;) you can either use the <code>kubectl</code> utility or start <em>K9s</em> in a terminal window to have a terminal UI for interacting with the cluster.</p>
+<p>To check the status of your K3D instance (running pods, containers, logs, &hellip;) you can either use the <code>kubectl</code> utility or start <em>K9s</em> (after running the task <code>K3D - Install tooling</code> once) in a terminal window to have a UI for interacting with the cluster.</p>
 <p><strong>Run as Bundle:</strong> To orchestrate these tasks, a task called <code>K3D - Deploy VehicleApp</code> is available. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>K3D - Deploy VehicleApp</code>.</p>
 <p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
-<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task. More detailed logs can be found inside your workspace&rsquo;s logs directory <code>./logs/*</code></p>
+<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task.</p>
 <h2 id="uploading-files-to-persistentvolume">Uploading files to persistentVolume</h2>
 <p>Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
-All the files that are located in <code>[./config/feedercan](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main/config/feedercan)</code> will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/runtime/deployment/config/helm/templates/persistentVolume.yaml" target="_blank" rel="noopener"><code>runtime-k3d/src/runtime/deployment/config/helm/templates/persistentVolume.yaml</code></a>.</p>
-<p>Changes in <code>./config/feedercan</code> are automatically reflected in PersistentVolume.</p>
+All the files that are located in <code>deploy/runtime/k3d/volume</code> will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: <a href="https://github.com/eclipse-velocitas/devenv-runtime-k3d/blob/main/src/runtime/config/helm/templates/persistentVolume.yaml" target="_blank" rel="noopener"><code>deploy/runtime/k3d/helm/templates/bash.yaml</code></a>.</p>
+<p>Changes in <code>deploy/runtime/k3d/volume</code> are automatically reflected in PersistentVolume.</p>
 <h3 id="uploading-custom-candump-file-to-feedercan">Uploading custom candump file to FeederCAN</h3>
 <p>FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:</p>
 <ol>
-<li>Creating/updating candump file with the name <code>candumpDefault.log</code> in <code>./config/feedercan</code></li>
+<li>Creating/updating candump file with with name <code>candump</code> in <code>deploy/runtime/k3d/volume</code></li>
 <li>Recreating the feedercan pod: <code>kubectl delete pods -l app=feedercan</code></li>
 </ol>
 <p>More information about FeederCan can be found <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">here</a></p>
@@ -2577,8 +2612,8 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <ul>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
-<li>Concept: <a href="/velocitas-docs/docs/about/deployment-model">Deployment Model</a></li>
-<li>Concept: <a href="/velocitas-docs/docs/about/deployment_model/vehicle_app_releases">Build and release process</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model">Deployment Model</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases">Build and release process</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
 </ul>
 
@@ -2621,8 +2656,8 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 </ul>
 <p>We distinguish between two environments for executing the <em>Vehicle App</em> and the runtime components:</p>
 <ul>
-<li><strong>Local execution:</strong> components are running locally in the development environment</li>
-<li><strong>Kubernetes execution:</strong> components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)</li>
+<li><strong>Local execution</strong>: components are running locally in the development environment</li>
+<li><strong>Kubernetes execution</strong>: components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)</li>
 </ul>
 <h3 id="local-execution">Local Execution</h3>
 <p>First, make sure that the runtime services are configured and running like described <a href="/velocitas-docs/docs/run_runtime_services_locally.md">here</a>.</p>
@@ -2673,14 +2708,14 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <h1 id="common-tasks">Common Tasks</h1>
 <h2 id="run-test-in-local-mode">Run test in local mode</h2>
 <ol>
-<li>Make sure that the <a href="/velocitas-docs/docs/run_runtime_services_locally.md">Local Runtime</a> is up and running.</li>
+<li>Make sure that the <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">tasks for the runtime components</a> are running (by checking the terminal view).</li>
 <li>Make sure that your application is running (via Debugger or task).</li>
 <li>Make sure that you are using the right ports for local execution of runtime components.</li>
 <li>Run tests from the test runner.</li>
 </ol>
 <h2 id="run-tests-in-kubernetes-mode">Run tests in Kubernetes mode</h2>
 <ol>
-<li>Make sure that K3D is set up and vehicle runtime (including VehicleApp) is deployed and running (by executing the task <code>K3D Runtime - Deploy VehicleApp</code>).</li>
+<li>Make sure that K3D is set up and all vehicle services and vehicle runtime are deployed and running (by executing the task <code>K3D - Deploy runtime</code>).</li>
 <li>Make sure that the tests are using the right ports for Kubernetes execution (<a href="#kubernetes-execution-k3d">see above</a>).</li>
 <li>Run tests from the test runner.</li>
 </ol>
@@ -2741,7 +2776,7 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <li>Completed the tutorial <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">How to create a vehicle app</a></li>
 </ul>
 <h2 id="use-the-sample-podspecs">Use the sample PodSpecs</h2>
-<p>If the Vehicle App has been created from one of our template repositories, a sample PodSpec is already available inside our maintained <code>runtime-k3d</code> of the <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package at <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/podspec/</code></a> and can be used as it is without any modification. Another example can also be found in the <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/" target="_blank" rel="noopener">documentation of Leda</a>. Additionally a PodSpec for the runtime can be generated by executing <code>velocitas exec runtime-k3d generate-podspec</code> inside a running DevContainer. The <code>podspec.yaml</code> will be generated to the root of your repository.</p>
+<p>If the Vehicle App has been created from one of our template repositories, a sample PodSpec is already available under <code>deploy/VehicleApp/podspec</code> and can be used as it is without any modification. Another example can also be found in the <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/" target="_blank" rel="noopener">documentation of Leda</a>.</p>
 <h3 id="content">Content</h3>
 <p>Looking at the content of the sample-podspec, it is starting with some general information about the app and the dapr configuration. You can define e.g. the app-port and the log-level. You could also add more labels to your app, which might help to identify the app for later usages.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -2789,15 +2824,6 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <ul>
 <li>A local K3D installation must be available. For how to setup K3D, check out this <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">tutorial</a>.</li>
 </ul>
-
-
-<div class="alert alert-warning" role="alert">
-
-
-    Make sure that there is no running VehicleApp with the same name and configuration deployed on your K3D environment.
-
-</div>
-
 <p>Deploying your app with PodSpecs can be done with one simple command:</p>
 <p><code>kubectl apply -f &lt;podspec.yaml&gt;</code></p>
 <p>In parallel you can check with K9S if the deployment is working correctly.</p>
@@ -2834,21 +2860,8 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <li>Completed the tutorial <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">How to create a vehicle app</a></li>
 </ul>
 <h2 id="use-the-sample-helm-chart">Use the sample Helm chart</h2>
-<p>If the Vehicle App has been created from one of our template repositories, a sample Helm chart is already available inside our maintained <code>runtime-k3d</code> of the <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package at <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/</code></a> and can be used as it is without any modification.
-This sample chart is using the values from <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/values.yaml" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/values.yaml</code></a> file.</p>
-
-
-<div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Note</h4>
-
-    The same app name as defined in <code>./app/AppManifest.json</code> will be used for the deployment
-</br>
-The app port is configurable as <code>vehicleAppPort</code> inside your <code>.velocitas.json</code> variables section. If not set there, the default value is <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json#L192" target="_blank" rel="noopener">50008 - as defined in manifest.json</a> of the devenv-runtimes package.
-
-</div>
-
-<p>Additionally a sample Helm chart for the runtime can be generated by executing <code>velocitas exec runtime-k3d generate-helm</code> inside a running DevContainer. The <code>helm</code> directory will be generated to the root of your repository.
-This sample chart is generated by using the configuration of the <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json" target="_blank" rel="noopener"><code>runtime.json</code></a> inside the <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package.</p>
+<p>If the Vehicle App has been created from one of our template repositories, a sample Helm chart is already available under <code>deploy/VehicleApp/helm</code> and can be used as it is without any modification.
+This sample chart is using the values from <code>deploy/VehicleApp/helm/values.yaml</code> file, during the deployment of the VehicleApp, the neccessary app attributes from the <code>AppManifest.json</code> (e.g. <code>app name</code> and <code>app port</code>) will overwite the default values from the sample helm chart via the <code>.vscode/runtime/k3d/deploy_vehicleapp.sh</code> script.</p>
 <h2 id="prepare-a-new-helm-chart">Prepare a new Helm chart</h2>
 <p>If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called <code>my_vehicle_app</code> for this walkthrough.</p>
 <ol>
