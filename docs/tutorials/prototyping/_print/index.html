@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c01f7586ad50197150f134c6fc320bfd.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -270,8 +270,8 @@ By clicking on &ldquo;Create repository&rdquo;:</p>
 Clone your newly created repository and open the <em>Vehicle App</em> in Microsoft Visual Studio Code and start to extend it.</p>
 <p>You can proceed with the following topics:</p>
 <ul>
-<li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment" target="_blank" rel="noopener">Starting development environment</a></li>
-<li><a href="https://eclipse-velocitas.github.io/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/" target="_blank" rel="noopener">Vehicle App Development</a></li>
+<li><a href="/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment">Starting development environment</a></li>
+<li><a href="/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/">Vehicle App Development</a></li>
 </ul>
 
 </div>
@@ -297,7 +297,8 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 	<h1 id="pg-b739b86ab630d926fca95b542c42eb18">1 - Service Integration</h1>
     <div class="lead">Learn how to integrate a Vehicle Service that executes the request on vehicle side</div>
 	<p>Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your <em>Vehicle App</em> makes use of e.g. <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code>, <code>Vehicle.Body.Lights.IsBackupOn</code>, <code>Vehicle.Body.Lights.IsHighBeamOn</code>, <code>Vehicle.Body.Lights.IsLowBeamOn</code> you are in for some real action. To learn more, visit <a href="/velocitas-docs/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>.</p>
-<p>You can validate the interaction of the service with your <em>Vehicle App</em> by adding a <em>Vehicle Service</em> to the <code>/app/AppManifest.json</code>, <a href="/velocitas-docs/docs/tutorials/quickstart/#starting-runtime-services">start the services</a> locally and <a href="/velocitas-docs/docs/tutorials/quickstart/#debugging-vehicle-app">debug</a> it.</p>
+<p>You can validate the interaction of the service with your <em>Vehicle App</em> by making use of a <em>Vehicle Service</em>.</p>
+<p>Our maintained <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package (<a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>) comes with the support of adding further <em>Vehicle Services</em> to the <code>runtime.json</code> of a package. More information <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages">here</a>. (A general vehicle <em>mock service</em> is also coming soon!)</p>
 <h3 id="modify-services">Modify services</h3>
 <p>For more advanced usage you can als try modifying existing services. Check out <a href="https://github.com/boschglobal/kuksa.val.services/tree/feature/subscribe_actuator_targets/seat_service" target="_blank" rel="noopener">the seat service</a> for example, modify it and integrate it into your <em>Vehicle App</em> repository.</p>
 <h3 id="create-your-own-services">Create your own services</h3>

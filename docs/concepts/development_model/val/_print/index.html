@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.1c1601b945f83f7b56356c2b8830560c.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.c01f7586ad50197150f134c6fc320bfd.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -172,8 +172,8 @@ Filter- and rule-based subscriptions of datapoints can be used to reduce the num
 <h3 id="data-feeders">Data Feeders</h3>
 <p>Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
 The source of the contents of the data points provided is specific to the respective feeder.</p>
-<p>As of today, the Vehicle Abstraction Layer contains a generic <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python,
-which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
+<p>Eclipse KUKSA provides several <a href="https://github.com/eclipse/kuksa.val.feeders" target="_blank" rel="noopener">Data Feeders</a> for different datasources.
+As of today, Eclipse Velocitas only utilizes the generic <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python, which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
 The feeder uses a mapping file and data point meta data to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
