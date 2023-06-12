@@ -23,14 +23,14 @@
       <description>
         
         
-        &lt;p&gt;The following information describes how to setup and configure the &lt;a href=&#34;https://code.visualstudio.com/docs/remote/containers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Development Container (DevContainer)&lt;/a&gt;, and how to build, customize and test the sample &lt;em&gt;Vehicle App&lt;/em&gt;, which is included in this repository. You will learn how to use the Vehicle App SDK, how to interact with the vehicle API and how to do CI/CD using the pre-configured GitHub workflows that come with the repository.&lt;/p&gt;
-&lt;p&gt;Once you have completed all steps, you will have a solid understanding of the Development Workflow and you will be able to reuse the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Template Repository&lt;/a&gt; for your own &lt;em&gt;Vehicle App&lt;/em&gt; develpment project.&lt;/p&gt;
+        &lt;p&gt;The following page describes how to set up and configure the &lt;a href=&#34;https://code.visualstudio.com/docs/remote/containers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Development Container (DevContainer)&lt;/a&gt; and how to build, customize and test the sample &lt;em&gt;Vehicle App&lt;/em&gt; included in this repository. You will learn how to use the Vehicle App SDK, interact with the vehicle API and work with CI/CD using the pre-configured GitHub Workflows that come with the template repository.&lt;/p&gt;
+&lt;p&gt;Once you have completed all steps, you will have a solid understanding of the Development Workflow, and you will be able to reuse the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Template Repository&lt;/a&gt; for your own &lt;em&gt;Vehicle App&lt;/em&gt; develpment project.&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
-    Before you start, we recommend that you familiarize yourself with our &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model&#34;&gt;Basic Concept&lt;/a&gt; to understand mentioned terms.
+    Before you start, we recommend you familiarize yourself with our &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model&#34;&gt;Basic Concept&lt;/a&gt; to understand mentioned terms.
 
 &lt;/div&gt;
 
@@ -38,7 +38,7 @@
 &lt;p&gt;Following is required to create comprehensive Development Envrironment for your &lt;em&gt;Vehcile App&lt;/em&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Install &lt;a href=&#34;https://code.visualstudio.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Install &lt;a href=&#34;https://code.visualstudio.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSCode&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart/container_runtime&#34;&gt;Install a working container runtime&lt;/a&gt;&lt;/p&gt;
@@ -48,13 +48,10 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;code --install-extension ms-vscode-remote.remote-containers
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;creating-vehicle-app-repository&#34;&gt;Creating Vehicle App Repository&lt;/h2&gt;
+&lt;h2 id=&#34;how-to-create-_vehicle-app_-repository&#34;&gt;How to create &lt;em&gt;Vehicle App&lt;/em&gt; Repository?&lt;/h2&gt;
 &lt;p&gt;For the Orginization and Vehicle App repository the name &lt;em&gt;MyOrg/MyFirstVehicleApp&lt;/em&gt; is used as a reference during the rest of the document.&lt;/p&gt;
-&lt;p&gt;Create your own repository copy from the template repository of your choice &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python&lt;/a&gt;/&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-cpp-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;C++&lt;/a&gt; by clicking the green button &lt;code&gt;Use this template&lt;/code&gt;. You don&amp;rsquo;t have to include all branches. For more information on Template Repositories take a look at this &lt;a href=&#34;https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Tutorial&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;starting-development-environment&#34;&gt;Starting Development Environment&lt;/h2&gt;
-&lt;p&gt;In the following you will learn different possibilities to work with the repo. Basically you can work on your own machine using just Visual Studio Code&amp;rsquo;s &lt;a href=&#34;https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DevContainer&lt;/a&gt; or you can set up the environment on a remote agent, using &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can create your own repository using template directly or starting from prototyping via Digital.Auto.&lt;/p&gt;
 
-   
    
    
 &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-1&#34; role=&#34;tablist&#34;&gt;
@@ -62,18 +59,12 @@
       &lt;a class=&#34;nav-link active&#34;
           id=&#34;tabs-01-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-00&#34; role=&#34;tab&#34;
           aria-controls=&#34;tabs-01-00&#34; aria-selected=&#34;false&#34;&gt;
-        Visual Studio Code
+        Using Template
       &lt;/a&gt;
     &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link&#34;
           id=&#34;tabs-01-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-01&#34; role=&#34;tab&#34;
           aria-controls=&#34;tabs-01-01&#34; aria-selected=&#34;false&#34;&gt;
-        GitHub Codespaces
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link&#34;
-          id=&#34;tabs-01-02-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-02&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-01-02&#34; aria-selected=&#34;false&#34;&gt;
         Digital.Auto
       &lt;/a&gt;
     &lt;/li&gt;
@@ -82,22 +73,57 @@
 &lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;
     &lt;div class=&#34;tab-body tab-pane fade show active&#34;
         id=&#34;tabs-01-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-00-tab&#34;&gt;
-        &lt;p&gt;The Visual Studio Code&amp;rsquo;s DevContainer makes possible to package a complete &lt;em&gt;Vehicle App&lt;/em&gt; development environment, including Visual Studio Code&amp;rsquo;s extensions, &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/&#34;&gt;Vehicle App SDK&lt;/a&gt;, &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-runtime&#34;&gt;Vehicle App Runtimes&lt;/a&gt; and all other development &amp;amp; testing tools into a DevContainer that is then started within your Visual Studio Code session.&lt;/p&gt;
+        &lt;p&gt;Create your own repository copy from the template repository of your choice &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python&lt;/a&gt;/&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-cpp-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;C++&lt;/a&gt; by clicking the green button &lt;kbd&gt;Use this template&lt;/kbd&gt;. You don&amp;rsquo;t have to include all branches. For more information on Template Repositories take a look at this &lt;a href=&#34;https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Tutorial&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-01-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-01-tab&#34;&gt;
+        &lt;p&gt;To learn how to start a prototype with the playground of Digital.Auto and integrate it into Velocitas please follow the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/prototyping&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;how-to-start-to-develop&#34;&gt;How to start to develop?&lt;/h2&gt;
+&lt;p&gt;In the following chapter you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using just VSCode&amp;rsquo;s &lt;a href=&#34;https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DevContainer&lt;/a&gt; or you can set up the environment on a remote agent, using &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;: Your &lt;em&gt;Vehicle App&lt;/em&gt; reposiroty based on template is &lt;a href=&#34;#how-to-create-vehicle-app-repository&#34;&gt;created&lt;/a&gt;.&lt;/p&gt;
+
+   
+   
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-2&#34; role=&#34;tablist&#34;&gt;
+  &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active&#34;
+          id=&#34;tabs-02-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-02-00&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-02-00&#34; aria-selected=&#34;false&#34;&gt;
+        VSCode
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-02-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-02-01&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-02-01&#34; aria-selected=&#34;false&#34;&gt;
+        GitHub Codespaces
+      &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-2-content&#34;&gt;
+    &lt;div class=&#34;tab-body tab-pane fade show active&#34;
+        id=&#34;tabs-02-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-00-tab&#34;&gt;
+        &lt;p&gt;The VSCode&amp;rsquo;s DevContainer makes possible to package a complete &lt;em&gt;Vehicle App&lt;/em&gt; development environment, including VSCode&amp;rsquo;s extensions, &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/&#34;&gt;Vehicle App SDK&lt;/a&gt;, &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-runtime&#34;&gt;Vehicle App Runtimes&lt;/a&gt; and all other development &amp;amp; testing tools into a DevContainer that is then started within your VSCode session.&lt;/p&gt;
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Proxy configuration&lt;/h4&gt;
 &lt;pre&gt;&lt;code&gt;A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &amp;lt;a href=&amp;quot;/velocitas-docs/docs/tutorials/quickstart/behind_proxy&amp;quot;&amp;gt;Working behind a proxy&amp;lt;/a&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;With following steps you will clone and set up your development environment on your own machine using just Visual Studio Code.&lt;/p&gt;
+&lt;p&gt;With following steps you will clone and set up your development environment on your own machine using just VSCode.&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Clone created &lt;em&gt;MyOrg/MyFirstVehicleApp&lt;/em&gt; repository locally using your favorite Git tooling&lt;/li&gt;
-&lt;li&gt;Go to the just cloned repository folder &lt;code&gt;$ cd MyFirstVehicleApp&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Open Visual Studio Code with project content by using command &lt;code&gt;$ code .&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;A popup appears with the button &lt;kbd&gt;Reopen in Container&lt;/kbd&gt; on the lower right side of Visual Studio Code. If the popup does not appear, you can also hit &lt;kbd&gt;F1&lt;/kbd&gt; and perform the command &lt;code&gt;Dev-Containers: Open Folder in Container&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Clone created &lt;em&gt;MyOrg/MyFirstVehicleApp&lt;/em&gt; repository locally using your favorite Git Tool&lt;/li&gt;
+&lt;li&gt;Go to the just cloned repository folder, e.g. &lt;code&gt;$ cd MyFirstVehicleApp&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open VSCode with project content like &lt;code&gt;$ code .&lt;/code&gt; or via &lt;a href=&#34;https://code.visualstudio.com/docs/editor/workspaces#_singlefolder-workspaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSCode user interface&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A popup appears with the button &lt;kbd&gt;Reopen in Container&lt;/kbd&gt; on the lower right side of VSCode. If the popup does not appear, you can also hit &lt;kbd&gt;F1&lt;/kbd&gt; and perform the command &lt;code&gt;Dev-Containers: Open Folder in Container&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Click on &lt;kbd&gt;Reopen in Container&lt;/kbd&gt;&lt;/li&gt;
 &lt;li&gt;Wait for the container to be set up&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The first time initializing the container will take a few minutes to build the image and to provision the tools inside the container.&lt;/p&gt;
+&lt;p&gt;The first time initializing the container will take few minutes to build the image and to provision the tools inside the container.&lt;/p&gt;
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 &lt;pre&gt;&lt;code&gt;If the DevContainer build process fails, then wait for the current build to finish, press &amp;lt;kbd&amp;gt;F1&amp;lt;/kbd&amp;gt; and run the command &amp;lt;code&amp;gt;Dev-Containers: Rebuild Container Without Cache&amp;lt;/code&amp;gt;
@@ -107,41 +133,59 @@
 
     &lt;/div&gt;
     &lt;div class=&#34;tab-body tab-pane fade&#34;
-        id=&#34;tabs-01-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-01-tab&#34;&gt;
+        id=&#34;tabs-02-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-01-tab&#34;&gt;
         &lt;p&gt;One of the possibilities to use your newly created repository to use it via &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.
-You can either try it out directly in the browser or also use it inside Visual Studio Code. The main thing to remember is that everything is executed on a remote agent and the browser or Visual Studio Code just act as a &amp;ldquo;thin-client&amp;rdquo;.&lt;/p&gt;
+You can either try it out directly in the browser or also use it inside VSCode. The main thing to remember is that everything is executed on a remote agent and the browser or VSCode just act as a &amp;ldquo;thin-client&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;To get started with GitHub Codespaces, you just have to follow a few steps:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Open your repository on GitHub (e.g. &lt;a href=&#34;https://github.com/MyOrg/MyFirstVehicleApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/MyOrg/MyFirstVehicleApp&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Click on the green &lt;code&gt;Code&lt;/code&gt; button and select Codespaces on the top&lt;/li&gt;
-&lt;li&gt;Configure your Codespace if needed (defaults to the main branch and a standard agent)&lt;/li&gt;
+&lt;li&gt;Click on the green &lt;code&gt;Code&lt;/code&gt; button and select &lt;em&gt;Codespaces&lt;/em&gt; on the top&lt;/li&gt;
+&lt;li&gt;Configure your &lt;em&gt;Codespace&lt;/em&gt; if needed (defaults to the main branch and a standard agent)&lt;/li&gt;
 &lt;li&gt;Click on &lt;code&gt;create&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;A new window will open where you see logs for setting up the container. On this window you could now also choose to work with Visual Studio Code. The environment remains on a remote agent and Visual Studio Code establishes a connection to this machine.&lt;/p&gt;
-&lt;p&gt;Once everything is set up in the Codespace, you can work with it in the same way as with the normal DevContainer inside Visual Studio Code.&lt;/p&gt;
+&lt;p&gt;A new window will open where you can see logs for setting up the container. On this window you could now also choose to work with VSCode. The environment remains on a remote agent and VSCode establishes a connection to this machine.&lt;/p&gt;
+&lt;p&gt;Once everything is set up in the &lt;em&gt;Codespace&lt;/em&gt;, you can work with it in the same way as with the normal DevContainer inside VSCode.&lt;/p&gt;
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;Be careful with using GitHub Codespaces in browser and Visual Studio Code locally at the same time: &amp;lt;em&amp;gt;Tasks&amp;lt;/em&amp;gt; that are started using a browser session will not show in Visual Studio Code environment and vice versa that leads for problems.
+&lt;pre&gt;&lt;code&gt;Be careful with using GitHub Codespaces in browser and VSCode locally at the same time: &amp;lt;em&amp;gt;Tasks&amp;lt;/em&amp;gt; that are started using a browser session will not show in VSCode environment and vice versa that leads for problems.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
     &lt;/div&gt;
-    &lt;div class=&#34;tab-body tab-pane fade&#34;
-        id=&#34;tabs-01-02&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-02-tab&#34;&gt;
-        &lt;p&gt;tbd&lt;/p&gt;
-
-    &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&#34;starting-runtime-services&#34;&gt;Starting runtime services&lt;/h2&gt;
+&lt;h2 id=&#34;how-to-start-runtimes&#34;&gt;How to start runtimes?&lt;/h2&gt;
 &lt;p&gt;The runtime services (like &lt;em&gt;KUKSA Data Broker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are required to develop vehicle apps and run integration tests.&lt;/p&gt;
-&lt;p&gt;A Visual Studio Code task called &lt;code&gt;Local Runtime - Up&lt;/code&gt; is available to run these in the correct order.&lt;/p&gt;
+&lt;p&gt;There are few runtimes available currently:&lt;/p&gt;
+
+   
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-3&#34; role=&#34;tablist&#34;&gt;
+  &lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active&#34;
+          id=&#34;tabs-03-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-03-00&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-03-00&#34; aria-selected=&#34;false&#34;&gt;
+        Local Runtime
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-03-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-03-01&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-03-01&#34; aria-selected=&#34;false&#34;&gt;
+        K3D Runtime
+      &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-3-content&#34;&gt;
+    &lt;div class=&#34;tab-body tab-pane fade show active&#34;
+        id=&#34;tabs-03-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-03-00-tab&#34;&gt;
+        &lt;p&gt;A VSCode task called &lt;code&gt;Local Runtime - Up&lt;/code&gt; is available to start all necessary services in the correct order.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt;&lt;/li&gt;
 &lt;li&gt;Select command &lt;code&gt;Tasks: Run Task&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Select &lt;code&gt;Local Runtime - Up&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;You should see the task &lt;code&gt;Local Runtime - Up&lt;/code&gt; being executed on a separate Visual Studio Code terminal with the following content:&lt;/p&gt;
+&lt;p&gt;You should see the task &lt;code&gt;Local Runtime - Up&lt;/code&gt; being executed on a separate VSCode terminal with the following content:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ velocitas &lt;span style=&#34;color:#204a87&#34;&gt;exec&lt;/span&gt; runtime-local up 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Hint: Log files can be found in your workspace&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;s logs directory
@@ -150,40 +194,74 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; seatservice running
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; feedercan running
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;✅ Runtime is ready to use!
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Info&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;Simply press &amp;lt;code&amp;gt;ctrl + c&amp;lt;/code&amp;gt; to stop the runtime.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-03-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-03-01-tab&#34;&gt;
+        &lt;p&gt;A VSCode task called &lt;code&gt;K3D Runtime - Up&lt;/code&gt; is available to start all necessary services in the correct order.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt;&lt;/li&gt;
+&lt;li&gt;Select command &lt;code&gt;Tasks: Run Task&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;K3D Runtime - Up&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You should see the task &lt;code&gt;K3D Runtime - Up&lt;/code&gt; being executed on a separate VSCode terminal with the following content:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ velocitas &lt;span style=&#34;color:#204a87&#34;&gt;exec&lt;/span&gt; runtime-k3d up 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Hint: Log files can be found in your workspace&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;s logs directory
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; mqtt-broker running
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; vehicledatabroker running
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; seatservice running
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; feedercan running
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;✅ Runtime is ready to use!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;You need to perform task &amp;lt;code&amp;gt;K3D Runtime - Down&amp;lt;/code&amp;gt; to properly stop runtime activities.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;More information about the runtimes are available &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-runtime&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-debug-_vehicle-app_&#34;&gt;How to debug &lt;em&gt;Vehicle App&lt;/em&gt;?&lt;/h2&gt;
+
 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
 
-    Simply press &lt;code&gt;ctrl + c&lt;/code&gt; to stop the runtime.
+    Debuging functionality is available only for &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_locally&#34;&gt;Local Runtime&lt;/a&gt;
+Both given examples are available as part of template.
 
 &lt;/div&gt;
 
-&lt;p&gt;More information about the tasks are available &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;debugging-vehicle-app&#34;&gt;Debugging Vehicle App&lt;/h2&gt;
-&lt;p&gt;Now that the &lt;a href=&#34;#starting-runtime-services&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the &lt;em&gt;Vehicle App&lt;/em&gt; as next step.&lt;/p&gt;
+&lt;p&gt;Now that the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_locally&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the &lt;em&gt;Vehicle App&lt;/em&gt; as next step.&lt;/p&gt;
 &lt;p&gt;
 
 
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-3&#34; role=&#34;tablist&#34;&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-5&#34; role=&#34;tablist&#34;&gt;
   &lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link active&#34;
-          id=&#34;tabs-03-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-03-00&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-03-00&#34; aria-selected=&#34;false&#34;&gt;
+          id=&#34;tabs-05-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-05-00&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-05-00&#34; aria-selected=&#34;false&#34;&gt;
         Template
       &lt;/a&gt;
     &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link&#34;
-          id=&#34;tabs-03-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-03-01&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-03-01&#34; aria-selected=&#34;false&#34;&gt;
+          id=&#34;tabs-05-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-05-01&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-05-01&#34; aria-selected=&#34;false&#34;&gt;
         Seat Adjuster
       &lt;/a&gt;
     &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-3-content&#34;&gt;
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-5-content&#34;&gt;
     &lt;div class=&#34;tab-body tab-pane fade show active&#34;
-        id=&#34;tabs-03-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-03-00-tab&#34;&gt;
+        id=&#34;tabs-05-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-05-00-tab&#34;&gt;
         &lt;ol&gt;
 &lt;li&gt;Open the main source file and set a breakpoint in the given method:
 &lt;ul&gt;
@@ -194,8 +272,8 @@ You can either try it out directly in the browser or also use it inside Visual S
 &lt;li&gt;Press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the &lt;em&gt;Vehicle App&lt;/em&gt; and see the log output on the &lt;code&gt;DEBUG CONSOLE&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in Visual Studio Code and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in VSCode and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;sampleapp/getSpeed/response&lt;/code&gt; and click subscribe&lt;/li&gt;
 &lt;li&gt;Set &lt;code&gt;Publish Topic&lt;/code&gt; = &lt;code&gt;sampleapp/getSpeed&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Press publish with an empty payload field.&lt;/li&gt;
@@ -203,7 +281,7 @@ You can either try it out directly in the browser or also use it inside Visual S
 
     &lt;/div&gt;
     &lt;div class=&#34;tab-body tab-pane fade&#34;
-        id=&#34;tabs-03-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-03-01-tab&#34;&gt;
+        id=&#34;tabs-05-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-05-01-tab&#34;&gt;
         &lt;p&gt;For Python: Follow the guide provided in: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart/import_examples/&#34;&gt;Import examples&lt;/a&gt; and import &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;seat-adjuster&lt;/code&gt;&lt;/a&gt;. &lt;/br&gt;
 For C++: Continue with the next steps.&lt;/p&gt;
 &lt;ol&gt;
@@ -216,9 +294,9 @@ For C++: Continue with the next steps.&lt;/p&gt;
 &lt;li&gt;Press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the &lt;em&gt;Vehicle App&lt;/em&gt; and see the log output on the &lt;code&gt;DEBUG CONSOLE&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
+&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in Visual Studio Code and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in VSCode and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/setPosition/response&lt;/code&gt; and click subscribe&lt;/p&gt;
@@ -239,7 +317,7 @@ For C++: Continue with the next steps.&lt;/p&gt;
 &lt;/div&gt;
 
 Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (&lt;kbd&gt;F5&lt;/kbd&gt;), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.&lt;/p&gt;
-&lt;h2 id=&#34;triggering-ci-workflow&#34;&gt;Triggering CI Workflow&lt;/h2&gt;
+&lt;h2 id=&#34;how-to-trigger-ci-workflow&#34;&gt;How to trigger CI Workflow?&lt;/h2&gt;
 &lt;p&gt;The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By pushing a change to GitHub the CI Workflow will be triggered:&lt;/p&gt;
 &lt;ol&gt;
@@ -254,7 +332,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;To see the results open the &lt;code&gt;Actions&lt;/code&gt; page of your repository on GitHub, go to &lt;code&gt;CI Workflow&lt;/code&gt; and check the workflow output.&lt;/p&gt;
-&lt;h2 id=&#34;releasing-vehicle-app&#34;&gt;Releasing Vehicle App&lt;/h2&gt;
+&lt;h2 id=&#34;how-to-release-_vehicle-app_&#34;&gt;How to release &lt;em&gt;Vehicle App&lt;/em&gt;?&lt;/h2&gt;
 &lt;p&gt;Now that the &lt;code&gt;CI Workflow&lt;/code&gt; was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image that is published in the GitHub container registry&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Open the &lt;code&gt;Code&lt;/code&gt; page of your repository on GitHub&lt;/li&gt;
@@ -266,14 +344,14 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open &lt;code&gt;Actions&lt;/code&gt; on the repoitory and see the result.&lt;/p&gt;
-&lt;h2 id=&#34;deploying-vehicle-app&#34;&gt;Deploying Vehicle App&lt;/h2&gt;
+&lt;h2 id=&#34;how-to-deploy-_vehicle-app_&#34;&gt;How to deploy &lt;em&gt;Vehicle App&lt;/em&gt;?&lt;/h2&gt;
 &lt;p&gt;After releasing the Vehicle App to the GitHub container registry you might ask how to bring the Vehicle App on a device and have the required Runtime Stack on the device. Here &lt;em&gt;Eclipse Leda&lt;/em&gt; comes into the game.&lt;/p&gt;
 &lt;p&gt;Please checkout the documentation of &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse Leda&lt;/a&gt; to get more information.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle_model_creation&#34;&gt;Creating a Vehicle Model&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;Create a Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/integration_tests.md&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/integration_tests&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -479,34 +557,7 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
         
         &lt;p&gt;To be sure that a newly created &lt;em&gt;Vehicle App&lt;/em&gt; will run together with the &lt;em&gt;KUKSA Data Broker&lt;/em&gt; and potentially other dependant &lt;em&gt;Vehicle Services&lt;/em&gt; or &lt;em&gt;Vehicle Apps&lt;/em&gt;, it&amp;rsquo;s essential to write integration tests along with developing the app.&lt;/p&gt;
 &lt;p&gt;To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.&lt;/p&gt;
-&lt;h2 id=&#34;quickstart&#34;&gt;Quickstart&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Make sure that the local execution of runtime components is working and started.&lt;/li&gt;
-&lt;li&gt;Start the application (Debugger or run as task).&lt;/li&gt;
-&lt;li&gt;Extend the test file &lt;code&gt;/app/tests/integration/integration_test.py&lt;/code&gt; or create a new test file.&lt;/li&gt;
-&lt;li&gt;Run/debug tests with the Visual Studio Code Test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;runtime-components&#34;&gt;Runtime components&lt;/h2&gt;
-&lt;p&gt;To be able to test the &lt;em&gt;Vehicle App&lt;/em&gt; in an integrated way, the following components should be running:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Dapr&lt;/li&gt;
-&lt;li&gt;Mosquitto&lt;/li&gt;
-&lt;li&gt;Data Broker&lt;/li&gt;
-&lt;li&gt;Vehicle Services&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Local execution:&lt;/strong&gt; components are running locally in the development environment&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Kubernetes execution:&lt;/strong&gt; components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
-&lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing &lt;code&gt;VehicleApp&lt;/code&gt; using provided task.&lt;/p&gt;
-&lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally.&lt;/p&gt;
-&lt;h3 id=&#34;kubernetes-execution-k3d&#34;&gt;Kubernetes execution (K3D)&lt;/h3&gt;
-&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. To ensure that the tests connect to the containers, please execute the following steps in new bash terminal:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MQTT_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31883&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;VDB_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30555&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; pytest
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
+&lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
 &lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;/app/tests/integration/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -541,36 +592,32 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Please make sure that you don&amp;rsquo;t check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;running-tests-locally&#34;&gt;Running Tests locally&lt;/h2&gt;
-&lt;p&gt;Once tests are developed, they can be executed against the running runtime components, either to the &lt;strong&gt;&lt;em&gt;local runtime&lt;/em&gt;&lt;/strong&gt; or in Kubernetes mode, by using the test runner in Visual Studio Code. The switch to run against the local components or the Kubernetes components is specified by the port. Local ports for &lt;em&gt;Mosquitto&lt;/em&gt; and &lt;em&gt;KUKSA Data Broker&lt;/em&gt; are &lt;code&gt;1883&lt;/code&gt;/&lt;code&gt;55555&lt;/code&gt;. In Kubernetes mode, the ports would be the locally exposed ports &lt;code&gt;31883&lt;/code&gt;/&lt;code&gt;30555&lt;/code&gt;. If using the Kubernetes ports, the tests will be executed against the runtime components/application that run in containers within the Kubernetes cluster.&lt;/p&gt;
-&lt;h2 id=&#34;running-tests-in-ci-pipeline&#34;&gt;Running Tests in CI pipeline&lt;/h2&gt;
+&lt;h2 id=&#34;runtime-components&#34;&gt;Runtime components&lt;/h2&gt;
+&lt;p&gt;To be able to test the &lt;em&gt;Vehicle App&lt;/em&gt; in an integrated way, the following components should be running:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dapr&lt;/li&gt;
+&lt;li&gt;Mosquitto&lt;/li&gt;
+&lt;li&gt;Data Broker&lt;/li&gt;
+&lt;li&gt;Vehicle Services&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Local execution:&lt;/strong&gt; components are running locally in the development environment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kubernetes execution:&lt;/strong&gt; components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
+&lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing &lt;code&gt;VehicleApp&lt;/code&gt; using provided task.&lt;/p&gt;
+&lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally.&lt;/p&gt;
+&lt;h3 id=&#34;kubernetes-execution-k3d&#34;&gt;Kubernetes execution (K3D)&lt;/h3&gt;
+&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. Local ports for &lt;em&gt;Mosquitto&lt;/em&gt; and &lt;em&gt;KUKSA Data Broker&lt;/em&gt; are &lt;code&gt;1883&lt;/code&gt;/&lt;code&gt;55555&lt;/code&gt;. In Kubernetes mode, the ports would be the locally exposed ports &lt;code&gt;31883&lt;/code&gt;/&lt;code&gt;30555&lt;/code&gt;, to ensure that the tests connect to the containers, please execute the following commands in new bash terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MQTT_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31883&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;VDB_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30555&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; pytest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;integration-tests-in-ci-pipeline&#34;&gt;Integration Tests in CI pipeline&lt;/h2&gt;
 &lt;p&gt;The tests will be discovered and executed automatically in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CI pipeline&lt;/a&gt;. The job &lt;code&gt;Run Integration Tests&lt;/code&gt; contains all steps to set up and execute tests in Kubernetes mode. The results are published as test results to the workflow.&lt;/p&gt;
-&lt;h1 id=&#34;common-tasks&#34;&gt;Common Tasks&lt;/h1&gt;
-&lt;h2 id=&#34;run-test-in-local-mode&#34;&gt;Run test in local mode&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Make sure that the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_locally.md&#34;&gt;Local Runtime&lt;/a&gt; is up and running.&lt;/li&gt;
-&lt;li&gt;Make sure that your application is running (via Debugger or task).&lt;/li&gt;
-&lt;li&gt;Make sure that you are using the right ports for local execution of runtime components.&lt;/li&gt;
-&lt;li&gt;Run tests from the test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;run-tests-in-kubernetes-mode&#34;&gt;Run tests in Kubernetes mode&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Make sure that K3D is set up and vehicle runtime (including VehicleApp) is deployed and running (by executing the task &lt;code&gt;K3D Runtime - Up&lt;/code&gt;).&lt;/li&gt;
-&lt;li&gt;Make sure that the tests are using the right ports for Kubernetes execution (&lt;a href=&#34;#kubernetes-execution-k3d&#34;&gt;see above&lt;/a&gt;).&lt;/li&gt;
-&lt;li&gt;Run tests from the test runner.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;update-application-when-running-in-kubernetes-mode&#34;&gt;Update application when running in Kubernetes mode&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Execute the task &lt;code&gt;K3D Runtime - Down&lt;/code&gt; which stops up K3D runtime.&lt;/li&gt;
-&lt;li&gt;Execute the task &lt;code&gt;K3D Runtime - Up&lt;/code&gt; which starts up K3D runtime.&lt;/li&gt;
-&lt;li&gt;Execute the task &lt;code&gt;K3D Runtime - Deploy VehicleApp&lt;/code&gt; .&lt;/li&gt;
-&lt;li&gt;Re-run tests from the test runner.&lt;/li&gt;
-&lt;/ol&gt;
 &lt;h1 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h1&gt;
 &lt;h2 id=&#34;check-if-the-services-are-registered-correctly-in-dapr&#34;&gt;Check if the services are registered correctly in Dapr&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;When running in local mode, call &lt;code&gt;dapr dashboard&lt;/code&gt; in a terminal and open the given URL to see the Dapr dashboard in the browser.&lt;/li&gt;
-&lt;li&gt;When running in Kubernetes mode, call &lt;code&gt;dapr dashboard -k&lt;/code&gt; in a terminal and open the given URL to see the Dapr dashboard in the browser.&lt;/li&gt;
+&lt;li&gt;Dapr extension is available as VS Code extension and gives overview of all running Dapr services.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;troubleshoot-inttesthelper&#34;&gt;Troubleshoot IntTestHelper&lt;/h2&gt;
 &lt;ul&gt;
@@ -610,11 +657,10 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
 &lt;/ul&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visual Studio Code&lt;/a&gt; with the &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-python.python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python extension&lt;/a&gt; installed. For information on how to install extensions on Visual Studio Code, see &lt;a href=&#34;https://code.visualstudio.com/docs/editor/extension-gallery&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VS Code Extension Marketplace&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Completed the tutorial &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;How to create a vehicle app&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;use-the-sample-podspecs&#34;&gt;Use the sample PodSpecs&lt;/h2&gt;
-&lt;p&gt;If the Vehicle App has been created from one of our template repositories, a sample PodSpec is already available inside our maintained &lt;code&gt;runtime-k3d&lt;/code&gt; of the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt; package at &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./runtime-k3d/src/app_deployment/config/podspec/&lt;/code&gt;&lt;/a&gt; and can be used as it is without any modification. Another example can also be found in the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation of Leda&lt;/a&gt;. Additionally a PodSpec for the runtime can be generated by executing &lt;code&gt;velocitas exec runtime-k3d generate-podspec&lt;/code&gt; inside a running DevContainer. The &lt;code&gt;podspec.yaml&lt;/code&gt; will be generated to the root of your repository.&lt;/p&gt;
+&lt;p&gt;If the Vehicle App has been created from one of our template repositories, a sample PodSpec is already available inside our maintained &lt;code&gt;runtime-k3d&lt;/code&gt; of the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt; package at &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./runtime-k3d/src/app_deployment/config/podspec/&lt;/code&gt;&lt;/a&gt; and can be used as it is without any modification. Another example can also be found in the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation of Leda&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;content&#34;&gt;Content&lt;/h3&gt;
 &lt;p&gt;Looking at the content of the sample-podspec, it is starting with some general information about the app and the dapr configuration. You can define e.g. the app-port and the log-level. You could also add more labels to your app, which might help to identify the app for later usages.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;v1&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -645,15 +691,16 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
-    Please make sure that you already pushed your image to the local registry before trying to deploy it. If you used the provided tasks (see &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;here&lt;/a&gt; for details), you can use the following commands:
-&lt;code&gt;docker tag localhost:12345/sampleapp:local k3d-registry.localhost:12345/sampleapp:local&lt;/code&gt;
-&lt;code&gt;docker push k3d-registry.localhost:12345/sampleapp:local&lt;/code&gt;
+    &lt;p&gt;Please make sure that you already pushed your image to the local registry before trying to deploy it. If you used the provided tasks (see &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;here&lt;/a&gt; for details) to build your app, you can use the following commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker tag localhost:12345/sampleapp:local k3d-registry.localhost:12345/sampleapp:local
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker push k3d-registry.localhost:12345/sampleapp:local
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
 
 &lt;h3 id=&#34;local-registry-or-remote-registry&#34;&gt;Local registry or remote registry&lt;/h3&gt;
 &lt;p&gt;In the example above we used the local registry, but you can also define a remote registry in the image tag, e.g.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ghcr.io/eclipse-velocitas/vehicle-app-python-template/sampleapp:0.0.1-bcx&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ghcr.io/eclipse-velocitas/vehicle-app-python-template/sampleapp:0.1.0&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If your registry is not public, you might to add secrets to your Kubernets config, see the &lt;a href=&#34;https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;official documentation&lt;/a&gt; for details. Afterwards you have to add the secrets also to the PodSpec:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;imagePullSecrets&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;regcred&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
