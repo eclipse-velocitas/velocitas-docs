@@ -106,13 +106,13 @@
 &lt;/ul&gt;
 
 &lt;div class=&#34;tab-content&#34; id=&#34;tabs-2-content&#34;&gt;
+    
     &lt;div class=&#34;tab-body tab-pane fade show active&#34;
         id=&#34;tabs-02-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-00-tab&#34;&gt;
         &lt;p&gt;The VSCode&amp;rsquo;s DevContainer makes possible to package a complete &lt;em&gt;Vehicle App&lt;/em&gt; development environment, including VSCode&amp;rsquo;s extensions, &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/&#34;&gt;Vehicle App SDK&lt;/a&gt;, &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-runtime&#34;&gt;Vehicle App Runtimes&lt;/a&gt; and all other development and testing tools into a DevContainer that is then started within your VSCode session.&lt;/p&gt;
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Proxy Configuration&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &amp;lt;a href=&amp;quot;/velocitas-docs/docs/tutorials/quickstart/behind_proxy&amp;quot;&amp;gt;Working behind a proxy&amp;lt;/a&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Proxy Configuration&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart/behind_proxy&#34;&gt;Working behind a proxy&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;With following steps you will clone and set up your development environment on your own machine using just VSCode.&lt;/p&gt;
 &lt;ol&gt;
@@ -124,14 +124,13 @@
 &lt;li&gt;Wait for the container to be set up&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The first time initializing the container will take few minutes to build the image and to provision the tools inside the container.&lt;/p&gt;
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;If the DevContainer build process fails, then wait for the current build to finish, press &amp;lt;kbd&amp;gt;F1&amp;lt;/kbd&amp;gt; and run the command &amp;lt;code&amp;gt;Dev-Containers: Rebuild Container Without Cache&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The DevContainer is using the &lt;a href=&#34;https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker-in-docker&lt;/a&gt; feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.&lt;/p&gt;
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;If the &lt;em&gt;DevContainer&lt;/em&gt; build process fails, then wait for the current build to finish, press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Dev-Containers: Rebuild Container Without Cache&lt;/code&gt;
+The &lt;em&gt;DevContainer&lt;/em&gt; is using the &lt;a href=&#34;https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker-in-docker&lt;/a&gt; feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a &lt;em&gt;DevContainer&lt;/em&gt; with the feature enabled can be running at the same time.&lt;/p&gt;
 &lt;/div&gt;
 
     &lt;/div&gt;
+    
     &lt;div class=&#34;tab-body tab-pane fade&#34;
         id=&#34;tabs-02-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-01-tab&#34;&gt;
         &lt;p&gt;One of the possibilities to use your newly created repository to use it via &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.
@@ -196,7 +195,7 @@ You can either try it out directly in the browser or also use it inside VSCode. 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;✅ Runtime is ready to use!
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Info&lt;/h4&gt;
-&lt;pre&gt;&lt;code&gt;Simply press &amp;lt;code&amp;gt;ctrl + c&amp;lt;/code&amp;gt; to stop the runtime.
+&lt;pre&gt;&lt;code&gt;Simply press &amp;lt;strong&amp;gt;Ctrl + C&amp;lt;/strong&amp;gt; to stop the runtime.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -237,12 +236,12 @@ You can either try it out directly in the browser or also use it inside VSCode. 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
 
-    Debuging functionality is available only for &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_locally&#34;&gt;Local Runtime&lt;/a&gt;
+    Debuging functionality is available only for &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/run_runtime_services_locally&#34;&gt;Local Runtime&lt;/a&gt;
 Both given examples are available as part of template.
 
 &lt;/div&gt;
 
-&lt;p&gt;Now that the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_locally&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the &lt;em&gt;Vehicle App&lt;/em&gt; as next step.&lt;/p&gt;
+&lt;p&gt;Now that the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/run_runtime_services_locally&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the &lt;em&gt;Vehicle App&lt;/em&gt; as next step.&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -507,7 +506,8 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
       <description>
         
         
-        
+        &lt;p&gt;Please visit first &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart/&#34;&gt;Getting Started page&lt;/a&gt; if you don&amp;rsquo;t know where to start.&lt;/p&gt;
+
       </description>
     </item>
     
@@ -749,7 +749,7 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
 &lt;/ul&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Visual Studio Code&lt;/a&gt; with the &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-python.python&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python extension&lt;/a&gt; installed. For information on how to install extensions on Visual Studio Code, see &lt;a href=&#34;https://code.visualstudio.com/docs/editor/extension-gallery&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VS Code Extension Marketplace&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Devcontainer&lt;/code&gt; is up and running.&lt;/li&gt;
 &lt;li&gt;Completed the tutorial &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;How to create a vehicle app&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;use-the-sample-helm-chart&#34;&gt;Use the sample Helm chart&lt;/h2&gt;
@@ -766,8 +766,6 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
 
 &lt;/div&gt;
 
-&lt;p&gt;Additionally a sample Helm chart for the runtime can be generated by executing &lt;code&gt;velocitas exec runtime-k3d generate-helm&lt;/code&gt; inside a running DevContainer. The &lt;code&gt;helm&lt;/code&gt; directory will be generated to the root of your repository.
-This sample chart is generated by using the configuration of the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;runtime.json&lt;/code&gt;&lt;/a&gt; inside the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt; package.&lt;/p&gt;
 &lt;h2 id=&#34;prepare-a-new-helm-chart&#34;&gt;Prepare a new Helm chart&lt;/h2&gt;
 &lt;p&gt;If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called &lt;code&gt;my_vehicle_app&lt;/code&gt; for this walkthrough.&lt;/p&gt;
 &lt;ol&gt;
@@ -778,7 +776,7 @@ This sample chart is generated by using the configuration of the &lt;a href=&#34
 &lt;p&gt;Create a new folder &lt;code&gt;my_vehicle_app&lt;/code&gt; under &lt;code&gt;deploy&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Copy all files from the &lt;code&gt;deploy/VehicleApp&lt;/code&gt; folder to the new folder &lt;code&gt;deploy/my_vehicle_app&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Copy all files from the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/tree/main/runtime-k3d/src/app_deployment/config/helm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;devenv-runtimes/runtime-k3d/src/app_deployment/config/helm&lt;/a&gt; folder to the new folder &lt;code&gt;deploy/my_vehicle_app&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Rename the file &lt;code&gt;deploy/my_vehicle_app/helm/templates/vehicleapp.yaml&lt;/code&gt; to &lt;code&gt;deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml&lt;/code&gt;&lt;/p&gt;
@@ -786,7 +784,7 @@ This sample chart is generated by using the configuration of the &lt;a href=&#34
 &lt;li&gt;
 &lt;p&gt;Open &lt;code&gt;deploy/my_vehicle_app/helm/Chart.yaml&lt;/code&gt; and change the name of the chart to &lt;code&gt;my_vehicle_app&lt;/code&gt; and provide a meaningful description.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;v2&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;my_vehicle_app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;myvehicleapp&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Short description for my_vehicle_app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# A chart can be either an &amp;#39;application&amp;#39; or a &amp;#39;library&amp;#39; chart.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -812,7 +810,7 @@ This sample chart is generated by using the configuration of the &lt;a href=&#34
 &lt;li&gt;
 &lt;p&gt;Open &lt;code&gt;deploy/my_vehicle_app/helm/values.yaml&lt;/code&gt; and change &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;repository&lt;/code&gt; and &lt;code&gt;daprAppid&lt;/code&gt; to &lt;code&gt;my_vehicle_app&lt;/code&gt;. Rename the root node from &lt;code&gt;imageVehicleApp&lt;/code&gt; to &lt;code&gt;imageMyVehicleApp&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;imageMyVehicleApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;my_vehicle_app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;myvehicleapp&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repository&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;local/my_vehicle_app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;pullPolicy&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Always&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Overrides the image tag whose default is the chart appVersion.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -853,17 +851,6 @@ This sample chart is generated by using the configuration of the &lt;a href=&#34
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;{{ .Values.imageMyVehicleApp.repository }}:{{ .Values.imageMyVehicleApp.tag | default .Chart.AppVersion }}&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;imagePullPolicy&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;{{&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;.Values.imageMyVehicleApp.pullPolicy }}&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;update or copy the scripts &lt;code&gt;build_vehicleapp.sh&lt;/code&gt; and &lt;code&gt;deploy_vehicleapp.sh&lt;/code&gt; in path (&lt;code&gt;.vscode/scripts/runtime/k3d/&lt;/code&gt;) for the local Kubernates deployment and adjust the values according to the values &lt;code&gt;AppManifest.json&lt;/code&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;APP_NAME&lt;/li&gt;
-&lt;li&gt;APP_PORT&lt;/li&gt;
-&lt;li&gt;DOCKERFILE_FILE&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;update the script &lt;code&gt;.github/scripts/deploy_imagefromghcr.sh&lt;/code&gt; for the CI workflow with the correct values from the &lt;code&gt;AppManifest.json&lt;/code&gt; as above.&lt;/p&gt;
-&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;At this point, the Helm chart and updated scripts are ready to use and folder structure under &lt;code&gt;deploy/my_vehicle_app&lt;/code&gt; should look like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;deploy
@@ -880,9 +867,8 @@ This sample chart is generated by using the configuration of the &lt;a href=&#34
 &lt;ul&gt;
 &lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;After the Helm chart has been prepared, you can deploy it to local K3D.
-Execute the script:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;deploy/my_vehicle_app/deploy-my-vehicle-app.sh
+&lt;p&gt;After the Helm chart has been prepared, you can deploy it to local K3D by executing:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm install my-vapp-chart ./deploy/my_vehicle_app --values ./deploy/my_vehicle_app/values.yaml --wait --timeout 60s
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This script builds the local source code of the application into a container, pushes that container to the local cluster registry and deploys the app via a helm chart to the K3D cluster. Rerun this script after you have changed the source code of your application to re-deploy with the latest changes.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;

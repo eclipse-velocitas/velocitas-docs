@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.bc49b5ba6ca8f4111b14dda8d796d5e7.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.d27db0682936b542da982705c99679c4.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -156,7 +156,8 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      
+      <p>Please visit first <a href="/velocitas-docs/docs/tutorials/quickstart/">Getting Started page</a> if you don&rsquo;t know where to start.</p>
+
 </div>
 </div>
 
@@ -304,7 +305,7 @@ Therefore the <code>on_seat_position_changed</code> callback function needs to b
 </blockquote>
 <h3 id="mqtt">MQTT</h3>
 <p>Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.</p>
-<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart/#debugging-vehicle-app">quickstart section</a> about the Vehicle App, you already tested sending MQTT messages to the app.
+<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_">quickstart section</a> about the Vehicle App, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use <code>Vehicle Models</code>, <code>Datapoints</code> and <code>GRPC Services</code>. In this section, you will learn how to combine them with MQTT.</p>
 <p>In order to receive and process MQTT messages inside your app, simply use the <code>@subscribe_topic</code> annotations from the SDK for an additional method <code>on_set_position_request_received</code> you have to implement:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#5c35cc;font-weight:bold">@subscribe_topic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
@@ -363,7 +364,7 @@ After creating the mock, you can test the method and check the response. Use ass
 <h2 id="see-the-results">See the results</h2>
 <p>Once the implementation is done, it is time to run and debug the app.</p>
 <h3 id="run-your-app">Run your App</h3>
-<p>In order to run the app make sure the <code>devenv-runtimes</code> package is part of your <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> (which should be the default) and the runtime is up and running. Read more about it in the <a href="/velocitas-docs/docs/run_runtime_services_locally.md">run runtime services</a> section.</p>
+<p>In order to run the app make sure the <code>devenv-runtimes</code> package is part of your <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> (which should be the default) and the runtime is up and running. Read more about it in the <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally">run runtime services</a> section.</p>
 <p>Now chose one of the options to start the VehicleApp under development (including Dapr sidecar if middleware type is Dapr):</p>
 <ol>
 <li>Press <kbd>F5</kbd></li>
@@ -411,7 +412,7 @@ After creating the mock, you can test the method and check the response. Use ass
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;false&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>If you want to know more about dapr and the configuration, please visit <a href="https://dapr.io" target="_blank" rel="noopener">https://dapr.io</a></p>
 <h3 id="debug-your-vehicle-app">Debug your Vehicle App</h3>
-<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart/#debugging-vehicle-app">introduction about debugging</a>, you saw how to start a debugging session. In this section, you will learn what is happening in the background.</p>
+<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_">introduction about debugging</a>, you saw how to start a debugging session. In this section, you will learn what is happening in the background.</p>
 <p>The debug session launch settings are already prepared for the <code>VehicleApp</code> in <code>/.vscode/launch.json</code>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;configurations&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">[</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>

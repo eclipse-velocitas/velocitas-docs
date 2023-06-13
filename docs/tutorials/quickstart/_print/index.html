@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.bc49b5ba6ca8f4111b14dda8d796d5e7.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.d27db0682936b542da982705c99679c4.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -247,13 +247,13 @@ This is the multi-page printable view of this section.
 </ul>
 
 <div class="tab-content" id="tabs-2-content">
+    
     <div class="tab-body tab-pane fade show active"
         id="tabs-02-00" role="tabpanel" aria-labelled-by="tabs-02-00-tab">
         <p>The VSCode&rsquo;s DevContainer makes possible to package a complete <em>Vehicle App</em> development environment, including VSCode&rsquo;s extensions, <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/">Vehicle App SDK</a>, <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime">Vehicle App Runtimes</a> and all other development and testing tools into a DevContainer that is then started within your VSCode session.</p>
-<div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Proxy Configuration</h4>
-<pre><code>A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &lt;a href=&quot;/velocitas-docs/docs/tutorials/quickstart/behind_proxy&quot;&gt;Working behind a proxy&lt;/a&gt;
-</code></pre>
+<div class="pageinfo pageinfo-primary">
+<p><em><strong>Proxy Configuration</strong></em></p>
+<p>A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: <a href="/velocitas-docs/docs/tutorials/quickstart/behind_proxy">Working behind a proxy</a></p>
 </div>
 <p>With following steps you will clone and set up your development environment on your own machine using just VSCode.</p>
 <ol>
@@ -265,14 +265,13 @@ This is the multi-page printable view of this section.
 <li>Wait for the container to be set up</li>
 </ol>
 <p>The first time initializing the container will take few minutes to build the image and to provision the tools inside the container.</p>
-<div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Note</h4>
-<pre><code>If the DevContainer build process fails, then wait for the current build to finish, press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Dev-Containers: Rebuild Container Without Cache&lt;/code&gt;
-</code></pre>
-<p>The DevContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a> feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.</p>
+<div class="pageinfo pageinfo-primary">
+<p>If the <em>DevContainer</em> build process fails, then wait for the current build to finish, press <kbd>F1</kbd> and run the command <code>Dev-Containers: Rebuild Container Without Cache</code>
+The <em>DevContainer</em> is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a> feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a <em>DevContainer</em> with the feature enabled can be running at the same time.</p>
 </div>
 
     </div>
+    
     <div class="tab-body tab-pane fade"
         id="tabs-02-01" role="tabpanel" aria-labelled-by="tabs-02-01-tab">
         <p>One of the possibilities to use your newly created repository to use it via <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.
@@ -337,7 +336,7 @@ You can either try it out directly in the browser or also use it inside VSCode. 
 </span></span><span style="display:flex;"><span>✅ Runtime is ready to use!
 </span></span></code></pre></div><div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Info</h4>
-<pre><code>Simply press &lt;code&gt;ctrl + c&lt;/code&gt; to stop the runtime.
+<pre><code>Simply press &lt;strong&gt;Ctrl + C&lt;/strong&gt; to stop the runtime.
 </code></pre>
 </div>
 
@@ -378,12 +377,12 @@ You can either try it out directly in the browser or also use it inside VSCode. 
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Warning</h4>
 
-    Debuging functionality is available only for <a href="/velocitas-docs/docs/run_runtime_services_locally">Local Runtime</a>
+    Debuging functionality is available only for <a href="/velocitas-docs/docs/tutorials/run_runtime_services_locally">Local Runtime</a>
 Both given examples are available as part of template.
 
 </div>
 
-<p>Now that the <a href="/velocitas-docs/docs/run_runtime_services_locally">runtime services</a> are all up and running, let&rsquo;s start a debug session for the <em>Vehicle App</em> as next step.</p>
+<p>Now that the <a href="/velocitas-docs/docs/tutorials/run_runtime_services_locally">runtime services</a> are all up and running, let&rsquo;s start a debug session for the <em>Vehicle App</em> as next step.</p>
 <p>
 
 
@@ -538,11 +537,12 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 <li>Choose <code>Continue without scanning the output</code></li>
 <li>Select <code>seat-adjuster</code></li>
 </ol>
-<h2 id="run-the-example-vehicle-app">Run the example Vehicle App</h2>
+<h2 id="run-the-_vehicle-app_-from-sdk-example">Run the <em>Vehicle App</em> from SDK example</h2>
 <p>The launch settings are already prepared for the <code>VehicleApp</code> in the template repository <code>/.vscode/launch.json</code>. The configuration is meant to be as generic as possible to make it possible to run all provided example apps.</p>
 <p>Every example app comes with its own <code>/app/AppManifest.json</code> to see which <em>Vehicle Services</em> are configured and needed as a dependency.</p>
 <p>To start the app:
 Just press <kbd>F5</kbd> to start a debug session of the example <em>Vehicle App</em>.</p>
+<p>To debug exapmle, please check <a href="/velocitas-docs/docs/tutorials/quickstart#how-to-debug-_vehicle-app_">How to debug Vehicle App?</a></p>
 
 </div>
 
