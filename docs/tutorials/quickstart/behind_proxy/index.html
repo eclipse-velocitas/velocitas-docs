@@ -40,12 +40,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/quickstart/behind_proxy/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-08-19T17:46:21+05:30" />
-<meta property="article:modified_time" content="2023-06-12T14:45:34+00:00" />
+<meta property="article:modified_time" content="2023-06-13T07:46:16+00:00" />
 <meta itemprop="name" content="Working behind proxy">
 <meta itemprop="description" content="Learn how to setup your docker desktop and Visual Studio Code behind a coorperate proxy.
 "><meta itemprop="datePublished" content="2022-08-19T17:46:21+05:30" />
-<meta itemprop="dateModified" content="2023-06-12T14:45:34+00:00" />
-<meta itemprop="wordCount" content="685">
+<meta itemprop="dateModified" content="2023-06-13T07:46:16+00:00" />
+<meta itemprop="wordCount" content="702">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Working behind proxy"/>
 <meta name="twitter:description" content="Learn how to setup your docker desktop and Visual Studio Code behind a coorperate proxy.
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.407eccfd5d4306e334983ed7ef6ecd13.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.6f3a3336ca395cd9a72a3f65256f5660.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.407eccfd5d4306e334983ed7ef6ecd13.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.6f3a3336ca395cd9a72a3f65256f5660.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -380,8 +380,13 @@
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#https-proxy-server">HTTP(s) proxy server</a></li>
+    <li><a href="#docker-desktop">Docker Desktop</a></li>
+    <li><a href="#docker-daemon">Docker daemon</a></li>
+    <li><a href="#environment-variables">Environment Variables</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
       <ul>
+        <li><a href="#solving-issues-with-tls-ssl-certificate-validation-using-https-connections-from-containers">Solving issues with TLS (SSL) certificate validation using https connections from containers</a></li>
         <li><a href="#initial-devcontainer-build-issue">Initial DevContainer build issue</a></li>
         <li><a href="#github-rate-limit-exceeded">GitHub rate limit exceeded</a></li>
       </ul>
@@ -462,13 +467,13 @@
 	</header>    
 	<p>We know what a pain and how time consuming it can be to setup your environment behind a cooperate proxy. This guide will help you to set it up correctly.</p>
 <p>Be aware that correct proxy configuration depends on the setup of your organisation and of course of your personal development environment (hardware, OS, virtualization setup, &hellip;). So, we most probably do not cover all issues out there in the developers world. So, we encourage you to share hints and improvements with us.</p>
-<h1 id="https-proxy-server">HTTP(s) proxy server</h1>
+<h2 id="https-proxy-server">HTTP(s) proxy server</h2>
 <p>Install and configure the proxy server as recommented or required by your company. For example you could use <a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>, which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: <a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>)</p>
 <ul>
 <li>Install your HTTP(s) proxy server</li>
 <li>Start your HTTP(s) proxy server</li>
 </ul>
-<h1 id="docker-desktop">Docker Desktop</h1>
+<h2 id="docker-desktop">Docker Desktop</h2>
 <p>You need to install <a href="https://www.docker.com/get-started/" target="_blank" rel="noopener">Docker Desktop</a> using the right version.
 As we recognized a proxy issue in Docker Desktop <a href="https://github.com/docker/for-win/issues/12672" target="_blank" rel="noopener">#12672</a> we strongly recomment to use a Docker Desktop version &gt;= 4.8.2. In case you have an older version on your machine please update to the current version.</p>
 <p>In the next step you need to enter your proxy settings:</p>
@@ -485,9 +490,10 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 </li>
 <li>Apply &amp; Restart.</li>
 </ul>
-<h1 id="docker-daemon">Docker daemon</h1>
+<h2 id="docker-daemon">Docker daemon</h2>
 <p>You also have to configure the Docker daemon, which is running the containers basically, to forward the proxy settings. For this you have to add the proxy configuration to the <code>~/.docker/config.json</code>. Here is an example of a proper config (Port and noProxy settings might differ for your setup):</p>
 
+   
    
    
    <ul class="nav nav-tabs" id="tabs-0" role="tablist">
@@ -495,12 +501,18 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
       <a class="nav-link active"
           id="tabs-00-00-tab" data-toggle="tab" href="#tabs-00-00" role="tab"
           aria-controls="tabs-00-00" aria-selected="false">
-        Windows &amp; MacOS
+        Windows
       </a>
     </li><li class="nav-item">
       <a class="nav-link"
           id="tabs-00-01-tab" data-toggle="tab" href="#tabs-00-01" role="tab"
           aria-controls="tabs-00-01" aria-selected="false">
+        MacOS
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link"
+          id="tabs-00-02-tab" data-toggle="tab" href="#tabs-00-02" role="tab"
+          aria-controls="tabs-00-02" aria-selected="false">
         Linux
       </a>
     </li>
@@ -525,6 +537,19 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">&#34;proxies&#34;</span><span style="color:#000;font-weight:bold">:{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;default&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://host.docker.internal:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpsProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://host.docker.internal:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;noProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;host.docker.internal,localhost,127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+    </div>
+    <div class="tab-body tab-pane fade"
+        id="tabs-00-02" role="tabpanel" aria-labelled-by="tabs-00-02-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">&#34;proxies&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;default&#34;</span><span style="color:#000;font-weight:bold">:{</span>
 </span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://172.17.0.1:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpsProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://172.17.0.1:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;noProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;host.docker.internal,localhost,127.0.0.1&#34;</span>
@@ -536,7 +561,7 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 </div>
 
 <p>For more details see: <a href="https://docs.docker.com/network/proxy/" target="_blank" rel="noopener">Docker Documentation</a></p>
-<h1 id="environment-variables">Environment Variables</h1>
+<h2 id="environment-variables">Environment Variables</h2>
 <p>It is required to set the following environment variables:</p>
 <ul>
 <li><code>HTTP_PROXY</code> - proxy server, e.g. <code>http://localhost:3128</code></li>
@@ -592,7 +617,8 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
     </div>
 </div>
 
-<h1 id="solving-issues-with-tls-ssl-certificate-validation-using-https-connections-from-containers">Solving issues with TLS (SSL) certificate validation using https connections from containers</h1>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="solving-issues-with-tls-ssl-certificate-validation-using-https-connections-from-containers">Solving issues with TLS (SSL) certificate validation using https connections from containers</h3>
 <p>If you are behind a so-called intercept proxy (which you most probably are), you can run into certificate issues:
 Your corporate proxy works as a &ldquo;man-in-the-middle&rdquo; to be able to check the transfered data for malicious content.
 Means, there is a protected connection between the application in your local runtime environment and the proxy and
@@ -604,10 +630,11 @@ your corporation (if the OS and software installed on it is managed by them) and
 normally.</p>
 <p>If it comes to executing containers, those are typically not managed by your IT department and the proxy certificate(s)
 is/are missing. So, you need to find a way to install those into the (dev) container you want to execute.</p>
-<p>See (one of) those articles to get how to achieve that:
-<a href="https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers" target="_blank" rel="noopener">https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers</a>
-<a href="https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/" target="_blank" rel="noopener">https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/</a></p>
-<h1 id="troubleshooting">Troubleshooting</h1>
+<p>See (one of) those articles to get how to achieve that:</p>
+<ul>
+<li><a href="https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers" target="_blank" rel="noopener">Overcoming Proxy Issues with Docker Containers</a></li>
+<li><a href="https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/" target="_blank" rel="noopener">Docker behind SSL intercepting proxy</a></li>
+</ul>
 <h3 id="initial-devcontainer-build-issue">Initial DevContainer build issue</h3>
 <p>If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used:</p>
 <ul>
@@ -620,7 +647,7 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 12, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/e1bd495d42be9875d1257d64da2f8ea86bec8f3e">Add some fixes to quickstart (e1bd495)</a>
+  Last modified June 13, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/fb930076e243e9617179df3d050d4a85eed08515">Improve Behind Proxy Page (fb93007)</a>
 </div>
 
 </div>

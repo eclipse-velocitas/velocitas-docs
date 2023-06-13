@@ -85,10 +85,7 @@
 
 &lt;h2 id=&#34;how-to-start-to-develop&#34;&gt;How to start to develop?&lt;/h2&gt;
 &lt;p&gt;In the following chapter you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using just VSCode&amp;rsquo;s &lt;a href=&#34;https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DevContainer&lt;/a&gt; or you can set up the environment on a remote agent, using &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;: Your &lt;em&gt;Vehicle App&lt;/em&gt; reposiroty based on template is &lt;a href=&#34;#how-to-create-vehicle-app-repository&#34;&gt;created&lt;/a&gt;&lt;/p&gt;
-
-   
-   
+&lt;p&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;: Your &lt;em&gt;Vehicle App&lt;/em&gt; reposiroty based on template is &lt;a href=&#34;#how-to-create-vehicle-app-repository&#34;&gt;created&lt;/a&gt;.&lt;/p&gt;
 &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-2&#34; role=&#34;tablist&#34;&gt;
   &lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link active&#34;
@@ -104,80 +101,54 @@
       &lt;/a&gt;
     &lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;div class=&#34;tab-content&#34; id=&#34;tabs-2-content&#34;&gt;
-    
     &lt;div class=&#34;tab-body tab-pane fade show active&#34;
         id=&#34;tabs-02-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-00-tab&#34;&gt;
-        
-
-   The VSCode&#39;s DevContainer makes possible to package a complete _Vehicle App_ development environment, including VSCode&#39;s extensions, [Vehicle App SDK](/docs/concepts/development_model/vehicle_app_sdk/), [Vehicle App Runtimes](/docs/tutorials/vehicle-app-runtime) and all other development and testing tools into a DevContainer that is then started within your VSCode session.
-
-   
-
+        &lt;p&gt;The VSCode&amp;rsquo;s DevContainer makes possible to package a complete &lt;em&gt;Vehicle App&lt;/em&gt; development environment, including VSCode&amp;rsquo;s extensions, &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/&#34;&gt;Vehicle App SDK&lt;/a&gt;, &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-runtime&#34;&gt;Vehicle App Runtimes&lt;/a&gt; and all other development and testing tools into a DevContainer that is then started within your VSCode session.&lt;/p&gt;
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Proxy configuration&lt;/h4&gt;
-
-    A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart/behind_proxy&#34;&gt;Working behind a proxy&lt;/a&gt;
-
+&lt;h4 class=&#34;alert-heading&#34;&gt;Proxy Configuration&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &amp;lt;a href=&amp;quot;/velocitas-docs/docs/tutorials/quickstart/behind_proxy&amp;quot;&amp;gt;Working behind a proxy&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-
-
-   With following steps you will clone and set up your development environment on your own machine using just VSCode.
-
-   1. Clone created _MyOrg/MyFirstVehicleApp_ repository locally using your favorite Git Tool
-   1. Go to the just cloned repository folder, e.g. ```$ cd MyFirstVehicleApp```
-   1. Open VSCode with project content like ```$ code .``` or via [VSCode user interface](https://code.visualstudio.com/docs/editor/workspaces#_singlefolder-workspaces).
-   1. A popup appears with the button &lt;kbd&gt;Reopen in Container&lt;/kbd&gt; on the lower right side of VSCode. If the popup does not appear, you can also hit &lt;kbd&gt;F1&lt;/kbd&gt; and perform the command `Dev-Containers: Open Folder in Container`
-   1. Click on &lt;kbd&gt;Reopen in Container&lt;/kbd&gt;
-   1. Wait for the container to be set up
-
-   The first time initializing the container will take few minutes to build the image and to provision the tools inside the container.
-
-   
-
+&lt;p&gt;With following steps you will clone and set up your development environment on your own machine using just VSCode.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Clone created &lt;em&gt;MyOrg/MyFirstVehicleApp&lt;/em&gt; repository locally using your favorite Git Tool&lt;/li&gt;
+&lt;li&gt;Go to the just cloned repository folder, e.g. &lt;code&gt;$ cd MyFirstVehicleApp&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Open VSCode with project content like &lt;code&gt;$ code .&lt;/code&gt; or via &lt;a href=&#34;https://code.visualstudio.com/docs/editor/workspaces#_singlefolder-workspaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSCode user interface&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;A popup appears with the button &lt;kbd&gt;Reopen in Container&lt;/kbd&gt; on the lower right side of VSCode. If the popup does not appear, you can also hit &lt;kbd&gt;F1&lt;/kbd&gt; and perform the command &lt;code&gt;Dev-Containers: Open Folder in Container&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Click on &lt;kbd&gt;Reopen in Container&lt;/kbd&gt;&lt;/li&gt;
+&lt;li&gt;Wait for the container to be set up&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The first time initializing the container will take few minutes to build the image and to provision the tools inside the container.&lt;/p&gt;
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
-
-    If the DevContainer build process fails, then wait for the current build to finish, press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Dev-Containers: Rebuild Container Without Cache&lt;/code&gt;
-The DevContainer is using the &lt;a href=&#34;https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker-in-docker&lt;/a&gt; feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.
-
+&lt;pre&gt;&lt;code&gt;If the DevContainer build process fails, then wait for the current build to finish, press &amp;lt;kbd&amp;gt;F1&amp;lt;/kbd&amp;gt; and run the command &amp;lt;code&amp;gt;Dev-Containers: Rebuild Container Without Cache&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The DevContainer is using the &lt;a href=&#34;https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker-in-docker&lt;/a&gt; feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.&lt;/p&gt;
 &lt;/div&gt;
-
-
-   
-    &lt;/div&gt;
-    &lt;div class=&#34;tab-body tab-pane fade&#34;
-        id=&#34;tabs-02-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-01-tab&#34;&gt;
-        
-   One of the possibilities to use your newly created repository to use it via [GitHub Codespaces](https://github.com/features/codespaces).
-   You can either try it out directly in the browser or also use it inside VSCode. The main thing to remember is that everything is executed on a remote agent and the browser or VSCode just act as a &#34;thin-client&#34;.
-
-   To get started with GitHub Codespaces, you just have to follow a few steps:
-
-   1. Open your repository on GitHub (e.g. &lt;https://github.com/MyOrg/MyFirstVehicleApp&gt;)
-   1. Click on the green `Code` button and select _Codespaces_ on the top
-   1. Configure your _Codespace_ if needed (defaults to the main branch and a standard agent)
-   1. Click on `create`
-
-   A new window will open where you can see logs for setting up the container. On this window you could now also choose to work with VSCode. The environment remains on a remote agent and VSCode establishes a connection to this machine.
-
-   Once everything is set up in the _Codespace_, you can work with it in the same way as with the normal DevContainer inside VSCode.
-
-   
-
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;tab-body tab-pane fade&amp;quot;
+    id=&amp;quot;tabs-02-01&amp;quot; role=&amp;quot;tabpanel&amp;quot; aria-labelled-by=&amp;quot;tabs-02-01-tab&amp;quot;&amp;gt;
+    &amp;lt;p&amp;gt;One of the possibilities to use your newly created repository to use it via &amp;lt;a href=&amp;quot;https://github.com/features/codespaces&amp;quot; target=&amp;quot;_blank&amp;quot; rel=&amp;quot;noopener&amp;quot;&amp;gt;GitHub Codespaces&amp;lt;/a&amp;gt;.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can either try it out directly in the browser or also use it inside VSCode. The main thing to remember is that everything is executed on a remote agent and the browser or VSCode just act as a “thin-client”.&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;To get started with GitHub Codespaces, you just have to follow a few steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open your repository on GitHub (e.g. &lt;a href=&#34;https://github.com/MyOrg/MyFirstVehicleApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/MyOrg/MyFirstVehicleApp&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Click on the green &lt;code&gt;Code&lt;/code&gt; button and select &lt;em&gt;Codespaces&lt;/em&gt; on the top&lt;/li&gt;
+&lt;li&gt;Configure your &lt;em&gt;Codespace&lt;/em&gt; if needed (defaults to the main branch and a standard agent)&lt;/li&gt;
+&lt;li&gt;Click on &lt;code&gt;create&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A new window will open where you can see logs for setting up the container. On this window you could now also choose to work with VSCode. The environment remains on a remote agent and VSCode establishes a connection to this machine.&lt;/p&gt;
+&lt;p&gt;Once everything is set up in the &lt;em&gt;Codespace&lt;/em&gt;, you can work with it in the same way as with the normal DevContainer inside VSCode.&lt;/p&gt;
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
-
-    Be careful with using GitHub Codespaces in browser and VSCode locally at the same time: &lt;em&gt;Tasks&lt;/em&gt; that are started using a browser session will not show in VSCode environment and vice versa that leads for problems.
-
+&lt;pre&gt;&lt;code&gt;Be careful with using GitHub Codespaces in browser and VSCode locally at the same time: &amp;lt;em&amp;gt;Tasks&amp;lt;/em&amp;gt; that are started using a browser session will not show in VSCode environment and vice versa that leads for problems.
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-
-
-   
-    &lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-
 &lt;h2 id=&#34;how-to-start-runtimes&#34;&gt;How to start runtimes?&lt;/h2&gt;
 &lt;p&gt;The runtime services (like &lt;em&gt;KUKSA Data Broker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are required to develop vehicle apps and run integration tests.&lt;/p&gt;
 &lt;p&gt;There are few runtimes available currently:&lt;/p&gt;

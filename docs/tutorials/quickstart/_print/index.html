@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.407eccfd5d4306e334983ed7ef6ecd13.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.6f3a3336ca395cd9a72a3f65256f5660.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -226,10 +226,7 @@ This is the multi-page printable view of this section.
 
 <h2 id="how-to-start-to-develop">How to start to develop?</h2>
 <p>In the following chapter you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using just VSCode&rsquo;s <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">DevContainer</a> or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
-<p><strong>Prerequisites</strong>: Your <em>Vehicle App</em> reposiroty based on template is <a href="#how-to-create-vehicle-app-repository">created</a></p>
-
-   
-   
+<p><strong>Prerequisites</strong>: Your <em>Vehicle App</em> reposiroty based on template is <a href="#how-to-create-vehicle-app-repository">created</a>.</p>
 <ul class="nav nav-tabs" id="tabs-2" role="tablist">
   <li class="nav-item">
       <a class="nav-link active"
@@ -245,80 +242,54 @@ This is the multi-page printable view of this section.
       </a>
     </li>
 </ul>
-
 <div class="tab-content" id="tabs-2-content">
-    
     <div class="tab-body tab-pane fade show active"
         id="tabs-02-00" role="tabpanel" aria-labelled-by="tabs-02-00-tab">
-        
-
-   The VSCode's DevContainer makes possible to package a complete _Vehicle App_ development environment, including VSCode's extensions, [Vehicle App SDK](/docs/concepts/development_model/vehicle_app_sdk/), [Vehicle App Runtimes](/docs/tutorials/vehicle-app-runtime) and all other development and testing tools into a DevContainer that is then started within your VSCode session.
-
-   
-
+        <p>The VSCode&rsquo;s DevContainer makes possible to package a complete <em>Vehicle App</em> development environment, including VSCode&rsquo;s extensions, <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/">Vehicle App SDK</a>, <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime">Vehicle App Runtimes</a> and all other development and testing tools into a DevContainer that is then started within your VSCode session.</p>
 <div class="alert alert-primary" role="alert">
-<h4 class="alert-heading">Proxy configuration</h4>
-
-    A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: <a href="/velocitas-docs/docs/tutorials/quickstart/behind_proxy">Working behind a proxy</a>
-
+<h4 class="alert-heading">Proxy Configuration</h4>
+<pre><code>A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &lt;a href=&quot;/velocitas-docs/docs/tutorials/quickstart/behind_proxy&quot;&gt;Working behind a proxy&lt;/a&gt;
+</code></pre>
 </div>
-
-
-   With following steps you will clone and set up your development environment on your own machine using just VSCode.
-
-   1. Clone created _MyOrg/MyFirstVehicleApp_ repository locally using your favorite Git Tool
-   1. Go to the just cloned repository folder, e.g. ```$ cd MyFirstVehicleApp```
-   1. Open VSCode with project content like ```$ code .``` or via [VSCode user interface](https://code.visualstudio.com/docs/editor/workspaces#_singlefolder-workspaces).
-   1. A popup appears with the button <kbd>Reopen in Container</kbd> on the lower right side of VSCode. If the popup does not appear, you can also hit <kbd>F1</kbd> and perform the command `Dev-Containers: Open Folder in Container`
-   1. Click on <kbd>Reopen in Container</kbd>
-   1. Wait for the container to be set up
-
-   The first time initializing the container will take few minutes to build the image and to provision the tools inside the container.
-
-   
-
+<p>With following steps you will clone and set up your development environment on your own machine using just VSCode.</p>
+<ol>
+<li>Clone created <em>MyOrg/MyFirstVehicleApp</em> repository locally using your favorite Git Tool</li>
+<li>Go to the just cloned repository folder, e.g. <code>$ cd MyFirstVehicleApp</code></li>
+<li>Open VSCode with project content like <code>$ code .</code> or via <a href="https://code.visualstudio.com/docs/editor/workspaces#_singlefolder-workspaces" target="_blank" rel="noopener">VSCode user interface</a>.</li>
+<li>A popup appears with the button <kbd>Reopen in Container</kbd> on the lower right side of VSCode. If the popup does not appear, you can also hit <kbd>F1</kbd> and perform the command <code>Dev-Containers: Open Folder in Container</code></li>
+<li>Click on <kbd>Reopen in Container</kbd></li>
+<li>Wait for the container to be set up</li>
+</ol>
+<p>The first time initializing the container will take few minutes to build the image and to provision the tools inside the container.</p>
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
-
-    If the DevContainer build process fails, then wait for the current build to finish, press <kbd>F1</kbd> and run the command <code>Dev-Containers: Rebuild Container Without Cache</code>
-The DevContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a> feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.
-
+<pre><code>If the DevContainer build process fails, then wait for the current build to finish, press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Dev-Containers: Rebuild Container Without Cache&lt;/code&gt;
+</code></pre>
+<p>The DevContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a> feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.</p>
 </div>
-
-
-   
-    </div>
-    <div class="tab-body tab-pane fade"
-        id="tabs-02-01" role="tabpanel" aria-labelled-by="tabs-02-01-tab">
-        
-   One of the possibilities to use your newly created repository to use it via [GitHub Codespaces](https://github.com/features/codespaces).
-   You can either try it out directly in the browser or also use it inside VSCode. The main thing to remember is that everything is executed on a remote agent and the browser or VSCode just act as a "thin-client".
-
-   To get started with GitHub Codespaces, you just have to follow a few steps:
-
-   1. Open your repository on GitHub (e.g. <https://github.com/MyOrg/MyFirstVehicleApp>)
-   1. Click on the green `Code` button and select _Codespaces_ on the top
-   1. Configure your _Codespace_ if needed (defaults to the main branch and a standard agent)
-   1. Click on `create`
-
-   A new window will open where you can see logs for setting up the container. On this window you could now also choose to work with VSCode. The environment remains on a remote agent and VSCode establishes a connection to this machine.
-
-   Once everything is set up in the _Codespace_, you can work with it in the same way as with the normal DevContainer inside VSCode.
-
-   
-
+<pre><code>&lt;/div&gt;
+&lt;div class=&quot;tab-body tab-pane fade&quot;
+    id=&quot;tabs-02-01&quot; role=&quot;tabpanel&quot; aria-labelled-by=&quot;tabs-02-01-tab&quot;&gt;
+    &lt;p&gt;One of the possibilities to use your newly created repository to use it via &lt;a href=&quot;https://github.com/features/codespaces&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub Codespaces&lt;/a&gt;.
+</code></pre>
+<p>You can either try it out directly in the browser or also use it inside VSCode. The main thing to remember is that everything is executed on a remote agent and the browser or VSCode just act as a “thin-client”.</p></p>
+<p>To get started with GitHub Codespaces, you just have to follow a few steps:</p>
+<ol>
+<li>Open your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp" target="_blank" rel="noopener">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
+<li>Click on the green <code>Code</code> button and select <em>Codespaces</em> on the top</li>
+<li>Configure your <em>Codespace</em> if needed (defaults to the main branch and a standard agent)</li>
+<li>Click on <code>create</code></li>
+</ol>
+<p>A new window will open where you can see logs for setting up the container. On this window you could now also choose to work with VSCode. The environment remains on a remote agent and VSCode establishes a connection to this machine.</p>
+<p>Once everything is set up in the <em>Codespace</em>, you can work with it in the same way as with the normal DevContainer inside VSCode.</p>
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
-
-    Be careful with using GitHub Codespaces in browser and VSCode locally at the same time: <em>Tasks</em> that are started using a browser session will not show in VSCode environment and vice versa that leads for problems.
-
+<pre><code>Be careful with using GitHub Codespaces in browser and VSCode locally at the same time: &lt;em&gt;Tasks&lt;/em&gt; that are started using a browser session will not show in VSCode environment and vice versa that leads for problems.
+</code></pre>
 </div>
-
-
-   
-    </div>
+<pre><code>&lt;/div&gt;
+</code></pre>
 </div>
-
 <h2 id="how-to-start-runtimes">How to start runtimes?</h2>
 <p>The runtime services (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are required to develop vehicle apps and run integration tests.</p>
 <p>There are few runtimes available currently:</p>
@@ -587,8 +558,8 @@ Just press <kbd>F5</kbd> to start a debug session of the example <em>Vehicle App
 	<p>In the past the recommended runtime would for sure be <a href="https://www.docker.com/products/docker-desktop" target="_blank" rel="noopener">Docker Desktop</a>. But since Docker Inc. changed their license model it is fair enough for an open source project to look for free alternatives.</p>
 <h2 id="linux">Linux</h2>
 <p>The obvious (and our recommended) &ldquo;alternative&rdquo; to Docker Desktop on Linux is to just use the <a href="https://docs.docker.com/engine/" target="_blank" rel="noopener">Docker Engine</a> (without Docker Desktop), a pure CLI-based solution available for most popular Linux distributions licensed under the Apache License, version 2.0. Installation instructions can be found <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">here</a>.</p>
-<h2 id="macos">macOS</h2>
-<p>Since the Docker Engine is not working out of the box on macOS, a virtualisation tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using <a href="https://github.com/abiosoft/colima" target="_blank" rel="noopener">Colima</a>.</p>
+<h2 id="macos">MacOS</h2>
+<p>Since the Docker Engine is not working out of the box on MacOS, a virtualisation tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using <a href="https://github.com/abiosoft/colima" target="_blank" rel="noopener">Colima</a>.</p>
 <h3 id="setup-colima">Setup Colima</h3>
 <p><em>Please uninstall or at least quit Docker Desktop if you already used it, before starting the setup.</em></p>
 <p>For Colima to work properly you need Colima itself and a container client e.g. the Docker client, which is still free to use:</p>
@@ -629,13 +600,13 @@ Buildah seems just being available for several Linux distributions.</p>
     <div class="lead">Learn how to setup your docker desktop and Visual Studio Code behind a coorperate proxy.</div>
 	<p>We know what a pain and how time consuming it can be to setup your environment behind a cooperate proxy. This guide will help you to set it up correctly.</p>
 <p>Be aware that correct proxy configuration depends on the setup of your organisation and of course of your personal development environment (hardware, OS, virtualization setup, &hellip;). So, we most probably do not cover all issues out there in the developers world. So, we encourage you to share hints and improvements with us.</p>
-<h1 id="https-proxy-server">HTTP(s) proxy server</h1>
+<h2 id="https-proxy-server">HTTP(s) proxy server</h2>
 <p>Install and configure the proxy server as recommented or required by your company. For example you could use <a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>, which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: <a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>)</p>
 <ul>
 <li>Install your HTTP(s) proxy server</li>
 <li>Start your HTTP(s) proxy server</li>
 </ul>
-<h1 id="docker-desktop">Docker Desktop</h1>
+<h2 id="docker-desktop">Docker Desktop</h2>
 <p>You need to install <a href="https://www.docker.com/get-started/" target="_blank" rel="noopener">Docker Desktop</a> using the right version.
 As we recognized a proxy issue in Docker Desktop <a href="https://github.com/docker/for-win/issues/12672" target="_blank" rel="noopener">#12672</a> we strongly recomment to use a Docker Desktop version &gt;= 4.8.2. In case you have an older version on your machine please update to the current version.</p>
 <p>In the next step you need to enter your proxy settings:</p>
@@ -652,9 +623,10 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 </li>
 <li>Apply &amp; Restart.</li>
 </ul>
-<h1 id="docker-daemon">Docker daemon</h1>
+<h2 id="docker-daemon">Docker daemon</h2>
 <p>You also have to configure the Docker daemon, which is running the containers basically, to forward the proxy settings. For this you have to add the proxy configuration to the <code>~/.docker/config.json</code>. Here is an example of a proper config (Port and noProxy settings might differ for your setup):</p>
 
+   
    
    
    <ul class="nav nav-tabs" id="tabs-0" role="tablist">
@@ -662,12 +634,18 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
       <a class="nav-link active"
           id="tabs-00-00-tab" data-toggle="tab" href="#tabs-00-00" role="tab"
           aria-controls="tabs-00-00" aria-selected="false">
-        Windows &amp; MacOS
+        Windows
       </a>
     </li><li class="nav-item">
       <a class="nav-link"
           id="tabs-00-01-tab" data-toggle="tab" href="#tabs-00-01" role="tab"
           aria-controls="tabs-00-01" aria-selected="false">
+        MacOS
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link"
+          id="tabs-00-02-tab" data-toggle="tab" href="#tabs-00-02" role="tab"
+          aria-controls="tabs-00-02" aria-selected="false">
         Linux
       </a>
     </li>
@@ -692,6 +670,19 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">&#34;proxies&#34;</span><span style="color:#000;font-weight:bold">:{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;default&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://host.docker.internal:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpsProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://host.docker.internal:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;noProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;host.docker.internal,localhost,127.0.0.1&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+    </div>
+    <div class="tab-body tab-pane fade"
+        id="tabs-00-02" role="tabpanel" aria-labelled-by="tabs-00-02-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#204a87;font-weight:bold">&#34;proxies&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;default&#34;</span><span style="color:#000;font-weight:bold">:{</span>
 </span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://172.17.0.1:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;httpsProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;http://172.17.0.1:3128&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>         <span style="color:#204a87;font-weight:bold">&#34;noProxy&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;host.docker.internal,localhost,127.0.0.1&#34;</span>
@@ -703,7 +694,7 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
 </div>
 
 <p>For more details see: <a href="https://docs.docker.com/network/proxy/" target="_blank" rel="noopener">Docker Documentation</a></p>
-<h1 id="environment-variables">Environment Variables</h1>
+<h2 id="environment-variables">Environment Variables</h2>
 <p>It is required to set the following environment variables:</p>
 <ul>
 <li><code>HTTP_PROXY</code> - proxy server, e.g. <code>http://localhost:3128</code></li>
@@ -759,7 +750,8 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
     </div>
 </div>
 
-<h1 id="solving-issues-with-tls-ssl-certificate-validation-using-https-connections-from-containers">Solving issues with TLS (SSL) certificate validation using https connections from containers</h1>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="solving-issues-with-tls-ssl-certificate-validation-using-https-connections-from-containers">Solving issues with TLS (SSL) certificate validation using https connections from containers</h3>
 <p>If you are behind a so-called intercept proxy (which you most probably are), you can run into certificate issues:
 Your corporate proxy works as a &ldquo;man-in-the-middle&rdquo; to be able to check the transfered data for malicious content.
 Means, there is a protected connection between the application in your local runtime environment and the proxy and
@@ -771,10 +763,11 @@ your corporation (if the OS and software installed on it is managed by them) and
 normally.</p>
 <p>If it comes to executing containers, those are typically not managed by your IT department and the proxy certificate(s)
 is/are missing. So, you need to find a way to install those into the (dev) container you want to execute.</p>
-<p>See (one of) those articles to get how to achieve that:
-<a href="https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers" target="_blank" rel="noopener">https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers</a>
-<a href="https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/" target="_blank" rel="noopener">https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/</a></p>
-<h1 id="troubleshooting">Troubleshooting</h1>
+<p>See (one of) those articles to get how to achieve that:</p>
+<ul>
+<li><a href="https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers" target="_blank" rel="noopener">Overcoming Proxy Issues with Docker Containers</a></li>
+<li><a href="https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/" target="_blank" rel="noopener">Docker behind SSL intercepting proxy</a></li>
+</ul>
 <h3 id="initial-devcontainer-build-issue">Initial DevContainer build issue</h3>
 <p>If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used:</p>
 <ul>

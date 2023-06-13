@@ -181,6 +181,8 @@ Also, the target folder for the generated model source code is specified here:&l
 &lt;li&gt;
 &lt;p&gt;Execute the command&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 gen_vehicle_model.py -I ./vehicle_signal_specification/spec ./vehicle_signal_specification/spec/VehicleSignalSpecification.vspec -l &amp;lt;lang&amp;gt; -T sdv_model -N sdv_model
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or if you want to generate it from a .json file&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 gen_vehicle_model.py &amp;lt;path_to_your_json_file&amp;gt; -l &amp;lt;lang&amp;gt; -T sdv_model
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Depending on the value of &lt;code&gt;lang&lt;/code&gt;, which can assume the values &lt;code&gt;python&lt;/code&gt; and &lt;code&gt;cpp&lt;/code&gt;, this creates a &lt;code&gt;sdv_model&lt;/code&gt; directory in the root of repository along with all generated source files for the given programming language.&lt;/p&gt;
 &lt;p&gt;Here is an overview of what is generated for every available value of &lt;code&gt;lang&lt;/code&gt;:&lt;/p&gt;
 &lt;table&gt;
