@@ -86,6 +86,9 @@
 &lt;h2 id=&#34;how-to-start-to-develop&#34;&gt;How to start to develop?&lt;/h2&gt;
 &lt;p&gt;In the following chapter you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using just VSCode&amp;rsquo;s &lt;a href=&#34;https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DevContainer&lt;/a&gt; or you can set up the environment on a remote agent, using &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;: Your &lt;em&gt;Vehicle App&lt;/em&gt; reposiroty based on template is &lt;a href=&#34;#how-to-create-vehicle-app-repository&#34;&gt;created&lt;/a&gt;.&lt;/p&gt;
+
+
+
 &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-2&#34; role=&#34;tablist&#34;&gt;
   &lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link active&#34;
@@ -101,6 +104,7 @@
       &lt;/a&gt;
     &lt;/li&gt;
 &lt;/ul&gt;
+
 &lt;div class=&#34;tab-content&#34; id=&#34;tabs-2-content&#34;&gt;
     &lt;div class=&#34;tab-body tab-pane fade show active&#34;
         id=&#34;tabs-02-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-00-tab&#34;&gt;
@@ -126,12 +130,12 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The DevContainer is using the &lt;a href=&#34;https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker-in-docker&lt;/a&gt; feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.&lt;/p&gt;
 &lt;/div&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
-&amp;lt;div class=&amp;quot;tab-body tab-pane fade&amp;quot;
-    id=&amp;quot;tabs-02-01&amp;quot; role=&amp;quot;tabpanel&amp;quot; aria-labelled-by=&amp;quot;tabs-02-01-tab&amp;quot;&amp;gt;
-    &amp;lt;p&amp;gt;One of the possibilities to use your newly created repository to use it via &amp;lt;a href=&amp;quot;https://github.com/features/codespaces&amp;quot; target=&amp;quot;_blank&amp;quot; rel=&amp;quot;noopener&amp;quot;&amp;gt;GitHub Codespaces&amp;lt;/a&amp;gt;.
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can either try it out directly in the browser or also use it inside VSCode. The main thing to remember is that everything is executed on a remote agent and the browser or VSCode just act as a “thin-client”.&lt;/p&gt;&lt;/p&gt;
+
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-02-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-01-tab&#34;&gt;
+        &lt;p&gt;One of the possibilities to use your newly created repository to use it via &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.
+You can either try it out directly in the browser or also use it inside VSCode. The main thing to remember is that everything is executed on a remote agent and the browser or VSCode just act as a &amp;ldquo;thin-client&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;To get started with GitHub Codespaces, you just have to follow a few steps:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Open your repository on GitHub (e.g. &lt;a href=&#34;https://github.com/MyOrg/MyFirstVehicleApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/MyOrg/MyFirstVehicleApp&lt;/a&gt;)&lt;/li&gt;
@@ -146,9 +150,10 @@
 &lt;pre&gt;&lt;code&gt;Be careful with using GitHub Codespaces in browser and VSCode locally at the same time: &amp;lt;em&amp;gt;Tasks&amp;lt;/em&amp;gt; that are started using a browser session will not show in VSCode environment and vice versa that leads for problems.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
+
+    &lt;/div&gt;
 &lt;/div&gt;
+
 &lt;h2 id=&#34;how-to-start-runtimes&#34;&gt;How to start runtimes?&lt;/h2&gt;
 &lt;p&gt;The runtime services (like &lt;em&gt;KUKSA Data Broker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are required to develop vehicle apps and run integration tests.&lt;/p&gt;
 &lt;p&gt;There are few runtimes available currently:&lt;/p&gt;

@@ -87,7 +87,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.6f3a3336ca395cd9a72a3f65256f5660.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.bc49b5ba6ca8f4111b14dda8d796d5e7.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -3161,6 +3161,9 @@ If you experienced this error and the devcontainer still has started correctly p
 <h2 id="how-to-start-to-develop">How to start to develop?</h2>
 <p>In the following chapter you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using just VSCode&rsquo;s <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">DevContainer</a> or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
 <p><strong>Prerequisites</strong>: Your <em>Vehicle App</em> reposiroty based on template is <a href="#how-to-create-vehicle-app-repository">created</a>.</p>
+
+
+
 <ul class="nav nav-tabs" id="tabs-2" role="tablist">
   <li class="nav-item">
       <a class="nav-link active"
@@ -3176,6 +3179,7 @@ If you experienced this error and the devcontainer still has started correctly p
       </a>
     </li>
 </ul>
+
 <div class="tab-content" id="tabs-2-content">
     <div class="tab-body tab-pane fade show active"
         id="tabs-02-00" role="tabpanel" aria-labelled-by="tabs-02-00-tab">
@@ -3201,12 +3205,12 @@ If you experienced this error and the devcontainer still has started correctly p
 </code></pre>
 <p>The DevContainer is using the <a href="https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md" target="_blank" rel="noopener">docker-in-docker</a> feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a DevContainer with the feature enabled can be running at the same time.</p>
 </div>
-<pre><code>&lt;/div&gt;
-&lt;div class=&quot;tab-body tab-pane fade&quot;
-    id=&quot;tabs-02-01&quot; role=&quot;tabpanel&quot; aria-labelled-by=&quot;tabs-02-01-tab&quot;&gt;
-    &lt;p&gt;One of the possibilities to use your newly created repository to use it via &lt;a href=&quot;https://github.com/features/codespaces&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub Codespaces&lt;/a&gt;.
-</code></pre>
-<p>You can either try it out directly in the browser or also use it inside VSCode. The main thing to remember is that everything is executed on a remote agent and the browser or VSCode just act as a “thin-client”.</p></p>
+
+    </div>
+    <div class="tab-body tab-pane fade"
+        id="tabs-02-01" role="tabpanel" aria-labelled-by="tabs-02-01-tab">
+        <p>One of the possibilities to use your newly created repository to use it via <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.
+You can either try it out directly in the browser or also use it inside VSCode. The main thing to remember is that everything is executed on a remote agent and the browser or VSCode just act as a &ldquo;thin-client&rdquo;.</p>
 <p>To get started with GitHub Codespaces, you just have to follow a few steps:</p>
 <ol>
 <li>Open your repository on GitHub (e.g. <a href="https://github.com/MyOrg/MyFirstVehicleApp" target="_blank" rel="noopener">https://github.com/MyOrg/MyFirstVehicleApp</a>)</li>
@@ -3221,9 +3225,10 @@ If you experienced this error and the devcontainer still has started correctly p
 <pre><code>Be careful with using GitHub Codespaces in browser and VSCode locally at the same time: &lt;em&gt;Tasks&lt;/em&gt; that are started using a browser session will not show in VSCode environment and vice versa that leads for problems.
 </code></pre>
 </div>
-<pre><code>&lt;/div&gt;
-</code></pre>
+
+    </div>
 </div>
+
 <h2 id="how-to-start-runtimes">How to start runtimes?</h2>
 <p>The runtime services (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are required to develop vehicle apps and run integration tests.</p>
 <p>There are few runtimes available currently:</p>
