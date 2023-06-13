@@ -96,9 +96,9 @@ A new window will open where you can see logs for setting up the container. On t
 
 Once everything is set up in the _Codespace_, you can work with it in the same way as with the normal DevContainer inside VSCode.
 
-{{% alert title="Note" %}}
+{{% pageinfo color="primary" %}}
 Be careful with using GitHub Codespaces in browser and VSCode locally at the same time: _Tasks_ that are started using a browser session will not show in VSCode environment and vice versa that leads for problems.
-{{% /alert %}}
+{{% /pageinfo %}}
 
 {{% /tab %}}
 {{< /tabpane >}}
@@ -131,9 +131,9 @@ Hint: Log files can be found in your workspace's logs directory
 ✅ Runtime is ready to use!
 ```
 
-{{% alert title="Info" text=true %}}
-Simply press **Ctrl + C** to stop the runtime.
-{{% /alert %}}
+{{% pageinfo color="primary" %}}
+Simply press `Ctrl + C` to stop the runtime.
+{{% /pageinfo %}}
 
 {{% /tab %}}
 {{% tab header="K3D Runtime" %}}
@@ -160,9 +160,9 @@ Hint: Log files can be found in your workspace's logs directory
 ✅ Starting k3d runtime...
 ```
 
-{{% alert title="Warning" text=true %}}
+{{% pageinfo color="primary" %}}
    You need to perform task `K3D Runtime - Down` to properly stop runtime activities.
-{{% /alert %}}
+{{% /pageinfo %}}
 
 {{% /tab %}}
 {{< /tabpane >}}
