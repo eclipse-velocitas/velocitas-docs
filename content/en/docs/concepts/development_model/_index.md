@@ -29,8 +29,7 @@ A Vehicle Model makes it possible to easily get vehicle data from the [Data Brok
 
 ### SDKs
 
-Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model and the abstraction of the underlying middleware and communication protocols.
-Besides that, they provide the base classes and utilities for the Vehicle Apps.
+Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model Furthermore, they offer abstraction from the underlying middleware and communication protocols, besides providing the base classes and utilities for the Vehicle Apps.
 SDKs are available for Python and C++, currently. Further SDKs for Rust and C are planned.
 
 ### Vehicle Services

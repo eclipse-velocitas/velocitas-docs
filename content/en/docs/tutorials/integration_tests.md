@@ -46,7 +46,6 @@ To write an integration test, you should check the sample that comes with the te
 
 > **Please make sure that you don't check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).**
 
-
 ## Runtime components
 
 To be able to test the _Vehicle App_ in an integrated way, the following components should be running:

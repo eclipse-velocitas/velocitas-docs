@@ -121,7 +121,7 @@ A VSCode task called `Local Runtime - Up` is available to start all necessary se
 You should see the task `Local Runtime - Up` being executed on a separate VSCode terminal with the following content:
 
 ```bash
-$ velocitas exec runtime-local up 
+$ velocitas exec runtime-local up
 
 Hint: Log files can be found in your workspace's logs directory
 > mqtt-broker running
@@ -147,7 +147,7 @@ A VSCode task called `K3D Runtime - Up` is available to start all necessary serv
 You should see the task `K3D Runtime - Up` being executed on a separate VSCode terminal with the following content:
 
 ```bash
-$ velocitas exec runtime-k3d up 
+$ velocitas exec runtime-k3d up
 
 Hint: Log files can be found in your workspace's logs directory
 > Checking K3D registry... created.
@@ -222,7 +222,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 ## How to trigger CI Workflow?
 
 The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find [here](/docs/concepts/deployment_model/vehicle_app_releases/).
-  
+
 By pushing a change to GitHub the CI Workflow will be triggered:
 
 1. Make modification in any of your files

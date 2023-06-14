@@ -3,7 +3,7 @@ title: "About Velocitas"
 date: 2022-08-24T17:24:56+05:30
 weight: 10
 description: >
-  Explore the goal, benefits and basic concepts of Eclipse _Velocitas™_ 
+  Explore the goal, benefits and basic concepts of Eclipse _Velocitas™_
 ---
 
 ## Problem
@@ -16,7 +16,8 @@ Currently, the development of in-vehicle applications (_Vehicle Apps_) can be ex
 {{<beside "collab.png" "Specific processes, methods, and tools within each company creates challenges for effective collaboration.">}}
 
 ## Solution
-An open-source end-to-end toolchain for developing vehicle-independent applications with:
+
+The solution would be a development toolchain for creating vehicle-independent applications with:
 
 {{<beside "unified.png" "Usage of standardized vehicle APIs.">}}
 {{<beside "containerization.png" "Enabling portability through containerized Apps with no dependencies to E/E architecture.">}}
@@ -25,7 +26,7 @@ An open-source end-to-end toolchain for developing vehicle-independent applicati
 
 ## Product
 
-Eclipse _Velocitas™_ provides an end-to-end, scalable and modular development tool chain to create containerized Vehicle Apps, offering a comfortable, fast and efficient development experience to increase the speed of a development team (velocity).
+Eclipse _Velocitas™_ is an open source project providing an end-to-end, scalable and modular development tool chain to create containerized Vehicle Apps, offering a comfortable, fast and efficient development experience to increase the speed of a development team (velocity).
 
 <img src="dev_ops_cycle.png" >
 
