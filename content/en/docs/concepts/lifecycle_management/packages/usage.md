@@ -21,6 +21,8 @@ Currently, the packages provided by the _Velocitas_ team are the following:
 |[devenv-devcontainer-setup](https://github.com/eclipse-velocitas/devenv-devcontainer-setup)| Basic configuration for the devcontainer, like proxy configuration, post create scripts, entry points for the lifecycle management. |
 |[devenv-github-workflows](https://github.com/eclipse-velocitas/devenv-github-workflows)| Containing github workflow files used by velocitas repositories |
 |[devenv-github-templates](https://github.com/eclipse-velocitas/devenv-github-templates)| Containing github templates used by velocitas repositories |
+|[devenv-runtime-local](https://github.com/eclipse-velocitas/devenv-runtime-local)| Central configuration for local runtime execution (deprecated) |
+|[devenv-runtime-k3d](https://github.com/eclipse-velocitas/devenv-runtime-k3d)| Central configuration for k3d runtime execution (deprecated) |
 {{</table>}}
 </br>
 
