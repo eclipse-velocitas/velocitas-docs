@@ -170,9 +170,9 @@ vehicle = Vehicle("Vehicle")
 {{< /tab >}}
 {{< tab "C++" >}}
 
-# include "sdk/DataPoint.h"
+#include "sdk/DataPoint.h"
 
-# include "sdk/Model.h"
+#include "sdk/Model.h"
 
 using namespace velocitas;
 
@@ -245,11 +245,11 @@ Vehicle Services are expected to expose their public endpoints over the gRPC pro
 
 ### Model integration
 
-Based on the `.proto` files of the Vehicle Services, the protocol buffers compiler generates descriptors for all rpcs, messages, fields etc for the target language.
+Based on the `.proto` files of the Vehicle Services, the protocol buffer compiler generates descriptors for all rpcs, messages, fields etc for the target language.
 The gRPC stubs are wrapped by a **convenience layer** class derived from `Service` that contains all the methods of the underlying protocol buffer specification.
 
 {{% alert title="Info" %}}
-The convencience layer of C++ is abit more extensive than in Python. The complexity of gRPC's async API is hidden behind individual `AsyncGrpcFacade` implementations which need to be implemented manually. Have a look at the `SeatAdjusterApp` example's `SeatService` and its `SeatServiceAsyncGrpcFacade`.
+The convencience layer of C++ is abit more extensive than in Python. The complexity of gRPC's async API is hidden behind individual `AsyncGrpcFacade` implementations which need to be implemented manually. Have a look at the `SeatService` of the `SeatAdjusterApp` example and its `SeatServiceAsyncGrpcFacade`.
 {{% /alert %}}
 
 {{< tabpane langEqualsHeader=true >}}
@@ -296,7 +296,7 @@ private:
 
 ### Service discovery
 
-The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through *dapr* middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that *dapr* can discover the corresponding vehicle services. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
+The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through the *dapr* middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that *dapr* can discover the corresponding vehicle services. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
 
 ## Fluent query & rule construction
 
@@ -454,9 +454,9 @@ async def on_set_position_request_received(self, data: str) -> None:
 {{< /tab >}}
 {{< tab "C++" >}}
 
-# include <fmt/core.h>
+#include <fmt/core.h>
 
-# include <nlohmann/json.hpp>
+#include <nlohmann/json.hpp>
 
 subscribeToTopic("seatadjuster/setPosition/request")->onItem([this](auto&& item){
     const auto jsonData = nlohmann::json::parse(item);
@@ -483,7 +483,7 @@ async def main():
 
 ## Vehicle App abstraction
 
-`Vehicle Apps` are inherited from the `VehicleApp` base class. This enables the `Vehicle App` to use the Publish & subscribe messaging and the KUKSA Data Broker.
+`Vehicle Apps` are inherited from the `VehicleApp` base class. This enables the `Vehicle App` to use the Publish & Subscribe messaging and to connect to the KUKSA Data Broker.
 
 The `Vehicle Model` instance is passed to the constructor of the `VehicleApp` class and should be stored in a member variable (e.g. `self.vehicle` for Python, `std::shared_ptr<Vehicle> m_vehicle;` for C++), to be used by all methods within the application.
 
@@ -515,9 +515,9 @@ LOOP.close()
 {{< /tab >}}
 {{< tab "C++" >}}
 
-# include "VehicleApp.h"
+#include "sdk/VehicleApp.h"
 
-# include "vehicle_model/Vehicle.h"
+#include "vehicle/Vehicle.hpp"
 
 using namespace velocitas;
 
@@ -532,7 +532,7 @@ private:
 };
 
 int main(int argc, char** argv) {
-    example::SeatAdjusterApp app;
+    SeatAdjusterApp app;
     app.run();
     return 0;
 }
