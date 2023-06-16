@@ -10,6 +10,6 @@ _Velocitas_ offers a scalable and modular development toolchain for creating con
 
 Vehicle Apps are implemented on top of a Vehicle Model (which is generated from the underlying semantic models like VSS for a concrete programming language) and its underlying language-specific SDK to provide headless comfort functions or connected application functions like Seat Adjuster, Dog Mode, Trunk Delivery or Data Logging & triggering.
 
-![](./use_case.drawio.svg)
+![use_case](./use_case.drawio.svg)
 
 ## Examples

@@ -20,7 +20,7 @@ aliases:
 ## Add/Change runtime service configuration
 
 The configuration for services of our provided local runtime are defined in the [`runtime.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json) at the root of the repository [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main).
-For a more detailed view on how to change or add runtime service configuration, please visit: [Lifecylce Management Package Development](/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages)
+For a more detailed view on how to change or add runtime service configuration, please visit: [Lifecycle Management Package Development](/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages)
 
 ## Using KUKSA Data Broker CLI
 
@@ -67,7 +67,7 @@ If you are using Codespaces, remember that you are working on a remote agent. Th
 ## Next steps
 
 - Tutorial: [Deploy runtime services in local Kubernetes cluster](/docs/tutorials/run_runtime_services_kubernetes.md)
-- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/quickstart)
+- Tutorial: [Setup and Explore Development Environment](/docs/tutorials/quickstart)
 - Concept: [Deployment Model](/docs/about/deployment-model/)
 - Concept: [Build and release process](/docs/about/deployment-model/vehicle_app_releases/)
 - Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

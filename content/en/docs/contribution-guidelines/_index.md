@@ -3,7 +3,7 @@ title: "Contribution Guidelines"
 date: 2022-05-09T13:43:25+05:30
 weight: 50
 description: >
-  Read how you can contribute to Eclipse Veloctias.
+  Read how you can contribute to Eclipse Velocitas.
 aliases:
   - /docs/contribution-guidelines
 ---
@@ -58,14 +58,14 @@ date: 2022-05-09T13:43:25+05:30
 - Additional front matter that can be added –
   - url : &quot;specifying a definite url to the file&quot;
   - weight : 10 (used for ordering your content in lists. Lower weight gets higher precedence.)
-- The images need to be put in path velocitas-docs/hugo/hugo/static/assests. The image reference should be /assests/image.jpg in the markdown file.
+- The images need to be put in path `velocitas-docs/hugo/hugo/static/assets`. The image reference should be `/assets/image.jpg` in the markdown file.
   (Note: Do not use relative paths or url)
 - In case you are creating a new folder, create \_index.md file with the front matter only.
 
 ## Running Locally
 
 - Install hugo version 0.98.0 extended [Release v0.98.0 · gohugoio/hugo (github.com)](https://github.com/gohugoio/hugo/releases/tag/v0.98.0)
-- Install Docsy theme in the path velocitas-docs/hugo/hugo/theme –
+- Install docsy theme in the path velocitas-docs/hugo/hugo/theme –
 
 ```bash
 #Run this command from the root directory of velocitas-docs
@@ -119,7 +119,7 @@ Please do not forget to add your name/organization to the `/legal/legal/NOTICE.m
 
 - A pipeline run will be triggered on every PR merge. This run will trigger the hugo docs build
 - Hugo v0.98.0 extended is set up for the runner
-- Docsy theme is setup for beautification of static site
+- docsy theme is setup for beautification of static site
 - Then dependencies are installed for the theme
 - Static site is generated and stored in a folder &quot;public&quot;
 - The contents of public are committed to gh_pages branch which is exposed to host the GitHub pages

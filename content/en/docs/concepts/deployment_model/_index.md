@@ -18,7 +18,7 @@ The deployment model is guided by the following principles
 - The container runtime offers a Kubernetes-compatible control plane and API to manage the container lifecycle.
 - Helm charts are used as deployment descriptor specification.
 
-The template projects provided come with a preconfigured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation of all required artifacts needed to follow the Velocitas principles.
+The template projects provided come with a pre-configured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation of all required artifacts needed to follow the Velocitas principles.
 
 ## Testing your container during development
 

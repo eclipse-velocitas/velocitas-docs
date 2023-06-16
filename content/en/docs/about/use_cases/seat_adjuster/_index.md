@@ -18,7 +18,7 @@ The _Seat Adjuster Vehicle App_ receives a MQTT message containing the seat posi
 
 ## Requesting new seat position
 
-![](./seat_adjuster_dataflow_1.png)
+![seat_adjuster_dataflow_1](./seat_adjuster_dataflow_1.png)
 
 1. The **Customer** requests the change of the seat position as MQTT message on the topic `seatadjuster/setPosition/request` with the payload:
 
@@ -47,18 +47,18 @@ The _Seat Adjuster Vehicle App_ receives a MQTT message containing the seat posi
 
 ## Publishing current seat position
 
-![](./seat_adjuster_dataflow_2.png)
+![seat_adjuster_dataflow_2](./seat_adjuster_dataflow_2.png)
 
 1. If the seat position will be changed by the driver, the new seat position will be sent to the **Seat Service** via CAN.
 2. The **Seat Service** streams the seat position via gRPC to the **KUKSA Data Broker** since it was registered beforehand.
 3. The **Seat Adjuster Vehicle App** that subscribed to the seat position receives the new seat position from the **KUKSA Data Broker** as a result.
-12. The **Seat Adjuster Vehicle App** publishes this on topic `seatadjuster/currentPosition` with the payload:
+4. The **Seat Adjuster Vehicle App** publishes this on topic `seatadjuster/currentPosition` with the payload:
 
     ```json
     {"position": 350}
     ```
 
-13. The **Customer** who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.
+5. The **Customer** who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.
 
 ## Example Code
 

@@ -78,8 +78,9 @@ An example of a Vehicle Model created with the described ontology is shown below
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
 
-# import ontology classes
+## import ontology classes
 
+``` Python
 from sdv import (
     DataPointDouble,
     Model,
@@ -166,10 +167,12 @@ class Vehicle(Model):
         self.Cabin = Cabin("Cabin", self)
 
 vehicle = Vehicle("Vehicle")
+```
 
 {{< /tab >}}
 {{< tab "C++" >}}
 
+``` C++
 #include "sdk/DataPoint.h"
 
 #include "sdk/Model.h"
@@ -234,6 +237,8 @@ public:
   ::CurrentLocation CurrentLocation{this};
   ::Cabin Cabin{this};
 };
+```
+
 {{< /tab >}}
 {{< /tabpane >}}
 
@@ -249,11 +254,12 @@ Based on the `.proto` files of the Vehicle Services, the protocol buffer compile
 The gRPC stubs are wrapped by a **convenience layer** class derived from `Service` that contains all the methods of the underlying protocol buffer specification.
 
 {{% alert title="Info" %}}
-The convencience layer of C++ is abit more extensive than in Python. The complexity of gRPC's async API is hidden behind individual `AsyncGrpcFacade` implementations which need to be implemented manually. Have a look at the `SeatService` of the `SeatAdjusterApp` example and its `SeatServiceAsyncGrpcFacade`.
+The convenience layer of C++ is a bit more extensive than in Python. The complexity of gRPC's async API is hidden behind individual `AsyncGrpcFacade` implementations which need to be implemented manually. Have a look at the `SeatService` of the `SeatAdjusterApp` example and its `SeatServiceAsyncGrpcFacade`.
 {{% /alert %}}
 
 {{< tabpane langEqualsHeader=true >}}
-{{< tab "Python" >}}
+{{< tab "Python">}}
+
 class SeatService(Service):
     def __init__(self):
         super().__init__()
@@ -264,8 +270,10 @@ class SeatService(Service):
             MoveRequest(seat=seat), metadata=self.metadata
         )
         return response
+
 {{< /tab >}}
-{{< tab "C++" >}}
+{{< tab "C++">}}
+
 class SeatService : public Service {
 public:
     // nested classes/structs omitted
@@ -291,6 +299,7 @@ public:
 private:
     std::shared_ptr<SeatServiceAsyncGrpcFacade> m_asyncGrpcFacade;
 };
+
 {{< /tab >}}
 {{< /tabpane >}}
 
@@ -541,7 +550,7 @@ int main(int argc, char** argv) {
 
 ## Further information
 
-- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
+- Tutorial: [Setup and Explore Development Environment](/docs/tutorials/setup_and_explore_development_environment.md)
 - Tutorial: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Vehicle App Development](/docs/tutorials/vehicle-app-development)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)

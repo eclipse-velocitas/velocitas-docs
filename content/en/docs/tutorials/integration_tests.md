@@ -24,7 +24,7 @@ To write an integration test, you should check the sample that comes with the te
 
     _Example:_
 
-    ```
+    ``` JSON
     {
         "status": "success",
         "result": {
@@ -39,7 +39,7 @@ To write an integration test, you should check the sample that comes with the te
 
 - `IntTestHelper`: this class provides functionality to interact with the _KUKSA Data Broker_.
 
-  - `register_dapoint`: registers a new datapoint with given name and type
+  - `register_datapoint`: registers a new datapoint with given name and type
   - `set_..._datapoint`: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.
 
   This class can be initialized with a given port. If no port is specified, the environment variable `VDB_PORT` will be checked. If this is not possible either, the default value of `55555` will be used. **It's recommended to specify no port when initializing that class as it will locally use the default port `55555` and in CI the port set by the environment variable `VDB_PORT` which is set. This will prevent a check-in in the wrong port from local development.**
