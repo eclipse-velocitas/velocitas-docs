@@ -80,7 +80,6 @@ An example of a Vehicle Model created with the described ontology is shown below
 
 ## import ontology classes
 
-``` Python
 from sdv import (
     DataPointDouble,
     Model,
@@ -167,12 +166,10 @@ class Vehicle(Model):
         self.Cabin = Cabin("Cabin", self)
 
 vehicle = Vehicle("Vehicle")
-```
 
 {{< /tab >}}
 {{< tab "C++" >}}
 
-``` C++
 #include "sdk/DataPoint.h"
 
 #include "sdk/Model.h"
@@ -237,7 +234,6 @@ public:
   ::CurrentLocation CurrentLocation{this};
   ::Cabin Cabin{this};
 };
-```
 
 {{< /tab >}}
 {{< /tabpane >}}
