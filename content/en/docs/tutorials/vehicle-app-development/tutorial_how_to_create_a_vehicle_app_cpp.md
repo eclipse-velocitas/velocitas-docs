@@ -5,10 +5,10 @@ weight: 2
 description: >
   Learn how to develop and test a Vehicle App using C++.
 aliases:
-  - /docs/tutorials/python/tutorial_how_to_create_a_vehicle_app_cpp.md
+  - /docs/tutorials/cpp/tutorial_how_to_create_a_vehicle_app_cpp.md
 ---
 
-> We recommend that you make yourself familiar with the [Vehicle App SDK](/docs/concepts/vehicle_app_sdk_overview.md) first, before going through this tutorial.
+> We recommend that you make yourself familiar with the [Vehicle App SDK](/docs/concepts/development_model/vehicle_app_sdk) first, before going through this tutorial.
 
 The following information describes how to develop and test the sample Vehicle App that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
 
@@ -18,7 +18,7 @@ Once you have completed all steps, you will have a solid understanding of the de
 
 This section describes how to develop your first _Vehicle App_. Before you start building a new _Vehicle App_, make sure you have already read this manual:
 
-- [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
+- [Setup and Explore Development Environment](/docs/getting_started)
 
 Once you have established your development environment, you will be able to start developing your first _Vehicle App_.
 
@@ -29,9 +29,9 @@ A detailed explanation of the use case and the example is available [here](/docs
 
 At first, you have to create the main c++ file which we will call `App.cpp` in `/app/src`. All the relevant code for new _Vehicle App_ goes there. Afterwards, there are several steps you need to consider when developing the app:
 
-1. Manage your includes
-2. Initialize your class
-3. Start the app
+1. [Manage your includes](#manage-your-imports)
+2. [Initialize your class](#initialize-your-class)
+3. [Start the app](#start-the-app)
 
 ### Manage your imports
 
@@ -95,7 +95,7 @@ In order to facilitate the implementation, the whole vehicle is abstracted into 
 
 The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model in the folder `app/vehicle_model/include/`. This folder is already configured as "include folder" of the CMake tooling. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.
 
-If you want to access a single [Datapoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) for the vehicle speed, this can be done via
+If you want to access a single [DataPoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) for the vehicle speed, this can be done via
 
 ```Cpp
 auto vehicleSpeedBlocking = getDataPoint(Vehicle.Speed)->await();
@@ -112,9 +112,9 @@ If you want to get deeper inside the vehicle, to access a single seat for exampl
 auto driverSeatPosition = getDataPoint(Vehicle.Cabin.Seat.Row(1).Pos(1).Position)->await();
 ```
 
-## Subscription to Datapoints
+## Subscription to DataPoints
 
-If you want to get notified about changes of a specific `DataPoint`, you can subscribe to this event, e.g. as part of the `onStart`-method in your app.
+If you want to get notified about changes of a specific `DataPoint`, you can subscribe to this event, e.g. as part of the `onStart()` method in your app.
 
 ```Cpp
 void onStart() override {
@@ -131,9 +131,9 @@ void onSeatPositionChanged(const DataPointsResult& result) {
 
 ```
 
-The `VehicleApp` class provides the `subscribeDataPoints`-method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via `AsyncSubscription::onItem` is called. Conversely, the callback registered via `AsyncSubscription::onError` is called once there is any error during communication with the KUKSA data broker.
+The `VehicleApp` class provides the `subscribeDataPoints()` method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via `AsyncSubscription::onItem()` is called. Conversely, the callback registered via `AsyncSubscription::onError()` is called once there is any error during communication with the KUKSA data broker.
 
-The result passed to the callback registered via `onItem` is an object of type `DataPointsResult` which holds all data points that have changed. Individual data points can be accessed directly by their reference: `result.get(Vehicle.Cabin.Seat.Row(1).Pos(1).Position)`)
+The result passed to the callback registered via `onItem()` is an object of type `DataPointsResult` which holds all data points that have changed. Individual data points can be accessed directly by their reference: `result.get(Vehicle.Cabin.Seat.Row(1).Pos(1).Position)`)
 
 ## Services
 
@@ -141,7 +141,7 @@ The result passed to the callback registered via `onItem` is an object of type `
 
 Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
 
-The following few lines show you how to use the `moveComponent`-method of the `SeatService` you have created:
+The following few lines show you how to use the `moveComponent()` method of the `SeatService` you have created:
 
 ```Cpp
 vehicle::cabin::SeatService::SeatLocation location{1, 1};
@@ -158,8 +158,8 @@ In order to know which seat to move, you have to pass a `SeatLocation` object as
 
 Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.
 
-In the [quickstart section]({{< ref "/docs/tutorials/quickstart" >}}) about the Vehicle App, you already tested sending MQTT messages to the app.
-In the previous sections, you generally saw how to use `Vehicle Models`, `Datapoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
+In the [quickstart section](/docs/tutorials/quickstart") about the Vehicle App, you already tested sending MQTT messages to the app.
+In the previous sections, you generally saw how to use `Vehicle Models`, `DataPoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
 
 In order to receive and process MQTT messages inside your app, simply use the `VehicleApp::subscribeTopic` method provided by the SDK:
 
@@ -213,7 +213,7 @@ If you want to run the app together with a Dapr sidecar and use the Dapr middlew
 dapr run --app-id myvehicleapp --app-port 50008 --config ./.dapr/config.yaml --components-path ./.dapr/components build/bin/App
 ```
 
-You already have seen this command and how to check if it is working in the [general setup]({{< ref "/docs/tutorials/quickstart#start-and-test-vehicle-app" >}}).
+You already have seen this command and how to check if it is working in the [general setup]({{< ref "/docs/tutorials/quickstart" >}}).
 
 2 parameters may be unclear in this command:
 
@@ -267,7 +267,7 @@ If you want to know more about dapr and the configuration, please visit the [dap
 
 ### Debug your Vehicle App
 
-In the [introduction about debugging]({{< ref "/docs/tutorials/quickstart#debugging-vehicle-app" >}}), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
+In the [introduction about debugging]("/docs/tutorials/quickstart#how-to-debug-_Vehicle-App_"), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
 
 The debug session launch settings are already prepared for the `VehicleApp`.
 

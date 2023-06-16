@@ -18,7 +18,7 @@ Once you have completed all steps, you will have a solid understanding of the de
 
 This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read this manual:
 
-- [Setup and Explore Development Enviroment](/docs/setup_and_explore_development_environment.md)
+- [Setup and Explore Development Environment](/docs/setup_and_explore_development_environment.md)
 
 Once you have established your development environment, you will be able to start developing your first Vehicle App.
 
@@ -29,12 +29,12 @@ A detailed explanation of the use case and the example is available [here](/docs
 
 At first, you have to create the main python script called `main.py` in `/app/src`. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:
 
-1. Manage your imports
-2. Enable logging
-3. Initialize your class
-4. Start the app
+1. [Manage your imports](#manage-your-imports)
+2. [Enable logging](#enable-logging)
+3. [Initialize your class](#initialize-your-class)
+4. [Start the app](#start-the-app)
 
-#### Manage your imports
+### Manage your imports
 
 Before you start development in the `main.py` you just created, it will be necessary to include the imports required, which you will understand better later through the development:
 
@@ -54,7 +54,7 @@ from vehicle import Vehicle, vehicle  # type: ignore
 from sdv_model.proto.seats_pb2 import BASE, SeatLocation  # type: ignore
 ```
 
-#### Enable logging
+### Enable logging
 
 The following logging configuration applies the default log format provided by the SDK and sets the log level to INFO:
 
@@ -65,7 +65,7 @@ logging.getLogger().setLevel("INFO")
 logger = logging.getLogger(__name__)
 ```
 
-#### Initialize your class
+### Initialize your class
 
 The main class of your new Vehicle App needs to inherit the `VehicleApp` provided by the [SDK](https://github.com/eclipse-velocitas/vehicle-app-python-sdk).
 
@@ -83,7 +83,7 @@ def __init__(self, vehicle_client: Vehicle):
 
 We save the vehicle object to use it in our app. Now, you have initialized the app and can continue developing relevant methods.
 
-#### Start the app
+### Start the app
 
 Here's an example of how to start the MyVehicleApp App that we just developed:
 
@@ -108,13 +108,13 @@ In order to facilitate the implementation, the whole vehicle is abstracted into 
 
 The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model installed as a Python package named `vehicle`. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.
 
-If you want to access a single [Datapoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) for the vehicle speed, this can be done via
+If you want to access a single [DataPoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) for the vehicle speed, this can be done via
 
 ```Python
 vehicle_speed = await self.Vehicle.Speed.get()
 ```
 
-As the `get`-method of the Datapoint-class there is a coroutine you have to use the `await` keyword when using it.
+As the `get()` method of the DataPoint-class there is a coroutine you have to use the `await` keyword when using it.
 
 If you want to get deeper inside the vehicle, to access a single seat for example, you just have to go the model-chain down:
 
@@ -122,9 +122,9 @@ If you want to get deeper inside the vehicle, to access a single seat for exampl
 self.DriverSeatPosition = await self.vehicle_client.Cabin.Seat.Row1.Pos1.Position.get()
 ```
 
-## Subscription to Datapoints
+## Subscription to DataPoints
 
-If you want to get notified about changes of a specific `Datapoint`, you can subscribe to this event, e.g. as part of the `on_start`-method in your app.
+If you want to get notified about changes of a specific `DataPoint`, you can subscribe to this event, e.g. as part of the `on_start()` method in your app.
 
 ```Python
     async def on_start(self):
@@ -147,7 +147,7 @@ Therefore the `on_seat_position_changed` callback function needs to be implement
 ```
 
 {{% alert title="Note" %}}
-The SDK also supports annotations for subscribing to datapoint changes with `@subscribe_data_points` defined by the whole path to the `Datapoint` of interest.
+The SDK also supports annotations for subscribing to datapoint changes with `@subscribe_data_points` defined by the whole path to the `DataPoint` of interest.
 
 ```Python
 @subscribe_data_points("Vehicle.Cabin.Seat.Row1.Pos1.Position")
@@ -167,7 +167,7 @@ Similarly, subscribed data is available in the respective *DataPointReply* objec
 
 Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
 
-The following lines show you how to use the `MoveComponent`-method of the `SeatService` from the vehicle model:
+The following lines show you how to use the `MoveComponent()` method of the `SeatService` from the vehicle model:
 
 ```Python
 location = SeatLocation(row=1, index=1)
@@ -185,9 +185,9 @@ In order to know which seat to move, you have to pass a `SeatLocation` object as
 Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.
 
 In the [quickstart section](/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_) about the Vehicle App, you already tested sending MQTT messages to the app.
-In the previous sections, you generally saw how to use `Vehicle Models`, `Datapoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
+In the previous sections, you generally saw how to use `Vehicle Models`, `DataPoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
 
-In order to receive and process MQTT messages inside your app, simply use the `@subscribe_topic` annotations from the SDK for an additional method `on_set_position_request_received` you have to implement:
+In order to receive and process MQTT messages inside your app, simply use the `@subscribe_topic` annotations from the SDK for an additional method `on_set_position_request_received()` you have to implement:
 
 ```Python
     @subscribe_topic("seatadjuster/setPosition/request")
@@ -222,7 +222,7 @@ Your `main.py` should now have a full implementation for `class MyVehicleApp(Veh
 - `on_seat_position_changed()`
 - `on_set_position_request_received()`
 
-and last but not least a `main()`-method to run the app.
+and last but not least a `main()` method to run the app.
 
 Check the [`seat-adjuster`](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster) example to see a more detailed implementation including error handling.
 

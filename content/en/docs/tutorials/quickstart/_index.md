@@ -7,12 +7,13 @@ description: >
 aliases:
   - /docs/tutorials/setup_and_explore_development_environment.md
   - /docs/tutorials/quickstart.md
+  - /docs/getting_started
   - /docs/setup_and_explore_development_environment.md
 ---
 
 The following page describes how to set up and configure the [Development Container (DevContainer)](https://code.visualstudio.com/docs/remote/containers) and how to build, customize and test the sample _Vehicle App_ included in this repository. You will learn how to use the Vehicle App SDK, interact with the vehicle API and work with CI/CD using the pre-configured GitHub Workflows that come with the template repository.
 
-Once you have completed all steps, you will have a solid understanding of the Development Workflow, and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own _Vehicle App_ develpment project.
+Once you have completed all steps, you will have a solid understanding of the Development Workflow, and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own _Vehicle App_ development project.
 
 {{% alert title="Note" %}}
 Before you start, we recommend you familiarize yourself with our [Basic Concept](/docs/concepts/development_model) to understand mentioned terms.
@@ -20,7 +21,7 @@ Before you start, we recommend you familiarize yourself with our [Basic Concept]
 
 ## Prerequisites
 
-Following is required to create comprehensive Development Envrironment for your _Vehcile App_:
+Following is required to create comprehensive Development Environment for your _Vehicle App_:
 
 - Install [VSCode](https://code.visualstudio.com)
 - [Install a working container runtime](/docs/tutorials/quickstart/container_runtime)
@@ -32,7 +33,7 @@ Following is required to create comprehensive Development Envrironment for your 
 
 ## How to create _Vehicle App_ Repository?
 
-For the Orginization and Vehicle App repository the name _MyOrg/MyFirstVehicleApp_ is used as a reference during the rest of the document.
+For the Organization and Vehicle App repository the name _MyOrg/MyFirstVehicleApp_ is used as a reference during the rest of the document.
 
 You can create your own repository using template directly or starting from prototyping via Digital.Auto.
 
@@ -51,7 +52,7 @@ Create your own repository copy from the template repository of your choice [Pyt
 
 In the following chapter you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using just VSCode's [DevContainer](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
 
-**Prerequisites**: Your _Vehicle App_ reposiroty based on template is [created](#how-to-create-vehicle-app-repository).
+**Prerequisites**: Your _Vehicle App_ repository based on template is [created](#how-to-create-vehicle-app-repository).
 
 {{< tabpane text=true >}}
 {{% tab header="VSCode" text=true %}}
@@ -172,7 +173,7 @@ More information about the runtimes are available [here](/docs/tutorials/vehicle
 ## How to debug _Vehicle App_?
 
 {{% alert title="Warning" %}}
-Debuging functionality is available only for [Local Runtime](/docs/tutorials/run_runtime_services_locally)
+Debugging functionality is available only for [Local Runtime](/docs/tutorials/run_runtime_services_locally)
 Both given examples are available as part of template.
 {{% /alert %}}
 
@@ -245,7 +246,7 @@ Now that the `CI Workflow` was successful, you are ready to build your first rel
 1. Enter a version (e.g. v1.0.0) and click on `Publish release`
    - GitHub will automatically create a tag using the version number
 
-The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open `Actions` on the repoitory and see the result.
+The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open `Actions` on the repository and see the result.
 
 ## How to deploy _Vehicle App_?
 
