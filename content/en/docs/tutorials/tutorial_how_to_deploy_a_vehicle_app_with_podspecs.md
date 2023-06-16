@@ -1,5 +1,5 @@
 ---
-title: "Vehicle App Deployment via PodSpecs"
+title: "Vehicle App Deployment with PodSpecs"
 date: 2022-05-09T13:43:25+05:30
 weight: 70
 description: >
@@ -59,9 +59,8 @@ spec:
 {{% alert title="Note" %}}
 Please make sure that you already pushed your image to the local registry before trying to deploy it. If you used the provided tasks (see [here](/docs/run_runtime_services_kubernetes.md) for details) to build your app, you can use the following commands:
 
-```shell
-docker tag localhost:12345/sampleapp:local k3d-registry.localhost:12345/sampleapp:local
-docker push k3d-registry.localhost:12345/sampleapp:local
+```bash
+docker push localhost:12345/sampleapp:local
 ```
 
 {{% /alert %}}

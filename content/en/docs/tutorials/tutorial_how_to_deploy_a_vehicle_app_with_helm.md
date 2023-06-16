@@ -42,8 +42,8 @@ If you would like to write a new helm chart, this section will guide you to adap
 
    ```yaml
    apiVersion: v2
-   name: myvehicleapp
-   description: Short description for my_vehicle_app
+   name: my-vehicle-app
+   description: Short description for my-vehicle-app
 
    # A chart can be either an 'application' or a 'library' chart.
    #
@@ -66,16 +66,16 @@ If you would like to write a new helm chart, this section will guide you to adap
    appVersion: 1.16.0
    ```
 
-1. Open `deploy/my_vehicle_app/helm/values.yaml` and change `name`, `repository` and `daprAppid` to `my_vehicle_app`. Rename the root node from `imageVehicleApp` to `imageMyVehicleApp`.
+1. Open `deploy/my_vehicle_app/helm/values.yaml` and change `name`, `repository` and `daprAppid` to `my-vehicle-app`. Rename the root node from `imageVehicleApp` to `imageMyVehicleApp`.
 
    ```yaml
    imageMyVehicleApp:
-     name: myvehicleapp
-     repository: local/my_vehicle_app
+     name: my-vehicle-app
+     repository: k3d-registry.localhost:12345/my-vehicle-app
      pullPolicy: Always
      # Overrides the image tag whose default is the chart appVersion.
      tag: "#SuccessfulExecutionOfReleaseWorkflowUpdatesThisValueToReleaseVersionWithoutV#"
-     daprAppid: my_vehicle_app
+     daprAppid: my-vehicle-app
      daprPort: 50008
 
      nameOverride: ""
@@ -115,7 +115,7 @@ If you would like to write a new helm chart, this section will guide you to adap
 
    ```
 
-At this point, the Helm chart and updated scripts are ready to use and folder structure under `deploy/my_vehicle_app` should look like this:
+At this point, the Helm chart is prepared for the next step and the folder structure under `deploy/my_vehicle_app` should look like this:
 
 ``` bash
 deploy
@@ -135,13 +135,29 @@ deploy
 
 - A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/docs/run_runtime_services_kubernetes.md).
 
-After the Helm chart has been prepared, you can deploy it to local K3D by executing:
+After the Helm chart has been prepared, you can deploy it to the local K3D cluster by following the steps:
+
+1. Building and pushing the Docker image for your Vehicle App
+
+```bash
+DOCKER_BUILDKIT=1 docker build -f ./app/Dockerfile --progress=plain -t localhost:12345/my-vehicle-app:local . --no-cache
+
+docker push localhost:12345/my-vehicle-app:local
+```
+
+2. Installing the Helm Chart
 
 ``` bash
 helm install my-vapp-chart ./deploy/my_vehicle_app --values ./deploy/my_vehicle_app/values.yaml --wait --timeout 60s
 ```
 
-This script builds the local source code of the application into a container, pushes that container to the local cluster registry and deploys the app via a helm chart to the K3D cluster. Rerun this script after you have changed the source code of your application to re-deploy with the latest changes.
+These steps are building the local source code of the application into a container, pushing it to the local cluster registry and deploying the app via a helm chart to the K3D cluster. Rerun the steps after you have changed the source code of your application to re-deploy with the latest changes.
+
+If you have issues installing the helm chart again try uninstalling the chart upfront:
+
+```bash
+helm uninstall my-vapp-chart
+```
 
 ## Next steps
 
