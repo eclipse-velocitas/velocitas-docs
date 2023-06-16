@@ -12,8 +12,8 @@ Besides [local execution](/docs/run_runtime_services_locally.md) of the vehicle 
 
 * Core tasks (dependent on each other in the given order):
   * ```K3D - Runtime Up```: Starts up the K3D runtime (Including configuring control plane and initializing dapr).
-  * ```K3D - Build VehicleApp```: Builds the VehicleApp and pushes it to the local K3D registry.
-  * ```K3D - Deploy VehicleApp```: Builds and deploys the VehicleApp via Helm to the K3D cluster.
+  * ```K3D - Build VehicleApp```: Builds the VehicleApp.
+  * ```K3D - Deploy VehicleApp```: Deploys the VehicleApp via Helm to the K3D cluster.
 
 Each task has the required dependencies defined. If you want to run the runtime in K3D, the task ```K3D - Deploy VehicleApp``` will create and configure everything. So it's enough to run that task.
 
@@ -25,7 +25,7 @@ K3D is configured so that _Mosquitto_ and the _KUKSA Data Broker_ can be reached
 
 To check the status of your K3D instance (running pods, containers, logs, ...) you can either use the ```kubectl``` utility or start _K9s_ in a terminal window to have a terminal UI for interacting with the cluster.
 
-**Run as Bundle:** To orchestrate these tasks, a task called `K3D - Deploy VehicleApp` is available. This task runs the other tasks in the correct order. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `K3D - Deploy VehicleApp`.
+**Run as Bundle:** To orchestrate these tasks, you can use the task `K3D - Deploy VehicleApp`. This task runs the other tasks in the correct order. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `K3D - Deploy VehicleApp`.
 
 **Tasks Management:** Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/... You can access them by pressing F1 and typing `task`. A list with available task commands will appear.
 
