@@ -3,16 +3,16 @@ title: "Working behind proxy"
 date: 2022-08-19T17:46:21+05:30
 weight: 2
 description: >
-  Learn how to setup your docker desktop and Visual Studio Code behind a coorperate proxy.
+  Learn how to setup your docker desktop and Visual Studio Code behind a corporate proxy.
 ---
 
 We know what a pain and how time consuming it can be to setup your environment behind a cooperate proxy. This guide will help you to set it up correctly.
 
-Be aware that correct proxy configuration depends on the setup of your organisation and of course of your personal development environment (hardware, OS, virtualization setup, ...). So, we most probably do not cover all issues out there in the developers world. So, we encourage you to share hints and improvements with us.
+Be aware that correct proxy configuration depends on the setup of your organization and of course of your personal development environment (hardware, OS, virtualization setup, ...). So, we most probably do not cover all issues out there in the developers world. So, we encourage you to share hints and improvements with us.
 
 ## HTTP(s) proxy server
 
-Install and configure the proxy server as recommented or required by your company. For example you could use [PX](https://github.com/genotrance/px), which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: [PX](https://github.com/genotrance/px))
+Install and configure the proxy server as recommended or required by your company. For example you could use [PX](https://github.com/genotrance/px), which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: [PX](https://github.com/genotrance/px))
 
 - Install your HTTP(s) proxy server
 - Start your HTTP(s) proxy server
@@ -20,7 +20,7 @@ Install and configure the proxy server as recommented or required by your compan
 ## Docker Desktop
 
 You need to install [Docker Desktop](https://www.docker.com/get-started/) using the right version.
-As we recognized a proxy issue in Docker Desktop [#12672](https://github.com/docker/for-win/issues/12672) we strongly recomment to use a Docker Desktop version >= 4.8.2. In case you have an older version on your machine please update to the current version.
+As we recognized a proxy issue in Docker Desktop [#12672](https://github.com/docker/for-win/issues/12672) we strongly recommend to use a Docker Desktop version >= 4.8.2. In case you have an older version on your machine please update to the current version.
 
 In the next step you need to enter your proxy settings:
 
@@ -129,7 +129,7 @@ source ~/.bash_profile
 ### Solving issues with TLS (SSL) certificate validation using https connections from containers
 
 If you are behind a so-called intercept proxy (which you most probably are), you can run into certificate issues:
-Your corporate proxy works as a "man-in-the-middle" to be able to check the transfered data for malicious content.
+Your corporate proxy works as a "man-in-the-middle" to be able to check the transferred data for malicious content.
 Means, there is a protected connection between the application in your local runtime environment and the proxy and
 another from the proxy to the external server your application wants to interact with.
 

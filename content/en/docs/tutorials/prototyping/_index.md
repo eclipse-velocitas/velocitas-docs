@@ -92,7 +92,7 @@ By clicking on "Create repository":
 - the code is adapted to the structure in the [vehicle-app-python-template](https://github.com/eclipse-velocitas/vehicle-app-python-template)
 - a new private repository under your specified GitHub User will be created.
 
-A succesful generation of the repository is followed by a pop-up dialogue with the URL of your repository.
+A successful generation of the repository is followed by a pop-up dialogue with the URL of your repository.
 
 Among other things the newly created repository will contain:
 

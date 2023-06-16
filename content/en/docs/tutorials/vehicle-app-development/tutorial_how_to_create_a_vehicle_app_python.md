@@ -244,7 +244,6 @@ from sdv_model.proto.seats_pb2 import BASE, SeatLocation  # type: ignore
 @pytest.mark.asyncio
 async def test_for_publish_to_topic():
     # Disable no-value-for-parameter, seems to be false positive with mock lib
-    # pylint: disable=no-value-for-parameter
 
     with mock.patch.object(
         VehicleApp, "publish_mqtt_event", new_callable=mock.AsyncMock, return_value=-1
