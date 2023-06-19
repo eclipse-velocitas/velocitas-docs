@@ -134,7 +134,7 @@ If you want to get notified about changes of a specific `DataPoint`, you can sub
         )
 ```
 
-Every Datapoint provides a *.subscribe()* method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective *DataPointReply* object and need to be accessed via the reference to the subscribed datapoint. The returned object is of type `TypedDataPointResult` which holds the `value` of the data point
+Every `DataPoint` provides a _.subscribe()_ method that allows for providing a callback function which will be invoked on every data point update. Subscribed data is available in the respective _DataPointReply_ object and need to be accessed via the reference to the subscribed data point. The returned object is of type `TypedDataPointResult` which holds the `value` of the data point
 and the `timestamp` at which the value was captured by the data broker.
 Therefore the `on_seat_position_changed` callback function needs to be implemented like this:
 
@@ -147,7 +147,7 @@ Therefore the `on_seat_position_changed` callback function needs to be implement
 ```
 
 {{% alert title="Note" %}}
-The SDK also supports annotations for subscribing to datapoint changes with `@subscribe_data_points` defined by the whole path to the `DataPoint` of interest.
+The SDK also supports annotations for subscribing to data point changes with `@subscribe_data_points` defined by the whole path to the `DataPoint` of interest.
 
 ```Python
 @subscribe_data_points("Vehicle.Cabin.Seat.Row1.Pos1.Position")
@@ -158,7 +158,7 @@ async def on_vehicle_seat_change(self, data: DataPointReply):
     await self.publish_mqtt_event(response_topic, json.dumps(response_data))
 ```
 
-Similarly, subscribed data is available in the respective *DataPointReply* object and needs to be accessed via the reference to the subscribed datapoint.
+Similarly, subscribed data is available in the respective _DataPointReply_ object and needs to be accessed via the reference to the subscribed data point.
 {{% /alert %}}
 
 ## Services

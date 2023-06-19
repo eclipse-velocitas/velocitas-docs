@@ -37,8 +37,8 @@ Data points represent certain states of the vehicle, like the current vehicle sp
 
 Data points factually belonging together are typically arranged in branches and sub-branches of a tree structure (like [this example](https://covesa.github.io/vehicle_signal_specification/introduction/overview/#example) on the COVESA VSS site).
 
-The KUKSA Data Broker is implemented in Rust, can run in a container and provides services to get datapoints, update datapoints and for subscribing to automatic notifications on datapoint changes.
-Filter- and rule-based subscriptions of datapoints can be used to reduce the number of updates sent to the subscriber.
+The KUKSA Data Broker is implemented in Rust, can run in a container and provides services to get data points, update data points and for subscribing to automatic notifications on data point changes.
+Filter- and rule-based subscriptions of data points can be used to reduce the number of updates sent to the subscriber.
 
 ### Data Providers / Data Feeders
 

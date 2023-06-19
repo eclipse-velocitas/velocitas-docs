@@ -54,7 +54,7 @@ The AppManifest is the only source of truth in our _Vehicle App_ templates for:
 
 ## Vehicle Model Description
 
-The [_Vehicle Model_](/docs/concepts/development_model/#vehicle-models) of the _Vehicle App_ is described with the source and required (or optional) datapoints.
+The [_Vehicle Model_](/docs/concepts/development_model/#vehicle-models) of the _Vehicle App_ is described with the source and required (or optional) data points.
 More information: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creation/)
 
 The source ("src") identifies the used _Vehicle Model_ description and the data points section defines which signals (i.e. data points) of that model need to be available for the _Vehicle App_ to run:
@@ -66,13 +66,13 @@ The source ("src") identifies the used _Vehicle Model_ description and the data 
 Further information can be found here: [How to Reference a Model Specification](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/#how-to-reference-a-model-specification)
 </br>
 
-### Datapoint Access Rights
+### Data Point Access Rights
 
 {{<table "table table-bordered">}}
 | Access Right | Description                                                                                                                                                 | Vehicle Databroker Interface |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| read         | app needs to read the value of the datapoint from the provider (e.g. get value from databroker).                                                          | GetDatapoints/Subscribe      |
-| write        | app needs to get and set the value of the datapoint (e.g. set, set_many values via the databroker or services). WRITE access implicitly has READ access. | SetDatapoints                |
+| read         | app needs to read the value of the data point from the provider (e.g. get value from databroker).                                                          | GetDatapoints/Subscribe      |
+| write        | app needs to get and set the value of the data point (e.g. set, set_many values via the databroker or services). WRITE access implicitly has READ access. | SetDatapoints                |
 {{</table>}}
 
 ## AppManifest Examples
