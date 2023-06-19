@@ -18,7 +18,7 @@ Once you have completed all steps, you will have a solid understanding of the de
 
 This section describes how to develop your first _Vehicle App_. Before you start building a new _Vehicle App_, make sure you have already read this manual:
 
-- [Setup and Explore Development Environment](/docs/getting_started)
+- [Setup and Explore Development Environment](/docs/tutorials/quickstart.md)
 
 Once you have established your development environment, you will be able to start developing your first _Vehicle App_.
 
@@ -66,7 +66,7 @@ private:
 In your constructor, you have to choose which implementations to use for the VehicleDataBrokerClient and the PubSubClient. By default we suggest you use the factory methods to generate the default implementations: `IVehicleDataBrokerClient::createInstance` and `IPubSubClient::createInstance`. These will create a VehicleDataBrokerClient which connects to the VAL via gRPC and an MQTT-based pub-sub client.
 
 ```Cpp
-MyVehicleApp() 
+MyVehicleApp()
     : VehicleApp(IVehicleDataBrokerClient::createInstance("vehicledatabroker"), // this is the dapr-app-id of the KUKSA Databroker in the VAL.
                  IPubSubClient::createInstance("localhost:1883", "MyVehicleApp")) // the URI to the MQTT broker and the client ID of the MQTT client.
     {}
