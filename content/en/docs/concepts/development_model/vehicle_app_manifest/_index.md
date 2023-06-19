@@ -123,7 +123,7 @@ Further information can be found here: [How to Reference a Model Specification](
             {
                 "path": "Vehicle.Cabin.Seat.Row1.Pos1.Position",
                 "required": "true",
-                "access": "write"
+                "access": "read"
             },
             {
                 "path": "Vehicle.Speed",
