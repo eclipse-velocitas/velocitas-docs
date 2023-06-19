@@ -5,10 +5,10 @@ weight: 4
 resources:
 - src: "**publish_container*.png"
 description: >
-  Learn more about the provided continuous integration, and release process of a Vehicle App.
+  Learn more about the provided continuous integration, and release process of a _Vehicle App_.
 ---
 
-The _Velocitas_ project provides a two-stage process for development, continuous integration, and release of a new version of a Vehicle App.
+The _Velocitas_ project provides a two-stage process for development, continuous integration, and release of a new version of a _Vehicle App_.
 
 - **Stage 1 - Build & Test**
   On every new push to the `main` branch or every update to a pull request, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts for future reference with a [default retention period of 90 days](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization).
@@ -71,14 +71,14 @@ Since the registry does not have an automatic cleanup, it keeps container images
 
 ## Versioning
 
-Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of [semantic versions](https://semver.org/) is recommended.
+_Vehicle App_ image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of [semantic versions](https://semver.org/) is recommended.
 
 If the tag name contains a semantic version, the leading `v` will be trimmed.
 **Example:** A tag name of `v1.0.0` will lead to version `1.0.0` of the _Vehicle App_ container.
 
 ### Maintaining multiple versions
 
-If there is a need to maintain multiple versions of a Vehicle App, e.g., to hotfix the production version while working on a new version at the same time or to support multiple versions in production, create and use `release branches`.
+If there is a need to maintain multiple versions of a _Vehicle App_, e.g., to hotfix the production version while working on a new version at the same time or to support multiple versions in production, create and use `release branches`.
 
 The release process would be the same as described in the overview, except that a release branch (e.g., `release/v1.0`) is created before the release step and the GitHub release is based on the `release` branch rather than the `main` branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.
 

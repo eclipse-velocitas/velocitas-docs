@@ -10,7 +10,7 @@ description: >
 
 Currently, the development of in-vehicle applications (_Vehicle Apps_) can be excessively complex and challenging:
 
-{{%beside "time.png" "Many time-consuming steps involved from setting up the development environment to the deployment of a <i>Vehicle App</i>."%}}
+{{%beside "time.png" "Many time-consuming steps involved from setting up the development environment to the deployment of a _Vehicle App_."%}}
 {{%beside "knowledge.png" "Understanding the vehicle's E/E architecture details and specific API requires expert knowledge."%}}
 {{%beside "porting.png" "Porting a _Vehicle App_ to another vehicle platform is complex."%}}
 {{%beside "collab.png" "Specific processes, methods, and tools within each company creates challenges for effective collaboration."%}}

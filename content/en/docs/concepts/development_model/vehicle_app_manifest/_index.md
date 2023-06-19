@@ -146,5 +146,5 @@ Further information can be found here: [How to Reference a Model Specification](
 
 - Tutorial: [Setup and Explore Development Environment](/docs/tutorials/setup_and_explore_development_environment.md)
 - Tutorial: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creation)
-- Tutorial: [Vehicle App Development](/docs/tutorials/vehicle-app-development)
+- Tutorial: [_Vehicle App_ Development](/docs/tutorials/vehicle-app-development)
 - Concept: [Lifecycle Management](/docs/concepts/lifecycle_management)

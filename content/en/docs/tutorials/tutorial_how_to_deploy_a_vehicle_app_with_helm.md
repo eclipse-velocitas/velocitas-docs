@@ -3,7 +3,7 @@ title: "Vehicle App Deployment with Helm"
 date: 2022-05-09T13:43:25+05:30
 weight: 80
 description: >
-  Learn how to prepare a Helm chart for the deployment of a Vehicle App.
+  Learn how to prepare a Helm chart for the deployment of a _Vehicle App_.
 aliases:
   - /docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md
   - /tutorial_how_to_deploy_a_vehicle_app_with_helm.md
@@ -17,7 +17,7 @@ This tutorial will show you how to:
 ## Prerequisites
 
 - `Devcontainer` is up and running.
-- Completed the tutorial [How to create a vehicle app](/docs/tutorials/vehicle-app-development)
+- Completed the tutorial [How to create a _Vehicle App_](/docs/tutorials/vehicle-app-development)
 
 ## Use the sample Helm chart
 
@@ -32,7 +32,7 @@ The app port is configurable as `vehicleAppPort` inside your `.velocitas.json` v
 
 ## Prepare a new Helm chart
 
-If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called `my_vehicle_app` for this walkthrough.
+If you would like to write a new helm chart, this section will guide you to adapt and deploy a new _Vehicle App_, which is called `my_vehicle_app` for this walkthrough.
 
 1. Start Visual Studio Code and open the previously created _Vehicle App_ repository.
 1. Create a new folder `my_vehicle_app` under `deploy`
@@ -137,7 +137,7 @@ deploy
 
 After the Helm chart has been prepared, you can deploy it to the local K3D cluster by following the steps:
 
-1. Building and pushing the Docker image for your Vehicle App
+1. Building and pushing the Docker image for your _Vehicle App_
 
 ```bash
 DOCKER_BUILDKIT=1 docker build -f ./app/Dockerfile --progress=plain -t localhost:12345/my-vehicle-app:local . --no-cache

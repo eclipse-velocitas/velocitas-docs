@@ -3,7 +3,7 @@ title: "Vehicle App Integration Testing"
 date: 2022-05-09T13:46:21+05:30
 weight: 60
 description: >
-  Learn how to test that a _Vehicle App_ together with the KUKSA Data Broker and potentially other dependant Vehicle Services or Vehicle Apps runs as expected.
+  Learn how to test that a _Vehicle App_ together with the KUKSA Data Broker and potentially other dependant Vehicle Services or _Vehicle Apps_ runs as expected.
 aliases:
   - /docs/tutorials/integration_tests.md
   - /docs/integration_tests.md

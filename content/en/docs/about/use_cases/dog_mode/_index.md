@@ -15,5 +15,5 @@ The Dog Mode _Vehicle App_ consists of the following key features:
 
 ## Example Code
 
-You can find an example implementation of a dog mode vehicle application here:
+You can find an example implementation of a dog mode _Vehicle App_ here:
 [Dog Mode](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/dog-mode)

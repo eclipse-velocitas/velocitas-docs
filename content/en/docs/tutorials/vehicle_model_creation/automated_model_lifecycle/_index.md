@@ -76,4 +76,4 @@ In Python template based projects the generated model is finally installed in th
 
 - Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)
 - Tutorial: [Setup and Explore Development Environment](/docs/tutorials/quickstart)
-- Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
+- Tutorial: [Create a _Vehicle App_](/docs/tutorials/vehicle-app-development)

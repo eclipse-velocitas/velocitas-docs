@@ -3,7 +3,7 @@ title: "Vehicle App Deployment with PodSpecs"
 date: 2022-05-09T13:43:25+05:30
 weight: 70
 description: >
-  Learn how to prepare PodSpecs for the deployment of a Vehicle App.
+  Learn how to prepare PodSpecs for the deployment of a _Vehicle App_.
 aliases:
   - /docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_podspecs.md
   - /tutorial_how_to_deploy_a_vehicle_app_with_podspecs.md
@@ -16,7 +16,7 @@ This tutorial will show you how to:
 
 ## Prerequisites
 
-- Completed the tutorial [How to create a vehicle app](/docs/tutorials/vehicle-app-development)
+- Completed the tutorial [How to create a _Vehicle App_](/docs/tutorials/vehicle-app-development)
 
 ## Use the sample PodSpecs
 

@@ -10,7 +10,7 @@ aliases:
   - /docs/setup_and_explore_development_environment.md
 ---
 
-The following page describes how to set up and configure the [Development Container (DevContainer)](https://code.visualstudio.com/docs/remote/containers) and how to build, customize and test the sample _Vehicle App_ included in this repository. You will learn how to use the Vehicle App SDK, interact with the vehicle API and work with CI/CD using the pre-configured GitHub Workflows that come with the template repository.
+The following page describes how to set up and configure the [Development Container (DevContainer)](https://code.visualstudio.com/docs/remote/containers) and how to build, customize and test the sample _Vehicle App_ included in this repository. You will learn how to use the _Vehicle App_ SDK, interact with the vehicle API and work with CI/CD using the pre-configured GitHub Workflows that come with the template repository.
 
 Once you have completed all steps, you will have a solid understanding of the Development Workflow, and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own _Vehicle App_ development project.
 
@@ -59,7 +59,7 @@ In the following chapter you will learn different possibilities to start develop
 {{< tabpane text=true >}}
 {{% tab header="VS Code" text=true %}}
 
-The VS Code DevContainer makes possible to package a complete _Vehicle App_ development environment, including VS Code extensions, [Vehicle App SDK](/docs/concepts/development_model/vehicle_app_sdk/), [Vehicle App Runtimes](/docs/tutorials/vehicle-app-runtime) and all other development and testing tools into a container which is started directly in VS Code.
+The VS Code DevContainer makes possible to package a complete _Vehicle App_ development environment, including VS Code extensions, [_Vehicle App_ SDK](/docs/concepts/development_model/vehicle_app_sdk/), [_Vehicle App_ Runtimes](/docs/tutorials/vehicle-app-runtime) and all other development and testing tools into a container which is started directly in VS Code.
 
 {{% pageinfo color="primary" %}}
 ***Proxy Configuration***
@@ -110,7 +110,7 @@ You can find more information about the _Vehicle App_ Development in the [respec
 
 ## How to start the runtime services?
 
-The runtime services (like _KUKSA Data Broker_ or _Vehicle Services_) are required to develop vehicle apps and run integration tests.
+The runtime services (like _KUKSA Data Broker_ or _Vehicle Services_) are required to develop _Vehicle Apps_ and run integration tests.
 
 Currently supported possibilities are starting the services locally and in a Kubernetes (K3D) cluster.
 
@@ -215,7 +215,7 @@ Now your breakpoint in the _Vehicle App_ gets hit and you can inspect everything
 
 ## How to trigger the CI Workflow?
 
-The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests and collect the test results.
+The provided GitHub workflows are used to build the container image for the _Vehicle App_, run unit and integration tests and collect the test results.
 
 The CI Workflow will be triggered by pushing a change to the main branch of your repository:
 

@@ -8,43 +8,43 @@ resources:
 - src: "**programming_model*.png"
 - src: "**build_procedure*.png"
 description: >
-  Learn more about provided development model for Vehicle Apps.
+  Learn more about provided development model for _Vehicle Apps_.
 ---
 
-The Velocitas development model is centered around what are known as [Vehicle Apps](#vehicle-apps). Automation allows engineers to make high-impact changes frequently and deploy Vehicle Apps through cloud backends as over-the-air updates. The _Vehicle App_ development model is about _speed_ and _agility_ paired with state-of-the-art software quality.
+The Velocitas development model is centered around what are known as [_Vehicle Apps_](#vehicle-apps). Automation allows engineers to make high-impact changes frequently and deploy _Vehicle Apps_ through cloud backends as over-the-air updates. The _Vehicle App_ development model is about _speed_ and _agility_ paired with state-of-the-art software quality.
 
 ## Development Architecture
 
-Velocitas provides a flexible development architecture for [Vehicle Apps](#vehicle-apps). The following diagram shows the major components of the Velocitas stack.
+Velocitas provides a flexible development architecture for [_Vehicle Apps_](#vehicle-apps). The following diagram shows the major components of the Velocitas stack.
 
 ![Programming Model](./programming_model.png)
 
-### Vehicle Apps
+### _Vehicle Apps_
 
-The Vehicle Applications (aka. Vehicle Apps) contain the business logic that needs to be executed on a vehicle. A _Vehicle App_ is implemented on top of a [Vehicle Model](#vehicle-models) and its underlying language-specific [SDK](#sdks). Many concepts of cloud-native and [twelve-factor](https://12factor.net/) applications apply to Vehicle Apps as well and are summarized in the next chapter.
+The Vehicle Applications (_Vehicle Apps_) contain the business logic that needs to be executed on a vehicle. A _Vehicle App_ is implemented on top of a [Vehicle Model](#vehicle-models) and its underlying language-specific [SDK](#sdks). Many concepts of cloud-native and [twelve-factor](https://12factor.net/) applications apply to _Vehicle Apps_ as well and are summarized in the next chapter.
 
 ### Vehicle Models
 
-A Vehicle Model makes it possible to easily get vehicle data from the [Data Broker](#data-broker) and to execute remote procedure calls over gRPC against [Vehicle Services](#vehicle-services) and other [Vehicle Apps](#vehicle-apps). It is generated from the underlying [semantic models](#semantic-models) for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the [SDKs](#sdks).
+A Vehicle Model makes it possible to easily get vehicle data from the [Data Broker](#data-broker) and to execute remote procedure calls over gRPC against [Vehicle Services](#vehicle-services) and other [_Vehicle Apps_](#vehicle-apps). It is generated from the underlying [semantic models](#semantic-models) for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the [SDKs](#sdks).
 
 ### SDKs
 
-Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model Furthermore, they offer abstraction from the underlying middleware and communication protocols, besides providing the base classes and utilities for the Vehicle Apps.
+Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model Furthermore, they offer abstraction from the underlying middleware and communication protocols, besides providing the base classes and utilities for the _Vehicle Apps_.
 SDKs are available for Python and C++, currently. Further SDKs for Rust and C are planned.
 
 ### Vehicle Services
 
-Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the [Data Broker](#data-broker) and may expose gRPC endpoints, which can be invoked by [Vehicle Apps](#vehicle-apps) over a [Vehicle Model](#vehicle-models).
+Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the [Data Broker](#data-broker) and may expose gRPC endpoints, which can be invoked by [_Vehicle Apps_](#vehicle-apps) over a [Vehicle Model](#vehicle-models).
 
 ### Data Broker
 
-Vehicle data is stored in the KUKSA Data Broker conforming to an underlying [Semantic Model](#semantic-models) like [VSS](https://covesa.github.io/vehicle_signal_specification/). [Vehicle Apps](#vehicle-apps) can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.
+Vehicle data is stored in the KUKSA Data Broker conforming to an underlying [Semantic Model](#semantic-models) like [VSS](https://covesa.github.io/vehicle_signal_specification/). [_Vehicle Apps_](#vehicle-apps) can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the _Vehicle App_.
 
 ### Semantic models
 
-The Vehicle Signal Specification ([VSS](https://covesa.github.io/vehicle_signal_specification/)) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between Vehicle Apps and the Data Broker.
+The Vehicle Signal Specification ([VSS](https://covesa.github.io/vehicle_signal_specification/)) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between _Vehicle Apps_ and the Data Broker.
 
-The Vehicle Service Catalog ([VSC](https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog)) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and Vehicle Apps.
+The Vehicle Service Catalog ([VSC](https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog)) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and _Vehicle Apps_.
 
 As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language ([DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)) or BAMM Aspect Meta Model [BAMM](https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model) as well.
 
@@ -52,7 +52,7 @@ The Velocitas SDK is using [VSS](https://covesa.github.io/vehicle_signal_specifi
 
 ### Communication Protocols
 
-Asynchronous communication between [Vehicle Apps](#vehicle-apps) and other vehicle components, as well as cloud connectivity, is facilitated through [MQTT](https://mqtt.org/) messaging. Direct, synchronous communication between [Vehicle Apps](#vehicle-apps), [Vehicle Services](#vehicle-services) and the [Data Broker](#data-broker) is based on the [gRPC](https://grpc.io/) protocol.
+Asynchronous communication between [_Vehicle Apps_](#vehicle-apps) and other vehicle components, as well as cloud connectivity, is facilitated through [MQTT](https://mqtt.org/) messaging. Direct, synchronous communication between [_Vehicle Apps_](#vehicle-apps), [Vehicle Services](#vehicle-services) and the [Data Broker](#data-broker) is based on the [gRPC](https://grpc.io/) protocol.
 
 ### Middleware Abstraction
 
@@ -61,39 +61,39 @@ By default, Velocitas leverages [dapr](https://dapr.io) for gRPC service discove
 
 ### Vehicle Edge Operating System
 
-[Vehicle Apps](#vehicle-apps) are expected to run on a [Linux](https://www.linux.org/)-based operating system. An OCI-compliant container runtime is required to host the _Vehicle App_ containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., [Eclipse Mosquitto](https://mosquitto.org/)).
+[_Vehicle Apps_](#vehicle-apps) are expected to run on a [Linux](https://www.linux.org/)-based operating system. An OCI-compliant container runtime is required to host the _Vehicle App_ containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., [Eclipse Mosquitto](https://mosquitto.org/)).
 
 ## _Vehicle App_ Characteristics
 
-The following aspects are important characteristics for [Vehicle Apps](#vehicle-apps):
+The following aspects are important characteristics for [_Vehicle Apps_](#vehicle-apps):
 
 - **Code base:**
   Every _Vehicle App_ is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.
 
 - **Polyglot:**
-  Vehicle Apps can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.
+  _Vehicle Apps_ can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.
 
 - **OCI-compliant containers:**
-  Vehicle Apps are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.
+  _Vehicle Apps_ are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.
 
 - **Isolation:**
   Each _Vehicle App_ should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.
 
 - **Configurations:**
-  Configuration information is separated from the code base of the Vehicle App, so that the same deployment can propagate across environments with their respective configuration applied.
+  Configuration information is separated from the code base of the _Vehicle App_, so that the same deployment can propagate across environments with their respective configuration applied.
 
 - **Disposability:**
   Favor fast startup and support graceful shutdowns to leave the system in a correct state.
 
 - **Observability:**
-  Vehicle Apps provide traces, metrics and logs of every part of the application using _Open Telemetry_.
+  _Vehicle Apps_ provide traces, metrics and logs of every part of the application using _Open Telemetry_.
 
 - **Over-the-air update capability:**
-  Vehicle Apps can be deployed via cloud backends like [Pantaris](https://www.etas.com/en/products/pantaris-over-the-air-services.php) and updated in vehicles frequently over the air through [NextGen OTA updates](https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php).
+  _Vehicle Apps_ can be deployed via cloud backends like [Pantaris](https://www.etas.com/en/products/pantaris-over-the-air-services.php) and updated in vehicles frequently over the air through [NextGen OTA updates](https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php).
 
 ## Development Process
 
-The starting point for developing [Vehicle Apps](#vehicle-apps) is a [Semantic Model](#semantic-models) of the vehicle data and vehicle services. Based on the Semantic Model, language-specific [Vehicle Models](#vehicle-models) are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, ...).
+The starting point for developing [_Vehicle Apps_](#vehicle-apps) is a [Semantic Model](#semantic-models) of the vehicle data and vehicle services. Based on the Semantic Model, language-specific [Vehicle Models](#vehicle-models) are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, ...).
 
 After a Vehicle Model is available for the chosen programming language, the _Vehicle App_ can be developed using the generated Vehicle Model and its SDK.
 

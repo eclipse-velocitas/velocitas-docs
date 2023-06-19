@@ -8,13 +8,13 @@ aliases:
   - /docs/tutorials/cpp/tutorial_how_to_create_a_vehicle_app_cpp.md
 ---
 
-> We recommend that you make yourself familiar with the [Vehicle App SDK](/docs/concepts/development_model/vehicle_app_sdk) first, before going through this tutorial.
+> We recommend that you make yourself familiar with the [_Vehicle App_ SDK](/docs/concepts/development_model/vehicle_app_sdk) first, before going through this tutorial.
 
-The following information describes how to develop and test the sample _Vehicle App_ that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
+The following information describes how to develop and test the sample _Vehicle App_ that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template). You will learn how to use the _Vehicle App_ SDK and how to interact with the Vehicle Model.
 
 Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own _Vehicle App_ development project.
 
-## Develop your first Vehicle App
+## Develop your first _Vehicle App_
 
 This section describes how to develop your first _Vehicle App_. Before you start building a new _Vehicle App_, make sure you have already read this manual:
 
@@ -165,9 +165,9 @@ In order to know which seat to move, you have to pass a `SeatLocation` object as
 
 ### MQTT
 
-Interaction with other Vehicle Apps or the cloud is enabled by using a Mosquitto MQTT Broker. When using the provided template repository you can start a MQTT Broker as part the local runtime. More information can be found [here](/docs/run_runtime_services_locally.md).
+Interaction with other _Vehicle Apps_ or the cloud is enabled by using a Mosquitto MQTT Broker. When using the provided template repository you can start a MQTT Broker as part the local runtime. More information can be found [here](/docs/run_runtime_services_locally.md).
 
-In the [quickstart section](/docs/tutorials/quickstart.md) about the Vehicle App, you already tested sending MQTT messages to the app.
+In the [quickstart section](/docs/tutorials/quickstart.md) about the _Vehicle App_, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `DataPoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
 
 In order to receive and process MQTT messages inside your app, simply use the `VehicleApp::subscribeTopic(<topic>)` method provided by the SDK:
@@ -228,7 +228,7 @@ or:
 2. Select command `Tasks: Run Task`
 3. Select `Local Runtime - Run VehicleApp`
 
-### Debug your Vehicle App
+### Debug your _Vehicle App_
 
 In the [introduction about debugging](/docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
 
@@ -301,9 +301,9 @@ We specify which binary to run using the `program` key. In the `environment` you
 }
 ```
 
-You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.
+You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another _Vehicle App_.
 
-Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.
+Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your _Vehicle App_.
 
 ## Next steps
 

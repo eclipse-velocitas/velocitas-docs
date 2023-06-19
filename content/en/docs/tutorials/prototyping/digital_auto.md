@@ -105,7 +105,7 @@ Among other things the newly created repository will contain:
 |_/app/AppManifest.json_| Settings file defining required services |
 |_/app/requirements.txt_| Requirements file defining all python dependencies |
 |_/.devcontainer/_| Required scripts and settings to setup the devcontainer in Microsoft Visual Studio Code |
-|_/.github/workflows/_| All required CI/CD pipelines to build, test and deploy the vehicle application as container image to the GitHub container registry|
+|_/.github/workflows/_| All required CI/CD pipelines to build, test and deploy the _Vehicle App_ as container image to the GitHub container registry|
 |_/gen/vehicle\_model/_| The generated model classes. If your prototype includes any exceptional API you added beforehand our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) takes care of handling the custom VSS vspec file coming from digital.auto and generates a vehicle_model when starting the devContainer |
 {{</table>}}
 
@@ -116,4 +116,4 @@ Clone your newly created repository and open the _Vehicle App_ in Microsoft Visu
 You can proceed with the following topics:
 
 - [Starting development environment](/docs/tutorials/quickstart/#starting-development-environment)
-- [Vehicle App Development](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/)
+- [_Vehicle App_ Development](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/)

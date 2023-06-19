@@ -7,7 +7,7 @@ aliases:
 resources:
 - src: "**sdk_overview*.png"
 description: >
-  Learn more about the provided Vehicle App SDK.
+  Learn more about the provided _Vehicle App_ SDK.
 
 ---
 
@@ -25,7 +25,7 @@ The _Vehicle App_ SDK consists of the following building blocks:
 
 - **[Vehicle App abstraction](#vehicle-app-abstraction):** Last but not least the SDK provides a _Vehicle App_ base class, which every _Vehicle App_ derives from.
 
-An overview of the Vehicle App SDK and its dependencies is depicted in the following diagram:
+An overview of the _Vehicle App_ SDK and its dependencies is depicted in the following diagram:
 
 ![SDK Overview](./sdk_overview.png)
 
@@ -51,7 +51,7 @@ Specifications like VSS support a concept that is called [Instances](https://cov
 
 Direct asynchronous communication between _Vehicle Apps_ and Vehicle Services is facilitated via the [gRPC](https://grpc.io) protocol.
 
-The SDK has its own `Service` base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a Vehicle Service or another Vehicle App. Please see the [Middleware Integration](#middleware-integration) section for more details.
+The SDK has its own `Service` base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a Vehicle Service or another _Vehicle App_. Please see the [Middleware Integration](#middleware-integration) section for more details.
 
 ### DataPoint
 
@@ -470,7 +470,7 @@ subscribeToTopic("seatadjuster/setPosition/request")->onItem([this](auto&& item)
 {{< /tab >}}
 {{< /tabpane >}}
 
-Under the hood, the _Vehicle App_ creates a gRPC endpoint on port `50008`, which is exposed to the dapr middleware. The dapr middleware will then subscribe to the MQTT broker and forward the messages to the vehicle app.
+Under the hood, the _Vehicle App_ creates a gRPC endpoint on port `50008`, which is exposed to the dapr middleware. The dapr middleware will then subscribe to the MQTT broker and forward the messages to the _Vehicle App_.
 
 To change the app port, set it in the `main()` method of the app:
 
@@ -548,5 +548,5 @@ int main(int argc, char** argv) {
 
 - Tutorial: [Setup and Explore Development Environment](/docs/tutorials/setup_and_explore_development_environment.md)
 - Tutorial: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creation)
-- Tutorial: [Vehicle App Development](/docs/tutorials/vehicle-app-development)
-- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
+- Tutorial: [_Vehicle App_ Development](/docs/tutorials/vehicle-app-development)
+- Tutorial: [Develop and run integration tests for a _Vehicle App_](/docs/tutorials/integration_tests.md)

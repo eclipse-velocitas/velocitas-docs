@@ -8,19 +8,19 @@ aliases:
   - /docs/tutorials/python/tutorial_how_to_create_a_vehicle_app_python.md
 ---
 
-> We recommend that you make yourself familiar with the [Vehicle App SDK](/docs/concepts/vehicle_app_sdk_overview.md) first, before going through this tutorial.
+> We recommend that you make yourself familiar with the [_Vehicle App_ SDK](/docs/concepts/vehicle_app_sdk_overview.md) first, before going through this tutorial.
 
-The following information describes how to develop and test the sample _Vehicle App_ that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
+The following information describes how to develop and test the sample _Vehicle App_ that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template). You will learn how to use the _Vehicle App_ SDK and how to interact with the Vehicle Model.
 
 Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own _Vehicle App_ development project.
 
-## Develop your first Vehicle App
+## Develop your first _Vehicle App_
 
-This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read this manual:
+This section describes how to develop your first _Vehicle App_. Before you start building a new _Vehicle App_, make sure you have already read this manual:
 
 - [Setup and Explore Development Environment](/docs/setup_and_explore_development_environment.md)
 
-Once you have established your development environment, you will be able to start developing your first Vehicle App.
+Once you have established your development environment, you will be able to start developing your first _Vehicle App_.
 
 For this tutorial, you will recreate the _Vehicle App_ that is included with the [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster):
 The _Vehicle App_ allows to change the positions of the seats in the car and also provide their current positions to other applications.
@@ -182,9 +182,9 @@ In order to know which seat to move, you have to pass a `SeatLocation` object as
 
 ### MQTT
 
-Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.
+Interaction with other _Vehicle Apps_ or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.
 
-In the [quickstart section](/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_) about the Vehicle App, you already tested sending MQTT messages to the app.
+In the [quickstart section](/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_) about the _Vehicle App_, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `DataPoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
 
 In order to receive and process MQTT messages inside your app, simply use the `@subscribe_topic` annotations from the SDK for an additional method `on_set_position_request_received()` you have to implement:
@@ -328,7 +328,7 @@ spec:
 
 If you want to know more about dapr and the configuration, please visit <https://dapr.io>
 
-### Debug your Vehicle App
+### Debug your _Vehicle App_
 
 In the [introduction about debugging](/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
 
@@ -404,9 +404,9 @@ We specify which python-script to run using the `program` key. With the `preLaun
 },
 ```
 
-You can adapt the configuration in `/.vscode/launch.json` to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.
+You can adapt the configuration in `/.vscode/launch.json` to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another _Vehicle App_.
 
-Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.
+Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your _Vehicle App_.
 
 ## Next steps
 
@@ -414,6 +414,6 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 - Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/run_runtime_services_kubernetes.md)
 - Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/vehicle_model_creation)
-- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
+- Tutorial: [Develop and run integration tests for a _Vehicle App_](/docs/tutorials/integration_tests.md)
 - Concept: [Deployment Model](/docs/concepts/deployment_model/)
 - Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

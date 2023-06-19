@@ -52,7 +52,7 @@ The feeder automatically reconnects to the data broker in the event that the con
 
 ### Vehicle Services
 
-A vehicle service offers a vehicle app to interact with the vehicle systems on a RPC-like basis.
+A vehicle service offers a _Vehicle App_ to interact with the vehicle systems on a RPC-like basis.
 It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
 It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.
 
@@ -76,13 +76,13 @@ The KUKSA Data Broker offers read/subscribe access to data points based on a gRP
 Services (like the [seat service](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service)) define which CAN signals they listen to and which CAN signals they send themselves, see [documentation](https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md).
 Service implementations may also interact as feeders with the data broker.
 
-### Data flow when a Vehicle Application uses the KUKSA Data Broker
+### Data flow when a _Vehicle App_ uses the KUKSA Data Broker
 
 {{< imgproc dataflow_broker Resize "800x" >}}
   Architectural representation of the KUKSA data broker data flow
 {{< /imgproc >}}
 
-### Data flow when a Vehicle Application uses a Vehicle Service
+### Data flow when a _Vehicle App_ uses a Vehicle Service
 
 {{< imgproc dataflow_service Resize "800x" >}}
   Architectural representation of the vehicle service data flow

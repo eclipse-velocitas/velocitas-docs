@@ -70,7 +70,7 @@ description: >
 
 ## Add Vehicle Models manually
 
-  1. Install the Python Vehicle App SDK:
+  1. Install the Python _Vehicle App_ SDK:
 
         ```bash
         pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git
