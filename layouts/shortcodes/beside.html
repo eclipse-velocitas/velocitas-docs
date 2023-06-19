@@ -1,5 +1,5 @@
 {{- $image := .Get 0 -}}
-{{- $text := .Get 1 -}}
+{{- $text := .Get 1 | markdownify}}
 <div style="display: flex; align-items: center;">
     <img src="{{ $image }}" alt="{{ $image }}" style="max-width: 5%; height: auto; filter: invert(100%);-webkit-filter: invert(100%);">
     <p style="margin-left: 10px;">{{ $text }}</p>
