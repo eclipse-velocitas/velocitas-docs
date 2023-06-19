@@ -11,7 +11,7 @@ description: >
   Learn more about provided development model for Vehicle Apps.
 ---
 
-The Velocitas development model is centered around what are known as [Vehicle Apps](#vehicle-apps). Automation allows engineers to make high-impact changes frequently and deploy Vehicle Apps through cloud backends as over-the-air updates. The Vehicle App development model is about _speed_ and _agility_ paired with state-of-the-art software quality.
+The Velocitas development model is centered around what are known as [Vehicle Apps](#vehicle-apps). Automation allows engineers to make high-impact changes frequently and deploy Vehicle Apps through cloud backends as over-the-air updates. The _Vehicle App_ development model is about _speed_ and _agility_ paired with state-of-the-art software quality.
 
 ## Development Architecture
 
@@ -21,7 +21,7 @@ Velocitas provides a flexible development architecture for [Vehicle Apps](#vehic
 
 ### Vehicle Apps
 
-The Vehicle Applications (aka. Vehicle Apps) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a [Vehicle Model](#vehicle-models) and its underlying language-specific [SDK](#sdks). Many concepts of cloud-native and [twelve-factor](https://12factor.net/) applications apply to Vehicle Apps as well and are summarized in the next chapter.
+The Vehicle Applications (aka. Vehicle Apps) contain the business logic that needs to be executed on a vehicle. A _Vehicle App_ is implemented on top of a [Vehicle Model](#vehicle-models) and its underlying language-specific [SDK](#sdks). Many concepts of cloud-native and [twelve-factor](https://12factor.net/) applications apply to Vehicle Apps as well and are summarized in the next chapter.
 
 ### Vehicle Models
 
@@ -61,14 +61,14 @@ By default, Velocitas leverages [dapr](https://dapr.io) for gRPC service discove
 
 ### Vehicle Edge Operating System
 
-[Vehicle Apps](#vehicle-apps) are expected to run on a [Linux](https://www.linux.org/)-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., [Eclipse Mosquitto](https://mosquitto.org/)).
+[Vehicle Apps](#vehicle-apps) are expected to run on a [Linux](https://www.linux.org/)-based operating system. An OCI-compliant container runtime is required to host the _Vehicle App_ containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., [Eclipse Mosquitto](https://mosquitto.org/)).
 
-## Vehicle App Characteristics
+## _Vehicle App_ Characteristics
 
 The following aspects are important characteristics for [Vehicle Apps](#vehicle-apps):
 
 - **Code base:**
-  Every Vehicle App is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.
+  Every _Vehicle App_ is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.
 
 - **Polyglot:**
   Vehicle Apps can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.
@@ -77,7 +77,7 @@ The following aspects are important characteristics for [Vehicle Apps](#vehicle-
   Vehicle Apps are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.
 
 - **Isolation:**
-  Each Vehicle App should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.
+  Each _Vehicle App_ should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.
 
 - **Configurations:**
   Configuration information is separated from the code base of the Vehicle App, so that the same deployment can propagate across environments with their respective configuration applied.
@@ -95,7 +95,7 @@ The following aspects are important characteristics for [Vehicle Apps](#vehicle-
 
 The starting point for developing [Vehicle Apps](#vehicle-apps) is a [Semantic Model](#semantic-models) of the vehicle data and vehicle services. Based on the Semantic Model, language-specific [Vehicle Models](#vehicle-models) are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, ...).
 
-After a Vehicle Model is available for the chosen programming language, the Vehicle App can be developed using the generated Vehicle Model and its SDK.
+After a Vehicle Model is available for the chosen programming language, the _Vehicle App_ can be developed using the generated Vehicle Model and its SDK.
 
 ![Development Process](./build_procedure.png)
 

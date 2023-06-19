@@ -40,14 +40,14 @@ Check out the example GitHub workflows in our [repositories for python](https://
 
 The `Build multi-arch image workflow` is triggered on every commit to the main branch and contains a set of actions to achieve the following objectives:
 
-- **Building a multi-arch container for the app** - actions create a containerized version of the Vehicle App for multiple architectures (currently AMD64 and ARM64).
+- **Building a multi-arch container for the app** - actions create a containerized version of the _Vehicle App_ for multiple architectures (currently AMD64 and ARM64).
 - **Scanning for vulnerabilities** - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as "failed".
 - **Storing container images to GitHub action artifacts** - at the end of the workflow, the container image created is stored in a Github Action Artifacts so that it can be referenced by the Release Workflow later.
-- **Generate Deployment Files** - actions generate a PodSpec-file and HelmCharts to ease the deployment of the Vehicle App and the runtime services.
+- **Generate Deployment Files** - actions generate a PodSpec-file and HelmCharts to ease the deployment of the _Vehicle App_ and the runtime services.
 
 ## Release Workflow (release.yml)
 
-The `Release workflow` is triggered as soon as the `main` branch is ready for release and the Vehicle App developer creates a new GitHub release. This can be done manually through the GitHub UI.
+The `Release workflow` is triggered as soon as the `main` branch is ready for release and the _Vehicle App_ developer creates a new GitHub release. This can be done manually through the GitHub UI.
 
 On creating a new release with a specific new version, GitHub creates a tag and automatically runs the `Release workflow` defined in .github/workflows/release.yml, given that `CI workflow` has run successfully for the current commit on the main branch.
 
@@ -55,7 +55,7 @@ The set of actions included in the `Release workflow` cover the objective:
 
 - **Generating and publishing QA information** - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.
 - **Publish as GitHub pages** - all information from the release together with the project documentation is built as a static page using hugo. The result is pushed to a separate branch and can be published as a GitHub page in your repository.
-- **Pull & label container image** - actions pull the Vehicle App container image based on the current commit hash from the GitHub artifacts and label it with the specified tag version. If the image cannot be found, the workflow will fail.
+- **Pull & label container image** - actions pull the _Vehicle App_ container image based on the current commit hash from the GitHub artifacts and label it with the specified tag version. If the image cannot be found, the workflow will fail.
 - **Push container image to ghcr.io** - finally the labeled container image is pushed to the [GitHub container registry](ghcr.io) and can be used as a deployment source.
 
 ## GitHub Actions artifacts
@@ -74,7 +74,7 @@ Since the registry does not have an automatic cleanup, it keeps container images
 Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of [semantic versions](https://semver.org/) is recommended.
 
 If the tag name contains a semantic version, the leading `v` will be trimmed.
-**Example:** A tag name of `v1.0.0` will lead to version `1.0.0` of the Vehicle App container.
+**Example:** A tag name of `v1.0.0` will lead to version `1.0.0` of the _Vehicle App_ container.
 
 ### Maintaining multiple versions
 
@@ -85,5 +85,5 @@ The release process would be the same as described in the overview, except that 
 ## Further information
 
 - Tutorial: [How to write integration tests](/docs/tutorials/integration_tests)
-- Tutorial: [Deploy a Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm)
-- Tutorial: [Deploy a Vehicle App with PodSpecs](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_podspecs)
+- Tutorial: [Deploy a _Vehicle App_ with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm)
+- Tutorial: [Deploy a _Vehicle App_ with PodSpecs](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_podspecs)

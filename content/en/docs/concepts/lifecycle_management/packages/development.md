@@ -37,7 +37,7 @@ If you plan to develop a _Package_ with the purpose of managing the runtime used
 |  Property  |                                           Description                                            |
 |------------|--------------------------------------------------------------------------------------------------|
 | id         | unique service id                                                                                |
-| interfaces | used for dependency resolution between Vehicle App and runtime                                   |
+| interfaces | used for dependency resolution between _Vehicle App_ and runtime                                   |
 | config     | configurations in form of Key/Value pair with specific pre–defined keys and corresponding values |
 {{</table>}}
 

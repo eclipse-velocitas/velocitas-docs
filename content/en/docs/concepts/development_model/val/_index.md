@@ -17,7 +17,7 @@ The _Vehicle_Abstraction Layer (VAL)_ enables access to the systems and function
 
 The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the [_Eclipse KUKSA project_](https://www.eclipse.org/kuksa/), also called _KUKSA.VAL_.
 KUKSA.VAL does not provide a concrete VAL. That's up to you as an OEM (vehicle manufacturer) or as a supplier.
-But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an Vehicle App or Service.
+But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an _Vehicle App_ or Service.
 
 KUKSA VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the _KUKSA Data Broker_ and the generic _Data Providers_ (aka _Data Feeders_).
 It also provides you reference implementations of certain _Vehicle Services_, like the _Seat Service_ and the _HVAC Service_.

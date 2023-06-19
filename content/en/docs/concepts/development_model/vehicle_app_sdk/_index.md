@@ -23,7 +23,7 @@ The Vehicle App SDK consists of the following building blocks:
 
 - **[Publish & subscribe messaging](#publish--subscribe-messaging):** The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.
 
-- **[Vehicle App abstraction](#vehicle-app-abstraction):** Last but not least the SDK provides a Vehicle App base class, which every Vehicle App derives from.
+- **[Vehicle App abstraction](#vehicle-app-abstraction):** Last but not least the SDK provides a _Vehicle App_ base class, which every _Vehicle App_ derives from.
 
 An overview of the Vehicle App SDK and its dependencies is depicted in the following diagram:
 
@@ -486,7 +486,7 @@ async def main():
 {{< /tab >}}
 {{< /tabpane >}}
 
-## Vehicle App abstraction
+## _Vehicle App_ abstraction
 
 `Vehicle Apps` are inherited from the `VehicleApp` base class. This enables the `Vehicle App` to use the Publish & Subscribe messaging and to connect to the KUKSA Data Broker.
 

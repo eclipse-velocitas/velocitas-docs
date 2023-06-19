@@ -5,7 +5,7 @@ weight: 30
 aliases:
   - /docs/concepts/vehicle_app_manifest.md
 description: >
-  Learn more about the Vehicle App Manifest.
+  Learn more about the _Vehicle App_ Manifest.
 
 ---
 

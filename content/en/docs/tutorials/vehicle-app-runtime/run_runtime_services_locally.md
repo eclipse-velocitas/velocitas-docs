@@ -70,4 +70,4 @@ If you are using Codespaces, remember that you are working on a remote agent. Th
 - Tutorial: [Setup and Explore Development Environment](/docs/tutorials/quickstart)
 - Concept: [Deployment Model](/docs/about/deployment-model/)
 - Concept: [Build and release process](/docs/about/deployment-model/vehicle_app_releases/)
-- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

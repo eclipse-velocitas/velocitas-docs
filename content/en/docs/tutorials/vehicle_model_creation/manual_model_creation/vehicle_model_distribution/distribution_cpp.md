@@ -10,7 +10,7 @@ aliases:
 
 Now that you have created your own Vehicle Model, we can distribute it to make use of it in _Vehicle Apps_.
 
-## Copying the folder to your Vehicle App repo
+## Copying the folder to your _Vehicle App_ repo
 
 The easiest way to get started quickly is to copy the created model, presumably stored in `vehicle_model` into your _Vehicle App_ repository to use it. To do so, simply copy and paste the directory into the `<sdk_root>/app` directory and replace the existing model.
 

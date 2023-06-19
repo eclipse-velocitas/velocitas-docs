@@ -12,7 +12,7 @@ aliases:
 This tutorial will show you how to:
 
 - Prepare a Helm chart
-- Deploy your Vehicle App to local K3D
+- Deploy your _Vehicle App_ to local K3D
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ This tutorial will show you how to:
 
 ## Use the sample Helm chart
 
-If the Vehicle App has been created from one of our template repositories, a sample Helm chart is already available inside our maintained `runtime-k3d` of the [`devenv-runtimes`](https://github.com/eclipse-velocitas/devenv-runtimes) package at [`./runtime-k3d/src/app_deployment/config/helm/`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/) and can be used as it is without any modification.
+If the _Vehicle App_ has been created from one of our template repositories, a sample Helm chart is already available inside our maintained `runtime-k3d` of the [`devenv-runtimes`](https://github.com/eclipse-velocitas/devenv-runtimes) package at [`./runtime-k3d/src/app_deployment/config/helm/`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/) and can be used as it is without any modification.
 This sample chart is using the values from [`./runtime-k3d/src/app_deployment/config/helm/values.yaml`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/values.yaml) file.
 
 {{% alert title="Note" %}}
@@ -34,7 +34,7 @@ The app port is configurable as `vehicleAppPort` inside your `.velocitas.json` v
 
 If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called `my_vehicle_app` for this walkthrough.
 
-1. Start Visual Studio Code and open the previously created Vehicle App repository.
+1. Start Visual Studio Code and open the previously created _Vehicle App_ repository.
 1. Create a new folder `my_vehicle_app` under `deploy`
 1. Copy all files from the [devenv-runtimes/runtime-k3d/src/app_deployment/config/helm](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main/runtime-k3d/src/app_deployment/config/helm) folder to the new folder `deploy/my_vehicle_app`.
 1. Rename the file `deploy/my_vehicle_app/helm/templates/vehicleapp.yaml` to `deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml`
@@ -129,7 +129,7 @@ deploy
 └────────── values.yaml
 ```
 
-## Deploy your Vehicle App to local K3D
+## Deploy your _Vehicle App_ to local K3D
 
 ### Prerequisites
 

@@ -3,14 +3,14 @@ title: "C++ Vehicle App Development"
 date: 2022-05-09T13:43:25+05:30
 weight: 2
 description: >
-  Learn how to develop and test a Vehicle App using C++.
+  Learn how to develop and test a _Vehicle App_ using C++.
 aliases:
   - /docs/tutorials/cpp/tutorial_how_to_create_a_vehicle_app_cpp.md
 ---
 
 > We recommend that you make yourself familiar with the [Vehicle App SDK](/docs/concepts/development_model/vehicle_app_sdk) first, before going through this tutorial.
 
-The following information describes how to develop and test the sample Vehicle App that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
+The following information describes how to develop and test the sample _Vehicle App_ that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
 
 Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own _Vehicle App_ development project.
 
@@ -357,4 +357,4 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 - Tutorial: [Creating a Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 - Concept: [Deployment Model](/docs/concepts/deployment_model)
-- Tutorial: [Deploy a Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+- Tutorial: [Deploy a _Vehicle App_ with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

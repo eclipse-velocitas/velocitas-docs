@@ -112,7 +112,7 @@ description: >
             def __init__(self, parent):
                 super().__init__(parent)
                 self.Seat = SeatCollection("Seat", self)
-        
+
         class SeatCollection(Model):
             def __init__(self, name, parent):
                 super().__init__(parent)

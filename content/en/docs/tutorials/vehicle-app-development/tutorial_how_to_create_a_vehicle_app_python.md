@@ -3,16 +3,16 @@ title: "Python Vehicle App Development"
 date: 2022-05-09T13:43:25+05:30
 weight: 1
 description: >
-  Learn how to develop and test the Vehicle App using Python.
+  Learn how to develop and test the _Vehicle App_ using Python.
 aliases:
   - /docs/tutorials/python/tutorial_how_to_create_a_vehicle_app_python.md
 ---
 
 > We recommend that you make yourself familiar with the [Vehicle App SDK](/docs/concepts/vehicle_app_sdk_overview.md) first, before going through this tutorial.
 
-The following information describes how to develop and test the sample Vehicle App that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
+The following information describes how to develop and test the sample _Vehicle App_ that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template). You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.
 
-Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own Vehicle App development project.
+Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own _Vehicle App_ development project.
 
 ## Develop your first Vehicle App
 
@@ -22,12 +22,12 @@ This section describes how to develop your first Vehicle App. Before you start b
 
 Once you have established your development environment, you will be able to start developing your first Vehicle App.
 
-For this tutorial, you will recreate the Vehicle App that is included with the [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster):
-The Vehicle App allows to change the positions of the seats in the car and also provide their current positions to other applications.
+For this tutorial, you will recreate the _Vehicle App_ that is included with the [SDK repository](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster):
+The _Vehicle App_ allows to change the positions of the seats in the car and also provide their current positions to other applications.
 
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
 
-At first, you have to create the main python script called `main.py` in `/app/src`. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:
+At first, you have to create the main python script called `main.py` in `/app/src`. All the relevant code for new _Vehicle App_ goes there. Afterwards, there are several steps you need to consider when developing the app:
 
 1. [Manage your imports](#manage-your-imports)
 2. [Enable logging](#enable-logging)
@@ -67,7 +67,7 @@ logger = logging.getLogger(__name__)
 
 ### Initialize your class
 
-The main class of your new Vehicle App needs to inherit the `VehicleApp` provided by the [SDK](https://github.com/eclipse-velocitas/vehicle-app-python-sdk).
+The main class of your new _Vehicle App_ needs to inherit the `VehicleApp` provided by the [SDK](https://github.com/eclipse-velocitas/vehicle-app-python-sdk).
 
 ```Python
 class MyVehicleApp(VehicleApp):
@@ -195,7 +195,7 @@ In order to receive and process MQTT messages inside your app, simply use the `@
         data = json.loads(data_str)
         response_topic = "seatadjuster/setPosition/response"
         response_data = {"requestId": data["requestId"], "result": {}}
-        
+
         # ...
 ```
 
@@ -416,4 +416,4 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
 - Concept: [Deployment Model](/docs/concepts/deployment_model/)
-- Tutorial: [Deploy a Python Vehicle App with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)

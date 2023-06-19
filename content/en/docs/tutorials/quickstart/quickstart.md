@@ -20,7 +20,7 @@ Before you start, we recommend familiarizing yourself with our [Basic Concept](/
 
 ## Prerequisites
 
-Please make sure you did all the prerequisite steps to create comprehensive Development Environment for your _Vehicle App_:
+Please make sure you did all the prerequisite steps to create comprehensive Development Environment for your  _Vehicle App_ :
 
 - Install [VS Code](https://code.visualstudio.com)
 - [Install a working container runtime](/docs/tutorials/quickstart/container_runtime)
@@ -32,7 +32,7 @@ Please make sure you did all the prerequisite steps to create comprehensive Deve
 
 ## How to create your _Vehicle App_ Repository?
 
-For the Organization and Vehicle App repository the name _MyOrg/MyFirstVehicleApp_ is used as a reference during the rest of the document.
+For the Organization and _Vehicle App_ repository the name _MyOrg/MyFirstVehicleApp_ is used as a reference during the rest of the document.
 
 You can create your own repository using a provided template or start prototyping via Digital.Auto.
 
@@ -105,6 +105,8 @@ Be careful with using GitHub Codespaces in browser and VS Code locally at the sa
 
 {{% /tab %}}
 {{< /tabpane >}}
+
+You can find more information about the _Vehicle App_ Development in the [respective pages](/docs/tutorials/vehicle-app-development).
 
 ## How to start the runtime services?
 
@@ -179,7 +181,7 @@ Debugging functionality is only available when using the [Local Runtime](/docs/t
 Both given examples are available as part of template.
 {{% /alert %}}
 
-Now that the [runtime services](/docs/tutorials/run_runtime_services_locally) are all up and running, let's start a debug session for the _Vehicle App_.
+Now that the [runtime services](/docs/tutorials/run_runtime_services_locally) are all up and running, let's start a debug session for the  _Vehicle App_ .
 
 {{< tabpane text=true >}}
 {{% tab header="Python" %}}
@@ -187,7 +189,7 @@ Now that the [runtime services](/docs/tutorials/run_runtime_services_locally) ar
 1. Open the main source file  `/app/src/main.py` and set a breakpoint in the given method `on_get_speed_request_received`
 1. Press <kbd>F5</kbd> to start a debug session of the _Vehicle App_ and see the log output on the `DEBUG CONSOLE`
 
-To trigger this breakpoint, let's send a message to the Vehicle App using the mqtt broker that is running in the background.
+To trigger this breakpoint, let's send a message to the _Vehicle App_ using the mqtt broker that is running in the background.
 
 1. Open `VSMqtt` extension in VS Code and connect to `mosquitto (local)`
 1. Set `Subscribe Topic` = `sampleapp/getSpeed/response` and click subscribe
@@ -199,7 +201,7 @@ To trigger this breakpoint, let's send a message to the Vehicle App using the mq
 1. Open the main source file `/app/src/VehicleApp.cpp` and set a breakpoint in the given method `onSetPositionRequestReceived`
 1. Press <kbd>F5</kbd> to start a debug session of the _Vehicle App_ and see the log output on the `DEBUG CONSOLE`
 
-To trigger this breakpoint, let's send a message to the Vehicle App using the mqtt broker that is running in the background.
+To trigger this breakpoint, let's send a message to the _Vehicle App_ using the mqtt broker that is running in the background.
 
 1. Open `VSMqtt` extension in VS Code and connect to `mosquitto (local)`
 1. Set `Subscribe Topic` = `seatadjuster/setPosition/response` and click subscribe
@@ -209,7 +211,7 @@ To trigger this breakpoint, let's send a message to the Vehicle App using the mq
 
 {{% /tab %}}
 {{< /tabpane >}}
-Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.
+Now your breakpoint in the _Vehicle App_ gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your _Vehicle App_ is published to the response topic. You can see the response in the MQTT window.
 
 ## How to trigger the CI Workflow?
 
@@ -238,11 +240,11 @@ Now that the `CI Workflow` was successful, you are ready to build your first rel
 1. Enter a version (e.g. v1.0.0) and click on `Publish release`
    - GitHub will automatically create a tag using the version number
 
-The provided release workflow will be triggered by the release. It creates a release documentation and publishes the container image of the Vehicle App to the GitHub container registry. A detailed description of the workflow can be found [here](/docs/concepts/deployment_model/vehicle_app_releases/).
+The provided release workflow will be triggered by the release. It creates a release documentation and publishes the container image of the _Vehicle App_ to the GitHub container registry. A detailed description of the workflow can be found [here](/docs/concepts/deployment_model/vehicle_app_releases/).
 
 ## How to deploy your _Vehicle App_?
 
-After releasing the Vehicle App to the GitHub container registry you might ask how to bring the Vehicle App and the required Runtime Stack on the device. Here _Eclipse Leda_ comes into the game.
+After releasing the _Vehicle App_ to the GitHub container registry you might ask how to bring the _Vehicle App_ and the required Runtime Stack on the device. Here _Eclipse Leda_ comes into the game.
 
 Please checkout the documentation of [Eclipse Leda](https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/) to get more information.
 

@@ -12,7 +12,7 @@ aliases:
 This tutorial will show you how to:
 
 - Prepare PodSpecs
-- Deploy your Vehicle App to local K3D
+- Deploy your _Vehicle App_ to local K3D
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ This tutorial will show you how to:
 
 ## Use the sample PodSpecs
 
-If the Vehicle App has been created from one of our template repositories, a sample PodSpec is already available inside our maintained `runtime-k3d` of the [`devenv-runtimes`](https://github.com/eclipse-velocitas/devenv-runtimes) package at [`./runtime-k3d/src/app_deployment/config/podspec/`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml) and can be used as it is without any modification. Another example can also be found in the [documentation of Leda](https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/).
+If the _Vehicle App_ has been created from one of our template repositories, a sample PodSpec is already available inside our maintained `runtime-k3d` of the [`devenv-runtimes`](https://github.com/eclipse-velocitas/devenv-runtimes) package at [`./runtime-k3d/src/app_deployment/config/podspec/`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml) and can be used as it is without any modification. Another example can also be found in the [documentation of Leda](https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/).
 
 ### Content
 
@@ -80,7 +80,7 @@ If your registry is not public, you might to add secrets to your Kubernets confi
   - name: regcred
 ```
 
-## Deploy your Vehicle App to local K3D
+## Deploy your _Vehicle App_ to local K3D
 
 ### Prerequisites
 
