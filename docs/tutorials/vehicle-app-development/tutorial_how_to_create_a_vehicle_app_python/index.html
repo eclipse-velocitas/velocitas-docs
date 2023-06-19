@@ -32,23 +32,23 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Python Vehicle App Development | Velocitas</title>
-<meta name="description" content="Learn how to develop and test the Vehicle App using Python.
+<meta name="description" content="Learn how to develop and test the _Vehicle App_ using Python.
 ">
 <meta property="og:title" content="Python Vehicle App Development" />
-<meta property="og:description" content="Learn how to develop and test the Vehicle App using Python.
+<meta property="og:description" content="Learn how to develop and test the _Vehicle App_ using Python.
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2023-06-19T09:56:12+02:00" />
+<meta property="article:modified_time" content="2023-06-19T11:28:01+02:00" />
 <meta itemprop="name" content="Python Vehicle App Development">
-<meta itemprop="description" content="Learn how to develop and test the Vehicle App using Python.
+<meta itemprop="description" content="Learn how to develop and test the _Vehicle App_ using Python.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-06-19T09:56:12+02:00" />
+<meta itemprop="dateModified" content="2023-06-19T11:28:01+02:00" />
 <meta itemprop="wordCount" content="2137">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python Vehicle App Development"/>
-<meta name="twitter:description" content="Learn how to develop and test the Vehicle App using Python.
+<meta name="twitter:description" content="Learn how to develop and test the _Vehicle App_ using Python.
 "/>
 
 
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9da06469cdfcb547f44c1b5b0af327c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9da06469cdfcb547f44c1b5b0af327c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -468,7 +468,7 @@
             
 <div class="td-content">
 	<h1>Python Vehicle App Development</h1>
-	<div class="lead">Learn how to develop and test the Vehicle App using Python.</div>
+	<div class="lead">Learn how to develop and test the <em>Vehicle App</em> using Python.</div>
 	<header class="article-meta">
 		
 
@@ -489,18 +489,18 @@
 	<blockquote>
 <p>We recommend that you make yourself familiar with the <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md">Vehicle App SDK</a> first, before going through this tutorial.</p>
 </blockquote>
-<p>The following information describes how to develop and test the sample Vehicle App that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">template repository</a>. You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.</p>
-<p>Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own Vehicle App development project.</p>
+<p>The following information describes how to develop and test the sample <em>Vehicle App</em> that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">template repository</a>. You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.</p>
+<p>Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own <em>Vehicle App</em> development project.</p>
 <h2 id="develop-your-first-vehicle-app">Develop your first Vehicle App</h2>
 <p>This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read this manual:</p>
 <ul>
 <li><a href="/velocitas-docs/docs/setup_and_explore_development_environment.md">Setup and Explore Development Environment</a></li>
 </ul>
 <p>Once you have established your development environment, you will be able to start developing your first Vehicle App.</p>
-<p>For this tutorial, you will recreate the Vehicle App that is included with the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener">SDK repository</a>:
-The Vehicle App allows to change the positions of the seats in the car and also provide their current positions to other applications.</p>
+<p>For this tutorial, you will recreate the <em>Vehicle App</em> that is included with the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener">SDK repository</a>:
+The <em>Vehicle App</em> allows to change the positions of the seats in the car and also provide their current positions to other applications.</p>
 <p>A detailed explanation of the use case and the example is available <a href="/velocitas-docs/docs/velocitas/docs/seat_adjuster_use_case.md">here</a>.</p>
-<p>At first, you have to create the main python script called <code>main.py</code> in <code>/app/src</code>. All the relevant code for new Vehicle App goes there. Afterwards, there are several steps you need to consider when developing the app:</p>
+<p>At first, you have to create the main python script called <code>main.py</code> in <code>/app/src</code>. All the relevant code for new <em>Vehicle App</em> goes there. Afterwards, there are several steps you need to consider when developing the app:</p>
 <ol>
 <li><a href="#manage-your-imports">Manage your imports</a></li>
 <li><a href="#enable-logging">Enable logging</a></li>
@@ -529,7 +529,7 @@ The Vehicle App allows to change the positions of the seats in the car and also 
 </span></span><span style="display:flex;"><span><span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getLogger</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">setLevel</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;INFO&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">logger</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">logging</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">getLogger</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">__name__</span><span style="color:#000;font-weight:bold">)</span>
 </span></span></code></pre></div><h3 id="initialize-your-class">Initialize your class</h3>
-<p>The main class of your new Vehicle App needs to inherit the <code>VehicleApp</code> provided by the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk" target="_blank" rel="noopener">SDK</a>.</p>
+<p>The main class of your new <em>Vehicle App</em> needs to inherit the <code>VehicleApp</code> provided by the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk" target="_blank" rel="noopener">SDK</a>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">MyVehicleApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">):</span>
 </span></span></code></pre></div><p>In class initialization, you have to pass an instance of the Vehicle Model:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle_client</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">):</span>
@@ -619,7 +619,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 </span></span><span style="display:flex;"><span>        <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">loads</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data_str</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/setPosition/response&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{}}</span>
-</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># ...</span>
 </span></span></code></pre></div><p>The <code>on_set_position_request_received</code> method will now be invoked every time a message is published to the subscribed topic <code>&quot;seatadjuster/setPosition/response&quot;</code>. The message data (string) is provided as parameter. In the example above the data is parsed to json (<code>data = json.loads(data_str)</code>).</p>
 <p>In order to publish data to topics, the SDK provides the appropriate convenience method: <code>self.publish_mqtt_event()</code> which will be added to the <code>on_seat_position_changed</code> callback function from before.</p>
@@ -789,13 +789,13 @@ After creating the mock, you can test the method and check the response. Use ass
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Creating a Python Vehicle Model</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model/">Deployment Model</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python Vehicle App with Helm</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python <em>Vehicle App</em> with Helm</a></li>
 </ul>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/ce6399f854a2813925f43f978772379029595fd2">fix review findings (ce6399f)</a>
+  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/191ce3560b8f34f086914dde4f0f276599bc1e28">make vehicle app cursive (191ce35)</a>
 </div>
 
 </div>

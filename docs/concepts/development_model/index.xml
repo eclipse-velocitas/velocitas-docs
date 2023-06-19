@@ -39,7 +39,7 @@
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;#publish--subscribe-messaging&#34;&gt;Publish &amp;amp; subscribe messaging&lt;/a&gt;:&lt;/strong&gt; The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;#vehicle-app-abstraction&#34;&gt;Vehicle App abstraction&lt;/a&gt;:&lt;/strong&gt; Last but not least the SDK provides a Vehicle App base class, which every Vehicle App derives from.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;#vehicle-app-abstraction&#34;&gt;Vehicle App abstraction&lt;/a&gt;:&lt;/strong&gt; Last but not least the SDK provides a &lt;em&gt;Vehicle App&lt;/em&gt; base class, which every &lt;em&gt;Vehicle App&lt;/em&gt; derives from.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;An overview of the Vehicle App SDK and its dependencies is depicted in the following diagram:&lt;/p&gt;
@@ -650,7 +650,7 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h2 id=&#34;vehicle-app-abstraction&#34;&gt;Vehicle App abstraction&lt;/h2&gt;
+&lt;h2 id=&#34;_vehicle-app_-abstraction&#34;&gt;&lt;em&gt;Vehicle App&lt;/em&gt; abstraction&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Vehicle Apps&lt;/code&gt; are inherited from the &lt;code&gt;VehicleApp&lt;/code&gt; base class. This enables the &lt;code&gt;Vehicle App&lt;/code&gt; to use the Publish &amp;amp; Subscribe messaging and to connect to the KUKSA Data Broker.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;Vehicle Model&lt;/code&gt; instance is passed to the constructor of the &lt;code&gt;VehicleApp&lt;/code&gt; class and should be stored in a member variable (e.g. &lt;code&gt;self.vehicle&lt;/code&gt; for Python, &lt;code&gt;std::shared_ptr&amp;lt;Vehicle&amp;gt; m_vehicle;&lt;/code&gt; for C++), to be used by all methods within the application.&lt;/p&gt;
 &lt;p&gt;Finally, the &lt;code&gt;run()&lt;/code&gt; method of the &lt;code&gt;VehicleApp&lt;/code&gt; class is called to start the &lt;code&gt;Vehicle App&lt;/code&gt; and register all MQTT topic and Data Broker subscriptions.&lt;/p&gt;
@@ -752,7 +752,7 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;p&gt;The &lt;em&gt;Vehicle_Abstraction Layer (VAL)&lt;/em&gt; enables access to the systems and functions of a vehicle via a unified - or even better - a standardized &lt;em&gt;Vehicle API&lt;/em&gt; abstracting from the details of the end-to-end architecture of the vehicle. The unified API enables &lt;em&gt;Vehicle Apps&lt;/em&gt; to run on different vehicle architectures of a single OEM. Vehicle Apps can be even implemented OEM-agnostic, if using a API based on a standard like COVESA&amp;rsquo;s Vehicle Signal Specification. The Vehicle API obsoletes the knowledge where signal come from or where to send it and in which format they are provided or needed by the respective vehicle system.&lt;/p&gt;
 &lt;p&gt;The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the &lt;a href=&#34;https://www.eclipse.org/kuksa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Eclipse KUKSA project&lt;/em&gt;&lt;/a&gt;, also called &lt;em&gt;KUKSA.VAL&lt;/em&gt;.
 KUKSA.VAL does not provide a concrete VAL. That&amp;rsquo;s up to you as an OEM (vehicle manufacturer) or as a supplier.
-But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an Vehicle App or Service.&lt;/p&gt;
+But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an &lt;em&gt;Vehicle App&lt;/em&gt; or Service.&lt;/p&gt;
 &lt;p&gt;KUKSA VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the &lt;em&gt;KUKSA Data Broker&lt;/em&gt; and the generic &lt;em&gt;Data Providers&lt;/em&gt; (aka &lt;em&gt;Data Feeders&lt;/em&gt;).
 It also provides you reference implementations of certain &lt;em&gt;Vehicle Services&lt;/em&gt;, like the &lt;em&gt;Seat Service&lt;/em&gt; and the &lt;em&gt;HVAC Service&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;

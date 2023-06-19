@@ -40,11 +40,11 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2023-06-19T09:56:12+02:00" />
+<meta property="article:modified_time" content="2023-06-19T11:28:01+02:00" />
 <meta itemprop="name" content="Vehicle App Deployment with Helm">
 <meta itemprop="description" content="Learn how to prepare a Helm chart for the deployment of a Vehicle App.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-06-19T09:56:12+02:00" />
+<meta itemprop="dateModified" content="2023-06-19T11:28:01+02:00" />
 <meta itemprop="wordCount" content="712">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vehicle App Deployment with Helm"/>
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9da06469cdfcb547f44c1b5b0af327c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9da06469cdfcb547f44c1b5b0af327c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -391,7 +391,7 @@
     <li><a href="#prerequisites">Prerequisites</a></li>
     <li><a href="#use-the-sample-helm-chart">Use the sample Helm chart</a></li>
     <li><a href="#prepare-a-new-helm-chart">Prepare a new Helm chart</a></li>
-    <li><a href="#deploy-your-vehicle-app-to-local-k3d">Deploy your Vehicle App to local K3D</a>
+    <li><a href="#deploy-your-_vehicle-app_-to-local-k3d">Deploy your <em>Vehicle App</em> to local K3D</a>
       <ul>
         <li><a href="#prerequisites-1">Prerequisites</a></li>
       </ul>
@@ -471,7 +471,7 @@
 	<p>This tutorial will show you how to:</p>
 <ul>
 <li>Prepare a Helm chart</li>
-<li>Deploy your Vehicle App to local K3D</li>
+<li>Deploy your <em>Vehicle App</em> to local K3D</li>
 </ul>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
@@ -479,7 +479,7 @@
 <li>Completed the tutorial <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">How to create a vehicle app</a></li>
 </ul>
 <h2 id="use-the-sample-helm-chart">Use the sample Helm chart</h2>
-<p>If the Vehicle App has been created from one of our template repositories, a sample Helm chart is already available inside our maintained <code>runtime-k3d</code> of the <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package at <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/</code></a> and can be used as it is without any modification.
+<p>If the <em>Vehicle App</em> has been created from one of our template repositories, a sample Helm chart is already available inside our maintained <code>runtime-k3d</code> of the <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package at <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/</code></a> and can be used as it is without any modification.
 This sample chart is using the values from <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/values.yaml" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/values.yaml</code></a> file.</p>
 
 
@@ -496,7 +496,7 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 <p>If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called <code>my_vehicle_app</code> for this walkthrough.</p>
 <ol>
 <li>
-<p>Start Visual Studio Code and open the previously created Vehicle App repository.</p>
+<p>Start Visual Studio Code and open the previously created <em>Vehicle App</em> repository.</p>
 </li>
 <li>
 <p>Create a new folder <code>my_vehicle_app</code> under <code>deploy</code></p>
@@ -588,7 +588,7 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 </span></span><span style="display:flex;"><span>│────────── .helmignore
 </span></span><span style="display:flex;"><span>│────────── Chart.yaml
 </span></span><span style="display:flex;"><span>└────────── values.yaml
-</span></span></code></pre></div><h2 id="deploy-your-vehicle-app-to-local-k3d">Deploy your Vehicle App to local K3D</h2>
+</span></span></code></pre></div><h2 id="deploy-your-_vehicle-app_-to-local-k3d">Deploy your <em>Vehicle App</em> to local K3D</h2>
 <h3 id="prerequisites-1">Prerequisites</h3>
 <ul>
 <li>A local K3D installation must be available. For how to setup K3D, check out this <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">tutorial</a>.</li>
@@ -616,7 +616,7 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/ce6399f854a2813925f43f978772379029595fd2">fix review findings (ce6399f)</a>
+  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/191ce3560b8f34f086914dde4f0f276599bc1e28">make vehicle app cursive (191ce35)</a>
 </div>
 
 </div>

@@ -23,12 +23,12 @@
       <description>
         
         
-        &lt;p&gt;The Velocitas development model is centered around what are known as &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. Automation allows engineers to make high-impact changes frequently and deploy Vehicle Apps through cloud backends as over-the-air updates. The Vehicle App development model is about &lt;em&gt;speed&lt;/em&gt; and &lt;em&gt;agility&lt;/em&gt; paired with state-of-the-art software quality.&lt;/p&gt;
+        &lt;p&gt;The Velocitas development model is centered around what are known as &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. Automation allows engineers to make high-impact changes frequently and deploy Vehicle Apps through cloud backends as over-the-air updates. The &lt;em&gt;Vehicle App&lt;/em&gt; development model is about &lt;em&gt;speed&lt;/em&gt; and &lt;em&gt;agility&lt;/em&gt; paired with state-of-the-art software quality.&lt;/p&gt;
 &lt;h2 id=&#34;development-architecture&#34;&gt;Development Architecture&lt;/h2&gt;
 &lt;p&gt;Velocitas provides a flexible development architecture for &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. The following diagram shows the major components of the Velocitas stack.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./programming_model.png&#34; alt=&#34;Programming Model&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-apps&#34;&gt;Vehicle Apps&lt;/h3&gt;
-&lt;p&gt;The Vehicle Applications (aka. Vehicle Apps) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; and its underlying language-specific &lt;a href=&#34;#sdks&#34;&gt;SDK&lt;/a&gt;. Many concepts of cloud-native and &lt;a href=&#34;https://12factor.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;twelve-factor&lt;/a&gt; applications apply to Vehicle Apps as well and are summarized in the next chapter.&lt;/p&gt;
+&lt;p&gt;The Vehicle Applications (aka. Vehicle Apps) contain the business logic that needs to be executed on a vehicle. A &lt;em&gt;Vehicle App&lt;/em&gt; is implemented on top of a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; and its underlying language-specific &lt;a href=&#34;#sdks&#34;&gt;SDK&lt;/a&gt;. Many concepts of cloud-native and &lt;a href=&#34;https://12factor.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;twelve-factor&lt;/a&gt; applications apply to Vehicle Apps as well and are summarized in the next chapter.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-models&#34;&gt;Vehicle Models&lt;/h3&gt;
 &lt;p&gt;A Vehicle Model makes it possible to easily get vehicle data from the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and to execute remote procedure calls over gRPC against &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and other &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. It is generated from the underlying &lt;a href=&#34;#semantic-models&#34;&gt;semantic models&lt;/a&gt; for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the &lt;a href=&#34;#sdks&#34;&gt;SDKs&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;sdks&#34;&gt;SDKs&lt;/h3&gt;
@@ -49,13 +49,13 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 &lt;p&gt;Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
 By default, Velocitas leverages &lt;a href=&#34;https://dapr.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;dapr&lt;/a&gt; for gRPC service discovery, Open Telemetry tracing and the &lt;a href=&#34;https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publish/subscribe building block&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-edge-operating-system&#34;&gt;Vehicle Edge Operating System&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; are expected to run on a &lt;a href=&#34;https://www.linux.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux&lt;/a&gt;-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., &lt;a href=&#34;https://mosquitto.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse Mosquitto&lt;/a&gt;).&lt;/p&gt;
-&lt;h2 id=&#34;vehicle-app-characteristics&#34;&gt;Vehicle App Characteristics&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; are expected to run on a &lt;a href=&#34;https://www.linux.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux&lt;/a&gt;-based operating system. An OCI-compliant container runtime is required to host the &lt;em&gt;Vehicle App&lt;/em&gt; containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., &lt;a href=&#34;https://mosquitto.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse Mosquitto&lt;/a&gt;).&lt;/p&gt;
+&lt;h2 id=&#34;_vehicle-app_-characteristics&#34;&gt;&lt;em&gt;Vehicle App&lt;/em&gt; Characteristics&lt;/h2&gt;
 &lt;p&gt;The following aspects are important characteristics for &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Code base:&lt;/strong&gt;
-Every Vehicle App is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.&lt;/p&gt;
+Every &lt;em&gt;Vehicle App&lt;/em&gt; is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Polyglot:&lt;/strong&gt;
@@ -67,7 +67,7 @@ Vehicle Apps are deployed as OCI-compliant containers. The size of these contain
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Isolation:&lt;/strong&gt;
-Each Vehicle App should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.&lt;/p&gt;
+Each &lt;em&gt;Vehicle App&lt;/em&gt; should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Configurations:&lt;/strong&gt;
@@ -88,7 +88,7 @@ Vehicle Apps can be deployed via cloud backends like &lt;a href=&#34;https://www
 &lt;/ul&gt;
 &lt;h2 id=&#34;development-process&#34;&gt;Development Process&lt;/h2&gt;
 &lt;p&gt;The starting point for developing &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; is a &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; of the vehicle data and vehicle services. Based on the Semantic Model, language-specific &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt; are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &amp;hellip;).&lt;/p&gt;
-&lt;p&gt;After a Vehicle Model is available for the chosen programming language, the Vehicle App can be developed using the generated Vehicle Model and its SDK.&lt;/p&gt;
+&lt;p&gt;After a Vehicle Model is available for the chosen programming language, the &lt;em&gt;Vehicle App&lt;/em&gt; can be developed using the generated Vehicle Model and its SDK.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./build_procedure.png&#34; alt=&#34;Development Process&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
 

@@ -181,7 +181,7 @@
 &lt;ul&gt;
 &lt;li&gt;Concept: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/deployment_model/&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Concept: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases/&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md&#34;&gt;Deploy a Python &lt;em&gt;Vehicle App&lt;/em&gt; with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
@@ -199,14 +199,14 @@
         &lt;p&gt;This tutorial will show you how to:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prepare PodSpecs&lt;/li&gt;
-&lt;li&gt;Deploy your Vehicle App to local K3D&lt;/li&gt;
+&lt;li&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to local K3D&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Completed the tutorial &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;How to create a vehicle app&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;use-the-sample-podspecs&#34;&gt;Use the sample PodSpecs&lt;/h2&gt;
-&lt;p&gt;If the Vehicle App has been created from one of our template repositories, a sample PodSpec is already available inside our maintained &lt;code&gt;runtime-k3d&lt;/code&gt; of the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt; package at &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./runtime-k3d/src/app_deployment/config/podspec/&lt;/code&gt;&lt;/a&gt; and can be used as it is without any modification. Another example can also be found in the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation of Leda&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If the &lt;em&gt;Vehicle App&lt;/em&gt; has been created from one of our template repositories, a sample PodSpec is already available inside our maintained &lt;code&gt;runtime-k3d&lt;/code&gt; of the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt; package at &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./runtime-k3d/src/app_deployment/config/podspec/&lt;/code&gt;&lt;/a&gt; and can be used as it is without any modification. Another example can also be found in the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation of Leda&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;content&#34;&gt;Content&lt;/h3&gt;
 &lt;p&gt;Looking at the content of the sample-podspec, it is starting with some general information about the app and the dapr configuration. You can define e.g. the app-port and the log-level. You could also add more labels to your app, which might help to identify the app for later usages.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;v1&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -249,7 +249,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If your registry is not public, you might to add secrets to your Kubernets config, see the &lt;a href=&#34;https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;official documentation&lt;/a&gt; for details. Afterwards you have to add the secrets also to the PodSpec:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;imagePullSecrets&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;regcred&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-vehicle-app-to-local-k3d&#34;&gt;Deploy your Vehicle App to local K3D&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-_vehicle-app_-to-local-k3d&#34;&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to local K3D&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites-1&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
@@ -287,7 +287,7 @@
         &lt;p&gt;This tutorial will show you how to:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prepare a Helm chart&lt;/li&gt;
-&lt;li&gt;Deploy your Vehicle App to local K3D&lt;/li&gt;
+&lt;li&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to local K3D&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
@@ -295,7 +295,7 @@
 &lt;li&gt;Completed the tutorial &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;How to create a vehicle app&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;use-the-sample-helm-chart&#34;&gt;Use the sample Helm chart&lt;/h2&gt;
-&lt;p&gt;If the Vehicle App has been created from one of our template repositories, a sample Helm chart is already available inside our maintained &lt;code&gt;runtime-k3d&lt;/code&gt; of the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt; package at &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./runtime-k3d/src/app_deployment/config/helm/&lt;/code&gt;&lt;/a&gt; and can be used as it is without any modification.
+&lt;p&gt;If the &lt;em&gt;Vehicle App&lt;/em&gt; has been created from one of our template repositories, a sample Helm chart is already available inside our maintained &lt;code&gt;runtime-k3d&lt;/code&gt; of the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt; package at &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./runtime-k3d/src/app_deployment/config/helm/&lt;/code&gt;&lt;/a&gt; and can be used as it is without any modification.
 This sample chart is using the values from &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/values.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./runtime-k3d/src/app_deployment/config/helm/values.yaml&lt;/code&gt;&lt;/a&gt; file.&lt;/p&gt;
 
 
@@ -312,7 +312,7 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
 &lt;p&gt;If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called &lt;code&gt;my_vehicle_app&lt;/code&gt; for this walkthrough.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Start Visual Studio Code and open the previously created Vehicle App repository.&lt;/p&gt;
+&lt;p&gt;Start Visual Studio Code and open the previously created &lt;em&gt;Vehicle App&lt;/em&gt; repository.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Create a new folder &lt;code&gt;my_vehicle_app&lt;/code&gt; under &lt;code&gt;deploy&lt;/code&gt;&lt;/p&gt;
@@ -404,7 +404,7 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│────────── .helmignore
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│────────── Chart.yaml
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└────────── values.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-vehicle-app-to-local-k3d&#34;&gt;Deploy your Vehicle App to local K3D&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-_vehicle-app_-to-local-k3d&#34;&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to local K3D&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites-1&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;

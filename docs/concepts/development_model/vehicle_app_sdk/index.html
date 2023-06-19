@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9da06469cdfcb547f44c1b5b0af327c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -117,7 +117,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9da06469cdfcb547f44c1b5b0af327c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -415,7 +415,7 @@
         <li><a href="#subscribe-to-mqtt-topics">Subscribe to MQTT Topics</a></li>
       </ul>
     </li>
-    <li><a href="#vehicle-app-abstraction">Vehicle App abstraction</a></li>
+    <li><a href="#_vehicle-app_-abstraction"><em>Vehicle App</em> abstraction</a></li>
     <li><a href="#further-information">Further information</a></li>
   </ul>
 </nav>
@@ -507,7 +507,7 @@
 <p><strong><a href="#publish--subscribe-messaging">Publish &amp; subscribe messaging</a>:</strong> The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.</p>
 </li>
 <li>
-<p><strong><a href="#vehicle-app-abstraction">Vehicle App abstraction</a>:</strong> Last but not least the SDK provides a Vehicle App base class, which every Vehicle App derives from.</p>
+<p><strong><a href="#vehicle-app-abstraction">Vehicle App abstraction</a>:</strong> Last but not least the SDK provides a <em>Vehicle App</em> base class, which every <em>Vehicle App</em> derives from.</p>
 </li>
 </ul>
 <p>An overview of the Vehicle App SDK and its dependencies is depicted in the following diagram:</p>
@@ -1118,7 +1118,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
     </div>
 </div>
 
-<h2 id="vehicle-app-abstraction">Vehicle App abstraction</h2>
+<h2 id="_vehicle-app_-abstraction"><em>Vehicle App</em> abstraction</h2>
 <p><code>Vehicle Apps</code> are inherited from the <code>VehicleApp</code> base class. This enables the <code>Vehicle App</code> to use the Publish &amp; Subscribe messaging and to connect to the KUKSA Data Broker.</p>
 <p>The <code>Vehicle Model</code> instance is passed to the constructor of the <code>VehicleApp</code> class and should be stored in a member variable (e.g. <code>self.vehicle</code> for Python, <code>std::shared_ptr&lt;Vehicle&gt; m_vehicle;</code> for C++), to be used by all methods within the application.</p>
 <p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <code>Vehicle App</code> and register all MQTT topic and Data Broker subscriptions.</p>
@@ -1219,7 +1219,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/ce6399f854a2813925f43f978772379029595fd2">fix review findings (ce6399f)</a>
+  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/191ce3560b8f34f086914dde4f0f276599bc1e28">make vehicle app cursive (191ce35)</a>
 </div>
 
 </div>

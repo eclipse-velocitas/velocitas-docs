@@ -35,7 +35,7 @@
 &lt;/div&gt;
 
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;p&gt;Please make sure you did all the prerequisite steps to create comprehensive Development Environment for your &lt;em&gt;Vehicle App&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;Please make sure you did all the prerequisite steps to create comprehensive Development Environment for your  &lt;em&gt;Vehicle App&lt;/em&gt; :&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Install &lt;a href=&#34;https://code.visualstudio.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VS Code&lt;/a&gt;&lt;/p&gt;
@@ -49,7 +49,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;how-to-create-your-_vehicle-app_-repository&#34;&gt;How to create your &lt;em&gt;Vehicle App&lt;/em&gt; Repository?&lt;/h2&gt;
-&lt;p&gt;For the Organization and Vehicle App repository the name &lt;em&gt;MyOrg/MyFirstVehicleApp&lt;/em&gt; is used as a reference during the rest of the document.&lt;/p&gt;
+&lt;p&gt;For the Organization and &lt;em&gt;Vehicle App&lt;/em&gt; repository the name &lt;em&gt;MyOrg/MyFirstVehicleApp&lt;/em&gt; is used as a reference during the rest of the document.&lt;/p&gt;
 &lt;p&gt;You can create your own repository using a provided template or start prototyping via Digital.Auto.&lt;/p&gt;
 
    
@@ -155,6 +155,7 @@ You can either try it out directly in the browser or also use it inside VS Code.
     &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;p&gt;You can find more information about the &lt;em&gt;Vehicle App&lt;/em&gt; Development in the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;respective pages&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;how-to-start-the-runtime-services&#34;&gt;How to start the runtime services?&lt;/h2&gt;
 &lt;p&gt;The runtime services (like &lt;em&gt;KUKSA Data Broker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are required to develop vehicle apps and run integration tests.&lt;/p&gt;
 &lt;p&gt;Currently supported possibilities are starting the services locally and in a Kubernetes (K3D) cluster.&lt;/p&gt;
@@ -239,7 +240,7 @@ Both given examples are available as part of template.
 
 &lt;/div&gt;
 
-&lt;p&gt;Now that the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/run_runtime_services_locally&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Now that the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/run_runtime_services_locally&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the  &lt;em&gt;Vehicle App&lt;/em&gt; .&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -266,7 +267,7 @@ Both given examples are available as part of template.
 &lt;li&gt;Open the main source file  &lt;code&gt;/app/src/main.py&lt;/code&gt; and set a breakpoint in the given method &lt;code&gt;on_get_speed_request_received&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the &lt;em&gt;Vehicle App&lt;/em&gt; and see the log output on the &lt;code&gt;DEBUG CONSOLE&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.&lt;/p&gt;
+&lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the &lt;em&gt;Vehicle App&lt;/em&gt; using the mqtt broker that is running in the background.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in VS Code and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;sampleapp/getSpeed/response&lt;/code&gt; and click subscribe&lt;/li&gt;
@@ -281,7 +282,7 @@ Both given examples are available as part of template.
 &lt;li&gt;Open the main source file &lt;code&gt;/app/src/VehicleApp.cpp&lt;/code&gt; and set a breakpoint in the given method &lt;code&gt;onSetPositionRequestReceived&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the &lt;em&gt;Vehicle App&lt;/em&gt; and see the log output on the &lt;code&gt;DEBUG CONSOLE&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.&lt;/p&gt;
+&lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the &lt;em&gt;Vehicle App&lt;/em&gt; using the mqtt broker that is running in the background.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in VS Code and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/setPosition/response&lt;/code&gt; and click subscribe&lt;/li&gt;
@@ -293,7 +294,7 @@ Both given examples are available as part of template.
     &lt;/div&gt;
 &lt;/div&gt;
 
-Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (&lt;kbd&gt;F5&lt;/kbd&gt;), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.&lt;/p&gt;
+Now your breakpoint in the &lt;em&gt;Vehicle App&lt;/em&gt; gets hit and you can inspect everything in your debug session. After resuming execution (&lt;kbd&gt;F5&lt;/kbd&gt;), a response from your &lt;em&gt;Vehicle App&lt;/em&gt; is published to the response topic. You can see the response in the MQTT window.&lt;/p&gt;
 &lt;h2 id=&#34;how-to-trigger-the-ci-workflow&#34;&gt;How to trigger the CI Workflow?&lt;/h2&gt;
 &lt;p&gt;The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests and collect the test results.&lt;/p&gt;
 &lt;p&gt;The CI Workflow will be triggered by pushing a change to the main branch of your repository:&lt;/p&gt;
@@ -323,9 +324,9 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The provided release workflow will be triggered by the release. It creates a release documentation and publishes the container image of the Vehicle App to the GitHub container registry. A detailed description of the workflow can be found &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The provided release workflow will be triggered by the release. It creates a release documentation and publishes the container image of the &lt;em&gt;Vehicle App&lt;/em&gt; to the GitHub container registry. A detailed description of the workflow can be found &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;how-to-deploy-your-_vehicle-app_&#34;&gt;How to deploy your &lt;em&gt;Vehicle App&lt;/em&gt;?&lt;/h2&gt;
-&lt;p&gt;After releasing the Vehicle App to the GitHub container registry you might ask how to bring the Vehicle App and the required Runtime Stack on the device. Here &lt;em&gt;Eclipse Leda&lt;/em&gt; comes into the game.&lt;/p&gt;
+&lt;p&gt;After releasing the &lt;em&gt;Vehicle App&lt;/em&gt; to the GitHub container registry you might ask how to bring the &lt;em&gt;Vehicle App&lt;/em&gt; and the required Runtime Stack on the device. Here &lt;em&gt;Eclipse Leda&lt;/em&gt; comes into the game.&lt;/p&gt;
 &lt;p&gt;Please checkout the documentation of &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse Leda&lt;/a&gt; to get more information.&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;

@@ -51,19 +51,19 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;h2 id=&#34;build-multi-arch-image-workflow-build-multiarch-imageyml&#34;&gt;Build multi-arch image Workflow (build-multiarch-image.yml)&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;Build multi-arch image workflow&lt;/code&gt; is triggered on every commit to the main branch and contains a set of actions to achieve the following objectives:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Building a multi-arch container for the app&lt;/strong&gt; - actions create a containerized version of the Vehicle App for multiple architectures (currently AMD64 and ARM64).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Building a multi-arch container for the app&lt;/strong&gt; - actions create a containerized version of the &lt;em&gt;Vehicle App&lt;/em&gt; for multiple architectures (currently AMD64 and ARM64).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Scanning for vulnerabilities&lt;/strong&gt; - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &amp;ldquo;failed&amp;rdquo;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Storing container images to GitHub action artifacts&lt;/strong&gt; - at the end of the workflow, the container image created is stored in a Github Action Artifacts so that it can be referenced by the Release Workflow later.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Generate Deployment Files&lt;/strong&gt; - actions generate a PodSpec-file and HelmCharts to ease the deployment of the Vehicle App and the runtime services.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Generate Deployment Files&lt;/strong&gt; - actions generate a PodSpec-file and HelmCharts to ease the deployment of the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime services.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;release-workflow-releaseyml&#34;&gt;Release Workflow (release.yml)&lt;/h2&gt;
-&lt;p&gt;The &lt;code&gt;Release workflow&lt;/code&gt; is triggered as soon as the &lt;code&gt;main&lt;/code&gt; branch is ready for release and the Vehicle App developer creates a new GitHub release. This can be done manually through the GitHub UI.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;Release workflow&lt;/code&gt; is triggered as soon as the &lt;code&gt;main&lt;/code&gt; branch is ready for release and the &lt;em&gt;Vehicle App&lt;/em&gt; developer creates a new GitHub release. This can be done manually through the GitHub UI.&lt;/p&gt;
 &lt;p&gt;On creating a new release with a specific new version, GitHub creates a tag and automatically runs the &lt;code&gt;Release workflow&lt;/code&gt; defined in .github/workflows/release.yml, given that &lt;code&gt;CI workflow&lt;/code&gt; has run successfully for the current commit on the main branch.&lt;/p&gt;
 &lt;p&gt;The set of actions included in the &lt;code&gt;Release workflow&lt;/code&gt; cover the objective:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Generating and publishing QA information&lt;/strong&gt; - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Publish as GitHub pages&lt;/strong&gt; - all information from the release together with the project documentation is built as a static page using hugo. The result is pushed to a separate branch and can be published as a GitHub page in your repository.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Pull &amp;amp; label container image&lt;/strong&gt; - actions pull the Vehicle App container image based on the current commit hash from the GitHub artifacts and label it with the specified tag version. If the image cannot be found, the workflow will fail.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pull &amp;amp; label container image&lt;/strong&gt; - actions pull the &lt;em&gt;Vehicle App&lt;/em&gt; container image based on the current commit hash from the GitHub artifacts and label it with the specified tag version. If the image cannot be found, the workflow will fail.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Push container image to ghcr.io&lt;/strong&gt; - finally the labeled container image is pushed to the &lt;a href=&#34;ghcr.io&#34;&gt;GitHub container registry&lt;/a&gt; and can be used as a deployment source.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;github-actions-artifacts&#34;&gt;GitHub Actions artifacts&lt;/h2&gt;
@@ -75,15 +75,15 @@ Since the registry does not have an automatic cleanup, it keeps container images
 &lt;h2 id=&#34;versioning&#34;&gt;Versioning&lt;/h2&gt;
 &lt;p&gt;Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of &lt;a href=&#34;https://semver.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;semantic versions&lt;/a&gt; is recommended.&lt;/p&gt;
 &lt;p&gt;If the tag name contains a semantic version, the leading &lt;code&gt;v&lt;/code&gt; will be trimmed.
-&lt;strong&gt;Example:&lt;/strong&gt; A tag name of &lt;code&gt;v1.0.0&lt;/code&gt; will lead to version &lt;code&gt;1.0.0&lt;/code&gt; of the Vehicle App container.&lt;/p&gt;
+&lt;strong&gt;Example:&lt;/strong&gt; A tag name of &lt;code&gt;v1.0.0&lt;/code&gt; will lead to version &lt;code&gt;1.0.0&lt;/code&gt; of the &lt;em&gt;Vehicle App&lt;/em&gt; container.&lt;/p&gt;
 &lt;h3 id=&#34;maintaining-multiple-versions&#34;&gt;Maintaining multiple versions&lt;/h3&gt;
 &lt;p&gt;If there is a need to maintain multiple versions of a Vehicle App, e.g., to hotfix the production version while working on a new version at the same time or to support multiple versions in production, create and use &lt;code&gt;release branches&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;The release process would be the same as described in the overview, except that a release branch (e.g., &lt;code&gt;release/v1.0&lt;/code&gt;) is created before the release step and the GitHub release is based on the &lt;code&gt;release&lt;/code&gt; branch rather than the &lt;code&gt;main&lt;/code&gt; branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.&lt;/p&gt;
 &lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/integration_tests&#34;&gt;How to write integration tests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm&#34;&gt;Deploy a Vehicle App with Helm&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_podspecs&#34;&gt;Deploy a Vehicle App with PodSpecs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm&#34;&gt;Deploy a &lt;em&gt;Vehicle App&lt;/em&gt; with Helm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_podspecs&#34;&gt;Deploy a &lt;em&gt;Vehicle App&lt;/em&gt; with PodSpecs&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>
