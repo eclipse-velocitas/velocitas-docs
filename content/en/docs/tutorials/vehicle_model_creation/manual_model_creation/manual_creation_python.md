@@ -191,7 +191,7 @@ In this section, we add a _Vehicle Service_ to the _Vehicle Model_.
 1. Create a new folder `proto` under `my_vehicle_model/my_vehicle_model`.
 2. Copy your proto file under `my_vehicle_model/my_vehicle_model/proto`
 
-   As example you could use the protocol buffers message definition [seats.proto](https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto) provided by the KUKSA VAL services which describes a [seat control service](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service).
+   As example you could use the protocol buffers message definition [seats.proto](https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto) provided by the KUKSA.VAL services which describes a [seat control service](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service).
 
 3. Install the grpcio tools including mypy types to generate the python classes out of the proto-file:
 
@@ -205,7 +205,7 @@ In this section, we add a _Vehicle Service_ to the _Vehicle Model_.
    python3 -m grpc_tools.protoc -I my_vehicle_model/proto --grpc_python_out=./my_vehicle_model/proto --python_out=./my_vehicle_model/proto --mypy_out=./my_vehicle_model/proto my_vehicle_model/proto/seats.proto
    ```
 
-   This creates the following grpc files under the `proto` folder:
+   This creates the following gRPC files under the `proto` folder:
 
    - seats_pb2.py
    - seats_pb2_grpc.py
@@ -266,5 +266,5 @@ In this section, we add a _Vehicle Service_ to the _Vehicle Model_.
    shown above:
 
    - The `SeatService` class must derive from the `Service` class provided by the Python SDK.
-   - The `SeatService` class must use the grpc channel from the `Service` base class and provide it to the `_stub` in the `__init__` method. This allows the SDK to manage the physical connection to the grpc service and use service discovery of the middleware.
+   - The `SeatService` class must use the gRPC channel from the `Service` base class and provide it to the `_stub` in the `__init__` method. This allows the SDK to manage the physical connection to the gRPC service and use service discovery of the middleware.
    - Every method needs to pass the metadata from the `Service` base class to the gRPC call. This is done by passing the `self.metadata` argument to the metadata of the gRPC call.

@@ -35,7 +35,7 @@ Eclipse _Velocitas™_ is an open source project providing an end-to-end, scalab
 - **Project lifecycle management** to update _Vehicle App_ repositories via CLI.
 - **Vehicle abstraction support** helps to focus on business logic by using a generated vehicle model _on code level_ with type safety and auto-completion. The vehicle model is generated from a standardized API that hides the details of vehicle-specific signals and E/E architecture, allowing _Vehicle Apps_ to be portable across different electronics and software architectures.
 - Microsoft **Visual Studio Code integration** with DevContainer helps to install everything required to start the local development immediately, while tasks and launch configurations help to launch runtime services, other apps, and tests.
-- **_Vehicle App_ skeleton and examples** helps to understand easily how to write a _Vehicle Apps_ using the KUKSA VAL runtime services.
+- **_Vehicle App_ skeleton and examples** helps to understand easily how to write a _Vehicle App_ using the KUKSA.VAL runtime services.
 - Ready-to-use **CI/CD workflows** that build (for multi architectures), test, document and deploy a containerized _Vehicle App_ with no dependencies to E/E architecture help saving setup time.
 
 ## Language Support
