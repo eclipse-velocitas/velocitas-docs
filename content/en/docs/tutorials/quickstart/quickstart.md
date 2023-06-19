@@ -34,7 +34,7 @@ Please make sure you did all the prerequisite steps to create comprehensive Deve
 
 For the Organization and _Vehicle App_ repository the name _MyOrg/MyFirstVehicleApp_ is used as a reference during the rest of the document.
 
-You can create your own repository using a provided template or start prototyping via Digital.Auto.
+You can create your own repository using a provided template or start prototyping via digital.auto.
 
 {{< tabpane text=true >}}
    {{% tab header="Using Template" %}}
@@ -47,8 +47,8 @@ Create your own repository copy from the template repository of your choice:
 by clicking the green button <kbd>Use this template</kbd>. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
 
    {{% /tab %}}
-   {{% tab header="Digital.Auto" %}}
-   To learn how to start prototyping with the playground of Digital.Auto and integrate it into Velocitas please take a look [here](/docs/tutorials/prototyping/digital_auto.md)
+   {{% tab header="digital.auto" %}}
+   To learn how to start prototyping with the playground of digital.auto and integrate it into Velocitas please take a look [here](/docs/tutorials/prototyping/digital_auto.md)
    {{% /tab %}}
 {{< /tabpane >}}
 

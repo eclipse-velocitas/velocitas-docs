@@ -50,7 +50,7 @@ Eclipse _Velocitas™_ is an open source project providing an end-to-end, scalab
 | CI/CD workflows                    | +      | +   |
 | Unit test support                  | +      | +   |
 | Integration test support           | +      |     |
-| Digital.Auto integration           | +      |     |
+| digital.auto integration           | +      |     |
 {{</table>}}
 
 ## Concepts
