@@ -8,12 +8,12 @@ description: >
   Learn more about the provided continuous integration, and release process of a Vehicle App.
 ---
 
-The Velocitas project provides a two-stage process for development, continuous integration, and release of a new version of a Vehicle App.
+The _Velocitas_ project provides a two-stage process for development, continuous integration, and release of a new version of a Vehicle App.
 
 - **Stage 1 - Build & Test**
   On every new push to the `main` branch or every update to a pull request, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts for future reference with a [default retention period of 90 days](https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization).
 
-  The workflow provides quick feedback during development and improves efficient collaboration.
+  The workflow provides a quick feedback during development and improves efficient collaboration.
 
 - **Stage 2 - Release**
   Once the application is ready to be released in a new version, a dedicated release workflow is automatically executed as soon as you create a new release via GitHub.
@@ -24,11 +24,11 @@ The drawing below illustrates the different workflows, actions and artifacts tha
 
 ![Workflows](./publish_container.png)
 
-## CI Workflow (ci.yml)
+## CI Workflow ([ci.yml](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml))
 
 The `Continuous Integration (CI) workflow` is triggered on every commit to the main branch or when creating/updating a pull request and contains a set of actions to achieve the following objectives:
 
-- **Building a container for the app** - actions create a containerized version of the Vehicle App.
+- **Building a container for the _Vehicle App_** - actions create a containerized version of the _Vehicle App_.
 - **Scanning for vulnerabilities** - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as "failed".
 - **Running integration tests** - actions provision a runtime instance and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marked as "failed".
 - **Running unit tests & code coverage** - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as "failed".
@@ -36,7 +36,7 @@ The `Continuous Integration (CI) workflow` is triggered on every commit to the m
 
 Check out the example GitHub workflows in our [repositories for python](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)
 
-## Build multi-arch image Workflow (build-multiarch-image.yml)
+## Build multi-arch image Workflow ([build-multiarch-image.yml](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/build-multiarch-image.yml))
 
 The `Build multi-arch image workflow` is triggered on every commit to the main branch and contains a set of actions to achieve the following objectives:
 
@@ -45,11 +45,11 @@ The `Build multi-arch image workflow` is triggered on every commit to the main b
 - **Storing container images to GitHub action artifacts** - at the end of the workflow, the container image created is stored in a Github Action Artifacts so that it can be referenced by the Release Workflow later.
 - **Generate Deployment Files** - actions generate a PodSpec-file and HelmCharts to ease the deployment of the _Vehicle App_ and the runtime services.
 
-## Release Workflow (release.yml)
+## Release Workflow ([release.yml](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/release.yml))
 
 The `Release workflow` is triggered as soon as the `main` branch is ready for release and the _Vehicle App_ developer creates a new GitHub release. This can be done manually through the GitHub UI.
 
-On creating a new release with a specific new version, GitHub creates a tag and automatically runs the `Release workflow` defined in .github/workflows/release.yml, given that `CI workflow` has run successfully for the current commit on the main branch.
+On creating a new release with a specific new version, GitHub creates a tag and automatically runs the `Release workflow` defined in `.github/workflows/release.yml`, given that `CI workflow` has run successfully for the current commit on the main branch.
 
 The set of actions included in the `Release workflow` cover the objective:
 
