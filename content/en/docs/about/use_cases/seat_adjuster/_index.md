@@ -26,12 +26,12 @@ The _Seat Adjuster Vehicle App_ receives a MQTT message containing the seat posi
    {"requestId": 42, "position": 300}
    ```
 
-2. The **Seat Adjuster Vehicle App** that has subscribed to this topic, receives the request to change the seat position as a MQTT message.
-3. The **Seat Adjuster Vehicle App** gets the current vehicle speed from the data broker, which is fed by the **CAN Feeder (KUKSA DBC Feeder)**.
-4. With the support of the **Vehicle App SDK**, the **Seat Adjuster Vehicle App** triggers a seat adjustment command of the **Seat Service** via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.
+2. The **Seat Adjuster _Vehicle App_** that has subscribed to this topic, receives the request to change the seat position as a MQTT message.
+3. The **Seat Adjuster _Vehicle App_** gets the current vehicle speed from the data broker, which is fed by the **CAN Feeder (KUKSA DBC Feeder)**.
+4. With the support of the **_Vehicle App_ SDK**, the **Seat Adjuster _Vehicle App_** triggers a seat adjustment command of the **Seat Service** via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.
 5. The **Seat Service** moves the seat to the new position via CAN messages.
-6. The **Seat Service** returns OK or an error code as grpc status to the **Seat Adjuster Vehicle App**.
-7. If everything went well, the **Seat Adjuster Vehicle App** returns a success message for the topic `seatadjuster/setPosition/response` with the payload:
+6. The **Seat Service** returns OK or an error code as grpc status to the **Seat Adjuster _Vehicle App_**.
+7. If everything went well, the **Seat Adjuster _Vehicle App_** returns a success message for the topic `seatadjuster/setPosition/response` with the payload:
 
    ```json
    {"requestId": 42, "status": 0 }
@@ -51,8 +51,8 @@ The _Seat Adjuster Vehicle App_ receives a MQTT message containing the seat posi
 
 1. If the seat position will be changed by the driver, the new seat position will be sent to the **Seat Service** via CAN.
 2. The **Seat Service** streams the seat position via gRPC to the **KUKSA Data Broker** since it was registered beforehand.
-3. The **Seat Adjuster Vehicle App** that subscribed to the seat position receives the new seat position from the **KUKSA Data Broker** as a result.
-4. The **Seat Adjuster Vehicle App** publishes this on topic `seatadjuster/currentPosition` with the payload:
+3. The **Seat Adjuster _Vehicle App_** that subscribed to the seat position receives the new seat position from the **KUKSA Data Broker** as a result.
+4. The **Seat Adjuster _Vehicle App_** publishes this on topic `seatadjuster/currentPosition` with the payload:
 
     ```json
     {"position": 350}
@@ -62,5 +62,5 @@ The _Seat Adjuster Vehicle App_ receives a MQTT message containing the seat posi
 
 ## Example Code
 
-You can find an example implementation of a Seat Adjuster vehicle application here:
+You can find an example implementation of a Seat Adjuster _Vehicle App_ here:
 [Seat Adjuster](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster)
