@@ -10,9 +10,15 @@ aliases:
   - /docs/setup_and_explore_development_environment.md
 ---
 
-The following page describes how to set up and configure the [Development Container (DevContainer)](https://code.visualstudio.com/docs/remote/containers) and how to build, customize and test the sample _Vehicle App_ included in this repository. You will learn how to use the _Vehicle App_ SDK, interact with the vehicle API and work with CI/CD using the pre-configured GitHub Workflows that come with the template repository.
+This page describes
 
-Once you have completed all steps, you will have a solid understanding of the Development Workflow, and you will be able to reuse the [Template Repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) for your own _Vehicle App_ development project.
+- how to create a GitHub repository for your _Vehicle App_ development,
+- how to set up and configure the [DevContainer-based development environment](https://code.visualstudio.com/docs/remote/containers), and
+- how to build, customize and test the sample _Vehicle App_ included in your freshly created _Vehicle App_ repository.
+
+You will learn how to use the _Vehicle App_ SDK, interact with the Vehicle API and work with CI/CD using the pre-configured GitHub Workflows that come with the template repository.
+
+Once you have completed all steps, you will have a solid understanding of the development workflow, and you will be able to use one of our template repositories as a starting point for your own _Vehicle App_ development project.
 
 {{% alert title="Note" %}}
 Before you start, we recommend familiarizing yourself with our [Basic Concept](/docs/concepts/development_model) to understand all mentioned terms.
@@ -20,21 +26,21 @@ Before you start, we recommend familiarizing yourself with our [Basic Concept](/
 
 ## Prerequisites
 
-Please make sure you did all the prerequisite steps to create comprehensive Development Environment for your  _Vehicle App_ :
+Please make sure you did all the prerequisite steps to create comprehensive development environment for your _Vehicle App_:
 
 - Install [VS Code](https://code.visualstudio.com)
 - [Install a working container runtime](/docs/tutorials/quickstart/container_runtime)
-- Add [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension via the marketplace or using the command line
+- Add the [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension to VS Code via the marketplace or using the command line:
 
    ```bash
    code --install-extension ms-vscode-remote.remote-containers
    ```
 
-## How to create your _Vehicle App_ Repository?
+## How to create your _Vehicle App_ repository?
 
-For the Organization and _Vehicle App_ repository the name _MyOrg/MyFirstVehicleApp_ is used as a reference during the rest of the document.
+For your (GitHub) organization and _Vehicle App_ repository the name _MyOrg/MyFirstVehicleApp_ is used as a place holder during the rest of the document.
 
-You can create your own repository using a provided template or start prototyping via digital.auto.
+You can create your own repository using one of our provided templates or start prototyping via digital.auto.
 
 {{< tabpane text=true >}}
    {{% tab header="Using Template" %}}
@@ -54,12 +60,12 @@ by clicking the green button <kbd>Use this template</kbd>. You don't have to inc
 
 ## How to start to develop?
 
-In the following chapter you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using just VS Codes [DevContainer](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
+In this section you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using VS Code's [DevContainer](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
 
 {{< tabpane text=true >}}
 {{% tab header="VS Code" text=true %}}
 
-The VS Code DevContainer makes possible to package a complete _Vehicle App_ development environment, including VS Code extensions, [_Vehicle App_ SDK](/docs/concepts/development_model/vehicle_app_sdk/), [_Vehicle App_ Runtimes](/docs/tutorials/vehicle-app-runtime) and all other development and testing tools into a container which is started directly in VS Code.
+The VS Code DevContainer makes it possible to package a complete _Vehicle App_ development environment, including VS Code extensions, [_Vehicle App_ SDK](/docs/concepts/development_model/vehicle_app_sdk/), [_Vehicle App_ Runtimes](/docs/tutorials/vehicle-app-runtime) and all other development and testing tools into a container which is started directly in VS Code.
 
 {{% pageinfo color="primary" %}}
 ***Proxy Configuration***
@@ -67,9 +73,9 @@ The VS Code DevContainer makes possible to package a complete _Vehicle App_ deve
 A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: [Working behind a proxy](/docs/tutorials/quickstart/behind_proxy)
 {{% /pageinfo %}}
 
-With following steps you will clone and set up your development environment on your own machine using just VS Code.
+With following steps you will clone and set up your development environment on your own machine using VS Code.
 
-1. Clone created _MyOrg/MyFirstVehicleApp_ repository locally using your favorite Git Tool
+1. Clone created _MyOrg/MyFirstVehicleApp_ repository locally using your favorite Git tool
 1. Switch the directory to the cloned repository folder, e.g. ```$ cd MyFirstVehicleApp```
 1. Open the repository in VS Code via ```$ code .``` or via [VS Code user interface](https://code.visualstudio.com/docs/editor/workspaces#_singlefolder-workspaces).
 1. A popup appears in the lower right corner with the button <kbd>Reopen in Container</kbd>.
@@ -100,19 +106,19 @@ A new window will open where you can see logs for setting up the container. On t
 Once everything is set up in the _Codespace_, you can work with it in the same way as with the normal DevContainer inside VS Code.
 
 {{% pageinfo color="primary" %}}
-Be careful with using GitHub Codespaces in browser and VS Code locally at the same time: _Tasks_ that are started using a browser session will not show in VS Code environment and vice versa. This might lead to problems.
+Be careful with using GitHub Codespaces in a browser and VS Code locally at the same time: _Tasks_ that are started using a browser session will not show in VS Code environment and vice versa. This might lead to problems.
 {{% /pageinfo %}}
 
 {{% /tab %}}
 {{< /tabpane >}}
 
-You can find more information about the _Vehicle App_ Development in the [respective pages](/docs/tutorials/vehicle-app-development).
+You can find more information about the _Vehicle App_ development in the [respective pages](/docs/tutorials/vehicle-app-development).
 
 ## How to start the runtime services?
 
 The runtime services (like _KUKSA Data Broker_ or _Vehicle Services_) are required to develop _Vehicle Apps_ and run integration tests.
 
-Currently supported possibilities are starting the services locally and in a Kubernetes (K3D) cluster.
+Currently, the supported options to run these services is either locally or in a Kubernetes (K3D) cluster.
 
 {{< tabpane text=true >}}
    {{% tab header="Local Runtime" %}}
@@ -137,7 +143,7 @@ Hint: Log files can be found in your workspace's logs directory
 ```
 
 {{% pageinfo color="primary" %}}
-Simply press `Ctrl + C` to stop the runtime.
+To stop the runtime simply press `Ctrl + C`.
 {{% /pageinfo %}}
 
 {{% /tab %}}
@@ -181,7 +187,7 @@ Debugging functionality is only available when using the [Local Runtime](/docs/t
 Both given examples are available as part of template.
 {{% /alert %}}
 
-Now that the [runtime services](/docs/tutorials/run_runtime_services_locally) are all up and running, let's start a debug session for the  _Vehicle App_ .
+Now that the [runtime services](/docs/tutorials/run_runtime_services_locally) are all up and running, let's start a debug session for the _Vehicle App_.
 
 {{< tabpane text=true >}}
 {{% tab header="Python" %}}
@@ -233,7 +239,7 @@ To see the results open the `Actions` page of your repository on GitHub, go to `
 
 ## How to release your _Vehicle App_?
 
-Now that the `CI Workflow` was successful, you are ready to build your first release. The goal is to build a ready-to-deploy container image that is published in the GitHub container registry
+Now that the `CI Workflow` was successful, you are ready to build your first release. The goal is to build a ready-to-deploy container image that is published in the GitHub container registry.
 
 1. Open the `Code` page of your repository on GitHub
 1. Click on `Create a new release` in the Releases section on the right side
@@ -244,9 +250,9 @@ The provided release workflow will be triggered by the release. It creates a rel
 
 ## How to deploy your _Vehicle App_?
 
-After releasing the _Vehicle App_ to the GitHub container registry you might ask how to bring the _Vehicle App_ and the required Runtime Stack on the device. Here _Eclipse Leda_ comes into the game.
+After releasing the _Vehicle App_ to the GitHub container registry you might ask how to bring the _Vehicle App_ and the required runtime stack on a device. Here, _Eclipse Leda_ comes into the game.
 
-Please checkout the documentation of [Eclipse Leda](https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/) to get more information.
+Please read the documentation of [Eclipse Leda](https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/) to get more information.
 
 ## Next steps
 
