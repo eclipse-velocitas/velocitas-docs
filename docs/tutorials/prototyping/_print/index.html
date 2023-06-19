@@ -34,19 +34,15 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Prototyping Integration | Velocitas</title>
-<meta name="description" content="Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.
-">
+<meta name="description" content="The most popular HTML, CSS, and JS library in the world.">
 <meta property="og:title" content="Prototyping Integration" />
-<meta property="og:description" content="Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.
-" />
+<meta property="og:description" content="The most popular HTML, CSS, and JS library in the world." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/prototyping/" />
 <meta itemprop="name" content="Prototyping Integration">
-<meta itemprop="description" content="Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.
-"><meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="The most popular HTML, CSS, and JS library in the world."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Prototyping Integration"/>
-<meta name="twitter:description" content="Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.
-"/>
+<meta name="twitter:description" content="The most popular HTML, CSS, and JS library in the world."/>
 
 
 
@@ -91,7 +87,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.0e9e96095e62fcafa052c413446713c6.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9da06469cdfcb547f44c1b5b0af327c5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -122,7 +118,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Prototyping Integration</h1>
-<div class="lead">Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.</div>
+
 
 
 
@@ -138,7 +134,15 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-b739b86ab630d926fca95b542c42eb18">Service Integration</a></li>
+<li>1: <a href="#pg-b712a3038fb369f46d28f7d82034fabe">Prototyping with Digital.Auto</a></li>
+
+
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-b739b86ab630d926fca95b542c42eb18">Service Integration</a></li>
 
 
     
@@ -148,7 +152,30 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p>The open and web based <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> offers a rapid prototyping environment to explore and validate ideas of a vehicle app.
+      
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-b712a3038fb369f46d28f7d82034fabe">1 - Prototyping with Digital.Auto</h1>
+    <div class="lead">Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.</div>
+	<p>The open and web based <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> offers a rapid prototyping environment to explore and validate ideas of a vehicle app.
 </br>
 <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> interacts with different vehicle sensors and actuators via standardized APIs specified by the COVESA <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a> without custom setup requirements.
 </br>
@@ -222,7 +249,7 @@ By clicking on &ldquo;Create repository&rdquo;:</p>
 <li>the code is adapted to the structure in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a></li>
 <li>a new private repository under your specified GitHub User will be created.</li>
 </ul>
-<p>A succesful generation of the repository is followed by a pop-up dialogue with the URL of your repository.</p>
+<p>A successful generation of the repository is followed by a pop-up dialogue with the URL of your repository.</p>
 <p>Among other things the newly created repository will contain:</p>
 
 
@@ -275,17 +302,11 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 </ul>
 
 </div>
-</div>
 
 
-  
-  
-  
-  
 
-  
-  
-
+    
+	
   
     
     
@@ -294,7 +315,7 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-b739b86ab630d926fca95b542c42eb18">1 - Service Integration</h1>
+	<h1 id="pg-b739b86ab630d926fca95b542c42eb18">2 - Service Integration</h1>
     <div class="lead">Learn how to integrate a Vehicle Service that executes the request on vehicle side</div>
 	<p>Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your <em>Vehicle App</em> makes use of e.g. <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code>, <code>Vehicle.Body.Lights.IsBackupOn</code>, <code>Vehicle.Body.Lights.IsHighBeamOn</code>, <code>Vehicle.Body.Lights.IsLowBeamOn</code> you are in for some real action. To learn more, visit <a href="/velocitas-docs/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>.</p>
 <p>You can validate the interaction of the service with your <em>Vehicle App</em> by making use of a <em>Vehicle Service</em>.</p>

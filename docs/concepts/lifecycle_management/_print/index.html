@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.0e9e96095e62fcafa052c413446713c6.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9da06469cdfcb547f44c1b5b0af327c5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -337,6 +337,14 @@ This is the multi-page printable view of this section.
 <tr>
 <td style="text-align:left"><a href="https://github.com/eclipse-velocitas/devenv-github-templates" target="_blank" rel="noopener">devenv-github-templates</a></td>
 <td style="text-align:left">Containing github templates used by velocitas repositories</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/eclipse-velocitas/devenv-runtime-local" target="_blank" rel="noopener">devenv-runtime-local</a></td>
+<td style="text-align:left">Central configuration for local runtime execution (deprecated)</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/eclipse-velocitas/devenv-runtime-k3d" target="_blank" rel="noopener">devenv-runtime-k3d</a></td>
+<td style="text-align:left">Central configuration for k3d runtime execution (deprecated)</td>
 </tr>
 </tbody>
 </table>
@@ -711,8 +719,8 @@ Set environment variable via system settings GITHUB_API_TOKEN=&lt;your_api_token
     </div>
 </div>
 
-<p>After you have set the ENV consider to restart VSCode.</p>
-<p>It is important that VSCode has access to this ENV during the <code>postCreateCommand</code> inside the devcontainer.
+<p>After you have set the ENV consider to restart VS Code.</p>
+<p>It is important that VS Code has access to this ENV during the <code>postCreateCommand</code> inside the devcontainer.
 If you experienced this error and the devcontainer still has started correctly please run either:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ ./.devcontainer/scripts/postCreateCommand.sh
 </span></span></code></pre></div><p>or</p>

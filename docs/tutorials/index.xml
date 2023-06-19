@@ -23,333 +23,7 @@
       <description>
         
         
-        &lt;p&gt;The following page describes how to set up and configure the &lt;a href=&#34;https://code.visualstudio.com/docs/remote/containers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Development Container (DevContainer)&lt;/a&gt; and how to build, customize and test the sample &lt;em&gt;Vehicle App&lt;/em&gt; included in this repository. You will learn how to use the Vehicle App SDK, interact with the vehicle API and work with CI/CD using the pre-configured GitHub Workflows that come with the template repository.&lt;/p&gt;
-&lt;p&gt;Once you have completed all steps, you will have a solid understanding of the Development Workflow, and you will be able to reuse the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Template Repository&lt;/a&gt; for your own &lt;em&gt;Vehicle App&lt;/em&gt; develpment project.&lt;/p&gt;
-
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
-
-    Before you start, we recommend you familiarize yourself with our &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model&#34;&gt;Basic Concept&lt;/a&gt; to understand mentioned terms.
-
-&lt;/div&gt;
-
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;p&gt;Following is required to create comprehensive Development Envrironment for your &lt;em&gt;Vehcile App&lt;/em&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Install &lt;a href=&#34;https://code.visualstudio.com&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSCode&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart/container_runtime&#34;&gt;Install a working container runtime&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Add &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Remote-Containers&lt;/a&gt; extension via the marketplace or using the command line&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;code --install-extension ms-vscode-remote.remote-containers
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;how-to-create-_vehicle-app_-repository&#34;&gt;How to create &lt;em&gt;Vehicle App&lt;/em&gt; Repository?&lt;/h2&gt;
-&lt;p&gt;For the Orginization and Vehicle App repository the name &lt;em&gt;MyOrg/MyFirstVehicleApp&lt;/em&gt; is used as a reference during the rest of the document.&lt;/p&gt;
-&lt;p&gt;You can create your own repository using template directly or starting from prototyping via Digital.Auto.&lt;/p&gt;
-
-   
-   
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-1&#34; role=&#34;tablist&#34;&gt;
-  &lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link active&#34;
-          id=&#34;tabs-01-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-00&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-01-00&#34; aria-selected=&#34;false&#34;&gt;
-        Using Template
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link&#34;
-          id=&#34;tabs-01-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-01-01&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-01-01&#34; aria-selected=&#34;false&#34;&gt;
-        Digital.Auto
-      &lt;/a&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;
-    &lt;div class=&#34;tab-body tab-pane fade show active&#34;
-        id=&#34;tabs-01-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-00-tab&#34;&gt;
-        &lt;p&gt;Create your own repository copy from the template repository of your choice &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python&lt;/a&gt;/&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-cpp-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;C++&lt;/a&gt; by clicking the green button &lt;kbd&gt;Use this template&lt;/kbd&gt;. You don&amp;rsquo;t have to include all branches. For more information on Template Repositories take a look at this &lt;a href=&#34;https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Tutorial&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;/div&gt;
-    &lt;div class=&#34;tab-body tab-pane fade&#34;
-        id=&#34;tabs-01-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-01-01-tab&#34;&gt;
-        &lt;p&gt;To learn how to start a prototype with the playground of Digital.Auto and integrate it into Velocitas please follow the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/prototyping&#34;&gt;link&lt;/a&gt;&lt;/p&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;how-to-start-to-develop&#34;&gt;How to start to develop?&lt;/h2&gt;
-&lt;p&gt;In the following chapter you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using just VSCode&amp;rsquo;s &lt;a href=&#34;https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DevContainer&lt;/a&gt; or you can set up the environment on a remote agent, using &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Prerequisites&lt;/strong&gt;: Your &lt;em&gt;Vehicle App&lt;/em&gt; reposiroty based on template is &lt;a href=&#34;#how-to-create-vehicle-app-repository&#34;&gt;created&lt;/a&gt;.&lt;/p&gt;
-
-
-
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-2&#34; role=&#34;tablist&#34;&gt;
-  &lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link active&#34;
-          id=&#34;tabs-02-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-02-00&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-02-00&#34; aria-selected=&#34;false&#34;&gt;
-        VSCode
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link&#34;
-          id=&#34;tabs-02-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-02-01&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-02-01&#34; aria-selected=&#34;false&#34;&gt;
-        GitHub Codespaces
-      &lt;/a&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-2-content&#34;&gt;
-    
-    &lt;div class=&#34;tab-body tab-pane fade show active&#34;
-        id=&#34;tabs-02-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-00-tab&#34;&gt;
-        &lt;p&gt;The VSCode&amp;rsquo;s DevContainer makes possible to package a complete &lt;em&gt;Vehicle App&lt;/em&gt; development environment, including VSCode&amp;rsquo;s extensions, &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/&#34;&gt;Vehicle App SDK&lt;/a&gt;, &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-runtime&#34;&gt;Vehicle App Runtimes&lt;/a&gt; and all other development and testing tools into a DevContainer that is then started within your VSCode session.&lt;/p&gt;
-&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;Proxy Configuration&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart/behind_proxy&#34;&gt;Working behind a proxy&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;With following steps you will clone and set up your development environment on your own machine using just VSCode.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Clone created &lt;em&gt;MyOrg/MyFirstVehicleApp&lt;/em&gt; repository locally using your favorite Git Tool&lt;/li&gt;
-&lt;li&gt;Go to the just cloned repository folder, e.g. &lt;code&gt;$ cd MyFirstVehicleApp&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Open VSCode with project content like &lt;code&gt;$ code .&lt;/code&gt; or via &lt;a href=&#34;https://code.visualstudio.com/docs/editor/workspaces#_singlefolder-workspaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSCode user interface&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;A popup appears with the button &lt;kbd&gt;Reopen in Container&lt;/kbd&gt; on the lower right side of VSCode. If the popup does not appear, you can also hit &lt;kbd&gt;F1&lt;/kbd&gt; and perform the command &lt;code&gt;Dev-Containers: Open Folder in Container&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Click on &lt;kbd&gt;Reopen in Container&lt;/kbd&gt;&lt;/li&gt;
-&lt;li&gt;Wait for the container to be set up&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;The first time initializing the container will take few minutes to build the image and to provision the tools inside the container.&lt;/p&gt;
-&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;If the &lt;em&gt;DevContainer&lt;/em&gt; build process fails, then wait for the current build to finish, press &lt;kbd&gt;F1&lt;/kbd&gt; and run the command &lt;code&gt;Dev-Containers: Rebuild Container Without Cache&lt;/code&gt;
-The &lt;em&gt;DevContainer&lt;/em&gt; is using the &lt;a href=&#34;https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/docs/docker-in-docker.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;docker-in-docker&lt;/a&gt; feature to run docker containers within the container. Currently, this feature has the limitation that only one instance of a &lt;em&gt;DevContainer&lt;/em&gt; with the feature enabled can be running at the same time.&lt;/p&gt;
-&lt;/div&gt;
-
-    &lt;/div&gt;
-    
-    &lt;div class=&#34;tab-body tab-pane fade&#34;
-        id=&#34;tabs-02-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-02-01-tab&#34;&gt;
-        &lt;p&gt;One of the possibilities to use your newly created repository to use it via &lt;a href=&#34;https://github.com/features/codespaces&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Codespaces&lt;/a&gt;.
-You can either try it out directly in the browser or also use it inside VSCode. The main thing to remember is that everything is executed on a remote agent and the browser or VSCode just act as a &amp;ldquo;thin-client&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;To get started with GitHub Codespaces, you just have to follow a few steps:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Open your repository on GitHub (e.g. &lt;a href=&#34;https://github.com/MyOrg/MyFirstVehicleApp&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/MyOrg/MyFirstVehicleApp&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Click on the green &lt;code&gt;Code&lt;/code&gt; button and select &lt;em&gt;Codespaces&lt;/em&gt; on the top&lt;/li&gt;
-&lt;li&gt;Configure your &lt;em&gt;Codespace&lt;/em&gt; if needed (defaults to the main branch and a standard agent)&lt;/li&gt;
-&lt;li&gt;Click on &lt;code&gt;create&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;A new window will open where you can see logs for setting up the container. On this window you could now also choose to work with VSCode. The environment remains on a remote agent and VSCode establishes a connection to this machine.&lt;/p&gt;
-&lt;p&gt;Once everything is set up in the &lt;em&gt;Codespace&lt;/em&gt;, you can work with it in the same way as with the normal DevContainer inside VSCode.&lt;/p&gt;
-&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;Be careful with using GitHub Codespaces in browser and VSCode locally at the same time: &lt;em&gt;Tasks&lt;/em&gt; that are started using a browser session will not show in VSCode environment and vice versa that leads for problems.&lt;/p&gt;
-&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;how-to-start-runtimes&#34;&gt;How to start runtimes?&lt;/h2&gt;
-&lt;p&gt;The runtime services (like &lt;em&gt;KUKSA Data Broker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are required to develop vehicle apps and run integration tests.&lt;/p&gt;
-&lt;p&gt;There are few runtimes available currently:&lt;/p&gt;
-
-   
-
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-3&#34; role=&#34;tablist&#34;&gt;
-  &lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link active&#34;
-          id=&#34;tabs-03-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-03-00&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-03-00&#34; aria-selected=&#34;false&#34;&gt;
-        Local Runtime
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link&#34;
-          id=&#34;tabs-03-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-03-01&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-03-01&#34; aria-selected=&#34;false&#34;&gt;
-        K3D Runtime
-      &lt;/a&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-3-content&#34;&gt;
-    &lt;div class=&#34;tab-body tab-pane fade show active&#34;
-        id=&#34;tabs-03-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-03-00-tab&#34;&gt;
-        &lt;p&gt;A VSCode task called &lt;code&gt;Local Runtime - Up&lt;/code&gt; is available to start all necessary services in the correct order.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt;&lt;/li&gt;
-&lt;li&gt;Select command &lt;code&gt;Tasks: Run Task&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Select &lt;code&gt;Local Runtime - Up&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;You should see the task &lt;code&gt;Local Runtime - Up&lt;/code&gt; being executed on a separate VSCode terminal with the following content:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ velocitas &lt;span style=&#34;color:#204a87&#34;&gt;exec&lt;/span&gt; runtime-local up 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Hint: Log files can be found in your workspace&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;s logs directory
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; mqtt-broker running
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; vehicledatabroker running
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; seatservice running
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; feedercan running
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;✅ Runtime is ready to use!
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;Simply press &lt;code&gt;Ctrl + C&lt;/code&gt; to stop the runtime.&lt;/p&gt;
-&lt;/div&gt;
-
-    &lt;/div&gt;
-    &lt;div class=&#34;tab-body tab-pane fade&#34;
-        id=&#34;tabs-03-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-03-01-tab&#34;&gt;
-        &lt;p&gt;A VSCode task called &lt;code&gt;K3D Runtime - Up&lt;/code&gt; is available to start all necessary services in the correct order.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt;&lt;/li&gt;
-&lt;li&gt;Select command &lt;code&gt;Tasks: Run Task&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Select &lt;code&gt;K3D Runtime - Up&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;You should see the task &lt;code&gt;K3D Runtime - Up&lt;/code&gt; being executed on a separate VSCode terminal with the following content:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ velocitas &lt;span style=&#34;color:#204a87&#34;&gt;exec&lt;/span&gt; runtime-k3d up 
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Hint: Log files can be found in your workspace&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;s logs directory
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Checking K3D registry... created.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Creating cluster with proxy configuration.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Checking K3D cluster... created.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Checking zipkin deployment... deployed.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Checking dapr... initialized.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;✅ Configuring controlplane &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; k3d...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Deploying runtime... installed.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;✅ Starting k3d runtime...
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;You need to perform task &lt;code&gt;K3D Runtime - Down&lt;/code&gt; to properly stop runtime activities.&lt;/p&gt;
-&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;More information about the runtimes are available &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-runtime&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-debug-_vehicle-app_&#34;&gt;How to debug &lt;em&gt;Vehicle App&lt;/em&gt;?&lt;/h2&gt;
-
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
-
-    Debuging functionality is available only for &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/run_runtime_services_locally&#34;&gt;Local Runtime&lt;/a&gt;
-Both given examples are available as part of template.
-
-&lt;/div&gt;
-
-&lt;p&gt;Now that the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/run_runtime_services_locally&#34;&gt;runtime services&lt;/a&gt; are all up and running, let&amp;rsquo;s start a debug session for the &lt;em&gt;Vehicle App&lt;/em&gt; as next step.&lt;/p&gt;
-&lt;p&gt;
-
-
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-5&#34; role=&#34;tablist&#34;&gt;
-  &lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link active&#34;
-          id=&#34;tabs-05-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-05-00&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-05-00&#34; aria-selected=&#34;false&#34;&gt;
-        Template
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link&#34;
-          id=&#34;tabs-05-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-05-01&#34; role=&#34;tab&#34;
-          aria-controls=&#34;tabs-05-01&#34; aria-selected=&#34;false&#34;&gt;
-        Seat Adjuster
-      &lt;/a&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-5-content&#34;&gt;
-    &lt;div class=&#34;tab-body tab-pane fade show active&#34;
-        id=&#34;tabs-05-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-05-00-tab&#34;&gt;
-        &lt;ol&gt;
-&lt;li&gt;Open the main source file and set a breakpoint in the given method:
-&lt;ul&gt;
-&lt;li&gt;Python main source file: &lt;code&gt;/app/src/main.py&lt;/code&gt;, set a breakpoint inside the method: &lt;code&gt;on_get_speed_request_received&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;C++: Continue on the &lt;code&gt;Seat Adjuster&lt;/code&gt; tab.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the &lt;em&gt;Vehicle App&lt;/em&gt; and see the log output on the &lt;code&gt;DEBUG CONSOLE&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in VSCode and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;sampleapp/getSpeed/response&lt;/code&gt; and click subscribe&lt;/li&gt;
-&lt;li&gt;Set &lt;code&gt;Publish Topic&lt;/code&gt; = &lt;code&gt;sampleapp/getSpeed&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Press publish with an empty payload field.&lt;/li&gt;
-&lt;/ol&gt;
-
-    &lt;/div&gt;
-    &lt;div class=&#34;tab-body tab-pane fade&#34;
-        id=&#34;tabs-05-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-05-01-tab&#34;&gt;
-        &lt;p&gt;For Python: Follow the guide provided in: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart/import_examples/&#34;&gt;Import examples&lt;/a&gt; and import &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;seat-adjuster&lt;/code&gt;&lt;/a&gt;. &lt;/br&gt;
-For C++: Continue with the next steps.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Open the main source file and set a breakpoint in the given method:
-&lt;ul&gt;
-&lt;li&gt;Python main source file: &lt;code&gt;/app/src/main.py&lt;/code&gt;, set breakpoint in method: &lt;code&gt;on_set_position_request_received&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;C++ main source file: &lt;code&gt;/app/src/VehicleApp.cpp&lt;/code&gt;, set breakpoint in method: &lt;code&gt;onSetPositionRequestReceived&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the &lt;em&gt;Vehicle App&lt;/em&gt; and see the log output on the &lt;code&gt;DEBUG CONSOLE&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;To trigger this breakpoint, let&amp;rsquo;s send a message to the Vehicle App using the mqtt broker that is running in the background.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Open &lt;code&gt;VSMqtt&lt;/code&gt; extension in VSCode and connect to &lt;code&gt;mosquitto (local)&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/setPosition/response&lt;/code&gt; and click subscribe&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Set &lt;code&gt;Subscribe Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/currentPosition&lt;/code&gt; and click subscribe&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Set &lt;code&gt;Publish Topic&lt;/code&gt; = &lt;code&gt;seatadjuster/setPosition/request&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Set and publish a dummy payload:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;position&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;300&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;requestId&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;xyz&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-
-Now your breakpoint in the Vehicle App gets hit and you can inspect everything in your debug session. After resuming execution (&lt;kbd&gt;F5&lt;/kbd&gt;), a response from your Vehicle App is published to the response topic. You can see the response in the MQTT window.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-trigger-ci-workflow&#34;&gt;How to trigger CI Workflow?&lt;/h2&gt;
-&lt;p&gt;The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests, collect the test results and create a release documentation and publish the Vehicle App. A detailed description of the workflow you can find &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;By pushing a change to GitHub the CI Workflow will be triggered:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Make modification in any of your files&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Commit and push your change&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add .
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;explain your changes&amp;gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;To see the results open the &lt;code&gt;Actions&lt;/code&gt; page of your repository on GitHub, go to &lt;code&gt;CI Workflow&lt;/code&gt; and check the workflow output.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-release-_vehicle-app_&#34;&gt;How to release &lt;em&gt;Vehicle App&lt;/em&gt;?&lt;/h2&gt;
-&lt;p&gt;Now that the &lt;code&gt;CI Workflow&lt;/code&gt; was successful, you are ready to build your first release. Your goal is to build a ready-to-deploy container image that is published in the GitHub container registry&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Open the &lt;code&gt;Code&lt;/code&gt; page of your repository on GitHub&lt;/li&gt;
-&lt;li&gt;Click on &lt;code&gt;Create a new release&lt;/code&gt; in the Releases section on the right side&lt;/li&gt;
-&lt;li&gt;Enter a version (e.g. v1.0.0) and click on &lt;code&gt;Publish release&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;GitHub will automatically create a tag using the version number&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;The provided release workflow will be triggered by the release. The release workflow creates a release documentation and publish the container image of the Vehicle App to the GitHub container registry. Open &lt;code&gt;Actions&lt;/code&gt; on the repoitory and see the result.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-deploy-_vehicle-app_&#34;&gt;How to deploy &lt;em&gt;Vehicle App&lt;/em&gt;?&lt;/h2&gt;
-&lt;p&gt;After releasing the Vehicle App to the GitHub container registry you might ask how to bring the Vehicle App on a device and have the required Runtime Stack on the device. Here &lt;em&gt;Eclipse Leda&lt;/em&gt; comes into the game.&lt;/p&gt;
-&lt;p&gt;Please checkout the documentation of &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse Leda&lt;/a&gt; to get more information.&lt;/p&gt;
-&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle_model_creation&#34;&gt;Creating a Vehicle Model&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;Create a Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/integration_tests&#34;&gt;Develop and run integration tests for a Vehicle App&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
+        
       </description>
     </item>
     
@@ -362,132 +36,7 @@ Now your breakpoint in the Vehicle App gets hit and you can inspect everything i
       <description>
         
         
-        &lt;p&gt;The open and web based &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt; offers a rapid prototyping environment to explore and validate ideas of a vehicle app.
-&lt;/br&gt;
-&lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt; interacts with different vehicle sensors and actuators via standardized APIs specified by the COVESA &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/introduction/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt; without custom setup requirements.
-&lt;/br&gt;
-Within the platform you can:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;browse, navigate and enhance vehicle signals (sensors, actuators and branches) in the &lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle API Catalogue&lt;/a&gt; mapped to a 3D model of the vehicle&lt;/li&gt;
-&lt;li&gt;build vehicle app prototypes in the browser using Python and the Vehicle API Catalogue&lt;/li&gt;
-&lt;li&gt;test the vehicle app prototype in a dashboard with 3D animation for API calls&lt;/li&gt;
-&lt;li&gt;create new plugins, which usually represent UX widgets or remote server communication to enhance the vehicle mockup experience in the playground&lt;/li&gt;
-&lt;li&gt;collect and evaluate user feedback to prioritize your development portfolio&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;start-the-journey-of-a-_vehicle-app_&#34;&gt;Start the journey of a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;As first step open &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt;, select &lt;a href=&#34;https://digitalauto.netlify.app/model&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Get Started&lt;/em&gt;&lt;/a&gt; in the prototyping section of the landing page and use the Vehicle Model of your choice.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./digital-auto.png&#34; alt=&#34;digital.auto&#34;&gt;
-&lt;img src=&#34;./vehicle-models.png&#34; alt=&#34;vehicle-models&#34;&gt;&lt;/p&gt;
-&lt;p&gt;You now have the possibility to browse existing vehicle signals for the selected vehicle model which you can use for prototyping your &lt;em&gt;Vehicle App&lt;/em&gt; by clicking on &lt;em&gt;Vehicle APIs&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./selected-model.png&#34; alt=&#34;selected-model&#34;&gt;
-&lt;img src=&#34;./cvi-catalogue.png&#34; alt=&#34;cvi-catalogue&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;add-additional-_vehicle-apis_&#34;&gt;Add additional &lt;em&gt;Vehicle APIs&lt;/em&gt;&lt;/h3&gt;
-&lt;p&gt;If the ideation of your vehicle app prototype comes with any new Vehicle API which is not part of the standard &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/introduction/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt; you also have the option to include it into your pre-selected model by clicking the &lt;em&gt;+ New Wishlist API&lt;/em&gt; button. After filling out all required fields, simply click the &lt;em&gt;create&lt;/em&gt; button - this will commit the new API to the existing model.&lt;/p&gt;
-
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
-
-    For this feature, a digital.auto account is required. Get in touch with us or the digital.auto team in case you want to explore this feature
-
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&#34;./wishlist.png&#34; alt=&#34;wishlist&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;prototype-an-idea-of-a-_vehicle-app_&#34;&gt;Prototype an idea of a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;The next step would be to prototype your idea. To do so:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Click on &lt;em&gt;Prototype Library&lt;/em&gt; of your selected model,
-&lt;img src=&#34;./prototype-library.png&#34; alt=&#34;prototype-library&#34;&gt;&lt;/li&gt;
-&lt;li&gt;Create a new prototype, by clicking on &lt;em&gt;New Prototype&lt;/em&gt; and filling out the information or select one from the list,&lt;/li&gt;
-&lt;li&gt;Click on the &lt;em&gt;Open&lt;/em&gt; button,
-&lt;img src=&#34;./select-prototype.png&#34; alt=&#34;select-prototype&#34;&gt;&lt;/li&gt;
-&lt;li&gt;Go to the &lt;em&gt;Code&lt;/em&gt; section and start your prototype right away.
-&lt;img src=&#34;./code-section.png&#34; alt=&#34;code-section&#34;&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;test-the-prototype-of-a-_vehicle-app_&#34;&gt;Test the prototype of a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;Testing of your prototype starts in the &lt;em&gt;Run&lt;/em&gt; section.
-&lt;/br&gt;
-You will find a dashboard consisting all vehicle and application components similar to mockups.
-&lt;/br&gt;
-The control center on the right side has an integrated terminal showing all of your prototyped outputs as well as a list of all called VSS API&amp;rsquo;s.
-&lt;/br&gt;
-The &lt;em&gt;Run&lt;/em&gt; button executes all your prototype code from top to bottom. The &lt;em&gt;Debug&lt;/em&gt; button allows you to step through your prototype line by line.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./run-section.png&#34; alt=&#34;run-section&#34;&gt;&lt;/p&gt;
-&lt;p&gt;To get started quickly, the digital.auto team has added a number of widgets to simulate related elements of the vehicle – like doors, seats, light, etc. – and made them available in the playground.&lt;/p&gt;
-&lt;p&gt;Feel free to add your own Plugins with widgets for additional car features (maybe an antenna waving a warm “welcome”…?).&lt;/p&gt;
-&lt;h2 id=&#34;transfer-your-prototype-into-a-velocitas-vehicle-app&#34;&gt;Transfer your prototype into a Velocitas Vehicle App&lt;/h2&gt;
-&lt;p&gt;In the previous steps you started with envisioning and prototyping your &lt;em&gt;Vehicle App&lt;/em&gt; idea and tested it against mocked vehicle components in digital.auto.
-&lt;/br&gt;
-The Velocitas team provides a project generator to transfer the prototype from &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt; into your own development environment where you are able to test it with real &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt;.
-&lt;/br&gt;
-The generator creates a &lt;em&gt;Vehicle App&lt;/em&gt; GitHub repository using your prototype code based on our &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt;.
-&lt;/br&gt;
-In the &amp;lsquo;Code&amp;rsquo; section of your prototype in &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt; you have the button &amp;lsquo;Create Eclipse Velocitas Project&amp;rsquo;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;./generate.png&#34; alt=&#34;generate&#34;&gt;&lt;/p&gt;
-&lt;p&gt;After pressing the button you will be forwarded to &lt;a href=&#34;https://github.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub&lt;/a&gt;.
-&lt;/br&gt;
-Login with your GitHub Account and authorize &lt;a href=&#34;https://github.com/eclipse-velocitas/velocitas-project-generator-npm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;velocitas-project-generator&lt;/a&gt; to create the repository for you.
-&lt;/br&gt;
-You will be redirected to &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt; and asked for a repository name (equals to the name of the app).
-&lt;/br&gt;
-By clicking on &amp;ldquo;Create repository&amp;rdquo;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;the project generator takes over your prototype code&lt;/li&gt;
-&lt;li&gt;the code is adapted to the structure in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;a new private repository under your specified GitHub User will be created.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;A succesful generation of the repository is followed by a pop-up dialogue with the URL of your repository.&lt;/p&gt;
-&lt;p&gt;Among other things the newly created repository will contain:&lt;/p&gt;
-
-
-
-
-
-&lt;table class=&#34;table table-bordered&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Files&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;/app/src/main.py&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;Main class of the app, containing your modified prototype code&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;/app/AppManifest.json&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;Settings file defining required services&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;/app/requirements.txt&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;Requirements file defining all python dependencies&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;/.devcontainer/&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;Required scripts and settings to setup the devcontainer in Microsoft Visual Studio Code&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;/.github/workflows/&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;All required CI/CD pipelines to build, test and deploy the vehicle application as container image to the GitHub container registry&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;em&gt;/gen/vehicle_model/&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;The generated model classes. If your prototype includes any exceptional API you added beforehand our &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle_model_creation/automated_model_lifecycle&#34;&gt;automated vehicle model lifecycle&lt;/a&gt; takes care of handling the custom VSS vspec file coming from digital.auto and generates a vehicle_model when starting the devContainer&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;p&gt;Your prototype &lt;em&gt;Vehicle App&lt;/em&gt; transferred into a GitHub repository is now ready to be extended.
-&lt;/br&gt;
-Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt; in Microsoft Visual Studio Code and start to extend it.&lt;/p&gt;
-&lt;p&gt;You can proceed with the following topics:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment&#34;&gt;Starting development environment&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/&#34;&gt;Vehicle App Development&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
+        
       </description>
     </item>
     
@@ -566,13 +115,13 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;publish_and_wait_for_property&lt;/code&gt;: publishes the specified payload to the given request topic and waits (till timeout) until the given property value is found in an incoming message to the response topic. The &lt;code&gt;path&lt;/code&gt; describes the property location within the response message, the &lt;code&gt;value&lt;/code&gt; the property value to look for.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
-    &amp;#34;status&amp;#34;: &amp;#34;success&amp;#34;,
-    &amp;#34;result&amp;#34;: {
-        &amp;#34;responsecode&amp;#34;: 10
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If the &lt;code&gt;responsecode&lt;/code&gt; property should be checked for the value &lt;code&gt;10&lt;/code&gt;, the path would be &lt;code&gt;[&amp;quot;result&amp;quot;, &amp;quot;responsecode]&lt;/code&gt;, property value would be &lt;code&gt;10&lt;/code&gt;. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-JSON&#34; data-lang=&#34;JSON&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;success&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;result&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;responsecode&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the &lt;code&gt;responsecode&lt;/code&gt; property should be checked for the value &lt;code&gt;10&lt;/code&gt;, the path would be &lt;code&gt;[&amp;quot;result&amp;quot;, &amp;quot;responsecode]&lt;/code&gt;, property value would be &lt;code&gt;10&lt;/code&gt;. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;1883&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;1883&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt;. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
@@ -580,7 +129,7 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;IntTestHelper&lt;/code&gt;: this class provides functionality to interact with the &lt;em&gt;KUKSA Data Broker&lt;/em&gt;.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;register_dapoint&lt;/code&gt;: registers a new datapoint with given name and type&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;register_datapoint&lt;/code&gt;: registers a new datapoint with given name and type&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;set_..._datapoint&lt;/code&gt;: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;55555&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;55555&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; which is set. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
@@ -639,7 +188,7 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
     </item>
     
     <item>
-      <title>Docs: Vehicle App Deployment via PodSpecs</title>
+      <title>Docs: Vehicle App Deployment with PodSpecs</title>
       <link>/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_podspecs/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
       
@@ -688,9 +237,8 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
-    &lt;p&gt;Please make sure that you already pushed your image to the local registry before trying to deploy it. If you used the provided tasks (see &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;here&lt;/a&gt; for details) to build your app, you can use the following commands:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker tag localhost:12345/sampleapp:local k3d-registry.localhost:12345/sampleapp:local
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker push k3d-registry.localhost:12345/sampleapp:local
+    &lt;p&gt;Please make sure that you already pushed your image to the local registry before trying to deploy it. If you used the provided task (see &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;here&lt;/a&gt; for details) to build your app, you can use the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker push localhost:12345/sampleapp:local
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/div&gt;
@@ -778,8 +326,8 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
 &lt;li&gt;
 &lt;p&gt;Open &lt;code&gt;deploy/my_vehicle_app/helm/Chart.yaml&lt;/code&gt; and change the name of the chart to &lt;code&gt;my_vehicle_app&lt;/code&gt; and provide a meaningful description.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;v2&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;myvehicleapp&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Short description for my_vehicle_app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;my-vehicle-app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;description&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Short description for my-vehicle-app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# A chart can be either an &amp;#39;application&amp;#39; or a &amp;#39;library&amp;#39; chart.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -802,14 +350,14 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;appVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1.16.0&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Open &lt;code&gt;deploy/my_vehicle_app/helm/values.yaml&lt;/code&gt; and change &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;repository&lt;/code&gt; and &lt;code&gt;daprAppid&lt;/code&gt; to &lt;code&gt;my_vehicle_app&lt;/code&gt;. Rename the root node from &lt;code&gt;imageVehicleApp&lt;/code&gt; to &lt;code&gt;imageMyVehicleApp&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Open &lt;code&gt;deploy/my_vehicle_app/helm/values.yaml&lt;/code&gt; and change &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;repository&lt;/code&gt; and &lt;code&gt;daprAppid&lt;/code&gt; to &lt;code&gt;my-vehicle-app&lt;/code&gt;. Rename the root node from &lt;code&gt;imageVehicleApp&lt;/code&gt; to &lt;code&gt;imageMyVehicleApp&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;imageMyVehicleApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;myvehicleapp&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repository&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;local/my_vehicle_app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;my-vehicle-app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repository&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;k3d-registry.localhost:12345/my-vehicle-app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;pullPolicy&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Always&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Overrides the image tag whose default is the chart appVersion.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;tag&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;#SuccessfulExecutionOfReleaseWorkflowUpdatesThisValueToReleaseVersionWithoutV#&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;daprAppid&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;my_vehicle_app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;daprAppid&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;my-vehicle-app&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;daprPort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50008&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;nameOverride&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -846,7 +394,7 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;imagePullPolicy&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;{{&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;.Values.imageMyVehicleApp.pullPolicy }}&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;At this point, the Helm chart and updated scripts are ready to use and folder structure under &lt;code&gt;deploy/my_vehicle_app&lt;/code&gt; should look like this:&lt;/p&gt;
+&lt;p&gt;At this point, the Helm chart is prepared for the next step and the folder structure under &lt;code&gt;deploy/my_vehicle_app&lt;/code&gt; should look like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;deploy
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── my_vehicle_app
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── helm
@@ -861,10 +409,21 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
 &lt;ul&gt;
 &lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;After the Helm chart has been prepared, you can deploy it to local K3D by executing:&lt;/p&gt;
+&lt;p&gt;After the Helm chart has been prepared, you can deploy it to the local K3D cluster by following the steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Building and pushing the Docker image for your Vehicle App&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DOCKER_BUILDKIT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; docker build -f ./app/Dockerfile --progress&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;plain -t localhost:12345/my-vehicle-app:local . --no-cache
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker push localhost:12345/my-vehicle-app:local
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Installing the Helm Chart&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm install my-vapp-chart ./deploy/my_vehicle_app --values ./deploy/my_vehicle_app/values.yaml --wait --timeout 60s
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This script builds the local source code of the application into a container, pushes that container to the local cluster registry and deploys the app via a helm chart to the K3D cluster. Rerun this script after you have changed the source code of your application to re-deploy with the latest changes.&lt;/p&gt;
-&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;These steps are building the local source code of the application into a container, pushing it to the local cluster registry and deploying the app via a helm chart to the K3D cluster. Rerun the steps after you have changed the source code of your application to re-deploy with the latest changes.&lt;/p&gt;
+&lt;p&gt;If you have issues installing the helm chart again try uninstalling the chart upfront:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm uninstall my-vapp-chart
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Concept: &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;

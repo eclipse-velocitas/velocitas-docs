@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.0e9e96095e62fcafa052c413446713c6.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9da06469cdfcb547f44c1b5b0af327c5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -152,7 +152,7 @@ It also provides you reference implementations of certain <em>Vehicle Services</
 <p><img src="./val_overview.drawio.svg" alt="Overview of the vehicle abstraction layer architecture"></p>
 <h3 id="kuksa-data-broker">KUKSA Data Broker</h3>
 <p>The <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">KUKSA Data Broker</a> is a gRPC service acting as a broker of vehicle data / signals also called <em>data points</em> in the following.
-It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a> or others. But this is not a must, it is also possible to use your own (propretary) vehicle model or to extend the COVESA VSS with your specific extensions via <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/" target="_blank" rel="noopener">VSS <em>overlays</em></a>.</p>
+It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a> or others. But this is not a must, it is also possible to use your own (proprietary) vehicle model or to extend the COVESA VSS with your specific extensions via <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/" target="_blank" rel="noopener">VSS <em>overlays</em></a>.</p>
 <p>Data points represent certain states of the vehicle, like the current vehicle speed or the currently applied gear. Data points can represent sensor values like the vehicle speed or engine temperature, actuators like the wiper mode, and immutable attributes of the vehicle like the needed fuel type(s) of the vehicle, engine displacement, maximum power, etc.</p>
 <p>Data points factually belonging together are typically arranged in branches and sub-branches of a tree structure (like <a href="https://covesa.github.io/vehicle_signal_specification/introduction/overview/#example" target="_blank" rel="noopener">this example</a> on the COVESA VSS site).</p>
 <p>The KUKSA Data Broker is implemented in Rust, can run in a container and provides services to get datapoints, update datapoints and for subscribing to automatic notifications on datapoint changes.

@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.0e9e96095e62fcafa052c413446713c6.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9da06469cdfcb547f44c1b5b0af327c5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -206,8 +206,7 @@ This is the multi-page printable view of this section.
 <h3 id="vehicle-models">Vehicle Models</h3>
 <p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps">Vehicle Apps</a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
 <h3 id="sdks">SDKs</h3>
-<p>Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model and the abstraction of the underlying middleware and communication protocols.
-Besides that, they provide the base classes and utilities for the Vehicle Apps.
+<p>Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model Furthermore, they offer abstraction from the underlying middleware and communication protocols, besides providing the base classes and utilities for the Vehicle Apps.
 SDKs are available for Python and C++, currently. Further SDKs for Rust and C are planned.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
 <p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a>.</p>
@@ -257,7 +256,7 @@ Favor fast startup and support graceful shutdowns to leave the system in a corre
 Vehicle Apps provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
 </li>
 <li>
-<p><strong>Over-the-air updatability:</strong>
+<p><strong>Over-the-air update capability:</strong>
 Vehicle Apps can be deployed via cloud backends like <a href="https://www.etas.com/en/products/pantaris-over-the-air-services.php" target="_blank" rel="noopener">Pantaris</a> and updated in vehicles frequently over the air through <a href="https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php" target="_blank" rel="noopener">NextGen OTA updates</a>.</p>
 </li>
 </ul>
@@ -365,7 +364,7 @@ Vehicle Apps can be deployed via cloud backends like <a href="https://www.etas.c
 <div class="tab-content" id="tabs-1-content">
     <div class="tab-pane fade show active"
         id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># import ontology classes</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">## import ontology classes</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">DataPointDouble</span><span style="color:#000;font-weight:bold">,</span>
@@ -456,9 +455,9 @@ Vehicle Apps can be deployed via cloud backends like <a href="https://www.etas.c
     </div>
     <div class="tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &#34;sdk/DataPoint.h&#34;
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/DataPoint.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &#34;sdk/Model.h&#34;
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/Model.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">velocitas</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>
@@ -527,14 +526,14 @@ Vehicle Apps can be deployed via cloud backends like <a href="https://www.etas.c
 <h3 id="grpc-services">gRPC Services</h3>
 <p>Vehicle Services are expected to expose their public endpoints over the gRPC protocol. The related protobuf definitions are used to generate method stubs for the Vehicle Model to make it possible to call the methods of the Vehicle Services.</p>
 <h3 id="model-integration">Model integration</h3>
-<p>Based on the <code>.proto</code> files of the Vehicle Services, the protocol buffers compiler generates descriptors for all rpcs, messages, fields etc for the target language.
+<p>Based on the <code>.proto</code> files of the Vehicle Services, the protocol buffer compiler generates descriptors for all rpcs, messages, fields etc for the target language.
 The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived from <code>Service</code> that contains all the methods of the underlying protocol buffer specification.</p>
 
 
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Info</h4>
 
-    The convencience layer of C++ is abit more extensive than in Python. The complexity of gRPC&rsquo;s async API is hidden behind individual <code>AsyncGrpcFacade</code> implementations which need to be implemented manually. Have a look at the <code>SeatAdjusterApp</code> example&rsquo;s <code>SeatService</code> and its <code>SeatServiceAsyncGrpcFacade</code>.
+    The convenience layer of C++ is a bit more extensive than in Python. The complexity of gRPC&rsquo;s async API is hidden behind individual <code>AsyncGrpcFacade</code> implementations which need to be implemented manually. Have a look at the <code>SeatService</code> of the <code>SeatAdjusterApp</code> example and its <code>SeatServiceAsyncGrpcFacade</code>.
 
 </div>
 
@@ -602,7 +601,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </div>
 
 <h3 id="service-discovery">Service discovery</h3>
-<p>The underlying gRPC channel is provided and managed by the <code>Service</code> base class of the SDK. It is also responsible for routing the method invocation to the service through <em>dapr</em> middleware. As a result, a <code>dapr-app-id</code> has to be assigned to every <code>Service</code>, so that <em>dapr</em> can discover the corresponding vehicle services. This <code>dapr-app-id</code> has to be specified as an environment variable named <code>&lt;service_name&gt;_DAPR_APP_ID</code>.</p>
+<p>The underlying gRPC channel is provided and managed by the <code>Service</code> base class of the SDK. It is also responsible for routing the method invocation to the service through the <em>dapr</em> middleware. As a result, a <code>dapr-app-id</code> has to be assigned to every <code>Service</code>, so that <em>dapr</em> can discover the corresponding vehicle services. This <code>dapr-app-id</code> has to be specified as an environment variable named <code>&lt;service_name&gt;_DAPR_APP_ID</code>.</p>
 <h2 id="fluent-query--rule-construction">Fluent query &amp; rule construction</h2>
 <p>A set of query methods like <code>get()</code>, <code>where()</code>, <code>join()</code> etc. are provided through the <code>Model</code> and <code>DataPoint</code> base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Data Broker.</p>
 <h3 id="query-examples">Query examples</h3>
@@ -869,9 +868,9 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
     </div>
     <div class="tab-pane fade"
         id="tabs-09-01" role="tabpanel" aria-labelled-by="tabs-09-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &lt;fmt/core.h&gt;
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;fmt/core.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &lt;nlohmann/json.hpp&gt;
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;nlohmann/json.hpp&gt;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#000">subscribeToTopic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">){</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">jsonData</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">nlohmann</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">parse</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">);</span>
@@ -917,7 +916,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </div>
 
 <h2 id="vehicle-app-abstraction">Vehicle App abstraction</h2>
-<p><code>Vehicle Apps</code> are inherited from the <code>VehicleApp</code> base class. This enables the <code>Vehicle App</code> to use the Publish &amp; subscribe messaging and the KUKSA Data Broker.</p>
+<p><code>Vehicle Apps</code> are inherited from the <code>VehicleApp</code> base class. This enables the <code>Vehicle App</code> to use the Publish &amp; Subscribe messaging and to connect to the KUKSA Data Broker.</p>
 <p>The <code>Vehicle Model</code> instance is passed to the constructor of the <code>VehicleApp</code> class and should be stored in a member variable (e.g. <code>self.vehicle</code> for Python, <code>std::shared_ptr&lt;Vehicle&gt; m_vehicle;</code> for C++), to be used by all methods within the application.</p>
 <p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <code>Vehicle App</code> and register all MQTT topic and Data Broker subscriptions.</p>
 
@@ -970,9 +969,9 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
     </div>
     <div class="tab-pane fade"
         id="tabs-12-01" role="tabpanel" aria-labelled-by="tabs-12-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &#34;VehicleApp.h&#34;
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/VehicleApp.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &#34;vehicle_model/Vehicle.h&#34;
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;vehicle/Vehicle.hpp&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">velocitas</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>
@@ -987,7 +986,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">};</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">**</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatAdjusterApp</span> <span style="color:#000">app</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">SeatAdjusterApp</span> <span style="color:#000">app</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">();</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
@@ -996,7 +995,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Environment</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Vehicle Model Creation</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Vehicle App Development</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
@@ -1042,7 +1041,7 @@ It also provides you reference implementations of certain <em>Vehicle Services</
 <p><img src="./val_overview.drawio.svg" alt="Overview of the vehicle abstraction layer architecture"></p>
 <h3 id="kuksa-data-broker">KUKSA Data Broker</h3>
 <p>The <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">KUKSA Data Broker</a> is a gRPC service acting as a broker of vehicle data / signals also called <em>data points</em> in the following.
-It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a> or others. But this is not a must, it is also possible to use your own (propretary) vehicle model or to extend the COVESA VSS with your specific extensions via <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/" target="_blank" rel="noopener">VSS <em>overlays</em></a>.</p>
+It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a> or others. But this is not a must, it is also possible to use your own (proprietary) vehicle model or to extend the COVESA VSS with your specific extensions via <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/" target="_blank" rel="noopener">VSS <em>overlays</em></a>.</p>
 <p>Data points represent certain states of the vehicle, like the current vehicle speed or the currently applied gear. Data points can represent sensor values like the vehicle speed or engine temperature, actuators like the wiper mode, and immutable attributes of the vehicle like the needed fuel type(s) of the vehicle, engine displacement, maximum power, etc.</p>
 <p>Data points factually belonging together are typically arranged in branches and sub-branches of a tree structure (like <a href="https://covesa.github.io/vehicle_signal_specification/introduction/overview/#example" target="_blank" rel="noopener">this example</a> on the COVESA VSS site).</p>
 <p>The KUKSA Data Broker is implemented in Rust, can run in a container and provides services to get datapoints, update datapoints and for subscribing to automatic notifications on datapoint changes.
@@ -1328,7 +1327,7 @@ More information: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation
 
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Environment</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Vehicle Model Creation</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Vehicle App Development</a></li>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/lifecycle_management">Lifecycle Management</a></li>
