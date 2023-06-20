@@ -36,7 +36,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 
 Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the [Data Broker](#data-broker) and may expose gRPC endpoints, which can be invoked by [_Vehicle Apps_](#vehicle-apps) over a [Vehicle Model](#vehicle-models).
 
-### Data Broker
+### KUKSA Data Broker (aka Vehicle Data Broker)
 
 Vehicle data is stored in the KUKSA Data Broker conforming to an underlying [Semantic Model](#semantic-models) like [VSS](https://covesa.github.io/vehicle_signal_specification/). [_Vehicle Apps_](#vehicle-apps) can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the _Vehicle App_.
 

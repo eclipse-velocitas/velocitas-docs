@@ -29,7 +29,7 @@ The image below shows the main components of the VAL and its relation to the [Ve
 
 ![Overview of the VAL architecture](./val_overview.drawio.svg)
 
-### KUKSA Data Broker
+### KUKSA Data Broker (aka Vehicle Data Broker)
 
 The [KUKSA Data Broker](https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker) is a gRPC service acting as a broker of vehicle data / signals also called _data points_ in the following.
 It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the COVESA VSS or others. But this is not a must, it is also possible to use your own (proprietary) vehicle model or to extend the COVESA VSS with your specific extensions via [VSS _overlays_](https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/).
