@@ -285,7 +285,7 @@ You already have seen this command and how to check if it is working in the [gen
 
 For now, you just need to know that these parameters are needed to make everything work together.
 
-The config.yaml has to be placed in the folder called `.dapr`and has the following content:
+The config.yaml has to be placed in the folder called `.dapr` and has the following content:
 
 ```Yaml
 apiVersion: dapr.io/v1alpha1
