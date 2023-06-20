@@ -19,7 +19,7 @@ You can find all information about available commands [here](https://github.com/
 
 ### CLI Flow examples
 
-#### velocitas init
+### velocitas init
 
 Download packages configured in your `.velocitas.json` to [VELOCITAS_HOME](https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory)
 
@@ -52,6 +52,8 @@ Syncing Velocitas components!
 
 ### velocitas upgrade
 
+Updates Velocitas components.
+
 ```bash
 vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas upgrade --dry-run
 Checking for updates!
@@ -63,6 +65,8 @@ Checking for updates!
 ```
 
 ### velocitas package
+
+Prints information about packages.
 
 ```bash
 vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas package devenv-devcontainer-setup
@@ -92,6 +96,8 @@ vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas pa
 ```
 
 ### velocitas exec
+
+Executes a script contained in one of your installed components.
 
 ```bash
 vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas exec runtime-local run-vehicledatabroker

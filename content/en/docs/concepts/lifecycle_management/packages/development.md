@@ -100,7 +100,7 @@ In order to use a newly created or updated service, changes on the respective _P
 
 {{% alert title="Note" %}}
 A new service can be started manually and/or configured inside your `./.vscode/tasks.json` with:
-</br> `velocitas exec runtime-local <service_id> <args>`
+</br> `velocitas exec runtime-<runtime> <service_id> <args>`
 {{% /alert %}}
 
 
