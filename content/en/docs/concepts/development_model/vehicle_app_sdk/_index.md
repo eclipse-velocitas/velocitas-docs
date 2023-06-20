@@ -301,7 +301,7 @@ private:
 
 ### Service discovery
 
-The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through the _dapr_ middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that _dapr_ can discover the corresponding vehicle services. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
+The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through the Dapr middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that Dapr can discover the corresponding vehicle services. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
 
 ## Fluent query & rule construction
 
@@ -430,7 +430,7 @@ void onSeatPositionChanged(const DataPointMap_t datapoints) {
 
 ## Publish & subscribe messaging
 
-The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. By leveraging the dapr pub/sub building block for this purpose, the low-level MQTT communication is abstracted away from the _Vehicle App_ developer. Especially the physical address and port of the MQTT broker is no longer configured in the _Vehicle App_ itself, but rather is part of the dapr configuration, which is outside of the _Vehicle App_.
+The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. By leveraging the Dapr pub/sub building block for this purpose, the low-level MQTT communication is abstracted away from the _Vehicle App_ developer. Especially the physical address and port of the MQTT broker is no longer configured in the _Vehicle App_ itself, but rather is part of the Dapr configuration, which is outside of the _Vehicle App_.
 
 ### Publish MQTT Messages
 
@@ -470,7 +470,7 @@ subscribeToTopic("seatadjuster/setPosition/request")->onItem([this](auto&& item)
 {{< /tab >}}
 {{< /tabpane >}}
 
-Under the hood, the _Vehicle App_ creates a gRPC endpoint on port `50008`, which is exposed to the dapr middleware. The dapr middleware will then subscribe to the MQTT broker and forward the messages to the _Vehicle App_.
+Under the hood, the _Vehicle App_ creates a gRPC endpoint on port `50008`, which is exposed to the Dapr middleware. The Dapr middleware will then subscribe to the MQTT broker and forward the messages to the _Vehicle App_.
 
 To change the app port, set it in the `main()` method of the app:
 
@@ -482,7 +482,7 @@ async def main():
     conf.DAPR_APP_PORT = <your port>
 {{< /tab >}}
 {{< tab "C++" >}}
-// c++ does not use dapr for Pub/Sub messaging at this point
+// c++ does not use Dapr for Pub/Sub messaging at this point
 {{< /tab >}}
 {{< /tabpane >}}
 

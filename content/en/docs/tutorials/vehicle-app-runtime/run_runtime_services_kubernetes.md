@@ -11,7 +11,7 @@ Besides [local execution](/docs/run_runtime_services_locally.md) of the vehicle 
 **Quick Start:** Each step has a task that is defined in `/.vscode/tasks.json`:
 
 * Core tasks (dependent on each other in the given order):
-  * ```K3D - Runtime Up```: Starts up the K3D runtime (Including configuring control plane and initializing dapr).
+  * ```K3D - Runtime Up```: Starts up the K3D runtime (Including configuring control plane and initializing Dapr).
   * ```K3D - Build VehicleApp```: Builds the VehicleApp.
   * ```K3D - Deploy VehicleApp```: Deploys the VehicleApp via Helm to the K3D cluster.
 

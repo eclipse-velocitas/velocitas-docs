@@ -279,7 +279,7 @@ or:
 2. Select command `Tasks: Run Task`
 3. Select `Local Runtime - Run VehicleApp`
 
-### The following dapr configuration is part of the devenv-runtimes package (WIP: TBD)
+### The following Dapr configuration is part of the devenv-runtimes package (WIP: TBD)
 
 You already have seen this command and how to check if it is working in the [general setup](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#debug-your-vehicle-app).
 
@@ -326,7 +326,7 @@ spec:
     value: "false"
 ```
 
-If you want to know more about dapr and the configuration, please visit <https://dapr.io>
+If you want to know more about Dapr and its configuration, please visit <https://dapr.io>.
 
 ### Debug your _Vehicle App_
 
