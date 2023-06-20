@@ -34,18 +34,18 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Tutorials | Velocitas</title>
-<meta name="description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
+<meta name="description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a _Vehicle App_.
 ">
 <meta property="og:title" content="Tutorials" />
-<meta property="og:description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
+<meta property="og:description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a _Vehicle App_.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/" />
 <meta itemprop="name" content="Tutorials">
-<meta itemprop="description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
+<meta itemprop="description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a _Vehicle App_.
 "><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tutorials"/>
-<meta name="twitter:description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.
+<meta name="twitter:description" content="Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a _Vehicle App_.
 "/>
 
 
@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -122,7 +122,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Tutorials</h1>
-<div class="lead">Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a Vehicle App.</div>
+<div class="lead">Learn how to get started with Eclipse Velocitas™, including setting up the development environment, creating a Vehicle Model as well as developing, testing and deploying a <em>Vehicle App</em>.</div>
 
 
 
@@ -189,7 +189,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-b2e6933434fac21d41e03227b37cadb5">Prototyping Integration</a></li>
+<li>2: <a href="#pg-b2e6933434fac21d41e03227b37cadb5">Prototyping</a></li>
 
 
     
@@ -204,7 +204,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2.1: <a href="#pg-b712a3038fb369f46d28f7d82034fabe">Prototyping with Digital.Auto</a></li>
+<li>2.1: <a href="#pg-b712a3038fb369f46d28f7d82034fabe">Prototyping with digital.auto</a></li>
 
 
     
@@ -477,8 +477,14 @@ This is the multi-page printable view of this section.
     
 	<h1 id="pg-89c8ac3e75894076539f902725bf0e41">1.1 - Quickstart</h1>
     <div class="lead">Learn how to setup and explore the provided development environment.</div>
-	<p>The following page describes how to set up and configure the <a href="https://code.visualstudio.com/docs/remote/containers" target="_blank" rel="noopener">Development Container (DevContainer)</a> and how to build, customize and test the sample <em>Vehicle App</em> included in this repository. You will learn how to use the Vehicle App SDK, interact with the vehicle API and work with CI/CD using the pre-configured GitHub Workflows that come with the template repository.</p>
-<p>Once you have completed all steps, you will have a solid understanding of the Development Workflow, and you will be able to reuse the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Template Repository</a> for your own <em>Vehicle App</em> development project.</p>
+	<p>This page describes</p>
+<ul>
+<li>how to create a GitHub repository for your <em>Vehicle App</em> development,</li>
+<li>how to set up and configure the <a href="https://code.visualstudio.com/docs/remote/containers" target="_blank" rel="noopener">DevContainer-based development environment</a>, and</li>
+<li>how to build, customize and test the sample <em>Vehicle App</em> included in your freshly created <em>Vehicle App</em> repository.</li>
+</ul>
+<p>You will learn how to use the <em>Vehicle App</em> SDK, interact with the Vehicle API and work with CI/CD using the pre-configured GitHub Workflows that come with the template repository.</p>
+<p>Once you have completed all steps, you will have a solid understanding of the development workflow, and you will be able to use one of our template repositories as a starting point for your own <em>Vehicle App</em> development project.</p>
 
 
 <div class="alert alert-primary" role="alert">
@@ -489,7 +495,7 @@ This is the multi-page printable view of this section.
 </div>
 
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Please make sure you did all the prerequisite steps to create comprehensive Development Environment for your  <em>Vehicle App</em> :</p>
+<p>Please make sure you did all the prerequisite steps to create comprehensive development environment for your <em>Vehicle App</em>:</p>
 <ul>
 <li>
 <p>Install <a href="https://code.visualstudio.com" target="_blank" rel="noopener">VS Code</a></p>
@@ -498,13 +504,13 @@ This is the multi-page printable view of this section.
 <p><a href="/velocitas-docs/docs/tutorials/quickstart/container_runtime">Install a working container runtime</a></p>
 </li>
 <li>
-<p>Add <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers" target="_blank" rel="noopener">Remote-Containers</a> extension via the marketplace or using the command line</p>
+<p>Add the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers" target="_blank" rel="noopener">Remote-Containers</a> extension to VS Code via the marketplace or using the command line:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>code --install-extension ms-vscode-remote.remote-containers
 </span></span></code></pre></div></li>
 </ul>
-<h2 id="how-to-create-your-_vehicle-app_-repository">How to create your <em>Vehicle App</em> Repository?</h2>
-<p>For the Organization and <em>Vehicle App</em> repository the name <em>MyOrg/MyFirstVehicleApp</em> is used as a reference during the rest of the document.</p>
-<p>You can create your own repository using a provided template or start prototyping via Digital.Auto.</p>
+<h2 id="how-to-create-your-_vehicle-app_-repository">How to create your <em>Vehicle App</em> repository?</h2>
+<p>For your (GitHub) organization and <em>Vehicle App</em> repository the name <em>MyOrg/MyFirstVehicleApp</em> is used as a place holder during the rest of the document.</p>
+<p>You can create your own repository using one of our provided templates or start prototyping via digital.auto.</p>
 
    
    
@@ -519,7 +525,7 @@ This is the multi-page printable view of this section.
       <a class="nav-link"
           id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
           aria-controls="tabs-01-01" aria-selected="false">
-        Digital.Auto
+        digital.auto
       </a>
     </li>
 </ul>
@@ -537,13 +543,13 @@ This is the multi-page printable view of this section.
     </div>
     <div class="tab-body tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
-        <p>To learn how to start prototyping with the playground of Digital.Auto and integrate it into Velocitas please take a look <a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto.md">here</a></p>
+        <p>To learn how to start prototyping with the playground of digital.auto and integrate it into Velocitas please take a look <a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto.md">here</a></p>
 
     </div>
 </div>
 
 <h2 id="how-to-start-to-develop">How to start to develop?</h2>
-<p>In the following chapter you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using just VS Codes <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">DevContainer</a> or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
+<p>In this section you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using VS Code&rsquo;s <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">DevContainer</a> or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
 
 
 
@@ -567,14 +573,14 @@ This is the multi-page printable view of this section.
     
     <div class="tab-body tab-pane fade show active"
         id="tabs-02-00" role="tabpanel" aria-labelled-by="tabs-02-00-tab">
-        <p>The VS Code DevContainer makes possible to package a complete <em>Vehicle App</em> development environment, including VS Code extensions, <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/">Vehicle App SDK</a>, <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime">Vehicle App Runtimes</a> and all other development and testing tools into a container which is started directly in VS Code.</p>
+        <p>The VS Code DevContainer makes it possible to package a complete <em>Vehicle App</em> development environment, including VS Code extensions, <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/"><em>Vehicle App</em> SDK</a>, <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime"><em>Vehicle App</em> Runtimes</a> and all other development and testing tools into a container which is started directly in VS Code.</p>
 <div class="pageinfo pageinfo-primary">
 <p><em><strong>Proxy Configuration</strong></em></p>
 <p>A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: <a href="/velocitas-docs/docs/tutorials/quickstart/behind_proxy">Working behind a proxy</a></p>
 </div>
-<p>With following steps you will clone and set up your development environment on your own machine using just VS Code.</p>
+<p>With following steps you will clone and set up your development environment on your own machine using VS Code.</p>
 <ol>
-<li>Clone created <em>MyOrg/MyFirstVehicleApp</em> repository locally using your favorite Git Tool</li>
+<li>Clone created <em>MyOrg/MyFirstVehicleApp</em> repository locally using your favorite Git tool</li>
 <li>Switch the directory to the cloned repository folder, e.g. <code>$ cd MyFirstVehicleApp</code></li>
 <li>Open the repository in VS Code via <code>$ code .</code> or via <a href="https://code.visualstudio.com/docs/editor/workspaces#_singlefolder-workspaces" target="_blank" rel="noopener">VS Code user interface</a>.</li>
 <li>A popup appears in the lower right corner with the button <kbd>Reopen in Container</kbd>.</li>
@@ -603,16 +609,16 @@ You can either try it out directly in the browser or also use it inside VS Code.
 <p>A new window will open where you can see logs for setting up the container. On this window you could now also choose to work with VS Code. The environment remains on a remote agent and VS Code establishes a connection to this machine.</p>
 <p>Once everything is set up in the <em>Codespace</em>, you can work with it in the same way as with the normal DevContainer inside VS Code.</p>
 <div class="pageinfo pageinfo-primary">
-<p>Be careful with using GitHub Codespaces in browser and VS Code locally at the same time: <em>Tasks</em> that are started using a browser session will not show in VS Code environment and vice versa. This might lead to problems.</p>
+<p>Be careful with using GitHub Codespaces in a browser and VS Code locally at the same time: <em>Tasks</em> that are started using a browser session will not show in VS Code environment and vice versa. This might lead to problems.</p>
 </div>
 
     </div>
 </div>
 
-<p>You can find more information about the <em>Vehicle App</em> Development in the <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">respective pages</a>.</p>
+<p>You can find more information about the <em>Vehicle App</em> development in the <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">respective pages</a>.</p>
 <h2 id="how-to-start-the-runtime-services">How to start the runtime services?</h2>
-<p>The runtime services (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are required to develop vehicle apps and run integration tests.</p>
-<p>Currently supported possibilities are starting the services locally and in a Kubernetes (K3D) cluster.</p>
+<p>The runtime services (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are required to develop <em>Vehicle Apps</em> and run integration tests.</p>
+<p>Currently, the supported options to run these services is either locally or in a Kubernetes (K3D) cluster.</p>
 
    
 
@@ -651,7 +657,7 @@ You can either try it out directly in the browser or also use it inside VS Code.
 </span></span><span style="display:flex;"><span>&gt; feedercan running
 </span></span><span style="display:flex;"><span>✅ Runtime is ready to use!
 </span></span></code></pre></div><div class="pageinfo pageinfo-primary">
-<p>Simply press <code>Ctrl + C</code> to stop the runtime.</p>
+<p>To stop the runtime simply press <code>Ctrl + C</code>.</p>
 </div>
 
     </div>
@@ -694,7 +700,7 @@ Both given examples are available as part of template.
 
 </div>
 
-<p>Now that the <a href="/velocitas-docs/docs/tutorials/run_runtime_services_locally">runtime services</a> are all up and running, let&rsquo;s start a debug session for the  <em>Vehicle App</em> .</p>
+<p>Now that the <a href="/velocitas-docs/docs/tutorials/run_runtime_services_locally">runtime services</a> are all up and running, let&rsquo;s start a debug session for the <em>Vehicle App</em>.</p>
 <p>
 
 
@@ -750,7 +756,7 @@ Both given examples are available as part of template.
 
 Now your breakpoint in the <em>Vehicle App</em> gets hit and you can inspect everything in your debug session. After resuming execution (<kbd>F5</kbd>), a response from your <em>Vehicle App</em> is published to the response topic. You can see the response in the MQTT window.</p>
 <h2 id="how-to-trigger-the-ci-workflow">How to trigger the CI Workflow?</h2>
-<p>The provided GitHub workflows are used to build the container image for the Vehicle App, run unit and integration tests and collect the test results.</p>
+<p>The provided GitHub workflows are used to build the container image for the <em>Vehicle App</em>, run unit and integration tests and collect the test results.</p>
 <p>The CI Workflow will be triggered by pushing a change to the main branch of your repository:</p>
 <ol>
 <li>
@@ -768,7 +774,7 @@ Now your breakpoint in the <em>Vehicle App</em> gets hit and you can inspect eve
 </ol>
 <p>To see the results open the <code>Actions</code> page of your repository on GitHub, go to <code>CI Workflow</code> and check the workflow output.</p>
 <h2 id="how-to-release-your-_vehicle-app_">How to release your <em>Vehicle App</em>?</h2>
-<p>Now that the <code>CI Workflow</code> was successful, you are ready to build your first release. The goal is to build a ready-to-deploy container image that is published in the GitHub container registry</p>
+<p>Now that the <code>CI Workflow</code> was successful, you are ready to build your first release. The goal is to build a ready-to-deploy container image that is published in the GitHub container registry.</p>
 <ol>
 <li>Open the <code>Code</code> page of your repository on GitHub</li>
 <li>Click on <code>Create a new release</code> in the Releases section on the right side</li>
@@ -780,8 +786,8 @@ Now your breakpoint in the <em>Vehicle App</em> gets hit and you can inspect eve
 </ol>
 <p>The provided release workflow will be triggered by the release. It creates a release documentation and publishes the container image of the <em>Vehicle App</em> to the GitHub container registry. A detailed description of the workflow can be found <a href="/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases/">here</a>.</p>
 <h2 id="how-to-deploy-your-_vehicle-app_">How to deploy your <em>Vehicle App</em>?</h2>
-<p>After releasing the <em>Vehicle App</em> to the GitHub container registry you might ask how to bring the <em>Vehicle App</em> and the required Runtime Stack on the device. Here <em>Eclipse Leda</em> comes into the game.</p>
-<p>Please checkout the documentation of <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/" target="_blank" rel="noopener">Eclipse Leda</a> to get more information.</p>
+<p>After releasing the <em>Vehicle App</em> to the GitHub container registry you might ask how to bring the <em>Vehicle App</em> and the required runtime stack on a device. Here, <em>Eclipse Leda</em> comes into the game.</p>
+<p>Please read the documentation of <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/" target="_blank" rel="noopener">Eclipse Leda</a> to get more information.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Creating a Vehicle Model</a></li>
@@ -804,7 +810,7 @@ Now your breakpoint in the <em>Vehicle App</em> gets hit and you can inspect eve
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-799584008e267d8100ef70eefcc7ccf5">1.2 - Import examples</h1>
-    <div class="lead">Learn how to import examples provided by the Vehicle App SDK.</div>
+    <div class="lead">Learn how to import examples provided by the <em>Vehicle App</em> SDK.</div>
 	<p>This guide will help you to import examples provided by the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener">SDK</a> package into your template repository.</p>
 <p>A Visual Studio Code task called <code>Import example app from SDK</code> is available in the <code>/.vscode/tasks.json</code> which can replace your <code>/app</code> directory in your template repository with some example <em>Vehicle Apps</em> from the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples" target="_blank" rel="noopener">SDK</a> package.</p>
 
@@ -828,7 +834,7 @@ Now your breakpoint in the <em>Vehicle App</em> gets hit and you can inspect eve
 <p>Every example app comes with its own <code>/app/AppManifest.json</code> to see which <em>Vehicle Services</em> are configured and needed as a dependency.</p>
 <p>To start the app:
 Just press <kbd>F5</kbd> to start a debug session of the example <em>Vehicle App</em>.</p>
-<p>To debug example, please check <a href="/velocitas-docs/docs/tutorials/quickstart#how-to-debug-_vehicle-app_">How to debug Vehicle App?</a></p>
+<p>To debug example, please check <a href="/velocitas-docs/docs/tutorials/quickstart#how-to-debug-_vehicle-app_">How to debug <em>Vehicle App</em>?</a></p>
 
 </div>
 
@@ -1086,8 +1092,8 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-b2e6933434fac21d41e03227b37cadb5">2 - Prototyping Integration</h1>
-    
+	<h1 id="pg-b2e6933434fac21d41e03227b37cadb5">2 - Prototyping</h1>
+    <div class="lead">Learn how to start your <em>Vehicle App</em> development with a prototype created in the playground of digital.auto and how to set up and customize <em>Vehicle Services</em>/<em>Data Providers</em>.</div>
 	
 </div>
 
@@ -1111,49 +1117,49 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
 
 <div class="td-content" style="">
     
-	<h1 id="pg-b712a3038fb369f46d28f7d82034fabe">2.1 - Prototyping with Digital.Auto</h1>
-    <div class="lead">Learn how to start a prototype with the playground of digital.auto and integrate it into Velocitas.</div>
-	<p>The open and web based <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> offers a rapid prototyping environment to explore and validate ideas of a vehicle app.
+	<h1 id="pg-b712a3038fb369f46d28f7d82034fabe">2.1 - Prototyping with digital.auto</h1>
+    <div class="lead">Learn how to start a <em>Vehicle App</em> prototype with the playground of digital.auto and integrate it into Velocitas.</div>
+	<p>The open and web based <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> offers a rapid prototyping environment to explore and validate ideas of a <em>Vehicle App</em>.
 </br>
 <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> interacts with different vehicle sensors and actuators via standardized APIs specified by the COVESA <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a> without custom setup requirements.
 </br>
 Within the platform you can:</p>
 <ul>
-<li>browse, navigate and enhance vehicle signals (sensors, actuators and branches) in the <a href="https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list" target="_blank" rel="noopener">Vehicle API Catalogue</a> mapped to a 3D model of the vehicle</li>
-<li>build vehicle app prototypes in the browser using Python and the Vehicle API Catalogue</li>
-<li>test the vehicle app prototype in a dashboard with 3D animation for API calls</li>
-<li>create new plugins, which usually represent UX widgets or remote server communication to enhance the vehicle mockup experience in the playground</li>
-<li>collect and evaluate user feedback to prioritize your development portfolio</li>
+<li>browse, navigate and enhance vehicle signals (sensors, actuators and branches) in the <a href="https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list" target="_blank" rel="noopener">Vehicle API Catalogue</a> mapped to a 3D model of the vehicle.</li>
+<li>build <em>Vehicle App</em> prototypes in the browser using Python and the Vehicle API Catalogue.</li>
+<li>test the <em>Vehicle App</em> prototype in a dashboard with 3D animation for API calls.</li>
+<li>create new plugins, which usually represent UX widgets or remote server communication to enhance the vehicle mockup experience in the playground.</li>
+<li>collect and evaluate user feedback to prioritize your development portfolio.</li>
 </ul>
 <h2 id="start-the-journey-of-a-_vehicle-app_">Start the journey of a <em>Vehicle App</em></h2>
 <p>As first step open <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a>, select <a href="https://digitalauto.netlify.app/model" target="_blank" rel="noopener"><em>Get Started</em></a> in the prototyping section of the landing page and use the Vehicle Model of your choice.</p>
-<p><img src="./digital-auto.png" alt="digital.auto">
-<img src="./vehicle-models.png" alt="vehicle-models"></p>
+<p><img src="../digital-auto.png" alt="digital.auto">
+<img src="../vehicle-models.png" alt="vehicle-models"></p>
 <p>You now have the possibility to browse existing vehicle signals for the selected vehicle model which you can use for prototyping your <em>Vehicle App</em> by clicking on <em>Vehicle APIs</em>.</p>
-<p><img src="./selected-model.png" alt="selected-model">
-<img src="./cvi-catalogue.png" alt="cvi-catalogue"></p>
+<p><img src="../selected-model.png" alt="selected-model">
+<img src="../cvi-catalogue.png" alt="cvi-catalogue"></p>
 <h3 id="add-additional-_vehicle-apis_">Add additional <em>Vehicle APIs</em></h3>
-<p>If the ideation of your vehicle app prototype comes with any new Vehicle API which is not part of the standard <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">VSS</a> you also have the option to include it into your pre-selected model by clicking the <em>+ New Wishlist API</em> button. After filling out all required fields, simply click the <em>create</em> button - this will commit the new API to the existing model.</p>
+<p>If the ideation of your <em>Vehicle App</em> prototype comes with any new Vehicle API which is not part of the standard <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">VSS</a> you also have the option to include it into your pre-selected model by clicking the <em>+ New Wishlist API</em> button. After filling out all required fields, simply click the <em>create</em> button - this will commit the new API to the existing model.</p>
 
 
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    For this feature, a digital.auto account is required. Get in touch with us or the digital.auto team in case you want to explore this feature
+    For this feature, a digital.auto account is required. Get in touch with us or the digital.auto team in case you want to explore this feature.
 
 </div>
 
-<p><img src="./wishlist.png" alt="wishlist"></p>
+<p><img src="../wishlist.png" alt="wishlist"></p>
 <h2 id="prototype-an-idea-of-a-_vehicle-app_">Prototype an idea of a <em>Vehicle App</em></h2>
 <p>The next step would be to prototype your idea. To do so:</p>
 <ul>
-<li>Click on <em>Prototype Library</em> of your selected model,
-<img src="./prototype-library.png" alt="prototype-library"></li>
-<li>Create a new prototype, by clicking on <em>New Prototype</em> and filling out the information or select one from the list,</li>
-<li>Click on the <em>Open</em> button,
-<img src="./select-prototype.png" alt="select-prototype"></li>
+<li>Click on <em>Prototype Library</em> of your selected model.
+<img src="../prototype-library.png" alt="prototype-library"></li>
+<li>Create a new prototype, by clicking on <em>New Prototype</em> and filling out the information or select one from the list.</li>
+<li>Click on the <em>Open</em> button.
+<img src="../select-prototype.png" alt="select-prototype"></li>
 <li>Go to the <em>Code</em> section and start your prototype right away.
-<img src="./code-section.png" alt="code-section"></li>
+<img src="../code-section.png" alt="code-section"></li>
 </ul>
 <h2 id="test-the-prototype-of-a-_vehicle-app_">Test the prototype of a <em>Vehicle App</em></h2>
 <p>Testing of your prototype starts in the <em>Run</em> section.
@@ -1163,10 +1169,10 @@ You will find a dashboard consisting all vehicle and application components simi
 The control center on the right side has an integrated terminal showing all of your prototyped outputs as well as a list of all called VSS API&rsquo;s.
 </br>
 The <em>Run</em> button executes all your prototype code from top to bottom. The <em>Debug</em> button allows you to step through your prototype line by line.</p>
-<p><img src="./run-section.png" alt="run-section"></p>
+<p><img src="../run-section.png" alt="run-section"></p>
 <p>To get started quickly, the digital.auto team has added a number of widgets to simulate related elements of the vehicle – like doors, seats, light, etc. – and made them available in the playground.</p>
 <p>Feel free to add your own Plugins with widgets for additional car features (maybe an antenna waving a warm “welcome”…?).</p>
-<h2 id="transfer-your-prototype-into-a-velocitas-vehicle-app">Transfer your prototype into a Velocitas Vehicle App</h2>
+<h2 id="transfer-your-prototype-into-a-velocitas-_vehicle-app_">Transfer your prototype into a Velocitas <em>Vehicle App</em></h2>
 <p>In the previous steps you started with envisioning and prototyping your <em>Vehicle App</em> idea and tested it against mocked vehicle components in digital.auto.
 </br>
 The Velocitas team provides a project generator to transfer the prototype from <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> into your own development environment where you are able to test it with real <a href="/velocitas-docs/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>.
@@ -1174,17 +1180,17 @@ The Velocitas team provides a project generator to transfer the prototype from <
 The generator creates a <em>Vehicle App</em> GitHub repository using your prototype code based on our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a>.
 </br>
 In the &lsquo;Code&rsquo; section of your prototype in <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> you have the button &lsquo;Create Eclipse Velocitas Project&rsquo;.</p>
-<p><img src="./generate.png" alt="generate"></p>
+<p><img src="../generate.png" alt="generate"></p>
 <p>After pressing the button you will be forwarded to <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>.
 </br>
 Login with your GitHub Account and authorize <a href="https://github.com/eclipse-velocitas/velocitas-project-generator-npm" target="_blank" rel="noopener">velocitas-project-generator</a> to create the repository for you.
 </br>
-You will be redirected to <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> and asked for a repository name (equals to the name of the app).
+You will be redirected to <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> and asked for a repository name (equals to the name of the <em>Vehicle App</em>).
 </br>
 By clicking on &ldquo;Create repository&rdquo;:</p>
 <ul>
-<li>the project generator takes over your prototype code</li>
-<li>the code is adapted to the structure in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a></li>
+<li>the project generator takes over your prototype code.</li>
+<li>the code is adapted to the structure in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a>.</li>
 <li>a new private repository under your specified GitHub User will be created.</li>
 </ul>
 <p>A successful generation of the repository is followed by a pop-up dialogue with the URL of your repository.</p>
@@ -1204,7 +1210,7 @@ By clicking on &ldquo;Create repository&rdquo;:</p>
 <tbody>
 <tr>
 <td><em>/app/src/main.py</em></td>
-<td>Main class of the app, containing your modified prototype code</td>
+<td>Main class of the <em>Vehicle App</em>, containing your modified prototype code</td>
 </tr>
 <tr>
 <td><em>/app/AppManifest.json</em></td>
@@ -1220,7 +1226,7 @@ By clicking on &ldquo;Create repository&rdquo;:</p>
 </tr>
 <tr>
 <td><em>/.github/workflows/</em></td>
-<td>All required CI/CD pipelines to build, test and deploy the vehicle application as container image to the GitHub container registry</td>
+<td>All required CI/CD pipelines to build, test and deploy the <em>Vehicle App</em> as container image to the GitHub container registry</td>
 </tr>
 <tr>
 <td><em>/gen/vehicle_model/</em></td>
@@ -1236,7 +1242,7 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 <p>You can proceed with the following topics:</p>
 <ul>
 <li><a href="/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment">Starting development environment</a></li>
-<li><a href="/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/">Vehicle App Development</a></li>
+<li><a href="/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/"><em>Vehicle App</em> Development</a></li>
 </ul>
 
 </div>
@@ -1254,14 +1260,13 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-b739b86ab630d926fca95b542c42eb18">2.2 - Service Integration</h1>
-    <div class="lead">Learn how to integrate a Vehicle Service that executes the request on vehicle side</div>
-	<p>Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your <em>Vehicle App</em> makes use of e.g. <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code>, <code>Vehicle.Body.Lights.IsBackupOn</code>, <code>Vehicle.Body.Lights.IsHighBeamOn</code>, <code>Vehicle.Body.Lights.IsLowBeamOn</code> you are in for some real action. To learn more, visit <a href="/velocitas-docs/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>.</p>
-<p>You can validate the interaction of the service with your <em>Vehicle App</em> by making use of a <em>Vehicle Service</em>.</p>
+    <div class="lead">Learn how to integrate a <em>Vehicle Service</em> that executes the request of your <em>Vehicle App</em> on vehicle side</div>
+	<p>Services can make sure, that when you write a VSS data point, something is actually happening. Eclipse Velocitas has an example seat or hvac service. If your <em>Vehicle App</em> makes use of e.g. <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> or other seat/hvac specific data points you are in for some real action. To learn more, visit <a href="/velocitas-docs/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>.</p>
 <p>Our maintained <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package (<a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>) comes with the support of adding further <em>Vehicle Services</em> to the <code>runtime.json</code> of a package. More information <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages">here</a>. (A general vehicle <em>mock service</em> is also coming soon!)</p>
-<h3 id="modify-services">Modify services</h3>
-<p>For more advanced usage you can als try modifying existing services. Check out <a href="https://github.com/boschglobal/kuksa.val.services/tree/feature/subscribe_actuator_targets/seat_service" target="_blank" rel="noopener">the seat service</a> for example, modify it and integrate it into your <em>Vehicle App</em> repository.</p>
+<h3 id="modify-existing-services">Modify existing services</h3>
+<p>For more advanced usage you can also try to modify existing services. Check out <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">the seat service</a> for example, modify it and integrate it into your <em>Vehicle App</em> repository.</p>
 <h3 id="create-your-own-services">Create your own services</h3>
-<p>If you want to create your own service the <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.val Services repository</a> contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to <em>KUKSA.val</em> listening to changes of a <em>target value</em> of some VSS datapoint and then do whatever you want. You can achieve this by using the <em>KUKSA.val</em> <a href="https://github.com/eclipse/kuksa.val/tree/master/proto/kuksa/val/v1" target="_blank" rel="noopener">GRPC API</a> with any programming language of your choice (learn more about <a href="https://grpc.io" target="_blank" rel="noopener">GRPC</a>).</p>
+<p>If you want to create your own service the <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a> contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to <em>KUKSA.VAL</em> listening to changes of a <em>target value</em> of some VSS data point and then do whatever you want. You can achieve this by using the <em>KUKSA.VAL</em> <a href="https://github.com/eclipse/kuksa.val/tree/master/proto/kuksa/val/v1" target="_blank" rel="noopener">gRPC API</a> with any programming language of your choice (learn more about <a href="https://grpc.io" target="_blank" rel="noopener">gRPC</a>).</p>
 
 </div>
 
@@ -1282,7 +1287,7 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a1c6a3eb4aab1156f6ec6ebd4f7eb8d0">3 - Vehicle App Development</h1>
-    <div class="lead">Learn how to develop a new Vehicle App.</div>
+    <div class="lead">Learn how to develop a new <em>Vehicle App</em>.</div>
 	<p>Please visit first <a href="/velocitas-docs/docs/tutorials/quickstart/">Getting Started page</a> if you don&rsquo;t know where to start.</p>
 
 </div>
@@ -1310,16 +1315,16 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 	<h1 id="pg-1ed74869b799b42bc277c998c30449af">3.1 - Python Vehicle App Development</h1>
     <div class="lead">Learn how to develop and test the <em>Vehicle App</em> using Python.</div>
 	<blockquote>
-<p>We recommend that you make yourself familiar with the <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md">Vehicle App SDK</a> first, before going through this tutorial.</p>
+<p>We recommend that you make yourself familiar with the <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md"><em>Vehicle App</em> SDK</a> first, before going through this tutorial.</p>
 </blockquote>
-<p>The following information describes how to develop and test the sample <em>Vehicle App</em> that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">template repository</a>. You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.</p>
+<p>The following information describes how to develop and test the sample <em>Vehicle App</em> that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">template repository</a>. You will learn how to use the <em>Vehicle App</em> SDK and how to interact with the Vehicle Model.</p>
 <p>Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own <em>Vehicle App</em> development project.</p>
-<h2 id="develop-your-first-vehicle-app">Develop your first Vehicle App</h2>
-<p>This section describes how to develop your first Vehicle App. Before you start building a new Vehicle App, make sure you have already read this manual:</p>
+<h2 id="develop-your-first-_vehicle-app_">Develop your first <em>Vehicle App</em></h2>
+<p>This section describes how to develop your first <em>Vehicle App</em>. Before you start building a new <em>Vehicle App</em>, make sure you have already read this manual:</p>
 <ul>
 <li><a href="/velocitas-docs/docs/setup_and_explore_development_environment.md">Setup and Explore Development Environment</a></li>
 </ul>
-<p>Once you have established your development environment, you will be able to start developing your first Vehicle App.</p>
+<p>Once you have established your development environment, you will be able to start developing your first <em>Vehicle App</em>.</p>
 <p>For this tutorial, you will recreate the <em>Vehicle App</em> that is included with the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener">SDK repository</a>:
 The <em>Vehicle App</em> allows to change the positions of the seats in the car and also provide their current positions to other applications.</p>
 <p>A detailed explanation of the use case and the example is available <a href="/velocitas-docs/docs/velocitas/docs/seat_adjuster_use_case.md">here</a>.</p>
@@ -1387,7 +1392,7 @@ The <em>Vehicle App</em> allows to change the positions of the seats in the car 
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">on_seat_position_changed</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
-</span></span></code></pre></div><p>Every Datapoint provides a <em>.subscribe()</em> method that allows for providing a callback function which will be invoked on every datapoint update. Subscribed data is available in the respective <em>DataPointReply</em> object and need to be accessed via the reference to the subscribed datapoint. The returned object is of type <code>TypedDataPointResult</code> which holds the <code>value</code> of the data point
+</span></span></code></pre></div><p>Every <code>DataPoint</code> provides a <em>.subscribe()</em> method that allows for providing a callback function which will be invoked on every data point update. Subscribed data is available in the respective <em>DataPointReply</em> object and need to be accessed via the reference to the subscribed data point. The returned object is of type <code>TypedDataPointResult</code> which holds the <code>value</code> of the data point
 and the <code>timestamp</code> at which the value was captured by the data broker.
 Therefore the <code>on_seat_position_changed</code> callback function needs to be implemented like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
@@ -1400,14 +1405,14 @@ Therefore the <code>on_seat_position_changed</code> callback function needs to b
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    <p>The SDK also supports annotations for subscribing to datapoint changes with <code>@subscribe_data_points</code> defined by the whole path to the <code>DataPoint</code> of interest.</p>
+    <p>The SDK also supports annotations for subscribing to data point changes with <code>@subscribe_data_points</code> defined by the whole path to the <code>DataPoint</code> of interest.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@subscribe_data_points</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_vehicle_seat_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">))</span>
-</span></span></code></pre></div><p>Similarly, subscribed data is available in the respective <em>DataPointReply</em> object and needs to be accessed via the reference to the subscribed datapoint.</p>
+</span></span></code></pre></div><p>Similarly, subscribed data is available in the respective <em>DataPointReply</em> object and needs to be accessed via the reference to the subscribed data point.</p>
 
 
 </div>
@@ -1433,8 +1438,8 @@ Therefore the <code>on_seat_position_changed</code> callback function needs to b
 <p>Make sure to use the <code>await</code> keyword when calling service methods, since these methods are coroutines.</p>
 </blockquote>
 <h3 id="mqtt">MQTT</h3>
-<p>Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.</p>
-<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_">quickstart section</a> about the Vehicle App, you already tested sending MQTT messages to the app.
+<p>Interaction with other <em>Vehicle Apps</em> or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.</p>
+<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_">quickstart section</a> about the <em>Vehicle App</em>, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use <code>Vehicle Models</code>, <code>DataPoints</code> and <code>GRPC Services</code>. In this section, you will learn how to combine them with MQTT.</p>
 <p>In order to receive and process MQTT messages inside your app, simply use the <code>@subscribe_topic</code> annotations from the SDK for an additional method <code>on_set_position_request_received()</code> you have to implement:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#5c35cc;font-weight:bold">@subscribe_topic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
@@ -1503,43 +1508,7 @@ After creating the mock, you can test the method and check the response. Use ass
 <li>Select command <code>Tasks: Run Task</code></li>
 <li>Select <code>Local Runtime - Run VehicleApp</code></li>
 </ol>
-<h3 id="the-following-dapr-configuration-is-part-of-the-devenv-runtimes-package-wip-tbd">The following dapr configuration is part of the devenv-runtimes package (WIP: TBD)</h3>
-<p>You already have seen this command and how to check if it is working in the <a href="/velocitas-docs/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#debug-your-vehicle-app">general setup</a>.</p>
-<p>For now, you just need to know that these parameters are needed to make everything work together.</p>
-<p>The config.yaml has to be placed in the folder called <code>.dapr</code>and has the following content:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Yaml" data-lang="Yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dapr.io/v1alpha1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Configuration</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">config</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">spec</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">tracing</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#204a87;font-weight:bold">samplingRate</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;1&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#204a87;font-weight:bold">zipkin</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:bold">endpointAddress</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://localhost:9411/api/v2/spans</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">features</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">   </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">proxy.grpc</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:bold">enabled</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><p>An important part is the enabling of the GRPC proxy, to make the communication work.</p>
-<p>Inside the <code>.dapr</code> folder you find another folder called <code>components</code>. There you only find one configuration file for the MQTT communication with the following content:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Yaml" data-lang="Yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dapr.io/v1alpha1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Component</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">mqtt-pubsub</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">namespace</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">default</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">spec</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">pubsub.mqtt</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">version</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">url</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;mqtt://localhost:1883&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qos</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">retain</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;false&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cleanSession</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;false&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><p>If you want to know more about dapr and the configuration, please visit <a href="https://dapr.io" target="_blank" rel="noopener">https://dapr.io</a></p>
-<h3 id="debug-your-vehicle-app">Debug your Vehicle App</h3>
+<h3 id="debug-your-_vehicle-app_">Debug your <em>Vehicle App</em></h3>
 <p>In the <a href="/velocitas-docs/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_">introduction about debugging</a>, you saw how to start a debugging session. In this section, you will learn what is happening in the background.</p>
 <p>The debug session launch settings are already prepared for the <code>VehicleApp</code> in <code>/.vscode/launch.json</code>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;configurations&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">[</span>
@@ -1602,15 +1571,15 @@ After creating the mock, you can test the method and check the response. Use ass
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hide&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">,</span>
-</span></span></code></pre></div><p>You can adapt the configuration in <code>/.vscode/launch.json</code> to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.</p>
-<p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.</p>
+</span></span></code></pre></div><p>You can adapt the configuration in <code>/.vscode/launch.json</code> to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another <em>Vehicle App</em>.</p>
+<p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your <em>Vehicle App</em>.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Creating a Python Vehicle Model</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/integration_tests.md">Develop and run integration tests for a <em>Vehicle App</em></a></li>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model/">Deployment Model</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a Python <em>Vehicle App</em> with Helm</a></li>
 </ul>
@@ -1632,20 +1601,19 @@ After creating the mock, you can test the method and check the response. Use ass
 	<h1 id="pg-dd99972d0f3a189b2173b3c72caa2816">3.2 - C&#43;&#43; Vehicle App Development</h1>
     <div class="lead">Learn how to develop and test a <em>Vehicle App</em> using C++.</div>
 	<blockquote>
-<p>We recommend that you make yourself familiar with the <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk">Vehicle App SDK</a> first, before going through this tutorial.</p>
+<p>We recommend that you make yourself familiar with the <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk"><em>Vehicle App</em> SDK</a> first, before going through this tutorial.</p>
 </blockquote>
-<p>The following information describes how to develop and test the sample <em>Vehicle App</em> that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">template repository</a>. You will learn how to use the Vehicle App SDK and how to interact with the Vehicle Model.</p>
+<p>The following information describes how to develop and test the sample <em>Vehicle App</em> that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">template repository</a>. You will learn how to use the <em>Vehicle App</em> SDK and how to interact with the Vehicle Model.</p>
 <p>Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own <em>Vehicle App</em> development project.</p>
-<h2 id="develop-your-first-vehicle-app">Develop your first Vehicle App</h2>
+<h2 id="develop-your-first-_vehicle-app_">Develop your first <em>Vehicle App</em></h2>
 <p>This section describes how to develop your first <em>Vehicle App</em>. Before you start building a new <em>Vehicle App</em>, make sure you have already read this manual:</p>
 <ul>
 <li><a href="/velocitas-docs/docs/tutorials/quickstart.md">Setup and Explore Development Environment</a></li>
 </ul>
-<p>Once you have established your development environment, you will be able to start developing your first <em>Vehicle App</em>.</p>
-<p>For this tutorial, you will recreate the vehicle app that is included with the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">template repository</a>:
-The <em>Vehicle App</em> allows to change the positions of the seats in the car and also provide their current positions to other applications.</p>
+<p>For this tutorial, you will recreate the <em>Vehicle App</em> that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">template repository</a>:
+The <em>Vehicle App</em> allows you to change the positions of the seats in the car and also provide their current positions to other applications.</p>
 <p>A detailed explanation of the use case and the example is available <a href="/velocitas-docs/docs/velocitas/docs/seat_adjuster_use_case.md">here</a>.</p>
-<p>At first, you have to create the main c++ file which we will call <code>App.cpp</code> in <code>/app/src</code>. All the relevant code for new <em>Vehicle App</em> goes there. Afterwards, there are several steps you need to consider when developing the app:</p>
+<p>At first, you have to create the main C++ file which we will call <code>App.cpp</code> in <code>/app/src</code>. All the relevant code for your new <em>Vehicle App</em> goes there. Afterwards, there are several steps you need to consider when developing the app:</p>
 <ol>
 <li><a href="#manage-your-imports">Manage your includes</a></li>
 <li><a href="#initialize-your-class">Initialize your class</a></li>
@@ -1677,9 +1645,18 @@ The <em>Vehicle App</em> allows to change the positions of the seats in the car 
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>                 <span style="color:#000">IPubSubClient</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">createInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;localhost:1883&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MyVehicleApp&#34;</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#8f5902;font-style:italic">// the URI to the MQTT broker and the client ID of the MQTT client.
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{}</span>
-</span></span></code></pre></div><p>Now, you have initialized the app and can continue developing relevant methods.</p>
+</span></span></code></pre></div>
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    The URI of the MQTT broker can also be set via the environment variable <code>MQTT_BROKER_URI</code>, which would overwrite the setting in the code. So make sure that you don&rsquo;t mix this up.
+
+</div>
+
+<p>Now, you have initialized the app and can continue developing relevant methods.</p>
 <h3 id="start-the-app">Start the app</h3>
-<p>Here&rsquo;s an example of how to start the <code>MyVehicleApp</code> app that we just developed:</p>
+<p>Here&rsquo;s an example how to start the <code>MyVehicleApp</code> app that we just developed:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">**</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">MyVehicleApp</span> <span style="color:#000">app</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">();</span>
@@ -1687,31 +1664,32 @@ The <em>Vehicle App</em> allows to change the positions of the seats in the car 
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>The app is now running. In order to use it properly, we will enhance the app with more features in the next sections.</p>
 <h2 id="vehicle-model-access">Vehicle Model Access</h2>
-<p>In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">tutorial about creating models</a> for more details about this topic. In this section, the focus is on using the models.</p>
+<p>In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check the <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">tutorial about creating models</a> for more details. In this section, the focus is on using the model.</p>
 <p>The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model in the folder <code>app/vehicle_model/include/</code>. This folder is already configured as &ldquo;include folder&rdquo; of the CMake tooling. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.</p>
-<p>If you want to access a single <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/#datapoint">DataPoint</a> for the vehicle speed, this can be done via</p>
+<p>If you want to access a single <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/#datapoint">DataPoint</a> e.g. for the vehicle speed, this can be done via</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeedBlocking</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onResult</span><span style="color:#000;font-weight:bold">([](</span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeed</span><span style="color:#000;font-weight:bold">){</span>
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onResult</span><span style="color:#000;font-weight:bold">([](</span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeed</span><span style="color:#000;font-weight:bold">){</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Got speed!&#34;</span><span style="color:#000;font-weight:bold">);</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">})</span>
-</span></span></code></pre></div><p><code>getDataPoint()</code> returns a <code>shared_ptr</code> to an <code>AsyncResult</code> which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use <code>await()</code> and block the calling thread until a result is available or use <code>onResult(...)</code> which allows us to inject a function pointer or a lambda which is called once the result becomes available.</p>
-<p>If you want to get deeper inside the vehicle, to access a single seat for example, you just have to go the model-chain down:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">driverSeatPosition</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
+</span></span></code></pre></div><p><code>getDataPoint()</code> returns a <code>shared_ptr</code> to an <code>AsyncResult</code> which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use <code>await()</code> and block the calling thread until a result is available or use <code>onResult(...)</code> which allows us to inject a function pointer or a lambda which is called once the result is available.</p>
+<p>If you want to get deeper inside to the vehicle, to access a single seat for example, you just have to go the model-chain down:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">driverSeatPosition</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
 </span></span></code></pre></div><h2 id="subscription-to-datapoints">Subscription to DataPoints</h2>
-<p>If you want to get notified about changes of a specific <code>DataPoint</code>, you can subscribe to this event, e.g. as part of the <code>onStart()</code> method in your app.</p>
+<p>If you want to get notified about changes of a specific <code>DataPoint</code>, you can subscribe to this event, e.g. as part of the <code>onStart()</code> method in your app:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onStart</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">subscribeDataPoints</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">QueryBuilder</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">select</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">build</span><span style="color:#000;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">subscribeDataPoints</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">QueryBuilder</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">select</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">build</span><span style="color:#000;font-weight:bold">())</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">forward</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">decltype</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">));</span> <span style="color:#000;font-weight:bold">})</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onError</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">status</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">onError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">forward</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">decltype</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">status</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">status</span><span style="color:#000;font-weight:bold">));</span> <span style="color:#000;font-weight:bold">});</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DataPointsResult</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">dataPoint</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">dataPoint</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">dataPoint</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">());</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// do something with the data point value
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>The <code>VehicleApp</code> class provides the <code>subscribeDataPoints()</code> method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via <code>AsyncSubscription::onItem()</code> is called. Conversely, the callback registered via <code>AsyncSubscription::onError()</code> is called once there is any error during communication with the KUKSA data broker.</p>
-<p>The result passed to the callback registered via <code>onItem()</code> is an object of type <code>DataPointsResult</code> which holds all data points that have changed. Individual data points can be accessed directly by their reference: <code>result.get(Vehicle.Cabin.Seat.Row(1).Pos(1).Position)</code>)</p>
+<p>The result passed to the callback registered via <code>onItem()</code> is an object of type <code>DataPointsResult</code> which holds all data points that have changed. Individual data points can be accessed directly by their reference: <code>result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)</code>)</p>
 <h2 id="services">Services</h2>
 
 
@@ -1722,8 +1700,8 @@ The <em>Vehicle App</em> allows to change the positions of the seats in the car 
 
 </div>
 
-<p>Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service">here</a>.</p>
-<p>The following few lines show you how to use the <code>moveComponent()</code> method of the <code>SeatService</code> you have created:</p>
+<p>Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service">here</a>.</p>
+<p>The following few lines show you how to use the <code>moveComponent()</code> method of the <code>SeatService</code> which is developed in the tutorial:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">cabin</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatService</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatLocation</span> <span style="color:#000">location</span><span style="color:#000;font-weight:bold">{</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">};</span>
 </span></span><span style="display:flex;"><span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">SeatService</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">moveComponent</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">location</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">cabin</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatService</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Component</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Base</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">300</span>
@@ -1733,10 +1711,10 @@ The <em>Vehicle App</em> allows to change the positions of the seats in the car 
 <p>Make sure to call the <code>await()</code> method when calling service methods or register a callback via <code>onResult()</code> otherwise you don&rsquo;t know when your asynchronous call will finish.</p>
 </blockquote>
 <h3 id="mqtt">MQTT</h3>
-<p>Interaction with other Vehicle Apps or the cloud is enabled by using Mosquitto MQTT Broker. The MQTT broker runs inside a docker image, which is started automatically after starting the DevContainer.</p>
-<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart%22">quickstart section</a> about the Vehicle App, you already tested sending MQTT messages to the app.
+<p>Interaction with other <em>Vehicle Apps</em> or the cloud is enabled by using a Mosquitto MQTT Broker. When using the provided template repository you can start a MQTT Broker as part the local runtime. More information can be found <a href="/velocitas-docs/docs/run_runtime_services_locally.md">here</a>.</p>
+<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart.md">quickstart section</a> about the <em>Vehicle App</em>, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use <code>Vehicle Models</code>, <code>DataPoints</code> and <code>GRPC Services</code>. In this section, you will learn how to combine them with MQTT.</p>
-<p>In order to receive and process MQTT messages inside your app, simply use the <code>VehicleApp::subscribeTopic</code> method provided by the SDK:</p>
+<p>In order to receive and process MQTT messages inside your app, simply use the <code>VehicleApp::subscribeTopic(&lt;topic&gt;)</code> method provided by the SDK:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onStart</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">subscribeTopic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">){</span> <span style="color:#000">onSetPositionRequestReceived</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">forward</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">decltype</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">);)});</span>
@@ -1747,11 +1725,11 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">responseTopic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/setPosition/response&#34;</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">nlohmann</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">json</span> <span style="color:#000">respData</span><span style="color:#000;font-weight:bold">({{</span><span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">jsonData</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">]},</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{}}});</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>The <code>onSetPositionRequestReceived</code> method will now be invoked every time a message is created on the subscribed topic <code>&quot;seatadjuster/setPosition/response&quot;</code>. The message data (string) is provided as parameter. In the example above the data is parsed to json (<code>data = json.loads(data_str)</code>).</p>
+</span></span></code></pre></div><p>The <code>onSetPositionRequestReceived</code> method will now be invoked every time a message is created on the subscribed topic <code>seatadjuster/setPosition/response</code>. The message data is provided as a string parameter. In the example above the data is parsed to json (<code>data = json.loads(data_str)</code>).</p>
 <p>In order to publish data to other subscribers, the SDK provides the appropriate convenience method: <code>VehicleApp::publishToTopic(...)</code></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">MyVehicleApp</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DataPointsResult</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">responseTopic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">nlohmann</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">json</span> <span style="color:#000">respData</span><span style="color:#000;font-weight:bold">({</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">()});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">nlohmann</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">json</span> <span style="color:#000">respData</span><span style="color:#000;font-weight:bold">({</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">()});</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">publishToTopic</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">responseTopic</span><span style="color:#000;font-weight:bold">,</span>
@@ -1772,124 +1750,87 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 </div>
 
 <h3 id="run-your-app">Run your App</h3>
-<p>If you want to run the app together with a Dapr sidecar and use the Dapr middleware, you have to use the &ldquo;dapr run &hellip;&rdquo; command to start your app:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dapr run --app-id myvehicleapp --app-port <span style="color:#0000cf;font-weight:bold">50008</span> --config ./.dapr/config.yaml --components-path ./.dapr/components build/bin/App
-</span></span></code></pre></div><p>You already have seen this command and how to check if it is working in the <a href="/velocitas-docs/docs/tutorials/quickstart/">general setup</a>.</p>
-<p>2 parameters may be unclear in this command:</p>
-<ul>
-<li>the config file <code>config.yaml</code></li>
-<li>the components-path</li>
-</ul>
-<p>For now, you just need to know that these parameters are needed to make everything work together.</p>
-<p>The config.yaml has to be placed in the folder called <code>.dapr</code> and has the following content:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Yaml" data-lang="Yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dapr.io/v1alpha1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Configuration</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">config</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">spec</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">tracing</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#204a87;font-weight:bold">samplingRate</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;1&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">   </span><span style="color:#204a87;font-weight:bold">zipkin</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:bold">endpointAddress</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://localhost:9411/api/v2/spans</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">features</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">   </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">proxy.grpc</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#204a87;font-weight:bold">enabled</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><p>An important part is the enabling of the GRPC proxy, to make the communication work.</p>
-<p>Inside the <code>.dapr</code> folder you find another folder called <code>components</code>. There you only find one configuration file for the MQTT communication with the following content:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Yaml" data-lang="Yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">dapr.io/v1alpha1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Component</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">mqtt-pubsub</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">namespace</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">default</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">spec</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">type</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">pubsub.mqtt</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">version</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">url</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;mqtt://localhost:1883&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qos</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">retain</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;false&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">cleanSession</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;false&#34;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><p>If you want to know more about dapr and the configuration, please visit the <a href="https://dapr.io" target="_blank" rel="noopener">dapr documentation</a>.</p>
-<h3 id="debug-your-vehicle-app">Debug your Vehicle App</h3>
-<p>In the <a href="%22/docs/tutorials/quickstart#how-to-debug-_Vehicle-App_%22">introduction about debugging</a>, you saw how to start a debugging session. In this section, you will learn what is happening in the background.</p>
+<p>In order to run the app make sure the <code>devenv-runtimes</code> package is part of your <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> (which should be the default) and the runtime is up and running. Read more about it in the <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally">run runtime services</a> section.</p>
+<p>Now chose one of the options to start the VehicleApp under development (including Dapr sidecar):</p>
+<ol>
+<li>Press <kbd>F5</kbd></li>
+</ol>
+<p>or:</p>
+<ol>
+<li>Press <kbd>F1</kbd></li>
+<li>Select command <code>Tasks: Run Task</code></li>
+<li>Select <code>Local Runtime - Run VehicleApp</code></li>
+</ol>
+<h3 id="debug-your-_vehicle-app_">Debug your <em>Vehicle App</em></h3>
+<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_">introduction about debugging</a>, you saw how to start a debugging session. In this section, you will learn what is happening in the background.</p>
 <p>The debug session launch settings are already prepared for the <code>VehicleApp</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;configurations&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VehicleApp - Debug (dapr)&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;cppdbg&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;request&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;launch&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;program&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}/build/bin/App&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;args&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[],</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;stopAtEntry&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;cwd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;environment&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;50001&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DAPR_HTTP_PORT&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;3500&#34;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;externalConsole&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;MIMode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;gdb&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;setupCommands&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;description&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Enable pretty-printing for gdb&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;text&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;-enable-pretty-printing&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;ignoreFailures&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;description&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Set Disassembly Flavor to Intel&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;text&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;-gdb-set disassembly-flavor intel&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;ignoreFailures&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;preLaunchTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-run&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;postDebugTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-stop&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">]</span>
-</span></span></code></pre></div><p>We specify which binary to run using the <code>program</code> key. With the <code>preLaunchTask</code> and <code>postDebugTask</code> keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-run&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;appId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;myvehicleapp&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;componentsPath&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.dapr/components&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./.dapr/config.yaml&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;grpcPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">50001</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;httpPort&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3500</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;configurations&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VehicleApp - Debug (dapr run)&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;cppdbg&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;request&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;launch&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;program&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}/build/bin/app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;args&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;stopAtEntry&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;cwd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;environment&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DAPR_HTTP_PORT&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;3500&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;50001&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VEHICLEDATABROKER_DAPR_APP_ID&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;externalConsole&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;MIMode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;gdb&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;setupCommands&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;preLaunchTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;postDebugTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>We specify which binary to run using the <code>program</code> key. In the <code>environment</code> you can specify all needed environment variables. With the <code>preLaunchTask</code> and <code>postDebugTask</code> keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;velocitas exec runtime-local run-dapr-sidecar vehicleapp --dapr-grpc-port 50001 --dapr-http-port 3500&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;isBackground&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-VehicleApp-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;dapr stop --app-id myvehicleapp&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;dapr stop --app-id vehicleapp&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>Lastly, the environment variables can also be specified.</p>
-<p>You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another Vehicle App.</p>
-<p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your Vehicle App.</p>
+</span></span></code></pre></div><p>You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another <em>Vehicle App</em>.</p>
+<p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your <em>Vehicle App</em>.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model">Deployment Model</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/run_runtime_services_kubernetes.md">Deploy runtime services in Kubernetes</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/run_runtime_services_locally.md">Start runtime services locally</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Creating a Vehicle Model</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
-<li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model">Deployment Model</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md">Deploy a <em>Vehicle App</em> with Helm</a></li>
 </ul>
 
@@ -2047,7 +1988,7 @@ Also, the target folder for the generated model source code is specified here:</
 <ul>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Setup and Explore Development Environment</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a <em>Vehicle App</em></a></li>
 </ul>
 
 </div>
@@ -2170,7 +2111,7 @@ Also, the target folder for the generated model source code is specified here:</
 <ul>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Setup and Explore Development Environment</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a <em>Vehicle App</em></a></li>
 </ul>
 
 </div>
@@ -2269,7 +2210,7 @@ Successfully installed my-vehicle-model-0.1
 </span></span></code></pre></div><h2 id="add-vehicle-models-manually">Add Vehicle Models manually</h2>
 <ol>
 <li>
-<p>Install the Python Vehicle App SDK:</p>
+<p>Install the Python <em>Vehicle App</em> SDK:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git
 </span></span></code></pre></div><p>The output of the above command should end with:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Successfully installed sdv-x.y.z
@@ -2371,7 +2312,7 @@ Successfully installed my-vehicle-model-0.1
 </li>
 <li>
 <p>Copy your proto file under <code>my_vehicle_model/my_vehicle_model/proto</code></p>
-<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
+<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA.VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
 </li>
 <li>
 <p>Install the grpcio tools including mypy types to generate the python classes out of the proto-file:</p>
@@ -2380,7 +2321,7 @@ Successfully installed my-vehicle-model-0.1
 <li>
 <p>Generate Python classes from the <code>SeatService</code> message definition:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m grpc_tools.protoc -I my_vehicle_model/proto --grpc_python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --mypy_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto my_vehicle_model/proto/seats.proto
-</span></span></code></pre></div><p>This creates the following grpc files under the <code>proto</code> folder:</p>
+</span></span></code></pre></div><p>This creates the following gRPC files under the <code>proto</code> folder:</p>
 <ul>
 <li>seats_pb2.py</li>
 <li>seats_pb2_grpc.py</li>
@@ -2439,7 +2380,7 @@ Successfully installed my-vehicle-model-0.1
 shown above:</p>
 <ul>
 <li>The <code>SeatService</code> class must derive from the <code>Service</code> class provided by the Python SDK.</li>
-<li>The <code>SeatService</code> class must use the grpc channel from the <code>Service</code> base class and provide it to the <code>_stub</code> in the <code>__init__</code> method. This allows the SDK to manage the physical connection to the grpc service and use service discovery of the middleware.</li>
+<li>The <code>SeatService</code> class must use the gRPC channel from the <code>Service</code> base class and provide it to the <code>_stub</code> in the <code>__init__</code> method. This allows the SDK to manage the physical connection to the gRPC service and use service discovery of the middleware.</li>
 <li>Every method needs to pass the metadata from the <code>Service</code> base class to the gRPC call. This is done by passing the <code>self.metadata</code> argument to the metadata of the gRPC call.</li>
 </ul>
 </li>
@@ -2518,7 +2459,7 @@ shown above:</p>
 	<h1 id="pg-3e85be65611fe1e1cf9f1d5cda3e3deb">4.2.3.2 - Python Vehicle Model Distribution</h1>
     <div class="lead">Learn how to distribute a Vehicle Model written in Python.</div>
 	<p>Now you a have a Python package containing your first Python <em>Vehicle Model</em> and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the <a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener">Python Packaging User Guide</a> to learn more about packaging and package distribution in Python.</p>
-<h2 id="distribute-to-single-vehicle-app">Distribute to single Vehicle App</h2>
+<h2 id="distribute-to-single-_vehicle-app_">Distribute to single <em>Vehicle App</em></h2>
 <p>If you want to distribute your Python <em>Vehicle Model</em> to a single <em>Vehicle App</em>, you can do so by copying the entire folder <code>my_vehicle_model</code> under the <code>/app/src</code> folder of your <em>Vehicle App</em> repository and treat it as a sub-package of the <em>Vehicle App</em>.</p>
 <ol>
 <li>Create a new folder <code>my_vehicle_model</code> under <code>/app/src</code> in your <em>Vehicle App</em> repository.</li>
@@ -2676,7 +2617,7 @@ A new service can be easily started by calling it from bash script, however rest
 <ul>
 <li>Core tasks (dependent on each other in the given order):
 <ul>
-<li><code>K3D - Runtime Up</code>: Starts up the K3D runtime (Including configuring control plane and initializing dapr).</li>
+<li><code>K3D - Runtime Up</code>: Starts up the K3D runtime (Including configuring control plane and initializing Dapr).</li>
 <li><code>K3D - Build VehicleApp</code>: Builds the VehicleApp.</li>
 <li><code>K3D - Deploy VehicleApp</code>: Deploys the VehicleApp via Helm to the K3D cluster.</li>
 </ul>
@@ -2735,11 +2676,20 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-bd5d2fada9d4690d2d19153cda021984">6 - Vehicle App Integration Testing</h1>
-    <div class="lead">Learn how to test that a <em>Vehicle App</em> together with the KUKSA Data Broker and potentially other dependant Vehicle Services or Vehicle Apps runs as expected.</div>
+    <div class="lead">Learn how to test that a <em>Vehicle App</em> together with the KUKSA Data Broker and potentially other dependant Vehicle Services or <em>Vehicle Apps</em> runs as expected.</div>
 	<p>To be sure that a newly created <em>Vehicle App</em> will run together with the <em>KUKSA Data Broker</em> and potentially other dependant <em>Vehicle Services</em> or <em>Vehicle Apps</em>, it&rsquo;s essential to write integration tests along with developing the app.</p>
-<p>To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.</p>
+<p>To execute an integration test, the dependant components need to be running and be accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    This guide is currently only available for development of integration tests with <strong>Python</strong>.
+
+</div>
+
 <h2 id="writing-test-cases">Writing Test Cases</h2>
-<p>To write an integration test, you should check the sample that comes with the template (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py" target="_blank" rel="noopener"><code>/app/tests/integration/integration_test.py</code></a>). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:</p>
+<p>To write an integration test, you should check the sample that comes with the template (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py" target="_blank" rel="noopener"><code>/app/tests/integration/integration_test.py</code></a>). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for data points), there are two classes present in Python SDK that will help:</p>
 <ul>
 <li>
 <p><code>MqttClient</code>: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:</p>
@@ -2756,18 +2706,18 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;responsecode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">10</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>If the <code>responsecode</code> property should be checked for the value <code>10</code>, the path would be <code>[&quot;result&quot;, &quot;responsecode]</code>, property value would be <code>10</code>. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&quot;&quot;) is returned.</p>
+</span></span></code></pre></div><p>If the <code>responsecode</code> property should be checked for the value <code>10</code>, the path would be <code>[&quot;result&quot;, &quot;responsecode&quot;]</code>, property value would be <code>10</code>. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&quot;&quot;) is returned.</p>
 </li>
 </ul>
-<p>This class can be initialized with a given port. If no port is specified, the environment variable <code>MQTT_PORT</code> will be checked. If this is not possible either, the default value of <code>1883</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>1883</code> and in CI the port set by the environment variable <code>MQTT_PORT</code>. This will prevent a check-in in the wrong port from local development.</strong></p>
+<p>This class can be initialized with a given port. If no port is specified, the environment variable <code>MQTT_PORT</code> will be checked. If this is not possible either, the default value of <code>1883</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>1883</code> and in CI the port is set by the environment variable <code>MQTT_PORT</code>. This will prevent a check-in in the wrong port during local development.</strong></p>
 </li>
 <li>
 <p><code>IntTestHelper</code>: this class provides functionality to interact with the <em>KUKSA Data Broker</em>.</p>
 <ul>
-<li><code>register_datapoint</code>: registers a new datapoint with given name and type</li>
-<li><code>set_..._datapoint</code>: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.</li>
+<li><code>register_datapoint</code>: registers a new data point with given name and type (<a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/#typed-datapoint-classes">here</a> you can find more information about the available types)</li>
+<li><code>set_..._datapoint</code>: set the given value for the data point with the given name (with given type). If the data point does not exist, it will be registered.</li>
 </ul>
-<p>This class can be initialized with a given port. If no port is specified, the environment variable <code>VDB_PORT</code> will be checked. If this is not possible either, the default value of <code>55555</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>55555</code> and in CI the port set by the environment variable <code>VDB_PORT</code> which is set. This will prevent a check-in in the wrong port from local development.</strong></p>
+<p>This class can be initialized with a given port. If no port is specified, the environment variable <code>VDB_PORT</code> will be checked. If this is not possible either, the default value of <code>55555</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>55555</code> and in CI the port is set by the environment variable <code>VDB_PORT</code>. This will prevent a check-in in the wrong port during local development.</strong></p>
 </li>
 </ul>
 <blockquote>
@@ -2783,34 +2733,44 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 </ul>
 <p>We distinguish between two environments for executing the <em>Vehicle App</em> and the runtime components:</p>
 <ul>
-<li><strong>Local execution:</strong> components are running locally in the development environment</li>
-<li><strong>Kubernetes execution:</strong> components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)</li>
+<li><a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/"><strong>Local execution:</strong></a> components are running locally in the development environment</li>
+<li><a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/"><strong>Kubernetes execution:</strong></a> components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)</li>
 </ul>
 <h3 id="local-execution">Local Execution</h3>
 <p>First, make sure that the runtime services are configured and running like described <a href="/velocitas-docs/docs/run_runtime_services_locally.md">here</a>.</p>
-<p>The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing <code>VehicleApp</code> using provided task.</p>
-<p>When the runtime services and the application are running, integration tests can be executed locally.</p>
+<p>The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the provided task <code>Local Runtime - Run VehicleApp</code>.</p>
+<p>When the runtime services and the application are running, integration tests can be executed locally via</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  pytest ./app/tests/integration
+</span></span></code></pre></div><p>or using the testing tab in the sidebar to the left.</p>
 <h3 id="kubernetes-execution-k3d">Kubernetes execution (K3D)</h3>
-<p>If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">documentation</a>. Local ports for <em>Mosquitto</em> and <em>KUKSA Data Broker</em> are <code>1883</code>/<code>55555</code>. In Kubernetes mode, the ports would be the locally exposed ports <code>31883</code>/<code>30555</code>, to ensure that the tests connect to the containers, please execute the following commands in new bash terminal:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  <span style="color:#204a87">export</span> <span style="color:#000">MQTT_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">31883</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">export</span> <span style="color:#000">VDB_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">30555</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> pytest
+<p>If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">documentation</a>. Local ports for <em>Mosquitto</em> and <em>KUKSA Data Broker</em> are <code>1883</code> and <code>55555</code>. In Kubernetes mode, these ports are exposed as nodeports <code>31883</code> and <code>30555</code> respectively (see <a href="https://k3d.io/v5.0.1/usage/exposing_services/#2-via-nodeport" target="_blank" rel="noopener">here</a> for details). To ensure that the tests connect to correct ports of the containers, please execute the following commands in a new bash terminal:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  <span style="color:#204a87">export</span> <span style="color:#000">MQTT_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">31883</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">export</span> <span style="color:#000">VDB_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">30555</span>
+</span></span><span style="display:flex;"><span>  pytest ./app/tests/integration
 </span></span></code></pre></div><h2 id="integration-tests-in-ci-pipeline">Integration Tests in CI pipeline</h2>
-<p>The tests will be discovered and executed automatically in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">CI pipeline</a>. The job <code>Run Integration Tests</code> contains all steps to set up and execute tests in Kubernetes mode. The results are published as test results to the workflow.</p>
-<h1 id="troubleshooting">Troubleshooting</h1>
-<h2 id="check-if-the-services-are-registered-correctly-in-dapr">Check if the services are registered correctly in Dapr</h2>
+<p>The tests will be discovered and executed automatically in the provided <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">CI pipeline</a>. The job <code>Run Integration Tests</code> contains all steps to set up and execute all integration tests in Kubernetes mode. Basically it is doing the same steps as you saw above:</p>
+<ol>
+<li>start the K3D runtime</li>
+<li>deploy the <em>Vehicle App</em> container</li>
+<li>set the correct MQTT and Databroker ports</li>
+<li>execute the integration tests</li>
+</ol>
+<p>Finally the test results are collected and published as artifacts of the workflow.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="check-if-the-services-are-registered-correctly-in-dapr">Check if the services are registered correctly in Dapr</h3>
 <ul>
 <li>Dapr extension is available as VS Code extension and gives overview of all running Dapr services.</li>
 </ul>
-<h2 id="troubleshoot-inttesthelper">Troubleshoot IntTestHelper</h2>
+<h3 id="troubleshoot-inttesthelper">Troubleshoot IntTestHelper</h3>
 <ul>
 <li>Make sure that the <em>KUKSA Data Broker</em> is up and running by checking the task log.</li>
 <li>Make sure that you are using the right ports for local/Kubernetes execution.</li>
 <li>Make sure that you installed the correct version of the SDK (<em>SDV</em>-package).</li>
 </ul>
-<h2 id="troubleshoot-mosquitto-mqtt-broker">Troubleshoot Mosquitto (MQTT Broker)</h2>
+<h3 id="troubleshoot-mosquitto-mqtt-broker">Troubleshoot Mosquitto (MQTT Broker)</h3>
 <ul>
-<li>Make sure that the <em>Mosquitto</em> up and running by checking the task log.</li>
+<li>Make sure that <em>Mosquitto</em> is up and running by checking the task log.</li>
 <li>Make sure that you are using the right ports for local/Kubernetes execution.</li>
-<li>Use VsMqtt extension to connect to MQTT broker (<code>localhost:1883</code> (local) or <code>localhost:31883</code> (Kubernetes)) to monitor topics in MQTT broker.</li>
+<li>Use VsMqtt extension to connect to MQTT broker locally (<code>localhost:1883</code>) or in a Kubernetes cluster (<code>localhost:31883</code>) to monitor topics in MQTT broker by subscribing to all topics using <code>#</code>.</li>
 </ul>
 <h2 id="next-steps">Next steps</h2>
 <ul>
@@ -2834,20 +2794,20 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-3512601b4cd4657b4cf6c244cbff17b1">7 - Vehicle App Deployment with PodSpecs</h1>
-    <div class="lead">Learn how to prepare PodSpecs for the deployment of a Vehicle App.</div>
+    <div class="lead">Learn how to prepare PodSpecs for the deployment of a <em>Vehicle App</em> in a Kubernetes cluster.</div>
 	<p>This tutorial will show you how to:</p>
 <ul>
 <li>Prepare PodSpecs</li>
-<li>Deploy your <em>Vehicle App</em> to local K3D</li>
+<li>Deploy your <em>Vehicle App</em> to a local K3D cluster</li>
 </ul>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>Completed the tutorial <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">How to create a vehicle app</a></li>
+<li>Complete the tutorial <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">How to create a <em>Vehicle App</em></a></li>
 </ul>
 <h2 id="use-the-sample-podspecs">Use the sample PodSpecs</h2>
 <p>If the <em>Vehicle App</em> has been created from one of our template repositories, a sample PodSpec is already available inside our maintained <code>runtime-k3d</code> of the <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package at <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/podspec/</code></a> and can be used as it is without any modification. Another example can also be found in the <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/" target="_blank" rel="noopener">documentation of Leda</a>.</p>
 <h3 id="content">Content</h3>
-<p>Looking at the content of the sample-podspec, it is starting with some general information about the app and the dapr configuration. You can define e.g. the app-port and the log-level. You could also add more labels to your app, which might help to identify the app for later usages.</p>
+<p>Looking at the content of the sample PodSpec, it is starting with some general information about the app and the Dapr configuration. You can define e.g. the app-port and the log-level. You could also add more labels to your app, which might help to identify the app for later usages.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">kind</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Pod</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">metadata</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -2860,7 +2820,7 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/log-level</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">info</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">labels</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sampleapp</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><p>Afterwards the configuration of the container is specified. Please be aware that the container-port should match the app-port from the dapr-config above. In the example the app-id of the VehicleDataBroker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">here</a> for details).</p>
+</span></span></span></code></pre></div><p>Afterwards the configuration of the container is specified. Please be aware that <code>containerPort</code> should match the <code>app-port</code> from the Dapr configuration above. In the example the app-id of the Vehicle Data Broker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">here</a> for details).</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">spec</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">containers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sampleapp</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -2876,7 +2836,7 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    <p>Please make sure that you already pushed your image to the local registry before trying to deploy it. If you used the provided task (see <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">here</a> for details) to build your app, you can use the following command:</p>
+    <p>Please make sure that you have already pushed your image to the local registry before trying to deploy it. If you used the provided task (see <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">here</a> for details) to build your app, you can use this command:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker push localhost:12345/sampleapp:local
 </span></span></code></pre></div>
 
@@ -2885,7 +2845,7 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <h3 id="local-registry-or-remote-registry">Local registry or remote registry</h3>
 <p>In the example above we used the local registry, but you can also define a remote registry in the image tag, e.g.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ghcr.io/eclipse-velocitas/vehicle-app-python-template/sampleapp:0.1.0</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><p>If your registry is not public, you might to add secrets to your Kubernets config, see the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials" target="_blank" rel="noopener">official documentation</a> for details. Afterwards you have to add the secrets also to the PodSpec:</p>
+</span></span></span></code></pre></div><p>If the used registry requires an authentication, you can add the needed secrets to your Kubernets configuration, see the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials" target="_blank" rel="noopener">official documentation</a> for details. Afterwards you have to add the secrets also to the PodSpec:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">imagePullSecrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">regcred</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="deploy-your-_vehicle-app_-to-local-k3d">Deploy your <em>Vehicle App</em> to local K3D</h2>
@@ -2898,7 +2858,7 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <div class="alert alert-warning" role="alert">
 
 
-    Make sure that there is no running VehicleApp with the same name and configuration deployed on your K3D environment.
+    Make sure that there is no running <em>Vehicle App</em> with the same name and configuration deployed on your K3D environment.
 
 </div>
 
@@ -2926,16 +2886,16 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c00f710a2154467bd207fbd4d2835c70">8 - Vehicle App Deployment with Helm</h1>
-    <div class="lead">Learn how to prepare a Helm chart for the deployment of a Vehicle App.</div>
+    <div class="lead">Learn how to prepare a Helm chart for the deployment of a <em>Vehicle App</em> in a Kubernetes cluster.</div>
 	<p>This tutorial will show you how to:</p>
 <ul>
 <li>Prepare a Helm chart</li>
-<li>Deploy your <em>Vehicle App</em> to local K3D</li>
+<li>Deploy your <em>Vehicle App</em> to a local K3D cluster</li>
 </ul>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li><code>Devcontainer</code> is up and running.</li>
-<li>Completed the tutorial <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">How to create a vehicle app</a></li>
+<li>Complete the tutorial <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">How to create a <em>Vehicle App</em></a></li>
 </ul>
 <h2 id="use-the-sample-helm-chart">Use the sample Helm chart</h2>
 <p>If the <em>Vehicle App</em> has been created from one of our template repositories, a sample Helm chart is already available inside our maintained <code>runtime-k3d</code> of the <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package at <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/</code></a> and can be used as it is without any modification.
@@ -2952,7 +2912,7 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 </div>
 
 <h2 id="prepare-a-new-helm-chart">Prepare a new Helm chart</h2>
-<p>If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called <code>my_vehicle_app</code> for this walkthrough.</p>
+<p>If you would like to write a new helm chart, this section will guide you to adapt and deploy a new <em>Vehicle App</em>, which is called <code>my_vehicle_app</code> for this walkthrough.</p>
 <ol>
 <li>
 <p>Start Visual Studio Code and open the previously created <em>Vehicle App</em> repository.</p>
@@ -3047,14 +3007,14 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 </span></span><span style="display:flex;"><span>│────────── .helmignore
 </span></span><span style="display:flex;"><span>│────────── Chart.yaml
 </span></span><span style="display:flex;"><span>└────────── values.yaml
-</span></span></code></pre></div><h2 id="deploy-your-_vehicle-app_-to-local-k3d">Deploy your <em>Vehicle App</em> to local K3D</h2>
+</span></span></code></pre></div><h2 id="deploy-your-_vehicle-app_-to-the-local-k3d-cluster">Deploy your <em>Vehicle App</em> to the local K3D cluster</h2>
 <h3 id="prerequisites-1">Prerequisites</h3>
 <ul>
 <li>A local K3D installation must be available. For how to setup K3D, check out this <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">tutorial</a>.</li>
 </ul>
 <p>After the Helm chart has been prepared, you can deploy it to the local K3D cluster by following the steps:</p>
 <ol>
-<li>Building and pushing the Docker image for your Vehicle App</li>
+<li>Building and pushing the Docker image for your <em>Vehicle App</em></li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">DOCKER_BUILDKIT</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span> docker build -f ./app/Dockerfile --progress<span style="color:#ce5c00;font-weight:bold">=</span>plain -t localhost:12345/my-vehicle-app:local . --no-cache
 </span></span><span style="display:flex;"><span>

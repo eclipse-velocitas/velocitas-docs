@@ -40,12 +40,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2023-06-19T11:28:01+02:00" />
+<meta property="article:modified_time" content="2023-06-20T12:58:21+02:00" />
 <meta itemprop="name" content="Python Manual Vehicle Model Creation">
 <meta itemprop="description" content="Learn how to create a Vehicle Model manually for python
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-06-19T11:28:01+02:00" />
-<meta itemprop="wordCount" content="997">
+<meta itemprop="dateModified" content="2023-06-20T12:58:21+02:00" />
+<meta itemprop="wordCount" content="996">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python Manual Vehicle Model Creation"/>
 <meta name="twitter:description" content="Learn how to create a Vehicle Model manually for python
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -263,12 +263,12 @@
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsprototyping-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototyping-check"/>
-  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping Integration</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"/>
-  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">Prototyping with Digital.Auto</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">Prototyping with digital.auto</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingservice_integration-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingservice_integration-check"/>
@@ -525,7 +525,7 @@ Successfully installed my-vehicle-model-0.1
 </span></span></code></pre></div><h2 id="add-vehicle-models-manually">Add Vehicle Models manually</h2>
 <ol>
 <li>
-<p>Install the Python Vehicle App SDK:</p>
+<p>Install the Python <em>Vehicle App</em> SDK:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git
 </span></span></code></pre></div><p>The output of the above command should end with:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Successfully installed sdv-x.y.z
@@ -627,7 +627,7 @@ Successfully installed my-vehicle-model-0.1
 </li>
 <li>
 <p>Copy your proto file under <code>my_vehicle_model/my_vehicle_model/proto</code></p>
-<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
+<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA.VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
 </li>
 <li>
 <p>Install the grpcio tools including mypy types to generate the python classes out of the proto-file:</p>
@@ -636,7 +636,7 @@ Successfully installed my-vehicle-model-0.1
 <li>
 <p>Generate Python classes from the <code>SeatService</code> message definition:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m grpc_tools.protoc -I my_vehicle_model/proto --grpc_python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --mypy_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto my_vehicle_model/proto/seats.proto
-</span></span></code></pre></div><p>This creates the following grpc files under the <code>proto</code> folder:</p>
+</span></span></code></pre></div><p>This creates the following gRPC files under the <code>proto</code> folder:</p>
 <ul>
 <li>seats_pb2.py</li>
 <li>seats_pb2_grpc.py</li>
@@ -695,7 +695,7 @@ Successfully installed my-vehicle-model-0.1
 shown above:</p>
 <ul>
 <li>The <code>SeatService</code> class must derive from the <code>Service</code> class provided by the Python SDK.</li>
-<li>The <code>SeatService</code> class must use the grpc channel from the <code>Service</code> base class and provide it to the <code>_stub</code> in the <code>__init__</code> method. This allows the SDK to manage the physical connection to the grpc service and use service discovery of the middleware.</li>
+<li>The <code>SeatService</code> class must use the gRPC channel from the <code>Service</code> base class and provide it to the <code>_stub</code> in the <code>__init__</code> method. This allows the SDK to manage the physical connection to the gRPC service and use service discovery of the middleware.</li>
 <li>Every method needs to pass the metadata from the <code>Service</code> base class to the gRPC call. This is done by passing the <code>self.metadata</code> argument to the metadata of the gRPC call.</li>
 </ul>
 </li>
@@ -704,7 +704,7 @@ shown above:</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/191ce3560b8f34f086914dde4f0f276599bc1e28">make vehicle app cursive (191ce35)</a>
+  Last modified June 20, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/98d90f32420ff63196b67694079001c1fde60242">Add quickstart button to home page (98d90f3)</a>
 </div>
 
 </div>

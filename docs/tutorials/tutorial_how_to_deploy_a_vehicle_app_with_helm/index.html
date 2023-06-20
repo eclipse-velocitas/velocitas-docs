@@ -32,23 +32,23 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Vehicle App Deployment with Helm | Velocitas</title>
-<meta name="description" content="Learn how to prepare a Helm chart for the deployment of a Vehicle App.
+<meta name="description" content="Learn how to prepare a Helm chart for the deployment of a _Vehicle App_ in a Kubernetes cluster.
 ">
 <meta property="og:title" content="Vehicle App Deployment with Helm" />
-<meta property="og:description" content="Learn how to prepare a Helm chart for the deployment of a Vehicle App.
+<meta property="og:description" content="Learn how to prepare a Helm chart for the deployment of a _Vehicle App_ in a Kubernetes cluster.
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2023-06-19T11:28:01+02:00" />
+<meta property="article:modified_time" content="2023-06-20T12:58:21+02:00" />
 <meta itemprop="name" content="Vehicle App Deployment with Helm">
-<meta itemprop="description" content="Learn how to prepare a Helm chart for the deployment of a Vehicle App.
+<meta itemprop="description" content="Learn how to prepare a Helm chart for the deployment of a _Vehicle App_ in a Kubernetes cluster.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-06-19T11:28:01+02:00" />
-<meta itemprop="wordCount" content="712">
+<meta itemprop="dateModified" content="2023-06-20T12:58:21+02:00" />
+<meta itemprop="wordCount" content="716">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vehicle App Deployment with Helm"/>
-<meta name="twitter:description" content="Learn how to prepare a Helm chart for the deployment of a Vehicle App.
+<meta name="twitter:description" content="Learn how to prepare a Helm chart for the deployment of a _Vehicle App_ in a Kubernetes cluster.
 "/>
 
 
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -263,12 +263,12 @@
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsprototyping-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototyping-check"/>
-  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping Integration</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"/>
-  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">Prototyping with Digital.Auto</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">Prototyping with digital.auto</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingservice_integration-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingservice_integration-check"/>
@@ -391,7 +391,7 @@
     <li><a href="#prerequisites">Prerequisites</a></li>
     <li><a href="#use-the-sample-helm-chart">Use the sample Helm chart</a></li>
     <li><a href="#prepare-a-new-helm-chart">Prepare a new Helm chart</a></li>
-    <li><a href="#deploy-your-_vehicle-app_-to-local-k3d">Deploy your <em>Vehicle App</em> to local K3D</a>
+    <li><a href="#deploy-your-_vehicle-app_-to-the-local-k3d-cluster">Deploy your <em>Vehicle App</em> to the local K3D cluster</a>
       <ul>
         <li><a href="#prerequisites-1">Prerequisites</a></li>
       </ul>
@@ -450,7 +450,7 @@
             
 <div class="td-content">
 	<h1>Vehicle App Deployment with Helm</h1>
-	<div class="lead">Learn how to prepare a Helm chart for the deployment of a Vehicle App.</div>
+	<div class="lead">Learn how to prepare a Helm chart for the deployment of a <em>Vehicle App</em> in a Kubernetes cluster.</div>
 	<header class="article-meta">
 		
 
@@ -471,12 +471,12 @@
 	<p>This tutorial will show you how to:</p>
 <ul>
 <li>Prepare a Helm chart</li>
-<li>Deploy your <em>Vehicle App</em> to local K3D</li>
+<li>Deploy your <em>Vehicle App</em> to a local K3D cluster</li>
 </ul>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li><code>Devcontainer</code> is up and running.</li>
-<li>Completed the tutorial <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">How to create a vehicle app</a></li>
+<li>Complete the tutorial <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">How to create a <em>Vehicle App</em></a></li>
 </ul>
 <h2 id="use-the-sample-helm-chart">Use the sample Helm chart</h2>
 <p>If the <em>Vehicle App</em> has been created from one of our template repositories, a sample Helm chart is already available inside our maintained <code>runtime-k3d</code> of the <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package at <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/</code></a> and can be used as it is without any modification.
@@ -493,7 +493,7 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 </div>
 
 <h2 id="prepare-a-new-helm-chart">Prepare a new Helm chart</h2>
-<p>If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called <code>my_vehicle_app</code> for this walkthrough.</p>
+<p>If you would like to write a new helm chart, this section will guide you to adapt and deploy a new <em>Vehicle App</em>, which is called <code>my_vehicle_app</code> for this walkthrough.</p>
 <ol>
 <li>
 <p>Start Visual Studio Code and open the previously created <em>Vehicle App</em> repository.</p>
@@ -588,14 +588,14 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 </span></span><span style="display:flex;"><span>│────────── .helmignore
 </span></span><span style="display:flex;"><span>│────────── Chart.yaml
 </span></span><span style="display:flex;"><span>└────────── values.yaml
-</span></span></code></pre></div><h2 id="deploy-your-_vehicle-app_-to-local-k3d">Deploy your <em>Vehicle App</em> to local K3D</h2>
+</span></span></code></pre></div><h2 id="deploy-your-_vehicle-app_-to-the-local-k3d-cluster">Deploy your <em>Vehicle App</em> to the local K3D cluster</h2>
 <h3 id="prerequisites-1">Prerequisites</h3>
 <ul>
 <li>A local K3D installation must be available. For how to setup K3D, check out this <a href="/velocitas-docs/docs/run_runtime_services_kubernetes.md">tutorial</a>.</li>
 </ul>
 <p>After the Helm chart has been prepared, you can deploy it to the local K3D cluster by following the steps:</p>
 <ol>
-<li>Building and pushing the Docker image for your Vehicle App</li>
+<li>Building and pushing the Docker image for your <em>Vehicle App</em></li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#000">DOCKER_BUILDKIT</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span> docker build -f ./app/Dockerfile --progress<span style="color:#ce5c00;font-weight:bold">=</span>plain -t localhost:12345/my-vehicle-app:local . --no-cache
 </span></span><span style="display:flex;"><span>
@@ -616,7 +616,7 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/191ce3560b8f34f086914dde4f0f276599bc1e28">make vehicle app cursive (191ce35)</a>
+  Last modified June 20, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/98d90f32420ff63196b67694079001c1fde60242">Add quickstart button to home page (98d90f3)</a>
 </div>
 
 </div>

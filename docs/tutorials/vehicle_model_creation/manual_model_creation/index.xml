@@ -91,7 +91,7 @@ Successfully installed my-vehicle-model-0.1
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;add-vehicle-models-manually&#34;&gt;Add Vehicle Models manually&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Install the Python Vehicle App SDK:&lt;/p&gt;
+&lt;p&gt;Install the Python &lt;em&gt;Vehicle App&lt;/em&gt; SDK:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The output of the above command should end with:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Successfully installed sdv-x.y.z
@@ -193,7 +193,7 @@ Successfully installed my-vehicle-model-0.1
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Copy your proto file under &lt;code&gt;my_vehicle_model/my_vehicle_model/proto&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;As example you could use the protocol buffers message definition &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seats.proto&lt;/a&gt; provided by the KUKSA VAL services which describes a &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat control service&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As example you could use the protocol buffers message definition &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seats.proto&lt;/a&gt; provided by the KUKSA.VAL services which describes a &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat control service&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Install the grpcio tools including mypy types to generate the python classes out of the proto-file:&lt;/p&gt;
@@ -202,7 +202,7 @@ Successfully installed my-vehicle-model-0.1
 &lt;li&gt;
 &lt;p&gt;Generate Python classes from the &lt;code&gt;SeatService&lt;/code&gt; message definition:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 -m grpc_tools.protoc -I my_vehicle_model/proto --grpc_python_out&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;./my_vehicle_model/proto --python_out&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;./my_vehicle_model/proto --mypy_out&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;./my_vehicle_model/proto my_vehicle_model/proto/seats.proto
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This creates the following grpc files under the &lt;code&gt;proto&lt;/code&gt; folder:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This creates the following gRPC files under the &lt;code&gt;proto&lt;/code&gt; folder:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;seats_pb2.py&lt;/li&gt;
 &lt;li&gt;seats_pb2_grpc.py&lt;/li&gt;
@@ -261,7 +261,7 @@ Successfully installed my-vehicle-model-0.1
 shown above:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The &lt;code&gt;SeatService&lt;/code&gt; class must derive from the &lt;code&gt;Service&lt;/code&gt; class provided by the Python SDK.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;SeatService&lt;/code&gt; class must use the grpc channel from the &lt;code&gt;Service&lt;/code&gt; base class and provide it to the &lt;code&gt;_stub&lt;/code&gt; in the &lt;code&gt;__init__&lt;/code&gt; method. This allows the SDK to manage the physical connection to the grpc service and use service discovery of the middleware.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;SeatService&lt;/code&gt; class must use the gRPC channel from the &lt;code&gt;Service&lt;/code&gt; base class and provide it to the &lt;code&gt;_stub&lt;/code&gt; in the &lt;code&gt;__init__&lt;/code&gt; method. This allows the SDK to manage the physical connection to the gRPC service and use service discovery of the middleware.&lt;/li&gt;
 &lt;li&gt;Every method needs to pass the metadata from the &lt;code&gt;Service&lt;/code&gt; base class to the gRPC call. This is done by passing the &lt;code&gt;self.metadata&lt;/code&gt; argument to the metadata of the gRPC call.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;

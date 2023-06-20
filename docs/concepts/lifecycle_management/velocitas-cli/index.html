@@ -40,12 +40,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas-docs/docs/concepts/lifecycle_management/velocitas-cli/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-02-13T09:43:25+05:30" />
-<meta property="article:modified_time" content="2023-06-19T11:28:01+02:00" />
+<meta property="article:modified_time" content="2023-06-20T12:58:21+02:00" />
 <meta itemprop="name" content="Velocitas CLI">
 <meta itemprop="description" content="Learn everything about the Velocitas CLI.
 "><meta itemprop="datePublished" content="2023-02-13T09:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-06-19T11:28:01+02:00" />
-<meta itemprop="wordCount" content="397">
+<meta itemprop="dateModified" content="2023-06-20T12:58:21+02:00" />
+<meta itemprop="wordCount" content="414">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Velocitas CLI"/>
 <meta name="twitter:description" content="Learn everything about the Velocitas CLI.
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -263,12 +263,12 @@
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsprototyping-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototyping-check"/>
-  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping Integration</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"/>
-  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">Prototyping with Digital.Auto</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">Prototyping with digital.auto</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingservice_integration-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingservice_integration-check"/>
@@ -392,6 +392,7 @@
     <li><a href="#commands">Commands</a>
       <ul>
         <li><a href="#cli-flow-examples">CLI Flow examples</a></li>
+        <li><a href="#velocitas-init">velocitas init</a></li>
         <li><a href="#velocitas-sync">velocitas sync</a></li>
         <li><a href="#velocitas-upgrade">velocitas upgrade</a></li>
         <li><a href="#velocitas-package">velocitas package</a></li>
@@ -484,7 +485,7 @@
 <h2 id="commands">Commands</h2>
 <p>You can find all information about available commands <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#commands" target="_blank" rel="noopener">here</a>.</p>
 <h3 id="cli-flow-examples">CLI Flow examples</h3>
-<h4 id="velocitas-init">velocitas init</h4>
+<h3 id="velocitas-init">velocitas init</h3>
 <p>Download packages configured in your <code>.velocitas.json</code> to <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory" target="_blank" rel="noopener">VELOCITAS_HOME</a></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
 </span></span><span style="display:flex;"><span>Initializing Velocitas packages ...
@@ -512,6 +513,7 @@
 </span></span><span style="display:flex;"><span>... syncing <span style="color:#4e9a06">&#39;devenv-github-templates&#39;</span>
 </span></span><span style="display:flex;"><span>... syncing <span style="color:#4e9a06">&#39;devenv-devcontainer-setup&#39;</span>
 </span></span></code></pre></div><h3 id="velocitas-upgrade">velocitas upgrade</h3>
+<p>Updates Velocitas components.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas upgrade --dry-run
 </span></span><span style="display:flex;"><span>Checking <span style="color:#204a87;font-weight:bold">for</span> updates!
 </span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-runtimes&#39;</span> is up to date!
@@ -520,6 +522,7 @@
 </span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-devcontainer-setup&#39;</span> is currently at v1.1.6, can be updated to v1.1.7
 </span></span><span style="display:flex;"><span>... Do you wish to <span style="color:#204a87;font-weight:bold">continue</span>? <span style="color:#ce5c00;font-weight:bold">[</span>y/n<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>y<span style="color:#ce5c00;font-weight:bold">]</span>: y
 </span></span></code></pre></div><h3 id="velocitas-package">velocitas package</h3>
+<p>Prints information about packages.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup
 </span></span><span style="display:flex;"><span>devenv-devcontainer-setup
 </span></span><span style="display:flex;"><span>    version: v1.1.7
@@ -542,6 +545,7 @@
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup -p
 </span></span><span style="display:flex;"><span>/home/vscode/.velocitas/packages/devenv-devcontainer-setup/v1.1.7
 </span></span></code></pre></div><h3 id="velocitas-exec">velocitas exec</h3>
+<p>Executes a script contained in one of your installed components.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas <span style="color:#204a87">exec</span> runtime-local run-vehicledatabroker
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#######################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">### Running Databroker                              ###</span>
@@ -599,7 +603,7 @@ More detailed information about the <em>Project Cache</em> can be found <a href=
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/191ce3560b8f34f086914dde4f0f276599bc1e28">make vehicle app cursive (191ce35)</a>
+  Last modified June 20, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/98d90f32420ff63196b67694079001c1fde60242">Add quickstart button to home page (98d90f3)</a>
 </div>
 
 </div>

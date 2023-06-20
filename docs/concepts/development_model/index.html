@@ -34,18 +34,18 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Development Model | Velocitas</title>
-<meta name="description" content="Learn more about provided development model for Vehicle Apps.
+<meta name="description" content="Learn more about provided development model for _Vehicle Apps_.
 ">
 <meta property="og:title" content="Development Model" />
-<meta property="og:description" content="Learn more about provided development model for Vehicle Apps.
+<meta property="og:description" content="Learn more about provided development model for _Vehicle Apps_.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas-docs/docs/concepts/development_model/" />
 <meta itemprop="name" content="Development Model">
-<meta itemprop="description" content="Learn more about provided development model for Vehicle Apps.
+<meta itemprop="description" content="Learn more about provided development model for _Vehicle Apps_.
 "><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Development Model"/>
-<meta name="twitter:description" content="Learn more about provided development model for Vehicle Apps.
+<meta name="twitter:description" content="Learn more about provided development model for _Vehicle Apps_.
 "/>
 
 
@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -117,7 +117,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -260,12 +260,12 @@
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsprototyping-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototyping-check"/>
-  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping Integration</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"/>
-  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">Prototyping with Digital.Auto</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">Prototyping with digital.auto</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingservice_integration-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingservice_integration-check"/>
@@ -387,11 +387,11 @@
   <ul>
     <li><a href="#development-architecture">Development Architecture</a>
       <ul>
-        <li><a href="#vehicle-apps">Vehicle Apps</a></li>
+        <li><a href="#_vehicle-apps_"><em>Vehicle Apps</em></a></li>
         <li><a href="#vehicle-models">Vehicle Models</a></li>
         <li><a href="#sdks">SDKs</a></li>
         <li><a href="#vehicle-services">Vehicle Services</a></li>
-        <li><a href="#data-broker">Data Broker</a></li>
+        <li><a href="#kuksa-data-broker-aka-vehicle-data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</a></li>
         <li><a href="#semantic-models">Semantic models</a></li>
         <li><a href="#communication-protocols">Communication Protocols</a></li>
         <li><a href="#middleware-abstraction">Middleware Abstraction</a></li>
@@ -454,7 +454,7 @@
             
 <div class="td-content">
 	<h1>Development Model</h1>
-  <div class="lead">Learn more about provided development model for Vehicle Apps.</div>
+  <div class="lead">Learn more about provided development model for <em>Vehicle Apps</em>.</div>
 	<header class="article-meta">
 		
 
@@ -472,35 +472,35 @@
 
 		
 	</header>
-	<p>The Velocitas development model is centered around what are known as <a href="#vehicle-apps">Vehicle Apps</a>. Automation allows engineers to make high-impact changes frequently and deploy Vehicle Apps through cloud backends as over-the-air updates. The <em>Vehicle App</em> development model is about <em>speed</em> and <em>agility</em> paired with state-of-the-art software quality.</p>
+	<p>The Velocitas development model is centered around what are known as <a href="#vehicle-apps"><em>Vehicle Apps</em></a>. Automation allows engineers to make high-impact changes frequently and deploy <em>Vehicle Apps</em> through cloud backends as over-the-air updates. The <em>Vehicle App</em> development model is about <em>speed</em> and <em>agility</em> paired with state-of-the-art software quality.</p>
 <h2 id="development-architecture">Development Architecture</h2>
-<p>Velocitas provides a flexible development architecture for <a href="#vehicle-apps">Vehicle Apps</a>. The following diagram shows the major components of the Velocitas stack.</p>
+<p>Velocitas provides a flexible development architecture for <a href="#vehicle-apps"><em>Vehicle Apps</em></a>. The following diagram shows the major components of the Velocitas stack.</p>
 <p><img src="./programming_model.png" alt="Programming Model"></p>
-<h3 id="vehicle-apps">Vehicle Apps</h3>
-<p>The Vehicle Applications (aka. Vehicle Apps) contain the business logic that needs to be executed on a vehicle. A <em>Vehicle App</em> is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/" target="_blank" rel="noopener">twelve-factor</a> applications apply to Vehicle Apps as well and are summarized in the next chapter.</p>
+<h3 id="_vehicle-apps_"><em>Vehicle Apps</em></h3>
+<p>The Vehicle Applications (<em>Vehicle Apps</em>) contain the business logic that needs to be executed on a vehicle. A <em>Vehicle App</em> is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/" target="_blank" rel="noopener">twelve-factor</a> applications apply to <em>Vehicle Apps</em> as well and are summarized in the next chapter.</p>
 <h3 id="vehicle-models">Vehicle Models</h3>
-<p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps">Vehicle Apps</a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
+<p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps"><em>Vehicle Apps</em></a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
 <h3 id="sdks">SDKs</h3>
-<p>Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model Furthermore, they offer abstraction from the underlying middleware and communication protocols, besides providing the base classes and utilities for the Vehicle Apps.
+<p>Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model Furthermore, they offer abstraction from the underlying middleware and communication protocols, besides providing the base classes and utilities for the <em>Vehicle Apps</em>.
 SDKs are available for Python and C++, currently. Further SDKs for Rust and C are planned.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
-<p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a>.</p>
-<h3 id="data-broker">Data Broker</h3>
-<p>Vehicle data is stored in the KUKSA Data Broker conforming to an underlying <a href="#semantic-models">Semantic Model</a> like <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>. <a href="#vehicle-apps">Vehicle Apps</a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.</p>
+<p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps"><em>Vehicle Apps</em></a> over a <a href="#vehicle-models">Vehicle Model</a>.</p>
+<h3 id="kuksa-data-broker-aka-vehicle-data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
+<p>Vehicle data is stored in the KUKSA Data Broker conforming to an underlying <a href="#semantic-models">Semantic Model</a> like <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>. <a href="#vehicle-apps"><em>Vehicle Apps</em></a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the <em>Vehicle App</em>.</p>
 <h3 id="semantic-models">Semantic models</h3>
-<p>The Vehicle Signal Specification (<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between Vehicle Apps and the Data Broker.</p>
-<p>The Vehicle Service Catalog (<a href="https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog" target="_blank" rel="noopener">VSC</a>) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and Vehicle Apps.</p>
+<p>The Vehicle Signal Specification (<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between <em>Vehicle Apps</em> and the Data Broker.</p>
+<p>The Vehicle Service Catalog (<a href="https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog" target="_blank" rel="noopener">VSC</a>) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and <em>Vehicle Apps</em>.</p>
 <p>As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language (<a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md" target="_blank" rel="noopener">DTDL</a>) or BAMM Aspect Meta Model <a href="https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model" target="_blank" rel="noopener">BAMM</a> as well.</p>
 <p>The Velocitas SDK is using <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a> as the semantic model for the Vehicle Model.</p>
 <h3 id="communication-protocols">Communication Protocols</h3>
-<p>Asynchronous communication between <a href="#vehicle-apps">Vehicle Apps</a> and other vehicle components, as well as cloud connectivity, is facilitated through <a href="https://mqtt.org/" target="_blank" rel="noopener">MQTT</a> messaging. Direct, synchronous communication between <a href="#vehicle-apps">Vehicle Apps</a>, <a href="#vehicle-services">Vehicle Services</a> and the <a href="#data-broker">Data Broker</a> is based on the <a href="https://grpc.io/" target="_blank" rel="noopener">gRPC</a> protocol.</p>
+<p>Asynchronous communication between <a href="#vehicle-apps"><em>Vehicle Apps</em></a> and other vehicle components, as well as cloud connectivity, is facilitated through <a href="https://mqtt.org/" target="_blank" rel="noopener">MQTT</a> messaging. Direct, synchronous communication between <a href="#vehicle-apps"><em>Vehicle Apps</em></a>, <a href="#vehicle-services">Vehicle Services</a> and the <a href="#data-broker">Data Broker</a> is based on the <a href="https://grpc.io/" target="_blank" rel="noopener">gRPC</a> protocol.</p>
 <h3 id="middleware-abstraction">Middleware Abstraction</h3>
 <p>Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
-By default, Velocitas leverages <a href="https://dapr.io" target="_blank" rel="noopener">dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/" target="_blank" rel="noopener">publish/subscribe building block</a>.</p>
+By default, Velocitas leverages <a href="https://dapr.io" target="_blank" rel="noopener">Dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/" target="_blank" rel="noopener">publish/subscribe building block</a>.</p>
 <h3 id="vehicle-edge-operating-system">Vehicle Edge Operating System</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> are expected to run on a <a href="https://www.linux.org/" target="_blank" rel="noopener">Linux</a>-based operating system. An OCI-compliant container runtime is required to host the <em>Vehicle App</em> containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., <a href="https://mosquitto.org/" target="_blank" rel="noopener">Eclipse Mosquitto</a>).</p>
+<p><a href="#vehicle-apps"><em>Vehicle Apps</em></a> are expected to run on a <a href="https://www.linux.org/" target="_blank" rel="noopener">Linux</a>-based operating system. An OCI-compliant container runtime is required to host the <em>Vehicle App</em> containers and the Dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., <a href="https://mosquitto.org/" target="_blank" rel="noopener">Eclipse Mosquitto</a>).</p>
 <h2 id="_vehicle-app_-characteristics"><em>Vehicle App</em> Characteristics</h2>
-<p>The following aspects are important characteristics for <a href="#vehicle-apps">Vehicle Apps</a>:</p>
+<p>The following aspects are important characteristics for <a href="#vehicle-apps"><em>Vehicle Apps</em></a>:</p>
 <ul>
 <li>
 <p><strong>Code base:</strong>
@@ -508,11 +508,11 @@ Every <em>Vehicle App</em> is stored in its own repository. Tracked by version c
 </li>
 <li>
 <p><strong>Polyglot:</strong>
-Vehicle Apps can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.</p>
+<em>Vehicle Apps</em> can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.</p>
 </li>
 <li>
 <p><strong>OCI-compliant containers:</strong>
-Vehicle Apps are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.</p>
+<em>Vehicle Apps</em> are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.</p>
 </li>
 <li>
 <p><strong>Isolation:</strong>
@@ -520,7 +520,7 @@ Each <em>Vehicle App</em> should execute in its own process and should be self-c
 </li>
 <li>
 <p><strong>Configurations:</strong>
-Configuration information is separated from the code base of the Vehicle App, so that the same deployment can propagate across environments with their respective configuration applied.</p>
+Configuration information is separated from the code base of the <em>Vehicle App</em>, so that the same deployment can propagate across environments with their respective configuration applied.</p>
 </li>
 <li>
 <p><strong>Disposability:</strong>
@@ -528,15 +528,15 @@ Favor fast startup and support graceful shutdowns to leave the system in a corre
 </li>
 <li>
 <p><strong>Observability:</strong>
-Vehicle Apps provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
+<em>Vehicle Apps</em> provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
 </li>
 <li>
 <p><strong>Over-the-air update capability:</strong>
-Vehicle Apps can be deployed via cloud backends like <a href="https://www.etas.com/en/products/pantaris-over-the-air-services.php" target="_blank" rel="noopener">Pantaris</a> and updated in vehicles frequently over the air through <a href="https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php" target="_blank" rel="noopener">NextGen OTA updates</a>.</p>
+<em>Vehicle Apps</em> can be deployed via cloud backends like <a href="https://www.etas.com/en/products/pantaris-over-the-air-services.php" target="_blank" rel="noopener">Pantaris</a> and updated in vehicles frequently over the air through <a href="https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php" target="_blank" rel="noopener">NextGen OTA updates</a>.</p>
 </li>
 </ul>
 <h2 id="development-process">Development Process</h2>
-<p>The starting point for developing <a href="#vehicle-apps">Vehicle Apps</a> is a <a href="#semantic-models">Semantic Model</a> of the vehicle data and vehicle services. Based on the Semantic Model, language-specific <a href="#vehicle-models">Vehicle Models</a> are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &hellip;).</p>
+<p>The starting point for developing <a href="#vehicle-apps"><em>Vehicle Apps</em></a> is a <a href="#semantic-models">Semantic Model</a> of the vehicle data and vehicle services. Based on the Semantic Model, language-specific <a href="#vehicle-models">Vehicle Models</a> are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &hellip;).</p>
 <p>After a Vehicle Model is available for the chosen programming language, the <em>Vehicle App</em> can be developed using the generated Vehicle Model and its SDK.</p>
 <p><img src="./build_procedure.png" alt="Development Process"></p>
 <h2 id="further-information">Further information</h2>
@@ -557,7 +557,7 @@ Vehicle Apps can be deployed via cloud backends like <a href="https://www.etas.c
                 <h5>
                     <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/">Vehicle App SDK</a>
                 </h5>
-                <p>Learn more about the provided Vehicle App SDK.</p>
+                <p>Learn more about the provided <em>Vehicle App</em> SDK.</p>
             </div>
         
             
@@ -582,7 +582,7 @@ Vehicle Apps can be deployed via cloud backends like <a href="https://www.etas.c
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/191ce3560b8f34f086914dde4f0f276599bc1e28">make vehicle app cursive (191ce35)</a>
+  Last modified June 20, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/98d90f32420ff63196b67694079001c1fde60242">Add quickstart button to home page (98d90f3)</a>
 </div>
 
 </div>

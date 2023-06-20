@@ -28,7 +28,7 @@
     </item>
     
     <item>
-      <title>Docs: Prototyping Integration</title>
+      <title>Docs: Prototyping</title>
       <link>/velocitas-docs/docs/tutorials/prototyping/</link>
       <pubDate>Wed, 02 Nov 2022 10:09:25 +0530</pubDate>
       
@@ -102,9 +102,18 @@
         
         
         &lt;p&gt;To be sure that a newly created &lt;em&gt;Vehicle App&lt;/em&gt; will run together with the &lt;em&gt;KUKSA Data Broker&lt;/em&gt; and potentially other dependant &lt;em&gt;Vehicle Services&lt;/em&gt; or &lt;em&gt;Vehicle Apps&lt;/em&gt;, it&amp;rsquo;s essential to write integration tests along with developing the app.&lt;/p&gt;
-&lt;p&gt;To execute an integration test, the dependant components need to be running and accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.&lt;/p&gt;
+&lt;p&gt;To execute an integration test, the dependant components need to be running and be accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    This guide is currently only available for development of integration tests with &lt;strong&gt;Python&lt;/strong&gt;.
+
+&lt;/div&gt;
+
 &lt;h2 id=&#34;writing-test-cases&#34;&gt;Writing Test Cases&lt;/h2&gt;
-&lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;/app/tests/integration/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for DataPoints), there are two classes present in Python SDK that will help:&lt;/p&gt;
+&lt;p&gt;To write an integration test, you should check the sample that comes with the template (&lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;/app/tests/integration/integration_test.py&lt;/code&gt;&lt;/a&gt;). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for data points), there are two classes present in Python SDK that will help:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;MqttClient&lt;/code&gt;: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:&lt;/p&gt;
@@ -121,18 +130,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;responsecode&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the &lt;code&gt;responsecode&lt;/code&gt; property should be checked for the value &lt;code&gt;10&lt;/code&gt;, the path would be &lt;code&gt;[&amp;quot;result&amp;quot;, &amp;quot;responsecode]&lt;/code&gt;, property value would be &lt;code&gt;10&lt;/code&gt;. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the &lt;code&gt;responsecode&lt;/code&gt; property should be checked for the value &lt;code&gt;10&lt;/code&gt;, the path would be &lt;code&gt;[&amp;quot;result&amp;quot;, &amp;quot;responsecode&amp;quot;]&lt;/code&gt;, property value would be &lt;code&gt;10&lt;/code&gt;. When the requested value has been found in a response message, the payload of that message will be returned. If the timeout expires before receiving a matching message, an empty string (&amp;quot;&amp;quot;) is returned.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;1883&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;1883&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt;. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;1883&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;1883&lt;/code&gt; and in CI the port is set by the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt;. This will prevent a check-in in the wrong port during local development.&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;IntTestHelper&lt;/code&gt;: this class provides functionality to interact with the &lt;em&gt;KUKSA Data Broker&lt;/em&gt;.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;register_datapoint&lt;/code&gt;: registers a new datapoint with given name and type&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;set_..._datapoint&lt;/code&gt;: set the given value for the datapoint with the given name (with given type). If the datapoint does not exist, it will be registered.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;register_datapoint&lt;/code&gt;: registers a new data point with given name and type (&lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/#typed-datapoint-classes&#34;&gt;here&lt;/a&gt; you can find more information about the available types)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;set_..._datapoint&lt;/code&gt;: set the given value for the data point with the given name (with given type). If the data point does not exist, it will be registered.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;55555&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;55555&lt;/code&gt; and in CI the port set by the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; which is set. This will prevent a check-in in the wrong port from local development.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;55555&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;55555&lt;/code&gt; and in CI the port is set by the environment variable &lt;code&gt;VDB_PORT&lt;/code&gt;. This will prevent a check-in in the wrong port during local development.&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
@@ -148,34 +157,44 @@
 &lt;/ul&gt;
 &lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Local execution:&lt;/strong&gt; components are running locally in the development environment&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Kubernetes execution:&lt;/strong&gt; components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/&#34;&gt;&lt;strong&gt;Local execution:&lt;/strong&gt;&lt;/a&gt; components are running locally in the development environment&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/&#34;&gt;&lt;strong&gt;Kubernetes execution:&lt;/strong&gt;&lt;/a&gt; components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
 &lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_locally.md&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing &lt;code&gt;VehicleApp&lt;/code&gt; using provided task.&lt;/p&gt;
-&lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally.&lt;/p&gt;
+&lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the provided task &lt;code&gt;Local Runtime - Run VehicleApp&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally via&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  pytest ./app/tests/integration
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or using the testing tab in the sidebar to the left.&lt;/p&gt;
 &lt;h3 id=&#34;kubernetes-execution-k3d&#34;&gt;Kubernetes execution (K3D)&lt;/h3&gt;
-&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. Local ports for &lt;em&gt;Mosquitto&lt;/em&gt; and &lt;em&gt;KUKSA Data Broker&lt;/em&gt; are &lt;code&gt;1883&lt;/code&gt;/&lt;code&gt;55555&lt;/code&gt;. In Kubernetes mode, the ports would be the locally exposed ports &lt;code&gt;31883&lt;/code&gt;/&lt;code&gt;30555&lt;/code&gt;, to ensure that the tests connect to the containers, please execute the following commands in new bash terminal:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MQTT_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31883&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;VDB_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30555&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; pytest
+&lt;p&gt;If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;documentation&lt;/a&gt;. Local ports for &lt;em&gt;Mosquitto&lt;/em&gt; and &lt;em&gt;KUKSA Data Broker&lt;/em&gt; are &lt;code&gt;1883&lt;/code&gt; and &lt;code&gt;55555&lt;/code&gt;. In Kubernetes mode, these ports are exposed as nodeports &lt;code&gt;31883&lt;/code&gt; and &lt;code&gt;30555&lt;/code&gt; respectively (see &lt;a href=&#34;https://k3d.io/v5.0.1/usage/exposing_services/#2-via-nodeport&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt; for details). To ensure that the tests connect to correct ports of the containers, please execute the following commands in a new bash terminal:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MQTT_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;31883&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;VDB_PORT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;30555&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  pytest ./app/tests/integration
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;integration-tests-in-ci-pipeline&#34;&gt;Integration Tests in CI pipeline&lt;/h2&gt;
-&lt;p&gt;The tests will be discovered and executed automatically in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CI pipeline&lt;/a&gt;. The job &lt;code&gt;Run Integration Tests&lt;/code&gt; contains all steps to set up and execute tests in Kubernetes mode. The results are published as test results to the workflow.&lt;/p&gt;
-&lt;h1 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h1&gt;
-&lt;h2 id=&#34;check-if-the-services-are-registered-correctly-in-dapr&#34;&gt;Check if the services are registered correctly in Dapr&lt;/h2&gt;
+&lt;p&gt;The tests will be discovered and executed automatically in the provided &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CI pipeline&lt;/a&gt;. The job &lt;code&gt;Run Integration Tests&lt;/code&gt; contains all steps to set up and execute all integration tests in Kubernetes mode. Basically it is doing the same steps as you saw above:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;start the K3D runtime&lt;/li&gt;
+&lt;li&gt;deploy the &lt;em&gt;Vehicle App&lt;/em&gt; container&lt;/li&gt;
+&lt;li&gt;set the correct MQTT and Databroker ports&lt;/li&gt;
+&lt;li&gt;execute the integration tests&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Finally the test results are collected and published as artifacts of the workflow.&lt;/p&gt;
+&lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
+&lt;h3 id=&#34;check-if-the-services-are-registered-correctly-in-dapr&#34;&gt;Check if the services are registered correctly in Dapr&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Dapr extension is available as VS Code extension and gives overview of all running Dapr services.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;troubleshoot-inttesthelper&#34;&gt;Troubleshoot IntTestHelper&lt;/h2&gt;
+&lt;h3 id=&#34;troubleshoot-inttesthelper&#34;&gt;Troubleshoot IntTestHelper&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Make sure that the &lt;em&gt;KUKSA Data Broker&lt;/em&gt; is up and running by checking the task log.&lt;/li&gt;
 &lt;li&gt;Make sure that you are using the right ports for local/Kubernetes execution.&lt;/li&gt;
 &lt;li&gt;Make sure that you installed the correct version of the SDK (&lt;em&gt;SDV&lt;/em&gt;-package).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;troubleshoot-mosquitto-mqtt-broker&#34;&gt;Troubleshoot Mosquitto (MQTT Broker)&lt;/h2&gt;
+&lt;h3 id=&#34;troubleshoot-mosquitto-mqtt-broker&#34;&gt;Troubleshoot Mosquitto (MQTT Broker)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Make sure that the &lt;em&gt;Mosquitto&lt;/em&gt; up and running by checking the task log.&lt;/li&gt;
+&lt;li&gt;Make sure that &lt;em&gt;Mosquitto&lt;/em&gt; is up and running by checking the task log.&lt;/li&gt;
 &lt;li&gt;Make sure that you are using the right ports for local/Kubernetes execution.&lt;/li&gt;
-&lt;li&gt;Use VsMqtt extension to connect to MQTT broker (&lt;code&gt;localhost:1883&lt;/code&gt; (local) or &lt;code&gt;localhost:31883&lt;/code&gt; (Kubernetes)) to monitor topics in MQTT broker.&lt;/li&gt;
+&lt;li&gt;Use VsMqtt extension to connect to MQTT broker locally (&lt;code&gt;localhost:1883&lt;/code&gt;) or in a Kubernetes cluster (&lt;code&gt;localhost:31883&lt;/code&gt;) to monitor topics in MQTT broker by subscribing to all topics using &lt;code&gt;#&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
@@ -199,16 +218,16 @@
         &lt;p&gt;This tutorial will show you how to:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prepare PodSpecs&lt;/li&gt;
-&lt;li&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to local K3D&lt;/li&gt;
+&lt;li&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to a local K3D cluster&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Completed the tutorial &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;How to create a vehicle app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the tutorial &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;How to create a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;use-the-sample-podspecs&#34;&gt;Use the sample PodSpecs&lt;/h2&gt;
 &lt;p&gt;If the &lt;em&gt;Vehicle App&lt;/em&gt; has been created from one of our template repositories, a sample PodSpec is already available inside our maintained &lt;code&gt;runtime-k3d&lt;/code&gt; of the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt; package at &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./runtime-k3d/src/app_deployment/config/podspec/&lt;/code&gt;&lt;/a&gt; and can be used as it is without any modification. Another example can also be found in the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation of Leda&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;content&#34;&gt;Content&lt;/h3&gt;
-&lt;p&gt;Looking at the content of the sample-podspec, it is starting with some general information about the app and the dapr configuration. You can define e.g. the app-port and the log-level. You could also add more labels to your app, which might help to identify the app for later usages.&lt;/p&gt;
+&lt;p&gt;Looking at the content of the sample PodSpec, it is starting with some general information about the app and the Dapr configuration. You can define e.g. the app-port and the log-level. You could also add more labels to your app, which might help to identify the app for later usages.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;v1&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Pod&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -221,7 +240,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;dapr.io/log-level&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;labels&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;app&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;sampleapp&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Afterwards the configuration of the container is specified. Please be aware that the container-port should match the app-port from the dapr-config above. In the example the app-id of the VehicleDataBroker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;here&lt;/a&gt; for details).&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Afterwards the configuration of the container is specified. Please be aware that &lt;code&gt;containerPort&lt;/code&gt; should match the &lt;code&gt;app-port&lt;/code&gt; from the Dapr configuration above. In the example the app-id of the Vehicle Data Broker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;here&lt;/a&gt; for details).&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;containers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;sampleapp&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -237,7 +256,7 @@
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
-    &lt;p&gt;Please make sure that you already pushed your image to the local registry before trying to deploy it. If you used the provided task (see &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;here&lt;/a&gt; for details) to build your app, you can use the following command:&lt;/p&gt;
+    &lt;p&gt;Please make sure that you have already pushed your image to the local registry before trying to deploy it. If you used the provided task (see &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;here&lt;/a&gt; for details) to build your app, you can use this command:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker push localhost:12345/sampleapp:local
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -246,7 +265,7 @@
 &lt;h3 id=&#34;local-registry-or-remote-registry&#34;&gt;Local registry or remote registry&lt;/h3&gt;
 &lt;p&gt;In the example above we used the local registry, but you can also define a remote registry in the image tag, e.g.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;image&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ghcr.io/eclipse-velocitas/vehicle-app-python-template/sampleapp:0.1.0&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If your registry is not public, you might to add secrets to your Kubernets config, see the &lt;a href=&#34;https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;official documentation&lt;/a&gt; for details. Afterwards you have to add the secrets also to the PodSpec:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the used registry requires an authentication, you can add the needed secrets to your Kubernets configuration, see the &lt;a href=&#34;https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;official documentation&lt;/a&gt; for details. Afterwards you have to add the secrets also to the PodSpec:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;imagePullSecrets&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;regcred&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-_vehicle-app_-to-local-k3d&#34;&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to local K3D&lt;/h2&gt;
@@ -259,7 +278,7 @@
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 
 
-    Make sure that there is no running VehicleApp with the same name and configuration deployed on your K3D environment.
+    Make sure that there is no running &lt;em&gt;Vehicle App&lt;/em&gt; with the same name and configuration deployed on your K3D environment.
 
 &lt;/div&gt;
 
@@ -287,12 +306,12 @@
         &lt;p&gt;This tutorial will show you how to:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Prepare a Helm chart&lt;/li&gt;
-&lt;li&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to local K3D&lt;/li&gt;
+&lt;li&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to a local K3D cluster&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Devcontainer&lt;/code&gt; is up and running.&lt;/li&gt;
-&lt;li&gt;Completed the tutorial &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;How to create a vehicle app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the tutorial &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/vehicle-app-development&#34;&gt;How to create a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;use-the-sample-helm-chart&#34;&gt;Use the sample Helm chart&lt;/h2&gt;
 &lt;p&gt;If the &lt;em&gt;Vehicle App&lt;/em&gt; has been created from one of our template repositories, a sample Helm chart is already available inside our maintained &lt;code&gt;runtime-k3d&lt;/code&gt; of the &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt; package at &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;./runtime-k3d/src/app_deployment/config/helm/&lt;/code&gt;&lt;/a&gt; and can be used as it is without any modification.
@@ -309,7 +328,7 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
 &lt;/div&gt;
 
 &lt;h2 id=&#34;prepare-a-new-helm-chart&#34;&gt;Prepare a new Helm chart&lt;/h2&gt;
-&lt;p&gt;If you would like to write a new helm chart, this section will guide you to adapt and deploy a new vehicle app, which is called &lt;code&gt;my_vehicle_app&lt;/code&gt; for this walkthrough.&lt;/p&gt;
+&lt;p&gt;If you would like to write a new helm chart, this section will guide you to adapt and deploy a new &lt;em&gt;Vehicle App&lt;/em&gt;, which is called &lt;code&gt;my_vehicle_app&lt;/code&gt; for this walkthrough.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Start Visual Studio Code and open the previously created &lt;em&gt;Vehicle App&lt;/em&gt; repository.&lt;/p&gt;
@@ -404,14 +423,14 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│────────── .helmignore
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│────────── Chart.yaml
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└────────── values.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-_vehicle-app_-to-local-k3d&#34;&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to local K3D&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;deploy-your-_vehicle-app_-to-the-local-k3d-cluster&#34;&gt;Deploy your &lt;em&gt;Vehicle App&lt;/em&gt; to the local K3D cluster&lt;/h2&gt;
 &lt;h3 id=&#34;prerequisites-1&#34;&gt;Prerequisites&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/run_runtime_services_kubernetes.md&#34;&gt;tutorial&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After the Helm chart has been prepared, you can deploy it to the local K3D cluster by following the steps:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Building and pushing the Docker image for your Vehicle App&lt;/li&gt;
+&lt;li&gt;Building and pushing the Docker image for your &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;DOCKER_BUILDKIT&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; docker build -f ./app/Dockerfile --progress&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;plain -t localhost:12345/my-vehicle-app:local . --no-cache
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;

@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -117,7 +117,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -260,12 +260,12 @@
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsprototyping-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototyping-check"/>
-  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping Integration</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping</span></a></label>
   
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"/>
-  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">Prototyping with Digital.Auto</span></a></label>
+  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">Prototyping with digital.auto</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingservice_integration-li">
   <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingservice_integration-check"/>
@@ -388,7 +388,7 @@
     <li><a href="#introduction">Introduction</a></li>
     <li><a href="#architecture">Architecture</a>
       <ul>
-        <li><a href="#kuksa-data-broker">KUKSA Data Broker</a></li>
+        <li><a href="#kuksa-data-broker-aka-vehicle-data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</a></li>
         <li><a href="#data-providers--data-feeders">Data Providers / Data Feeders</a></li>
         <li><a href="#vehicle-services">Vehicle Services</a></li>
         <li><a href="#hardware-abstraction">Hardware Abstraction</a></li>
@@ -396,8 +396,8 @@
     </li>
     <li><a href="#information-flow">Information Flow</a>
       <ul>
-        <li><a href="#data-flow-when-a-vehicle-application-uses-the-kuksa-data-broker">Data flow when a Vehicle Application uses the KUKSA Data Broker</a></li>
-        <li><a href="#data-flow-when-a-vehicle-application-uses-a-vehicle-service">Data flow when a Vehicle Application uses a Vehicle Service</a></li>
+        <li><a href="#data-flow-when-a-_vehicle-app_-uses-the-kuksa-data-broker">Data flow when a <em>Vehicle App</em> uses the KUKSA Data Broker</a></li>
+        <li><a href="#data-flow-when-a-_vehicle-app_-uses-a-vehicle-service">Data flow when a <em>Vehicle App</em> uses a Vehicle Service</a></li>
       </ul>
     </li>
     <li><a href="#source-code">Source Code</a></li>
@@ -477,30 +477,31 @@
 		
 	</header>
 	<h2 id="introduction">Introduction</h2>
-<p>The <em>Vehicle_Abstraction Layer (VAL)</em> enables access to the systems and functions of a vehicle via a unified - or even better - a standardized <em>Vehicle API</em> abstracting from the details of the end-to-end architecture of the vehicle. The unified API enables <em>Vehicle Apps</em> to run on different vehicle architectures of a single OEM. Vehicle Apps can be even implemented OEM-agnostic, if using a API based on a standard like COVESA&rsquo;s Vehicle Signal Specification. The Vehicle API obsoletes the knowledge where signal come from or where to send it and in which format they are provided or needed by the respective vehicle system.</p>
-<p>The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener"><em>Eclipse KUKSA project</em></a>, also called <em>KUKSA.VAL</em>.
+<p>The Vehicle Abstraction Layer (VAL) enables access to the systems and functions of a vehicle via a unified - or even better - a standardized <em>Vehicle API</em> abstracting from the details of the end-to-end architecture of the vehicle. The unified API enables <em>Vehicle Apps</em> to run on different vehicle architectures of a single OEM. <em>Vehicle Apps</em> can be even implemented OEM-agnostic, if using an API based on a standard like the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>.
+The <em>Vehicle API</em> eliminates the need to know the source, destination, and format of signals for the vehicle system.</p>
+<p>The Eclipse Velocitas project is using the VAL of the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener"><em>Eclipse KUKSA project</em></a>, also called <em>KUKSA.VAL</em>.
 KUKSA.VAL does not provide a concrete VAL. That&rsquo;s up to you as an OEM (vehicle manufacturer) or as a supplier.
 But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an <em>Vehicle App</em> or Service.</p>
-<p>KUKSA VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the <em>KUKSA Data Broker</em> and the generic <em>Data Providers</em> (aka <em>Data Feeders</em>).
+<p>KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the <em>KUKSA Data Broker</em> and the generic <em>Data Providers</em> (aka <em>Data Feeders</em>).
 It also provides you reference implementations of certain <em>Vehicle Services</em>, like the <em>Seat Service</em> and the <em>HVAC Service</em>.</p>
 <h2 id="architecture">Architecture</h2>
-<p>The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the <a href="/velocitas-docs/docs/concepts/development-model.md">Velocitas Development Model</a>.</p>
-<p><img src="./val_overview.drawio.svg" alt="Overview of the vehicle abstraction layer architecture"></p>
-<h3 id="kuksa-data-broker">KUKSA Data Broker</h3>
+<p>The image below shows the main components of the VAL and its relation to the <a href="/velocitas-docs/docs/concepts/development-model.md">Velocitas Development Model</a>.</p>
+<p><img src="./val_overview.drawio.svg" alt="Overview of the VAL architecture"></p>
+<h3 id="kuksa-data-broker-aka-vehicle-data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
 <p>The <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">KUKSA Data Broker</a> is a gRPC service acting as a broker of vehicle data / signals also called <em>data points</em> in the following.
-It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a> or others. But this is not a must, it is also possible to use your own (proprietary) vehicle model or to extend the COVESA VSS with your specific extensions via <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/" target="_blank" rel="noopener">VSS <em>overlays</em></a>.</p>
-<p>Data points represent certain states of the vehicle, like the current vehicle speed or the currently applied gear. Data points can represent sensor values like the vehicle speed or engine temperature, actuators like the wiper mode, and immutable attributes of the vehicle like the needed fuel type(s) of the vehicle, engine displacement, maximum power, etc.</p>
+It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the COVESA VSS or others. But this is not a must, it is also possible to use your own (proprietary) vehicle model or to extend the COVESA VSS with your specific extensions via <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/" target="_blank" rel="noopener">VSS <em>overlays</em></a>.</p>
+<p>Data points represent certain states of a vehicle, like the current vehicle speed or the currently applied gear. Data points can represent sensor values like the vehicle speed or engine temperature, actuators like the wiper mode, and immutable attributes of the vehicle like the needed fuel type(s) of the vehicle, engine displacement, maximum power, etc.</p>
 <p>Data points factually belonging together are typically arranged in branches and sub-branches of a tree structure (like <a href="https://covesa.github.io/vehicle_signal_specification/introduction/overview/#example" target="_blank" rel="noopener">this example</a> on the COVESA VSS site).</p>
-<p>The KUKSA Data Broker is implemented in Rust, can run in a container and provides services to get datapoints, update datapoints and for subscribing to automatic notifications on datapoint changes.
-Filter- and rule-based subscriptions of datapoints can be used to reduce the number of updates sent to the subscriber.</p>
+<p>The KUKSA Data Broker is implemented in Rust, can run in a container and provides services to get data points, update data points and for subscribing to automatic notifications on data point changes.
+Filter- and rule-based subscriptions of data points can be used to reduce the number of updates sent to the subscriber.</p>
 <h3 id="data-providers--data-feeders">Data Providers / Data Feeders</h3>
 <p>Conceptually, a data provider is the responsible to take care for a certain set of data points: It provides updates of sensor data from the vehicle to the data broker and forwards updates of actuator values to the vehicle. The set of data points a data provider maintains may depend on the network interface (e.g. CAN bus) via that those data is accessible or it can depend on a certain use case the provider is responsible for (like seat control).</p>
 <p>Eclipse KUKSA provides several <em>generic</em> <a href="https://github.com/eclipse/kuksa.val.feeders" target="_blank" rel="noopener"><em>Data Providers</em></a> for different datasources.
 As of today, Eclipse Velocitas only utilizes the generic <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python, which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
-The feeder uses a mapping file and data point meta data to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
+The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
 The feeder automatically reconnects to the data broker in the event that the connection is lost.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
-<p>A vehicle service offers a vehicle app to interact with the vehicle systems on a RPC-like basis.
+<p>A vehicle service offers a <em>Vehicle App</em> to interact with the vehicle systems on a RPC-like basis.
 It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
 It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.</p>
 <p>The <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a> contains examples illustrating how such kind of vehicle services can be built.</p>
@@ -520,19 +521,19 @@ The hardware abstraction may offer replaying (e.g., CAN) data from a file (can d
 	
 	<figcaption class="card-body px-0 pt-2 pb-0">
 		<p class="card-text">
-  Overview of the vehicle abstraction layer architecture
+  Overview of the VAL architecture
 </p>
 	</figcaption>
 	
 </figure>
 
 <h2 id="information-flow">Information Flow</h2>
-<p>The vehicle abstraction layer offers an information flow between vehicle networks and vehicle services.
+<p>The VAL offers an information flow between vehicle networks and vehicle services.
 The data that can flow is ultimately limited to the data available through the Hardware Abstraction, which is platform/project-specific.
 The KUKSA Data Broker offers read/subscribe access to data points based on a gRPC service. The data points which are actually available are defined by the set of feeders providing the data into the broker.
 Services (like the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat service</a>) define which CAN signals they listen to and which CAN signals they send themselves, see <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md" target="_blank" rel="noopener">documentation</a>.
 Service implementations may also interact as feeders with the data broker.</p>
-<h3 id="data-flow-when-a-vehicle-application-uses-the-kuksa-data-broker">Data flow when a Vehicle Application uses the KUKSA Data Broker</h3>
+<h3 id="data-flow-when-a-_vehicle-app_-uses-the-kuksa-data-broker">Data flow when a <em>Vehicle App</em> uses the KUKSA Data Broker</h3>
 
 
 
@@ -551,7 +552,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 	
 </figure>
 
-<h3 id="data-flow-when-a-vehicle-application-uses-a-vehicle-service">Data flow when a Vehicle Application uses a Vehicle Service</h3>
+<h3 id="data-flow-when-a-_vehicle-app_-uses-a-vehicle-service">Data flow when a <em>Vehicle App</em> uses a Vehicle Service</h3>
 
 
 
@@ -597,7 +598,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 19, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/191ce3560b8f34f086914dde4f0f276599bc1e28">make vehicle app cursive (191ce35)</a>
+  Last modified June 20, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/98d90f32420ff63196b67694079001c1fde60242">Add quickstart button to home page (98d90f3)</a>
 </div>
 
 </div>

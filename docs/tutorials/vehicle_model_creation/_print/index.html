@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -361,7 +361,7 @@ Also, the target folder for the generated model source code is specified here:</
 <ul>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Setup and Explore Development Environment</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a <em>Vehicle App</em></a></li>
 </ul>
 
 </div>
@@ -484,7 +484,7 @@ Also, the target folder for the generated model source code is specified here:</
 <ul>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Setup and Explore Development Environment</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a <em>Vehicle App</em></a></li>
 </ul>
 
 </div>
@@ -583,7 +583,7 @@ Successfully installed my-vehicle-model-0.1
 </span></span></code></pre></div><h2 id="add-vehicle-models-manually">Add Vehicle Models manually</h2>
 <ol>
 <li>
-<p>Install the Python Vehicle App SDK:</p>
+<p>Install the Python <em>Vehicle App</em> SDK:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git
 </span></span></code></pre></div><p>The output of the above command should end with:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Successfully installed sdv-x.y.z
@@ -685,7 +685,7 @@ Successfully installed my-vehicle-model-0.1
 </li>
 <li>
 <p>Copy your proto file under <code>my_vehicle_model/my_vehicle_model/proto</code></p>
-<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
+<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA.VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
 </li>
 <li>
 <p>Install the grpcio tools including mypy types to generate the python classes out of the proto-file:</p>
@@ -694,7 +694,7 @@ Successfully installed my-vehicle-model-0.1
 <li>
 <p>Generate Python classes from the <code>SeatService</code> message definition:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m grpc_tools.protoc -I my_vehicle_model/proto --grpc_python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --mypy_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto my_vehicle_model/proto/seats.proto
-</span></span></code></pre></div><p>This creates the following grpc files under the <code>proto</code> folder:</p>
+</span></span></code></pre></div><p>This creates the following gRPC files under the <code>proto</code> folder:</p>
 <ul>
 <li>seats_pb2.py</li>
 <li>seats_pb2_grpc.py</li>
@@ -753,7 +753,7 @@ Successfully installed my-vehicle-model-0.1
 shown above:</p>
 <ul>
 <li>The <code>SeatService</code> class must derive from the <code>Service</code> class provided by the Python SDK.</li>
-<li>The <code>SeatService</code> class must use the grpc channel from the <code>Service</code> base class and provide it to the <code>_stub</code> in the <code>__init__</code> method. This allows the SDK to manage the physical connection to the grpc service and use service discovery of the middleware.</li>
+<li>The <code>SeatService</code> class must use the gRPC channel from the <code>Service</code> base class and provide it to the <code>_stub</code> in the <code>__init__</code> method. This allows the SDK to manage the physical connection to the gRPC service and use service discovery of the middleware.</li>
 <li>Every method needs to pass the metadata from the <code>Service</code> base class to the gRPC call. This is done by passing the <code>self.metadata</code> argument to the metadata of the gRPC call.</li>
 </ul>
 </li>
@@ -832,7 +832,7 @@ shown above:</p>
 	<h1 id="pg-3e85be65611fe1e1cf9f1d5cda3e3deb">2.3.2 - Python Vehicle Model Distribution</h1>
     <div class="lead">Learn how to distribute a Vehicle Model written in Python.</div>
 	<p>Now you a have a Python package containing your first Python <em>Vehicle Model</em> and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the <a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener">Python Packaging User Guide</a> to learn more about packaging and package distribution in Python.</p>
-<h2 id="distribute-to-single-vehicle-app">Distribute to single Vehicle App</h2>
+<h2 id="distribute-to-single-_vehicle-app_">Distribute to single <em>Vehicle App</em></h2>
 <p>If you want to distribute your Python <em>Vehicle Model</em> to a single <em>Vehicle App</em>, you can do so by copying the entire folder <code>my_vehicle_model</code> under the <code>/app/src</code> folder of your <em>Vehicle App</em> repository and treat it as a sub-package of the <em>Vehicle App</em>.</p>
 <ol>
 <li>Create a new folder <code>my_vehicle_model</code> under <code>/app/src</code> in your <em>Vehicle App</em> repository.</li>

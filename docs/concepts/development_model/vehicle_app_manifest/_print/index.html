@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.7b8ee96630c2b6aea8da2002e2b6b7c5.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -178,7 +178,7 @@ This concept provides flexibility by separating the requirements of a <em>Vehicl
 </span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><h2 id="vehicle-model-description">Vehicle Model Description</h2>
-<p>The <a href="/velocitas-docs/docs/concepts/development_model/#vehicle-models"><em>Vehicle Model</em></a> of the <em>Vehicle App</em> is described with the source and required (or optional) datapoints.
+<p>The <a href="/velocitas-docs/docs/concepts/development_model/#vehicle-models"><em>Vehicle Model</em></a> of the <em>Vehicle App</em> is described with the source and required (or optional) data points.
 More information: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/">Vehicle Model Creation</a></p>
 <p>The source (&ldquo;src&rdquo;) identifies the used <em>Vehicle Model</em> description and the data points section defines which signals (i.e. data points) of that model need to be available for the <em>Vehicle App</em> to run:</p>
 <ul>
@@ -188,7 +188,7 @@ More information: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation
 </ul>
 <p>Further information can be found here: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/#how-to-reference-a-model-specification">How to Reference a Model Specification</a>
 </br></p>
-<h3 id="datapoint-access-rights">Datapoint Access Rights</h3>
+<h3 id="data-point-access-rights">Data Point Access Rights</h3>
 
 
 
@@ -205,12 +205,12 @@ More information: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation
 <tbody>
 <tr>
 <td>read</td>
-<td>app needs to read the value of the datapoint from the provider (e.g. get value from databroker).</td>
+<td>app needs to read the value of the data point from the provider (e.g. get value from databroker).</td>
 <td>GetDatapoints/Subscribe</td>
 </tr>
 <tr>
 <td>write</td>
-<td>app needs to get and set the value of the datapoint (e.g. set, set_many values via the databroker or services). WRITE access implicitly has READ access.</td>
+<td>app needs to get and set the value of the data point (e.g. set, set_many values via the databroker or services). WRITE access implicitly has READ access.</td>
 <td>SetDatapoints</td>
 </tr>
 </tbody>
@@ -283,7 +283,7 @@ More information: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;write&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;read&#34;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Speed&#34;</span><span style="color:#000;font-weight:bold">,</span>
@@ -306,7 +306,7 @@ More information: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation
 <ul>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Environment</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Vehicle Model Creation</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Vehicle App Development</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development"><em>Vehicle App</em> Development</a></li>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/lifecycle_management">Lifecycle Management</a></li>
 </ul>
 
