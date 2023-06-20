@@ -279,55 +279,6 @@ or:
 2. Select command `Tasks: Run Task`
 3. Select `Local Runtime - Run VehicleApp`
 
-### The following Dapr configuration is part of the devenv-runtimes package (WIP: TBD)
-
-You already have seen this command and how to check if it is working in the [general setup](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/#debug-your-vehicle-app).
-
-For now, you just need to know that these parameters are needed to make everything work together.
-
-The config.yaml has to be placed in the folder called `.dapr` and has the following content:
-
-```Yaml
-apiVersion: dapr.io/v1alpha1
-kind: Configuration
-metadata:
- name: config
-spec:
- tracing:
-   samplingRate: "1"
-   zipkin:
-     endpointAddress: http://localhost:9411/api/v2/spans
- features:
-   - name: proxy.grpc
-     enabled: true
-```
-
-An important part is the enabling of the GRPC proxy, to make the communication work.
-
-Inside the `.dapr` folder you find another folder called `components`. There you only find one configuration file for the MQTT communication with the following content:
-
-```Yaml
-apiVersion: dapr.io/v1alpha1
-kind: Component
-metadata:
-  name: mqtt-pubsub
-  namespace: default
-spec:
-  type: pubsub.mqtt
-  version: v1
-  metadata:
-  - name: url
-    value: "mqtt://localhost:1883"
-  - name: qos
-    value: 1
-  - name: retain
-    value: "false"
-  - name: cleanSession
-    value: "false"
-```
-
-If you want to know more about Dapr and its configuration, please visit <https://dapr.io>.
-
 ### Debug your _Vehicle App_
 
 In the [introduction about debugging](/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_), you saw how to start a debugging session. In this section, you will learn what is happening in the background.
