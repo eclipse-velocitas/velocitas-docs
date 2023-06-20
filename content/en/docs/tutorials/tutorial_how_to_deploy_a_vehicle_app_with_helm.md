@@ -3,7 +3,7 @@ title: "Vehicle App Deployment with Helm"
 date: 2022-05-09T13:43:25+05:30
 weight: 80
 description: >
-  Learn how to prepare a Helm chart for the deployment of a _Vehicle App_.
+  Learn how to prepare a Helm chart for the deployment of a _Vehicle App_ in a Kubernetes cluster.
 aliases:
   - /docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md
   - /tutorial_how_to_deploy_a_vehicle_app_with_helm.md
@@ -12,12 +12,12 @@ aliases:
 This tutorial will show you how to:
 
 - Prepare a Helm chart
-- Deploy your _Vehicle App_ to local K3D
+- Deploy your _Vehicle App_ to a local K3D cluster
 
 ## Prerequisites
 
 - `Devcontainer` is up and running.
-- Completed the tutorial [How to create a _Vehicle App_](/docs/tutorials/vehicle-app-development)
+- Complete the tutorial [How to create a _Vehicle App_](/docs/tutorials/vehicle-app-development)
 
 ## Use the sample Helm chart
 
@@ -129,7 +129,7 @@ deploy
 └────────── values.yaml
 ```
 
-## Deploy your _Vehicle App_ to local K3D
+## Deploy your _Vehicle App_ to the local K3D cluster
 
 ### Prerequisites
 
