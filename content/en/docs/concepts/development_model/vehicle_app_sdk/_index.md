@@ -17,13 +17,13 @@ The _Vehicle App_ SDK consists of the following building blocks:
 
 - **[Vehicle Model Ontology](#vehicle-model-ontology):** The SDK provides a set of model base classes for the creation of vehicle models.
 
-- **[Middleware integration](#middleware-integration):** Vehicle Models can contain gRPC stubs to communicate with Vehicle Services. gRPC communication is integrated with the [Dapr](https://dapr.io) middleware for service discovery and [OpenTelemetry](https://opentelemetry.io) tracing.
+- **[Middleware integration](#middleware-integration):** Vehicle Models can contain gRPC stubs to communicate with _Vehicle Services_. gRPC communication is integrated with the [Dapr](https://dapr.io) middleware for service discovery and [OpenTelemetry](https://opentelemetry.io) logging and tracing.
 
 - **[Fluent query & rule construction](#fluent-query--rule-construction):** Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.
 
 - **[Publish & subscribe messaging](#publish--subscribe-messaging):** The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.
 
-- **[Vehicle App abstraction](#vehicle-app-abstraction):** Last but not least the SDK provides a _Vehicle App_ base class, which every _Vehicle App_ derives from.
+- **[Vehicle App abstraction](#vehicle-app-abstraction):** Last but not least the SDK provides a `VehicleApp` base class, which every _Vehicle App_ derives from.
 
 An overview of the _Vehicle App_ SDK and its dependencies is depicted in the following diagram:
 
@@ -31,7 +31,7 @@ An overview of the _Vehicle App_ SDK and its dependencies is depicted in the fol
 
 ## Vehicle Model Ontology
 
-The Vehicle Model is a tree-based model where every branch in the tree, including the root, is derived from a Model base class.
+The Vehicle Model is a tree-based model where every branch in the tree, including the root, is derived from the `Model` base class provided by the SDK.
 
 The Vehicle Model Ontology consists of the following classes:
 
@@ -49,15 +49,15 @@ Specifications like VSS support a concept that is called [Instances](https://cov
 
 ### Service
 
-Direct asynchronous communication between _Vehicle Apps_ and Vehicle Services is facilitated via the [gRPC](https://grpc.io) protocol.
+Direct asynchronous communication between _Vehicle Apps_ and _Vehicle Services_ is facilitated via the [gRPC](https://grpc.io) protocol.
 
-The SDK has its own `Service` base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a Vehicle Service or another _Vehicle App_. Please see the [Middleware Integration](#middleware-integration) section for more details.
+The SDK has its own `Service` base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a _Vehicle Service_ or another _Vehicle App_. Please see the [Middleware Integration](#middleware-integration) section for more details.
 
 ### DataPoint
 
-`DataPoint` is the base class for all data points. It corresponds to sensors/actuators in VSS or telemetry / properties in DTDL.
+`DataPoint` is the base class for all data points. It corresponds to sensors/actuators/attributes in VSS or telemetry/properties in DTDL.
 
-Data points are the signals that are typically emitted by Vehicle Services.
+Data points are the signals that are typically emitted by _Vehicle Services_ or _Data Providers_.
 
 The representation of a data point is a path starting with the root model, e.g.:
 
@@ -242,11 +242,15 @@ public:
 
 ### gRPC Services
 
-Vehicle Services are expected to expose their public endpoints over the gRPC protocol. The related protobuf definitions are used to generate method stubs for the Vehicle Model to make it possible to call the methods of the Vehicle Services.
+_Vehicle Services_ are expected to expose their public endpoints over the gRPC protocol. The related protobuf definitions are used to generate method stubs for the Vehicle Model to make it possible to call the methods of the _Vehicle Services_.
 
 ### Model integration
 
-Based on the `.proto` files of the Vehicle Services, the protocol buffer compiler generates descriptors for all rpcs, messages, fields etc. for the target language.
+{{% alert title="Info" %}}
+Please be aware that the integration of _Vehicle Services_ into the overall model is not supported by [automated model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/), currently.
+{{% /alert %}}
+
+Based on the `.proto` files of the _Vehicle Services_, the protocol buffer compiler generates descriptors for all rpcs, messages, fields etc. for the target language.
 The gRPC stubs are wrapped by a **convenience layer** class derived from `Service` that contains all the methods of the underlying protocol buffer specification.
 
 {{% alert title="Info" %}}
@@ -301,7 +305,7 @@ private:
 
 ### Service discovery
 
-The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through the Dapr middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that Dapr can discover the corresponding vehicle services. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
+The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through the Dapr middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that Dapr can discover the corresponding _Vehicle Services_. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
 
 ## Fluent query & rule construction
 
