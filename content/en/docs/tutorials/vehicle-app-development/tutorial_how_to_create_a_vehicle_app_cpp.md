@@ -10,7 +10,7 @@ aliases:
 
 > We recommend that you make yourself familiar with the [_Vehicle App_ SDK](/docs/concepts/development_model/vehicle_app_sdk) first, before going through this tutorial.
 
-The following information describes how to develop and test the sample _Vehicle App_ that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template). You will learn how to use the _Vehicle App_ SDK and how to interact with the Vehicle Model.
+The following information describes how to develop and test the sample _Vehicle App_ that is included in the [C++ template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template). You will learn how to use the _Vehicle App_ C++ SDK and how to interact with the Vehicle Model.
 
 Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own _Vehicle App_ development project.
 
@@ -21,19 +21,20 @@ This section describes how to develop your first _Vehicle App_. Before you start
 - [Setup and Explore Development Environment](/docs/tutorials/quickstart.md)
 
 For this tutorial, you will recreate the _Vehicle App_ that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template):
-The _Vehicle App_ allows you to change the positions of the seats in the car and also provide their current positions to other applications.
-
+The _Vehicle App_ allows you to change the position of the driver's seat in the car and also provides its current positions to other applications.
 A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
+
+## Setting up the basic skeleton of your app
 
 At first, you have to create the main C++ file which we will call `App.cpp` in `/app/src`. All the relevant code for your new _Vehicle App_ goes there. Afterwards, there are several steps you need to consider when developing the app:
 
-1. [Manage your includes](#manage-your-imports)
+1. [Manage your includes](#manage-your-includes)
 2. [Initialize your class](#initialize-your-class)
-3. [Start the app](#start-the-app)
+3. [Define the entry point of your app](#entry-point-of-your-app)
 
-### Manage your imports
+### Manage your includes
 
-Before you start development in the `App.cpp` you just created, it will be necessary to include all required files, which you will understand better later through the development:
+Before you start development in the `App.cpp` you just created, it will be necessary to include all required header files, which you will understand better later through the development:
 
 ```Cpp
 #include "sdk/VehicleApp.h"
@@ -50,7 +51,7 @@ using namespace velocitas;
 
 ### Initialize your class
 
-The main class of your new _Vehicle App_ needs to inherit the `VehicleApp` provided by the [SDK](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk).
+The main class of your new _Vehicle App_ needs to inherit the `VehicleApp` provided by the [C++ SDK](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk).
 
 ```Cpp
 class MyVehicleApp : public VehicleApp {
@@ -77,9 +78,9 @@ The URI of the MQTT broker can also be set via the environment variable `MQTT_BR
 
 Now, you have initialized the app and can continue developing relevant methods.
 
-### Start the app
+### Entry point of your app
 
-Here's an example how to start the `MyVehicleApp` app that we just developed:
+Here's an example of an entry point to the `MyVehicleApp` that we just developed:
 
 ```Cpp
 int main(int argc, char** argv) {
@@ -89,7 +90,7 @@ int main(int argc, char** argv) {
 }
 ```
 
-The app is now running. In order to use it properly, we will enhance the app with more features in the next sections.
+With this your app can now be started. In order to provide some meaningful behaviour of the app, we will enhance it with more features in the next sections.
 
 ## Vehicle Model Access
 
@@ -144,13 +145,13 @@ The result passed to the callback registered via `onItem()` is an object of type
 
 ## Services
 
+Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
+
 {{% alert title="Note" %}}
 Services are not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for the time being. If you need access to services please read [here](/docs/tutorials/vehicle_model_creation/manual_model_creation) how you can create a model and add services to it manually.
 {{% /alert %}}
 
-Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
-
-The following few lines show you how to use the `moveComponent()` method of the `SeatService` which is developed in the tutorial:
+The following code snippet shows how to use the `moveComponent()` method of the `SeatService` from the vehicle model:
 
 ```Cpp
 vehicle::cabin::SeatService::SeatLocation location{1, 1};
@@ -159,13 +160,13 @@ Vehicle.Cabin.SeatService.moveComponent(
     )->await();
 ```
 
-In order to know which seat to move, you have to pass a `SeatLocation` object as the first parameter. The second argument specifies the component to be moved. The possible components are defined in the proto-files. The last parameter to be passed into the method is the final position of the component.
+In order to define which seat you like to move, you have to pass a `SeatLocation` object as the first parameter. The second argument specifies the component of the seat to be moved. The possible components are defined in the proto-files. The last parameter to be passed into the method is the final position of the component.
 
 > Make sure to call the `await()` method when calling service methods or register a callback via `onResult()` otherwise you don't know when your asynchronous call will finish.
 
 ### MQTT
 
-Interaction with other _Vehicle Apps_ or the cloud is enabled by using a Mosquitto MQTT Broker. When using the provided template repository you can start a MQTT Broker as part the local runtime. More information can be found [here](/docs/run_runtime_services_locally.md).
+Interaction with other _Vehicle Apps_ or with the cloud is enabled by using the Mosquitto MQTT Broker. When using the provided template repository you can start a MQTT Broker as part the local runtime. More information can be found [here](/docs/run_runtime_services_locally.md).
 
 In the [quickstart section](/docs/tutorials/quickstart.md) about the _Vehicle App_, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `DataPoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.

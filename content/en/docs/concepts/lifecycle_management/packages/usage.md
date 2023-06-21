@@ -26,7 +26,7 @@ Currently, the packages provided by the _Velocitas_ team are the following:
 {{</table>}}
 </br>
 
-To see how these provided packages are used inside a `.velocitas.json` you can use the [python template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) as a reference.
+To see how these provided packages are used inside a `.velocitas.json` you can use the [Python template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) as a reference.
 
 ## Installation
 

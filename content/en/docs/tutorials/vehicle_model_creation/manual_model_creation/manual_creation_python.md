@@ -3,7 +3,7 @@ title: "Python Manual Vehicle Model Creation"
 date: 2022-05-09T13:43:25+05:30
 weight: 60
 description: >
-  Learn how to create a Vehicle Model manually for python
+  Learn how to create a Vehicle Model manually for Python
 ---
 
 ## Setup a Python Package manually
@@ -193,7 +193,7 @@ In this section, we add a _Vehicle Service_ to the _Vehicle Model_.
 
    As example you could use the protocol buffers message definition [seats.proto](https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto) provided by the KUKSA.VAL services which describes a [seat control service](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service).
 
-3. Install the grpcio tools including mypy types to generate the python classes out of the proto-file:
+3. Install the grpcio tools including mypy types to generate the Python classes out of the proto-file:
 
    ```bash
    pip3 install grpcio-tools mypy_protobuf

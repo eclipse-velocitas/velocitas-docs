@@ -34,7 +34,7 @@ The `Continuous Integration (CI) workflow` is triggered on every commit to the m
 - **Running unit tests & code coverage** - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as "failed".
 - **Storing scan & test results as GitHub action artifacts** - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.
 
-Check out the example GitHub workflows in our [repositories for python](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)
+Check out the example GitHub workflows in our [repositories for Python](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)
 
 ## Build multi-arch image Workflow ([build-multiarch-image.yml](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/build-multiarch-image.yml))
 

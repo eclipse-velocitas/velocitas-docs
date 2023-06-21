@@ -486,7 +486,7 @@ async def main():
     conf.DAPR_APP_PORT = <your port>
 {{< /tab >}}
 {{< tab "C++" >}}
-// c++ does not use Dapr for Pub/Sub messaging at this point
+// C++ does not use Dapr for Pub/Sub messaging at this point
 {{< /tab >}}
 {{< /tabpane >}}
 

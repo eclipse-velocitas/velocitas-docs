@@ -60,11 +60,11 @@ Follow the steps to generate a _Vehicle Model_.
 
         | lang       | output                                                                          |
         | :--------- |:------------------------------------------------------------------------------- |
-        | `python`   | python sources and a `setup.py` ready to be used as python package              |
-        | `cpp`      | c++ sources, headers and a CMakeLists.txt ready to be used as a CMake project   |
+        | `python`   | Python sources and a `setup.py` ready to be used as Python package              |
+        | `cpp`      | C++ sources, headers and a CMakeLists.txt ready to be used as a CMake project   |
 
         To have a custom model name, refer to README of [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository.
-  4. For python: Change the version of package in `setup.py` manually (defaults to 0.1.0).
+  4. For Python: Change the version of package in `setup.py` manually (defaults to 0.1.0).
   5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Vehicle Model](vehicle_model_distribution))
 
 ## Create a Vehicle Model Manually

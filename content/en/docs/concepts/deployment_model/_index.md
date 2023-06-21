@@ -22,7 +22,7 @@ The template projects provided come with a pre-configured developer toolchain th
 
 ## Testing your container during development
 
-The _Velocitas_ project provides for developers a repository template and devcontainer that contains everything to build a containerized version of your app locally and test it. Check out our [tutorial](/docs/tutorials/) e.g., for the [python template](https://github.com/eclipse-velocitas/vehicle-app-python-template) to learn more.
+The _Velocitas_ project provides for developers a repository template and devcontainer that contains everything to build a containerized version of your app locally and test it. Check out our [tutorial](/docs/tutorials/) e.g., for the [Python template](https://github.com/eclipse-velocitas/vehicle-app-python-template) to learn more.
 
 ## Automated container image builds
 

@@ -103,7 +103,7 @@ Among other things the newly created repository will contain:
 |-------|-------------|
 |_/app/src/main.py_| Main class of the _Vehicle App_, containing your modified prototype code |
 |_/app/AppManifest.json_| Settings file defining required services |
-|_/app/requirements.txt_| Requirements file defining all python dependencies |
+|_/app/requirements.txt_| Requirements file defining all Python dependencies |
 |_/.devcontainer/_| Required scripts and settings to setup the devcontainer in Microsoft Visual Studio Code |
 |_/.github/workflows/_| All required CI/CD pipelines to build, test and deploy the _Vehicle App_ as container image to the GitHub container registry|
 |_/gen/vehicle\_model/_| The generated model classes. If your prototype includes any exceptional API you added beforehand our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) takes care of handling the custom VSS vspec file coming from digital.auto and generates a vehicle_model when starting the devContainer |
