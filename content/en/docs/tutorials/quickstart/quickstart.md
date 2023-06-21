@@ -213,7 +213,7 @@ To trigger this breakpoint, let's send a message to the _Vehicle App_ using the 
 1. Set `Subscribe Topic` = `seatadjuster/setPosition/response` and click subscribe
 1. Set `Subscribe Topic` = `seatadjuster/currentPosition` and click subscribe
 1. Set `Publish Topic` = `seatadjuster/setPosition/request`
-1. Set and publish a dummy payload: `{ "position": 300, "requestId": "xyz" }`
+1. Set and publish a dummy payload: `{ "position": 300, "requestId": 123 }`
 
 {{% /tab %}}
 {{< /tabpane >}}

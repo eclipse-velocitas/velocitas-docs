@@ -255,7 +255,7 @@ async def test_for_publish_to_topic():
 
 
 def get_sample_request_data():
-    return {"position": 330, "requestId": "123456789"}
+    return {"position": 330, "requestId": 123}
 ```
 
 Looking at a test you notice the annotation `@pytest.mark.asyncio`. This is required if the test is defined as a coroutine. The next step is to create a mock from all the external dependencies. The method takes 4 arguments: first is the object to be mocked, second the method for which you want to modify the return value, third a callable and the last argument is the return value.
