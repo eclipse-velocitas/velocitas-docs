@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9b3ca0f9baf7a69593113862fe8a5898.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -261,12 +261,12 @@ This is the multi-page printable view of this section.
     </div>
     <div class="tab-body tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
-        <p>To learn how to start prototyping with the playground of digital.auto and integrate it into Velocitas please take a look <a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto.md">here</a></p>
+        <p>To learn how to start prototyping with the playground of digital.auto and integrate it into Velocitas please take a look <a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto.md">here</a>.</p>
 
     </div>
 </div>
 
-<h2 id="how-to-start-to-develop">How to start to develop?</h2>
+<h2 id="how-to-start-developing">How to start developing?</h2>
 <p>In this section you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using VS Code&rsquo;s <a href="https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20" target="_blank" rel="noopener">DevContainer</a> or you can set up the environment on a remote agent, using <a href="https://github.com/features/codespaces" target="_blank" rel="noopener">GitHub Codespaces</a>.</p>
 
 
@@ -291,7 +291,7 @@ This is the multi-page printable view of this section.
     
     <div class="tab-body tab-pane fade show active"
         id="tabs-02-00" role="tabpanel" aria-labelled-by="tabs-02-00-tab">
-        <p>The VS Code DevContainer makes it possible to package a complete <em>Vehicle App</em> development environment, including VS Code extensions, <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/"><em>Vehicle App</em> SDK</a>, <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime"><em>Vehicle App</em> Runtimes</a> and all other development and testing tools into a container which is started directly in VS Code.</p>
+        <p>The VS Code DevContainer makes it possible to package a complete <em>Vehicle App</em> development environment, including VS Code extensions, <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/"><em>Vehicle App</em> SDK</a>, <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime"><em>Vehicle App</em> Runtimes</a> and all other development and testing tools into a container which is started directly in VS Code.</p>
 <div class="pageinfo pageinfo-primary">
 <p><em><strong>Proxy Configuration</strong></em></p>
 <p>A non proxy configuration is used by default. If you are working behind a corporate proxy you will need to specify proxy settings: <a href="/velocitas-docs/docs/tutorials/quickstart/behind_proxy">Working behind a proxy</a></p>
@@ -333,7 +333,7 @@ You can either try it out directly in the browser or also use it inside VS Code.
     </div>
 </div>
 
-<p>You can find more information about the <em>Vehicle App</em> development in the <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">respective pages</a>.</p>
+<p>You can find more information about the <em>Vehicle App</em> development in the <a href="/velocitas-docs/docs/tutorials/vehicle_app_development">respective pages</a>.</p>
 <h2 id="how-to-start-the-runtime-services">How to start the runtime services?</h2>
 <p>The runtime services (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are required to develop <em>Vehicle Apps</em> and run integration tests.</p>
 <p>Currently, the supported options to run these services is either locally or in a Kubernetes (K3D) cluster.</p>
@@ -406,19 +406,19 @@ You can either try it out directly in the browser or also use it inside VS Code.
     </div>
 </div>
 
-<p>More information about the runtimes are available <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime">here</a>.</p>
+<p>More information about the runtimes are available <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime">here</a>.</p>
 <h2 id="how-to-debug-your-_vehicle-app_">How to debug your <em>Vehicle App</em>?</h2>
 
 
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Warning</h4>
 
-    Debugging functionality is only available when using the <a href="/velocitas-docs/docs/tutorials/run_runtime_services_locally">Local Runtime</a>.
+    Debugging functionality is only available when using the <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/local_runtime">Local Runtime</a>.
 Both given examples are available as part of template.
 
 </div>
 
-<p>Now that the <a href="/velocitas-docs/docs/tutorials/run_runtime_services_locally">runtime services</a> are all up and running, let&rsquo;s start a debug session for the <em>Vehicle App</em>.</p>
+<p>Now that the <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/local_runtime">runtime services</a> are all up and running, let&rsquo;s start a debug session for the <em>Vehicle App</em>.</p>
 <p>
 
 
@@ -466,7 +466,7 @@ Both given examples are available as part of template.
 <li>Set <code>Subscribe Topic</code> = <code>seatadjuster/setPosition/response</code> and click subscribe</li>
 <li>Set <code>Subscribe Topic</code> = <code>seatadjuster/currentPosition</code> and click subscribe</li>
 <li>Set <code>Publish Topic</code> = <code>seatadjuster/setPosition/request</code></li>
-<li>Set and publish a dummy payload: <code>{ &quot;position&quot;: 300, &quot;requestId&quot;: &quot;xyz&quot; }</code></li>
+<li>Set and publish a dummy payload: <code>{ &quot;position&quot;: 300, &quot;requestId&quot;: 123 }</code></li>
 </ol>
 
     </div>
@@ -509,8 +509,8 @@ Now your breakpoint in the <em>Vehicle App</em> gets hit and you can inspect eve
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Creating a Vehicle Model</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/integration_tests">Develop and run integration tests for a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development">Create a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development/integration_tests">Develop and run integration tests for a Vehicle App</a></li>
 </ul>
 
 </div>
@@ -552,7 +552,7 @@ Now your breakpoint in the <em>Vehicle App</em> gets hit and you can inspect eve
 <p>Every example app comes with its own <code>/app/AppManifest.json</code> to see which <em>Vehicle Services</em> are configured and needed as a dependency.</p>
 <p>To start the app:
 Just press <kbd>F5</kbd> to start a debug session of the example <em>Vehicle App</em>.</p>
-<p>To debug example, please check <a href="/velocitas-docs/docs/tutorials/quickstart#how-to-debug-_vehicle-app_">How to debug <em>Vehicle App</em>?</a></p>
+<p>To debug example, please check <a href="/velocitas-docs/docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_">How to debug <em>Vehicle App</em>?</a></p>
 
 </div>
 

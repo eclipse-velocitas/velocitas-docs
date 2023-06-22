@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9b3ca0f9baf7a69593113862fe8a5898.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -201,7 +201,7 @@ This is the multi-page printable view of this section.
 <h2 id="development-architecture">Development Architecture</h2>
 <p>Velocitas provides a flexible development architecture for <a href="#vehicle-apps"><em>Vehicle Apps</em></a>. The following diagram shows the major components of the Velocitas stack.</p>
 <p><img src="./programming_model.png" alt="Programming Model"></p>
-<h3 id="_vehicle-apps_"><em>Vehicle Apps</em></h3>
+<h3 id="vehicle-apps">Vehicle Apps</h3>
 <p>The Vehicle Applications (<em>Vehicle Apps</em>) contain the business logic that needs to be executed on a vehicle. A <em>Vehicle App</em> is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/" target="_blank" rel="noopener">twelve-factor</a> applications apply to <em>Vehicle Apps</em> as well and are summarized in the next chapter.</p>
 <h3 id="vehicle-models">Vehicle Models</h3>
 <p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps"><em>Vehicle Apps</em></a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
@@ -210,7 +210,7 @@ This is the multi-page printable view of this section.
 SDKs are available for Python and C++, currently. Further SDKs for Rust and C are planned.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
 <p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps"><em>Vehicle Apps</em></a> over a <a href="#vehicle-models">Vehicle Model</a>.</p>
-<h3 id="kuksa-data-broker-aka-vehicle-data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
+<h3 id="data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
 <p>Vehicle data is stored in the KUKSA Data Broker conforming to an underlying <a href="#semantic-models">Semantic Model</a> like <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>. <a href="#vehicle-apps"><em>Vehicle Apps</em></a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the <em>Vehicle App</em>.</p>
 <h3 id="semantic-models">Semantic models</h3>
 <p>The Vehicle Signal Specification (<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between <em>Vehicle Apps</em> and the Data Broker.</p>
@@ -324,7 +324,7 @@ Favor fast startup and support graceful shutdowns to leave the system in a corre
 
 </div>
 
-<p>Specifications like VSS support a concept that is called <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/instances/" target="_blank" rel="noopener">Instances</a>. It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with <a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship" target="_blank" rel="noopener">Relationships</a>. In the SDK, these structures are mapped with the <code>ModelCollection</code> class. A <code>ModelCollection</code> is a collection of models, which make it possible to reference an individual model either by a <code>NamedRange</code> (e.g., Row [1-3]), a <code>Dictionary</code> (e.g., &ldquo;Left&rdquo;, &ldquo;Right&rdquo;) or a combination of both.</p>
+<p>Specifications like VSS support a concept that is called <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/instances/" target="_blank" rel="noopener">Instances</a>. It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with <a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#relationship" target="_blank" rel="noopener">Relationships</a>. In the SDK, these structures are mapped with the <code>ModelCollection</code> class. A <code>ModelCollection</code> is a collection of models, which make it possible to reference an individual model either by a <code>NamedRange</code> (e.g., Row [1-3]), a <code>Dictionary</code> (e.g., &ldquo;Left&rdquo;, &ldquo;Right&rdquo;) or a combination of both.</p>
 <h3 id="service">Service</h3>
 <p>Direct asynchronous communication between <em>Vehicle Apps</em> and <em>Vehicle Services</em> is facilitated via the <a href="https://grpc.io" target="_blank" rel="noopener">gRPC</a> protocol.</p>
 <p>The SDK has its own <code>Service</code> base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a <em>Vehicle Service</em> or another <em>Vehicle App</em>. Please see the <a href="#middleware-integration">Middleware Integration</a> section for more details.</p>
@@ -919,12 +919,12 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
     </div>
     <div class="tab-pane fade"
         id="tabs-11-01" role="tabpanel" aria-labelled-by="tabs-11-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// c++ does not use Dapr for Pub/Sub messaging at this point
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// C++ does not use Dapr for Pub/Sub messaging at this point
 </span></span></span></code></pre></div>
     </div>
 </div>
 
-<h2 id="_vehicle-app_-abstraction"><em>Vehicle App</em> abstraction</h2>
+<h2 id="vehicle-app-abstraction">Vehicle App abstraction</h2>
 <p><em>Vehicle Apps</em> are inherited from the <code>VehicleApp</code> base class. This enables the <em>Vehicle App</em> to use the Publish &amp; Subscribe messaging and to connect to the KUKSA Data Broker.</p>
 <p>The <code>Vehicle Model</code> instance is passed to the constructor of the <code>VehicleApp</code> class and should be stored in a member variable (e.g. <code>self.vehicle</code> for Python, <code>std::shared_ptr&lt;Vehicle&gt; m_vehicle;</code> for C++), to be used by all methods within the application.</p>
 <p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <em>Vehicle App</em> and register all MQTT topic and Data Broker subscriptions.</p>
@@ -1004,10 +1004,10 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Environment</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart.md">Quickstart</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Vehicle Model Creation</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development"><em>Vehicle App</em> Development</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/integration_tests.md">Develop and run integration tests for a <em>Vehicle App</em></a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development"><em>Vehicle App</em> Development</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development/integration_tests">Develop and run integration tests for a <em>Vehicle App</em></a></li>
 </ul>
 
 </div>
@@ -1047,7 +1047,7 @@ But KUKSA.VAL provides the components and tools that helps you to implement a VA
 <p>KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the <em>KUKSA Data Broker</em> and the generic <em>Data Providers</em> (aka <em>Data Feeders</em>).
 It also provides you reference implementations of certain <em>Vehicle Services</em>, like the <em>Seat Service</em> and the <em>HVAC Service</em>.</p>
 <h2 id="architecture">Architecture</h2>
-<p>The image below shows the main components of the VAL and its relation to the <a href="/velocitas-docs/docs/concepts/development-model.md">Velocitas Development Model</a>.</p>
+<p>The image below shows the main components of the VAL and its relation to the <a href="/velocitas-docs/docs/concepts/development_model.md">Velocitas Development Model</a>.</p>
 <p><img src="./val_overview.drawio.svg" alt="Overview of the VAL architecture"></p>
 <h3 id="kuksa-data-broker-aka-vehicle-data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
 <p>The <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">KUKSA Data Broker</a> is a gRPC service acting as a broker of vehicle data / signals also called <em>data points</em> in the following.
@@ -1069,7 +1069,7 @@ It communicates with the Hardware Abstraction to execute the underlying services
 <p>The <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a> contains examples illustrating how such kind of vehicle services can be built.</p>
 <h3 id="hardware-abstraction">Hardware Abstraction</h3>
 <p>Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
-The reference implementation relies on <strong>SocketCAN</strong> and <strong>vxcan</strong>, see <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val</a>.
+The reference implementation relies on <strong>SocketCAN</strong> and <strong>vxcan</strong>, see <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">kuksa.val.feeders</a>.
 The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.</p>
 
 
@@ -1142,7 +1142,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 </ul>
 <h2 id="guidelines">Guidelines</h2>
 <ul>
-<li>Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the <a href="https://github.com/eclipse/kuksa.val.services/docs" target="_blank" rel="noopener">kuksa.val.services repository</a>.</li>
+<li>Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/docs" target="_blank" rel="noopener">kuksa.val.services repository</a>.</li>
 </ul>
 
 </div>
@@ -1337,9 +1337,9 @@ More information: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation
 
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Environment</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart.md">Quickstart</a></li>
 <li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Vehicle Model Creation</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development"><em>Vehicle App</em> Development</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development"><em>Vehicle App</em> Development</a></li>
 <li>Concept: <a href="/velocitas-docs/docs/concepts/lifecycle_management">Lifecycle Management</a></li>
 </ul>
 

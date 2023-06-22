@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9b3ca0f9baf7a69593113862fe8a5898.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -359,9 +359,9 @@ Also, the target folder for the generated model source code is specified here:</
 </span></span></code></pre></div><p>In Python template based projects the generated model is finally installed in the site-packages folder, while in C++ projects it is made available as a CMake include folder.</p>
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Concept: <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Setup and Explore Development Environment</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a <em>Vehicle App</em></a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk.md">SDK Overview</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Quickstart</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development">Create a <em>Vehicle App</em></a></li>
 </ul>
 
 </div>
@@ -452,18 +452,18 @@ Also, the target folder for the generated model source code is specified here:</
 <tbody>
 <tr>
 <td style="text-align:left"><code>python</code></td>
-<td style="text-align:left">python sources and a <code>setup.py</code> ready to be used as python package</td>
+<td style="text-align:left">Python sources and a <code>setup.py</code> ready to be used as Python package</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>cpp</code></td>
-<td style="text-align:left">c++ sources, headers and a CMakeLists.txt ready to be used as a CMake project</td>
+<td style="text-align:left">C++ sources, headers and a CMakeLists.txt ready to be used as a CMake project</td>
 </tr>
 </tbody>
 </table>
 <p>To have a custom model name, refer to README of <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> repository.</p>
 </li>
 <li>
-<p>For python: Change the version of package in <code>setup.py</code> manually (defaults to 0.1.0).</p>
+<p>For Python: Change the version of package in <code>setup.py</code> manually (defaults to 0.1.0).</p>
 </li>
 <li>
 <p>Now the newly generated <code>sdv_model</code> can be used for distribution. (See <a href="vehicle_model_distribution">Distributing your Vehicle Model</a>)</p>
@@ -482,9 +482,9 @@ Also, the target folder for the generated model source code is specified here:</
 </ul>
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Concept: <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Setup and Explore Development Environment</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a <em>Vehicle App</em></a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk.md">SDK Overview</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Quickstart</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development">Create a <em>Vehicle App</em></a></li>
 </ul>
 
 </div>
@@ -528,7 +528,7 @@ Also, the target folder for the generated model source code is specified here:</
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a39583b9b15e4d50827c8529cd0b780d">2.2 - Python Manual Vehicle Model Creation</h1>
-    <div class="lead">Learn how to create a Vehicle Model manually for python</div>
+    <div class="lead">Learn how to create a Vehicle Model manually for Python</div>
 	<h2 id="setup-a-python-package-manually">Setup a Python Package manually</h2>
 <p>A <em>Vehicle Model</em> should be defined in its own Python Package. This allows to distribute the <em>Vehicle Model</em> later as a standalone package and to use it in different <em>Vehicle App</em> projects.</p>
 <p>The name of the <em>Vehicle Model</em> package will be <code>my_vehicle_model</code> for this walkthrough.</p>
@@ -688,7 +688,7 @@ Successfully installed my-vehicle-model-0.1
 <p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA.VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
 </li>
 <li>
-<p>Install the grpcio tools including mypy types to generate the python classes out of the proto-file:</p>
+<p>Install the grpcio tools including mypy types to generate the Python classes out of the proto-file:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install grpcio-tools mypy_protobuf
 </span></span></code></pre></div></li>
 <li>

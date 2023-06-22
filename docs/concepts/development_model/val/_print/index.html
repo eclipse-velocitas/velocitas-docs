@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.5bbdfd430c61257c02d604e960a767e6.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.9b3ca0f9baf7a69593113862fe8a5898.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -149,7 +149,7 @@ But KUKSA.VAL provides the components and tools that helps you to implement a VA
 <p>KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the <em>KUKSA Data Broker</em> and the generic <em>Data Providers</em> (aka <em>Data Feeders</em>).
 It also provides you reference implementations of certain <em>Vehicle Services</em>, like the <em>Seat Service</em> and the <em>HVAC Service</em>.</p>
 <h2 id="architecture">Architecture</h2>
-<p>The image below shows the main components of the VAL and its relation to the <a href="/velocitas-docs/docs/concepts/development-model.md">Velocitas Development Model</a>.</p>
+<p>The image below shows the main components of the VAL and its relation to the <a href="/velocitas-docs/docs/concepts/development_model.md">Velocitas Development Model</a>.</p>
 <p><img src="./val_overview.drawio.svg" alt="Overview of the VAL architecture"></p>
 <h3 id="kuksa-data-broker-aka-vehicle-data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
 <p>The <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">KUKSA Data Broker</a> is a gRPC service acting as a broker of vehicle data / signals also called <em>data points</em> in the following.
@@ -171,7 +171,7 @@ It communicates with the Hardware Abstraction to execute the underlying services
 <p>The <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a> contains examples illustrating how such kind of vehicle services can be built.</p>
 <h3 id="hardware-abstraction">Hardware Abstraction</h3>
 <p>Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
-The reference implementation relies on <strong>SocketCAN</strong> and <strong>vxcan</strong>, see <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val</a>.
+The reference implementation relies on <strong>SocketCAN</strong> and <strong>vxcan</strong>, see <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">kuksa.val.feeders</a>.
 The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.</p>
 
 
@@ -244,7 +244,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 </ul>
 <h2 id="guidelines">Guidelines</h2>
 <ul>
-<li>Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the <a href="https://github.com/eclipse/kuksa.val.services/docs" target="_blank" rel="noopener">kuksa.val.services repository</a>.</li>
+<li>Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/docs" target="_blank" rel="noopener">kuksa.val.services repository</a>.</li>
 </ul>
 
 </div>
