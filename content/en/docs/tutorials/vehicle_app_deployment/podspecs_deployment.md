@@ -1,22 +1,21 @@
 ---
-title: "Vehicle App Deployment with PodSpecs"
+title: "PodSpecs Deployment"
 date: 2022-05-09T13:43:25+05:30
 weight: 70
 description: >
   Learn how to prepare PodSpecs for the deployment of a _Vehicle App_ in a Kubernetes cluster.
 aliases:
-  - /docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_podspecs.md
-  - /tutorial_how_to_deploy_a_vehicle_app_with_podspecs.md
+  - /docs/tutorials/vehicle_app_deployment/podspecs_deployment.md
 ---
 
 This tutorial will show you how to:
 
-- Prepare PodSpecs
-- Deploy your _Vehicle App_ to a local K3D cluster
+- Prepare PodSpecs.
+- Deploy your _Vehicle App_ to a local K3D cluster.
 
 ## Prerequisites
 
-- Complete the tutorial [How to create a _Vehicle App_](/docs/tutorials/vehicle-app-development)
+- Complete the tutorial [How to create a _Vehicle App_](/docs/tutorials/vehicle_app_development).
 
 ## Use the sample PodSpecs
 
@@ -41,7 +40,7 @@ metadata:
     app: sampleapp
 ```
 
-Afterwards the configuration of the container is specified. Please be aware that `containerPort` should match the `app-port` from the Dapr configuration above. In the example the app-id of the Vehicle Data Broker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see [here](/docs/run_runtime_services_kubernetes.md) for details).
+Afterwards the configuration of the container is specified. Please be aware that `containerPort` should match the `app-port` from the Dapr configuration above. In the example the app-id of the Vehicle Data Broker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see [here](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime) for details).
 
 ```yaml
 spec:
@@ -57,7 +56,7 @@ spec:
 ```
 
 {{% alert title="Note" %}}
-Please make sure that you have already pushed your image to the local registry before trying to deploy it. If you used the provided task (see [here](/docs/run_runtime_services_kubernetes.md) for details) to build your app, you can use this command:
+Please make sure that you have already pushed your image to the local registry before trying to deploy it. If you used the provided task (see [here](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime) for details) to build your app, you can use this command:
 
 ```bash
 docker push localhost:12345/sampleapp:local
@@ -84,7 +83,7 @@ If the used registry requires an authentication, you can add the needed secrets 
 
 ### Prerequisites
 
-- A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/docs/run_runtime_services_kubernetes.md).
+- A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime).
 
 {{% alert color="warning" %}}
 Make sure that there is no running _Vehicle App_ with the same name and configuration deployed on your K3D environment.
@@ -98,5 +97,5 @@ In parallel you can check with K9S if the deployment is working correctly.
 
 ## Next steps
 
-- Tutorial: [Start runtime services locally](/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally)
+- Tutorial: [Start runtime services in Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
 - Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases)

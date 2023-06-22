@@ -25,7 +25,7 @@ It also provides you reference implementations of certain _Vehicle Services_, li
 
 ## Architecture
 
-The image below shows the main components of the VAL and its relation to the [Velocitas Development Model](/docs/concepts/development-model.md).
+The image below shows the main components of the VAL and its relation to the [Velocitas Development Model](/docs/concepts/development_model.md).
 
 ![Overview of the VAL architecture](./val_overview.drawio.svg)
 
@@ -61,7 +61,7 @@ The [KUKSA.VAL Services repository](https://github.com/eclipse/kuksa.val.service
 ### Hardware Abstraction
 
 Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
-The reference implementation relies on **SocketCAN** and **vxcan**, see <https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val>.
+The reference implementation relies on **SocketCAN** and **vxcan**, see [kuksa.val.feeders](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val).
 The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.
 
 {{< imgproc val_architecture Resize "800x" >}}
@@ -98,4 +98,4 @@ Source code and build instructions are available in the respective KUKSA.VAL rep
 
 ## Guidelines
 
-* Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the [kuksa.val.services repository](https://github.com/eclipse/kuksa.val.services/docs).
+* Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the [kuksa.val.services repository](https://github.com/eclipse/kuksa.val.services/tree/main/docs).

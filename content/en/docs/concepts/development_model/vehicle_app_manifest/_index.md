@@ -2,8 +2,6 @@
 title: "Vehicle App Manifest"
 date: 2023-05-31T13:33:25+05:30
 weight: 30
-aliases:
-  - /docs/concepts/vehicle_app_manifest.md
 description: >
   Learn more about the _Vehicle App_ Manifest.
 
@@ -144,7 +142,7 @@ Further information can be found here: [How to Reference a Model Specification](
 
 ## Further information
 
-- Tutorial: [Setup and Explore Development Environment](/docs/tutorials/setup_and_explore_development_environment.md)
+- Tutorial: [Quickstart](/docs/tutorials/quickstart.md)
 - Tutorial: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creation)
-- Tutorial: [_Vehicle App_ Development](/docs/tutorials/vehicle-app-development)
+- Tutorial: [_Vehicle App_ Development](/docs/tutorials/vehicle_app_development)
 - Concept: [Lifecycle Management](/docs/concepts/lifecycle_management)

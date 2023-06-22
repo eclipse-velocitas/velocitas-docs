@@ -29,4 +29,4 @@ Every example app comes with its own `/app/AppManifest.json` to see which _Vehic
 To start the app:
 Just press <kbd>F5</kbd> to start a debug session of the example _Vehicle App_.
 
-To debug example, please check [How to debug _Vehicle App_?](/docs/tutorials/quickstart#how-to-debug-_vehicle-app_)
+To debug example, please check [How to debug _Vehicle App_?](/docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_)

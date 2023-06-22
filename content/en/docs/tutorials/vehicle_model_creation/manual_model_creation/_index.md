@@ -71,7 +71,7 @@ Follow the steps to generate a _Vehicle Model_.
 
 Alternative to the generation from a VSS specification you could create the _Vehicle Model_ manually. The following sections describing the required steps.
 
-- [Python]({{< ref "manual_creation_python.md" >}})
+- [Python](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/)
 
 ## Distributing your Vehicle Model
 
@@ -82,6 +82,6 @@ Once you have created your Vehicle Model either manually or via the Vehicle Mode
 
 ## Further information
 
-- Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)
-- Tutorial: [Setup and Explore Development Environment](/docs/tutorials/quickstart)
-- Tutorial: [Create a _Vehicle App_](/docs/tutorials/vehicle-app-development)
+- Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk.md)
+- Tutorial: [Quickstart](/docs/tutorials/quickstart)
+- Tutorial: [Create a _Vehicle App_](/docs/tutorials/vehicle_app_development)

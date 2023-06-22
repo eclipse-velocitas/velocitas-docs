@@ -5,7 +5,7 @@ weight: 2
 description: >
   Learn how to develop and test a _Vehicle App_ using C++.
 aliases:
-  - /docs/tutorials/cpp/tutorial_how_to_create_a_vehicle_app_cpp.md
+  - /docs/tutorials/vehicle_app_development/cpp_development.md
 ---
 
 > We recommend that you make yourself familiar with the [_Vehicle App_ SDK](/docs/concepts/development_model/vehicle_app_sdk) first, before going through this tutorial.
@@ -18,11 +18,11 @@ Once you have completed all steps, you will have a solid understanding of the de
 
 This section describes how to develop your first _Vehicle App_. Before you start building a new _Vehicle App_, make sure you have already read this manual:
 
-- [Setup and Explore Development Environment](/docs/tutorials/quickstart.md)
+- [Quickstart](/docs/tutorials/quickstart.md)
 
 For this tutorial, you will recreate the _Vehicle App_ that is included in the [template repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-template):
 The _Vehicle App_ allows you to change the position of the driver's seat in the car and also provides its current positions to other applications.
-A detailed explanation of the use case and the example is available [here](/docs/velocitas/docs/seat_adjuster_use_case.md).
+A detailed explanation of the use case and the example is available [here](/docs/about/use_cases/seat_adjuster.md).
 
 ## Setting up the basic skeleton of your app
 
@@ -166,7 +166,7 @@ In order to define which seat you like to move, you have to pass a `SeatLocation
 
 ### MQTT
 
-Interaction with other _Vehicle Apps_ or with the cloud is enabled by using the Mosquitto MQTT Broker. When using the provided template repository you can start a MQTT Broker as part the local runtime. More information can be found [here](/docs/run_runtime_services_locally.md).
+Interaction with other _Vehicle Apps_ or with the cloud is enabled by using the Mosquitto MQTT Broker. When using the provided template repository you can start a MQTT Broker as part the local runtime. More information can be found [here](/docs/tutorials/vehicle_app_runtime/local_runtime).
 
 In the [quickstart section](/docs/tutorials/quickstart.md) about the _Vehicle App_, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `DataPoints` and `GRPC Services`. In this section, you will learn how to combine them with MQTT.
@@ -217,7 +217,7 @@ If this is your first time building, you might have to run `install_dependencies
 
 ### Run your App
 
-In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-cpp-template/blob/main/.velocitas.json) (which should be the default) and the runtime is up and running. Read more about it in the [run runtime services](/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally) section.
+In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-cpp-template/blob/main/.velocitas.json) (which should be the default) and the runtime is up and running. Read more about it in the [run runtime services](/docs/tutorials/vehicle_app_runtime/local_runtime) section.
 
 Now chose one of the options to start the VehicleApp under development (including Dapr sidecar):
 
@@ -310,8 +310,8 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 - Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk)
 - Concept: [Deployment Model](/docs/concepts/deployment_model)
-- Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/run_runtime_services_kubernetes.md)
-- Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
+- Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
+- Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
 - Tutorial: [Creating a Vehicle Model](/docs/tutorials/vehicle_model_creation)
-- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
-- Tutorial: [Deploy a _Vehicle App_ with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/vehicle_app_development/integration_tests)
+- Tutorial: [Deploy a _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)

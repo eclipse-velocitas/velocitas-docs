@@ -3,7 +3,7 @@ title: "Vehicle App SDK"
 date: 2022-05-09T13:43:25+05:30
 weight: 10
 aliases:
-  - /docs/concepts/vehicle_app_sdk_overview.md
+  - /docs/concepts/development_model/vehicle_app_sdk.md
 resources:
 - src: "**sdk_overview*.png"
 description: >
@@ -45,7 +45,7 @@ A model contains services, data points and other models. It corresponds to branc
 The ModelCollection is deprecated since SDK v0.4.0. The generated vehicle model must reflect the actual representation of the data points. Please use the _Model_ base class instead.
 {{% /alert %}}
 
-Specifications like VSS support a concept that is called [Instances](https://covesa.github.io/vehicle_signal_specification/rule_set/instances/). It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with [Relationships](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship). In the SDK, these structures are mapped with the `ModelCollection` class. A `ModelCollection` is a collection of models, which make it possible to reference an individual model either by a `NamedRange` (e.g., Row [1-3]), a `Dictionary` (e.g., "Left", "Right") or a combination of both.
+Specifications like VSS support a concept that is called [Instances](https://covesa.github.io/vehicle_signal_specification/rule_set/instances/). It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with [Relationships](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#relationship). In the SDK, these structures are mapped with the `ModelCollection` class. A `ModelCollection` is a collection of models, which make it possible to reference an individual model either by a `NamedRange` (e.g., Row [1-3]), a `Dictionary` (e.g., "Left", "Right") or a combination of both.
 
 ### Service
 
@@ -490,7 +490,7 @@ async def main():
 {{< /tab >}}
 {{< /tabpane >}}
 
-## _Vehicle App_ abstraction
+## Vehicle App abstraction
 
 _Vehicle Apps_ are inherited from the `VehicleApp` base class. This enables the _Vehicle App_ to use the Publish & Subscribe messaging and to connect to the KUKSA Data Broker.
 
@@ -550,7 +550,7 @@ int main(int argc, char** argv) {
 
 ## Further information
 
-- Tutorial: [Setup and Explore Development Environment](/docs/tutorials/setup_and_explore_development_environment.md)
+- Tutorial: [Quickstart](/docs/tutorials/quickstart.md)
 - Tutorial: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creation)
-- Tutorial: [_Vehicle App_ Development](/docs/tutorials/vehicle-app-development)
-- Tutorial: [Develop and run integration tests for a _Vehicle App_](/docs/tutorials/integration_tests.md)
+- Tutorial: [_Vehicle App_ Development](/docs/tutorials/vehicle_app_development)
+- Tutorial: [Develop and run integration tests for a _Vehicle App_](/docs/tutorials/vehicle_app_development/integration_tests)

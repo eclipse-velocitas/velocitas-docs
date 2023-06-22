@@ -5,9 +5,7 @@ weight: 1
 description: >
   Learn how to setup and explore the provided development environment.
 aliases:
-  - /docs/tutorials/setup_and_explore_development_environment.md
   - /docs/tutorials/quickstart.md
-  - /docs/setup_and_explore_development_environment.md
 ---
 
 This page describes
@@ -54,18 +52,18 @@ by clicking the green button <kbd>Use this template</kbd>. You don't have to inc
 
    {{% /tab %}}
    {{% tab header="digital.auto" %}}
-   To learn how to start prototyping with the playground of digital.auto and integrate it into Velocitas please take a look [here](/docs/tutorials/prototyping/digital_auto.md)
+   To learn how to start prototyping with the playground of digital.auto and integrate it into Velocitas please take a look [here](/docs/tutorials/prototyping/digital_auto.md).
    {{% /tab %}}
 {{< /tabpane >}}
 
-## How to start to develop?
+## How to start developing?
 
 In this section you will learn different possibilities to start developing based on your repository. Basically you can work on your own machine using VS Code's [DevContainer](https://code.visualstudio.com/docs/remote/create-dev-container#:~:text=%20Create%20a%20development%20container%20%201%20Path,additional%20software%20in%20your%20dev%20container.%20More%20) or you can set up the environment on a remote agent, using [GitHub Codespaces](https://github.com/features/codespaces).
 
 {{< tabpane text=true >}}
 {{% tab header="VS Code" text=true %}}
 
-The VS Code DevContainer makes it possible to package a complete _Vehicle App_ development environment, including VS Code extensions, [_Vehicle App_ SDK](/docs/concepts/development_model/vehicle_app_sdk/), [_Vehicle App_ Runtimes](/docs/tutorials/vehicle-app-runtime) and all other development and testing tools into a container which is started directly in VS Code.
+The VS Code DevContainer makes it possible to package a complete _Vehicle App_ development environment, including VS Code extensions, [_Vehicle App_ SDK](/docs/concepts/development_model/vehicle_app_sdk/), [_Vehicle App_ Runtimes](/docs/tutorials/vehicle_app_runtime) and all other development and testing tools into a container which is started directly in VS Code.
 
 {{% pageinfo color="primary" %}}
 ***Proxy Configuration***
@@ -112,7 +110,7 @@ Be careful with using GitHub Codespaces in a browser and VS Code locally at the 
 {{% /tab %}}
 {{< /tabpane >}}
 
-You can find more information about the _Vehicle App_ development in the [respective pages](/docs/tutorials/vehicle-app-development).
+You can find more information about the _Vehicle App_ development in the [respective pages](/docs/tutorials/vehicle_app_development).
 
 ## How to start the runtime services?
 
@@ -178,16 +176,16 @@ Hint: Log files can be found in your workspace's logs directory
 {{% /tab %}}
 {{< /tabpane >}}
 
-More information about the runtimes are available [here](/docs/tutorials/vehicle-app-runtime).
+More information about the runtimes are available [here](/docs/tutorials/vehicle_app_runtime).
 
 ## How to debug your _Vehicle App_?
 
 {{% alert title="Warning" %}}
-Debugging functionality is only available when using the [Local Runtime](/docs/tutorials/run_runtime_services_locally).
+Debugging functionality is only available when using the [Local Runtime](/docs/tutorials/vehicle_app_runtime/local_runtime).
 Both given examples are available as part of template.
 {{% /alert %}}
 
-Now that the [runtime services](/docs/tutorials/run_runtime_services_locally) are all up and running, let's start a debug session for the _Vehicle App_.
+Now that the [runtime services](/docs/tutorials/vehicle_app_runtime/local_runtime) are all up and running, let's start a debug session for the _Vehicle App_.
 
 {{< tabpane text=true >}}
 {{% tab header="Python" %}}
@@ -257,5 +255,5 @@ Please read the documentation of [Eclipse Leda](https://eclipse-leda.github.io/l
 ## Next steps
 
 - Tutorial: [Creating a Vehicle Model](/docs/tutorials/vehicle_model_creation)
-- Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
-- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests)
+- Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle_app_development)
+- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/vehicle_app_development/integration_tests)

@@ -1,12 +1,13 @@
 ---
-title: "Run runtime services in Kubernetes"
+title: "Kubernetes Runtime"
 date: 2022-05-09T13:43:25+05:30
+description: >
+  Learn how to run the _Vehicle App_ Runtime Services in Kubernetes.
 aliases:
-  - /docs/tutorials/run_runtime_services_kubernetes.md
-  - /docs/run_runtime_services_kubernetes.md
+  - /docs/tutorials/vehicle_app_runtime/kubernetes_runtime
 ---
 
-Besides [local execution](/docs/run_runtime_services_locally.md) of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code _Tasks_, a feature of Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
+Besides [local execution](/docs/tutorials/vehicle_app_runtime/local_runtime) of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code _Tasks_, a feature of Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
 
 **Quick Start:** Each step has a task that is defined in `/.vscode/tasks.json`:
 
@@ -49,8 +50,8 @@ More information about FeederCan can be found [here](https://github.com/eclipse/
 
 ## Next steps
 
-* Tutorial: [Start runtime services locally](/docs/tutorials/run_runtime_services_locally.md)
-* Tutorial: [Setup and Explore Development Environment](/docs/tutorials/setup_and_explore_development_environment.md)
-* Concept: [Deployment Model](/docs/about/deployment-model)
-* Concept: [Build and release process](/docs/about/deployment_model/vehicle_app_releases)
-* Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+* Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
+* Tutorial: [Quickstart](/docs/tutorials/quickstart.md)
+* Concept: [Deployment Model](/docs/concepts/deployment_model)
+* Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases)
+* Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)

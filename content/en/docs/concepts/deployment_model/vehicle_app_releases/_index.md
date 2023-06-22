@@ -34,7 +34,7 @@ The `Continuous Integration (CI) workflow` is triggered on every commit to the m
 - **Running unit tests & code coverage** - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as "failed".
 - **Storing scan & test results as GitHub action artifacts** - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.
 
-Check out the example GitHub workflows in our [repositories for Python](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)
+Check out the example GitHub workflows in our [template repository for Python](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml)
 
 ## Build multi-arch image Workflow ([build-multiarch-image.yml](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/build-multiarch-image.yml))
 
@@ -56,7 +56,7 @@ The set of actions included in the `Release workflow` cover the objective:
 - **Generating and publishing QA information** - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.
 - **Publish as GitHub pages** - all information from the release together with the project documentation is built as a static page using hugo. The result is pushed to a separate branch and can be published as a GitHub page in your repository.
 - **Pull & label container image** - actions pull the _Vehicle App_ container image based on the current commit hash from the GitHub artifacts and label it with the specified tag version. If the image cannot be found, the workflow will fail.
-- **Push container image to ghcr.io** - finally the labeled container image is pushed to the [GitHub container registry](ghcr.io) and can be used as a deployment source.
+- **Push container image to ghcr.io** - finally the labeled container image is pushed to the [GitHub container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) and can be used as a deployment source.
 
 ## GitHub Actions artifacts
 
@@ -66,7 +66,7 @@ GitHub Actions artifacts always have a retention period, which is 90 days by def
 
 ## Container Registry
 
-The [GitHub container registry](ghcr.io) is used for storing container images pushed by the `Release workflow`. These images can easily be used for a deployment and don't have a retention period.
+The [GitHub container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) is used for storing container images pushed by the `Release workflow`. These images can easily be used for a deployment and don't have a retention period.
 Since the registry does not have an automatic cleanup, it keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.
 
 ## Versioning
@@ -84,6 +84,6 @@ The release process would be the same as described in the overview, except that 
 
 ## Further information
 
-- Tutorial: [How to write integration tests](/docs/tutorials/integration_tests)
-- Tutorial: [Deploy a _Vehicle App_ with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm)
-- Tutorial: [Deploy a _Vehicle App_ with PodSpecs](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_podspecs)
+- Tutorial: [How to write integration tests](/docs/tutorials/vehicle_app_development/integration_tests)
+- Tutorial: [Deploy a _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)
+- Tutorial: [Deploy a _Vehicle App_ with PodSpecs](/docs/tutorials/vehicle_app_deployment/podspecs_deployment.md)

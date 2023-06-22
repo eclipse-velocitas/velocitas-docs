@@ -1,5 +1,5 @@
 ---
-title: "Prototyping with digital.auto"
+title: "digital.auto"
 date: 2022-11-02T10:09:25+05:30
 weight: 1
 description: >
@@ -74,7 +74,7 @@ Feel free to add your own Plugins with widgets for additional car features (mayb
 
 In the previous steps you started with envisioning and prototyping your _Vehicle App_ idea and tested it against mocked vehicle components in digital.auto.
 </br>
-The Velocitas team provides a project generator to transfer the prototype from [digital.auto](https://digitalauto.netlify.app/) into your own development environment where you are able to test it with real [_Vehicle Services_]({{< ref "/docs/concepts/development_model/val/#vehicle-services" >}}).
+The Velocitas team provides a project generator to transfer the prototype from [digital.auto](https://digitalauto.netlify.app/) into your own development environment where you are able to test it with real [_Vehicle Services_](/docs/concepts/development_model/val/#vehicle-services).
 </br>
 The generator creates a _Vehicle App_ GitHub repository using your prototype code based on our [vehicle-app-python-template](https://github.com/eclipse-velocitas/vehicle-app-python-template).
 </br>
@@ -116,4 +116,4 @@ Clone your newly created repository and open the _Vehicle App_ in Microsoft Visu
 You can proceed with the following topics:
 
 - [Starting development environment](/docs/tutorials/quickstart/#starting-development-environment)
-- [_Vehicle App_ Development](/docs/tutorials/vehicle-app-development/tutorial_how_to_create_a_vehicle_app_python/)
+- [_Vehicle App_ Development](/docs/tutorials/vehicle_app_development/python_development.md)

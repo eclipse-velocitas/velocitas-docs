@@ -4,8 +4,6 @@ date: 2022-05-09T13:43:25+05:30
 weight: 20
 description: >
   Learn how to distribute a Vehicle Model written in C++.
-aliases:
-  - /docs/tutorials/vehicle_model_creation/manual_model_creation/distribution_cpp.md
 ---
 
 Now that you have created your own Vehicle Model, we can distribute it to make use of it in _Vehicle Apps_.

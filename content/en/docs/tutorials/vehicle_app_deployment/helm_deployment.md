@@ -1,23 +1,22 @@
 ---
-title: "Vehicle App Deployment with Helm"
+title: "Helm Deployment"
 date: 2022-05-09T13:43:25+05:30
 weight: 80
 description: >
   Learn how to prepare a Helm chart for the deployment of a _Vehicle App_ in a Kubernetes cluster.
 aliases:
-  - /docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md
-  - /tutorial_how_to_deploy_a_vehicle_app_with_helm.md
+  - /docs/tutorials/vehicle_app_deployment/helm_deployment.md
 ---
 
 This tutorial will show you how to:
 
-- Prepare a Helm chart
-- Deploy your _Vehicle App_ to a local K3D cluster
+- Prepare a Helm chart.
+- Deploy your _Vehicle App_ to a local K3D cluster.
 
 ## Prerequisites
 
 - `Devcontainer` is up and running.
-- Complete the tutorial [How to create a _Vehicle App_](/docs/tutorials/vehicle-app-development)
+- Complete the tutorial [How to create a _Vehicle App_](/docs/tutorials/vehicle_app_development).
 
 ## Use the sample Helm chart
 
@@ -27,7 +26,7 @@ This sample chart is using the values from [`./runtime-k3d/src/app_deployment/co
 {{% alert title="Note" %}}
 The same app name as defined in `./app/AppManifest.json` will be used for the deployment
 </br>
-The app port is configurable as `vehicleAppPort` inside your `.velocitas.json` variables section. If not set there, the default value is [50008 - as defined in manifest.json](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json#L192) of the devenv-runtimes package.
+The app port is configurable as `vehicleAppPort` inside your `.velocitas.json` variables section. If not set there, the default value is [50008 - as defined in manifest.json](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json#L204) of the devenv-runtimes package.
 {{% /alert %}}
 
 ## Prepare a new Helm chart
@@ -133,7 +132,7 @@ deploy
 
 ### Prerequisites
 
-- A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/docs/run_runtime_services_kubernetes.md).
+- A local K3D installation must be available. For how to setup K3D, check out this [tutorial](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime).
 
 After the Helm chart has been prepared, you can deploy it to the local K3D cluster by following the steps:
 
@@ -161,5 +160,5 @@ helm uninstall my-vapp-chart
 
 ## Next steps
 
-- Tutorial: [Start runtime services locally](/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally)
+- Tutorial: [Start runtime services in Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
 - Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases)

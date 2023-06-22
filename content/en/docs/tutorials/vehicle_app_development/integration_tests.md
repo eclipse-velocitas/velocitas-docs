@@ -5,8 +5,7 @@ weight: 60
 description: >
   Learn how to test that a _Vehicle App_ together with the KUKSA Data Broker and potentially other dependant Vehicle Services or _Vehicle Apps_ runs as expected.
 aliases:
-  - /docs/tutorials/integration_tests.md
-  - /docs/integration_tests.md
+  - /docs/tutorials/vehicle_app_development/integration_tests
 ---
 
 To be sure that a newly created _Vehicle App_ will run together with the _KUKSA Data Broker_ and potentially other dependant _Vehicle Services_ or _Vehicle Apps_, it's essential to write integration tests along with developing the app.
@@ -61,12 +60,12 @@ To be able to test the _Vehicle App_ in an integrated way, the following compone
 
 We distinguish between two environments for executing the _Vehicle App_ and the runtime components:
 
-- [**Local execution:**](/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/) components are running locally in the development environment
-- [**Kubernetes execution:**](/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/) components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)
+- [**Local execution:**](/docs/tutorials/vehicle_app_runtime/local_runtime/) components are running locally in the development environment
+- [**Kubernetes execution:**](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/) components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)
 
 ### Local Execution
 
-First, make sure that the runtime services are configured and running like described [here](/docs/run_runtime_services_locally.md).
+First, make sure that the runtime services are configured and running like described [here](/docs/tutorials/vehicle_app_runtime/local_runtime).
 
 The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the provided task `Local Runtime - Run VehicleApp`.
 
@@ -80,7 +79,7 @@ or using the testing tab in the sidebar to the left.
 
 ### Kubernetes execution (K3D)
 
-If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the [documentation](/docs/run_runtime_services_kubernetes.md). Local ports for _Mosquitto_ and _KUKSA Data Broker_ are `1883` and `55555`. In Kubernetes mode, these ports are exposed as nodeports `31883` and `30555` respectively (see [here](https://k3d.io/v5.0.1/usage/exposing_services/#2-via-nodeport) for details). To ensure that the tests connect to correct ports of the containers, please execute the following commands in a new bash terminal:
+If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the [documentation](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime). Local ports for _Mosquitto_ and _KUKSA Data Broker_ are `1883` and `55555`. In Kubernetes mode, these ports are exposed as nodeports `31883` and `30555` respectively (see [here](https://k3d.io/v5.0.1/usage/exposing_services/#2-via-nodeport) for details). To ensure that the tests connect to correct ports of the containers, please execute the following commands in a new bash terminal:
 
 ```bash
   export MQTT_PORT=31883 && export VDB_PORT=30555
@@ -120,4 +119,4 @@ Finally the test results are collected and published as artifacts of the workflo
 
 - Concept: [Deployment Model](/docs/concepts/deployment_model/)
 - Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases/)
-- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)

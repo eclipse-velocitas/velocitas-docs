@@ -6,7 +6,7 @@ description: >
   Learn how to integrate a _Vehicle Service_ that executes the request of your _Vehicle App_ on vehicle side
 ---
 
-Services can make sure, that when you write a VSS data point, something is actually happening. Eclipse Velocitas has an example seat or hvac service. If your _Vehicle App_ makes use of e.g. `Vehicle.Cabin.Seat.Row1.Pos1.Position` or other seat/hvac specific data points you are in for some real action. To learn more, visit [_Vehicle Services_]({{< ref "/docs/concepts/development_model/val/#vehicle-services" >}}).
+Services can make sure, that when you write a VSS data point, something is actually happening. Eclipse Velocitas has an example seat or hvac service. If your _Vehicle App_ makes use of e.g. `Vehicle.Cabin.Seat.Row1.Pos1.Position` or other seat/hvac specific data points you are in for some real action. To learn more, visit [_Vehicle Services_](/docs/concepts/development_model/val/#vehicle-services).
 
 Our maintained [`devenv-runtimes`](https://github.com/eclipse-velocitas/devenv-runtimes) package ([Velocitas Lifecycle Management](/docs/concepts/lifecycle_management)) comes with the support of adding further _Vehicle Services_ to the `runtime.json` of a package. More information [here](/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages). (A general vehicle _mock service_ is also coming soon!)
 

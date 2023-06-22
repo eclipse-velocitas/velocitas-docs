@@ -1,10 +1,11 @@
 ---
 weight: 1
-title: "Run runtime services locally"
+title: "Local Runtime"
 date: 2022-05-09T13:43:25+05:30
+description: >
+  Learn how to run the _Vehicle App_ Runtime Services locally.
 aliases:
-  - /docs/tutorials/run_runtime_services_locally.md
-  - /docs/run_runtime_services_locally.md
+  - /docs/tutorials/vehicle_app_runtime/local_runtime
 ---
 
 ## Using tasks in Visual Studio Code
@@ -66,8 +67,8 @@ If you are using Codespaces, remember that you are working on a remote agent. Th
 
 ## Next steps
 
-- Tutorial: [Deploy runtime services in local Kubernetes cluster](/docs/tutorials/run_runtime_services_kubernetes.md)
-- Tutorial: [Setup and Explore Development Environment](/docs/tutorials/quickstart)
-- Concept: [Deployment Model](/docs/about/deployment-model/)
-- Concept: [Build and release process](/docs/about/deployment-model/vehicle_app_releases/)
-- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm.md)
+- Tutorial: [Deploy runtime services in local Kubernetes cluster](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
+- Tutorial: [Quickstart](/docs/tutorials/quickstart)
+- Concept: [Deployment Model](/docs/concepts/deployment_model/)
+- Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases/)
+- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)

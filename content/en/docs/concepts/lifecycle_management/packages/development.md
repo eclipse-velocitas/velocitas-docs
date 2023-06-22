@@ -106,4 +106,4 @@ A new service can be started manually and/or configured inside your `./.vscode/t
 
 ## Next steps
 
-* Lifecycle Management: [Velocitas CLI](/docs/concepts/lifecycle_management/velocitas-cli/)
+* Lifecycle Management: [Velocitas CLI](/docs/concepts/lifecycle_management/velocitas_cli/)

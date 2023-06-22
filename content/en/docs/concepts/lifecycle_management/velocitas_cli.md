@@ -5,8 +5,7 @@ date: 2023-02-13T09:43:25+05:30
 description: >
   Learn everything about the Velocitas CLI.
 aliases:
-  - /docs/concepts/lifecycle_management/velocitas-cli.md
-  - /docs/concepts/lifecycle_management/velocitas-cli
+  - /docs/concepts/lifecycle_management/velocitas_cli
 ---
 
 ## Background
