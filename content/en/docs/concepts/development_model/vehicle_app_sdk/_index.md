@@ -1,63 +1,63 @@
 ---
 title: "Vehicle App SDK"
 date: 2022-05-09T13:43:25+05:30
-weight: 2
+weight: 10
 aliases:
-  - /docs/concepts/vehicle_app_sdk_overview.md
+  - /docs/concepts/development_model/vehicle_app_sdk.md
 resources:
 - src: "**sdk_overview*.png"
 description: >
-  Learn more about the provided Vehicle App SDK.
+  Learn more about the provided _Vehicle App_ SDK.
 
 ---
 
 ## Introduction
 
-The Vehicle App SDK consists of the following building blocks:
+The _Vehicle App_ SDK consists of the following building blocks:
 
-- **[Vehicle Model Ontology](#vehicle-model-ontology)**: The SDK provides a set of model base classes for the creation of vehicle models.
+- **[Vehicle Model Ontology](#vehicle-model-ontology):** The SDK provides a set of model base classes for the creation of vehicle models.
 
-- **[Middleware integration](#middleware-integration)**: Vehicle Models can contain gRPC stubs to communicate with Vehicle Services. gRPC communication is integrated with the [Dapr](https://dapr.io) middleware for service discovery and [OpenTelemetry](https://opentelemetry.io) tracing.
+- **[Middleware integration](#middleware-integration):** Vehicle Models can contain gRPC stubs to communicate with _Vehicle Services_. gRPC communication is integrated with the [Dapr](https://dapr.io) middleware for service discovery and [OpenTelemetry](https://opentelemetry.io) logging and tracing.
 
-- **[Fluent query & rule construction](#fluent-query--rule-construction)**: Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.
+- **[Fluent query & rule construction](#fluent-query--rule-construction):** Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.
 
-- **[Publish & subscribe messaging](#publish--subscribe-messaging)**: The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.
+- **[Publish & subscribe messaging](#publish--subscribe-messaging):** The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.
 
-- **[Vehicle App abstraction](#vehicle-app-abstraction)**: Last but not least the SDK provides a Vehicle App base class, which every Vehicle App derives from.
+- **[Vehicle App abstraction](#vehicle-app-abstraction):** Last but not least the SDK provides a `VehicleApp` base class, which every _Vehicle App_ derives from.
 
-An overview of the Vehicle App SDK and its dependencies is depicted in the following diagram:
+An overview of the _Vehicle App_ SDK and its dependencies is depicted in the following diagram:
 
 ![SDK Overview](./sdk_overview.png)
 
 ## Vehicle Model Ontology
 
-The Vehicle Model is a tree-based model where every branch in the tree, including the root, is derived from the Model base class.
+The Vehicle Model is a tree-based model where every branch in the tree, including the root, is derived from the `Model` base class provided by the SDK.
 
 The Vehicle Model Ontology consists of the following classes:
 
 ### Model
 
-A model contains services, data points and other models. It corresponds to branch entries in VSS or interfaces in DTDL or namespaces in VSC.
+A model contains services, data points and other models. It corresponds to branch entries in VSS, interfaces in DTDL or namespaces in VSC.
 
 ### ModelCollection
 
 {{% alert title="Info" %}}
-The ModelCollection is deprecated since SDK v0.4.0. The generated vehicle model must reflect the actual representation of the data points. Please use the *Model* base class instead.
+The ModelCollection is deprecated since SDK v0.4.0. The generated vehicle model must reflect the actual representation of the data points. Please use the _Model_ base class instead.
 {{% /alert %}}
 
-Specifications like VSS support a concept that is called [Instances](https://covesa.github.io/vehicle_signal_specification/rule_set/instances/). It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with [Relationships](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship). In the SDK, these structures are mapped with the `ModelCollection` class. A `ModelCollection` is a collection of models, which make it possible to reference an individual model either by a `NamedRange` (e.g., Row [1-3]), a `Dictionary` (e.g., "Left", "Right") or a combination of both.
+Specifications like VSS support a concept that is called [Instances](https://covesa.github.io/vehicle_signal_specification/rule_set/instances/). It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with [Relationships](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#relationship). In the SDK, these structures are mapped with the `ModelCollection` class. A `ModelCollection` is a collection of models, which make it possible to reference an individual model either by a `NamedRange` (e.g., Row [1-3]), a `Dictionary` (e.g., "Left", "Right") or a combination of both.
 
 ### Service
 
-Direct asynchronous communication between Vehicle Apps and Vehicle Services is facilitated via the [gRPC](https://grpc.io) protocol.
+Direct asynchronous communication between _Vehicle Apps_ and _Vehicle Services_ is facilitated via the [gRPC](https://grpc.io) protocol.
 
-The SDK has its own `Service` base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a Vehicle Service or another Vehicle App. Please see the [Middleware Integration](#middleware-integration) section for more details.
+The SDK has its own `Service` base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a _Vehicle Service_ or another _Vehicle App_. Please see the [Middleware Integration](#middleware-integration) section for more details.
 
 ### DataPoint
 
-`DataPoint` is the base class for all data points. It corresponds to sensors/actuators in VSS or telemetry / properties in DTDL.
+`DataPoint` is the base class for all data points. It corresponds to sensors/actuators/attributes in VSS or telemetry/properties in DTDL.
 
-Data Points are the signals that are typically emitted by Vehicle Services.
+Data points are the signals that are typically emitted by _Vehicle Services_ or _Data Providers_.
 
 The representation of a data point is a path starting with the root model, e.g.:
 
@@ -78,7 +78,7 @@ An example of a Vehicle Model created with the described ontology is shown below
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
 
-# import ontology classes
+## import ontology classes
 
 from sdv import (
     DataPointDouble,
@@ -170,9 +170,9 @@ vehicle = Vehicle("Vehicle")
 {{< /tab >}}
 {{< tab "C++" >}}
 
-# include "sdk/DataPoint.h"
+#include "sdk/DataPoint.h"
 
-# include "sdk/Model.h"
+#include "sdk/Model.h"
 
 using namespace velocitas;
 
@@ -234,6 +234,7 @@ public:
   ::CurrentLocation CurrentLocation{this};
   ::Cabin Cabin{this};
 };
+
 {{< /tab >}}
 {{< /tabpane >}}
 
@@ -241,19 +242,24 @@ public:
 
 ### gRPC Services
 
-Vehicle Services are expected to expose their public endpoints over the gRPC protocol. The related protobuf definitions are used to generate method stubs for the Vehicle Model to make it possible to call the methods of the Vehicle Services.
+_Vehicle Services_ are expected to expose their public endpoints over the gRPC protocol. The related protobuf definitions are used to generate method stubs for the Vehicle Model to make it possible to call the methods of the _Vehicle Services_.
 
 ### Model integration
 
-Based on the `.proto` files of the Vehicle Services, the protocol buffers compiler generates descriptors for all rpcs, messages, fields etc for the target language.
+{{% alert title="Info" %}}
+Please be aware that the integration of _Vehicle Services_ into the overall model is not supported by [automated model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/), currently.
+{{% /alert %}}
+
+Based on the `.proto` files of the _Vehicle Services_, the protocol buffer compiler generates descriptors for all rpcs, messages, fields etc. for the target language.
 The gRPC stubs are wrapped by a **convenience layer** class derived from `Service` that contains all the methods of the underlying protocol buffer specification.
 
 {{% alert title="Info" %}}
-The convencience layer of C++ is abit more extensive than in Python. The complexity of gRPC's async API is hidden behind individual `AsyncGrpcFacade` implementations which need to be implemented manually. Have a look at the `SeatAdjusterApp` example's `SeatService` and its `SeatServiceAsyncGrpcFacade`.
+The convenience layer of C++ is a bit more extensive than in Python. The complexity of gRPC's async API is hidden behind individual `AsyncGrpcFacade` implementations which need to be implemented manually. Have a look at the `SeatService` of the `SeatAdjusterApp` example and its `SeatServiceAsyncGrpcFacade`.
 {{% /alert %}}
 
 {{< tabpane langEqualsHeader=true >}}
-{{< tab "Python" >}}
+{{< tab "Python">}}
+
 class SeatService(Service):
     def __init__(self):
         super().__init__()
@@ -264,8 +270,10 @@ class SeatService(Service):
             MoveRequest(seat=seat), metadata=self.metadata
         )
         return response
+
 {{< /tab >}}
-{{< tab "C++" >}}
+{{< tab "C++">}}
+
 class SeatService : public Service {
 public:
     // nested classes/structs omitted
@@ -291,12 +299,13 @@ public:
 private:
     std::shared_ptr<SeatServiceAsyncGrpcFacade> m_asyncGrpcFacade;
 };
+
 {{< /tab >}}
 {{< /tabpane >}}
 
 ### Service discovery
 
-The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through *dapr* middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that *dapr* can discover the corresponding vehicle services. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
+The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through the Dapr middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that Dapr can discover the corresponding _Vehicle Services_. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
 
 ## Fluent query & rule construction
 
@@ -306,7 +315,7 @@ A set of query methods like `get()`, `where()`, `join()` etc. are provided throu
 
 The following examples show you how to query data points.
 
-#### Get single datapoint
+#### Get single data point
 
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
@@ -325,7 +334,7 @@ auto driverPos = getDataPoints({Vehicle.Cabin.DriverPosition})->await();
 {{< /tab >}}
 {{< /tabpane >}}
 
-#### Get datapoints from multiple branches
+#### Get data points from multiple branches
 
 {{< tabpane langEqualsHeader=true >}}
   {{< tab "Python" >}}
@@ -353,7 +362,7 @@ print(f'
 
 ### Subscription examples
 
-#### Subscribe and Unsubscribe to a single datapoint
+#### Subscribe and Unsubscribe to a single data point
 
 {{< tabpane langEqualsHeader=true >}}
   {{< tab "Python" >}}
@@ -390,7 +399,7 @@ void onSeatPositionChanged(const DataPointMap_t datapoints) {
 {{< /tab >}}
 {{< /tabpane >}}
 
-#### Subscribe to a single datapoint with a filter
+#### Subscribe to a single data point with a filter
 
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
@@ -425,7 +434,7 @@ void onSeatPositionChanged(const DataPointMap_t datapoints) {
 
 ## Publish & subscribe messaging
 
-The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. By leveraging the dapr pub/sub building block for this purpose, the low-level MQTT communication is abstracted away from the `Vehicle App` developer. Especially the physical address and port of the MQTT broker is no longer configured in the `Vehicle App` itself, but rather is part of the dapr configuration, which is outside of the `Vehicle App`.
+The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. By leveraging the Dapr pub/sub building block for this purpose, the low-level MQTT communication is abstracted away from the _Vehicle App_ developer. Especially the physical address and port of the MQTT broker is no longer configured in the _Vehicle App_ itself, but rather is part of the Dapr configuration, which is outside of the _Vehicle App_.
 
 ### Publish MQTT Messages
 
@@ -443,7 +452,7 @@ publishToTopic("seatadjuster/currentPosition", "{ \"position\": 40 }");
 
 ### Subscribe to MQTT Topics
 
-In Python subscriptions to MQTT topics can be easily established with the `subscribe_topic()` annotation. The annotation needs to be applied to a method of the `Vehicle App` class. In C++ the `subscribeToTopic()` method has to be called. Callbacks for `onItem` and `onError` can be set. The following examples provide some more details.
+In Python subscriptions to MQTT topics can be easily established with the `subscribe_topic()` annotation. The annotation needs to be applied to a method of the `VehicleApp` base class. In C++ the `subscribeToTopic()` method has to be called. Callbacks for `onItem` and `onError` can be set. The following examples provide some more details.
 
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
@@ -454,9 +463,9 @@ async def on_set_position_request_received(self, data: str) -> None:
 {{< /tab >}}
 {{< tab "C++" >}}
 
-# include <fmt/core.h>
+#include <fmt/core.h>
 
-# include <nlohmann/json.hpp>
+#include <nlohmann/json.hpp>
 
 subscribeToTopic("seatadjuster/setPosition/request")->onItem([this](auto&& item){
     const auto jsonData = nlohmann::json::parse(item);
@@ -465,7 +474,7 @@ subscribeToTopic("seatadjuster/setPosition/request")->onItem([this](auto&& item)
 {{< /tab >}}
 {{< /tabpane >}}
 
-Under the hood, the vehicle app creates a grpc endpoint on port `50008`, which is exposed to the dapr middleware. The dapr middleware will then subscribe to the MQTT broker and forward the messages to the vehicle app.
+Under the hood, the _Vehicle App_ creates a gRPC endpoint on port `50008`, which is exposed to the Dapr middleware. The Dapr middleware will then subscribe to the MQTT broker and forward the messages to the _Vehicle App_.
 
 To change the app port, set it in the `main()` method of the app:
 
@@ -477,23 +486,23 @@ async def main():
     conf.DAPR_APP_PORT = <your port>
 {{< /tab >}}
 {{< tab "C++" >}}
-// c++ does not use dapr for Pub/Sub messaging at this point
+// C++ does not use Dapr for Pub/Sub messaging at this point
 {{< /tab >}}
 {{< /tabpane >}}
 
 ## Vehicle App abstraction
 
-`Vehicle Apps` are inherited from the `VehicleApp` base class. This enables the `Vehicle App` to use the Publish & subscribe messaging and the KUKSA Data Broker.
+_Vehicle Apps_ are inherited from the `VehicleApp` base class. This enables the _Vehicle App_ to use the Publish & Subscribe messaging and to connect to the KUKSA Data Broker.
 
 The `Vehicle Model` instance is passed to the constructor of the `VehicleApp` class and should be stored in a member variable (e.g. `self.vehicle` for Python, `std::shared_ptr<Vehicle> m_vehicle;` for C++), to be used by all methods within the application.
 
-Finally, the `run()` method of the `VehicleApp` class is called to start the `Vehicle App` and register all MQTT topic and Data Broker subscriptions.
+Finally, the `run()` method of the `VehicleApp` class is called to start the _Vehicle App_ and register all MQTT topic and Data Broker subscriptions.
 
 {{% alert title="Implementation detail" color="warning" %}}
 In Python, the subscriptions are based on `asyncio`, which makes it necessary to call the `run()` method with an active `asyncio event_loop`.
 {{% /alert %}}
 
-A typical skeleton of a `Vehicle App` looks like this:
+A typical skeleton of a _Vehicle App_ looks like this:
 
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
@@ -515,9 +524,9 @@ LOOP.close()
 {{< /tab >}}
 {{< tab "C++" >}}
 
-# include "VehicleApp.h"
+#include "sdk/VehicleApp.h"
 
-# include "vehicle_model/Vehicle.h"
+#include "vehicle/Vehicle.hpp"
 
 using namespace velocitas;
 
@@ -532,7 +541,7 @@ private:
 };
 
 int main(int argc, char** argv) {
-    example::SeatAdjusterApp app;
+    SeatAdjusterApp app;
     app.run();
     return 0;
 }
@@ -541,7 +550,7 @@ int main(int argc, char** argv) {
 
 ## Further information
 
-- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/setup_and_explore_development_environment.md)
+- Tutorial: [Quickstart](/docs/tutorials/quickstart.md)
 - Tutorial: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creation)
-- Tutorial: [Vehicle App Development](/docs/tutorials/vehicle-app-development)
-- Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/integration_tests.md)
+- Tutorial: [_Vehicle App_ Development](/docs/tutorials/vehicle_app_development)
+- Tutorial: [Develop and run integration tests for a _Vehicle App_](/docs/tutorials/vehicle_app_development/integration_tests)

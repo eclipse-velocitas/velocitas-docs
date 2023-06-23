@@ -48,24 +48,30 @@ Follow the steps to generate a _Vehicle Model_.
         python3 gen_vehicle_model.py -I ./vehicle_signal_specification/spec ./vehicle_signal_specification/spec/VehicleSignalSpecification.vspec -l <lang> -T sdv_model -N sdv_model
         ```
 
+        or if you want to generate it from a .json file
+
+        ```bash
+        python3 gen_vehicle_model.py <path_to_your_json_file> -l <lang> -T sdv_model
+        ```
+
         Depending on the value of `lang`, which can assume the values `python` and `cpp`, this creates a `sdv_model` directory in the root of repository along with all generated source files for the given programming language.
 
         Here is an overview of what is generated for every available value of `lang`:
 
         | lang       | output                                                                          |
         | :--------- |:------------------------------------------------------------------------------- |
-        | `python`   | python sources and a `setup.py` ready to be used as python package              |
-        | `cpp`      | c++ sources, headers and a CMakeLists.txt ready to be used as a CMake project   |
+        | `python`   | Python sources and a `setup.py` ready to be used as Python package              |
+        | `cpp`      | C++ sources, headers and a CMakeLists.txt ready to be used as a CMake project   |
 
         To have a custom model name, refer to README of [vehicle-model-generator](https://github.com/eclipse-velocitas/vehicle-model-generator) repository.
-  4. For python: Change the version of package in `setup.py` manually (defaults to 0.1.0).
+  4. For Python: Change the version of package in `setup.py` manually (defaults to 0.1.0).
   5. Now the newly generated `sdv_model` can be used for distribution. (See [Distributing your Vehicle Model](vehicle_model_distribution))
 
 ## Create a Vehicle Model Manually
 
 Alternative to the generation from a VSS specification you could create the _Vehicle Model_ manually. The following sections describing the required steps.
 
-- [Python]({{< ref "manual_creation_python.md" >}})
+- [Python](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/)
 
 ## Distributing your Vehicle Model
 
@@ -76,6 +82,6 @@ Once you have created your Vehicle Model either manually or via the Vehicle Mode
 
 ## Further information
 
-- Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)
-- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/quickstart)
-- Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
+- Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk.md)
+- Tutorial: [Quickstart](/docs/tutorials/quickstart)
+- Tutorial: [Create a _Vehicle App_](/docs/tutorials/vehicle_app_development)

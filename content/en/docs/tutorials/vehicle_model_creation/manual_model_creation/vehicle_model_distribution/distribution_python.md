@@ -4,13 +4,11 @@ date: 2022-05-09T13:43:25+05:30
 weight: 30
 description: >
   Learn how to distribute a Vehicle Model written in Python.
-aliases:
-  - /docs/tutorials/vehicle_model_creation/manual_model_creation/distribution_python.md
 ---
 
 Now you a have a Python package containing your first Python _Vehicle Model_ and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the [Python Packaging User Guide](https://packaging.python.org/en/latest/) to learn more about packaging and package distribution in Python.
 
-## Distribute to single Vehicle App
+## Distribute to single _Vehicle App_
 
 If you want to distribute your Python _Vehicle Model_ to a single _Vehicle App_, you can do so by copying the entire folder `my_vehicle_model` under the `/app/src` folder of your _Vehicle App_ repository and treat it as a sub-package of the _Vehicle App_.
 

@@ -24,18 +24,16 @@ The model specification defines the vehicle API to be used by your project. It i
 
 {{< tabpane lang=json >}}
 {{< tab "URI reference" >}}
-"VehicleModel": {
-    "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"
+"vehicleModel": {
+    "src": "<https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json>"
 }
 {{< /tab >}}
 {{< tab "Local file reference" >}}
-"VehicleModel": {
+"vehicleModel": {
     "src": "./my_model/my_model.json"
 }
 {{< /tab >}}
 {{< /tabpane >}}
-
-Instead of an URI you could also reference a local file containing the specification.
 
 {{% alert title="Info" %}} The reference must point to a JSON file containing the model specification as VSS vspec. References to a VSS `.vspec` file hierarchy are not supported as of now.
 {{% /alert %}}
@@ -46,7 +44,7 @@ The generation of the model is taking place:
 
 - through a [onPostInit hook](/docs/concepts/lifecycle_management/packages/usage/#installation) when `velocitas init` is called:
   - either triggered manually or
-  - automatically during the instantiation of the devContainer through our [Velocitas lifecycle management](/docs/concepts/lifecycle_management), or
+  - automatically during the instantiation of the devContainer through our [Velocitas Lifecycle Management](/docs/concepts/lifecycle_management), or
 - when you trigger the VS Code task `(Re-)generate vehicle model` explicitly.
 
 The model generation is a three step process:
@@ -73,9 +71,9 @@ Also, the target folder for the generated model source code is specified here:
 ```
 
 In Python template based projects the generated model is finally installed in the site-packages folder, while in C++ projects it is made available as a CMake include folder.
-  
+
 ## Further information
 
-- Concept: [SDK Overview](/docs/concepts/vehicle_app_sdk_overview.md)
-- Tutorial: [Setup and Explore Development Enviroment](/docs/tutorials/quickstart)
-- Tutorial: [Create a Vehicle App](/docs/tutorials/vehicle-app-development)
+- Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk.md)
+- Tutorial: [Quickstart](/docs/tutorials/quickstart)
+- Tutorial: [Create a _Vehicle App_](/docs/tutorials/vehicle_app_development)

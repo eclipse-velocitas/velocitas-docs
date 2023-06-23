@@ -5,7 +5,7 @@ weight: 1
 description: >
   Learn everything about Velocitas project configuration.
 aliases:
-  - /docs/concepts/lifecycle_management/project-configuration.md
+  - /docs/concepts/lifecycle_management/project_configuration.md
 ---
 
 Every _Vehicle App_ repo comes with a [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) which is the project configuration of your app. It holds references to the packages and their respective versions you are using in your project.
@@ -20,7 +20,7 @@ Here is an example of this configuration:
       "version": "v1.0.0"
     },
     {
-      "name": "devenv-runtime-local",
+      "name": "devenv-runtimes",
       "version": "v1.0.0"
     }
   ],

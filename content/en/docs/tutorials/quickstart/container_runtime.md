@@ -12,9 +12,9 @@ In the past the recommended runtime would for sure be [Docker Desktop](https://w
 
 The obvious (and our recommended) "alternative" to Docker Desktop on Linux is to just use the [Docker Engine](https://docs.docker.com/engine/) (without Docker Desktop), a pure CLI-based solution available for most popular Linux distributions licensed under the Apache License, version 2.0. Installation instructions can be found [here](https://docs.docker.com/engine/install/).
 
-## macOS
+## MacOS
 
-Since the Docker Engine is not working out of the box on macOS, a virtualisation tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using [Colima](https://github.com/abiosoft/colima).
+Since the Docker Engine is not working out of the box on MacOS, a virtualizations tool which helps emulating linux is needed. Fortunately there are several solutions on the market. Good results could be achieved using [Colima](https://github.com/abiosoft/colima).
 
 ### Setup Colima
 
@@ -33,7 +33,7 @@ After the installation you need to start the runtime:
     colima start --cpu x --memory y
 ```
 
-For M1 Macs it might be neccessary to add `--arch aarch64`
+For M1 Macs it might be necessary to add `--arch aarch64`
 
 Docker Desktop uses 5 cores and 12 GB of RAM by default on an M1 MacBook Pro. The equivalent in Colima can be achieved with
 
@@ -55,7 +55,7 @@ An option would be to setup a VM (e.g. with VirtualBox or VMWare) running a Linu
 
 ## Other alternatives
 
-Besides our recommendations above, there are further alternatives, which are not yet evaluated by this project or have some other drawbacks, blocking a recommendation. 
+Besides our recommendations above, there are further alternatives, which are not yet evaluated by this project or have some other drawbacks, blocking a recommendation.
 
 For example, you could try [Podman](https://podman.io/)/[Buildah](https://buildah.io/), which can replace `docker run` and `docker build`, respectively.
 Podman is available for MacOS, Windows, and several Linux distributions.
