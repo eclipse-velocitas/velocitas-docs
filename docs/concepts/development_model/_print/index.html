@@ -34,18 +34,18 @@
 <link rel="icon" type="image/png" href="/velocitas/favicons/android-192x192.png" sizes="192x192">
 
 <title>Development Model | Velocitas</title>
-<meta name="description" content="Learn more about provided development model for Vehicle Apps.
+<meta name="description" content="Learn more about provided development model for _Vehicle Apps_.
 ">
 <meta property="og:title" content="Development Model" />
-<meta property="og:description" content="Learn more about provided development model for Vehicle Apps.
+<meta property="og:description" content="Learn more about provided development model for _Vehicle Apps_.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas/docs/concepts/development_model/" />
 <meta itemprop="name" content="Development Model">
-<meta itemprop="description" content="Learn more about provided development model for Vehicle Apps.
+<meta itemprop="description" content="Learn more about provided development model for _Vehicle Apps_.
 "><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Development Model"/>
-<meta name="twitter:description" content="Learn more about provided development model for Vehicle Apps.
+<meta name="twitter:description" content="Learn more about provided development model for _Vehicle Apps_.
 "/>
 
 
@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.23df2728b8d5ba0e11d09b069348496c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.f2215eb58e3f0c52e9fbcc2746befc0c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -122,7 +122,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Development Model</h1>
-<div class="lead">Learn more about provided development model for Vehicle Apps.</div>
+<div class="lead">Learn more about provided development model for <em>Vehicle Apps</em>.</div>
 
 
 
@@ -173,77 +173,96 @@ This is the multi-page printable view of this section.
     </ul>
     
   
+    
+    
+	
+<li>3: <a href="#pg-e8c9a8068d61f8d591fb113a53a16f27">Vehicle App Manifest</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
 
     </ul>
 
 
 <div class="content">
-      <p>The Velocitas development model is centered around what are known as <a href="#vehicle-apps">Vehicle Apps</a>. Automation allows engineers to make high-impact changes frequently and deploy Vehicle Apps through cloud backends as over-the-air updates. The Vehicle App development model is about <em>speed</em> and <em>agility</em> paired with state-of-the-art software quality.</p>
+      <p>The Velocitas development model is centered around what are known as <a href="#vehicle-apps"><em>Vehicle Apps</em></a>. Automation allows engineers to make high-impact changes frequently and deploy <em>Vehicle Apps</em> through cloud backends as over-the-air updates. The <em>Vehicle App</em> development model is about <em>speed</em> and <em>agility</em> paired with state-of-the-art software quality.</p>
 <h2 id="development-architecture">Development Architecture</h2>
-<p>Velocitas provides a flexible development architecture for <a href="#vehicle-apps">Vehicle Apps</a>. The following diagram shows the major components of the Velocitas stack.</p>
+<p>Velocitas provides a flexible development architecture for <a href="#vehicle-apps"><em>Vehicle Apps</em></a>. The following diagram shows the major components of the Velocitas stack.</p>
 <p><img src="./programming_model.png" alt="Programming Model"></p>
 <h3 id="vehicle-apps">Vehicle Apps</h3>
-<p>The Vehicle Applications (aka. Vehicle Apps) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/" target="_blank" rel="noopener">twelve-factor</a> applications apply to Vehicle Apps as well and are summarized in the next chapter.</p>
+<p>The Vehicle Applications (<em>Vehicle Apps</em>) contain the business logic that needs to be executed on a vehicle. A <em>Vehicle App</em> is implemented on top of a <a href="#vehicle-models">Vehicle Model</a> and its underlying language-specific <a href="#sdks">SDK</a>. Many concepts of cloud-native and <a href="https://12factor.net/" target="_blank" rel="noopener">twelve-factor</a> applications apply to <em>Vehicle Apps</em> as well and are summarized in the next chapter.</p>
 <h3 id="vehicle-models">Vehicle Models</h3>
-<p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps">Vehicle Apps</a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
+<p>A Vehicle Model makes it possible to easily get vehicle data from the <a href="#data-broker">Data Broker</a> and to execute remote procedure calls over gRPC against <a href="#vehicle-services">Vehicle Services</a> and other <a href="#vehicle-apps"><em>Vehicle Apps</em></a>. It is generated from the underlying <a href="#semantic-models">semantic models</a> for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the <a href="#sdks">SDKs</a>.</p>
 <h3 id="sdks">SDKs</h3>
-<p>To reduce the effort required to implement <a href="#vehicle-apps">Vehicle Apps</a>, Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
-Next to a Vehicle Apps abstraction, the SDKs are <a href="#middleware-abstraction">Middleware</a>-enabled, provide connectivity to the <a href="#data-broker">Data Broker</a> and contain the ontology in the form of base classes to create <a href="#vehicle-models">Vehicle Models</a>.</p>
+<p>Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model Furthermore, they offer abstraction from the underlying middleware and communication protocols, besides providing the base classes and utilities for the <em>Vehicle Apps</em>.
+SDKs are available for Python and C++, currently. Further SDKs for Rust and C are planned.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
-<p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps">Vehicle Apps</a> over a <a href="#vehicle-models">Vehicle Model</a></p>
-<h3 id="data-broker">Data Broker</h3>
-<p>Vehicle data is stored in the KUKSA Data Broker conforming to an underlying <a href="#semantic-models">Semantic Model</a> like <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>. <a href="#vehicle-apps">Vehicle Apps</a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.</p>
+<p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the <a href="#data-broker">Data Broker</a> and may expose gRPC endpoints, which can be invoked by <a href="#vehicle-apps"><em>Vehicle Apps</em></a> over a <a href="#vehicle-models">Vehicle Model</a>.</p>
+<h3 id="data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
+<p>Vehicle data is stored in the KUKSA Data Broker conforming to an underlying <a href="#semantic-models">Semantic Model</a> like <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>. <a href="#vehicle-apps"><em>Vehicle Apps</em></a> can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the <em>Vehicle App</em>.</p>
 <h3 id="semantic-models">Semantic models</h3>
-<p>The Vehicle Signal Specification (<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between Vehicle Apps and the Data Broker.</p>
-<p>The Vehicle Service Catalog (<a href="https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog" target="_blank" rel="noopener">VSC</a>) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and Vehicle Apps.</p>
+<p>The Vehicle Signal Specification (<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between <em>Vehicle Apps</em> and the Data Broker.</p>
+<p>The Vehicle Service Catalog (<a href="https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog" target="_blank" rel="noopener">VSC</a>) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and <em>Vehicle Apps</em>.</p>
 <p>As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language (<a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md" target="_blank" rel="noopener">DTDL</a>) or BAMM Aspect Meta Model <a href="https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model" target="_blank" rel="noopener">BAMM</a> as well.</p>
 <p>The Velocitas SDK is using <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a> as the semantic model for the Vehicle Model.</p>
 <h3 id="communication-protocols">Communication Protocols</h3>
-<p>Asynchronous communication between <a href="#vehicle-apps">Vehicle Apps</a> and other vehicle components, as well as cloud connectivity, is facilitated through <a href="https://mqtt.org/" target="_blank" rel="noopener">MQTT</a> messaging. Direct, synchronous communication between <a href="#vehicle-apps">Vehicle Apps</a>, <a href="#vehicle-services">Vehicle Services</a> and the <a href="#data-broker">Data Broker</a> is based on the <a href="https://grpc.io/" target="_blank" rel="noopener">gRPC</a> protocol.</p>
+<p>Asynchronous communication between <a href="#vehicle-apps"><em>Vehicle Apps</em></a> and other vehicle components, as well as cloud connectivity, is facilitated through <a href="https://mqtt.org/" target="_blank" rel="noopener">MQTT</a> messaging. Direct, synchronous communication between <a href="#vehicle-apps"><em>Vehicle Apps</em></a>, <a href="#vehicle-services">Vehicle Services</a> and the <a href="#data-broker">Data Broker</a> is based on the <a href="https://grpc.io/" target="_blank" rel="noopener">gRPC</a> protocol.</p>
 <h3 id="middleware-abstraction">Middleware Abstraction</h3>
 <p>Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
-By default, Velocitas leverages <a href="https://dapr.io" target="_blank" rel="noopener">dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/" target="_blank" rel="noopener">publish/subscribe building block</a>.</p>
+By default, Velocitas leverages <a href="https://dapr.io" target="_blank" rel="noopener">Dapr</a> for gRPC service discovery, Open Telemetry tracing and the <a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/" target="_blank" rel="noopener">publish/subscribe building block</a>.</p>
 <h3 id="vehicle-edge-operating-system">Vehicle Edge Operating System</h3>
-<p><a href="#vehicle-apps">Vehicle Apps</a> are expected to run on a <a href="https://www.linux.org/" target="_blank" rel="noopener">Linux</a>-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., <a href="https://mosquitto.org/" target="_blank" rel="noopener">Eclipse Mosquitto</a>).</p>
-<h2 id="vehicle-app-characteristics">Vehicle App Characteristics</h2>
-<p>The following aspects are important characteristics for <a href="#vehicle-apps">Vehicle Apps</a>:</p>
+<p><a href="#vehicle-apps"><em>Vehicle Apps</em></a> are expected to run on a <a href="https://www.linux.org/" target="_blank" rel="noopener">Linux</a>-based operating system. An OCI-compliant container runtime is required to host the <em>Vehicle App</em> containers and the Dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., <a href="https://mosquitto.org/" target="_blank" rel="noopener">Eclipse Mosquitto</a>).</p>
+<h2 id="_vehicle-app_-characteristics"><em>Vehicle App</em> Characteristics</h2>
+<p>The following aspects are important characteristics for <a href="#vehicle-apps"><em>Vehicle Apps</em></a>:</p>
 <ul>
 <li>
-<p><strong>Code base</strong>:
-Every Vehicle App is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.</p>
+<p><strong>Code base:</strong>
+Every <em>Vehicle App</em> is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.</p>
 </li>
 <li>
-<p><strong>Polyglot</strong>:
-Vehicle Apps can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.</p>
+<p><strong>Polyglot:</strong>
+<em>Vehicle Apps</em> can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.</p>
 </li>
 <li>
-<p><strong>OCI-compliant containers</strong>:
-Vehicle Apps are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.</p>
+<p><strong>OCI-compliant containers:</strong>
+<em>Vehicle Apps</em> are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.</p>
 </li>
 <li>
-<p><strong>Isolation</strong>:
-Each Vehicle App should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.</p>
+<p><strong>Isolation:</strong>
+Each <em>Vehicle App</em> should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.</p>
 </li>
 <li>
-<p><strong>Configurations</strong>:
-Configuration information is separated from the code base of the Vehicle App, so that the same deployment can propagate across environments with their respective configuration applied.</p>
+<p><strong>Configurations:</strong>
+Configuration information is separated from the code base of the <em>Vehicle App</em>, so that the same deployment can propagate across environments with their respective configuration applied.</p>
 </li>
 <li>
-<p><strong>Disposability</strong>:
+<p><strong>Disposability:</strong>
 Favor fast startup and support graceful shutdowns to leave the system in a correct state.</p>
 </li>
 <li>
-<p><strong>Observability</strong>:
-Vehicle Apps provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
+<p><strong>Observability:</strong>
+<em>Vehicle Apps</em> provide traces, metrics and logs of every part of the application using <em>Open Telemetry</em>.</p>
 </li>
 <li>
-<p><strong>Over-the-air updatability</strong>:
-Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/" target="_blank" rel="noopener">Bosch Mobility Cloud</a> and can be updated in vehicles frequently over the air.</p>
+<p><strong>Over-the-air update capability:</strong>
+<em>Vehicle Apps</em> can be deployed via cloud backends like <a href="https://www.etas.com/en/products/pantaris-over-the-air-services.php" target="_blank" rel="noopener">Pantaris</a> and updated in vehicles frequently over the air through <a href="https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php" target="_blank" rel="noopener">NextGen OTA updates</a>.</p>
 </li>
 </ul>
 <h2 id="development-process">Development Process</h2>
-<p>The starting point for developing <a href="#vehicle-apps">Vehicle Apps</a> is a <a href="#semantic-models">Semantic Model</a> of the vehicle data and vehicle services. Based on the Semantic Model, language-specific <a href="#vehicle-models">Vehicle Models</a> are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &hellip;).</p>
-<p>After a Vehicle Model is available for the chosen programming language, the Vehicle App can be developed using the generated Vehicle Model and its SDK.</p>
+<p>The starting point for developing <a href="#vehicle-apps"><em>Vehicle Apps</em></a> is a <a href="#semantic-models">Semantic Model</a> of the vehicle data and vehicle services. Based on the Semantic Model, language-specific <a href="#vehicle-models">Vehicle Models</a> are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &hellip;).</p>
+<p>After a Vehicle Model is available for the chosen programming language, the <em>Vehicle App</em> can be developed using the generated Vehicle Model and its SDK.</p>
 <p><img src="./build_procedure.png" alt="Development Process"></p>
 <h2 id="further-information">Further information</h2>
 
@@ -268,33 +287,33 @@ Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-5e00cd625e8ebcb43adb8e1cc0e4286a">1 - Vehicle App SDK</h1>
-    <div class="lead">Learn more about the provided Vehicle App SDK.</div>
+    <div class="lead">Learn more about the provided <em>Vehicle App</em> SDK.</div>
 	<h2 id="introduction">Introduction</h2>
-<p>The Vehicle App SDK consists of the following building blocks:</p>
+<p>The <em>Vehicle App</em> SDK consists of the following building blocks:</p>
 <ul>
 <li>
-<p><strong><a href="#vehicle-model-ontology">Vehicle Model Ontology</a></strong>: The SDK provides a set of model base classes for the creation of vehicle models.</p>
+<p><strong><a href="#vehicle-model-ontology">Vehicle Model Ontology</a>:</strong> The SDK provides a set of model base classes for the creation of vehicle models.</p>
 </li>
 <li>
-<p><strong><a href="#middleware-integration">Middleware integration</a></strong>: Vehicle Models can contain gRPC stubs to communicate with Vehicle Services. gRPC communication is integrated with the <a href="https://dapr.io" target="_blank" rel="noopener">Dapr</a> middleware for service discovery and <a href="https://opentelemetry.io" target="_blank" rel="noopener">OpenTelemetry</a> tracing.</p>
+<p><strong><a href="#middleware-integration">Middleware integration</a>:</strong> Vehicle Models can contain gRPC stubs to communicate with <em>Vehicle Services</em>. gRPC communication is integrated with the <a href="https://dapr.io" target="_blank" rel="noopener">Dapr</a> middleware for service discovery and <a href="https://opentelemetry.io" target="_blank" rel="noopener">OpenTelemetry</a> logging and tracing.</p>
 </li>
 <li>
-<p><strong><a href="#fluent-query--rule-construction">Fluent query &amp; rule construction</a></strong>: Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.</p>
+<p><strong><a href="#fluent-query--rule-construction">Fluent query &amp; rule construction</a>:</strong> Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.</p>
 </li>
 <li>
-<p><strong><a href="#publish--subscribe-messaging">Publish &amp; subscribe messaging</a></strong>: The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.</p>
+<p><strong><a href="#publish--subscribe-messaging">Publish &amp; subscribe messaging</a>:</strong> The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.</p>
 </li>
 <li>
-<p><strong><a href="#vehicle-app-abstraction">Vehicle App abstraction</a></strong>: Last but not least the SDK provides a Vehicle App base class, which every Vehicle App derives from.</p>
+<p><strong><a href="#vehicle-app-abstraction">Vehicle App abstraction</a>:</strong> Last but not least the SDK provides a <code>VehicleApp</code> base class, which every <em>Vehicle App</em> derives from.</p>
 </li>
 </ul>
-<p>An overview of the Vehicle App SDK and its dependencies is depicted in the following diagram:</p>
+<p>An overview of the <em>Vehicle App</em> SDK and its dependencies is depicted in the following diagram:</p>
 <p><img src="./sdk_overview.png" alt="SDK Overview"></p>
 <h2 id="vehicle-model-ontology">Vehicle Model Ontology</h2>
-<p>The Vehicle Model is a tree-based model where every branch in the tree, including the root, is derived from the Model base class.</p>
+<p>The Vehicle Model is a tree-based model where every branch in the tree, including the root, is derived from the <code>Model</code> base class provided by the SDK.</p>
 <p>The Vehicle Model Ontology consists of the following classes:</p>
 <h3 id="model">Model</h3>
-<p>A model contains services, data points and other models. It corresponds to branch entries in VSS or interfaces in DTDL or namespaces in VSC.</p>
+<p>A model contains services, data points and other models. It corresponds to branch entries in VSS, interfaces in DTDL or namespaces in VSC.</p>
 <h3 id="modelcollection">ModelCollection</h3>
 
 
@@ -305,13 +324,13 @@ Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-
 
 </div>
 
-<p>Specifications like VSS support a concept that is called <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/instances/" target="_blank" rel="noopener">Instances</a>. It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with <a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship" target="_blank" rel="noopener">Relationships</a>. In the SDK, these structures are mapped with the <code>ModelCollection</code> class. A <code>ModelCollection</code> is a collection of models, which make it possible to reference an individual model either by a <code>NamedRange</code> (e.g., Row [1-3]), a <code>Dictionary</code> (e.g., &ldquo;Left&rdquo;, &ldquo;Right&rdquo;) or a combination of both.</p>
+<p>Specifications like VSS support a concept that is called <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/instances/" target="_blank" rel="noopener">Instances</a>. It makes it possible to describe repeating definitions. In DTDL, such kind of structures may be modeled with <a href="https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#relationship" target="_blank" rel="noopener">Relationships</a>. In the SDK, these structures are mapped with the <code>ModelCollection</code> class. A <code>ModelCollection</code> is a collection of models, which make it possible to reference an individual model either by a <code>NamedRange</code> (e.g., Row [1-3]), a <code>Dictionary</code> (e.g., &ldquo;Left&rdquo;, &ldquo;Right&rdquo;) or a combination of both.</p>
 <h3 id="service">Service</h3>
-<p>Direct asynchronous communication between Vehicle Apps and Vehicle Services is facilitated via the <a href="https://grpc.io" target="_blank" rel="noopener">gRPC</a> protocol.</p>
-<p>The SDK has its own <code>Service</code> base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a Vehicle Service or another Vehicle App. Please see the <a href="#middleware-integration">Middleware Integration</a> section for more details.</p>
+<p>Direct asynchronous communication between <em>Vehicle Apps</em> and <em>Vehicle Services</em> is facilitated via the <a href="https://grpc.io" target="_blank" rel="noopener">gRPC</a> protocol.</p>
+<p>The SDK has its own <code>Service</code> base class, which provides a convenience API layer to access the exposed methods of exactly one gRPC endpoint of a <em>Vehicle Service</em> or another <em>Vehicle App</em>. Please see the <a href="#middleware-integration">Middleware Integration</a> section for more details.</p>
 <h3 id="datapoint">DataPoint</h3>
-<p><code>DataPoint</code> is the base class for all data points. It corresponds to sensors/actuators in VSS or telemetry / properties in DTDL.</p>
-<p>Data Points are the signals that are typically emitted by Vehicle Services.</p>
+<p><code>DataPoint</code> is the base class for all data points. It corresponds to sensors/actuators/attributes in VSS or telemetry/properties in DTDL.</p>
+<p>Data points are the signals that are typically emitted by <em>Vehicle Services</em> or <em>Data Providers</em>.</p>
 <p>The representation of a data point is a path starting with the root model, e.g.:</p>
 <ul>
 <li><code>Vehicle.Speed</code></li>
@@ -345,7 +364,7 @@ Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-
 <div class="tab-content" id="tabs-1-content">
     <div class="tab-pane fade show active"
         id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># import ontology classes</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">## import ontology classes</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">DataPointDouble</span><span style="color:#000;font-weight:bold">,</span>
@@ -436,9 +455,9 @@ Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-
     </div>
     <div class="tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &#34;sdk/DataPoint.h&#34;
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/DataPoint.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &#34;sdk/Model.h&#34;
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/Model.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">velocitas</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>
@@ -505,41 +524,50 @@ Vehicle Apps are released to cloud backends like the <a href="https://www.bosch-
 
 <h2 id="middleware-integration">Middleware integration</h2>
 <h3 id="grpc-services">gRPC Services</h3>
-<p>Vehicle Services are expected to expose their public endpoints over the gRPC protocol. The related protobuf definitions are used to generate method stubs for the Vehicle Model to make it possible to call the methods of the Vehicle Services.</p>
+<p><em>Vehicle Services</em> are expected to expose their public endpoints over the gRPC protocol. The related protobuf definitions are used to generate method stubs for the Vehicle Model to make it possible to call the methods of the <em>Vehicle Services</em>.</p>
 <h3 id="model-integration">Model integration</h3>
-<p>Based on the <code>.proto</code> files of the Vehicle Services, the protocol buffers compiler generates descriptors for all rpcs, messages, fields etc for the target language.
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Info</h4>
+
+    Please be aware that the integration of <em>Vehicle Services</em> into the overall model is not supported by <a href="/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/">automated model lifecycle</a>, currently.
+
+</div>
+
+<p>Based on the <code>.proto</code> files of the <em>Vehicle Services</em>, the protocol buffer compiler generates descriptors for all rpcs, messages, fields etc. for the target language.
 The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived from <code>Service</code> that contains all the methods of the underlying protocol buffer specification.</p>
 
 
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Info</h4>
 
-    The convencience layer of C++ is abit more extensive than in Python. The complexity of gRPC&rsquo;s async API is hidden behind individual <code>AsyncGrpcFacade</code> implementations which need to be implemented manually. Have a look at the <code>SeatAdjusterApp</code> example&rsquo;s <code>SeatService</code> and its <code>SeatServiceAsyncGrpcFacade</code>.
+    The convenience layer of C++ is a bit more extensive than in Python. The complexity of gRPC&rsquo;s async API is hidden behind individual <code>AsyncGrpcFacade</code> implementations which need to be implemented manually. Have a look at the <code>SeatService</code> of the <code>SeatAdjusterApp</code> example and its <code>SeatServiceAsyncGrpcFacade</code>.
 
 </div>
 
 
 
 
-<ul class="nav nav-tabs" id="tabs-3" role="tablist">
+<ul class="nav nav-tabs" id="tabs-4" role="tablist">
   <li class="nav-item">
       <a class="nav-link active persistLang-Python"
-          id="tabs-03-00-tab" data-toggle="tab" href="#tabs-03-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-03-00" aria-selected="false">
+          id="tabs-04-00-tab" data-toggle="tab" href="#tabs-04-00" role="tab"
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-04-00" aria-selected="false">
         Python
       </a>
     </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
-          id="tabs-03-01-tab" data-toggle="tab" href="#tabs-03-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-03-01" aria-selected="false">
+          id="tabs-04-01-tab" data-toggle="tab" href="#tabs-04-01" role="tab"
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-04-01" aria-selected="false">
         C++
       </a>
     </li>
 </ul>
 
-<div class="tab-content" id="tabs-3-content">
+<div class="tab-content" id="tabs-4-content">
     <div class="tab-pane fade show active"
-        id="tabs-03-00" role="tabpanel" aria-labelled-by="tabs-03-00-tab">
+        id="tabs-04-00" role="tabpanel" aria-labelled-by="tabs-04-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatService</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Service</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">()</span>
@@ -552,7 +580,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">response</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
-        id="tabs-03-01" role="tabpanel" aria-labelled-by="tabs-03-01-tab">
+        id="tabs-04-01" role="tabpanel" aria-labelled-by="tabs-04-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatService</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">Service</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// nested classes/structs omitted
@@ -582,53 +610,14 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </div>
 
 <h3 id="service-discovery">Service discovery</h3>
-<p>The underlying gRPC channel is provided and managed by the <code>Service</code> base class of the SDK. It is also responsible for routing the method invocation to the service through <em>dapr</em> middleware. As a result, a <code>dapr-app-id</code> has to be assigned to every <code>Service</code>, so that <em>dapr</em> can discover the corresponding vehicle services. This <code>dapr-app-id</code> has to be specified as an environment variable named <code>&lt;service_name&gt;_DAPR_APP_ID</code>.</p>
+<p>The underlying gRPC channel is provided and managed by the <code>Service</code> base class of the SDK. It is also responsible for routing the method invocation to the service through the Dapr middleware. As a result, a <code>dapr-app-id</code> has to be assigned to every <code>Service</code>, so that Dapr can discover the corresponding <em>Vehicle Services</em>. This <code>dapr-app-id</code> has to be specified as an environment variable named <code>&lt;service_name&gt;_DAPR_APP_ID</code>.</p>
 <h2 id="fluent-query--rule-construction">Fluent query &amp; rule construction</h2>
 <p>A set of query methods like <code>get()</code>, <code>where()</code>, <code>join()</code> etc. are provided through the <code>Model</code> and <code>DataPoint</code> base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Data Broker.</p>
 <h3 id="query-examples">Query examples</h3>
 <p>The following examples show you how to query data points.</p>
-<h4 id="get-single-datapoint">Get single datapoint</h4>
+<h4 id="get-single-data-point">Get single data point</h4>
 
 
-
-<ul class="nav nav-tabs" id="tabs-4" role="tablist">
-  <li class="nav-item">
-      <a class="nav-link active persistLang-Python"
-          id="tabs-04-00-tab" data-toggle="tab" href="#tabs-04-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-04-00" aria-selected="false">
-        Python
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link persistLang-C--"
-          id="tabs-04-01-tab" data-toggle="tab" href="#tabs-04-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-04-01" aria-selected="false">
-        C++
-      </a>
-    </li>
-</ul>
-
-<div class="tab-content" id="tabs-4-content">
-    <div class="tab-pane fade show active"
-        id="tabs-04-00" role="tabpanel" aria-labelled-by="tabs-04-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">driver_pos</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DriverPosition</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Call to broker</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># GetDataPoint(rule=&#34;SELECT Vehicle.Cabin.DriverPosition&#34;)</span></span></span></code></pre></div>
-    </div>
-    <div class="tab-pane fade"
-        id="tabs-04-01" role="tabpanel" aria-labelled-by="tabs-04-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">driverPos</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoints</span><span style="color:#000;font-weight:bold">({</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DriverPosition</span><span style="color:#000;font-weight:bold">})</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Call to broker:
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// GetDataPoint(rule=&#34;SELECT Vehicle.Cabin.DriverPosition&#34;)
-</span></span></span></code></pre></div>
-    </div>
-</div>
-
-<h4 id="get-datapoints-from-multiple-branches">Get datapoints from multiple branches</h4>
-
-  
 
 <ul class="nav nav-tabs" id="tabs-5" role="tablist">
   <li class="nav-item">
@@ -649,31 +638,23 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <div class="tab-content" id="tabs-5-content">
     <div class="tab-pane fade show active"
         id="tabs-05-00" role="tabpanel" aria-labelled-by="tabs-05-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">vehicle_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Latitude</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">join</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">Latitude</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">vehicle_data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Latitude</span><span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">vehicle_data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#39;)</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">driver_pos</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DriverPosition</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Call to broker</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># GetDataPoint(rule=&#34;SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude&#34;)</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># GetDataPoint(rule=&#34;SELECT Vehicle.Cabin.DriverPosition&#34;)</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
         id="tabs-05-01" role="tabpanel" aria-labelled-by="tabs-05-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">datapoints</span> <span style="color:#ce5c00;font-weight:bold">=</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#000">getDataPoints</span><span style="color:#000;font-weight:bold">({</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Latitude</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">})</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">driverPos</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoints</span><span style="color:#000;font-weight:bold">({</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DriverPosition</span><span style="color:#000;font-weight:bold">})</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Call to broker:
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// GetDataPoint(rule=&#34;SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// GetDataPoint(rule=&#34;SELECT Vehicle.Cabin.DriverPosition&#34;)
 </span></span></span></code></pre></div>
     </div>
 </div>
 
-<h3 id="subscription-examples">Subscription examples</h3>
-<h4 id="subscribe-and-unsubscribe-to-a-single-datapoint">Subscribe and Unsubscribe to a single datapoint</h4>
+<h4 id="get-data-points-from-multiple-branches">Get data points from multiple branches</h4>
 
   
 
@@ -696,43 +677,33 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <div class="tab-content" id="tabs-6-content">
     <div class="tab-pane fade show active"
         id="tabs-06-00" role="tabpanel" aria-labelled-by="tabs-06-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rule</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">vehicle_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Latitude</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">join</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#39;Seat position changed to </span><span style="color:#4e9a06">{</span><span style="color:#000">position</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#39;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Latitude</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">vehicle_data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Latitude</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#000">vehicle_data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#39;)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Call to broker</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Subscribe(rule=&#34;SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position&#34;)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># If needed, the subscription can be stopped like this</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rule</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscription</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">unsubscribe</span><span style="color:#000;font-weight:bold">()</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># GetDataPoint(rule=&#34;SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude&#34;)</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
         id="tabs-06-01" role="tabpanel" aria-labelled-by="tabs-06-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">subscription</span> <span style="color:#ce5c00;font-weight:bold">=</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">subscribeDataPoints</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">velocitas</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">QueryBuilder</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">select</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">build</span><span style="color:#000;font-weight:bold">())</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">forward</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">decltype</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">));</span> <span style="color:#000;font-weight:bold">});</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">datapoints</span> <span style="color:#ce5c00;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000">getDataPoints</span><span style="color:#000;font-weight:bold">({</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Latitude</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CurrentLocation</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Longitude</span><span style="color:#000;font-weight:bold">})</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// If needed, the subscription can be stopped like this:
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">subscription</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">cancel</span><span style="color:#000;font-weight:bold">();</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DataPointMap_t</span> <span style="color:#000">datapoints</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;SeatPosition has changed to: &#34;</span><span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">datapoints</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">at</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">asFloat</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">());</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Call to broker:
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// GetDataPoint(rule=&#34;SELECT Vehicle.CurrentLocation.Latitude, CurrentLocation.Longitude&#34;)
+</span></span></span></code></pre></div>
     </div>
 </div>
 
-<h4 id="subscribe-to-a-single-datapoint-with-a-filter">Subscribe to a single datapoint with a filter</h4>
+<h3 id="subscription-examples">Subscription examples</h3>
+<h4 id="subscribe-and-unsubscribe-to-a-single-data-point">Subscribe and Unsubscribe to a single data point</h4>
 
-
+  
 
 <ul class="nav nav-tabs" id="tabs-7" role="tablist">
   <li class="nav-item">
@@ -753,40 +724,41 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <div class="tab-content" id="tabs-7-content">
     <div class="tab-pane fade show active"
         id="tabs-07-00" role="tabpanel" aria-labelled-by="tabs-07-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">where</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;Cabin.Seat.Row2.Pos1.Position &gt; 50&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">)</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rule</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#39;Seat position changed to </span><span style="color:#4e9a06">{</span><span style="color:#000">position</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#39;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Call to broker</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Subscribe(rule=&#34;SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position WHERE Vehicle.Cabin.Seat.Row2.Pos1.Position &gt; 50&#34;)</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Subscribe(rule=&#34;SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position&#34;)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># If needed, the subscription can be stopped like this</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rule</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscription</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">unsubscribe</span><span style="color:#000;font-weight:bold">()</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
         id="tabs-07-01" role="tabpanel" aria-labelled-by="tabs-07-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">query</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">QueryBuilder</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">select</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">.</span><span style="color:#000">where</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">.</span><span style="color:#000">gt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">50</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">.</span><span style="color:#000">build</span><span style="color:#000;font-weight:bold">();</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">subscription</span> <span style="color:#ce5c00;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">subscribeDataPoints</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">velocitas</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">QueryBuilder</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">select</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">build</span><span style="color:#000;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">[</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">forward</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">decltype</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">));</span> <span style="color:#000;font-weight:bold">});</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#000">subscribeDataPoints</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">query</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">){</span><span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">forward</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">decltype</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">));}));</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// If needed, the subscription can be stopped like this:
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">subscription</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">cancel</span><span style="color:#000;font-weight:bold">();</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DataPointMap_t</span> <span style="color:#000">datapoints</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;SeatPosition has changed to: &#34;</span><span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">datapoints</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">at</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">asFloat</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">());</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Call to broker:
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Subscribe(rule=&#34;SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position WHERE Vehicle.Cabin.Seat.Row2.Pos1.Position &gt; 50&#34;)
-</span></span></span></code></pre></div>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
     </div>
 </div>
 
-<h2 id="publish--subscribe-messaging">Publish &amp; subscribe messaging</h2>
-<p>The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. By leveraging the dapr pub/sub building block for this purpose, the low-level MQTT communication is abstracted away from the <code>Vehicle App</code> developer. Especially the physical address and port of the MQTT broker is no longer configured in the <code>Vehicle App</code> itself, but rather is part of the dapr configuration, which is outside of the <code>Vehicle App</code>.</p>
-<h3 id="publish-mqtt-messages">Publish MQTT Messages</h3>
-<p>MQTT messages can be published easily with the <code>publish_mqtt_event()</code> method, inherited from <code>VehicleApp</code> base class:</p>
+<h4 id="subscribe-to-a-single-data-point-with-a-filter">Subscribe to a single data point with a filter</h4>
 
 
 
@@ -809,17 +781,40 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <div class="tab-content" id="tabs-8-content">
     <div class="tab-pane fade show active"
         id="tabs-08-00" role="tabpanel" aria-labelled-by="tabs-08-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">req_data</span><span style="color:#000;font-weight:bold">))</span></span></span></code></pre></div>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">where</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;Cabin.Seat.Row2.Pos1.Position &gt; 50&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#39;Seat position changed to </span><span style="color:#4e9a06">{</span><span style="color:#000">position</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#39;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Call to broker</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># Subscribe(rule=&#34;SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position WHERE Vehicle.Cabin.Seat.Row2.Pos1.Position &gt; 50&#34;)</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
         id="tabs-08-01" role="tabpanel" aria-labelled-by="tabs-08-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#000">publishToTopic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;{ </span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">position</span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">: 40 }&#34;</span><span style="color:#000;font-weight:bold">);</span></span></span></code></pre></div>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">query</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">QueryBuilder</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">select</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">.</span><span style="color:#000">where</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">.</span><span style="color:#000">gt</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">50</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">.</span><span style="color:#000">build</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">subscribeDataPoints</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">query</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">){</span><span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">forward</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">decltype</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">));}));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DataPointMap_t</span> <span style="color:#000">datapoints</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;SeatPosition has changed to: &#34;</span><span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">datapoints</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">at</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Pos</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">asFloat</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Call to broker:
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Subscribe(rule=&#34;SELECT Vehicle.Cabin.Seat.Row2.Pos1.Position WHERE Vehicle.Cabin.Seat.Row2.Pos1.Position &gt; 50&#34;)
+</span></span></span></code></pre></div>
     </div>
 </div>
 
-<h3 id="subscribe-to-mqtt-topics">Subscribe to MQTT Topics</h3>
-<p>In Python subscriptions to MQTT topics can be easily established with the <code>subscribe_topic()</code> annotation. The annotation needs to be applied to a method of the <code>Vehicle App</code> class. In C++ the <code>subscribeToTopic()</code> method has to be called. Callbacks for <code>onItem</code> and <code>onError</code> can be set. The following examples provide some more details.</p>
+<h2 id="publish--subscribe-messaging">Publish &amp; subscribe messaging</h2>
+<p>The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. By leveraging the Dapr pub/sub building block for this purpose, the low-level MQTT communication is abstracted away from the <em>Vehicle App</em> developer. Especially the physical address and port of the MQTT broker is no longer configured in the <em>Vehicle App</em> itself, but rather is part of the Dapr configuration, which is outside of the <em>Vehicle App</em>.</p>
+<h3 id="publish-mqtt-messages">Publish MQTT Messages</h3>
+<p>MQTT messages can be published easily with the <code>publish_mqtt_event()</code> method, inherited from <code>VehicleApp</code> base class:</p>
 
 
 
@@ -842,26 +837,17 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <div class="tab-content" id="tabs-9-content">
     <div class="tab-pane fade show active"
         id="tabs-09-00" role="tabpanel" aria-labelled-by="tabs-09-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@subscribe_topic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_set_position_request_received</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">None</span><span style="color:#000;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">loads</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Set Position Request received: data=</span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span></span></span></code></pre></div>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">req_data</span><span style="color:#000;font-weight:bold">))</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
         id="tabs-09-01" role="tabpanel" aria-labelled-by="tabs-09-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &lt;fmt/core.h&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &lt;nlohmann/json.hpp&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#000">subscribeToTopic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">){</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">jsonData</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">nlohmann</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">parse</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">fmt</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">format</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Set Position Request received: data={}&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">jsonData</span><span style="color:#000;font-weight:bold">));</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">});</span></span></span></code></pre></div>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#000">publishToTopic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;{ </span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">position</span><span style="color:#4e9a06">\&#34;</span><span style="color:#4e9a06">: 40 }&#34;</span><span style="color:#000;font-weight:bold">);</span></span></span></code></pre></div>
     </div>
 </div>
 
-<p>Under the hood, the vehicle app creates a grpc endpoint on port <code>50008</code>, which is exposed to the dapr middleware. The dapr middleware will then subscribe to the MQTT broker and forward the messages to the vehicle app.</p>
-<p>To change the app port, set it in the <code>main()</code> method of the app:</p>
+<h3 id="subscribe-to-mqtt-topics">Subscribe to MQTT Topics</h3>
+<p>In Python subscriptions to MQTT topics can be easily established with the <code>subscribe_topic()</code> annotation. The annotation needs to be applied to a method of the <code>VehicleApp</code> base class. In C++ the <code>subscribeToTopic()</code> method has to be called. Callbacks for <code>onItem</code> and <code>onError</code> can be set. The following examples provide some more details.</p>
 
 
 
@@ -884,22 +870,64 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <div class="tab-content" id="tabs-10-content">
     <div class="tab-pane fade show active"
         id="tabs-10-00" role="tabpanel" aria-labelled-by="tabs-10-00-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@subscribe_topic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_set_position_request_received</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">None</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">loads</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Set Position Request received: data=</span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
+        id="tabs-10-01" role="tabpanel" aria-labelled-by="tabs-10-01-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;fmt/core.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;nlohmann/json.hpp&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#000">subscribeToTopic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">jsonData</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">nlohmann</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">parse</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">fmt</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">format</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Set Position Request received: data={}&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">jsonData</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">});</span></span></span></code></pre></div>
+    </div>
+</div>
+
+<p>Under the hood, the <em>Vehicle App</em> creates a gRPC endpoint on port <code>50008</code>, which is exposed to the Dapr middleware. The Dapr middleware will then subscribe to the MQTT broker and forward the messages to the <em>Vehicle App</em>.</p>
+<p>To change the app port, set it in the <code>main()</code> method of the app:</p>
+
+
+
+<ul class="nav nav-tabs" id="tabs-11" role="tablist">
+  <li class="nav-item">
+      <a class="nav-link active persistLang-Python"
+          id="tabs-11-00-tab" data-toggle="tab" href="#tabs-11-00" role="tab"
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-11-00" aria-selected="false">
+        Python
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link persistLang-C--"
+          id="tabs-11-01-tab" data-toggle="tab" href="#tabs-11-01" role="tab"
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-11-01" aria-selected="false">
+        C++
+      </a>
+    </li>
+</ul>
+
+<div class="tab-content" id="tabs-11-content">
+    <div class="tab-pane fade show active"
+        id="tabs-11-00" role="tabpanel" aria-labelled-by="tabs-11-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">conf</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">():</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">conf</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DAPR_APP_PORT</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">your</span> <span style="color:#000">port</span><span style="color:#ce5c00;font-weight:bold">&gt;</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
-        id="tabs-10-01" role="tabpanel" aria-labelled-by="tabs-10-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// c++ does not use dapr for Pub/Sub messaging at this point
+        id="tabs-11-01" role="tabpanel" aria-labelled-by="tabs-11-01-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// C++ does not use Dapr for Pub/Sub messaging at this point
 </span></span></span></code></pre></div>
     </div>
 </div>
 
 <h2 id="vehicle-app-abstraction">Vehicle App abstraction</h2>
-<p><code>Vehicle Apps</code> are inherited from the <code>VehicleApp</code> base class. This enables the <code>Vehicle App</code> to use the Publish &amp; subscribe messaging and the KUKSA Data Broker.</p>
+<p><em>Vehicle Apps</em> are inherited from the <code>VehicleApp</code> base class. This enables the <em>Vehicle App</em> to use the Publish &amp; Subscribe messaging and to connect to the KUKSA Data Broker.</p>
 <p>The <code>Vehicle Model</code> instance is passed to the constructor of the <code>VehicleApp</code> class and should be stored in a member variable (e.g. <code>self.vehicle</code> for Python, <code>std::shared_ptr&lt;Vehicle&gt; m_vehicle;</code> for C++), to be used by all methods within the application.</p>
-<p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <code>Vehicle App</code> and register all MQTT topic and Data Broker subscriptions.</p>
+<p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <em>Vehicle App</em> and register all MQTT topic and Data Broker subscriptions.</p>
 
 
 <div class="alert alert-warning" role="alert">
@@ -909,29 +937,29 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 </div>
 
-<p>A typical skeleton of a <code>Vehicle App</code> looks like this:</p>
+<p>A typical skeleton of a <em>Vehicle App</em> looks like this:</p>
 
 
 
-<ul class="nav nav-tabs" id="tabs-12" role="tablist">
+<ul class="nav nav-tabs" id="tabs-13" role="tablist">
   <li class="nav-item">
       <a class="nav-link active persistLang-Python"
-          id="tabs-12-00-tab" data-toggle="tab" href="#tabs-12-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-12-00" aria-selected="false">
+          id="tabs-13-00-tab" data-toggle="tab" href="#tabs-13-00" role="tab"
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-13-00" aria-selected="false">
         Python
       </a>
     </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
-          id="tabs-12-01-tab" data-toggle="tab" href="#tabs-12-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-12-01" aria-selected="false">
+          id="tabs-13-01-tab" data-toggle="tab" href="#tabs-13-01" role="tab"
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-13-01" aria-selected="false">
         C++
       </a>
     </li>
 </ul>
 
-<div class="tab-content" id="tabs-12-content">
+<div class="tab-content" id="tabs-13-content">
     <div class="tab-pane fade show active"
-        id="tabs-12-00" role="tabpanel" aria-labelled-by="tabs-12-00-tab">
+        id="tabs-13-00" role="tabpanel" aria-labelled-by="tabs-13-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatAdjusterApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">()</span>
@@ -949,10 +977,10 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">close</span><span style="color:#000;font-weight:bold">()</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
-        id="tabs-12-01" role="tabpanel" aria-labelled-by="tabs-12-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &#34;VehicleApp.h&#34;
+        id="tabs-13-01" role="tabpanel" aria-labelled-by="tabs-13-01-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/VehicleApp.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
-</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># include &#34;vehicle_model/Vehicle.h&#34;
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;vehicle/Vehicle.hpp&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">velocitas</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>
@@ -967,7 +995,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">};</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">**</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">example</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatAdjusterApp</span> <span style="color:#000">app</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">SeatAdjusterApp</span> <span style="color:#000">app</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">();</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
@@ -976,10 +1004,10 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/setup_and_explore_development_environment.md">Setup and Explore Development Enviroment</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/quickstart.md">Quickstart</a></li>
 <li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_model_creation">Vehicle Model Creation</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle-app-development">Vehicle App Development</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/integration_tests.md">Develop and run integration tests for a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_app_development"><em>Vehicle App</em> Development</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_app_development/integration_tests">Develop and run integration tests for a <em>Vehicle App</em></a></li>
 </ul>
 
 </div>
@@ -1011,11 +1039,38 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 	<h1 id="pg-56b42987d464402649a2b538a1b4da6e">2 - Vehicle Abstraction Layer (VAL)</h1>
     <div class="lead">Learn about the main concepts and components of the vehicle abstraction and how it relates to the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>.</div>
 	<h2 id="introduction">Introduction</h2>
-<p>The Eclipse Velocitas project is using the Vehicle Abstraction Layer (VAL) of the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>, also called KUKSA.VAL.
-It is a reference implementation of an abstraction layer that allows Vehicle applications to interact with signals and services in the vehicle.
-It currently consists of a data broker, a CAN feeder, and a set of example services.</p>
+<p>The Vehicle Abstraction Layer (VAL) enables access to the systems and functions of a vehicle via a unified - or even better - a standardized <em>Vehicle API</em> abstracting from the details of the end-to-end architecture of the vehicle. The unified API enables <em>Vehicle Apps</em> to run on different vehicle architectures of a single OEM. <em>Vehicle Apps</em> can be even implemented OEM-agnostic, if using an API based on a standard like the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>.
+The <em>Vehicle API</em> eliminates the need to know the source, destination, and format of signals for the vehicle system.</p>
+<p>The Eclipse Velocitas project is using the VAL of the <a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener"><em>Eclipse KUKSA project</em></a>, also called <em>KUKSA.VAL</em>.
+KUKSA.VAL does not provide a concrete VAL. That&rsquo;s up to you as an OEM (vehicle manufacturer) or as a supplier.
+But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an <em>Vehicle App</em> or Service.</p>
+<p>KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the <em>KUKSA Data Broker</em> and the generic <em>Data Providers</em> (aka <em>Data Feeders</em>).
+It also provides you reference implementations of certain <em>Vehicle Services</em>, like the <em>Seat Service</em> and the <em>HVAC Service</em>.</p>
 <h2 id="architecture">Architecture</h2>
-<p>The image below shows the main components of the Vehicle Abstraction Layer (VAL) and its relation to the <a href="/velocitas/docs/concepts/development-model.md">Velocitas Development Model</a>.</p>
+<p>The image below shows the main components of the VAL and its relation to the <a href="/velocitas/docs/concepts/development_model.md">Velocitas Development Model</a>.</p>
+<p><img src="./val_overview.drawio.svg" alt="Overview of the VAL architecture"></p>
+<h3 id="kuksa-data-broker-aka-vehicle-data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
+<p>The <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">KUKSA Data Broker</a> is a gRPC service acting as a broker of vehicle data / signals also called <em>data points</em> in the following.
+It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the COVESA VSS or others. But this is not a must, it is also possible to use your own (proprietary) vehicle model or to extend the COVESA VSS with your specific extensions via <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/overlay/" target="_blank" rel="noopener">VSS <em>overlays</em></a>.</p>
+<p>Data points represent certain states of a vehicle, like the current vehicle speed or the currently applied gear. Data points can represent sensor values like the vehicle speed or engine temperature, actuators like the wiper mode, and immutable attributes of the vehicle like the needed fuel type(s) of the vehicle, engine displacement, maximum power, etc.</p>
+<p>Data points factually belonging together are typically arranged in branches and sub-branches of a tree structure (like <a href="https://covesa.github.io/vehicle_signal_specification/introduction/overview/#example" target="_blank" rel="noopener">this example</a> on the COVESA VSS site).</p>
+<p>The KUKSA Data Broker is implemented in Rust, can run in a container and provides services to get data points, update data points and for subscribing to automatic notifications on data point changes.
+Filter- and rule-based subscriptions of data points can be used to reduce the number of updates sent to the subscriber.</p>
+<h3 id="data-providers--data-feeders">Data Providers / Data Feeders</h3>
+<p>Conceptually, a data provider is the responsible to take care for a certain set of data points: It provides updates of sensor data from the vehicle to the data broker and forwards updates of actuator values to the vehicle. The set of data points a data provider maintains may depend on the network interface (e.g. CAN bus) via that those data is accessible or it can depend on a certain use case the provider is responsible for (like seat control).</p>
+<p>Eclipse KUKSA provides several <em>generic</em> <a href="https://github.com/eclipse/kuksa.val.feeders" target="_blank" rel="noopener"><em>Data Providers</em></a> for different datasources.
+As of today, Eclipse Velocitas only utilizes the generic <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python, which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
+The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
+The feeder automatically reconnects to the data broker in the event that the connection is lost.</p>
+<h3 id="vehicle-services">Vehicle Services</h3>
+<p>A vehicle service offers a <em>Vehicle App</em> to interact with the vehicle systems on a RPC-like basis.
+It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
+It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.</p>
+<p>The <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a> contains examples illustrating how such kind of vehicle services can be built.</p>
+<h3 id="hardware-abstraction">Hardware Abstraction</h3>
+<p>Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
+The reference implementation relies on <strong>SocketCAN</strong> and <strong>vxcan</strong>, see <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">kuksa.val.feeders</a>.
+The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.</p>
 
 
 
@@ -1024,44 +1079,23 @@ It currently consists of a data broker, a CAN feeder, and a set of example servi
 
 
 <figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 810px">
-	<img class="card-img-top" src="/velocitas/docs/concepts/development_model/val/val_architecture_overview_hue12a1c2ecc85cf3ee9799265a093472d_127432_800x0_resize_catmullrom_3.png" width="800" height="614">
+	<img class="card-img-top" src="/velocitas/docs/concepts/development_model/val/val_architecture_hue12a1c2ecc85cf3ee9799265a093472d_127432_800x0_resize_catmullrom_3.png" width="800" height="614">
 	
 	<figcaption class="card-body px-0 pt-2 pb-0">
 		<p class="card-text">
-  Overview of the vehicle abstraction layer architecture
+  Overview of the VAL architecture
 </p>
 	</figcaption>
 	
 </figure>
 
-<h3 id="kuksa-data-broker">KUKSA Data Broker</h3>
-<p>The <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">KUKSA Data Broker</a> is a gRPC service acting as a broker of vehicle data / data points / signals.
-It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a> or others.
-It is implemented in Rust, can run in a container and provides services to get datapoints, update datapoints and for subscribing to datapoints.
-Filter- and rule-based subscriptions of datapoints can be used to reduce the number of updates sent to the subscriber.</p>
-<h3 id="data-feeders">Data Feeders</h3>
-<p>Conceptually, a data feeder is a provider of a certain set of data points to the data broker.
-The source of the contents of the data points provided is specific to the respective feeder.</p>
-<p>As of today, the Vehicle Abstraction Layer contains a generic <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a> implemented in Python,
-which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
-The feeder uses a mapping file and data point meta data to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
-The feeder automatically reconnects to the data broker in the event that the connection is lost.</p>
-<h3 id="vehicle-services">Vehicle Services</h3>
-<p>A vehicle service offers a gRPC interface allowing vehicle apps to interact with underlying services of the vehicle.
-It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
-It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.</p>
-<p>The <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a> contains examples illustrating how such kind of vehicle services can be built.</p>
-<h3 id="hardware-abstraction">Hardware Abstraction</h3>
-<p>Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
-The reference implementation relies on <strong>SocketCAN</strong> and <strong>vxcan</strong>, see <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val</a>.
-The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.</p>
 <h2 id="information-flow">Information Flow</h2>
-<p>The vehicle abstraction layer offers an information flow between vehicle networks and vehicle services.
+<p>The VAL offers an information flow between vehicle networks and vehicle services.
 The data that can flow is ultimately limited to the data available through the Hardware Abstraction, which is platform/project-specific.
 The KUKSA Data Broker offers read/subscribe access to data points based on a gRPC service. The data points which are actually available are defined by the set of feeders providing the data into the broker.
 Services (like the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat service</a>) define which CAN signals they listen to and which CAN signals they send themselves, see <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md" target="_blank" rel="noopener">documentation</a>.
 Service implementations may also interact as feeders with the data broker.</p>
-<h3 id="data-flow-when-a-vehicle-application-uses-the-kuksa-data-broker">Data flow when a Vehicle Application uses the KUKSA Data Broker</h3>
+<h3 id="data-flow-when-a-_vehicle-app_-uses-the-kuksa-data-broker">Data flow when a <em>Vehicle App</em> uses the KUKSA Data Broker</h3>
 
 
 
@@ -1080,7 +1114,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 	
 </figure>
 
-<h3 id="data-flow-when-a-vehicle-application-uses-a-vehicle-service">Data flow when a Vehicle Application uses a Vehicle Service</h3>
+<h3 id="data-flow-when-a-_vehicle-app_-uses-a-vehicle-service">Data flow when a <em>Vehicle App</em> uses a Vehicle Service</h3>
 
 
 
@@ -1108,7 +1142,205 @@ Service implementations may also interact as feeders with the data broker.</p>
 </ul>
 <h2 id="guidelines">Guidelines</h2>
 <ul>
-<li>Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the <a href="https://github.com/eclipse/kuksa.val.services/docs" target="_blank" rel="noopener">kuksa.val.services repository</a>.</li>
+<li>Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the <a href="https://github.com/eclipse/kuksa.val.services/tree/main/docs" target="_blank" rel="noopener">kuksa.val.services repository</a>.</li>
+</ul>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e8c9a8068d61f8d591fb113a53a16f27">3 - Vehicle App Manifest</h1>
+    <div class="lead">Learn more about the <em>Vehicle App</em> Manifest.</div>
+	<h2 id="introduction">Introduction</h2>
+<p>The <em>AppManifest</em> defines the name and the requirements of a <em>Vehicle App</em>. The requirements are specified on interface level. The manifest defines the required service interfaces (e.g. gRPC functions) and the used vehicle model and accessed data points, but it does not define certain providers of those interfaces.
+This concept provides flexibility by separating the requirements of a <em>Vehicle App</em> from the definition of a concrete <em>Runtime</em> and <em>Middleware</em> configuration.</p>
+<p>The AppManifest is the only source of truth in our <em>Vehicle App</em> templates for:</p>
+<ul>
+<li>Local development environments and configs</li>
+<li>deployment specs generation</li>
+<li>Velocitas CI/CD workflow</li>
+<li>OCI Image creation</li>
+</ul>
+<h2 id="purpose">Purpose</h2>
+<ul>
+<li>The AppManifest contains necessary information about the runtime requirements (VehicleModel, interfaces) of the app</li>
+<li>The AppManifest contains all required (or optional) data points that are used in the <em>Vehicle App</em> with the necessary access rights (read, write)</li>
+<li>The AppManifest is service provider/implementation agnostic, while the service configurations are part of a corresponding <a href="/velocitas/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a> runtime package</li>
+</ul>
+<h2 id="structure">Structure</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// AppManifest.json
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;SampleApp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;vehicleModel&#34;</span><span style="color:#000;font-weight:bold">:{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;datapoints&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;Vehicle.Speed&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/GetDatapoints&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/Subscribe&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/SetDatapoints&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#4e9a06">&#34;mqtt&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="vehicle-model-description">Vehicle Model Description</h2>
+<p>The <a href="/velocitas/docs/concepts/development_model/#vehicle-models"><em>Vehicle Model</em></a> of the <em>Vehicle App</em> is described with the source and required (or optional) data points.
+More information: <a href="/velocitas/docs/tutorials/vehicle_model_creation/">Vehicle Model Creation</a></p>
+<p>The source (&ldquo;src&rdquo;) identifies the used <em>Vehicle Model</em> description and the data points section defines which signals (i.e. data points) of that model need to be available for the <em>Vehicle App</em> to run:</p>
+<ul>
+<li>The <code>path</code> references the definition (type, data type, unit, and other metadata) of a data point in the specified model</li>
+<li>The <code>required</code> flag tells if that data point is mandatory for the app to run or just optional</li>
+<li><code>access</code> defines the required access right of the app to that data point (see below)</li>
+</ul>
+<p>Further information can be found here: <a href="/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/#how-to-reference-a-model-specification">How to Reference a Model Specification</a>
+</br></p>
+<h3 id="data-point-access-rights">Data Point Access Rights</h3>
+
+
+
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Access Right</th>
+<th>Description</th>
+<th>Vehicle Databroker Interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>read</td>
+<td>app needs to read the value of the data point from the provider (e.g. get value from databroker).</td>
+<td>GetDatapoints/Subscribe</td>
+</tr>
+<tr>
+<td>write</td>
+<td>app needs to get and set the value of the data point (e.g. set, set_many values via the databroker or services). WRITE access implicitly has READ access.</td>
+<td>SetDatapoints</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="appmanifestexamples">AppManifest Examples</h2>
+
+
+
+<ul class="nav nav-tabs" id="tabs-1" role="tablist">
+  <li class="nav-item">
+      <a class="nav-link active persistLang-json"
+          id="tabs-01-00-tab" data-toggle="tab" href="#tabs-01-00" role="tab"
+          onclick="persistLang(&#34;json&#34;);"aria-controls="tabs-01-00" aria-selected="false">
+        Runtime interface via databroker
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link"
+          id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
+          aria-controls="tabs-01-01" aria-selected="false">
+        Runtime interface via specific service
+      </a>
+    </li>
+</ul>
+
+<div class="tab-content" id="tabs-1-content">
+    <div class="tab-pane fade show active"
+        id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Here we have a dependency to the databroker, the App doesn&#39;t have any direct
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// connection to the SeatService because the databroker forwards the set requests from
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// the app via SetDatapoints to the corresponding SeatService
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;SeatAdjuster&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;vehicleModel&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./app/vehiclemodel/used_vss.json&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;datapoints&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;write&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Speed&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/GetDatapoints&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/Subscribe&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/SetDatapoints&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;mqtt&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
+    </div>
+    <div class="tab-pane fade"
+        id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Here the app establishes a direct gRPC connection to the
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// Vehicle SeatService and adjusts the seat position via
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// the MoveComponent Interface
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;SeatAdjuster&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;vehicleModel&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./app/vehiclemodel/used_vss.json&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;datapoints&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Speed&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;runtime&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/GetDatapoints&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.databroker.v1.Broker/Subscribe&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc://sdv.edge.comfort.seats.v1.Seats/MoveComponent&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;mqtt&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
+    </div>
+</div>
+
+<h2 id="further-information">Further information</h2>
+<ul>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/quickstart.md">Quickstart</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_model_creation">Vehicle Model Creation</a></li>
+<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_app_development"><em>Vehicle App</em> Development</a></li>
+<li>Concept: <a href="/velocitas/docs/concepts/lifecycle_management">Lifecycle Management</a></li>
 </ul>
 
 </div>

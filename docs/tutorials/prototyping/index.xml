@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Velocitas – Prototyping Integration</title>
+    <title>Velocitas – Prototyping</title>
     <link>/velocitas/docs/tutorials/prototyping/</link>
-    <description>Recent content in Prototyping Integration on Velocitas</description>
+    <description>Recent content in Prototyping on Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Wed, 02 Nov 2022 10:09:25 +0530</lastBuildDate>
     
@@ -15,6 +15,144 @@
     
     
     <item>
+      <title>Docs: digital.auto</title>
+      <link>/velocitas/docs/tutorials/prototyping/digital_auto/</link>
+      <pubDate>Wed, 02 Nov 2022 10:09:25 +0530</pubDate>
+      
+      <guid>/velocitas/docs/tutorials/prototyping/digital_auto/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The open and web based &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt; offers a rapid prototyping environment to explore and validate ideas of a &lt;em&gt;Vehicle App&lt;/em&gt;.
+&lt;/br&gt;
+&lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt; interacts with different vehicle sensors and actuators via standardized APIs specified by the COVESA &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/introduction/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle Signal Specification (VSS)&lt;/a&gt; without custom setup requirements.
+&lt;/br&gt;
+Within the platform you can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;browse, navigate and enhance vehicle signals (sensors, actuators and branches) in the &lt;a href=&#34;https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle API Catalogue&lt;/a&gt; mapped to a 3D model of the vehicle.&lt;/li&gt;
+&lt;li&gt;build &lt;em&gt;Vehicle App&lt;/em&gt; prototypes in the browser using Python and the Vehicle API Catalogue.&lt;/li&gt;
+&lt;li&gt;test the &lt;em&gt;Vehicle App&lt;/em&gt; prototype in a dashboard with 3D animation for API calls.&lt;/li&gt;
+&lt;li&gt;create new plugins, which usually represent UX widgets or remote server communication to enhance the vehicle mockup experience in the playground.&lt;/li&gt;
+&lt;li&gt;collect and evaluate user feedback to prioritize your development portfolio.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;start-the-journey-of-a-_vehicle-app_&#34;&gt;Start the journey of a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;As first step open &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt;, select &lt;a href=&#34;https://digitalauto.netlify.app/model&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Get Started&lt;/em&gt;&lt;/a&gt; in the prototyping section of the landing page and use the Vehicle Model of your choice.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../digital-auto.png&#34; alt=&#34;digital.auto&#34;&gt;
+&lt;img src=&#34;../vehicle-models.png&#34; alt=&#34;vehicle-models&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You now have the possibility to browse existing vehicle signals for the selected vehicle model which you can use for prototyping your &lt;em&gt;Vehicle App&lt;/em&gt; by clicking on &lt;em&gt;Vehicle APIs&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../selected-model.png&#34; alt=&#34;selected-model&#34;&gt;
+&lt;img src=&#34;../cvi-catalogue.png&#34; alt=&#34;cvi-catalogue&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;add-additional-_vehicle-apis_&#34;&gt;Add additional &lt;em&gt;Vehicle APIs&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;If the ideation of your &lt;em&gt;Vehicle App&lt;/em&gt; prototype comes with any new Vehicle API which is not part of the standard &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/introduction/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt; you also have the option to include it into your pre-selected model by clicking the &lt;em&gt;+ New Wishlist API&lt;/em&gt; button. After filling out all required fields, simply click the &lt;em&gt;create&lt;/em&gt; button - this will commit the new API to the existing model.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    For this feature, a digital.auto account is required. Get in touch with us or the digital.auto team in case you want to explore this feature.
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&#34;../wishlist.png&#34; alt=&#34;wishlist&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;prototype-an-idea-of-a-_vehicle-app_&#34;&gt;Prototype an idea of a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;The next step would be to prototype your idea. To do so:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Click on &lt;em&gt;Prototype Library&lt;/em&gt; of your selected model.
+&lt;img src=&#34;../prototype-library.png&#34; alt=&#34;prototype-library&#34;&gt;&lt;/li&gt;
+&lt;li&gt;Create a new prototype, by clicking on &lt;em&gt;New Prototype&lt;/em&gt; and filling out the information or select one from the list.&lt;/li&gt;
+&lt;li&gt;Click on the &lt;em&gt;Open&lt;/em&gt; button.
+&lt;img src=&#34;../select-prototype.png&#34; alt=&#34;select-prototype&#34;&gt;&lt;/li&gt;
+&lt;li&gt;Go to the &lt;em&gt;Code&lt;/em&gt; section and start your prototype right away.
+&lt;img src=&#34;../code-section.png&#34; alt=&#34;code-section&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;test-the-prototype-of-a-_vehicle-app_&#34;&gt;Test the prototype of a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Testing of your prototype starts in the &lt;em&gt;Run&lt;/em&gt; section.
+&lt;/br&gt;
+You will find a dashboard consisting all vehicle and application components similar to mockups.
+&lt;/br&gt;
+The control center on the right side has an integrated terminal showing all of your prototyped outputs as well as a list of all called VSS API&amp;rsquo;s.
+&lt;/br&gt;
+The &lt;em&gt;Run&lt;/em&gt; button executes all your prototype code from top to bottom. The &lt;em&gt;Debug&lt;/em&gt; button allows you to step through your prototype line by line.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../run-section.png&#34; alt=&#34;run-section&#34;&gt;&lt;/p&gt;
+&lt;p&gt;To get started quickly, the digital.auto team has added a number of widgets to simulate related elements of the vehicle – like doors, seats, light, etc. – and made them available in the playground.&lt;/p&gt;
+&lt;p&gt;Feel free to add your own Plugins with widgets for additional car features (maybe an antenna waving a warm “welcome”…?).&lt;/p&gt;
+&lt;h2 id=&#34;transfer-your-prototype-into-a-velocitas-_vehicle-app_&#34;&gt;Transfer your prototype into a Velocitas &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;In the previous steps you started with envisioning and prototyping your &lt;em&gt;Vehicle App&lt;/em&gt; idea and tested it against mocked vehicle components in digital.auto.
+&lt;/br&gt;
+The Velocitas team provides a project generator to transfer the prototype from &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt; into your own development environment where you are able to test it with real &lt;a href=&#34;/velocitas/velocitas/docs/concepts/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt;.
+&lt;/br&gt;
+The generator creates a &lt;em&gt;Vehicle App&lt;/em&gt; GitHub repository using your prototype code based on our &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt;.
+&lt;/br&gt;
+In the &amp;lsquo;Code&amp;rsquo; section of your prototype in &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt; you have the button &amp;lsquo;Create Eclipse Velocitas Project&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../generate.png&#34; alt=&#34;generate&#34;&gt;&lt;/p&gt;
+&lt;p&gt;After pressing the button you will be forwarded to &lt;a href=&#34;https://github.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub&lt;/a&gt;.
+&lt;/br&gt;
+Login with your GitHub Account and authorize &lt;a href=&#34;https://github.com/eclipse-velocitas/velocitas-project-generator-npm&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;velocitas-project-generator&lt;/a&gt; to create the repository for you.
+&lt;/br&gt;
+You will be redirected to &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt; and asked for a repository name (equals to the name of the &lt;em&gt;Vehicle App&lt;/em&gt;).
+&lt;/br&gt;
+By clicking on &amp;ldquo;Create repository&amp;rdquo;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the project generator takes over your prototype code.&lt;/li&gt;
+&lt;li&gt;the code is adapted to the structure in the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vehicle-app-python-template&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;a new private repository under your specified GitHub User will be created.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A successful generation of the repository is followed by a pop-up dialogue with the URL of your repository.&lt;/p&gt;
+&lt;p&gt;Among other things the newly created repository will contain:&lt;/p&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Files&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;/app/src/main.py&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Main class of the &lt;em&gt;Vehicle App&lt;/em&gt;, containing your modified prototype code&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;/app/AppManifest.json&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Settings file defining required services&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;/app/requirements.txt&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Requirements file defining all Python dependencies&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;/.devcontainer/&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;Required scripts and settings to setup the devcontainer in Microsoft Visual Studio Code&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;/.github/workflows/&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;All required CI/CD pipelines to build, test and deploy the &lt;em&gt;Vehicle App&lt;/em&gt; as container image to the GitHub container registry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;/gen/vehicle_model/&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;The generated model classes. If your prototype includes any exceptional API you added beforehand our &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle&#34;&gt;automated vehicle model lifecycle&lt;/a&gt; takes care of handling the custom VSS vspec file coming from digital.auto and generates a vehicle_model when starting the devContainer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;p&gt;Your prototype &lt;em&gt;Vehicle App&lt;/em&gt; transferred into a GitHub repository is now ready to be extended.
+&lt;/br&gt;
+Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt; in Microsoft Visual Studio Code and start to extend it.&lt;/p&gt;
+&lt;p&gt;You can proceed with the following topics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart/#starting-development-environment&#34;&gt;Starting development environment&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_development/python_development.md&#34;&gt;&lt;em&gt;Vehicle App&lt;/em&gt; Development&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Service Integration</title>
       <link>/velocitas/docs/tutorials/prototyping/service_integration/</link>
       <pubDate>Wed, 02 Nov 2022 10:09:25 +0530</pubDate>
@@ -23,12 +161,12 @@
       <description>
         
         
-        &lt;p&gt;Services can make sure, that when you write a VSS datapoint, something is actually happening. Eclipse Velocitas has an example seat, hvac or light service. If your &lt;em&gt;Vehicle App&lt;/em&gt; makes use of e.g. &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt;, &lt;code&gt;Vehicle.Body.Lights.IsBackupOn&lt;/code&gt;, &lt;code&gt;Vehicle.Body.Lights.IsHighBeamOn&lt;/code&gt;, &lt;code&gt;Vehicle.Body.Lights.IsLowBeamOn&lt;/code&gt; you are in for some real action. To learn more, visit &lt;a href=&#34;/velocitas/velocitas/docs/concepts/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;You can validate the interaction of the service with your &lt;em&gt;Vehicle App&lt;/em&gt; by adding a &lt;em&gt;Vehicle Service&lt;/em&gt; to the &lt;code&gt;/app/AppManifest.json&lt;/code&gt;, &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart/#starting-runtime-services&#34;&gt;start the services&lt;/a&gt; locally and &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart/#debugging-vehicle-app&#34;&gt;debug&lt;/a&gt; it.&lt;/p&gt;
-&lt;h3 id=&#34;modify-services&#34;&gt;Modify services&lt;/h3&gt;
-&lt;p&gt;For more advanced usage you can als try modifying existing services. Check out &lt;a href=&#34;https://github.com/boschglobal/kuksa.val.services/tree/feature/subscribe_actuator_targets/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the seat service&lt;/a&gt; for example, modify it and integrate it into your &lt;em&gt;Vehicle App&lt;/em&gt; repository.&lt;/p&gt;
+        &lt;p&gt;Services can make sure, that when you write a VSS data point, something is actually happening. Eclipse Velocitas has an example seat or hvac service. If your &lt;em&gt;Vehicle App&lt;/em&gt; makes use of e.g. &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; or other seat/hvac specific data points you are in for some real action. To learn more, visit &lt;a href=&#34;/velocitas/velocitas/docs/concepts/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Our maintained &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt; package (&lt;a href=&#34;/velocitas/velocitas/docs/concepts/lifecycle_management&#34;&gt;Velocitas Lifecycle Management&lt;/a&gt;) comes with the support of adding further &lt;em&gt;Vehicle Services&lt;/em&gt; to the &lt;code&gt;runtime.json&lt;/code&gt; of a package. More information &lt;a href=&#34;/velocitas/velocitas/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages&#34;&gt;here&lt;/a&gt;. (A general vehicle &lt;em&gt;mock service&lt;/em&gt; is also coming soon!)&lt;/p&gt;
+&lt;h3 id=&#34;modify-existing-services&#34;&gt;Modify existing services&lt;/h3&gt;
+&lt;p&gt;For more advanced usage you can also try to modify existing services. Check out &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the seat service&lt;/a&gt; for example, modify it and integrate it into your &lt;em&gt;Vehicle App&lt;/em&gt; repository.&lt;/p&gt;
 &lt;h3 id=&#34;create-your-own-services&#34;&gt;Create your own services&lt;/h3&gt;
-&lt;p&gt;If you want to create your own service the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA.val Services repository&lt;/a&gt; contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to &lt;em&gt;KUKSA.val&lt;/em&gt; listening to changes of a &lt;em&gt;target value&lt;/em&gt; of some VSS datapoint and then do whatever you want. You can achieve this by using the &lt;em&gt;KUKSA.val&lt;/em&gt; &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/proto/kuksa/val/v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GRPC API&lt;/a&gt; with any programming language of your choice (learn more about &lt;a href=&#34;https://grpc.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GRPC&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;If you want to create your own service the &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA.VAL Services repository&lt;/a&gt; contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to &lt;em&gt;KUKSA.VAL&lt;/em&gt; listening to changes of a &lt;em&gt;target value&lt;/em&gt; of some VSS data point and then do whatever you want. You can achieve this by using the &lt;em&gt;KUKSA.VAL&lt;/em&gt; &lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/proto/kuksa/val/v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC API&lt;/a&gt; with any programming language of your choice (learn more about &lt;a href=&#34;https://grpc.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC&lt;/a&gt;).&lt;/p&gt;
 
       </description>
     </item>
