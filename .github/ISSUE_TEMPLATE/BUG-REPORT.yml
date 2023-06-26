@@ -24,11 +24,11 @@ body:
       description: How severe is the bug?
       multiple: false
       options:
-        - "Blocker"
-        - "Critical"
-        - "High"
-        - "Medium"
         - "Trivial"
+        - "Medium"
+        - "High"
+        - "Critical"
+        - "Blocker"
   - type: textarea
     id: steps-to-reproduce
     validations:
@@ -76,7 +76,7 @@ body:
     id: code-of-conduct
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](../../CODE_OF_CONDUCT.md)
+      description: By submitting this issue, you agree to follow our "Code of Conduct".
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: I agree to follow this project's "Code of Conduct".
           required: true
