@@ -1,0 +1,82 @@
+name: "Bug Report"
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to fill out this bug report!
+  - type: textarea
+    id: description
+    validations:
+      required: true
+    attributes:
+      label: Description of the Bug
+      description: Provide a general summary of the issue
+      placeholder: "I've noticed next behavior..."
+  - type: dropdown
+    id: severity
+    validations:
+      required: true
+    attributes:
+      label: Severity
+      description: How severe is the bug?
+      multiple: false
+      options:
+        - "Blocker"
+        - "Critical"
+        - "High"
+        - "Medium"
+        - "Trivial"
+  - type: textarea
+    id: steps-to-reproduce
+    validations:
+      required: true
+    attributes:
+      label: Steps to Reproduce
+      description: Provide a link to a live example, or an unambiguous set of steps to reproduce this bug. Include code to reproduce, if relevant
+      placeholder: |
+        1. ... 
+        2. ... 
+        3. ...
+  - type: textarea
+    id: expected-behavior
+    validations:
+      required: true
+    attributes:
+      label: Expected Behavior
+      description: Tell us what should happen
+      placeholder: "It shall be ..."
+  - type: textarea
+    id: current-behavior
+    validations:
+      required: true
+    attributes:
+      label: Current Behavior
+      description: Tell us what happens instead of the expected behavior
+      placeholder: But next happened ..."
+  - type: textarea
+    id: possible-solution
+    validations:
+      required: false
+    attributes:
+      label: Possible Solution
+      description: Fix/reason of the bug suggestion
+      placeholder: "I think the reason was..."
+  - type: textarea
+    id: additional-information
+    validations:
+      required: false
+    attributes:
+      label: Additional information
+      description: Provide an additional detailed description of the bug or addition you are proposing
+      placeholder: I would like also to add ...
+  - type: checkboxes
+    id: code-of-conduct
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](../../CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
