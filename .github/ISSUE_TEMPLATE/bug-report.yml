@@ -27,8 +27,9 @@ body:
     validations:
       required: true
     attributes:
-      label: What release version or branch or hash commit did you use?
+      label: What release version,tag or hash-commit did you use?
       description: Please include a link if possible.
+      placeholder: v0.1.0 or 06f432a00e4c66804202c91bdfb9c9b12823928b
   - type: textarea
     id: current-behavior
     validations:
