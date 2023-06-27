@@ -8,4 +8,4 @@
 
 - [GitHub Issues](https://github.com/eclipse-velocitas/velocitas-docs/issues)
 - [Mailing List](https://accounts.eclipse.org/mailing-list/velocitas-dev)
-- [Contribution](content/en/docs/Contributing/contribution.md)
+- [Contribution](https://eclipse.dev/velocitas/docs/contribution-guidelines)
