@@ -41,7 +41,7 @@ Changes in `./config/feedercan` are automatically reflected in PersistentVolume.
 
 ### Uploading custom candump file to FeederCAN
 
-FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:
+FeederCAN requires a candump file. A pre-defined candump file is already part of our delivery, however, if necessary, there is an option to upload a custom file by:
 
 1. Creating/updating candump file with the name `candumpDefault.log` in `./config/feedercan`
 1. Recreating the feedercan pod: `kubectl delete pods -l app=feedercan`
