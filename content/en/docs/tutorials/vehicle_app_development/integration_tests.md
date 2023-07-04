@@ -63,11 +63,25 @@ We distinguish between two environments for executing the _Vehicle App_ and the 
 - [**Local execution:**](/docs/tutorials/vehicle_app_runtime/local_runtime/) components are running locally in the development environment
 - [**Kubernetes execution:**](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/) components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)
 
-### Local Execution
+### Local execution
 
 First, make sure that the runtime services are configured and running like described [here](/docs/tutorials/vehicle_app_runtime/local_runtime).
 
 The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the provided task `Local Runtime - Run VehicleApp`.
+
+When the runtime services and the application are running, integration tests can be executed locally via
+
+```bash
+  pytest ./app/tests/integration
+```
+
+or using the testing tab in the sidebar to the left.
+
+### Kanto runtime
+
+First, make sure that the runtime and the services are up and running, like described [here](/docs/tutorials/vehicle_app_runtime/kanto_runtime).
+
+The application itself can be deployed by executing the provided task `Kanto Runtime - Deploy VehicleApp` or `Kanto Runtime - Deploy VehicleApp (without rebuild)`. Depending on whether your app is already available as a container or not.
 
 When the runtime services and the application are running, integration tests can be executed locally via
 
