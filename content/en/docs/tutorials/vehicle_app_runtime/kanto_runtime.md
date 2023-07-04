@@ -7,7 +7,7 @@ aliases:
   - /docs/tutorials/vehicle_app_runtime/kanto_runtime
 ---
 
-Besides starting the vehicle runtime components [locally](/docs/tutorials/vehicle_app_runtime/local_runtime) and in [Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime), another way is to deploy them as containers using [Kanto](https://eclipse.dev/kanto/) as a container runtime. To start the runtime, we provide Visual Studio Code _Tasks_, a feature of Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
+Besides starting the vehicle runtime components [locally](/docs/tutorials/vehicle_app_runtime/local_runtime) and in [Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime), another way is to deploy them as containers using [Kanto](https://eclipse.dev/kanto/) as a container runtime. To start the runtime, we provide VS Code _Tasks_, a feature of Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
 
 **Quick Start:** Each step has a task that is defined in `/.vscode/tasks.json`:
 
@@ -26,6 +26,18 @@ Besides starting the vehicle runtime components [locally](/docs/tutorials/vehicl
 
 **Logging:** Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task. More detailed logs can be found inside your workspace's logs directory `./logs/*`
 
+## KantUI
+
+The Leda team developed a tool to easily work with Kanto. It is similar to [K9S](https://k9scli.io/) for Kubernetes. You can find more details about KantUI in the [documentation of Leda](https://eclipse-leda.github.io/leda/docs/general-usage/utilities/kantui/).
+
+In the devcontainer KantUI is already installed and it can be started via:
+
+```bash
+sudo kantui
+```
+
+After starting the Kanto runtime with the mentioned tasks above, you will directly see all the running containers in KantUI. Now you could also take a look at the logs, delete or stop single containers. After you deployed your application to Kanto, this container will also show up and can be handled with KantUI.
+
 ## Mounting folders for FeederCAN
 
 Some applications (e.g. FeederCAN) might make it necessary to load custom files from a mounted volume.
@@ -42,8 +54,8 @@ More information about FeederCan can be found [here](https://github.com/eclipse/
 
 ## Next steps
 
-* Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
-* Tutorial: [Quickstart](/docs/tutorials/quickstart.md)
 * Concept: [Deployment Model](/docs/concepts/deployment_model)
 * Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases)
-* Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)
+* Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
+* Tutorial: [Start runtime services in Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
+* Tutorial: [Quickstart](/docs/tutorials/quickstart.md)
