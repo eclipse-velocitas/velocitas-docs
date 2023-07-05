@@ -61,7 +61,8 @@ To be able to test the _Vehicle App_ in an integrated way, the following compone
 We distinguish between two environments for executing the _Vehicle App_ and the runtime components:
 
 - [**Local execution:**](/docs/tutorials/vehicle_app_runtime/local_runtime/) components are running locally in the development environment
-- [**Kubernetes execution:**](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/) components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)
+- [**Kubernetes execution:**](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/) components (and application) are deployed and running in a Kubernetes control plane (e.g. K3D)
+- [**Kanto execution:**](/docs/tutorials/vehicle_app_runtime/kanto_runtime/) components (and application) are deployed and running in a Kanto control plane
 
 ### Local execution
 
