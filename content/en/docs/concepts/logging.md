@@ -39,18 +39,16 @@ Regular output is written to stdout and should not be poluted by logging because
 
 ### What does this mean for Vehicle Apps/Services?
 
-An app or a service is a **long running, self-contained application** which is inheritly not designed to execute and terminate quickly such that its output may be piped into other programs. Therefore, stdout is free to be used for log levels, since there is no "regular output".
+An app or a service is a **long running, self-contained application** which is inheritly not designed to execute and terminate quickly such that its output may be piped into other programs. Therefore, stdout would be free to be used for log levels, since there is no "regular output".
 
-`Error` and `Critical` need to be written to `stderr` as they may need to be monitored by external application health checkers.
-`Debug` and `Info` are used for diagnostic and informational prints only, hence they are written to `stdout`.
-`Warning` has a special role since it is neither only informational nor does it indicate that something the application was asked for has not been done. But since we want warnings to be monitorable as well and they are not part of regular state reporting of an application on `stdout` we chose to write `Warning` to `stderr`.
+However, due to the inherent nature of logs not being regular problem output and the issue of potentially re-ordering messages when they are directed to different files, in Velocitas we chose to output all logs to `stderr`:
 
 Here the overview in table form:
 {{<table "table table-bordered">}}
-| Level | Target |
+| Level | Target file |
 |:------|-------:|
-Debug   | stdout
-Info    | stdout
+Debug   | stderr
+Info    | stderr
 Warning | stderr
 Error   | stderr
 Critical| stderr
