@@ -73,7 +73,7 @@ MyVehicleApp()
 ```
 
 {{% alert title="Note" %}}
-The middleware abstraction of the C++ SDK is incomplete: Pub/sub abstraction is just supporting MQTT, currently.
+The middleware abstraction of the C++ SDK is incomplete: Pub/sub abstraction is just supporting MQTT (but no Dapr pub/sub), currently.
 
 The URI of the MQTT broker is by default `localhost:1883` and can be set to another address via the environment variable `SDV_MQTT_ADDRESS` (beginning with C++ SDK v0.3.3) or `MQTT_BROKER_URI` (SDKs before v0.3.3).
 {{% /alert %}}
