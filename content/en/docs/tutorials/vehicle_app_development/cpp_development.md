@@ -67,13 +67,15 @@ In your constructor, you have to choose which implementations to use for the Veh
 ```Cpp
 MyVehicleApp()
     : VehicleApp(IVehicleDataBrokerClient::createInstance("vehicledatabroker"), // this is the dapr-app-id of the KUKSA Databroker in the VAL.
-                 IPubSubClient::createInstance("MyVehicleApp")) // the client ID of the MQTT client.
+                 IPubSubClient::createInstance("MyVehicleApp")) // the clientId identifies the client at the pub/sub broker
     {}
 {}
 ```
 
 {{% alert title="Note" %}}
-The URI of the MQTT broker is by default `localhost:1883` and can be set to something else via the environment variable `SDV_MQTT_ADDRESS` (beginning with C++ SDK v0.3.3) or `MQTT_BROKER_URI` (SDKs before v0.3.3).
+The middleware abstraction of the C++ SDK is incomplete: Pub/sub abstraction is just supporting MQTT, currently.
+
+The URI of the MQTT broker is by default `localhost:1883` and can be set to another address via the environment variable `SDV_MQTT_ADDRESS` (beginning with C++ SDK v0.3.3) or `MQTT_BROKER_URI` (SDKs before v0.3.3).
 {{% /alert %}}
 
 Now, you have initialized the app and can continue developing relevant methods.
