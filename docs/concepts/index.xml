@@ -154,5 +154,118 @@ Favor fast startup and support graceful shutdowns to leave the system in a corre
       </description>
     </item>
     
+    <item>
+      <title>Docs: Logging guidelines</title>
+      <link>/velocitas/docs/concepts/logging/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0100</pubDate>
+      
+      <guid>/velocitas/docs/concepts/logging/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Rationale: Logging application behavior is absolutely necessary for monitoring applications and also track down possible issues.&lt;/p&gt;
+&lt;h2 id=&#34;levels&#34;&gt;Levels&lt;/h2&gt;
+&lt;p&gt;In Velocitas, we establish the following log levels, ordered from lowest to highest priority:&lt;/p&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Level&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Purpose&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Examples&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Debug&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Display of information to aid debugging of live systems like resolved values, executed lines of code, taken branches etc&amp;hellip;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;&amp;quot;variable=5&amp;quot;&lt;/code&gt;,&lt;br/&gt; &lt;code&gt;&amp;quot;executing branch debug==false&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Info&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Display of regular, user friendly messages to indicate the current state of the application.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;&amp;quot;Startup successful&amp;quot;&lt;/code&gt;,&lt;br/&gt; &lt;code&gt;&amp;quot;Application ready&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Warning&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Deviation from &lt;em&gt;optimal&lt;/em&gt; program flow which is tolerable by the application, but not recommended.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;&amp;quot;Memory usage exceeding upper bounds!&amp;quot;&lt;/code&gt;,&lt;br/&gt;&lt;code&gt;&amp;quot;Usage of deprecated API&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Error&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Display of a type of failure that is not expected and can lead to unexpected or degraded behavior which may lead to program termination.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;&amp;quot;Memory allocation failed!&amp;quot;&lt;/code&gt;, &lt;br/&gt;&lt;code&gt;&amp;quot;Unable to persist data&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Critical&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Display of a failure which leads to system unavailablity due to a missing feature, i.e. a database connection.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;&amp;quot;Database not available&amp;quot;&lt;/code&gt;,&lt;br/&gt;&lt;code&gt;&amp;quot;Unable to establish connection to server!&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h2 id=&#34;destination-of-log-levels&#34;&gt;Destination of log levels&lt;/h2&gt;
+&lt;h3 id=&#34;historically&#34;&gt;Historically&lt;/h3&gt;
+&lt;p&gt;On *nix systems the philosophy is for programs to be as silent as possible by default. stdout is reserved for &lt;em&gt;regular&lt;/em&gt; program output. Logging is &lt;strong&gt;never&lt;/strong&gt; regular program output, it is there for diagnostic reasons&lt;/p&gt;
+&lt;p&gt;See the ls program as an example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;integration  logs  requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Regular output is written to stdout and should not be poluted by logging because it is designed to be pipeable into other programs.&lt;/p&gt;
+&lt;h3 id=&#34;what-does-this-mean-for-vehicle-appsservices&#34;&gt;What does this mean for Vehicle Apps/Services?&lt;/h3&gt;
+&lt;p&gt;An app or a service is a &lt;strong&gt;long running, self-contained application&lt;/strong&gt; which is inheritly not designed to execute and terminate quickly such that its output may be piped into other programs. Therefore, stdout would be free to be used for log levels, since there is no &amp;ldquo;regular output&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;However, due to the inherent nature of logs not being regular problem output and the issue of potentially re-ordering messages when they are directed to different files, in Velocitas we chose to output all logs to &lt;code&gt;stderr&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Here the overview in table form:
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Level&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Target file&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Debug&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;stderr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Info&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;stderr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Warning&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;stderr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Error&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;stderr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Critical&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;stderr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://julienharbulot.com/python-cli-streams.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://julienharbulot.com/python-cli-streams.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sematext.com/blog/logging-levels/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://sematext.com/blog/logging-levels/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://softwareengineering.stackexchange.com/questions/439462/log-levels-and-stdout-vs-stderr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://softwareengineering.stackexchange.com/questions/439462/log-levels-and-stdout-vs-stderr&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

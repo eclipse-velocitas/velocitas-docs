@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.f2215eb58e3f0c52e9fbcc2746befc0c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.e667f294589f09670c963f43cb8a4a09.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -325,6 +325,14 @@ This is the multi-page printable view of this section.
   
 
     </ul>
+    
+  
+    
+    
+	
+<li>4: <a href="#pg-e87d2d922d0a384a3f8a70e87e29d33f">Logging guidelines</a></li>
+
+
     
   
 
@@ -2210,6 +2218,123 @@ If you experienced this error and the devcontainer still has started correctly p
     
 	
   
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e87d2d922d0a384a3f8a70e87e29d33f">4 - Logging guidelines</h1>
+    <div class="lead">How logging shall be handled by Vehicle Applications.</div>
+	<p>Rationale: Logging application behavior is absolutely necessary for monitoring applications and also track down possible issues.</p>
+<h2 id="levels">Levels</h2>
+<p>In Velocitas, we establish the following log levels, ordered from lowest to highest priority:</p>
+
+
+
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th style="text-align:left">Level</th>
+<th style="text-align:left">Purpose</th>
+<th style="text-align:left">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Debug</td>
+<td style="text-align:left">Display of information to aid debugging of live systems like resolved values, executed lines of code, taken branches etc&hellip;</td>
+<td style="text-align:left"><code>&quot;variable=5&quot;</code>,<br/> <code>&quot;executing branch debug==false&quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Info</td>
+<td style="text-align:left">Display of regular, user friendly messages to indicate the current state of the application.</td>
+<td style="text-align:left"><code>&quot;Startup successful&quot;</code>,<br/> <code>&quot;Application ready&quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Warning</td>
+<td style="text-align:left">Deviation from <em>optimal</em> program flow which is tolerable by the application, but not recommended.</td>
+<td style="text-align:left"><code>&quot;Memory usage exceeding upper bounds!&quot;</code>,<br/><code>&quot;Usage of deprecated API&quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Error</td>
+<td style="text-align:left">Display of a type of failure that is not expected and can lead to unexpected or degraded behavior which may lead to program termination.</td>
+<td style="text-align:left"><code>&quot;Memory allocation failed!&quot;</code>, <br/><code>&quot;Unable to persist data&quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Critical</td>
+<td style="text-align:left">Display of a failure which leads to system unavailablity due to a missing feature, i.e. a database connection.</td>
+<td style="text-align:left"><code>&quot;Database not available&quot;</code>,<br/><code>&quot;Unable to establish connection to server!&quot;</code></td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="destination-of-log-levels">Destination of log levels</h2>
+<h3 id="historically">Historically</h3>
+<p>On *nix systems the philosophy is for programs to be as silent as possible by default. stdout is reserved for <em>regular</em> program output. Logging is <strong>never</strong> regular program output, it is there for diagnostic reasons</p>
+<p>See the ls program as an example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls
+</span></span><span style="display:flex;"><span>integration  logs  requirements.txt
+</span></span></code></pre></div><p>Regular output is written to stdout and should not be poluted by logging because it is designed to be pipeable into other programs.</p>
+<h3 id="what-does-this-mean-for-vehicle-appsservices">What does this mean for Vehicle Apps/Services?</h3>
+<p>An app or a service is a <strong>long running, self-contained application</strong> which is inheritly not designed to execute and terminate quickly such that its output may be piped into other programs. Therefore, stdout would be free to be used for log levels, since there is no &ldquo;regular output&rdquo;.</p>
+<p>However, due to the inherent nature of logs not being regular problem output and the issue of potentially re-ordering messages when they are directed to different files, in Velocitas we chose to output all logs to <code>stderr</code>:</p>
+<p>Here the overview in table form:
+
+
+
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th style="text-align:left">Level</th>
+<th style="text-align:right">Target file</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Debug</td>
+<td style="text-align:right">stderr</td>
+</tr>
+<tr>
+<td style="text-align:left">Info</td>
+<td style="text-align:right">stderr</td>
+</tr>
+<tr>
+<td style="text-align:left">Warning</td>
+<td style="text-align:right">stderr</td>
+</tr>
+<tr>
+<td style="text-align:left">Error</td>
+<td style="text-align:right">stderr</td>
+</tr>
+<tr>
+<td style="text-align:left">Critical</td>
+<td style="text-align:right">stderr</td>
+</tr>
+</tbody>
+</table>
+
+</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://julienharbulot.com/python-cli-streams.html" target="_blank" rel="noopener">https://julienharbulot.com/python-cli-streams.html</a></li>
+<li><a href="https://sematext.com/blog/logging-levels/" target="_blank" rel="noopener">https://sematext.com/blog/logging-levels/</a></li>
+<li><a href="https://softwareengineering.stackexchange.com/questions/439462/log-levels-and-stdout-vs-stderr" target="_blank" rel="noopener">https://softwareengineering.stackexchange.com/questions/439462/log-levels-and-stdout-vs-stderr</a></li>
+</ul>
+
+</div>
+
+
 
     
 	
