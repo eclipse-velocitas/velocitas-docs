@@ -43,10 +43,6 @@ Docker Desktop uses 5 cores and 12 GB of RAM by default on an M1 MacBook Pro. Th
 
 That's all you have to do. After these few steps you can go on with the devcontainer setup.
 
-#### Drawbacks
-
-The only drawback noticed so far is, that K9S is not working properly on M1 Macs. Since the container runtime and deployment are working also without K9S, this is just a minor issue. Nevertheless, the team is working on a solution.
-
 ## Microsoft Windows
 
 There is currently no recommended alternative for Windows except using GitHub codespaces, a cloud-based development environment.
