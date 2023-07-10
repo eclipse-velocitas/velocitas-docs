@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.457f120d18a430936b56d4a34db21c2a.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.7f95767d92de0bcb904366b570b2a08c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -1703,7 +1703,7 @@ A detailed explanation of the use case and the example is available <a href="/ve
 </span></span></code></pre></div><p>In your constructor, you have to choose which implementations to use for the VehicleDataBrokerClient and the PubSubClient. By default we suggest you use the factory methods to generate the default implementations: <code>IVehicleDataBrokerClient::createInstance</code> and <code>IPubSubClient::createInstance</code>. These will create a VehicleDataBrokerClient which connects to the VAL via gRPC and an MQTT-based pub-sub client.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#000">MyVehicleApp</span><span style="color:#000;font-weight:bold">()</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">IVehicleDataBrokerClient</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">createInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#8f5902;font-style:italic">// this is the dapr-app-id of the KUKSA Databroker in the VAL.
-</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>                 <span style="color:#000">IPubSubClient</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">createInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;localhost:1883&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MyVehicleApp&#34;</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#8f5902;font-style:italic">// the URI to the MQTT broker and the client ID of the MQTT client.
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>                 <span style="color:#000">IPubSubClient</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">createInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;MyVehicleApp&#34;</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#8f5902;font-style:italic">// the clientId identifies the client at the pub/sub broker
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{}</span>
 </span></span></code></pre></div>
@@ -1711,7 +1711,9 @@ A detailed explanation of the use case and the example is available <a href="/ve
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    The URI of the MQTT broker can also be set via the environment variable <code>MQTT_BROKER_URI</code>, which would overwrite the setting in the code. So make sure that you don&rsquo;t mix this up.
+    <p>The middleware abstraction of the C++ SDK is incomplete: Pub/sub abstraction is just supporting MQTT (but no Dapr pub/sub), currently.</p>
+<p>The URI of the MQTT broker is by default <code>localhost:1883</code> and can be set to another address via the environment variable <code>SDV_MQTT_ADDRESS</code> (beginning with C++ SDK v0.3.3) or <code>MQTT_BROKER_URI</code> (SDKs before v0.3.3).</p>
+
 
 </div>
 
