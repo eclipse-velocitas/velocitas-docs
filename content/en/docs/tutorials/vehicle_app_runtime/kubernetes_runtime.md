@@ -41,7 +41,7 @@ Changes in `./config/feedercan` are automatically reflected in PersistentVolume.
 
 ### Uploading custom candump file to FeederCAN
 
-FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:
+FeederCAN requires a candump file. A pre-defined candump file is already part of our delivery, however, if necessary, there is an option to upload a custom file by:
 
 1. Creating/updating candump file with the name `candumpDefault.log` in `./config/feedercan`
 1. Recreating the feedercan pod: `kubectl delete pods -l app=feedercan`
@@ -50,8 +50,9 @@ More information about FeederCan can be found [here](https://github.com/eclipse/
 
 ## Next steps
 
-* Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
-* Tutorial: [Quickstart](/docs/tutorials/quickstart.md)
 * Concept: [Deployment Model](/docs/concepts/deployment_model)
 * Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases)
+* Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
+* Tutorial: [Deploy a _Vehicle App_ with Kanto](/docs/tutorials/vehicle_app_runtime/kanto_runtime)
+* Tutorial: [Quickstart](/docs/tutorials/quickstart.md)
 * Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)

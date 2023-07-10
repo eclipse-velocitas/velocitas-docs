@@ -116,7 +116,7 @@ You can find more information about the _Vehicle App_ development in the [respec
 
 The runtime services (like _KUKSA Data Broker_ or _Vehicle Services_) are required to develop _Vehicle Apps_ and run integration tests.
 
-Currently, the supported options to run these services is either locally or in a Kubernetes (K3D) cluster.
+Currently, the supported options to run these services is either [locally](/docs/tutorials/vehicle_app_runtime/local_runtime), in a [Kubernetes (K3D) cluster](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime) or via the [Kanto runtime](/docs/tutorials/vehicle_app_runtime/kanto_runtime).
 
 {{< tabpane text=true >}}
    {{% tab header="Local Runtime" %}}
@@ -170,7 +170,34 @@ Hint: Log files can be found in your workspace's logs directory
 ```
 
 {{% pageinfo color="primary" %}}
-   You need to perform task `K3D Runtime - Down` to properly stop runtime activities.
+   You need to perform the task `K3D Runtime - Down` to properly stop all runtime activities.
+{{% /pageinfo %}}
+
+{{% /tab %}}
+   {{% tab header="Kanto Runtime" %}}
+
+A VS Code task called `Kanto Runtime - Up` is available to start all necessary services in the correct order.
+
+1. Press <kbd>F1</kbd>
+2. Select command `Tasks: Run Task`
+3. Select `Kanto Runtime - Up`
+
+You should see the task `Kanto Runtime - Up` being executed on a separate VS Code terminal with the following content:
+
+```bash
+$ velocitas exec runtime-kanto up
+
+Hint: Log files can be found in your workspace's logs directory
+> Checking Kanto registry... registry already exists.
+> Checking Kanto registry... starting registry.
+> Checking Kanto registry... started.
+✅ Configuring controlplane for Kanto...
+⠇ Starting Kanto...waiting
+✅ Kanto is ready to use!
+```
+
+{{% pageinfo color="primary" %}}
+To stop the runtime simply press `Ctrl + C` or execute the task `Kanto Runtime - Down`.
 {{% /pageinfo %}}
 
 {{% /tab %}}
