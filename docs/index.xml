@@ -686,10 +686,11 @@ You can either try it out directly in the browser or also use it inside VS Code.
 &lt;p&gt;You can find more information about the &lt;em&gt;Vehicle App&lt;/em&gt; development in the &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_development&#34;&gt;respective pages&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;how-to-start-the-runtime-services&#34;&gt;How to start the runtime services?&lt;/h2&gt;
 &lt;p&gt;The runtime services (like &lt;em&gt;KUKSA Data Broker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are required to develop &lt;em&gt;Vehicle Apps&lt;/em&gt; and run integration tests.&lt;/p&gt;
-&lt;p&gt;Currently, the supported options to run these services is either locally or in a Kubernetes (K3D) cluster.&lt;/p&gt;
+&lt;p&gt;Currently, the supported options to run these services is either &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime&#34;&gt;locally&lt;/a&gt;, in a &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;Kubernetes (K3D) cluster&lt;/a&gt; or via the &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime&#34;&gt;Kanto runtime&lt;/a&gt;.&lt;/p&gt;
 
    
 
+   
 &lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-3&#34; role=&#34;tablist&#34;&gt;
   &lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link active&#34;
@@ -702,6 +703,12 @@ You can either try it out directly in the browser or also use it inside VS Code.
           id=&#34;tabs-03-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-03-01&#34; role=&#34;tab&#34;
           aria-controls=&#34;tabs-03-01&#34; aria-selected=&#34;false&#34;&gt;
         K3D Runtime
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link&#34;
+          id=&#34;tabs-03-02-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-03-02&#34; role=&#34;tab&#34;
+          aria-controls=&#34;tabs-03-02&#34; aria-selected=&#34;false&#34;&gt;
+        Kanto Runtime
       &lt;/a&gt;
     &lt;/li&gt;
 &lt;/ul&gt;
@@ -750,7 +757,30 @@ You can either try it out directly in the browser or also use it inside VS Code.
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Deploying runtime... installed.
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;✅ Starting k3d runtime...
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;You need to perform task &lt;code&gt;K3D Runtime - Down&lt;/code&gt; to properly stop runtime activities.&lt;/p&gt;
+&lt;p&gt;You need to perform the task &lt;code&gt;K3D Runtime - Down&lt;/code&gt; to properly stop all runtime activities.&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+    &lt;div class=&#34;tab-body tab-pane fade&#34;
+        id=&#34;tabs-03-02&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-03-02-tab&#34;&gt;
+        &lt;p&gt;A VS Code task called &lt;code&gt;Kanto Runtime - Up&lt;/code&gt; is available to start all necessary services in the correct order.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Press &lt;kbd&gt;F1&lt;/kbd&gt;&lt;/li&gt;
+&lt;li&gt;Select command &lt;code&gt;Tasks: Run Task&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Select &lt;code&gt;Kanto Runtime - Up&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You should see the task &lt;code&gt;Kanto Runtime - Up&lt;/code&gt; being executed on a separate VS Code terminal with the following content:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ velocitas &lt;span style=&#34;color:#204a87&#34;&gt;exec&lt;/span&gt; runtime-kanto up
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Hint: Log files can be found in your workspace&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;s logs directory
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Checking Kanto registry... registry already exists.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Checking Kanto registry... starting registry.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Checking Kanto registry... started.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;✅ Configuring controlplane &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; Kanto...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;⠇ Starting Kanto...waiting
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;✅ Kanto is ready to use!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;To stop the runtime simply press &lt;code&gt;Ctrl + C&lt;/code&gt; or execute the task &lt;code&gt;Kanto Runtime - Down&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 
     &lt;/div&gt;
@@ -1003,8 +1033,6 @@ Just press &lt;kbd&gt;F5&lt;/kbd&gt; to start a debug session of the example &lt
 &lt;p&gt;Docker Desktop uses 5 cores and 12 GB of RAM by default on an M1 MacBook Pro. The equivalent in Colima can be achieved with&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    colima start --cpu &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;5&lt;/span&gt; --memory &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s all you have to do. After these few steps you can go on with the devcontainer setup.&lt;/p&gt;
-&lt;h4 id=&#34;drawbacks&#34;&gt;Drawbacks&lt;/h4&gt;
-&lt;p&gt;The only drawback noticed so far is, that K9S is not working properly on M1 Macs. Since the container runtime and deployment are working also without K9S, this is just a minor issue. Nevertheless, the team is working on a solution.&lt;/p&gt;
 &lt;h2 id=&#34;microsoft-windows&#34;&gt;Microsoft Windows&lt;/h2&gt;
 &lt;p&gt;There is currently no recommended alternative for Windows except using GitHub codespaces, a cloud-based development environment.&lt;/p&gt;
 &lt;p&gt;An option would be to setup a VM (e.g. with VirtualBox or VMWare) running a Linux system with Docker Engine (see above).&lt;/p&gt;
@@ -1975,11 +2003,18 @@ If you experienced this error and the devcontainer still has started correctly p
 &lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime/&#34;&gt;&lt;strong&gt;Local execution:&lt;/strong&gt;&lt;/a&gt; components are running locally in the development environment&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/&#34;&gt;&lt;strong&gt;Kubernetes execution:&lt;/strong&gt;&lt;/a&gt; components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/&#34;&gt;&lt;strong&gt;Kubernetes execution:&lt;/strong&gt;&lt;/a&gt; components (and application) are deployed and running in a Kubernetes control plane (e.g. K3D)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime/&#34;&gt;&lt;strong&gt;Kanto execution:&lt;/strong&gt;&lt;/a&gt; components (and application) are deployed and running in a Kanto control plane&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
+&lt;h3 id=&#34;local-execution&#34;&gt;Local execution&lt;/h3&gt;
 &lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the provided task &lt;code&gt;Local Runtime - Run VehicleApp&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally via&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  pytest ./app/tests/integration
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or using the testing tab in the sidebar to the left.&lt;/p&gt;
+&lt;h3 id=&#34;kanto-runtime&#34;&gt;Kanto runtime&lt;/h3&gt;
+&lt;p&gt;First, make sure that the runtime and the services are up and running, like described &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The application itself can be deployed by executing the provided task &lt;code&gt;Kanto Runtime - Deploy VehicleApp&lt;/code&gt; or &lt;code&gt;Kanto Runtime - Deploy VehicleApp (without rebuild)&lt;/code&gt;. Depending on whether your app is already available as a container or not.&lt;/p&gt;
 &lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally via&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  pytest ./app/tests/integration
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or using the testing tab in the sidebar to the left.&lt;/p&gt;
@@ -2624,6 +2659,64 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
     </item>
     
     <item>
+      <title>Docs: Kanto Runtime</title>
+      <link>/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime/</link>
+      <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
+      
+      <guid>/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Besides starting the vehicle runtime components &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime&#34;&gt;locally&lt;/a&gt; and in &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;Kubernetes&lt;/a&gt;, another way is to deploy them as containers using &lt;a href=&#34;https://eclipse.dev/kanto/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kanto&lt;/a&gt; as a container runtime. To start the runtime, we provide VS Code &lt;em&gt;Tasks&lt;/em&gt;, a feature of Visual Studio Code. Additional information on tasks can be found &lt;a href=&#34;https://code.visualstudio.com/docs/editor/tasks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Quick Start:&lt;/strong&gt; Each step has a task that is defined in &lt;code&gt;/.vscode/tasks.json&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Core tasks (dependent on each other in the given order):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Kanto - Runtime Up&lt;/code&gt;: Starts up the Kanto runtime and deploys the runtime components.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Kanto - Build VehicleApp&lt;/code&gt;: Builds the &lt;em&gt;VehicleApp&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Kanto - Deploy VehicleApp&lt;/code&gt;: Deploys the &lt;em&gt;VehicleApp&lt;/em&gt; as container in the Kanto runtime.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Optional helper tasks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Kanto - Deploy VehicleApp (without rebuild)&lt;/code&gt;: Deploys the &lt;em&gt;VehicleApp&lt;/em&gt; as container in the Kanto runtime but does not build it upfront. That requires, that the task &lt;code&gt;Kanto - Build VehicleApp&lt;/code&gt; has been executed once before.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Kanto - Runtime Down&lt;/code&gt;: Stops the Kanto runtime and all deployed containers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Run as Bundle:&lt;/strong&gt; To orchestrate these tasks, you can use the task &lt;code&gt;Kanto - Deploy VehicleApp&lt;/code&gt;. This task runs the other tasks in the correct order. You can run this task by clicking &lt;code&gt;F1&lt;/code&gt; and choose &lt;code&gt;Tasks: Run task&lt;/code&gt;, then select &lt;code&gt;Kanto - Deploy VehicleApp&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tasks Management:&lt;/strong&gt; Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&amp;hellip; You can access them by pressing F1 and typing &lt;code&gt;task&lt;/code&gt;. A list with available task commands will appear.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Logging:&lt;/strong&gt; Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task. More detailed logs can be found inside your workspace&amp;rsquo;s logs directory &lt;code&gt;./logs/*&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;kantui&#34;&gt;KantUI&lt;/h2&gt;
+&lt;p&gt;The Leda team developed a tool to easily work with Kanto. It is similar to &lt;a href=&#34;https://k9scli.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;K9S&lt;/a&gt; for Kubernetes. You can find more details about KantUI in the &lt;a href=&#34;https://eclipse-leda.github.io/leda/docs/general-usage/utilities/kantui/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation of Leda&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In the devcontainer KantUI is already installed and it can be started via:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo kantui
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After starting the Kanto runtime with the mentioned tasks above, you will directly see all the running containers in KantUI. Now you could also take a look at the logs, delete or stop single containers. After you deployed your application to Kanto, this container will also show up and can be handled with KantUI.&lt;/p&gt;
+&lt;h2 id=&#34;mounting-folders-for-feedercan&#34;&gt;Mounting folders for FeederCAN&lt;/h2&gt;
+&lt;p&gt;Some applications (e.g. FeederCAN) might make it necessary to load custom files from a mounted volume.
+All the files that are located in &lt;code&gt;[./config/feedercan](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main/config/feedercan)&lt;/code&gt; will be automatically mounted into the container. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-kanto/src/runtime/deployment/feedercan.json&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;runtime-kanto/src/runtime/deployment/feedercan.json&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;uploading-custom-candump-file-to-feedercan&#34;&gt;Uploading custom candump file to FeederCAN&lt;/h3&gt;
+&lt;p&gt;FeederCAN requires a candump file. A pre-defined candump file is already part of our delivery, however, if necessary, there is an option to upload a custom file by:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Creating/updating candump file with the name &lt;code&gt;candumpDefault.log&lt;/code&gt; in &lt;code&gt;./config/feedercan&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Restarting Kanto (execute the tasks &lt;code&gt;Kanto - Runtime Down&lt;/code&gt; and &lt;code&gt;Kanto - Runtime Up&lt;/code&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;More information about FeederCan can be found &lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;Start runtime services in Kubernetes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart.md&#34;&gt;Quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Kubernetes Runtime</title>
       <link>/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/</link>
       <pubDate>Mon, 09 May 2022 13:43:25 +0530</pubDate>
@@ -2662,7 +2755,7 @@ The app port is configurable as &lt;code&gt;vehicleAppPort&lt;/code&gt; inside y
 All the files that are located in &lt;code&gt;[./config/feedercan](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main/config/feedercan)&lt;/code&gt; will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/runtime/deployment/config/helm/templates/persistentVolume.yaml&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;runtime-k3d/src/runtime/deployment/config/helm/templates/persistentVolume.yaml&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Changes in &lt;code&gt;./config/feedercan&lt;/code&gt; are automatically reflected in PersistentVolume.&lt;/p&gt;
 &lt;h3 id=&#34;uploading-custom-candump-file-to-feedercan&#34;&gt;Uploading custom candump file to FeederCAN&lt;/h3&gt;
-&lt;p&gt;FeederCAN requires candump file. Pre-defined candump file is part of docker container release, however, if necessary, there is an option to upload the custom file by:&lt;/p&gt;
+&lt;p&gt;FeederCAN requires a candump file. A pre-defined candump file is already part of our delivery, however, if necessary, there is an option to upload a custom file by:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Creating/updating candump file with the name &lt;code&gt;candumpDefault.log&lt;/code&gt; in &lt;code&gt;./config/feedercan&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Recreating the feedercan pod: &lt;code&gt;kubectl delete pods -l app=feedercan&lt;/code&gt;&lt;/li&gt;
@@ -2670,10 +2763,11 @@ All the files that are located in &lt;code&gt;[./config/feedercan](https://githu
 &lt;p&gt;More information about FeederCan can be found &lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart.md&#34;&gt;Quickstart&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model&#34;&gt;Deployment Model&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Concept: &lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime&#34;&gt;Start runtime services locally&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime&#34;&gt;Deploy a &lt;em&gt;Vehicle App&lt;/em&gt; with Kanto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart.md&#34;&gt;Quickstart&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Tutorial: &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_deployment/helm_deployment.md&#34;&gt;Deploy a Python &lt;em&gt;Vehicle App&lt;/em&gt; with Helm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

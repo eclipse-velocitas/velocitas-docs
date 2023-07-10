@@ -614,11 +614,18 @@ In the previous sections, you generally saw how to use &lt;code&gt;Vehicle Model
 &lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime/&#34;&gt;&lt;strong&gt;Local execution:&lt;/strong&gt;&lt;/a&gt; components are running locally in the development environment&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/&#34;&gt;&lt;strong&gt;Kubernetes execution:&lt;/strong&gt;&lt;/a&gt; components (and application) are deployed and running in a Kubernetes control plane (e.g., K3D)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/&#34;&gt;&lt;strong&gt;Kubernetes execution:&lt;/strong&gt;&lt;/a&gt; components (and application) are deployed and running in a Kubernetes control plane (e.g. K3D)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime/&#34;&gt;&lt;strong&gt;Kanto execution:&lt;/strong&gt;&lt;/a&gt; components (and application) are deployed and running in a Kanto control plane&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;local-execution&#34;&gt;Local Execution&lt;/h3&gt;
+&lt;h3 id=&#34;local-execution&#34;&gt;Local execution&lt;/h3&gt;
 &lt;p&gt;First, make sure that the runtime services are configured and running like described &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The application itself can be executed by using a Visual Studio Launch Config (by pressing &lt;kbd&gt;F5&lt;/kbd&gt;) or by executing the provided task &lt;code&gt;Local Runtime - Run VehicleApp&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally via&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  pytest ./app/tests/integration
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or using the testing tab in the sidebar to the left.&lt;/p&gt;
+&lt;h3 id=&#34;kanto-runtime&#34;&gt;Kanto runtime&lt;/h3&gt;
+&lt;p&gt;First, make sure that the runtime and the services are up and running, like described &lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The application itself can be deployed by executing the provided task &lt;code&gt;Kanto Runtime - Deploy VehicleApp&lt;/code&gt; or &lt;code&gt;Kanto Runtime - Deploy VehicleApp (without rebuild)&lt;/code&gt;. Depending on whether your app is already available as a container or not.&lt;/p&gt;
 &lt;p&gt;When the runtime services and the application are running, integration tests can be executed locally via&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  pytest ./app/tests/integration
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or using the testing tab in the sidebar to the left.&lt;/p&gt;
