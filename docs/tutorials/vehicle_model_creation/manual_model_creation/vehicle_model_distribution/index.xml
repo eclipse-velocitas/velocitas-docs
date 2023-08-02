@@ -24,7 +24,7 @@
         
         
         &lt;p&gt;Now that you have created your own Vehicle Model, we can distribute it to make use of it in &lt;em&gt;Vehicle Apps&lt;/em&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;copying-the-folder-to-your-_vehicle-app_-repo&#34;&gt;Copying the folder to your &lt;em&gt;Vehicle App&lt;/em&gt; repo&lt;/h2&gt;
+&lt;h2 id=&#34;copying-the-folder-to-your-vehicle-app-repo&#34;&gt;Copying the folder to your Vehicle App repo&lt;/h2&gt;
 &lt;p&gt;The easiest way to get started quickly is to copy the created model, presumably stored in &lt;code&gt;vehicle_model&lt;/code&gt; into your &lt;em&gt;Vehicle App&lt;/em&gt; repository to use it. To do so, simply copy and paste the directory into the &lt;code&gt;&amp;lt;sdk_root&amp;gt;/app&lt;/code&gt; directory and replace the existing model.&lt;/p&gt;
 &lt;h2 id=&#34;using-a-git-submodule&#34;&gt;Using a git submodule&lt;/h2&gt;
 &lt;p&gt;A similar approach to the one above but a bit more difficult to set up is to create a git repository for the created model. The advantage of this approach is that you can share the same model between multiple &lt;em&gt;Vehicle Apps&lt;/em&gt; without any manual effort.&lt;/p&gt;
@@ -51,7 +51,7 @@
         
         
         &lt;p&gt;Now you a have a Python package containing your first Python &lt;em&gt;Vehicle Model&lt;/em&gt; and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the &lt;a href=&#34;https://packaging.python.org/en/latest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python Packaging User Guide&lt;/a&gt; to learn more about packaging and package distribution in Python.&lt;/p&gt;
-&lt;h2 id=&#34;distribute-to-single-_vehicle-app_&#34;&gt;Distribute to single &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;distribute-to-single-vehicle-app&#34;&gt;Distribute to single Vehicle App&lt;/h2&gt;
 &lt;p&gt;If you want to distribute your Python &lt;em&gt;Vehicle Model&lt;/em&gt; to a single &lt;em&gt;Vehicle App&lt;/em&gt;, you can do so by copying the entire folder &lt;code&gt;my_vehicle_model&lt;/code&gt; under the &lt;code&gt;/app/src&lt;/code&gt; folder of your &lt;em&gt;Vehicle App&lt;/em&gt; repository and treat it as a sub-package of the &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Create a new folder &lt;code&gt;my_vehicle_model&lt;/code&gt; under &lt;code&gt;/app/src&lt;/code&gt; in your &lt;em&gt;Vehicle App&lt;/em&gt; repository.&lt;/li&gt;

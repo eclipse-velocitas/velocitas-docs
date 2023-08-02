@@ -91,7 +91,7 @@ Successfully installed my-vehicle-model-0.1
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;add-vehicle-models-manually&#34;&gt;Add Vehicle Models manually&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Install the Python &lt;em&gt;Vehicle App&lt;/em&gt; SDK:&lt;/p&gt;
+&lt;p&gt;Install the Python Vehicle App SDK:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The output of the above command should end with:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Successfully installed sdv-x.y.z
@@ -185,7 +185,7 @@ Successfully installed my-vehicle-model-0.1
 &lt;p&gt;The root model of the &lt;em&gt;Vehicle Model&lt;/em&gt; tree should be called &lt;em&gt;Vehicle&lt;/em&gt; by convention and is specified, by setting parent to &lt;code&gt;None&lt;/code&gt;. For all other models a parent model must be specified as the 2nd argument of the &lt;code&gt;Model&lt;/code&gt; constructor, as can be seen by the &lt;code&gt;Cabin&lt;/code&gt; and the &lt;code&gt;Seat&lt;/code&gt; models above.&lt;/p&gt;
 &lt;p&gt;A singleton instance of the &lt;em&gt;Vehicle Model&lt;/em&gt; called &lt;code&gt;vehicle&lt;/code&gt; is created at the end of the file. This instance is supposed to be used in the &lt;em&gt;Vehicle Apps&lt;/em&gt;. Creating multiple instances of the &lt;em&gt;Vehicle Model&lt;/em&gt; should be avoided for performance reasons.&lt;/p&gt;
 &lt;h3 id=&#34;add-a-vehicle-service&#34;&gt;Add a Vehicle Service&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;Vehicle Services&lt;/em&gt; provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. &lt;em&gt;Vehicle Services&lt;/em&gt; may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by &lt;em&gt;Vehicle Apps&lt;/em&gt; over a &lt;em&gt;Vehicle Model&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Vehicle Services&lt;/em&gt; provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. &lt;em&gt;Vehicle Services&lt;/em&gt; may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by &lt;em&gt;Vehicle Apps&lt;/em&gt; over a &lt;em&gt;Vehicle Model&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;In this section, we add a &lt;em&gt;Vehicle Service&lt;/em&gt; to the &lt;em&gt;Vehicle Model&lt;/em&gt;.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -193,16 +193,16 @@ Successfully installed my-vehicle-model-0.1
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Copy your proto file under &lt;code&gt;my_vehicle_model/my_vehicle_model/proto&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;As example you could use the protocol buffers message definition &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seats.proto&lt;/a&gt; provided by the KUKSA.VAL services which describes a &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat control service&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As example you could use the protocol buffers message definition &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seats.proto&lt;/a&gt; provided by the KUKSA VAL services which describes a &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat control service&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Install the grpcio tools including mypy types to generate the Python classes out of the proto-file:&lt;/p&gt;
+&lt;p&gt;Install the grpcio tools including mypy types to generate the python classes out of the proto-file:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pip3 install grpcio-tools mypy_protobuf
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Generate Python classes from the &lt;code&gt;SeatService&lt;/code&gt; message definition:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;python3 -m grpc_tools.protoc -I my_vehicle_model/proto --grpc_python_out&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;./my_vehicle_model/proto --python_out&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;./my_vehicle_model/proto --mypy_out&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;./my_vehicle_model/proto my_vehicle_model/proto/seats.proto
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This creates the following gRPC files under the &lt;code&gt;proto&lt;/code&gt; folder:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This creates the following grpc files under the &lt;code&gt;proto&lt;/code&gt; folder:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;seats_pb2.py&lt;/li&gt;
 &lt;li&gt;seats_pb2_grpc.py&lt;/li&gt;
@@ -261,7 +261,7 @@ Successfully installed my-vehicle-model-0.1
 shown above:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;The &lt;code&gt;SeatService&lt;/code&gt; class must derive from the &lt;code&gt;Service&lt;/code&gt; class provided by the Python SDK.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;SeatService&lt;/code&gt; class must use the gRPC channel from the &lt;code&gt;Service&lt;/code&gt; base class and provide it to the &lt;code&gt;_stub&lt;/code&gt; in the &lt;code&gt;__init__&lt;/code&gt; method. This allows the SDK to manage the physical connection to the gRPC service and use service discovery of the middleware.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;SeatService&lt;/code&gt; class must use the grpc channel from the &lt;code&gt;Service&lt;/code&gt; base class and provide it to the &lt;code&gt;_stub&lt;/code&gt; in the &lt;code&gt;__init__&lt;/code&gt; method. This allows the SDK to manage the physical connection to the grpc service and use service discovery of the middleware.&lt;/li&gt;
 &lt;li&gt;Every method needs to pass the metadata from the &lt;code&gt;Service&lt;/code&gt; base class to the gRPC call. This is done by passing the &lt;code&gt;self.metadata&lt;/code&gt; argument to the metadata of the gRPC call.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
