@@ -38,11 +38,11 @@ Furthermore, we want to extend Velocitas to not only be the toolchain for Vehicl
 
 To support configurability on which services and APIs shall be used, we need to rework the way a Vehicle App project is created. At the moment it is very static and supports only our provided Vehicle Model (generated from a user-defined VSS source file).
 
-Therefore we need a flexible and interactive selection of services/APIs upon project creation. This can be achieved by:
+Therefore we need a flexible and interactive selection of services/APIs upon project creation. This can be achieved either by:
 
-1. a Github workflow with parameters
-2. a whole new tool which handles project creation
-3. a new CLI command to bootstrap a project
+1. a Github workflow with parameters,
+2. a whole new tool which handles project creation, or
+3. a new CLI command to bootstrap a project.
 
 Firstly, a Github workflow has a fixed number of parameters and cannot be interactive.
 
