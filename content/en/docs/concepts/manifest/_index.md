@@ -11,7 +11,7 @@ description: >
 ## Versions
 
 * v1
-* v2
+* [v2](concepts/development_model/vehicle_app_manifest/)
 * **v3 (latest)**
 
 ## Version 3
@@ -32,7 +32,7 @@ Furthermore, we want to extend Velocitas to not only be the toolchain for Vehicl
 * COVESA Vehicle Service Catalogue can be integrated
 * ... other 3rd party APIs can be integrated
 * Velocitas allows creation of vehicle apps and services
-* VSS models shall still be usable without any additional setup
+* VSS models shall still be usable with minor modification
 
 ### Change 1: Adaption of project creation flow
 
@@ -62,13 +62,13 @@ Therefore, we have settled on introducing a new CLI command since it already han
 
 #### Resulting Velocitas CLI and Velocitas Package changes
 
-* `velocitas create` command shall be introduced
+* `velocitas create` command shall be introduced [see concept here](concepts/lifecycle_management/create)
   * it will guide through the project creation process, allowing the developer to add APIs and services at creation time which will reference the correct Velocitas CLI packages (either provided by Velocitas or by a 3rd party).
   * in addition to an interactive mode where create is invoked without arguments, there shall be a CLI mode where all of the arguments shall be passable as arguments
 
 * Packages need to be available in a central registry (i.e. a new git repository) otherwise step 3 (depicted below) is not possible.
 
-* Packages need to expose which dependency kinds they are providing in their manifest. For each dependency kind a human readable name for the kind shall be exposed.
+* Packages need to expose which dependency types they are providing in their manifest. For each dependency type a human readable name for the type shall be exposed.
 
 *Interaction mockup:*
 
@@ -95,7 +95,7 @@ MyApp
 > 4. Add an API dependency (y/n)?
 y
 
-> 5. What kind of dependency?
+> 5. What type of dependency?
 [x] gRPC-IF
 [ ] VSC-IF
 
@@ -172,7 +172,7 @@ graph LR
 
 * To weaken the dependency to VSS, the `vehicleModel` attribute shall be removed and the content shall be moved to a newly introduced dependency type `vehicle-model`.
 
-* Dependencies to services and other APIs shall be declared as dependency with a kind identifier which allows the corresponding generators to pick them up and create SDK extensions out of the information (which may either be a URI to a service IF or an archive).
+* Dependencies to services and other APIs shall be declared as dependency with a type identifier which allows the corresponding generators to pick them up and create SDK extensions out of the information (which may either be a URI to a service IF or an archive).
 
 #### Structure
 
@@ -187,10 +187,10 @@ graph TD
 
     dependency(RequiredInterface)
     requires -- "0..n" --> dependency
-    dependency --> dep.kind{kind}
-    dep.kind -- "vehicle-model" --> vehicleModel[config]
-    dep.kind -- "grpc-interface" --> grpcinterface[config]
-    dep.kind -- "vsc-interface" --> vscInterface[config]
+    dependency --> dep.type{type}
+    dep.type -- "vehicle-model" --> vehicleModel[config]
+    dep.type -- "grpc-interface" --> grpcinterface[config]
+    dep.type -- "vsc-interface" --> vscInterface[config]
 
     vehicleModel --> vm.src[src]
     vehicleModel --> vm.backend[backend]
@@ -205,12 +205,12 @@ graph TD
     vscInterface --> vscInterface.src[src]
 
     provides -- "0..n" --> provides.item(ProvidedInterface)
-    provides.item --> provides.item.kind{kind}
-    provides.item.kind -- "grpc-interface" --> provides.item.kind.grpc[config]
-    provides.item.kind.grpc --> provides.item.kind.grpc.src[src]
+    provides.item --> provides.item.type{type}
+    provides.item.type -- "grpc-interface" --> provides.item.type.grpc[config]
+    provides.item.type.grpc --> provides.item.type.grpc.src[src]
 
-    provides.item.kind -- "feature" --> provides.item.kind.feature[config]
-    provides.item.kind.feature --> provides.item.kind.feature.identifier[identifier]
+    provides.item.type -- "feature" --> provides.item.type.feature[config]
+    provides.item.type.feature --> provides.item.type.feature.identifier[identifier]
 
 ```
 
@@ -220,7 +220,7 @@ graph TD
   "name": "SampleApp",
   "requires": [
     {
-        "kind": "vehicle-model",
+        "type": "vehicle-model",
         "config": {
             "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json",
             "datapoints": [
@@ -229,38 +229,34 @@ graph TD
                     "required": "true",
                     "access": "read"
                 }
-            ],
-            "backend": "kuksa.databroker"
+            ]
         }
     },
     {
-        "kind": "grpc-interface",
+        "type": "grpc-interface",
         "config": {
             "src": "https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto"
         } 
     },
     {
-        "kind": "grpc-archive",
+        "type": "grpc-archive",
         "config": {
             "src": "https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/generated.tar.gz"
         } 
     },
     {
-        "kind": "urpc-interface",
+        "type": "urpc-interface",
         "config": {
             "src": "https://raw.githubusercontent.com/eclipse-uprotocol/uprotocol-core-api/main/src/main/proto/core/usubscription/v2/usubscription.proto"
         }
     },
     {
-        "kind": "pubsub",
-        "config": {
-            "backend": "mqtt"
-        }
+        "type": "pubsub"
     }
   ],
   "provides": [
     {
-        "kind": "feature",
+        "type": "feature",
         "config": {
             "identifier": "SPEEDOMETER"
         }
@@ -288,13 +284,13 @@ The table lists all fields of the manifest file:
 {{<table "table table-bordered">}}
 | Name | Type | Example | Description |
 |------|------|---------|-------------|
-| `kind` | `string` | `grpc-interface`, `vehicle-model` | Identifies what kind of dependency is being described by this entry. |
-| `config` | `Dictionary` |  | A dictionary of key-value pairs configuring the dependency kind.
+| `type` | `string` | `grpc-interface`, `vehicle-model` | Identifies what type of dependency is being described by this entry. |
+| `config` | `Dictionary` |  | A dictionary of key-value pairs configuring the dependency type.
 {{</table>}}
 
 ---
 
-#### RequiredInterface::kind="vehicle-model"::config
+#### RequiredInterface::type="vehicle-model"::config
 
 {{<table "table table-bordered">}}
 | Name | Type | Example | Description |
@@ -305,7 +301,7 @@ The table lists all fields of the manifest file:
 
 ---
 
-#### RequiredInterface::kind="grpc-interface"::config
+#### RequiredInterface::type="grpc-interface"::config
 
 {{<table "table table-bordered">}}
 | Name | Type | Example | Description |
@@ -313,7 +309,7 @@ The table lists all fields of the manifest file:
 | `src` | `string` | `https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto` | URI of the protobuf file from which to generate a service client SDK.
 {{</table>}}
 
-#### ProvidedInterface::kind="grpc-interface"::config
+#### ProvidedInterface::type="grpc-interface"::config
 
 {{<table "table table-bordered">}}
 | Name | Type | Example | Description |
@@ -321,7 +317,7 @@ The table lists all fields of the manifest file:
 | `src` | `string` | `https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto` | URI of the protobuf file which is provided by the service.
 {{</table>}}
 
-#### ProvidedInterface::kind="feature"::config
+#### ProvidedInterface::type="feature"::config (exemplary)
 
 {{<table "table table-bordered">}}
 | Name | Type | Example | Description |
