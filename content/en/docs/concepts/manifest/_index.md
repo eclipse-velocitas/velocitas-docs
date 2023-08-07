@@ -180,7 +180,7 @@ graph LR
 
 graph TD
     manifest(manifest.json)
-    manifest --> syntax[syntax]
+    manifest --> manifestVersion[manifestVersion]
     manifest --> name[name]
     manifest --> requires[requires]
     manifest --> provides[provides]
@@ -216,7 +216,7 @@ graph TD
 
 ```json
 {
-  "syntax": "v3",
+  "manifestVersion": "v3",
   "name": "SampleApp",
   "requires": [
     {
@@ -272,7 +272,7 @@ The table lists all fields of the manifest file:
 {{<table "table table-bordered">}}
 | Name | Type | Example | Description |
 |------|------|---------|-------------|
-| `syntax` | `string` | `v3` | Syntax version of the manifest file. |
+| `manifestVersion` | `string` | `v3` | Version of the manifest file. |
 | `name` | `string` | `SampleApp` | Name of the application or service
 | `dependencies` | `list[Dependency]` |  | list of all dependencies of the application |
 {{</table>}}
