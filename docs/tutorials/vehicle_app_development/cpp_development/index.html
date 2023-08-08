@@ -1,0 +1,906 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
+<link rel="stylesheet" type="text/css" href="/velocitas-docs/css/overwrite.css" />
+<script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
+
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5WLCZXC');
+</script>
+
+
+<meta name="generator" content="Hugo 0.110.0">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/velocitas-docs/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/velocitas-docs/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
+
+<title>C&#43;&#43; Vehicle App Development | Velocitas</title>
+<meta name="description" content="Learn how to develop and test a _Vehicle App_ using C&#43;&#43;.
+">
+<meta property="og:title" content="C&#43;&#43; Vehicle App Development" />
+<meta property="og:description" content="Learn how to develop and test a _Vehicle App_ using C&#43;&#43;.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/velocitas-docs/docs/tutorials/vehicle_app_development/cpp_development/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
+<meta property="article:modified_time" content="2023-08-07T13:09:15+02:00" />
+<meta itemprop="name" content="C&#43;&#43; Vehicle App Development">
+<meta itemprop="description" content="Learn how to develop and test a _Vehicle App_ using C&#43;&#43;.
+"><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
+<meta itemprop="dateModified" content="2023-08-07T13:09:15+02:00" />
+<meta itemprop="wordCount" content="1862">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="C&#43;&#43; Vehicle App Development"/>
+<meta name="twitter:description" content="Learn how to develop and test a _Vehicle App_ using C&#43;&#43;.
+"/>
+
+
+
+
+<link rel="preload" href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" as="style">
+<link href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" rel="stylesheet" integrity="">
+
+<script
+  src=/velocitas-docs/js/jquery-3.6.0.min.js
+  integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK"
+  crossorigin="anonymous"></script>
+<script defer
+  src="/velocitas-docs/js/lunr-2.3.9.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-page">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/velocitas-docs/"><span class="navbar-brand__logo navbar-logo"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="180mm" height="40mm" style="clip-rule:evenodd;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision" viewBox="0 0 7086.6144 1574.8032" id="svg983" sodipodi:docname="logo.svg" inkscape:version="1.0 (4035a4f, 2020-05-01)"><sodipodi:namedview inkscape:document-rotation="0" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="1920" inkscape:window-height="1080" id="namedview985" showgrid="false" showguides="false" units="mm" inkscape:zoom=".69602273" inkscape:cx="408" inkscape:cy="528" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="Layer_x0020_1"/><defs id="defs967"><style id="style956">.fil5{fill:#24b2e4}.fil4{fill:#2e95c9}.fil3{fill:#2477b6}.fil2{fill:#2c5aa0}.fil1{fill:#364b95}.fil0{fill:url(#id0);fill-rule:nonzero}</style><linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="3149.4299" y1="5635.5898" x2="7771.9399" y2="5635.5898"><stop offset="0" style="stop-opacity:1;stop-color:#2B6FB5" id="stop958"/><stop offset=".870588" style="stop-opacity:1;stop-color:#7DC5ED" id="stop960"/><stop offset=".988235" style="stop-opacity:1;stop-color:#7DC5ED" id="stop962"/><stop offset="1" style="stop-opacity:1;stop-color:#7DC5ED" id="stop964"/></linearGradient></defs><g id="Layer_x0020_1" transform="matrix(0.98370981,0,0,0.98370981,-626.40511,-4616.899)"><path class="fil0" d="m3395.11 6027.9h147.19l246.79-709.92h-116.2l-203.63 611.98-205.28-611.98h-114.54l245.68 709.92zm968.32-244.57v0-170.98c0-99.6-76.36-154.37-183.7-154.37h-131.69c-107.35.0-183.7 54.78-183.7 154.37v261.17c0 99.6 76.36 154.38 183.7 154.38h315.39v-82.44h-353.02c-28.22.0-37.63-18.26-37.63-47.59v-114.54zm-108.45-83v0h-282.2v-112.88c0-22.13 9.41-47.03 37.63-47.03h206.94c28.22.0 37.63 24.9 37.63 47.03zm258.95 327.57v0h108.45v-784.62h-108.45zm760.83-415.55v0c0-99.6-65.29-154.37-171.53-154.37h-158.81c-106.24.0-172.09 54.78-172.09 154.37v261.17c0 99.6 65.85 154.38 172.09 154.38h158.81c106.24.0 171.53-54.78 171.53-154.38zm-393.97 275.01v0-288.84c0-42.06 12.17-58.1 48.69-58.1h188.69c36.52.0 48.14 16.04 48.14 58.1v288.84c0 41.5-11.62 58.1-48.14 58.1h-188.69c-36.52.0-48.69-16.6-48.69-58.1zm631.35.0v0-288.84c0-42.06 11.62-58.1 48.14-58.1h272.79v-82.44h-256.19c-107.35.0-173.19 54.78-173.19 154.37v261.17c0 99.6 65.85 154.38 173.19 154.38h256.19v-82.44h-272.79c-36.52.0-48.14-16.6-48.14-58.1zm460.93 140.54v0h107.9v-569.93h-107.9zM5962 5362.25v0h130.03V5243.28H5962zm621.94 178.17v0-82.44h-168.76v-139.99h-76.36l-32.09 139.99h-85.77v82.44h85.77v332c0 96.28 54.78 155.48 180.39 155.48h96.83v-82.44h-120.63c-41.5.0-48.14-21.58-48.14-61.42v-343.61h168.76zm107.35 333.1v0c0 99.6 65.3 154.38 172.64 154.38h33.2c83.56.0 143.87-2.21 169.87-65.29v65.29h107.35v-415.55c0-99.6-76.36-154.37-183.71-154.37h-241.8v82.44h280.54c27.67.0 37.63 18.26 37.63 47.03v95.72h-203.07c-107.35.0-172.64 54.78-172.64 154.93v35.41zm108.45 13.83v0-63.63c0-39.29 10.52-55.89 42.61-57.55H7067v141.65c-3.32 26.56-13.28 37.63-43.16 37.63h-175.96c-36.52.0-48.14-16.6-48.14-58.1zm863.75 27.67v0c0 22.69-11.62 30.43-48.14 30.43H7324.3v82.44h275c107.35.0 172.64-54.78 172.64-154.38v-40.94c0-68.61-47.03-90.19-146.63-113.99-80.78-19.37-101.26-26.56-203.07-51.46v-96.83c0-22.13 11.62-29.88 48.14-29.88h282.2v-82.44h-266.15c-107.34.0-172.64 54.78-172.64 154.37v37.63c0 64.19 43.71 89.08 132.8 109.56 106.8 24.9 151.61 36.52 216.91 50.35v105.13z" id="path970" style="fill:url(#id0)"/><path class="fil1" d="m728.06 5018.07c722.09-309.86 1087.3 423.3 1320.24 889.75 88.54 177.62 156.59 313.19 195.88 317.61 67.5 8.3 132.24-294.37 240.7-1228.94l85.77 7.19C2455 5996.35 2361.49 6315.07 2233.12 6300.13 2145.14 6289.62 2069.33 6137.45 1969.73 5937.7c-219.12-438.78-562.74-1127.13-1203.49-852.12z" id="path972"/><path class="fil2" d="m900.14 4963.85c686.68-298.8 1022 350.81 1244.44 781.3 87.43 168.77 155.49 301.01 202.52 309.31 74.7 12.17 156.04-257.3 299.35-1107.76l85.22 10.51c-153.28 909.67-266.15 1193.53-400.61 1170.84-90.74-15.49-167.11-163.23-265.04-352.47C1857.97 5373.32 1544.78 4766.86 938.89 5030.8l-38.73-66.95z" id="path974"/><path class="fil3" d="m1056.18 4905.75c651.27-287.18 957.26 282.2 1168.63 675.61 85.21 158.25 153.27 285.52 207.5 298.24 82.45 18.81 180.94-216.35 359.11-986.03l84.66 14.39c-192.56 828.88-324.8 1076.78-465.35 1044.13-93.51-21.58-169.32-163.23-263.94-339.19-195.88-364.64-479.74-892.52-1051.88-640.2z" id="path976"/><path class="fil4" d="m1238.22 4844.88c616.96-276.66 894.18 216.35 1094.49 572.7 80.79 144.42 148.29 263.94 209.16 282.75 90.19 28.22 205.29-171.53 421.09-863.74l83.55 19.37c-234.61 751.97-386.78 961.13-533.96 915.2-93.51-29.33-167.66-161.57-257.3-320.93-183.71-327.57-438.79-780.75-977.74-538.39l-39.29-66.95z" id="path978"/><path class="fil5" d="m1406.99 4784.02c583.76-266.7 832.76 153.83 1020.89 471.99 75.25 127.27 139.99 236.83 205.28 263.38 99.05 40.94 231.85-120.07 489.15-740.91l80.79 25.45c-281.65 680.59-453.73 847.15-607 783.51-91.3-37.63-162.13-157.7-244.57-297.13-171.54-289.39-397.85-671.74-904.7-439.9l-39.84-66.4z" id="path980"/></g></svg></span><span class="navbar-brand__name">Velocitas</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link active" href="/velocitas-docs/docs/"><span class="active">Documentation</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="/velocitas-docs/community/"><span>Community</span></a>
+      </li>
+      <li class="nav-item mr-4 mb-2 mb-lg-0">
+        <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.8b8870cd8d245a673955285badaab274.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.8b8870cd8d245a673955285badaab274.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitas-docsdocs-li">
+  <a href="/velocitas-docs/docs/" title="Velocitas" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-velocitas-docsdocs"><span class="">Documentation</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsabout-li">
+  <input type="checkbox" id="m-velocitas-docsdocsabout-check"/>
+  <label for="m-velocitas-docsdocsabout-check"><a href="/velocitas-docs/docs/about/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsabout"><span class="">About Velocitas</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsaboutuse_cases-li">
+  <input type="checkbox" id="m-velocitas-docsdocsaboutuse_cases-check"/>
+  <label for="m-velocitas-docsdocsaboutuse_cases-check"><a href="/velocitas-docs/docs/about/use_cases/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsaboutuse_cases"><span class="">Use Cases</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsaboutuse_casesseat_adjuster-li">
+  <input type="checkbox" id="m-velocitas-docsdocsaboutuse_casesseat_adjuster-check"/>
+  <label for="m-velocitas-docsdocsaboutuse_casesseat_adjuster-check"><a href="/velocitas-docs/docs/about/use_cases/seat_adjuster/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsaboutuse_casesseat_adjuster"><span class="">Seat Adjuster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsaboutuse_casesdog_mode-li">
+  <input type="checkbox" id="m-velocitas-docsdocsaboutuse_casesdog_mode-check"/>
+  <label for="m-velocitas-docsdocsaboutuse_casesdog_mode-check"><a href="/velocitas-docs/docs/about/use_cases/dog_mode/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsaboutuse_casesdog_mode"><span class="">Dog Mode</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsaboutrepository-overview-li">
+  <input type="checkbox" id="m-velocitas-docsdocsaboutrepository-overview-check"/>
+  <label for="m-velocitas-docsdocsaboutrepository-overview-check"><a href="/velocitas-docs/docs/about/repository-overview/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsaboutrepository-overview"><span class="">Repository Overview</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsconcepts-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconcepts-check"/>
+  <label for="m-velocitas-docsdocsconcepts-check"><a href="/velocitas-docs/docs/concepts/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconcepts"><span class="">Concepts</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsconceptsdevelopment_model-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_model-check"/>
+  <label for="m-velocitas-docsdocsconceptsdevelopment_model-check"><a href="/velocitas-docs/docs/concepts/development_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_model"><span class="">Development Model</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_sdk-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_sdk-check"/>
+  <label for="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_sdk-check"><a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_sdk"><span class="">Vehicle App SDK</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsdevelopment_modelval-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_modelval-check"/>
+  <label for="m-velocitas-docsdocsconceptsdevelopment_modelval-check"><a href="/velocitas-docs/docs/concepts/development_model/val/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_modelval"><span class="">Vehicle Abstraction Layer (VAL)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-check"/>
+  <label for="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest-check"><a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_manifest/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdevelopment_modelvehicle_app_manifest"><span class="">Vehicle App Manifest</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsconceptsdeployment_model-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptsdeployment_model-check"/>
+  <label for="m-velocitas-docsdocsconceptsdeployment_model-check"><a href="/velocitas-docs/docs/concepts/deployment_model/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdeployment_model"><span class="">Deployment Model</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsdeployment_modelvehicle_app_releases-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptsdeployment_modelvehicle_app_releases-check"/>
+  <label for="m-velocitas-docsdocsconceptsdeployment_modelvehicle_app_releases-check"><a href="/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsdeployment_modelvehicle_app_releases"><span class="">Build and Release Process</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptsmanifest-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptsmanifest-check"/>
+  <label for="m-velocitas-docsdocsconceptsmanifest-check"><a href="/velocitas-docs/docs/concepts/manifest/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptsmanifest"><span class="">Application Manifest</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsconceptslifecycle_management-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptslifecycle_management-check"/>
+  <label for="m-velocitas-docsdocsconceptslifecycle_management-check"><a href="/velocitas-docs/docs/concepts/lifecycle_management/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptslifecycle_management"><span class="">Lifecycle Management</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptslifecycle_managementproject_configuration-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptslifecycle_managementproject_configuration-check"/>
+  <label for="m-velocitas-docsdocsconceptslifecycle_managementproject_configuration-check"><a href="/velocitas-docs/docs/concepts/lifecycle_management/project_configuration/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsconceptslifecycle_managementproject_configuration"><span class="">Project Configuration</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocsconceptslifecycle_managementpackages-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptslifecycle_managementpackages-check"/>
+  <label for="m-velocitas-docsdocsconceptslifecycle_managementpackages-check"><a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocsconceptslifecycle_managementpackages"><span class="">Packages</span></a></label>
+  
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptslifecycle_managementpackagesusage-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptslifecycle_managementpackagesusage-check"/>
+  <label for="m-velocitas-docsdocsconceptslifecycle_managementpackagesusage-check"><a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/usage/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsconceptslifecycle_managementpackagesusage"><span class="">Usage</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptslifecycle_managementpackagesdevelopment-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptslifecycle_managementpackagesdevelopment-check"/>
+  <label for="m-velocitas-docsdocsconceptslifecycle_managementpackagesdevelopment-check"><a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/development/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsconceptslifecycle_managementpackagesdevelopment"><span class="">Development</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptslifecycle_managementvelocitas_cli-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptslifecycle_managementvelocitas_cli-check"/>
+  <label for="m-velocitas-docsdocsconceptslifecycle_managementvelocitas_cli-check"><a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas_cli/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsconceptslifecycle_managementvelocitas_cli"><span class="">Velocitas CLI</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptslifecycle_managementtroubleshooting-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptslifecycle_managementtroubleshooting-check"/>
+  <label for="m-velocitas-docsdocsconceptslifecycle_managementtroubleshooting-check"><a href="/velocitas-docs/docs/concepts/lifecycle_management/troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsconceptslifecycle_managementtroubleshooting"><span class="">Troubleshooting</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptslifecycle_managementcreate-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptslifecycle_managementcreate-check"/>
+  <label for="m-velocitas-docsdocsconceptslifecycle_managementcreate-check"><a href="/velocitas-docs/docs/concepts/lifecycle_management/create/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsconceptslifecycle_managementcreate"><span class="">Create</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocsconceptslogging-li">
+  <input type="checkbox" id="m-velocitas-docsdocsconceptslogging-check"/>
+  <label for="m-velocitas-docsdocsconceptslogging-check"><a href="/velocitas-docs/docs/concepts/logging/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocsconceptslogging"><span class="">Logging guidelines</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitas-docsdocstutorials-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorials-check" checked/>
+  <label for="m-velocitas-docsdocstutorials-check"><a href="/velocitas-docs/docs/tutorials/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorials"><span class="">Tutorials</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsquickstart-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsquickstart-check"/>
+  <label for="m-velocitas-docsdocstutorialsquickstart-check"><a href="/velocitas-docs/docs/tutorials/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsquickstart"><span class="">Getting Started</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsquickstartquickstart-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsquickstartquickstart-check"/>
+  <label for="m-velocitas-docsdocstutorialsquickstartquickstart-check"><a href="/velocitas-docs/docs/tutorials/quickstart/quickstart/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsquickstartquickstart"><span class="">Quickstart</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsquickstartimport_examples-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsquickstartimport_examples-check"/>
+  <label for="m-velocitas-docsdocstutorialsquickstartimport_examples-check"><a href="/velocitas-docs/docs/tutorials/quickstart/import_examples/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsquickstartimport_examples"><span class="">Import examples</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsquickstartcontainer_runtime-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsquickstartcontainer_runtime-check"/>
+  <label for="m-velocitas-docsdocstutorialsquickstartcontainer_runtime-check"><a href="/velocitas-docs/docs/tutorials/quickstart/container_runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsquickstartcontainer_runtime"><span class="">Install a working container runtime</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsquickstartbehind_proxy-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsquickstartbehind_proxy-check"/>
+  <label for="m-velocitas-docsdocstutorialsquickstartbehind_proxy-check"><a href="/velocitas-docs/docs/tutorials/quickstart/behind_proxy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsquickstartbehind_proxy"><span class="">Working behind proxy</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsprototyping-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsprototyping-check"/>
+  <label for="m-velocitas-docsdocstutorialsprototyping-check"><a href="/velocitas-docs/docs/tutorials/prototyping/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsprototyping"><span class="">Prototyping</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"/>
+  <label for="m-velocitas-docsdocstutorialsprototypingdigital_auto-check"><a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingdigital_auto"><span class="">digital.auto</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsprototypingservice_integration-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsprototypingservice_integration-check"/>
+  <label for="m-velocitas-docsdocstutorialsprototypingservice_integration-check"><a href="/velocitas-docs/docs/tutorials/prototyping/service_integration/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsprototypingservice_integration"><span class="">Service Integration</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitas-docsdocstutorialsvehicle_app_development-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_development-check" checked/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_development-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_development/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsvehicle_app_development"><span class="">Vehicle App Development</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_app_developmentpython_development-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_developmentpython_development-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_developmentpython_development-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_development/python_development/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_app_developmentpython_development"><span class="">Python Vehicle App Development</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-velocitas-docsdocstutorialsvehicle_app_developmentcpp_development-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_developmentcpp_development-check" checked/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_developmentcpp_development-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_development/cpp_development/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_app_developmentcpp_development"><span class="td-sidebar-nav-active-item">C&#43;&#43; Vehicle App Development</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_app_developmentintegration_tests-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_developmentintegration_tests-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_developmentintegration_tests-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_development/integration_tests/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_app_developmentintegration_tests"><span class="">Vehicle App Integration Testing</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsvehicle_model_creation-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_model_creation-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_model_creation-check"><a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsvehicle_model_creation"><span class="">Vehicle Model Creation</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_model_creationautomated_model_lifecycle-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_model_creationautomated_model_lifecycle-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_model_creationautomated_model_lifecycle-check"><a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/automated_model_lifecycle/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsvehicle_model_creationautomated_model_lifecycle"><span class="">Automated Vehicle Model Lifecycle</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creation-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creation-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creation-check"><a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creation"><span class="">Manual Vehicle Model Creation</span></a></label>
+  
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationmanual_creation_cpp-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationmanual_creation_cpp-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationmanual_creation_cpp-check"><a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_cpp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationmanual_creation_cpp"><span class="">C&#43;&#43; Manual Vehicle Model Creation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationmanual_creation_python-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationmanual_creation_python-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationmanual_creation_python-check"><a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationmanual_creation_python"><span class="">Python Manual Vehicle Model Creation</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distribution-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distribution-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distribution-check"><a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/vehicle_model_distribution/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distribution"><span class="">Vehicle Model Distribution</span></a></label>
+  
+  <ul class="ul-5 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distributiondistribution_cpp-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distributiondistribution_cpp-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distributiondistribution_cpp-check"><a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/vehicle_model_distribution/distribution_cpp/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distributiondistribution_cpp"><span class="">C&#43;&#43; Vehicle Model Distribution</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distributiondistribution_python-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distributiondistribution_python-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distributiondistribution_python-check"><a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/vehicle_model_distribution/distribution_python/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_model_creationmanual_model_creationvehicle_model_distributiondistribution_python"><span class="">Python Vehicle Model Distribution</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsvehicle_app_runtime-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_runtime-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_runtime-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsvehicle_app_runtime"><span class="">Vehicle App Runtime</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_app_runtimelocal_runtime-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_runtimelocal_runtime-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_runtimelocal_runtime-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/local_runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_app_runtimelocal_runtime"><span class="">Local Runtime</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_app_runtimekanto_runtime-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_runtimekanto_runtime-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_runtimekanto_runtime-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/kanto_runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_app_runtimekanto_runtime"><span class="">Kanto Runtime</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_app_runtimekubernetes_runtime-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_runtimekubernetes_runtime-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_runtimekubernetes_runtime-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_app_runtimekubernetes_runtime"><span class="">Kubernetes Runtime</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitas-docsdocstutorialsvehicle_app_deployment-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_deployment-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_deployment-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocstutorialsvehicle_app_deployment"><span class="">Vehicle App Deployment</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_app_deploymentpodspecs_deployment-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_deploymentpodspecs_deployment-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_deploymentpodspecs_deployment-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_deployment/podspecs_deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_app_deploymentpodspecs_deployment"><span class="">PodSpecs Deployment</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocstutorialsvehicle_app_deploymenthelm_deployment-li">
+  <input type="checkbox" id="m-velocitas-docsdocstutorialsvehicle_app_deploymenthelm_deployment-check"/>
+  <label for="m-velocitas-docsdocstutorialsvehicle_app_deploymenthelm_deployment-check"><a href="/velocitas-docs/docs/tutorials/vehicle_app_deployment/helm_deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitas-docsdocstutorialsvehicle_app_deploymenthelm_deployment"><span class="">Helm Deployment</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitas-docsdocscontribution-guidelines-li">
+  <input type="checkbox" id="m-velocitas-docsdocscontribution-guidelines-check"/>
+  <label for="m-velocitas-docsdocscontribution-guidelines-check"><a href="/velocitas-docs/docs/contribution-guidelines/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitas-docsdocscontribution-guidelines"><span class="">Contribution Guidelines</span></a></label>
+  
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/eclipse-velocitas/velocitas-docs/tree/main/content/en/docs/tutorials/vehicle_app_development/cpp_development.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/edit/main/content/en/docs/tutorials/vehicle_app_development/cpp_development.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/new/main/content/en/docs/tutorials/vehicle_app_development/cpp_development.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/eclipse-velocitas/velocitas-docs/issues/new?title=C&#43;&#43;%20Vehicle%20App%20Development" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/eclipse-velocitas/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
+  <a id="print" href="/velocitas-docs/docs/tutorials/vehicle_app_development/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#develop-your-first-_vehicle-app_">Develop your first <em>Vehicle App</em></a></li>
+    <li><a href="#setting-up-the-basic-skeleton-of-your-app">Setting up the basic skeleton of your app</a>
+      <ul>
+        <li><a href="#manage-your-includes">Manage your includes</a></li>
+        <li><a href="#initialize-your-class">Initialize your class</a></li>
+        <li><a href="#entry-point-of-your-app">Entry point of your app</a></li>
+      </ul>
+    </li>
+    <li><a href="#vehicle-model-access">Vehicle Model Access</a></li>
+    <li><a href="#subscription-to-datapoints">Subscription to DataPoints</a></li>
+    <li><a href="#services">Services</a>
+      <ul>
+        <li><a href="#mqtt">MQTT</a></li>
+      </ul>
+    </li>
+    <li><a href="#see-the-results">See the results</a>
+      <ul>
+        <li><a href="#build-your-app">Build your App</a></li>
+        <li><a href="#run-your-app">Run your App</a></li>
+        <li><a href="#debug-your-_vehicle-app_">Debug your <em>Vehicle App</em></a></li>
+      </ul>
+    </li>
+    <li><a href="#next-steps">Next steps</a></li>
+  </ul>
+</nav>
+      </div>
+    
+            
+
+	
+		
+			
+				
+			
+			
+
+
+
+  
+  
+
+		
+			
+				
+			
+			
+
+
+
+  
+  
+
+		
+	
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/velocitas-docs/docs/">Documentation</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/velocitas-docs/docs/tutorials/">Tutorials</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="/velocitas-docs/docs/tutorials/vehicle_app_development/">Vehicle App Development</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="/velocitas-docs/docs/tutorials/vehicle_app_development/cpp_development/" aria-disabled="true" class="btn-link disabled">C&#43;&#43; Vehicle App Development</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>C&#43;&#43; Vehicle App Development</h1>
+	<div class="lead">Learn how to develop and test a <em>Vehicle App</em> using C++.</div>
+	<header class="article-meta">
+		
+
+  
+    
+      
+
+
+    
+      
+
+
+    
+  
+
+		
+	</header>    
+	<blockquote>
+<p>We recommend that you make yourself familiar with the <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk"><em>Vehicle App</em> SDK</a> first, before going through this tutorial.</p>
+</blockquote>
+<p>The following information describes how to develop and test the sample <em>Vehicle App</em> that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">C++ template repository</a>. You will learn how to use the <em>Vehicle App</em> C++ SDK and how to interact with the Vehicle Model.</p>
+<p>Once you have completed all steps, you will have a solid understanding of the development workflow and you will be able to reuse the template repository for your own <em>Vehicle App</em> development project.</p>
+<h2 id="develop-your-first-_vehicle-app_">Develop your first <em>Vehicle App</em></h2>
+<p>This section describes how to develop your first <em>Vehicle App</em>. Before you start building a new <em>Vehicle App</em>, make sure you have already read this manual:</p>
+<ul>
+<li><a href="/velocitas-docs/docs/tutorials/quickstart.md">Quickstart</a></li>
+</ul>
+<p>For this tutorial, you will recreate the <em>Vehicle App</em> that is included in the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template" target="_blank" rel="noopener">template repository</a>:
+The <em>Vehicle App</em> allows you to change the position of the driver&rsquo;s seat in the car and also provides its current positions to other applications.
+A detailed explanation of the use case and the example is available <a href="/velocitas-docs/docs/about/use_cases/seat_adjuster.md">here</a>.</p>
+<h2 id="setting-up-the-basic-skeleton-of-your-app">Setting up the basic skeleton of your app</h2>
+<p>At first, you have to create the main C++ file which we will call <code>App.cpp</code> in <code>/app/src</code>. All the relevant code for your new <em>Vehicle App</em> goes there. Afterwards, there are several steps you need to consider when developing the app:</p>
+<ol>
+<li><a href="#manage-your-includes">Manage your includes</a></li>
+<li><a href="#initialize-your-class">Initialize your class</a></li>
+<li><a href="#entry-point-of-your-app">Define the entry point of your app</a></li>
+</ol>
+<h3 id="manage-your-includes">Manage your includes</h3>
+<p>Before you start development in the <code>App.cpp</code> you just created, it will be necessary to include all required header files, which you will understand better later through the development:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/VehicleApp.h&#34;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/IPubSubClient.h&#34;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/IVehicleDataBrokerClient.h&#34;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/Logger.h&#34;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;vehicle/Vehicle.hpp&#34;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;memory&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">velocitas</span><span style="color:#000;font-weight:bold">;</span>
+</span></span></code></pre></div><h3 id="initialize-your-class">Initialize your class</h3>
+<p>The main class of your new <em>Vehicle App</em> needs to inherit the <code>VehicleApp</code> provided by the <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk" target="_blank" rel="noopener">C++ SDK</a>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">MyVehicleApp</span> <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">public</span> <span style="color:#000">VehicleApp</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// &lt;remaining code in this tutorial goes here&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">private</span><span style="color:#ce5c00;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Vehicle</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">// this member exists to provide simple access to the vehicle model
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>In your constructor, you have to choose which implementations to use for the VehicleDataBrokerClient and the PubSubClient. By default we suggest you use the factory methods to generate the default implementations: <code>IVehicleDataBrokerClient::createInstance</code> and <code>IPubSubClient::createInstance</code>. These will create a VehicleDataBrokerClient which connects to the VAL via gRPC and an MQTT-based pub-sub client.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#000">MyVehicleApp</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">IVehicleDataBrokerClient</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">createInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#8f5902;font-style:italic">// this is the dapr-app-id of the KUKSA Databroker in the VAL.
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>                 <span style="color:#000">IPubSubClient</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">createInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;MyVehicleApp&#34;</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#8f5902;font-style:italic">// the clientId identifies the client at the pub/sub broker
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000;font-weight:bold">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{}</span>
+</span></span></code></pre></div>
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    <p>The middleware abstraction of the C++ SDK is incomplete: Pub/sub abstraction is just supporting MQTT (but no Dapr pub/sub), currently.</p>
+<p>The URI of the MQTT broker is by default <code>localhost:1883</code> and can be set to another address via the environment variable <code>SDV_MQTT_ADDRESS</code> (beginning with C++ SDK v0.3.3) or <code>MQTT_BROKER_URI</code> (SDKs before v0.3.3).</p>
+
+
+</div>
+
+<p>Now, you have initialized the app and can continue developing relevant methods.</p>
+<h3 id="entry-point-of-your-app">Entry point of your app</h3>
+<p>Here&rsquo;s an example of an entry point to the <code>MyVehicleApp</code> that we just developed:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">**</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">MyVehicleApp</span> <span style="color:#000">app</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">app</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>With this your app can now be started. In order to provide some meaningful behaviour of the app, we will enhance it with more features in the next sections.</p>
+<h2 id="vehicle-model-access">Vehicle Model Access</h2>
+<p>In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check the <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">tutorial about creating models</a> for more details. In this section, the focus is on using the model.</p>
+<p>The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model in the folder <code>app/vehicle_model/include/</code>. This folder is already configured as &ldquo;include folder&rdquo; of the CMake tooling. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.</p>
+<p>If you want to access a single <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk/#datapoint">DataPoint</a> e.g. for the vehicle speed, this can be done via</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeedBlocking</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onResult</span><span style="color:#000;font-weight:bold">([](</span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeed</span><span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Got speed!&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">})</span>
+</span></span></code></pre></div><p><code>getDataPoint()</code> returns a <code>shared_ptr</code> to an <code>AsyncResult</code> which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use <code>await()</code> and block the calling thread until a result is available or use <code>onResult(...)</code> which allows us to inject a function pointer or a lambda which is called once the result is available.</p>
+<p>If you want to get deeper inside to the vehicle, to access a single seat for example, you just have to go the model-chain down:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">driverSeatPosition</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
+</span></span></code></pre></div><h2 id="subscription-to-datapoints">Subscription to DataPoints</h2>
+<p>If you want to get notified about changes of a specific <code>DataPoint</code>, you can subscribe to this event, e.g. as part of the <code>onStart()</code> method in your app:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onStart</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">subscribeDataPoints</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">QueryBuilder</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">select</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">build</span><span style="color:#000;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">forward</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">decltype</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">));</span> <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onError</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">status</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">onError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">forward</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">decltype</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">status</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">status</span><span style="color:#000;font-weight:bold">));</span> <span style="color:#000;font-weight:bold">});</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DataPointsResult</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">dataPoint</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">dataPoint</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// do something with the data point value
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>The <code>VehicleApp</code> class provides the <code>subscribeDataPoints()</code> method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via <code>AsyncSubscription::onItem()</code> is called. Conversely, the callback registered via <code>AsyncSubscription::onError()</code> is called once there is any error during communication with the KUKSA data broker.</p>
+<p>The result passed to the callback registered via <code>onItem()</code> is an object of type <code>DataPointsResult</code> which holds all data points that have changed. Individual data points can be accessed directly by their reference: <code>result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)</code>)</p>
+<h2 id="services">Services</h2>
+<p>Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service">here</a>.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    Services are not supported by our <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a> for the time being. If you need access to services please read <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation">here</a> how you can create a model and add services to it manually.
+
+</div>
+
+<p>The following code snippet shows how to use the <code>moveComponent()</code> method of the <code>SeatService</code> from the vehicle model:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">cabin</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatService</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatLocation</span> <span style="color:#000">location</span><span style="color:#000;font-weight:bold">{</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">};</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">SeatService</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">moveComponent</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">location</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">cabin</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatService</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Component</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Base</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">300</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
+</span></span></code></pre></div><p>In order to define which seat you like to move, you have to pass a <code>SeatLocation</code> object as the first parameter. The second argument specifies the component of the seat to be moved. The possible components are defined in the proto-files. The last parameter to be passed into the method is the final position of the component.</p>
+<blockquote>
+<p>Make sure to call the <code>await()</code> method when calling service methods or register a callback via <code>onResult()</code> otherwise you don&rsquo;t know when your asynchronous call will finish.</p>
+</blockquote>
+<h3 id="mqtt">MQTT</h3>
+<p>Interaction with other <em>Vehicle Apps</em> or with the cloud is enabled by using the Mosquitto MQTT Broker. When using the provided template repository you can start a MQTT Broker as part the local runtime. More information can be found <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/local_runtime">here</a>.</p>
+<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart.md">quickstart section</a> about the <em>Vehicle App</em>, you already tested sending MQTT messages to the app.
+In the previous sections, you generally saw how to use <code>Vehicle Models</code>, <code>DataPoints</code> and <code>GRPC Services</code>. In this section, you will learn how to combine them with MQTT.</p>
+<p>In order to receive and process MQTT messages inside your app, simply use the <code>VehicleApp::subscribeTopic(&lt;topic&gt;)</code> method provided by the SDK:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onStart</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">subscribeTopic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onItem</span><span style="color:#000;font-weight:bold">([</span><span style="color:#204a87;font-weight:bold">this</span><span style="color:#000;font-weight:bold">](</span><span style="color:#204a87;font-weight:bold">auto</span><span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">){</span> <span style="color:#000">onSetPositionRequestReceived</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">forward</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">decltype</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">);)});</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onSetPositionRequestReceived</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">jsonData</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">nlohmann</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">parse</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">responseTopic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/setPosition/response&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">nlohmann</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">json</span> <span style="color:#000">respData</span><span style="color:#000;font-weight:bold">({{</span><span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">jsonData</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">]},</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{}}});</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>The <code>onSetPositionRequestReceived</code> method will now be invoked every time a message is created on the subscribed topic <code>seatadjuster/setPosition/response</code>. The message data is provided as a string parameter. In the example above the data is parsed to json (<code>data = json.loads(data_str)</code>).</p>
+<p>In order to publish data to other subscribers, the SDK provides the appropriate convenience method: <code>VehicleApp::publishToTopic(...)</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">MyVehicleApp</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">onSeatPositionChanged</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">const</span> <span style="color:#000">DataPointsResult</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">responseTopic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">nlohmann</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">json</span> <span style="color:#000">respData</span><span style="color:#000;font-weight:bold">({</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">()});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">publishToTopic</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">responseTopic</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">respData</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">dump</span><span style="color:#000;font-weight:bold">(),</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">);</span>
+</span></span></code></pre></div><p>The above example illustrates how one can easily publish messages. In this case, every time the seat position changes, the new position is published to <code>seatadjuster/currentPosition</code></p>
+<h2 id="see-the-results">See the results</h2>
+<p>Once the implementation is done, it is time to run and debug the app.</p>
+<h3 id="build-your-app">Build your App</h3>
+<p>Before you can run the <em>Vehicle App</em> you need to build it first. To do so, simply run the provided <code>build.sh</code> script found in the root of the SDK. It does accept some arguments, but that is out of scope for this tutorial.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    If this is your first time building, you might have to run <code>install_dependencies.sh</code> first.
+
+</div>
+
+<h3 id="run-your-app">Run your App</h3>
+<p>In order to run the app make sure the <code>devenv-runtimes</code> package is part of your <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> (which should be the default) and the runtime is up and running. Read more about it in the <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/local_runtime">run runtime services</a> section.</p>
+<p>Now chose one of the options to start the VehicleApp under development (including Dapr sidecar):</p>
+<ol>
+<li>Press <kbd>F5</kbd></li>
+</ol>
+<p>or:</p>
+<ol>
+<li>Press <kbd>F1</kbd></li>
+<li>Select command <code>Tasks: Run Task</code></li>
+<li>Select <code>Local Runtime - Run VehicleApp</code></li>
+</ol>
+<h3 id="debug-your-_vehicle-app_">Debug your <em>Vehicle App</em></h3>
+<p>In the <a href="/velocitas-docs/docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_">introduction about debugging</a>, you saw how to start a debugging session. In this section, you will learn what is happening in the background.</p>
+<p>The debug session launch settings are already prepared for the <code>VehicleApp</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;configurations&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VehicleApp - Debug (dapr run)&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;cppdbg&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;request&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;launch&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;program&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}/build/bin/app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;args&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;stopAtEntry&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;cwd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;environment&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DAPR_HTTP_PORT&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;3500&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;50001&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VEHICLEDATABROKER_DAPR_APP_ID&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;externalConsole&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;MIMode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;gdb&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;setupCommands&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;preLaunchTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;postDebugTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>We specify which binary to run using the <code>program</code> key. In the <code>environment</code> you can specify all needed environment variables. With the <code>preLaunchTask</code> and <code>postDebugTask</code> keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;velocitas exec runtime-local run-dapr-sidecar vehicleapp --dapr-grpc-port 50001 --dapr-http-port 3500&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;isBackground&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;dapr stop --app-id vehicleapp&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another <em>Vehicle App</em>.</p>
+<p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your <em>Vehicle App</em>.</p>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/deployment_model">Deployment Model</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Deploy runtime services in Kubernetes</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/local_runtime">Start runtime services locally</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation">Creating a Vehicle Model</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development/integration_tests">Develop and run integration tests for a Vehicle App</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a <em>Vehicle App</em> with Helm</a></li>
+</ul>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">
+  Last modified August 7, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/b318049aba6dcdc993276edf1e5c778da9a0f7fa">Rename syntax to manifestVersion (b318049)</a>
+</div>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Eclipse Velocitas Project" aria-label="Eclipse Velocitas Project">
+    <a class="text-white" target="_blank" rel="noopener" href="https://projects.eclipse.org/projects/automotive.velocitas" aria-label="Eclipse Velocitas Project">
+      <i class="fas fa-external-link-alt"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Developer mailing list" aria-label="Developer mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://accounts.eclipse.org/mailing-list/velocitas-dev" aria-label="Developer mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Gitter" aria-label="Gitter">
+    <a class="text-white" target="_blank" rel="noopener" href="https://app.gitter.im/#/room/#eclipse-velocitas_community:gitter.im" aria-label="Gitter">
+      <i class="fab fa-gitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener" href="https://twitter.com/velocitas_sdv" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/eclipse-velocitas" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Developer Meeting(s)" aria-label="Developer Meeting(s)">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/eclipse-velocitas/velocitas-docs/wiki/Developer-Meetup%28s%29" aria-label="Developer Meeting(s)">
+      <i class="fa-solid fa-users"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org">
+        Eclipse Foundation
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/privacy.php">
+        Privacy Policy
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/termsofuse.php">
+        Terms of Use
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/copyright.php">
+        Copyright Agent
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/">
+        Legal
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/legal/epl-2.0/">
+        License
+      </a>
+    </small>
+  </li>
+  
+  <li class="list-inline-item mx-2">
+    <small class="ml-1">
+      <a class="text-footer-menu" target="_blank" rel="noopener" href="https://eclipse.org/security/">
+        Report a Vulnerability
+      </a>
+    </small>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/velocitas-docs/js/main.min.2aff983e9d0d8ecff9ed53e14b657216e2d8d2aff059bf4a5651283020995f1b.js" integrity="sha256-Kv&#43;YPp0Njs/57VPhS2VyFuLY0q/wWb9KVlEoMCCZXxs=" crossorigin="anonymous"></script>
+<script src='/velocitas-docs/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

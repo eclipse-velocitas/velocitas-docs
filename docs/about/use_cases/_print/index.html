@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.12c6fc1a37a04c356b29a05493683b15.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.8b8870cd8d245a673955285badaab274.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -178,9 +178,9 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p><em>Velocitas</em> offers a scalable and modular development toolchain for creating containerized Vehicle Applications that offers a easy to use, fast and efficient development experience to increase the velocity of your development team.</p>
-<p>This Vehicle Apps are implemented on top of a Vehicle Model (which is generated from the underlying semantic models like VSS for a concrete programming language) and its underlying language-specific SDK to provide headless comfort functions or connected application functions like Seat Adjuster, Dog Mode, Trunk Delivery or Data Logging &amp; triggering.</p>
-<p><img src="./use_case.drawio.svg" alt=""></p>
+      <p><em>Velocitas</em> offers a scalable and modular development toolchain for creating containerized <em>Vehicle Apps</em> that offers an easy to use, fast and efficient development experience to increase the velocity of your development team.</p>
+<p><em>Vehicle Apps</em> are implemented on top of a <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/">Vehicle Model</a> (which is generated from the underlying semantic models like VSS for a concrete programming language) and its underlying language-specific SDK to provide headless comfort functions or connected application functions like Seat Adjuster, Dog Mode, Trunk Delivery or Data Logging &amp; triggering.</p>
+<p><img src="./use_case.drawio.svg" alt="use_case"></p>
 <h2 id="examples">Examples</h2>
 
 </div>
@@ -205,39 +205,62 @@ This is the multi-page printable view of this section.
     
 	<h1 id="pg-14994cdfceb19b97cd58870a0d746743">1 - Seat Adjuster</h1>
     <div class="lead">Provides option to request a new seat position and to publish the current seat position</div>
-	<p>Imagine a car sharing company that wants to offer its customers the functionality that the driver seat automatically moves to the right position, when the driver enters the rented car. The car sharing company knows the driver and has stored the preferred seat position of the driver in its driver profile. The car gets unlocked by the driver and a request for the preferred seat position of the driver will be sent to the vehicle. That&rsquo;s where your implementation starts.</p>
-<p>The <em>Seat Adjuster Vehicle App</em> receives the seat position as an MQTT message and triggers a seat adjustment command of the <em>Seat Service</em> that changes the seat position. Of course, the driver of a rented car would like the position, that he may have set himself, to be saved by the car sharing company and used for the next trip. As a result, the <em>Seat Adjuster Vehicle App</em> subscribes to the seat position and receives the new seat position from the <em>Data Broker</em> that streams the data from the <em>Seat Service</em>.</p>
+	<p>In the scenario of a car sharing company, the goal is to provide the functionality of automatically adjusting the driver&rsquo;s seat position based on their preferred settings stored in their profile. When the driver unlocks the car, a request is sent to the vehicle to retrieve the preferred seat position. This is where your implementation begins.</p>
+<p>The <em>Seat Adjuster Vehicle App</em> receives a MQTT message containing the seat position, which then triggers a seat adjustment command through the <em>Seat Service</em> to change the seat position. Additionally, to ensure convenience for future trips, the car sharing company saves the driver&rsquo;s preferred seat position and utilizes it accordingly. <em>The Seat Adjuster Vehicle App</em> subscribes to the seat position, receiving updates from the <em>Data Broker</em>, which streams data from the <em>Seat Service</em>.</p>
 <h2 id="requesting-new-seat-position">Requesting new seat position</h2>
-<p><img src="./seat_adjuster_dataflow_1.png" alt=""></p>
+<p><img src="./seat_adjuster_dataflow_1.png" alt="seat_adjuster_dataflow_1"></p>
 <ol>
-<li>The <strong>Customer</strong> requests the change of the seat position as MQTT message on the topic <code>seatadjuster/setPosition/request</code> with the payload:
+<li>
+<p>The <strong>Customer</strong> requests the change of the seat position as MQTT message on the topic <code>seatadjuster/setPosition/request</code> with the payload:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">42</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">300</span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
-<li>The <strong>Seat Adjuster Vehicle App</strong> that has subscribed to this topic, receives the request to change the seat position as a MQTT message.</li>
-<li>The <strong>Seat Adjuster Vehicle App</strong> gets the current vehicle speed from the data broker, which is fed by the <strong>CAN Feeder (KUKSA DBC Feeder)</strong>.</li>
-<li>With the support of the <strong>Vehicle App SDK</strong>, the <strong>Seat Adjuster Vehicle App</strong> triggers a seat adjustment command of the <strong>Seat Service</strong> via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.</li>
-<li>The <strong>Seat Service</strong> moves the seat to the new position via CAN messages.</li>
-<li>The <strong>Seat Service</strong> returns OK or an error code as grpc status to the <strong>Seat Adjuster Vehicle App</strong>.</li>
-<li>If everything went well, the <strong>Seat Adjuster Vehicle App</strong> returns a success message for the topic <code>seatadjuster/setPosition/response</code> with the payload:
+<li>
+<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> that has subscribed to this topic, receives the request to change the seat position as a MQTT message.</p>
+</li>
+<li>
+<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> gets the current vehicle speed from the data broker, which is fed by the <strong>CAN Feeder (KUKSA DBC Feeder)</strong>.</p>
+</li>
+<li>
+<p>With the support of the <strong><em>Vehicle App</em> SDK</strong>, the <strong>Seat Adjuster <em>Vehicle App</em></strong> triggers a seat adjustment command of the <strong>Seat Service</strong> via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.</p>
+</li>
+<li>
+<p>The <strong>Seat Service</strong> moves the seat to the new position via CAN messages.</p>
+</li>
+<li>
+<p>The <strong>Seat Service</strong> returns OK or an error code as gRPC status to the <strong>Seat Adjuster <em>Vehicle App</em></strong>.</p>
+</li>
+<li>
+<p>If everything went well, the <strong>Seat Adjuster <em>Vehicle App</em></strong> returns a success message for the topic <code>seatadjuster/setPosition/response</code> with the payload:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">42</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div>Otherwise, an error message will be returned:
+</span></span></code></pre></div><p>Otherwise, an error message will be returned:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">42</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;status&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;error message&gt;&#34;</span> <span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
-<li>This success or error message will be returned to the <strong>Customer</strong>.</li>
+<li>
+<p>This success or error message will be returned to the <strong>Customer</strong>.</p>
+</li>
 </ol>
 <h2 id="publishing-current-seat-position">Publishing current seat position</h2>
-<p><img src="./seat_adjuster_dataflow_2.png" alt=""></p>
+<p><img src="./seat_adjuster_dataflow_2.png" alt="seat_adjuster_dataflow_2"></p>
 <ol>
-<li>If the seat position will be changed by the driver, the new seat position will be sent to the <strong>Seat Service</strong> via CAN.</li>
-<li>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>KUKSA Data Broker</strong> since it was registered beforehand.</li>
-<li>The <strong>Seat Adjuster Vehicle App</strong> that subscribed to the seat position receives the new seat position from the <strong>KUKSA Data Broker</strong> as a result.</li>
-<li>The <strong>Seat Adjuster Vehicle App</strong> publishes this on topic <code>seatadjuster/currentPosition</code> with the payload:
+<li>
+<p>If the seat position will be changed by the driver, the new seat position will be sent to the <strong>Seat Service</strong> via CAN.</p>
+</li>
+<li>
+<p>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>KUKSA Data Broker</strong> since it was registered beforehand.</p>
+</li>
+<li>
+<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> that subscribed to the seat position receives the new seat position from the <strong>KUKSA Data Broker</strong> as a result.</p>
+</li>
+<li>
+<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> publishes this on topic <code>seatadjuster/currentPosition</code> with the payload:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">350</span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div></li>
-<li>The <strong>Customer</strong> who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.</li>
+<li>
+<p>The <strong>Customer</strong> who has subscribed to this topic retrieves the new seat position and can store this position to use it for the next trip.</p>
+</li>
 </ol>
 <h2 id="example-code">Example Code</h2>
-<p>You can find an example implementation of a Seat Adjuster vehicle application here:
+<p>You can find an example implementation of a Seat Adjuster <em>Vehicle App</em> here:
 <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener">Seat Adjuster</a></p>
 
 </div>
@@ -268,15 +291,15 @@ This is the multi-page printable view of this section.
     
 	<h1 id="pg-002a30bd5a7d4198c7cde65320af1a5f">2 - Dog Mode</h1>
     <div class="lead">Climate control app that allows drivers to leave their vehicles while keeping the air conditioning system of the vehicle active for their pets.</div>
-	<p>The Dog Mode Vehicle App consists of the following key features:</p>
+	<p>The Dog Mode <em>Vehicle App</em> consists of the following key features:</p>
 <ul>
 <li>Request the vehicle&rsquo;s Heating, Ventilation, and Air Conditioning (HVAC) service to turn the Air Conditioning (AC) ON/OFF</li>
 <li>The driver can adjust the temperature for a specific degree</li>
-<li>The Vehicle App observe the current temperature and the battery&rsquo;s state of charge and react accordingly</li>
+<li>The <em>Vehicle App</em> observe the current temperature and the battery&rsquo;s state of charge and react accordingly</li>
 <li>The driver/owner will be notified whenever the state of the charge drops below a certain value</li>
 </ul>
 <h2 id="example-code">Example Code</h2>
-<p>You can find an example implementation of a dog mode vehicle application here:
+<p>You can find an example implementation of a dog mode <em>Vehicle App</em> here:
 <a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/dog-mode" target="_blank" rel="noopener">Dog Mode</a></p>
 
 </div>

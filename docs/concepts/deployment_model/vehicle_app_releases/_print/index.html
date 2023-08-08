@@ -34,18 +34,18 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Build and Release Process | Velocitas</title>
-<meta name="description" content="Learn more about the provided continuous integration, and release process of a Vehicle App.
+<meta name="description" content="Learn more about the provided continuous integration, and release process of a _Vehicle App_.
 ">
 <meta property="og:title" content="Build and Release Process" />
-<meta property="og:description" content="Learn more about the provided continuous integration, and release process of a Vehicle App.
+<meta property="og:description" content="Learn more about the provided continuous integration, and release process of a _Vehicle App_.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas-docs/docs/concepts/deployment_model/vehicle_app_releases/" />
 <meta itemprop="name" content="Build and Release Process">
-<meta itemprop="description" content="Learn more about the provided continuous integration, and release process of a Vehicle App.
+<meta itemprop="description" content="Learn more about the provided continuous integration, and release process of a _Vehicle App_.
 "><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Build and Release Process"/>
-<meta name="twitter:description" content="Learn more about the provided continuous integration, and release process of a Vehicle App.
+<meta name="twitter:description" content="Learn more about the provided continuous integration, and release process of a _Vehicle App_.
 "/>
 
 
@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.12c6fc1a37a04c356b29a05493683b15.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.8b8870cd8d245a673955285badaab274.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -122,7 +122,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Build and Release Process</h1>
-<div class="lead">Learn more about the provided continuous integration, and release process of a Vehicle App.</div>
+<div class="lead">Learn more about the provided continuous integration, and release process of a <em>Vehicle App</em>.</div>
 
 
 
@@ -140,57 +140,67 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p>The Velocitas project provides a two-stage process for development, continuous integration, and release of a new version of a Vehicle App.</p>
+      <p>The <em>Velocitas</em> project provides a two-stage process for development, continuous integration, and release of a new version of a <em>Vehicle App</em>.</p>
 <ul>
 <li>
 <p><strong>Stage 1 - Build &amp; Test</strong>
 On every new push to the <code>main</code> branch or every update to a pull request, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts for future reference with a <a href="https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization" target="_blank" rel="noopener">default retention period of 90 days</a>.</p>
-<p>The workflow provides quick feedback during development and improves efficient collaboration.</p>
+<p>The workflow provides a quick feedback during development and improves efficient collaboration.</p>
 </li>
 <li>
 <p><strong>Stage 2 - Release</strong>
 Once the application is ready to be released in a new version, a dedicated release workflow is automatically executed as soon as you create a new release via GitHub.</p>
-<p>The release workflow bundles all relevant images and artifacts into one tagged set of files and push it to the GitHub Container Registry. In addition, it makes the information ready to be used for quality assurance and documentation accordingly. The image in GitHub Container Registry can be used in your preferred  Over-The-Air (OTA) update system of your choice.</p>
+<p>The release workflow bundles all relevant images and artifacts into one tagged set of files and pushes it to the GitHub Container Registry. In addition, all the information needed for quality assurance and documentation are published as release artifacts on GitHub. The image pushed to the GitHub Container Registry can afterwards be deployed on your target system using the Over-The-Air (OTA) update system of your choice.</p>
 </li>
 </ul>
-<p>The drawing below illustrates the different workflows, actions and artifacts that are automatically created for you. Both workflows are intended as a sensible baseline and can be extended and adapted to your own project&rsquo;s needs.</p>
-<p><img src="./publish_container.png" alt="Project Overview"></p>
-<h2 id="ci-workflow-ciyml">CI Workflow (ci.yml)</h2>
+<p>The drawing below illustrates the different workflows, actions and artifacts that are automatically created for you. All workflows are intended as a sensible baseline and can be extended and adapted to the needs of your own project.</p>
+<p><img src="./publish_container.png" alt="Workflows"></p>
+<h2 id="ci-workflow-ciymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsciyml">CI Workflow (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">ci.yml</a>)</h2>
 <p>The <code>Continuous Integration (CI) workflow</code> is triggered on every commit to the main branch or when creating/updating a pull request and contains a set of actions to achieve the following objectives:</p>
 <ul>
-<li><strong>Building a container for the app</strong> - actions create a containerized version of the Vehicle App, the actions also support creating an image for multiple platforms and CPU architectures.</li>
+<li><strong>Building a container for the <em>Vehicle App</em></strong> - actions create a containerized version of the <em>Vehicle App</em>.</li>
 <li><strong>Scanning for vulnerabilities</strong> - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &ldquo;failed&rdquo;.</li>
-<li><strong>Running unit tests &amp; code coverage</strong> - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as &ldquo;failed&rdquo;.</li>
 <li><strong>Running integration tests</strong> - actions provision a runtime instance and deploy all required services as containers together with your containerized application to allow for automatically executing integration test cases. In case the test cases fail, the workflow will be marked as &ldquo;failed&rdquo;.</li>
+<li><strong>Running unit tests &amp; code coverage</strong> - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as &ldquo;failed&rdquo;.</li>
 <li><strong>Storing scan &amp; test results as GitHub action artifacts</strong> - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.</li>
-<li><strong>Storing container images to GitHub action artifacts</strong> - at the end of the workflow, the container images created are stored in a Github Action Artifacts so that they can be referenced by the release-workflow later.</li>
 </ul>
-<p>Check out the example GitHub workflows in our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">repositories for python</a></p>
-<h2 id="release-workflow-releaseyml">Release Workflow (release.yml)</h2>
-<p>The <code>Release workflow</code> is triggered as soon as the <code>main</code> branch is ready for release and the Vehicle App developer creates a new GitHub release. This can be done manually through the GitHub UI.</p>
-<p>On creating a new release with a specific new version, GitHub creates a tag and automatically runs the <code>Release workflow</code> defined in .github/workflows/release.yml, given that <code>CI workflow</code> has run successfully for the current commit on the main branch.</p>
+<p>Check out the example GitHub workflows in our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">template repository for Python</a></p>
+<h2 id="build-multi-arch-image-workflow-build-multiarch-imageymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsbuild-multiarch-imageyml">Build multi-arch image Workflow (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/build-multiarch-image.yml" target="_blank" rel="noopener">build-multiarch-image.yml</a>)</h2>
+<p>The <code>Build multi-arch image workflow</code> is triggered on every commit to the main branch and contains a set of actions to achieve the following objectives:</p>
+<ul>
+<li><strong>Building a multi-arch container for the app</strong> - actions create a containerized version of the <em>Vehicle App</em> for multiple architectures (currently AMD64 and ARM64).</li>
+<li><strong>Scanning for vulnerabilities</strong> - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &ldquo;failed&rdquo;.</li>
+<li><strong>Storing container images to GitHub action artifacts</strong> - at the end of the workflow, the container image created is stored in a Github Action Artifacts so that it can be referenced by the Release Workflow later.</li>
+<li><strong>Generate Deployment Files</strong> - actions generate a PodSpec-file and HelmCharts to ease the deployment of the <em>Vehicle App</em> and the runtime services.</li>
+</ul>
+<h2 id="release-workflow-releaseymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsreleaseyml">Release Workflow (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/release.yml" target="_blank" rel="noopener">release.yml</a>)</h2>
+<p>The <code>Release workflow</code> is triggered as soon as the <code>main</code> branch is ready for release and the <em>Vehicle App</em> developer creates a new GitHub release. This can be done manually through the GitHub UI.</p>
+<p>On creating a new release with a specific new version, GitHub creates a tag and automatically runs the <code>Release workflow</code> defined in <code>.github/workflows/release.yml</code>, given that <code>CI workflow</code> has run successfully for the current commit on the main branch.</p>
 <p>The set of actions included in the <code>Release workflow</code> cover the objective:</p>
 <ul>
 <li><strong>Generating and publishing QA information</strong> - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.</li>
-<li><strong>Pull &amp; label container image</strong> - actions pull the Vehicle App container image based on the current commit hash from the GitHub artifacts and label it with the specified tag version. If the image cannot be found, the workflow will fail.</li>
-<li><strong>Publish as GitHub pages</strong> - all information from the release together with the project&rsquo;s documentation is built as a static page using hugo. the result can be published as a GitHub page in your repository.</li>
+<li><strong>Publish as GitHub pages</strong> - all information from the release together with the project documentation is built as a static page using hugo. The result is pushed to a separate branch and can be published as a GitHub page in your repository.</li>
+<li><strong>Pull &amp; label container image</strong> - actions pull the <em>Vehicle App</em> container image based on the current commit hash from the GitHub artifacts and label it with the specified tag version. If the image cannot be found, the workflow will fail.</li>
+<li><strong>Push container image to ghcr.io</strong> - finally the labeled container image is pushed to the <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank" rel="noopener">GitHub container registry</a> and can be used as a deployment source.</li>
 </ul>
 <h2 id="github-actions-artifacts">GitHub Actions artifacts</h2>
 <p><strong>GitHub Actions artifacts</strong> are used for storing data, which is generated by the <code>CI workflow</code> and referenced by the <code>Release workflow</code>. This saves time during workflow runs because we don&rsquo;t have to create artifacts multiple times.</p>
-<p>GitHub Actions artifacts always have a retention period, which is 90 days by default. This may be configured differently in the specific GitHub organization. After this period, the QA info gets purged automatically. In this case, a re-run of the CI workflow would be required to regenerate all QA info neede for creating a released.</p>
+<p>GitHub Actions artifacts always have a retention period, which is 90 days by default. This may be configured differently in the specific GitHub organization. After this period, the QA info gets purged automatically. In this case, a re-run of the CI workflow would be required to regenerate all QA info needed for creating a release.</p>
 <h2 id="container-registry">Container Registry</h2>
-<p>The GitHub container registry is used for storing container images, which are generated by the <code>CI workflow</code> as GitHub artifacts and leveraged by the <code>Release workflow</code>.</p>
-<p>The <strong>GitHub container registry</strong> does not have an automatic cleanup and keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.</p>
+<p>The <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank" rel="noopener">GitHub container registry</a> is used for storing container images pushed by the <code>Release workflow</code>. These images can easily be used for a deployment and don&rsquo;t have a retention period.
+Since the registry does not have an automatic cleanup, it keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.</p>
 <h2 id="versioning">Versioning</h2>
-<p>Vehicle App image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of <a href="https://semver.org/" target="_blank" rel="noopener">semantic versions</a> is recommended.</p>
+<p><em>Vehicle App</em> image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of <a href="https://semver.org/" target="_blank" rel="noopener">semantic versions</a> is recommended.</p>
 <p>If the tag name contains a semantic version, the leading <code>v</code> will be trimmed.
-<strong>Example:</strong> A tag name of <code>v1.0.0</code> will lead to version <code>1.0.0</code> of the Vehicle App container.</p>
+<strong>Example:</strong> A tag name of <code>v1.0.0</code> will lead to version <code>1.0.0</code> of the <em>Vehicle App</em> container.</p>
 <h3 id="maintaining-multiple-versions">Maintaining multiple versions</h3>
-<p>If there is a need to maintain multiple versions of a Vehicle App, e.g., to hotfix the production version while working on a new version at the same time or to support multiple versions in production, create and use <code>release branches</code>.</p>
+<p>If there is a need to maintain multiple versions of a <em>Vehicle App</em>, e.g., to hotfix the production version while working on a new version at the same time or to support multiple versions in production, create and use <code>release branches</code>.</p>
 <p>The release process would be the same as described in the overview, except that a release branch (e.g., <code>release/v1.0</code>) is created before the release step and the GitHub release is based on the <code>release</code> branch rather than the <code>main</code> branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.</p>
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/tutorial_how_to_deploy_a_vehicle_app_with_helm">Deploy a Vehicle App with Helm</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development/integration_tests">How to write integration tests</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a <em>Vehicle App</em> with Helm</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_deployment/podspecs_deployment.md">Deploy a <em>Vehicle App</em> with PodSpecs</a></li>
 </ul>
 
 </div>

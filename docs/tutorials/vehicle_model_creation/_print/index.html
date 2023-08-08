@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.12c6fc1a37a04c356b29a05493683b15.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.8b8870cd8d245a673955285badaab274.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -238,7 +238,7 @@ This is the multi-page printable view of this section.
 
 </div>
 
-<p>A <em>Vehicle Model</em> makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against <em>Vehicle Services</em> and other <em>Vehicle Apps</em>. It is generated from the underlying semantic models based on the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>. The model is generated for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library providing vehicle abstraction &ldquo;on code level&rdquo;.</p>
+<p>A <em>Vehicle Model</em> makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against <em>Vehicle Services</em> and other <em>Vehicle Apps</em>. It is generated from the underlying semantic models based e.g. on the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>. The model is generated for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library providing vehicle abstraction &ldquo;on code level&rdquo;.</p>
 <p>By default our app templates now generate the vehicle model during the devContainer initialization - managed by the Velocitas life cycle management. The respective VSS-based model source is referenced in the app manifest allowing to freely choose the model being used in your project. You will find more details about this in section <a href="automated_model_lifecycle/">Automated Model Lifecycle</a>.</p>
 <p>The previous approach, using pre-generated model repositories, is deprecated as of now. But is still available and is described in section <a href="manual_model_creation/">Manual Vehicle Model Creation</a>. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.</p>
 
@@ -306,19 +306,18 @@ This is the multi-page printable view of this section.
 <div class="tab-content" id="tabs-1-content">
     <div class="tab-pane fade show active"
         id="tabs-01-00" role="tabpanel" aria-labelled-by="tabs-01-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;VehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&#34;</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;vehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&gt;&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;VehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;vehicleModel&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./my_model/my_model.json&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span></span></span></code></pre></div>
     </div>
 </div>
 
-<p>Instead of an URI you could also reference a local file containing the specification.</p>
 
 
 <div class="alert alert-primary" role="alert">
@@ -334,7 +333,7 @@ This is the multi-page printable view of this section.
 <li>through a <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/usage/#installation">onPostInit hook</a> when <code>velocitas init</code> is called:
 <ul>
 <li>either triggered manually or</li>
-<li>automatically during the instantiation of the devContainer through our <a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas lifecycle management</a>, or</li>
+<li>automatically during the instantiation of the devContainer through our <a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>, or</li>
 </ul>
 </li>
 <li>when you trigger the VS Code task <code>(Re-)generate vehicle model</code> explicitly.</li>
@@ -360,9 +359,9 @@ Also, the target folder for the generated model source code is specified here:</
 </span></span></code></pre></div><p>In Python template based projects the generated model is finally installed in the site-packages folder, while in C++ projects it is made available as a CMake include folder.</p>
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Concept: <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Setup and Explore Development Enviroment</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk.md">SDK Overview</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Quickstart</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development">Create a <em>Vehicle App</em></a></li>
 </ul>
 
 </div>
@@ -439,6 +438,8 @@ Also, the target folder for the generated model source code is specified here:</
 <li>
 <p>Execute the command</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 gen_vehicle_model.py -I ./vehicle_signal_specification/spec ./vehicle_signal_specification/spec/VehicleSignalSpecification.vspec -l &lt;lang&gt; -T sdv_model -N sdv_model
+</span></span></code></pre></div><p>or if you want to generate it from a .json file</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 gen_vehicle_model.py &lt;path_to_your_json_file&gt; -l &lt;lang&gt; -T sdv_model
 </span></span></code></pre></div><p>Depending on the value of <code>lang</code>, which can assume the values <code>python</code> and <code>cpp</code>, this creates a <code>sdv_model</code> directory in the root of repository along with all generated source files for the given programming language.</p>
 <p>Here is an overview of what is generated for every available value of <code>lang</code>:</p>
 <table>
@@ -451,18 +452,18 @@ Also, the target folder for the generated model source code is specified here:</
 <tbody>
 <tr>
 <td style="text-align:left"><code>python</code></td>
-<td style="text-align:left">python sources and a <code>setup.py</code> ready to be used as python package</td>
+<td style="text-align:left">Python sources and a <code>setup.py</code> ready to be used as Python package</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>cpp</code></td>
-<td style="text-align:left">c++ sources, headers and a CMakeLists.txt ready to be used as a CMake project</td>
+<td style="text-align:left">C++ sources, headers and a CMakeLists.txt ready to be used as a CMake project</td>
 </tr>
 </tbody>
 </table>
 <p>To have a custom model name, refer to README of <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> repository.</p>
 </li>
 <li>
-<p>For python: Change the version of package in <code>setup.py</code> manually (defaults to 0.1.0).</p>
+<p>For Python: Change the version of package in <code>setup.py</code> manually (defaults to 0.1.0).</p>
 </li>
 <li>
 <p>Now the newly generated <code>sdv_model</code> can be used for distribution. (See <a href="vehicle_model_distribution">Distributing your Vehicle Model</a>)</p>
@@ -481,9 +482,9 @@ Also, the target folder for the generated model source code is specified here:</
 </ul>
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Concept: <a href="/velocitas-docs/docs/concepts/vehicle_app_sdk_overview.md">SDK Overview</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Setup and Explore Development Enviroment</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle-app-development">Create a Vehicle App</a></li>
+<li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk.md">SDK Overview</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Quickstart</a></li>
+<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development">Create a <em>Vehicle App</em></a></li>
 </ul>
 
 </div>
@@ -527,7 +528,7 @@ Also, the target folder for the generated model source code is specified here:</
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-a39583b9b15e4d50827c8529cd0b780d">2.2 - Python Manual Vehicle Model Creation</h1>
-    <div class="lead">Learn how to create a Vehicle Model manually for python</div>
+    <div class="lead">Learn how to create a Vehicle Model manually for Python</div>
 	<h2 id="setup-a-python-package-manually">Setup a Python Package manually</h2>
 <p>A <em>Vehicle Model</em> should be defined in its own Python Package. This allows to distribute the <em>Vehicle Model</em> later as a standalone package and to use it in different <em>Vehicle App</em> projects.</p>
 <p>The name of the <em>Vehicle Model</em> package will be <code>my_vehicle_model</code> for this walkthrough.</p>
@@ -582,7 +583,7 @@ Successfully installed my-vehicle-model-0.1
 </span></span></code></pre></div><h2 id="add-vehicle-models-manually">Add Vehicle Models manually</h2>
 <ol>
 <li>
-<p>Install the Python Vehicle App SDK:</p>
+<p>Install the Python <em>Vehicle App</em> SDK:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install git+https://github.com/eclipse-velocitas/vehicle-app-python-sdk.git
 </span></span></code></pre></div><p>The output of the above command should end with:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Successfully installed sdv-x.y.z
@@ -676,7 +677,7 @@ Successfully installed my-vehicle-model-0.1
 <p>The root model of the <em>Vehicle Model</em> tree should be called <em>Vehicle</em> by convention and is specified, by setting parent to <code>None</code>. For all other models a parent model must be specified as the 2nd argument of the <code>Model</code> constructor, as can be seen by the <code>Cabin</code> and the <code>Seat</code> models above.</p>
 <p>A singleton instance of the <em>Vehicle Model</em> called <code>vehicle</code> is created at the end of the file. This instance is supposed to be used in the <em>Vehicle Apps</em>. Creating multiple instances of the <em>Vehicle Model</em> should be avoided for performance reasons.</p>
 <h3 id="add-a-vehicle-service">Add a Vehicle Service</h3>
-<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
+<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
 <p>In this section, we add a <em>Vehicle Service</em> to the <em>Vehicle Model</em>.</p>
 <ol>
 <li>
@@ -684,16 +685,16 @@ Successfully installed my-vehicle-model-0.1
 </li>
 <li>
 <p>Copy your proto file under <code>my_vehicle_model/my_vehicle_model/proto</code></p>
-<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
+<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA.VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
 </li>
 <li>
-<p>Install the grpcio tools including mypy types to generate the python classes out of the proto-file:</p>
+<p>Install the grpcio tools including mypy types to generate the Python classes out of the proto-file:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip3 install grpcio-tools mypy_protobuf
 </span></span></code></pre></div></li>
 <li>
 <p>Generate Python classes from the <code>SeatService</code> message definition:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m grpc_tools.protoc -I my_vehicle_model/proto --grpc_python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --python_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto --mypy_out<span style="color:#ce5c00;font-weight:bold">=</span>./my_vehicle_model/proto my_vehicle_model/proto/seats.proto
-</span></span></code></pre></div><p>This creates the following grpc files under the <code>proto</code> folder:</p>
+</span></span></code></pre></div><p>This creates the following gRPC files under the <code>proto</code> folder:</p>
 <ul>
 <li>seats_pb2.py</li>
 <li>seats_pb2_grpc.py</li>
@@ -752,7 +753,7 @@ Successfully installed my-vehicle-model-0.1
 shown above:</p>
 <ul>
 <li>The <code>SeatService</code> class must derive from the <code>Service</code> class provided by the Python SDK.</li>
-<li>The <code>SeatService</code> class must use the grpc channel from the <code>Service</code> base class and provide it to the <code>_stub</code> in the <code>__init__</code> method. This allows the SDK to manage the physical connection to the grpc service and use service discovery of the middleware.</li>
+<li>The <code>SeatService</code> class must use the gRPC channel from the <code>Service</code> base class and provide it to the <code>_stub</code> in the <code>__init__</code> method. This allows the SDK to manage the physical connection to the gRPC service and use service discovery of the middleware.</li>
 <li>Every method needs to pass the metadata from the <code>Service</code> base class to the gRPC call. This is done by passing the <code>self.metadata</code> argument to the metadata of the gRPC call.</li>
 </ul>
 </li>
@@ -800,7 +801,7 @@ shown above:</p>
 	<h1 id="pg-426b76d689394a6c17fc939d2481a335">2.3.1 - C&#43;&#43; Vehicle Model Distribution</h1>
     <div class="lead">Learn how to distribute a Vehicle Model written in C++.</div>
 	<p>Now that you have created your own Vehicle Model, we can distribute it to make use of it in <em>Vehicle Apps</em>.</p>
-<h2 id="copying-the-folder-to-your-vehicle-app-repo">Copying the folder to your Vehicle App repo</h2>
+<h2 id="copying-the-folder-to-your-_vehicle-app_-repo">Copying the folder to your <em>Vehicle App</em> repo</h2>
 <p>The easiest way to get started quickly is to copy the created model, presumably stored in <code>vehicle_model</code> into your <em>Vehicle App</em> repository to use it. To do so, simply copy and paste the directory into the <code>&lt;sdk_root&gt;/app</code> directory and replace the existing model.</p>
 <h2 id="using-a-git-submodule">Using a git submodule</h2>
 <p>A similar approach to the one above but a bit more difficult to set up is to create a git repository for the created model. The advantage of this approach is that you can share the same model between multiple <em>Vehicle Apps</em> without any manual effort.</p>
@@ -831,7 +832,7 @@ shown above:</p>
 	<h1 id="pg-3e85be65611fe1e1cf9f1d5cda3e3deb">2.3.2 - Python Vehicle Model Distribution</h1>
     <div class="lead">Learn how to distribute a Vehicle Model written in Python.</div>
 	<p>Now you a have a Python package containing your first Python <em>Vehicle Model</em> and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the <a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener">Python Packaging User Guide</a> to learn more about packaging and package distribution in Python.</p>
-<h2 id="distribute-to-single-vehicle-app">Distribute to single Vehicle App</h2>
+<h2 id="distribute-to-single-_vehicle-app_">Distribute to single <em>Vehicle App</em></h2>
 <p>If you want to distribute your Python <em>Vehicle Model</em> to a single <em>Vehicle App</em>, you can do so by copying the entire folder <code>my_vehicle_model</code> under the <code>/app/src</code> folder of your <em>Vehicle App</em> repository and treat it as a sub-package of the <em>Vehicle App</em>.</p>
 <ol>
 <li>Create a new folder <code>my_vehicle_model</code> under <code>/app/src</code> in your <em>Vehicle App</em> repository.</li>

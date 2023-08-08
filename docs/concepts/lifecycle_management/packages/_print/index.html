@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.12c6fc1a37a04c356b29a05493683b15.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.8b8870cd8d245a673955285badaab274.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -180,7 +180,7 @@ This is the multi-page printable view of this section.
 	<h1 id="pg-dc4d8d47cec83fedb195b5f4b1967c54">1 - Usage</h1>
     <div class="lead">Learn how to use velocitas packages.</div>
 	<h2 id="overview">Overview</h2>
-<p>After you have set up the <code>.velocitas.json</code> for your <a href="/velocitas-docs/docs/concepts/lifecycle_management/project-configuration.md">project configuration</a>, using packages is pretty straight forward.</p>
+<p>After you have set up the <code>.velocitas.json</code> for your <a href="/velocitas-docs/docs/concepts/lifecycle_management/project_configuration.md">project configuration</a>, using packages is pretty straight forward.</p>
 <p>Currently, the packages provided by the <em>Velocitas</em> team are the following:
 
 
@@ -196,12 +196,8 @@ This is the multi-page printable view of this section.
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><a href="https://github.com/eclipse-velocitas/devenv-runtime-local" target="_blank" rel="noopener">devenv-runtime-local</a></td>
-<td style="text-align:left">Containing scripts and configuration for <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_locally/">Local Runtime Services</a></td>
-</tr>
-<tr>
-<td style="text-align:left"><a href="https://github.com/eclipse-velocitas/devenv-runtime-k3d" target="_blank" rel="noopener">devenv-runtime-k3d</a></td>
-<td style="text-align:left">Containing scripts and configuration for <a href="/velocitas-docs/docs/tutorials/vehicle-app-runtime/run_runtime_services_kubernetes/">Kubernetes Runtime Services</a></td>
+<td style="text-align:left"><a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener">devenv-runtimes</a></td>
+<td style="text-align:left">Containing scripts and configuration for <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/local_runtime/">Local</a> and <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/">Kubernetes</a> Runtime Services</td>
 </tr>
 <tr>
 <td style="text-align:left"><a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup" target="_blank" rel="noopener">devenv-devcontainer-setup</a></td>
@@ -215,12 +211,20 @@ This is the multi-page printable view of this section.
 <td style="text-align:left"><a href="https://github.com/eclipse-velocitas/devenv-github-templates" target="_blank" rel="noopener">devenv-github-templates</a></td>
 <td style="text-align:left">Containing github templates used by velocitas repositories</td>
 </tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/eclipse-velocitas/devenv-runtime-local" target="_blank" rel="noopener">devenv-runtime-local</a></td>
+<td style="text-align:left">Central configuration for local runtime execution (deprecated)</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://github.com/eclipse-velocitas/devenv-runtime-k3d" target="_blank" rel="noopener">devenv-runtime-k3d</a></td>
+<td style="text-align:left">Central configuration for k3d runtime execution (deprecated)</td>
+</tr>
 </tbody>
 </table>
 
 
 </br></p>
-<p>To see how these provided packages are used inside a <code>.velocitas.json</code> you can use the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener">python template repository</a> as a reference.</p>
+<p>To see how these provided packages are used inside a <code>.velocitas.json</code> you can use the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener">Python template repository</a> as a reference.</p>
 <h2 id="installation">Installation</h2>
 <p>The <a href="https://github.com/eclipse-velocitas/cli" target="_blank" rel="noopener">Velocitas CLI</a> - acting as a package manager for <em>Vehicle App</em> repositories - is installed inside our <a href="https://github.com/eclipse-velocitas/devcontainer-base-images" target="_blank" rel="noopener">devcontainer-base-images</a>.
 </br>
@@ -229,13 +233,13 @@ After creation of a devcontainer a <a href="https://github.com/eclipse-velocitas
 <li><code>velocitas init</code> which will initialize all packages referenced in your <code>.velocitas.json</code>. That means, it will download them and run their respective <a href="https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PACKAGES.md#onpostinit---arrayexecspec" target="_blank" rel="noopener">onPostInit</a> programs, if any. (e.g, <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated model generation</a>)</li>
 <li><code>velocitas sync</code> to sync files provided by some packages.</li>
 </ul>
-<p>Check the section about our <a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas-cli/">Velocitas CLI</a> to learn more about the background and usage of it.</p>
+<p>Check the section about our <a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas_cli/">Velocitas CLI</a> to learn more about the background and usage of it.</p>
 <h2 id="velocitas-home-directory">Velocitas Home Directory</h2>
-<p>The packages will be downloaded by the <a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas-cli/">Velocitas CLI</a> to <code>~/.velocitas/packages/&lt;package_name&gt;</code>. More Information: <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory" target="_blank" rel="noopener">VELOCITAS_HOME</a>.</p>
+<p>The packages will be downloaded by the <a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas_cli/">Velocitas CLI</a> to <code>~/.velocitas/packages/&lt;package_name&gt;</code>. More Information: <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory" target="_blank" rel="noopener">VELOCITAS_HOME</a>.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
 <li>Lifecycle Management: <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/development/">Development of Packages</a></li>
-<li>Lifecycle Management: <a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas-cli/">Velocitas CLI</a></li>
+<li>Lifecycle Management: <a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas_cli/">Velocitas CLI</a></li>
 </ul>
 
 </div>
@@ -256,19 +260,145 @@ After creation of a devcontainer a <a href="https://github.com/eclipse-velocitas
     <div class="lead">Learn how to develop an own package.</div>
 	<h2 id="getting-started">Getting started</h2>
 <p>First thing you need to do is to create a repository at e.g., <code>https://github.com/my-organisation/my-velocitas-package</code>. The URL needs to be referenced in the <code>.velocitas.json</code> of your <em>Vehicle App</em> repository.</p>
-<h2 id="configuration-of-packages">Configuration of Packages</h2>
+<h2 id="general-configuration-of-packages">General configuration of Packages</h2>
 <p>Every <em>Package</em> repository needs a <code>manifest.json</code> at their root. The <code>manifest.json</code> is the package configuration and holds package relevant information and its behaviour.</p>
 <p>Here are examples of this configuration:</p>
 <ul>
-<li><a href="https://github.com/eclipse-velocitas/devenv-runtime-local/blob/main/manifest.json" target="_blank" rel="noopener">devenv-runtime-local manifest</a></li>
+<li><a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json" target="_blank" rel="noopener">devenv-runtimes manifest</a></li>
 <li><a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json" target="_blank" rel="noopener">devenv-devcontainer-setup manifest</a></li>
 </ul>
 <p>The manifest of a package describes a list of components. They are a collection of programs or files that serve a similar purpose or are inheritly connected. I.e. they provide a single runtime, a deployment for a runtime or add configuration required for Github Workflows or the devcontainer.
 <br/></p>
 <p>More detailed information and explanation about configuration fields of the <code>manifest.json</code> and package development can be found <a href="https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PACKAGES.md" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="configuration-of-runtime-packages">Configuration of Runtime Packages</h2>
+<p>If you want to add a new service, adapt <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json" target="_blank" rel="noopener"><code>runtime.json</code></a> and <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json" target="_blank" rel="noopener"><code>manifest.json</code></a>. In order to use a newly created or updated service, new changes on <a href="https://github.com/eclipse-velocitas/devenv-runtimes/tree/main" target="_blank" rel="noopener">devenv-runtimes</a> need to be tagged and referenced inside <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> of the respective package version via a tag or branch name of the repository. When a version is changed in your <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> you have to initialize it through <code>velocitas init</code> from the terminal so the new package version will be installed. A new service can be started by using velocitas cli command <code>velocitas exec runtime-local &lt;service_id&gt; &lt;args&gt;</code> which can be also configured inside your <code>./.vscode/tasks.json</code>.</p>
+<p>If you plan to develop a <em>Package</em> with the purpose of managing the runtime used together with your <em>Vehicle App</em> the package needs a <code>runtime.json</code> at their root. The <code>runtime.json</code> is the runtime configuration containing all information for the relevant service dependencies with the following three required attributes:</p>
+
+
+
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>unique service id</td>
+</tr>
+<tr>
+<td>interfaces</td>
+<td>used for dependency resolution between <em>Vehicle App</em> and runtime</td>
+</tr>
+<tr>
+<td>config</td>
+<td>configurations in form of Key/Value pair with specific pre–defined keys and corresponding values</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="supported-config-keys-of-a-service">Supported config keys of a service</h2>
+
+
+
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Key</th>
+<th>Value Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>image</td>
+<td>URI of a container image</td>
+</tr>
+<tr>
+<td>port</td>
+<td>port number</td>
+</tr>
+<tr>
+<td>port-forward</td>
+<td>port mapping for forwarding</td>
+</tr>
+<tr>
+<td>env</td>
+<td>environment variable used by the service: <code>&lt;env_key&gt;=&lt;env_value&gt;</code></td>
+</tr>
+<tr>
+<td>mount</td>
+<td>path for mounting files: <code>&lt;source_path&gt;:&lt;target_path&gt;</code></td>
+</tr>
+<tr>
+<td>arg</td>
+<td>argument for starting the service</td>
+</tr>
+<tr>
+<td>start-pattern</td>
+<td>optional start pattern for identifying if the service starts correctly</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3 id="runtime-configuration-helper">Runtime configuration helper</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;service_id&gt;&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;interfaces&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;&lt;interface&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;image&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;image&gt;:&lt;tag&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;port&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;port_number&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;port-forward&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;source_port&gt;:&lt;target_port&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;env&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;env_key&gt;=&lt;env_value&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;mount&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;source_path&gt;:&lt;target_path&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;arg&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;&lt;arg&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;start-pattern&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.*Listening on \\d+\\.\\d+\\.\\d+\\.\\d+:\\d+&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>In order to use a newly created or updated service, changes on the respective <em>Package</em> need to be tagged and referenced inside the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> of your <em>Vehicle App</em> repository via a tag or branch name of the repository. More info about installation: <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/usage/#installation">Usage</a>.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    A new service can be started manually and/or configured inside your <code>./.vscode/tasks.json</code> with:
+</br> <code>velocitas exec runtime-&lt;runtime&gt; &lt;service_id&gt; &lt;args&gt;</code>
+
+</div>
+
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Lifecycle Management: <a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas-cli/">Velocitas CLI</a></li>
+<li>Lifecycle Management: <a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas_cli/">Velocitas CLI</a></li>
 </ul>
 
 </div>

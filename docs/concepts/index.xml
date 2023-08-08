@@ -23,72 +23,72 @@
       <description>
         
         
-        &lt;p&gt;The Velocitas development model is centered around what are known as &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. Automation allows engineers to make high-impact changes frequently and deploy Vehicle Apps through cloud backends as over-the-air updates. The Vehicle App development model is about &lt;em&gt;speed&lt;/em&gt; and &lt;em&gt;agility&lt;/em&gt; paired with state-of-the-art software quality.&lt;/p&gt;
+        &lt;p&gt;The Velocitas development model is centered around what are known as &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt;. Automation allows engineers to make high-impact changes frequently and deploy &lt;em&gt;Vehicle Apps&lt;/em&gt; through cloud backends as over-the-air updates. The &lt;em&gt;Vehicle App&lt;/em&gt; development model is about &lt;em&gt;speed&lt;/em&gt; and &lt;em&gt;agility&lt;/em&gt; paired with state-of-the-art software quality.&lt;/p&gt;
 &lt;h2 id=&#34;development-architecture&#34;&gt;Development Architecture&lt;/h2&gt;
-&lt;p&gt;Velocitas provides a flexible development architecture for &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. The following diagram shows the major components of the Velocitas stack.&lt;/p&gt;
+&lt;p&gt;Velocitas provides a flexible development architecture for &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt;. The following diagram shows the major components of the Velocitas stack.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./programming_model.png&#34; alt=&#34;Programming Model&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-apps&#34;&gt;Vehicle Apps&lt;/h3&gt;
-&lt;p&gt;The Vehicle Applications (aka. Vehicle Apps) contain the business logic that needs to be executed on a vehicle. A Vehicle App is implemented on top of a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; and its underlying language-specific &lt;a href=&#34;#sdks&#34;&gt;SDK&lt;/a&gt;. Many concepts of cloud-native and &lt;a href=&#34;https://12factor.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;twelve-factor&lt;/a&gt; applications apply to Vehicle Apps as well and are summarized in the next chapter.&lt;/p&gt;
+&lt;p&gt;The Vehicle Applications (&lt;em&gt;Vehicle Apps&lt;/em&gt;) contain the business logic that needs to be executed on a vehicle. A &lt;em&gt;Vehicle App&lt;/em&gt; is implemented on top of a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt; and its underlying language-specific &lt;a href=&#34;#sdks&#34;&gt;SDK&lt;/a&gt;. Many concepts of cloud-native and &lt;a href=&#34;https://12factor.net/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;twelve-factor&lt;/a&gt; applications apply to &lt;em&gt;Vehicle Apps&lt;/em&gt; as well and are summarized in the next chapter.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-models&#34;&gt;Vehicle Models&lt;/h3&gt;
-&lt;p&gt;A Vehicle Model makes it possible to easily get vehicle data from the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and to execute remote procedure calls over gRPC against &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and other &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;. It is generated from the underlying &lt;a href=&#34;#semantic-models&#34;&gt;semantic models&lt;/a&gt; for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the &lt;a href=&#34;#sdks&#34;&gt;SDKs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A Vehicle Model makes it possible to easily get vehicle data from the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and to execute remote procedure calls over gRPC against &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and other &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt;. It is generated from the underlying &lt;a href=&#34;#semantic-models&#34;&gt;semantic models&lt;/a&gt; for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the &lt;a href=&#34;#sdks&#34;&gt;SDKs&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;sdks&#34;&gt;SDKs&lt;/h3&gt;
-&lt;p&gt;To reduce the effort required to implement &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;, Velocitas provides a set of SDKs for different programming languages. SDKs are available for Python and C++, further SDKs for Rust and C are planned.
-Next to a Vehicle Apps abstraction, the SDKs are &lt;a href=&#34;#middleware-abstraction&#34;&gt;Middleware&lt;/a&gt;-enabled, provide connectivity to the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and contain the ontology in the form of base classes to create &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Our SDKs, available for different programming languages, are the foundation for the vehicle abstraction provided by the vehicle model Furthermore, they offer abstraction from the underlying middleware and communication protocols, besides providing the base classes and utilities for the &lt;em&gt;Vehicle Apps&lt;/em&gt;.
+SDKs are available for Python and C++, currently. Further SDKs for Rust and C are planned.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-services&#34;&gt;Vehicle Services&lt;/h3&gt;
-&lt;p&gt;Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internals networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and may expose gRPC endpoints, which can be invoked by &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; over a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;data-broker&#34;&gt;Data Broker&lt;/h3&gt;
-&lt;p&gt;Vehicle data is stored in the KUKSA Data Broker conforming to an underlying &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; like &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt;. &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the Vehicle App.&lt;/p&gt;
+&lt;p&gt;Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; and may expose gRPC endpoints, which can be invoked by &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt; over a &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;data-broker&#34;&gt;KUKSA Data Broker (aka Vehicle Data Broker)&lt;/h3&gt;
+&lt;p&gt;Vehicle data is stored in the KUKSA Data Broker conforming to an underlying &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; like &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt;. &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt; can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;semantic-models&#34;&gt;Semantic models&lt;/h3&gt;
-&lt;p&gt;The Vehicle Signal Specification (&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt;) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between Vehicle Apps and the Data Broker.&lt;/p&gt;
-&lt;p&gt;The Vehicle Service Catalog (&lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSC&lt;/a&gt;) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and Vehicle Apps.&lt;/p&gt;
+&lt;p&gt;The Vehicle Signal Specification (&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt;) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between &lt;em&gt;Vehicle Apps&lt;/em&gt; and the Data Broker.&lt;/p&gt;
+&lt;p&gt;The Vehicle Service Catalog (&lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSC&lt;/a&gt;) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and &lt;em&gt;Vehicle Apps&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;As an alternative to VSS and VSC, vehicle data and services can be defined semantically in a general IoT modelling language like Digital Twin Definition Language (&lt;a href=&#34;https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DTDL&lt;/a&gt;) or BAMM Aspect Meta Model &lt;a href=&#34;https://github.com/OpenManufacturingPlatform/sds-bamm-aspect-meta-model&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;BAMM&lt;/a&gt; as well.&lt;/p&gt;
 &lt;p&gt;The Velocitas SDK is using &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt; as the semantic model for the Vehicle Model.&lt;/p&gt;
 &lt;h3 id=&#34;communication-protocols&#34;&gt;Communication Protocols&lt;/h3&gt;
-&lt;p&gt;Asynchronous communication between &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; and other vehicle components, as well as cloud connectivity, is facilitated through &lt;a href=&#34;https://mqtt.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MQTT&lt;/a&gt; messaging. Direct, synchronous communication between &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;, &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; is based on the &lt;a href=&#34;https://grpc.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC&lt;/a&gt; protocol.&lt;/p&gt;
+&lt;p&gt;Asynchronous communication between &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt; and other vehicle components, as well as cloud connectivity, is facilitated through &lt;a href=&#34;https://mqtt.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;MQTT&lt;/a&gt; messaging. Direct, synchronous communication between &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt;, &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt; and the &lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt; is based on the &lt;a href=&#34;https://grpc.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC&lt;/a&gt; protocol.&lt;/p&gt;
 &lt;h3 id=&#34;middleware-abstraction&#34;&gt;Middleware Abstraction&lt;/h3&gt;
 &lt;p&gt;Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
-By default, Velocitas leverages &lt;a href=&#34;https://dapr.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;dapr&lt;/a&gt; for gRPC service discovery, Open Telemetry tracing and the &lt;a href=&#34;https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publish/subscribe building block&lt;/a&gt;.&lt;/p&gt;
+By default, Velocitas leverages &lt;a href=&#34;https://dapr.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dapr&lt;/a&gt; for gRPC service discovery, Open Telemetry tracing and the &lt;a href=&#34;https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publish/subscribe building block&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-edge-operating-system&#34;&gt;Vehicle Edge Operating System&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; are expected to run on a &lt;a href=&#34;https://www.linux.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux&lt;/a&gt;-based operating system. An OCI-compliant container runtime is required to host the Vehicle App containers and the dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., &lt;a href=&#34;https://mosquitto.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse Mosquitto&lt;/a&gt;).&lt;/p&gt;
-&lt;h2 id=&#34;vehicle-app-characteristics&#34;&gt;Vehicle App Characteristics&lt;/h2&gt;
-&lt;p&gt;The following aspects are important characteristics for &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt; are expected to run on a &lt;a href=&#34;https://www.linux.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux&lt;/a&gt;-based operating system. An OCI-compliant container runtime is required to host the &lt;em&gt;Vehicle App&lt;/em&gt; containers and the Dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., &lt;a href=&#34;https://mosquitto.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse Mosquitto&lt;/a&gt;).&lt;/p&gt;
+&lt;h2 id=&#34;_vehicle-app_-characteristics&#34;&gt;&lt;em&gt;Vehicle App&lt;/em&gt; Characteristics&lt;/h2&gt;
+&lt;p&gt;The following aspects are important characteristics for &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Code base&lt;/strong&gt;:
-Every Vehicle App is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Code base:&lt;/strong&gt;
+Every &lt;em&gt;Vehicle App&lt;/em&gt; is stored in its own repository. Tracked by version control, it can be deployed to multiple environments.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Polyglot&lt;/strong&gt;:
-Vehicle Apps can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Polyglot:&lt;/strong&gt;
+&lt;em&gt;Vehicle Apps&lt;/em&gt; can be written in any programming language. System-level programming languages like Rust and C/C++ are particularly relevant for limited hardware resources found in vehicles, but higher-level languages like Python and JavaScript are also considered for special use cases.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;OCI-compliant containers&lt;/strong&gt;:
-Vehicle Apps are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OCI-compliant containers:&lt;/strong&gt;
+&lt;em&gt;Vehicle Apps&lt;/em&gt; are deployed as OCI-compliant containers. The size of these containers should be minimal to fit on constrained devices.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Isolation&lt;/strong&gt;:
-Each Vehicle App should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Isolation:&lt;/strong&gt;
+Each &lt;em&gt;Vehicle App&lt;/em&gt; should execute in its own process and should be self-contained with its interfaces and functionality exposed on its own port.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Configurations&lt;/strong&gt;:
-Configuration information is separated from the code base of the Vehicle App, so that the same deployment can propagate across environments with their respective configuration applied.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Configurations:&lt;/strong&gt;
+Configuration information is separated from the code base of the &lt;em&gt;Vehicle App&lt;/em&gt;, so that the same deployment can propagate across environments with their respective configuration applied.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Disposability&lt;/strong&gt;:
+&lt;p&gt;&lt;strong&gt;Disposability:&lt;/strong&gt;
 Favor fast startup and support graceful shutdowns to leave the system in a correct state.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Observability&lt;/strong&gt;:
-Vehicle Apps provide traces, metrics and logs of every part of the application using &lt;em&gt;Open Telemetry&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Observability:&lt;/strong&gt;
+&lt;em&gt;Vehicle Apps&lt;/em&gt; provide traces, metrics and logs of every part of the application using &lt;em&gt;Open Telemetry&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Over-the-air updatability&lt;/strong&gt;:
-Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www.bosch-mobility-solutions.com/en/solutions/software-and-services/mobility-cloud/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bosch Mobility Cloud&lt;/a&gt; and can be updated in vehicles frequently over the air.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Over-the-air update capability:&lt;/strong&gt;
+&lt;em&gt;Vehicle Apps&lt;/em&gt; can be deployed via cloud backends like &lt;a href=&#34;https://www.etas.com/en/products/pantaris-over-the-air-services.php&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pantaris&lt;/a&gt; and updated in vehicles frequently over the air through &lt;a href=&#34;https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NextGen OTA updates&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;development-process&#34;&gt;Development Process&lt;/h2&gt;
-&lt;p&gt;The starting point for developing &lt;a href=&#34;#vehicle-apps&#34;&gt;Vehicle Apps&lt;/a&gt; is a &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; of the vehicle data and vehicle services. Based on the Semantic Model, language-specific &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt; are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &amp;hellip;).&lt;/p&gt;
-&lt;p&gt;After a Vehicle Model is available for the chosen programming language, the Vehicle App can be developed using the generated Vehicle Model and its SDK.&lt;/p&gt;
+&lt;p&gt;The starting point for developing &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt; is a &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt; of the vehicle data and vehicle services. Based on the Semantic Model, language-specific &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Models&lt;/a&gt; are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, &amp;hellip;).&lt;/p&gt;
+&lt;p&gt;After a Vehicle Model is available for the chosen programming language, the &lt;em&gt;Vehicle App&lt;/em&gt; can be developed using the generated Vehicle Model and its SDK.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./build_procedure.png&#34; alt=&#34;Development Process&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
 
@@ -104,21 +104,453 @@ Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www
       <description>
         
         
-        &lt;p&gt;The Velocitas project uses a common deployment model. It uses OCI-compliant containers to increase the flexibility for the support of different programming languages and runtimes, which accelerates innovation and development. OCI-compliant containers also allow for a standardized yet flexible deployment process, which increases the ease of operation. Using OCI-compliant is portable to different architectures as long as there is support for OCI-compliant containers on the desired platform (e.g., like a container runtime for arm32, arm64 or amd64).&lt;/p&gt;
+        &lt;p&gt;The Velocitas project uses a common deployment model. It uses &lt;a href=&#34;https://opencontainers.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OCI-compliant&lt;/a&gt; containers to increase the flexibility for the support of different programming languages and runtimes, which accelerates innovation and development. OCI-compliant containers also allow for a standardized yet flexible deployment process, which increases the ease of operation. Using OCI-compliant is portable to different architectures as long as there is support for OCI-compliant containers on the desired platform (e.g., like a container runtime for arm32, arm64 or amd64).&lt;/p&gt;
 &lt;h2 id=&#34;guiding-principles&#34;&gt;Guiding principles&lt;/h2&gt;
 &lt;p&gt;The deployment model is guided by the following principles&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Applications are provided as OCI-compatible container images.&lt;/li&gt;
+&lt;li&gt;Applications are provided as OCI-compliant container images.&lt;/li&gt;
 &lt;li&gt;The container runtime offers a Kubernetes-compatible control plane and API to manage the container lifecycle.&lt;/li&gt;
 &lt;li&gt;Helm charts are used as deployment descriptor specification.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The template projects provided come with a preconfigured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation, of all required artifacts which are needed to follow the Velocitas principles.&lt;/p&gt;
+&lt;p&gt;The template projects provided come with a pre-configured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation of all required artifacts needed to follow the &lt;em&gt;Velocitas&lt;/em&gt; principles.&lt;/p&gt;
 &lt;h2 id=&#34;testing-your-container-during-development&#34;&gt;Testing your container during development&lt;/h2&gt;
-&lt;p&gt;The Velocitas project provides developers with a repository template and devcontainer that contains everything to build a containerized version of your app locally and test it. Check out our tutorial e.g., for the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;python template&lt;/a&gt; to learn more.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;Velocitas&lt;/em&gt; project provides for developers a repository template and devcontainer that contains everything to build a containerized version of your app locally and test it. Check out our &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/&#34;&gt;tutorial&lt;/a&gt; e.g., for the &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python template&lt;/a&gt; to learn more.&lt;/p&gt;
 &lt;h2 id=&#34;automated-container-image-builds&#34;&gt;Automated container image builds&lt;/h2&gt;
-&lt;p&gt;Velocitas uses GitHub workflows to automate the creation of your containerized application. A workflow is started with every increment of your application code that you push to your GitHub repository. The workflow creates a containerized version of your application and stores this container image in a registry. Further actions are carried out using this container (e.g., integration tests).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Velocitas&lt;/em&gt; uses GitHub workflows to automate the creation of your containerized application. A workflow is started with every increment of your application code that you push to your GitHub repository. The workflow creates a containerized version of your application and stores this container image in a registry. Further actions are carried out using this container (e.g., integration tests).&lt;/p&gt;
 &lt;p&gt;The workflows are set up to support multi-platform container creation and generate container images for amd64 and arm64 out of the box. This provides a great starting point for developers and lets you add additional support for further platforms easily.&lt;/p&gt;
 &lt;h2 id=&#34;further-information&#34;&gt;Further information&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Application Manifest</title>
+      <link>/velocitas-docs/docs/concepts/manifest/</link>
+      <pubDate>Tue, 25 Jul 2023 00:00:00 +0100</pubDate>
+      
+      <guid>/velocitas-docs/docs/concepts/manifest/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;versions&#34;&gt;Versions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;v1&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;concepts/development_model/vehicle_app_manifest/&#34;&gt;v2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;v3 (latest)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;version-3&#34;&gt;Version 3&lt;/h2&gt;
+&lt;p&gt;Version 2 of the manifest was strongly coupled to the usage of the &lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Vehicle Signal Specification&lt;/a&gt;. We got feedback that while this is good for simple applications, there is definitely the need for remote procedure calls via user provided interfaces or even fully custom API archives.&lt;/p&gt;
+&lt;p&gt;Furthermore, we want to extend Velocitas to not only be the toolchain for Vehicle App development but also for it to be the toolchain for Vehicle Service development.&lt;/p&gt;
+&lt;h3 id=&#34;design-goals&#34;&gt;Design Goals&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Allow description of dependencies on services (technology agnostic) via contracts&lt;/li&gt;
+&lt;li&gt;Make dependency on KUKSA Databroker and VSS optional&lt;/li&gt;
+&lt;li&gt;Support creation of vehicle services in addition to vehicle apps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;requirements&#34;&gt;Requirements&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;uProtocol services can be integrated&lt;/li&gt;
+&lt;li&gt;COVESA Vehicle Service Catalogue can be integrated&lt;/li&gt;
+&lt;li&gt;&amp;hellip; other 3rd party APIs can be integrated&lt;/li&gt;
+&lt;li&gt;Velocitas allows creation of vehicle apps and services&lt;/li&gt;
+&lt;li&gt;VSS models shall still be usable with minor modification&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;change-1-adaption-of-project-creation-flow&#34;&gt;Change 1: Adaption of project creation flow&lt;/h3&gt;
+&lt;p&gt;To support configurability on which services and APIs shall be used, we need to rework the way a Vehicle App project is created. At the moment it is very static and supports only our provided Vehicle Model (generated from a user-defined VSS source file).&lt;/p&gt;
+&lt;p&gt;Therefore we need a flexible and interactive selection of services/APIs upon project creation. This can be achieved either by:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;a Github workflow with parameters,&lt;/li&gt;
+&lt;li&gt;a whole new tool which handles project creation, or&lt;/li&gt;
+&lt;li&gt;a new CLI command to bootstrap a project.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Firstly, a Github workflow has a fixed number of parameters and cannot be interactive.&lt;/p&gt;
+&lt;p&gt;Secondly, a new tool would mean additional maintenance effort on yet another SW project which reads and writes files already under control by the CLI.&lt;/p&gt;
+&lt;p&gt;Therefore, we have settled on introducing a new CLI command since it already handles all files to be read and modified and is responsible for the lifecycle of the project; creation is just another phase in the lifecycle.&lt;/p&gt;
+&lt;h4 id=&#34;old-creation-flow&#34;&gt;Old creation flow&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;./project_create_flow_old.drawio.svg&#34; alt=&#34;Old creation flow&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;new-creation-flow&#34;&gt;New creation flow&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;./project_create_flow_new.drawio.svg&#34; alt=&#34;New creation flow&#34;&gt;&lt;/p&gt;
+&lt;image new&gt;
+&lt;h4 id=&#34;resulting-velocitas-cli-and-velocitas-package-changes&#34;&gt;Resulting Velocitas CLI and Velocitas Package changes&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;velocitas create&lt;/code&gt; command shall be introduced &lt;a href=&#34;concepts/lifecycle_management/create&#34;&gt;see concept here&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it will guide through the project creation process, allowing the developer to add APIs and services at creation time which will reference the correct Velocitas CLI packages (either provided by Velocitas or by a 3rd party).&lt;/li&gt;
+&lt;li&gt;in addition to an interactive mode where create is invoked without arguments, there shall be a CLI mode where all of the arguments shall be passable as arguments&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Packages need to be available in a central registry (i.e. a new git repository) otherwise step 3 (depicted below) is not possible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Packages need to expose which dependency types they are providing in their manifest. For each dependency type a human readable name for the type shall be exposed.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Interaction mockup:&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; velocitas create
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... Creating a new Velocitas project!
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; What is the name of your project?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MyApp
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; 1. Which programming language would you like to use &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; your project?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; Python
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;x&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; C++
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; 2. Which integrations would you like to use? &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;multiple selections possible&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;x&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; Github
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;x&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; Gitlab
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; Gitee
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; 3. Which API dependencies does your project have?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;x&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; gRPC service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; uProtocol service
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;x&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; Vehicle Service Catalogue
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; 4. Add an API dependency &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;y/n&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;y
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; 5. What &lt;span style=&#34;color:#204a87&#34;&gt;type&lt;/span&gt; of dependency?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;x&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; gRPC-IF
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt; VSC-IF
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; 6. URI of the .proto file?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://some-url/if.proto
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; 7. Add an&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;other&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; API dependency &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;y/n&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;?
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;n
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;... Project created!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Arguments mockup:&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ velocitas create &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --name MyApp &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --lang cpp &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --package grpc-service-support &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --package vsc-support &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    --require grpc-interface:https://some-url/if.proto
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; Project created!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;change-2-vehicle-app-sdk-restructuring&#34;&gt;Change 2: Vehicle App SDK restructuring&lt;/h3&gt;
+&lt;h4 id=&#34;definitions&#34;&gt;Definitions&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;velocitas-sdk-core&lt;/code&gt; - The core SDK provided by Velocitas, currently known as &lt;code&gt;vehicle-app-python-sdk&lt;/code&gt; and &lt;code&gt;vehicle-app-cpp-sdk&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;velocitas-sdk-ext&lt;/code&gt; - Extension SDKs which rely on the &lt;code&gt;velocitas-core-sdk&lt;/code&gt; but provide additional functionality, depending on the specific use-case&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;changes&#34;&gt;Changes&lt;/h4&gt;
+&lt;p&gt;The SDKs need to be split in order to contain only source code relevant to the dependencies they have chosen in the app manifest. Therefore, since VSS (and therefore the vehicle model) is optional, the vehicle model enabling classes shall be moved into a separate SDK extension module.&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;
+graph LR
+
+    sdk(velocitas-app-$lang-sdk)
+    sdk-core(velocitas-sdk-core)
+    sdk-ext-vehiclemodel(velocitas-sdk-ext-vehiclemodel)
+
+    sdk -- split --&gt; sdk-core
+    sdk -- split --&gt; sdk-ext-vehiclemodel
+&lt;/div&gt;
+&lt;p&gt;New modules for Velocitas SDK:&lt;/p&gt;
+&lt;div class=&#34;mermaid&#34;&gt;
+graph LR
+
+    sdk-core(velocitas-sdk-core)
+    sdk-ext-vehiclemodel(velocitas-sdk-ext-vehiclemodel)
+    sdk-ext-grpc-service-support(velocitas-sdk-ext-grpc-service-support)
+
+    new(( )) -. hand-crafted .-&gt; sdk-core
+    new(( )) -. generated .-&gt; sdk-ext-vehiclemodel
+    new(( )) -. generated .-&gt; sdk-ext-grpc-service-support
+
+    sdk-ext-vehiclemodel -. &#34;depends on&#34; .-&gt; kuksa.databroker.if(&#34;Kuksa Databroker gRPC IF&#34;)
+    sdk-ext-vehiclemodel -. &#34;depends on&#34; .-&gt; covesa.vss.if(&#34;COVESA VSS&#34;)
+    sdk-ext-grpc-service-support -. &#34;depends on&#34; .-&gt; service.if(&#34;Service gRPC IF&#34;)
+&lt;/div&gt;
+&lt;h3 id=&#34;change-3-manifest-changes&#34;&gt;Change 3: Manifest changes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;To reflect the ability to create apps and services, &lt;code&gt;AppManifest.json&lt;/code&gt; shall be renamed to &lt;code&gt;manifest.json&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To weaken the dependency to VSS, the &lt;code&gt;vehicleModel&lt;/code&gt; attribute shall be removed and the content shall be moved to a newly introduced dependency type &lt;code&gt;vehicle-model&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dependencies to services and other APIs shall be declared as dependency with a type identifier which allows the corresponding generators to pick them up and create SDK extensions out of the information (which may either be a URI to a service IF or an archive).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;structure&#34;&gt;Structure&lt;/h4&gt;
+&lt;div class=&#34;mermaid&#34;&gt;
+graph TD
+    manifest(manifest.json)
+    manifest --&gt; manifestVersion[manifestVersion]
+    manifest --&gt; name[name]
+    manifest --&gt; requires[requires]
+    manifest --&gt; provides[provides]
+
+    dependency(RequiredInterface)
+    requires -- &#34;0..n&#34; --&gt; dependency
+    dependency --&gt; dep.type{type}
+    dep.type -- &#34;vehicle-model&#34; --&gt; vehicleModel[config]
+    dep.type -- &#34;grpc-interface&#34; --&gt; grpcinterface[config]
+    dep.type -- &#34;vsc-interface&#34; --&gt; vscInterface[config]
+
+    vehicleModel --&gt; vm.src[src]
+    vehicleModel --&gt; vm.backend[backend]
+    vehicleModel --&gt; vm.datapoints[datapoints]
+    vm.datapoints -- &#34;1..*&#34; --&gt; vm.datapoints.datapoint(Datapoint)
+    vm.datapoints.datapoint --&gt; vm.datapoints.datapoint.path[path]
+    vm.datapoints.datapoint --&gt; vm.datapoints.datapoint.required[required]
+    vm.datapoints.datapoint --&gt; vm.datapoints.datapoint.access[access]
+
+    grpcinterface --&gt; grpcinterface.src[src]
+
+    vscInterface --&gt; vscInterface.src[src]
+
+    provides -- &#34;0..n&#34; --&gt; provides.item(ProvidedInterface)
+    provides.item --&gt; provides.item.type{type}
+    provides.item.type -- &#34;grpc-interface&#34; --&gt; provides.item.type.grpc[config]
+    provides.item.type.grpc --&gt; provides.item.type.grpc.src[src]
+
+    provides.item.type -- &#34;feature&#34; --&gt; provides.item.type.feature[config]
+    provides.item.type.feature --&gt; provides.item.type.feature.identifier[identifier]
+&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;manifestVersion&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;v3&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;SampleApp&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;requires&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vehicle-model&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;datapoints&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Vehicle.Speed&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;required&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;access&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;read&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;grpc-interface&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;grpc-archive&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/generated.tar.gz&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;urpc-interface&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://raw.githubusercontent.com/eclipse-uprotocol/uprotocol-core-api/main/src/main/proto/core/usubscription/v2/usubscription.proto&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;pubsub&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;provides&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;feature&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;identifier&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;SPEEDOMETER&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;manifest&#34;&gt;Manifest&lt;/h3&gt;
+&lt;p&gt;The table lists all fields of the manifest file:&lt;/p&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt; Example&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;manifestVersion&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;v3&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Version of the manifest file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;name&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SampleApp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Name of the application or service&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;dependencies&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;list[Dependency]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;list of all dependencies of the application&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;hr&gt;
+&lt;h4 id=&#34;requiredinterface&#34;&gt;RequiredInterface&lt;/h4&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt; Example&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;type&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;grpc-interface&lt;/code&gt;, &lt;code&gt;vehicle-model&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Identifies what type of dependency is being described by this entry.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;config&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Dictionary&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;A dictionary of key-value pairs configuring the dependency type.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;hr&gt;
+&lt;h4 id=&#34;requiredinterfacetypevehicle-modelconfig&#34;&gt;RequiredInterface::type=&amp;ldquo;vehicle-model&amp;rdquo;::config&lt;/h4&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt; Example&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;src&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;URI of the VSS source file (JSON) from which to generate the model.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;datapoints&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;list[Datapoint]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;A list of used datapoints within the application.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;hr&gt;
+&lt;h4 id=&#34;requiredinterfacetypegrpc-interfaceconfig&#34;&gt;RequiredInterface::type=&amp;ldquo;grpc-interface&amp;rdquo;::config&lt;/h4&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt; Example&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;src&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;URI of the protobuf file from which to generate a service client SDK.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h4 id=&#34;providedinterfacetypegrpc-interfaceconfig&#34;&gt;ProvidedInterface::type=&amp;ldquo;grpc-interface&amp;rdquo;::config&lt;/h4&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt; Example&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;src&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;URI of the protobuf file which is provided by the service.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h4 id=&#34;providedinterfacetypefeatureconfig-exemplary&#34;&gt;ProvidedInterface::type=&amp;ldquo;feature&amp;rdquo;::config (exemplary)&lt;/h4&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt; Example&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;identifier&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;SPEEDOMETER&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Abstract identifier of the feature provided by the app or service.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h3 id=&#34;integration&#34;&gt;Integration&lt;/h3&gt;
+&lt;p&gt;The following image shows the overall integration an interaction of SDK, Velocitas CLI packages and App Manifest:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./new_app_manifest_overview.drawio.svg&#34; alt=&#34;Overview&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;qa&#34;&gt;Q&amp;amp;A&lt;/h3&gt;
+&lt;h4 id=&#34;why-cli-packages-over-raw-conanpip-dependencies&#34;&gt;Why CLI packages over raw Conan/PIP dependencies?&lt;/h4&gt;
+&lt;p&gt;A CLI package allows us to install/de-install components based on interface dependencies in &lt;code&gt;.velocitas.json&lt;/code&gt;. Additionally, we are package manager independent and can support &lt;a href=&#34;https://vcpkg.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vcpkg&lt;/a&gt; as well, in addition to Conan.&lt;/p&gt;
 
       </description>
     </item>
@@ -134,21 +566,20 @@ Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www
         
         &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Once a repository has been created from one of our &lt;em&gt;Vehicle App&lt;/em&gt; templates, basically the only way to receive updates into your derived repository is to manually pull changes, which would be quite tedious and error prone. This is where our &lt;em&gt;Lifecycle Management&lt;/em&gt; comes to the rescue!&lt;/p&gt;
-&lt;p&gt;All of our main components of the development environment&lt;/p&gt;
+&lt;p&gt;All of our main components of the development environment, like&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;tools&lt;/li&gt;
 &lt;li&gt;runtimes&lt;/li&gt;
 &lt;li&gt;devcontainer configuration and setup&lt;/li&gt;
 &lt;li&gt;build systems&lt;/li&gt;
 &lt;li&gt;CI workflows&lt;/li&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;are (or will be) provided as versioned &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management/packages/&#34;&gt;packages&lt;/a&gt; which can be updated individually, if required.&lt;/p&gt;
 &lt;p&gt;The driver for this is our &lt;a href=&#34;https://github.com/eclipse-velocitas/cli&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Velocitas CLI&lt;/a&gt; which is our package manager for &lt;em&gt;Vehicle App&lt;/em&gt; repositories.&lt;/p&gt;
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;./VADF_Lifecycle_Layout.drawio.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here we can see how the &lt;code&gt;MyVehicleApp&lt;/code&gt; repository references package repositories by &lt;em&gt;Velocitas&lt;/em&gt;, customer specific packages and some packages from a totally different development platform (Gitee).&lt;/p&gt;
-&lt;p&gt;If you want to learn more about how to reference and use packages check the sections for &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management/project-configuration/&#34;&gt;project configuration&lt;/a&gt; and &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management/packages/usage/&#34;&gt;packages&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you want to learn more about how to reference and use packages check the sections for &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management/project_configuration/&#34;&gt;project configuration&lt;/a&gt; and &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/concepts/lifecycle_management/packages/usage/&#34;&gt;packages&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;lifecycle-management-flow&#34;&gt;Lifecycle Management flow&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;./VADF_Lifecycle_Flow.drawio.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 
@@ -156,320 +587,114 @@ Vehicle Apps are released to cloud backends like the &lt;a href=&#34;https://www
     </item>
     
     <item>
-      <title>Docs: Vehicle Mock</title>
-      <link>/velocitas-docs/docs/concepts/vehicle_mock/</link>
-      <pubDate>Mon, 13 Feb 2023 00:00:00 +0100</pubDate>
+      <title>Docs: Logging guidelines</title>
+      <link>/velocitas-docs/docs/concepts/logging/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0100</pubDate>
       
-      <guid>/velocitas-docs/docs/concepts/vehicle_mock/</guid>
+      <guid>/velocitas-docs/docs/concepts/logging/</guid>
       <description>
         
         
-        &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;As VApp developer I want to have a mock environment where all VSS data points are available and in which actuators will respond when they are requested to change their value.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Ideally, I should not care about data point availability during development time.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;scope&#34;&gt;Scope&lt;/h2&gt;
-&lt;p&gt;The scope of the Vehicle Mock is a CLI application without a GUI and without phyiscal simulation. It shall be usable to&lt;/p&gt;
+        &lt;p&gt;Rationale: Logging application behavior is absolutely necessary for monitoring applications and also track down possible issues.&lt;/p&gt;
+&lt;h2 id=&#34;levels&#34;&gt;Levels&lt;/h2&gt;
+&lt;p&gt;In Velocitas, we establish the following log levels, ordered from lowest to highest priority:&lt;/p&gt;
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Level&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Purpose&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Examples&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Debug&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Display of information to aid debugging of live systems like resolved values, executed lines of code, taken branches etc&amp;hellip;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;&amp;quot;variable=5&amp;quot;&lt;/code&gt;,&lt;br/&gt; &lt;code&gt;&amp;quot;executing branch debug==false&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Info&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Display of regular, user friendly messages to indicate the current state of the application.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;&amp;quot;Startup successful&amp;quot;&lt;/code&gt;,&lt;br/&gt; &lt;code&gt;&amp;quot;Application ready&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Warning&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Deviation from &lt;em&gt;optimal&lt;/em&gt; program flow which is tolerable by the application, but not recommended.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;&amp;quot;Memory usage exceeding upper bounds!&amp;quot;&lt;/code&gt;,&lt;br/&gt;&lt;code&gt;&amp;quot;Usage of deprecated API&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Error&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Display of a type of failure that is not expected and can lead to unexpected or degraded behavior which may lead to program termination.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;&amp;quot;Memory allocation failed!&amp;quot;&lt;/code&gt;, &lt;br/&gt;&lt;code&gt;&amp;quot;Unable to persist data&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Critical&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Display of a failure which leads to system unavailablity due to a missing feature, i.e. a database connection.&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;&amp;quot;Database not available&amp;quot;&lt;/code&gt;,&lt;br/&gt;&lt;code&gt;&amp;quot;Unable to establish connection to server!&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h2 id=&#34;destination-of-log-levels&#34;&gt;Destination of log levels&lt;/h2&gt;
+&lt;h3 id=&#34;historically&#34;&gt;Historically&lt;/h3&gt;
+&lt;p&gt;On *nix systems the philosophy is for programs to be as silent as possible by default. stdout is reserved for &lt;em&gt;regular&lt;/em&gt; program output. Logging is &lt;strong&gt;never&lt;/strong&gt; regular program output, it is there for diagnostic reasons&lt;/p&gt;
+&lt;p&gt;See the ls program as an example:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;integration  logs  requirements.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Regular output is written to stdout and should not be poluted by logging because it is designed to be pipeable into other programs.&lt;/p&gt;
+&lt;h3 id=&#34;what-does-this-mean-for-vehicle-appsservices&#34;&gt;What does this mean for Vehicle Apps/Services?&lt;/h3&gt;
+&lt;p&gt;An app or a service is a &lt;strong&gt;long running, self-contained application&lt;/strong&gt; which is inheritly not designed to execute and terminate quickly such that its output may be piped into other programs. Therefore, stdout would be free to be used for log levels, since there is no &amp;ldquo;regular output&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;However, due to the inherent nature of logs not being regular problem output and the issue of potentially re-ordering messages when they are directed to different files, in Velocitas we chose to output all logs to &lt;code&gt;stderr&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Here the overview in table form:
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Level&lt;/th&gt;
+&lt;th style=&#34;text-align:right&#34;&gt;Target file&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Debug&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;stderr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Info&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;stderr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Warning&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;stderr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Error&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;stderr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Critical&lt;/td&gt;
+&lt;td style=&#34;text-align:right&#34;&gt;stderr&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;configure the mock with expected actuator and sensor behavior to develop an application against&lt;/li&gt;
-&lt;li&gt;configure the mock with actions and reactions to use for integration tests&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://julienharbulot.com/python-cli-streams.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://julienharbulot.com/python-cli-streams.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sematext.com/blog/logging-levels/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://sematext.com/blog/logging-levels/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://softwareengineering.stackexchange.com/questions/439462/log-levels-and-stdout-vs-stderr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://softwareengineering.stackexchange.com/questions/439462/log-levels-and-stdout-vs-stderr&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;functional-requirements&#34;&gt;Functional requirements&lt;/h2&gt;
-
-
-
-
-
-&lt;table class=&#34;table table-bordered&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;id&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;version&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Vehicle Mock shall connect to &lt;em&gt;Kuksa Data Broker&lt;/em&gt; via gRPC and act as a data provider.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F2&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Vehicle Mock shall be able to accept external configuration for each data point that it is supposed to mock (= mocked data point).&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F3&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Mocked data points shall be programmable with predefined behaviors via configuration.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F4&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Mocked data points shall be initializeable with a predefined value via configuration.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F5&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;A single mocked data point shall be configurable by its exact path (i.e. &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt;)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F6&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;post-MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;A collection of mocked data points shall be configurable by specifing the wild card &lt;code&gt;*&lt;/code&gt; at a specific sub-branch (i.e. &lt;code&gt;Vehicle.Cabin.Seat.*&lt;/code&gt;)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F7&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Vehicle Mock shall be able to execute predefined behaviors once a certain condition is met &amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F7.1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;hellip; a condition evaluates to true&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F7.2&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;hellip; an event is received from &lt;em&gt;Kuksa Data Broker&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F8&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Vehicle Mock shall be able to respond to &lt;code&gt;actuator_target&lt;/code&gt; requests for all mocked data points, even those without a behavior&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F8.1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;if no behavior is available the &lt;code&gt;actuator_target&lt;/code&gt; request shall be responded to with an immediate setting of the value&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F9&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Behaviors shall be able to do the following for one to many data points:&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F9.1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;set the value of a single data point to &amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F9.1.1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;hellip; a static value&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F9.1.2&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;hellip; a dynamically resolved value (i.e. the current value of another data point)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F9.2&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;animate the value of a single data point to &amp;hellip; (for continuous data types only)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F9.2.1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;hellip; a static target value&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F9.2.2&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;hellip; a dynamically resolved target value (i.e. the current value of another data point)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F9.3&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;post-MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;randomly set a single data point &amp;hellip;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F9.3.1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;post-MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;&amp;hellip; within a predefined range&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F10&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Animations shall support the following configurable options:&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F10.1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;interpolation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F10.1.1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;linear interpolation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F10.1.2&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;post-MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;cubic interpolation&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F10.2&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;post-MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;re-play / looping&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F10.2.1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;post-MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;non-looping&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F10.2.2&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;post-MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;reset after play, play again&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F10.2.3&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;post-MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;ping-pong (reverse play)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F11&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;Values in behavior conditions and target values shall support liteals to indicate the use of dynamic values: &lt;code&gt;$requested_value&lt;/code&gt; for the requested value of an &lt;code&gt;actuator_target&lt;/code&gt; event, &lt;code&gt;$Vehicle.Speed&lt;/code&gt; for dynamic evaluation of the Vehicle&amp;rsquo;s current speed. All VSS sensors and actuators shall be supported in the evaluation of dynamic values.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#F12&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;It shall be possible to re-load the configuration file at runtime via external trigger&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;h2 id=&#34;non-funtional-requirements&#34;&gt;Non-funtional requirements&lt;/h2&gt;
-
-
-
-
-
-&lt;table class=&#34;table table-bordered&#34;&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;id&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;version&lt;/th&gt;
-&lt;th style=&#34;text-align:left&#34;&gt;description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#NF1&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;External configuration shall be as human readable as possible&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;#NF2&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;MVP&lt;/td&gt;
-&lt;td style=&#34;text-align:left&#34;&gt;No GUI is required&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;h2 id=&#34;concept&#34;&gt;Concept&lt;/h2&gt;
-&lt;h3 id=&#34;flow&#34;&gt;Flow&lt;/h3&gt;
-&lt;div class=&#34;mermaid&#34;&gt;flowchart LR
-    ConfigFile[(Config File)]
-    ConfigFile-. 2. list of mocked datapoints .-&gt;VehicleMock
-    DataBroker-. 6. actuator_target request .-&gt;VehicleMock
-    VehicleMock-. 3. get metadata .-&gt; DataBroker
-    DataBroker-. 4. metadata .-&gt; VehicleMock
-    VehicleMock-. 5. subscribe mocked datapoints .-&gt;DataBroker
-    VehicleMock-. 1. read .-&gt;ConfigFile
-    VehicleMock-. 8. provide datapoint value .-&gt;DataBroker
-    VehicleMock-. 7. execute behaviors .-&gt; VehicleMock
-&lt;/div&gt;
-&lt;h3 id=&#34;external-configuration&#34;&gt;External Configuration&lt;/h3&gt;
-&lt;p&gt;The vehicle mock is mainly driven by this configuration file. Anyone shall be able to express a wide range sensor and actuator behaviors without in-depth programming knowledge.&lt;/p&gt;
-&lt;p&gt;Therefore, we want the configuration to be as human readable as possible.&lt;/p&gt;
-&lt;p&gt;For a human readable configuration whe choose YAML. JSON has too many braces and quotes, TOML does not require nesting of inner elements and nested elements have to be prefixed, making it unintuitive to read for humans.&lt;/p&gt;
-&lt;p&gt;Suggested approach: Making the datapoint configuration read as prose text but still keeping all formalities of the markup.&lt;/p&gt;
-&lt;h4 id=&#34;example-1&#34;&gt;Example 1&lt;/h4&gt;
-&lt;p&gt;Prose:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;I want to mock the datapoint at path Vehicle.Speed to always return 80
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Markup:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;mock_datapoints&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;at_path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle.Speed&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;initialize_with&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;example-2&#34;&gt;Example 2&lt;/h4&gt;
-&lt;p&gt;Prose:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;I want to mock the datapoint at path Vehicle.Cabin.Seat.Row1.Pos1.Position to animate between the current value and the requested actuator_target when an actuator target event is received
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Markup:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;mock_datapoints&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;at_path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;behaviors&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;event_received&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;actuator_target&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;then&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;animate&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;to&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$requested_value&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;example-3&#34;&gt;Example 3&lt;/h4&gt;
-&lt;p&gt;Prose:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;I want to mock the datapoint at path Vehicle.Body.Windshield.Front.Wiping.System.IsWiping to set it to true in case Vehicle.Body.Windshield.Front.Wiping.System.Mode is set to WIPE and Vehicle.Body.Windshield.Front.Wiping.System.ActualPosition does not equal Vehicle.Body.Windshield.Front.Wiping.System.TargetPosition.
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Markup:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;mock_datapoints&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;at_path&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle.Body.Windshield.Front.Wiping.System.IsWiping&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;behaviors&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;all_true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;datapoint&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle.Body.Windshield.Front.Wiping.System.Mode&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;equals&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;WIPE&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;datapoint&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle.Body.Windshield.Front.Wiping.System.ActualPosition&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;not_equals&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;$Vehicle.Body.Windshield.Front.Wiping.System.TargetPosition&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;then&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;set&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;else&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;set&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;class-diagarm&#34;&gt;Class Diagarm&lt;/h3&gt;
-&lt;div class=&#34;mermaid&#34;&gt;classDiagram
-    class BaseService {
-        Basic service responsible for 
-        establishing connection to 
-        Dapr sidecar and VDB.
-        + connectToDatabroker()
-    }
-
-    class MockService {
-        Mock service implementation which
-        is responsible to load, manage and
-        tick all mocked data points.
-        + loadMockedDatapoints()
-        + tick()
-    }
-
-    class Behavior {
-        A single behavior which consists of a 
-        single condition and multiple actions
-        + tick() 
-    }
-
-    class Action {
-        An executable action once a
-        condition evaluates to true.
-        + execute()
-    }
-
-    class Condition {
-        Base class for conditions.
-        + evaluate(): bool
-    }
-
-    class BehaviorManager {
-        Manages all loaded behaviors.
-        + tick()
-    }
-
-    BaseService &lt;|-- MockService
-    MockService *-- BehaviorManager
-    BehaviorManager &#34;1&#34; *-- &#34;1..n&#34; Behavior
-    Behavior *-- Condition
-    Behavior *-- &#34;1..n&#34; Action
-&lt;/div&gt;
 
       </description>
     </item>
