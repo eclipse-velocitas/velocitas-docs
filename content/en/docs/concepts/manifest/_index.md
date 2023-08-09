@@ -70,44 +70,6 @@ Therefore, we have settled on introducing a new CLI command since it already han
 
 * Packages need to expose which dependency types they are providing in their manifest. For each dependency type a human readable name for the type shall be exposed.
 
-*Interaction mockup:*
-
-```bash
-> velocitas create
-... Creating a new Velocitas project!
-> What is the name of your project?
-MyApp
-
-> 1. Which programming language would you like to use for your project?
-[ ] Python
-[x] C++
-
-> 2. Which integrations would you like to use? (multiple selections possible)
-[x] Github
-[x] Gitlab
-[ ] Gitee
-
-> 3. Which API dependencies does your project have?
-[x] gRPC service
-[ ] uProtocol service
-[x] Vehicle Service Catalogue
-
-> 4. Add an API dependency (y/n)?
-y
-
-> 5. What type of dependency?
-[x] gRPC-IF
-[ ] VSC-IF
-
-> 6. URI of the .proto file?
-https://some-url/if.proto
-
-> 7. Add an(other) API dependency (y/n)?
-n
-
-... Project created!
-```
-
 *Arguments mockup:*
 
 ```bash
@@ -174,7 +136,191 @@ graph LR
 
 * Dependencies to services and other APIs shall be declared as dependency with a type identifier which allows the corresponding generators to pick them up and create SDK extensions out of the information (which may either be a URI to a service IF or an archive).
 
-#### Structure
+#### Schema
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "manifestVersion": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "requires": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "src": {
+                  "type": "string"
+                },
+                "datapoints": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "path": {
+                          "type": "string"
+                        },
+                        "required": {
+                          "type": "string"
+                        },
+                        "access": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "path",
+                        "required",
+                        "access"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "src",
+                "datapoints"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "config"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "src": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "src"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "config"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "src": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "src"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "config"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "src": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "src"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "config"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "provides": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "identifier": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "identifier"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "config"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "manifestVersion",
+    "name",
+    "requires",
+    "provides"
+  ]
+}
+```
+
+#### Visualization
 
 ```mermaid
 
@@ -251,7 +397,10 @@ graph TD
         }
     },
     {
-        "type": "pubsub"
+        "type": "pubsub",
+        "config": {
+            "topics":  [ "SMART_WIPER_STATUS" ]
+        }
     }
   ],
   "provides": [
@@ -259,6 +408,12 @@ graph TD
         "type": "feature",
         "config": {
             "identifier": "SPEEDOMETER"
+        }
+    },
+    {
+        "type": "pubsub",
+        "config": {
+            "topics":  [ "SMART_WIPER_REQUEST" ]
         }
     }
   ]
@@ -318,6 +473,8 @@ The table lists all fields of the manifest file:
 {{</table>}}
 
 #### ProvidedInterface::type="feature"::config (exemplary)
+
+**Note**: The `feature` type is just an ideation, it will not tie to any kind of implementation or support at the moment.
 
 {{<table "table table-bordered">}}
 | Name | Type | Example | Description |
