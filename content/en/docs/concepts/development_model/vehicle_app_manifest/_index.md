@@ -125,10 +125,15 @@ graph TD
 
 Here is a list of logical interface types directly supported by the Velocitas toolchain and which Velocitas CLI packages are exposing the support:
 
-* [Vehicle Model](./interface/vehicle_model/)
-* [gRPC interface](./interface/grpc_interface/)
+* [Vehicle Model](./interfaces/vehicle_model/)
+* [gRPC interface](./interfaces/grpc_interface/)
+* [Publish and subscribe](./interfaces/pubsub/)
 
 Support for additional interface types may be added by providing a 3rd party [CLI package](/docs/concepts/lifecycle_management/packages/).
+
+### Planned, but not yet available features
+
+Some FIs are dependent on used classes, methods or literals in your _Vehicle App_'s source code. For example the `vehicle-model` FI requires you to list required or provided datapoints. At the moment, these attributes need to be filled **manually**. There are ideas to auto-generate these attributes by analyzing the source code, but nothing is planned for that, yet.
 
 ## Further information
 
