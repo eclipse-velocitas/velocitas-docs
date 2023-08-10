@@ -17,23 +17,22 @@ description: >
 
 The _AppManifest_ defines the properties of your _Vehicle App_ and its functional interfaces.
 
-Functional interfaces may be the required service interfaces (e.g. a required gRPC service interface) or the used vehicle model and accessed data points. In addition to required functional interfaces, provided interfaces need to be specified as well.
+Functional interfaces may be the required service interfaces (e.g. a required gRPC service interface) or the used vehicle model and accessed data points. In addition to required functional interfaces, provided functional interfaces need to be specified as well.
 
 These defined interfaces are then used by the Velocitas toolchain to:
 
-* generate service stubs for either a client (required IF) or a server implementation (provided IF) (i.e. for gRPC)
+* generate service stubs for either a client implementation (required IF) or a server implementation (provided IF) (i.e. for gRPC)
 * generate a source code equivalent of the defined vehicle model
-
-This concept provides flexibility by separating the requirements of a _Vehicle App_ from the definition of a concrete _Runtime_ and _Middleware_ configuration.
 
 ## Context
 
-To fully understand the _AppManifest_, let's have a look at __who__ interacts with it:
+To fully understand the _AppManifest_, let's have a look at **who** interacts with it:
 
 ![Manifest Context](./manifest_context.drawio.png)
 
 ## Purpose
 
+* Define the requirements of a _Vehicle App_ in ab **abstract way** to avoid dependencies on concrete _Runtime_ and _Middleware_ configurations.
 * Description of your applications **logical interfaces**(VehicleModel, services, APIs, ...)
 * Enable **loose coupling** of logical interface descriptions and the Velocitas toolchain. Some parts of the toolchain are responsible for reading the file and acting upon it, depending on the type of logical interface
 * Providing an **extendable** syntax to enable custom logical interface types which may not provided by the Velocitas toolchain itself, but by a third party
@@ -115,7 +114,7 @@ graph TD
 Here is a list of logical interface types directly supported by the Velocitas toolchain and which Velocitas CLI packages are exposing the support:
 
 * [Vehicle Model](./interface/vehicle_model/)
-* [gRPC interface](./interfce/grpc_interface/)
+* [gRPC interface](./interface/grpc_interface/)
 
 Support for additional interface types may be added by providing a 3rd party [CLI package](/docs/concepts/lifecycle_management/packages/).
 
