@@ -1,5 +1,5 @@
 ---
-title: "Vehicle Model"
+title: "Vehicle Signal Specification based Vehicle Model"
 date: 2023-08-09T00:00:00+01:00
 weight: 10
 description: >
@@ -27,8 +27,8 @@ More information: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creatio
 | `src` | `"https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"` | URI of the used COVESA Vehicle Signal Specification JSON export. URI may point to a local file or to a file provided by a server. |
 | `datapoints` | | Array of required or provided datapoints. |
 | `datapoints.[].path` | `Vehicle.Speed` | Path of the VSS datapoint. |
-| `datapoints.[].required` | `true`, `false` | **Attribute only supported in requires direction**<br/>Is the datapoint required or can the _Vehicle App_ work without the datapoint being present in the system. |
-| `datapoints.[].access` |  `read`, `write` | What kind of access to the datapoint is needed by the application.
+| `datapoints.[].required` | `true`, `false` | <span style="color:red;">**Attribute only supported in requires direction!**</span><br/>Is the datapoint required or can the _Vehicle App_ work without the datapoint being present in the system. |
+| `datapoints.[].access` |  `read`, `write` | <span style="color:red;">**Attribute only supported in requires direction!**</span><br/>What kind of access to the datapoint is needed by the application.
 {{</table>}}
 
 ## Example

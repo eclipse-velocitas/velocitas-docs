@@ -15,14 +15,26 @@ description: >
 
 ## Introduction
 
-The _AppManifest_ defines the properties of your _Vehicle App_ and its functional interfaces.
+The _AppManifest_ defines the properties of your _Vehicle App_ and its _functional interfaces_ (**FIs**).
 
-Functional interfaces may be the required service interfaces (e.g. a required gRPC service interface) or the used vehicle model and accessed data points. In addition to required functional interfaces, provided functional interfaces need to be specified as well.
+**FIs** may be:
+
+* required service interfaces (e.g. a required gRPC service interface)
+* the used vehicle model and accessed data points.
+* an arbitrary abstract interface description used by 3rd parties
+
+In addition to _required_ **FIs**, _provided_ **FIs** can (and need) to be specified as well.
 
 These defined interfaces are then used by the Velocitas toolchain to:
 
 * generate service stubs for either a client implementation (required IF) or a server implementation (provided IF) (i.e. for gRPC)
 * generate a source code equivalent of the defined vehicle model
+
+## Overview
+
+The image below depicts the interaction between _App Manifest_ and _DevEnv Configuration_ at -development time- The responsibilities are clearly separated; the _App Manifest_ describes the application and its interfaces whereas _DevEnv Configuration_ (or `.velocitas.json`) defines the configuration of the development environment and all the packages used by the Velocitas toolchain.
+
+![Overview](./new_app_manifest_overview.drawio.svg)
 
 ## Context
 

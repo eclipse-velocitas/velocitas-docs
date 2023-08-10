@@ -9,6 +9,24 @@ resources:
 
 To be filled.
 
+#### Template based creation flow
+
+![Old creation flow](../project_create_flow_old.drawio.svg)
+
+#### Bootstrapping creation flow
+
+![New creation flow](../project_create_flow_new.drawio.svg)
+
+#### Resulting Velocitas CLI and Velocitas Package changes
+
+* `velocitas create` command shall be introduced [see concept here](concepts/lifecycle_management/create)
+  * it will guide through the project creation process, allowing the developer to add APIs and services at creation time which will reference the correct Velocitas CLI packages (either provided by Velocitas or by a 3rd party).
+  * in addition to an interactive mode where create is invoked without arguments, there shall be a CLI mode where all of the arguments shall be passable as arguments
+
+* Packages need to be available in a central registry (i.e. a new git repository) otherwise step 3 (depicted below) is not possible.
+
+* Packages need to expose which dependency types they are providing in their manifest. For each dependency type a human readable name for the type shall be exposed.
+
 ## Interaction mockup
 
 ```bash
@@ -45,4 +63,18 @@ https://some-url/if.proto
 n
 
 ... Project created!
+```
+
+*Arguments mockup:*
+
+```bash
+
+$ velocitas create \
+    --name MyApp \
+    --lang cpp \
+    --package grpc-service-support \
+    --package vsc-support \
+    --require grpc-interface:https://some-url/if.proto
+
+> Project created!
 ```
