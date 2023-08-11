@@ -1,7 +1,7 @@
 ---
 title: "Project Configuration"
 date: 2023-02-13T09:43:25+05:30
-weight: 1
+weight: 10
 description: >
   Learn everything about Velocitas project configuration.
 aliases:
