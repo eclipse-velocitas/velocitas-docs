@@ -44,7 +44,7 @@ To fully understand the _AppManifest_, let's have a look at **who** interacts wi
 
 ## Purpose
 
-* Define the requirements of a _Vehicle App_ in ab **abstract way** to avoid dependencies on concrete _Runtime_ and _Middleware_ configurations.
+* Define the requirements of a _Vehicle App_ in an **abstract way** to avoid dependencies on concrete _Runtime_ and _Middleware_ configurations.
 * Description of your applications **logical interfaces**(VehicleModel, services, APIs, ...)
 * Enable **loose coupling** of logical interface descriptions and the Velocitas toolchain. Some parts of the toolchain are responsible for reading the file and acting upon it, depending on the type of logical interface
 * Providing an **extendable** syntax to enable custom logical interface types which may not provided by the Velocitas toolchain itself, but by a third party
