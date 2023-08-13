@@ -80,11 +80,17 @@ To fully understand the _AppManifest_, let's have a look at **who** interacts wi
     {
         "type": "pubsub",
         "config": {
-            "topics":  [ "SMART_WIPER_STATUS" ]
+            "topics":  [ "sampleapp/getSpeed" ]
         }
     }
   ],
-  "provides": []
+  "provides":
+      {
+          "type": "pubsub",
+          "config": {
+              "topics": [ "sampleapp/currentSpeed", "sampleapp/getSpeed/response" ]
+          }
+      }
 }
 ```
 
