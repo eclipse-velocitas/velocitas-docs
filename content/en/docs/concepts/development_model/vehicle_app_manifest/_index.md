@@ -114,8 +114,8 @@ graph TD
     manifest(manifest.json)
     manifest --> manifestVersion[manifestVersion]
     manifest --> name[name]
-    manifest --> requires[requires]
-    manifest --> provides[provides]
+    manifest -.-> requires[requires]
+    manifest -.-> provides[provides]
 
     requires -- "0..n" --> requires.item(object)
     requires.item --> requires.item.type[type]
