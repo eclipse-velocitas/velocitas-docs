@@ -19,7 +19,7 @@ To be filled.
 
 #### Resulting Velocitas CLI and Velocitas Package changes
 
-* `velocitas create` command shall be introduced [see concept here](concepts/lifecycle_management/create)
+* `velocitas create` command shall be introduced
   * it will guide through the project creation process, allowing the developer to add APIs and services at creation time which will reference the correct Velocitas CLI packages (either provided by Velocitas or by a 3rd party).
   * in addition to an interactive mode where create is invoked without arguments, there shall be a CLI mode where all of the arguments shall be passable as arguments
 
