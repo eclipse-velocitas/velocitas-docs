@@ -45,9 +45,9 @@ To fully understand the _AppManifest_, let's have a look at **who** interacts wi
 ## Purpose
 
 * Define the requirements of a _Vehicle App_ in an **abstract way** to avoid dependencies on concrete _Runtime_ and _Middleware_ configurations.
-* Description of your applications **logical interfaces**(VehicleModel, services, APIs, ...)
-* Enable **loose coupling** of logical interface descriptions and the Velocitas toolchain. Some parts of the toolchain are responsible for reading the file and acting upon it, depending on the type of logical interface
-* Providing an **extendable** syntax to enable custom logical interface types which may not provided by the Velocitas toolchain itself, but by a third party
+* Description of your applications **functional interfaces**(VehicleModel, services, APIs, ...)
+* Enable **loose coupling** of functional interface descriptions and the Velocitas toolchain. Some parts of the toolchain are responsible for reading the file and acting upon it, depending on the type of functional interface
+* Providing an **extendable** syntax to enable custom functional interface types which may not provided by the Velocitas toolchain itself, but by a third party
 * Providing a **single source of truth** for generation of deployment specifications (i.e. Helm-Charts, Kanto spec, etc...)
 
 ## Example
@@ -57,54 +57,85 @@ To fully understand the _AppManifest_, let's have a look at **who** interacts wi
 {
   "manifestVersion": "v3",
   "name": "SampleApp",
-  "requires": [
+  "interfaces": [
     {
-        "type": "vehicle-model",
+        "type": "vehicle-signal-interface",
         "config": {
             "src": "https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json",
-            "datapoints": [
-                {
-                    "path": "Vehicle.Speed",
-                    "required": "true",
-                    "access": "read"
-                }
-            ]
+            "datapoints": {
+                "required": [
+                    {
+                        "path": "Vehicle.Speed",
+                        "optional": "true",
+                        "access": "read",
+                    }
+                ],
+                "provided": [
+                    {
+                        "path": "Vehicle.Cabin.Seat.Row1.Pos1.Position",
+                    }
+                ]
+            }
         }
     },
     {
         "type": "grpc-interface",
         "config": {
-            "src": "https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto"
+            "src": "https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto",
+            "direction": "required",
         } 
     },
     {
         "type": "pubsub",
         "config": {
-            "topics":  [ "sampleapp/getSpeed" ]
+            "reads":  [ "sampleapp/getSpeed" ],
+            "writes": [ "sampleapp/currentSpeed", "sampleapp/getSpeed/response" ]
         }
     }
-  ],
-  "provides":
-      {
-          "type": "pubsub",
-          "config": {
-              "topics": [ "sampleapp/currentSpeed", "sampleapp/getSpeed/response" ]
-          }
-      }
 }
 ```
 
-The _VehicleApp_ above has a:
+The _VehicleApp_ above has an:
 
-* required interface towards our generated Vehicle Model from the COVESA Vehicle Signal Specification. In particular it requires read access to the VSS data point `Vehicle.Speed`
-* required interface towards a gRPC service who serves the `seats` service described within the `.proto` file
-* required interface towards the `pubsub` middleware and is requesting read access to the topic `SMART_WIPER_STATUS`
+* interface towards our generated Vehicle Signal Interface based on the [COVESA Vehicle Signal Specification](https://github.com/COVESA/vehicle_signal_specification). In particular, it requires read access to the vehicle signal `Vehicle.Speed` since the signal is marked as _optional_ the application will work, even if the signal is not present in the system. Additionally, the application acts as a provider for the signal `Vehicle.Cabin.Seat.Row1.Pos1.Position` meaning that it will take responsibility of reading/writing data directly to vehicle networks for the respective signal.
+
+* interface towards gRPC based on the `seats.proto` file. Since the `direction` is `required` a service client for the `seats` service will be generated who interacts with the Velocitas middleware.
+
+* interface towards the `pubsub` middleware and is reading to the topic `sampleapp/getSpeed` and writing the topics `sampleapp/currentSpeed`, `sampleapp/getSpeed/response`.
 
 The example has no provided interfaces.
 
 ## Structure
 
-Refer to the [JSON Schema](https://json-schema.org/) of the current _AppManifest_ [here](./manifest.schema.v3.json).
+Describes all external properties and interfaces of a Vehicle Application.
+
+### Properties
+
+{{<table "table table-bordered">}}
+| Property          | Type                    | Required | Description                                              |
+|-------------------|-------------------------|----------|----------------------------------------------------------|
+| `manifestVersion` | string                  | **Yes**  | The version of the App Manifest.                         |
+| `name`            | string                  | **Yes**  | The name of the Vehicle Application.                     |
+| `interfaces`      | [object](#interfaces)[] | No       | Array of all provided or required functional interfaces. |
+{{</table>}}
+
+### interfaces
+
+#### Properties
+
+{{<table "table table-bordered">}}
+| Property | Type              | Required | Description                                                                             |
+|----------|-------------------|----------|-----------------------------------------------------------------------------------------|
+| `type`   | string            | **Yes**  | The type of the functional interface.                                                   |
+| `config` | [object](#config) | No       | The configuration of the functional interface type. Content may vary between all types. |
+
+{{</table>}}
+
+#### config
+
+The configuration of the functional interface type. Content may vary between all types.
+
+Refer to the [JSON Schema](https://json-schema.org/) of the current _AppManifest_ [here](./manifest.v3.schema.json).
 
 ### Visualization
 
@@ -114,22 +145,17 @@ graph TD
     manifest(manifest.json)
     manifest --> manifestVersion[manifestVersion]
     manifest --> name[name]
-    manifest -.-> requires[requires]
-    manifest -.-> provides[provides]
+    manifest -.-> interfaces[interfaces]
 
-    requires -- "0..n" --> requires.item(object)
-    requires.item --> requires.item.type[type]
-    requires.item -.-> requires.item.config[config]
-
-    provides -- "0..n" --> provides.item(object)
-    provides.item --> provides.item.type[type]
-    provides.item -.-> provides.item.config[config]
+    interfaces -- "0..n" --> interfaces.item(object)
+    interfaces.item --> interfaces.item.type[type]
+    interfaces.item -.-> interfaces.item.config[config]
 
 ```
 
-### Logical interface types supported by Velocitas
+### Functional interface types supported by Velocitas
 
-Here is a list of logical interface types directly supported by the Velocitas toolchain and which Velocitas CLI packages are exposing the support:
+Here is a list of functional interface types directly supported by the Velocitas toolchain and which Velocitas CLI packages are exposing the support:
 
 * [Vehicle Model](./interfaces/vehicle_model/)
 * [gRPC interface](./interfaces/grpc_interface/)
@@ -137,7 +163,7 @@ Here is a list of logical interface types directly supported by the Velocitas to
 
 Support for additional interface types may be added by providing a 3rd party [CLI package](/docs/concepts/lifecycle_management/packages/).
 
-### Planned, but not yet available features
+## Planned, but not yet available features
 
 Some FIs are dependent on used classes, methods or literals in your _Vehicle App_'s source code. For example the `vehicle-model` FI requires you to list required or provided datapoints. At the moment, these attributes need to be filled **manually**. There are ideas to auto-generate these attributes by analyzing the source code, but nothing is planned for that, yet.
 

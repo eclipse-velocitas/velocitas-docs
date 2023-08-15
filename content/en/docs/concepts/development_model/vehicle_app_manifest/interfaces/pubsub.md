@@ -3,14 +3,14 @@ title: "Publish Subscribe"
 date: 2023-08-09T00:00:00+01:00
 weight: 20
 description: >
-  The logical interface for supporting communication via publish and subscribe.
+  The functional interface for supporting communication via publish and subscribe.
 
 ---
 
 {{<table "table table-bordered">}}
-| Providing CLI package       | Interface type-key    | Supported directions   |
-|-----------------------------|-----------------------|------------------------|
-| `devenv-runtimes`           | `pubsub`              | `required`, `provided` |
+| Providing CLI package       | Interface type-key    |
+|-----------------------------|-----------------------|
+| `devenv-runtimes`           | `pubsub`              |
 {{</table>}}
 
 ## Description
@@ -26,7 +26,8 @@ If a _Vehicle App_ provides `pubsub` - this will influence the generated deploym
 {{<table "table table-bordered">}}
 | Attribute | Example value | Description |
 |-|-|-|
-| `topics` | `["HELLO", "WORLD"]` | Array of topics which are either published (if the interface is a provided one) or subscribed. |
+| `reads` | `[ "sampleapp/getSpeed" ]` | Array of topics which are read by the application. |
+| `writes` | `[ "sampleapp/currentSpeed", "sampleapp/getSpeed/response" ]` | Array of topics which are written by the application. |
 {{</table>}}
 
 ## Example
@@ -35,9 +36,8 @@ If a _Vehicle App_ provides `pubsub` - this will influence the generated deploym
 {
     "type": "pubsub",
     "config": {
-        "topics": [
-          "HELLO", "WORLD"
-        ]
+      "reads":  [ "sampleapp/getSpeed" ],
+      "writes": [ "sampleapp/currentSpeed", "sampleapp/getSpeed/response" ]
     }
 }
 ```
