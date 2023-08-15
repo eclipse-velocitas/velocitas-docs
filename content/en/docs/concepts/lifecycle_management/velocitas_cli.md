@@ -1,6 +1,6 @@
 ---
 title: "Velocitas CLI"
-weight: 3
+weight: 20
 date: 2023-02-13T09:43:25+05:30
 description: >
   Learn everything about the Velocitas CLI.
