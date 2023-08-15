@@ -29,8 +29,7 @@ If a _Vehicle App_ provides a `grpc-interface` - a server stub embedded into the
 | `src` | `"https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto"` | URI of the used protobuf specification of the service. URI may point to a local file or to a file provided by a server. It is generally recommended that a **stable** proto file is used. I.e. one that is already released under a proper tag rather than an in-development proto file. |
 | `required.methods` | | Array of service's methods that are accessed by the application. In addition to access control the methods attribute may be used to determine backward or forward compatibility i.e. if semantics of a service's interface did not change but methods were added or removed in a future version. |
 | `required.methods.[].name` | `"Move"`, `"MoveComponent"` | Name of the method that the application would like to access |
-| `provided.methods` | | Array of service's methods that are provided by the application. The attribute may be used to determine backward or forward compatibility i.e. if semantics of a service's interface did not change but methods were added or removed in a future version. |
-| `provided.methods.[].name` | `"Move"`, `"MoveComponent"` | Name of the method that the application would like to access |
+| `provided` | `{}` | Reserved object indicating that the interface is provided. Might be filled with further configuration values.
 {{</table>}}
 
 ## Example
