@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://eclipse.dev/velocitas/schemas/appmanifest",
+  "title": "Application Manifest",
+  "description": "Describes all external properties and interfaces of a Vehicle Application.",
+  "type": "object",
+  "properties": {
+    "manifestVersion": {
+      "type": "string",
+      "description": "The version of the App Manifest.",
+      "examples": ["v3"]
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the Vehicle Application.",
+      "examples": ["Sample App", "Awesome Vehicle Application"]
+    },
+    "interfaces": {
+      "type": "array",
+      "description": "Array of all provided or required functional interfaces.",
+      "items": {
+        "type": "object",
+        "title": "Functional Interface",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "The type of the functional interface.",
+            "examples": ["grpc-interface", "vehicle-signal-interface"]
+          },
+          "config": {
+            "type": "object",
+            "description": "The configuration of the functional interface type. Content may vary between all types."
+          }
+        },
+        "required": [
+          "type"
+        ]
+      }
+    }
+  },
+  "required": [
+    "manifestVersion",
+    "name"
+  ]
+}
