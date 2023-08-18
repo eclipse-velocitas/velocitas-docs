@@ -24,20 +24,20 @@ If a _Vehicle App_ provides `pubsub` - this will influence the generated deploym
 ## Configuration structure
 
 {{<table "table table-bordered">}}
-| Attribute | Example value | Description |
-|-|-|-|
-| `reads` | `[ "sampleapp/getSpeed" ]` | Array of topics which are read by the application. |
-| `writes` | `[ "sampleapp/currentSpeed", "sampleapp/getSpeed/response" ]` | Array of topics which are written by the application. |
+| Attribute | Type | Example value | Description |
+|-|-|-|-|
+| `reads` | array[string] | `[ "sampleapp/getSpeed" ]` | Array of topics which are read by the application. |
+| `writes` | array[string] | `[ "sampleapp/currentSpeed", "sampleapp/getSpeed/response" ]` | Array of topics which are written by the application. |
 {{</table>}}
 
 ## Example
 
 ```json
 {
-    "type": "pubsub",
-    "config": {
-      "reads":  [ "sampleapp/getSpeed" ],
-      "writes": [ "sampleapp/currentSpeed", "sampleapp/getSpeed/response" ]
-    }
+  "type": "pubsub",
+  "config": {
+    "reads":  [ "sampleapp/getSpeed" ],
+    "writes": [ "sampleapp/currentSpeed", "sampleapp/getSpeed/response" ]
+  }
 }
 ```
