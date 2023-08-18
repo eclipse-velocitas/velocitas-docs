@@ -87,7 +87,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.9b17181cff17b086c374c6c2abb0b6d4.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.90465cec224f9cc82b9cacc10b7565a9.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -2414,7 +2414,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MoveComponent&#34;</span> <span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;pubsub&#34;</span><span style="color:#000;font-weight:bold">,</span>
@@ -2423,7 +2423,8 @@ Service implementations may also interact as feeders with the data broker.</p>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;writes&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;sampleapp/currentSpeed&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;sampleapp/getSpeed/response&#34;</span> <span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#a40000">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>The <em>VehicleApp</em> above has an:</p>
 <ul>
 <li>
@@ -2477,7 +2478,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 </table>
 
 
-<h3 id="interfaces">interfaces</h3>
+<h3 id="interfaces">Interfaces</h3>
 <h4 id="properties-1">Properties</h4>
 
 
@@ -2510,13 +2511,13 @@ Service implementations may also interact as feeders with the data broker.</p>
 </table>
 
 
-<h4 id="config">config</h4>
+<h4 id="config">Config</h4>
 <p>The configuration of the functional interface type. Content may vary between all types.</p>
 <p>Refer to the <a href="https://json-schema.org/" target="_blank" rel="noopener">JSON Schema</a> of the current <em>AppManifest</em> <a href="./manifest.v3.schema.json">here</a>.</p>
 <h3 id="visualization">Visualization</h3>
 <div class="mermaid">
 graph TD
-    manifest(manifest.json)
+    manifest(AppManifest.json)
     manifest --> manifestVersion[manifestVersion]
     manifest --> name[name]
     manifest -.-> interfaces[interfaces]
@@ -2528,7 +2529,7 @@ graph TD
 <h3 id="functional-interface-types-supported-by-velocitas">Functional interface types supported by Velocitas</h3>
 <p>Here is a list of functional interface types directly supported by the Velocitas toolchain and which Velocitas CLI packages are exposing the support:</p>
 <ul>
-<li><a href="./interfaces/vehicle_model/">Vehicle Model</a></li>
+<li><a href="./interfaces/vehicle_signal_interface/">Vehicle Signal Interface</a></li>
 <li><a href="./interfaces/grpc_interface/">gRPC interface</a></li>
 <li><a href="./interfaces/pubsub/">Publish and subscribe</a></li>
 </ul>

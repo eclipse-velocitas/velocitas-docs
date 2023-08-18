@@ -943,7 +943,7 @@ Service implementations may also interact as feeders with the data broker.&lt;/p
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;required&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;methods&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Move&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;MoveComponent&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;pubsub&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
@@ -952,7 +952,8 @@ Service implementations may also interact as feeders with the data broker.&lt;/p
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;writes&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;sampleapp/currentSpeed&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;sampleapp/getSpeed/response&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;em&gt;VehicleApp&lt;/em&gt; above has an:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1006,7 +1007,7 @@ Service implementations may also interact as feeders with the data broker.&lt;/p
 &lt;/table&gt;
 
 
-&lt;h3 id=&#34;interfaces&#34;&gt;interfaces&lt;/h3&gt;
+&lt;h3 id=&#34;interfaces&#34;&gt;Interfaces&lt;/h3&gt;
 &lt;h4 id=&#34;properties-1&#34;&gt;Properties&lt;/h4&gt;
 
 
@@ -1039,13 +1040,13 @@ Service implementations may also interact as feeders with the data broker.&lt;/p
 &lt;/table&gt;
 
 
-&lt;h4 id=&#34;config&#34;&gt;config&lt;/h4&gt;
+&lt;h4 id=&#34;config&#34;&gt;Config&lt;/h4&gt;
 &lt;p&gt;The configuration of the functional interface type. Content may vary between all types.&lt;/p&gt;
 &lt;p&gt;Refer to the &lt;a href=&#34;https://json-schema.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;JSON Schema&lt;/a&gt; of the current &lt;em&gt;AppManifest&lt;/em&gt; &lt;a href=&#34;./manifest.v3.schema.json&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;visualization&#34;&gt;Visualization&lt;/h3&gt;
 &lt;div class=&#34;mermaid&#34;&gt;
 graph TD
-    manifest(manifest.json)
+    manifest(AppManifest.json)
     manifest --&gt; manifestVersion[manifestVersion]
     manifest --&gt; name[name]
     manifest -.-&gt; interfaces[interfaces]
@@ -1057,7 +1058,7 @@ graph TD
 &lt;h3 id=&#34;functional-interface-types-supported-by-velocitas&#34;&gt;Functional interface types supported by Velocitas&lt;/h3&gt;
 &lt;p&gt;Here is a list of functional interface types directly supported by the Velocitas toolchain and which Velocitas CLI packages are exposing the support:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;./interfaces/vehicle_model/&#34;&gt;Vehicle Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;./interfaces/vehicle_signal_interface/&#34;&gt;Vehicle Signal Interface&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;./interfaces/grpc_interface/&#34;&gt;gRPC interface&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;./interfaces/pubsub/&#34;&gt;Publish and subscribe&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
