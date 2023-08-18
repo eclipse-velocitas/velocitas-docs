@@ -85,7 +85,7 @@ To fully understand the _AppManifest_, let's have a look at **who** interacts wi
             "required": {
                 "methods": [ "Move", "MoveComponent" ]
             },
-        } 
+        }
     },
     {
         "type": "pubsub",
@@ -94,6 +94,7 @@ To fully understand the _AppManifest_, let's have a look at **who** interacts wi
             "writes": [ "sampleapp/currentSpeed", "sampleapp/getSpeed/response" ]
         }
     }
+  ]
 }
 ```
 
@@ -121,7 +122,7 @@ Describes all external properties and interfaces of a Vehicle Application.
 | `interfaces`      | [object](#interfaces)[] | No       | Array of all provided or required functional interfaces. |
 {{</table>}}
 
-### interfaces
+### Interfaces
 
 #### Properties
 
@@ -133,7 +134,7 @@ Describes all external properties and interfaces of a Vehicle Application.
 
 {{</table>}}
 
-#### config
+#### Config
 
 The configuration of the functional interface type. Content may vary between all types.
 
@@ -144,7 +145,7 @@ Refer to the [JSON Schema](https://json-schema.org/) of the current _AppManifest
 ```mermaid
 
 graph TD
-    manifest(manifest.json)
+    manifest(AppManifest.json)
     manifest --> manifestVersion[manifestVersion]
     manifest --> name[name]
     manifest -.-> interfaces[interfaces]
@@ -159,7 +160,7 @@ graph TD
 
 Here is a list of functional interface types directly supported by the Velocitas toolchain and which Velocitas CLI packages are exposing the support:
 
-* [Vehicle Model](./interfaces/vehicle_model/)
+* [Vehicle Signal Interface](./interfaces/vehicle_signal_interface/)
 * [gRPC interface](./interfaces/grpc_interface/)
 * [Publish and subscribe](./interfaces/pubsub/)
 
