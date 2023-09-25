@@ -51,6 +51,15 @@ Create your own repository copy from the template repository of your choice:
 by clicking the green button <kbd>Use this template</kbd>. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
 
    {{% /tab %}}
+   {{% tab header="Velocitas CLI create" %}}
+
+Create your Vehicle App project via our [Velocitas CLI create command](/docs/concepts/lifecycle_management/velocitas_cli/#velocitas-create) from within [vehicle-app-template's](https://github.com/eclipse-velocitas/vehicle-app-template) devcontainer:
+
+- `velocitas create` interactive mode.
+- `velocitas create -n MyApp -l python` for a skeleton vehicle application.
+- `velocitas create -n MyApp -l python -e seat-adjuster` for a vehicle application based on the [seat adjuster example](/docs/about/use_cases/seat_adjuster/).
+
+   {{% /tab %}}
    {{% tab header="digital.auto" %}}
    To learn how to start prototyping with the playground of digital.auto and integrate it into Velocitas please take a look [here](/docs/tutorials/prototyping/digital_auto.md).
    {{% /tab %}}

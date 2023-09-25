@@ -18,12 +18,35 @@ You can find all information about available commands [here](https://github.com/
 
 ### CLI Flow examples
 
+### velocitas create
+
+Create a new Velocitas Vehicle App project.
+{{% alert title="Note" %}}
+`velocitas create` needs to be executed inside our generic [vehicle-app-template](https://github.com/eclipse-velocitas/vehicle-app-template) (inside the devcontainer) where a so called [`package-index.json`](https://github.com/eclipse-velocitas/vehicle-app-template/blob/main/package-index.json) is located for now, which is a central place of defining our extension and core packages with their respective exposed interfaces.
+{{% /alert %}}
+
+```bash
+vscode ➜ /workspaces/vehicle-app-template (main) $ velocitas create
+Interactive project creation started
+> What is the name of your project? MyApp
+> Which programming language would you like to use for your project? (Use arrow keys)
+❯ python
+  cpp
+> Would you like to use a provided example? No
+> Which functional interfaces does your application have? (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+❯◉ Vehicle Signal Interface based on VSS and KUKSA Databroker
+ ◯ gRPC service contract based on a proto interface description
+...
+Config 'src' for interface 'vehicle-signal-interface': URI or path to VSS json (Leave empty for default: v3.0)
+...
+```
+
 ### velocitas init
 
 Download packages configured in your `.velocitas.json` to [VELOCITAS_HOME](https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory)
 
 ```bash
-vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas init
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas init
 Initializing Velocitas packages ...
 ... Downloading package: 'devenv-runtimes:v1.0.1'
 ... Downloading package: 'devenv-github-workflows:v2.0.4'
@@ -42,7 +65,7 @@ This will overwrite any changes you have made to the files manually! Affected fi
 {{% /alert %}}
 
 ```bash
-vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas sync
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas sync
 Syncing Velocitas components!
 ... syncing 'devenv-github-workflows'
 ... syncing 'devenv-github-templates'
@@ -54,7 +77,7 @@ Syncing Velocitas components!
 Updates Velocitas components.
 
 ```bash
-vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas upgrade --dry-run
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas upgrade --dry-run
 Checking for updates!
 ... 'devenv-runtimes' is up to date!
 ... 'devenv-github-workflows' is up to date!
@@ -68,7 +91,7 @@ Checking for updates!
 Prints information about packages.
 
 ```bash
-vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas package devenv-devcontainer-setup
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas package devenv-devcontainer-setup
 devenv-devcontainer-setup
     version: v1.1.7
     components:
@@ -90,7 +113,7 @@ devenv-devcontainer-setup
 ```
 
 ```bash
-vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas package devenv-devcontainer-setup -p
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas package devenv-devcontainer-setup -p
 /home/vscode/.velocitas/packages/devenv-devcontainer-setup/v1.1.7
 ```
 
@@ -99,7 +122,7 @@ vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas pa
 Executes a script contained in one of your installed components.
 
 ```bash
-vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas exec runtime-local run-vehicledatabroker
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas exec runtime-local run-vehicledatabroker
 #######################################################
 ### Running Databroker                              ###
 #######################################################
