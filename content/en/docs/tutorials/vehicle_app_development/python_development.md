@@ -36,7 +36,7 @@ If you don't like to do the following steps by yourself, you can use the `Import
 
 At first, you have to create the main Python script called `main.py` in `/app/src`. All the relevant code for your new _Vehicle App_ goes there.
 
-If you've created your app development repository from our [Python template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template) or via [digital.auto prototyping](/docs/tutorials/prototyping/digital_auto) a file with this name is already present and can be adjusted to your needs.
+If you've created your app development repository from our [Python template repository](https://github.com/eclipse-velocitas/vehicle-app-python-template), the [Velocitas CLI create command](/docs/concepts/lifecycle_management/velocitas_cli/#velocitas-create) or via [digital.auto prototyping](/docs/tutorials/prototyping/digital_auto) a file with this name is already present and can be adjusted to your needs.
 
 Setting up the basic skeleton of an app consists of the following steps:
 
