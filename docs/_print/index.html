@@ -87,7 +87,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.ac6e53d6559e02dc98d743bc7ac464a2.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.dd63c5d8a5a7f900d6b148a3defc2338.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -2414,7 +2414,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MoveComponent&#34;</span> <span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;pubsub&#34;</span><span style="color:#000;font-weight:bold">,</span>
@@ -2423,7 +2423,8 @@ Service implementations may also interact as feeders with the data broker.</p>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;writes&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;sampleapp/currentSpeed&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;sampleapp/getSpeed/response&#34;</span> <span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#a40000">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>The <em>VehicleApp</em> above has an:</p>
 <ul>
 <li>
@@ -2477,7 +2478,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 </table>
 
 
-<h3 id="interfaces">interfaces</h3>
+<h3 id="interfaces">Interfaces</h3>
 <h4 id="properties-1">Properties</h4>
 
 
@@ -2510,13 +2511,13 @@ Service implementations may also interact as feeders with the data broker.</p>
 </table>
 
 
-<h4 id="config">config</h4>
+<h4 id="config">Config</h4>
 <p>The configuration of the functional interface type. Content may vary between all types.</p>
 <p>Refer to the <a href="https://json-schema.org/" target="_blank" rel="noopener">JSON Schema</a> of the current <em>AppManifest</em> <a href="./manifest.v3.schema.json">here</a>.</p>
 <h3 id="visualization">Visualization</h3>
 <div class="mermaid">
 graph TD
-    manifest(manifest.json)
+    manifest(AppManifest.json)
     manifest --> manifestVersion[manifestVersion]
     manifest --> name[name]
     manifest -.-> interfaces[interfaces]
@@ -2528,7 +2529,7 @@ graph TD
 <h3 id="functional-interface-types-supported-by-velocitas">Functional interface types supported by Velocitas</h3>
 <p>Here is a list of functional interface types directly supported by the Velocitas toolchain and which Velocitas CLI packages are exposing the support:</p>
 <ul>
-<li><a href="./interfaces/vehicle_model/">Vehicle Model</a></li>
+<li><a href="./interfaces/vehicle_signal_interface/">Vehicle Signal Interface</a></li>
 <li><a href="./interfaces/grpc_interface/">gRPC interface</a></li>
 <li><a href="./interfaces/pubsub/">Publish and subscribe</a></li>
 </ul>
@@ -2615,6 +2616,7 @@ graph TD
 
 <p>The <em>Vehicle Signal Interface</em> formerly known as <a href="/velocitas-docs/docs/concepts/development_model/#vehicle-models"><em>Vehicle Model</em></a> interface type creates an interface to a signal interface described by the VSS spec. This interface will generate a source code package equivalent to the contents of your VSS JSON automatically upon devContainer creation.</p>
 <p>If a <em>Vehicle App</em> requires a <code>vehicle-signal-interface</code>, it will act as a consumer of datapoints already available in the system. If, on the other hand, a <em>Vehicle App</em> provides a <code>vehicle-signal-interface</code>, it will act as a provider (formerly feeder in KUKSA terms) of the declared datapoints.</p>
+<p>Furthermore, in the source code generated by this functional interface, a connection to <a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">Kuksa Databroker</a> will be established via the configured Velocitas middleware. It uses the <code>broker.proto</code> if provided by the Kuksa Databroker to connect via gRPC. A seperate declaration of a <code>grpc-interface</code> for the databroker is <strong>NOT</strong> required.</p>
 <p>More information: <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/">Vehicle Model Creation</a></p>
 <h2 id="configuration-structure">Configuration structure</h2>
 
@@ -2626,6 +2628,7 @@ graph TD
 <thead>
 <tr>
 <th>Attribute</th>
+<th>Type</th>
 <th>Example value</th>
 <th>Description</th>
 </tr>
@@ -2633,41 +2636,49 @@ graph TD
 <tbody>
 <tr>
 <td><code>src</code></td>
+<td>string</td>
 <td><code>&quot;https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json&quot;</code></td>
 <td>URI of the used COVESA Vehicle Signal Specification JSON export. URI may point to a local file or to a file provided by a server. </td>
 </tr>
 <tr>
 <td><code>datapoints</code></td>
-<td></td>
+<td>object</td>
 <td>Object containing both required and provided datapoints.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>datapoints.required</code></td>
-<td></td>
+<td>array</td>
 <td>Array of required datapoints.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>datapoints.required.[].path</code></td>
+<td>string</td>
 <td><code>Vehicle.Speed</code></td>
 <td>Path of the VSS datapoint.</td>
 </tr>
 <tr>
 <td><code>datapoints.required.[].optional</code></td>
+<td>boolean?</td>
 <td><code>true</code>, <code>false</code></td>
 <td>Is the datapoint optional, i.e. can the <em>Vehicle App</em> work without the datapoint being present in the system. Defaults to <code>false</code>.</td>
 </tr>
 <tr>
 <td><code>datapoints.required.[].access</code></td>
+<td>string</td>
 <td><code>read</code>, <code>write</code></td>
 <td>What kind of access to the datapoint is needed by the application.</td>
 </tr>
 <tr>
 <td><code>datapoints.provided</code></td>
-<td></td>
+<td>array</td>
 <td>Array of provided datapoints.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>datapoints.provided.[].path</code></td>
+<td>string</td>
 <td><code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code></td>
 <td>Path of the VSS datapoint.</td>
 </tr>
@@ -2684,8 +2695,12 @@ graph TD
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Speed&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;optional&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;true&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;path&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Vehicle.Body.Horn.IsActive&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;optional&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;access&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;write&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">],</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;provided&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
@@ -2748,6 +2763,7 @@ graph TD
 <thead>
 <tr>
 <th>Attribute</th>
+<th>Type</th>
 <th>Example value</th>
 <th>Description</th>
 </tr>
@@ -2755,21 +2771,25 @@ graph TD
 <tbody>
 <tr>
 <td><code>src</code></td>
+<td>string</td>
 <td><code>&quot;https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&quot;</code></td>
 <td>URI of the used protobuf specification of the service. URI may point to a local file or to a file provided by a server. It is generally recommended that a <strong>stable</strong> proto file is used. I.e. one that is already released under a proper tag rather than an in-development proto file. </td>
 </tr>
 <tr>
 <td><code>required.methods</code></td>
-<td></td>
+<td>array</td>
 <td>Array of service&rsquo;s methods that are accessed by the application. In addition to access control the methods attribute may be used to determine backward or forward compatibility i.e. if semantics of a service&rsquo;s interface did not change but methods were added or removed in a future version.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>required.methods.[].name</code></td>
+<td>string</td>
 <td><code>&quot;Move&quot;</code>, <code>&quot;MoveComponent&quot;</code></td>
 <td>Name of the method that the application would like to access</td>
 </tr>
 <tr>
 <td><code>provided</code></td>
+<td>object</td>
 <td><code>{}</code></td>
 <td>Reserved object indicating that the interface is provided. Might be filled with further configuration values.</td>
 </tr>
@@ -2779,15 +2799,15 @@ graph TD
 
 <h2 id="example">Example</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MoveComponent&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MoveComponent&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div>
 </div>
@@ -2841,6 +2861,7 @@ graph TD
 <thead>
 <tr>
 <th>Attribute</th>
+<th>Type</th>
 <th>Example value</th>
 <th>Description</th>
 </tr>
@@ -2848,11 +2869,13 @@ graph TD
 <tbody>
 <tr>
 <td><code>reads</code></td>
+<td>array[string]</td>
 <td><code>[ &quot;sampleapp/getSpeed&quot; ]</code></td>
 <td>Array of topics which are read by the application.</td>
 </tr>
 <tr>
 <td><code>writes</code></td>
+<td>array[string]</td>
 <td><code>[ &quot;sampleapp/currentSpeed&quot;, &quot;sampleapp/getSpeed/response&quot; ]</code></td>
 <td>Array of topics which are written by the application.</td>
 </tr>
@@ -2862,11 +2885,11 @@ graph TD
 
 <h2 id="example">Example</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;pubsub&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;reads&#34;</span><span style="color:#000;font-weight:bold">:</span>  <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;sampleapp/getSpeed&#34;</span> <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;writes&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;sampleapp/currentSpeed&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;sampleapp/getSpeed/response&#34;</span> <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;pubsub&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;reads&#34;</span><span style="color:#000;font-weight:bold">:</span>  <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;sampleapp/getSpeed&#34;</span> <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;writes&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;sampleapp/currentSpeed&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;sampleapp/getSpeed/response&#34;</span> <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div>
 </div>
@@ -3121,9 +3144,33 @@ Since the registry does not have an automatic cleanup, it keeps container images
 <h2 id="commands">Commands</h2>
 <p>You can find all information about available commands <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#commands" target="_blank" rel="noopener">here</a>.</p>
 <h3 id="cli-flow-examples">CLI Flow examples</h3>
-<h3 id="velocitas-init">velocitas init</h3>
+<h3 id="velocitas-create">velocitas create</h3>
+<p>Create a new Velocitas Vehicle App project.
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    <code>velocitas create</code> needs to be executed inside our generic <a href="https://github.com/eclipse-velocitas/vehicle-app-template" target="_blank" rel="noopener">vehicle-app-template</a> (inside the devcontainer) where a so called <a href="https://github.com/eclipse-velocitas/vehicle-app-template/blob/main/package-index.json" target="_blank" rel="noopener"><code>package-index.json</code></a> is located for now, which is a central place of defining our extension and core packages with their respective exposed interfaces.
+
+</div>
+</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas create
+</span></span><span style="display:flex;"><span>Interactive project creation started
+</span></span><span style="display:flex;"><span>&gt; What is the name of your project? MyApp
+</span></span><span style="display:flex;"><span>&gt; Which programming language would you like to use <span style="color:#204a87;font-weight:bold">for</span> your project? <span style="color:#ce5c00;font-weight:bold">(</span>Use arrow keys<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>❯ python
+</span></span><span style="display:flex;"><span>  cpp
+</span></span><span style="display:flex;"><span>&gt; Would you like to use a provided example? No
+</span></span><span style="display:flex;"><span>&gt; Which functional interfaces does your application have? <span style="color:#ce5c00;font-weight:bold">(</span>Press &lt;space&gt; to <span style="color:#204a87;font-weight:bold">select</span>, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection, and &lt;enter&gt; to proceed<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>❯◉ Vehicle Signal Interface based on VSS and KUKSA Databroker
+</span></span><span style="display:flex;"><span> ◯ gRPC service contract based on a proto interface description
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>Config <span style="color:#4e9a06">&#39;src&#39;</span> <span style="color:#204a87;font-weight:bold">for</span> interface <span style="color:#4e9a06">&#39;vehicle-signal-interface&#39;</span>: URI or path to VSS json <span style="color:#ce5c00;font-weight:bold">(</span>Leave empty <span style="color:#204a87;font-weight:bold">for</span> default: v3.0<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h3 id="velocitas-init">velocitas init</h3>
 <p>Download packages configured in your <code>.velocitas.json</code> to <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory" target="_blank" rel="noopener">VELOCITAS_HOME</a></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
 </span></span><span style="display:flex;"><span>Initializing Velocitas packages ...
 </span></span><span style="display:flex;"><span>... Downloading package: <span style="color:#4e9a06">&#39;devenv-runtimes:v1.0.1&#39;</span>
 </span></span><span style="display:flex;"><span>... Downloading package: <span style="color:#4e9a06">&#39;devenv-github-workflows:v2.0.4&#39;</span>
@@ -3143,14 +3190,14 @@ Since the registry does not have an automatic cleanup, it keeps container images
 
 </div>
 </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas sync
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas sync
 </span></span><span style="display:flex;"><span>Syncing Velocitas components!
 </span></span><span style="display:flex;"><span>... syncing <span style="color:#4e9a06">&#39;devenv-github-workflows&#39;</span>
 </span></span><span style="display:flex;"><span>... syncing <span style="color:#4e9a06">&#39;devenv-github-templates&#39;</span>
 </span></span><span style="display:flex;"><span>... syncing <span style="color:#4e9a06">&#39;devenv-devcontainer-setup&#39;</span>
 </span></span></code></pre></div><h3 id="velocitas-upgrade">velocitas upgrade</h3>
 <p>Updates Velocitas components.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas upgrade --dry-run
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas upgrade --dry-run
 </span></span><span style="display:flex;"><span>Checking <span style="color:#204a87;font-weight:bold">for</span> updates!
 </span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-runtimes&#39;</span> is up to date!
 </span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-github-workflows&#39;</span> is up to date!
@@ -3159,7 +3206,7 @@ Since the registry does not have an automatic cleanup, it keeps container images
 </span></span><span style="display:flex;"><span>... Do you wish to <span style="color:#204a87;font-weight:bold">continue</span>? <span style="color:#ce5c00;font-weight:bold">[</span>y/n<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>y<span style="color:#ce5c00;font-weight:bold">]</span>: y
 </span></span></code></pre></div><h3 id="velocitas-package">velocitas package</h3>
 <p>Prints information about packages.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup
 </span></span><span style="display:flex;"><span>devenv-devcontainer-setup
 </span></span><span style="display:flex;"><span>    version: v1.1.7
 </span></span><span style="display:flex;"><span>    components:
@@ -3178,11 +3225,11 @@ Since the registry does not have an automatic cleanup, it keeps container images
 </span></span><span style="display:flex;"><span>                type: string
 </span></span><span style="display:flex;"><span>                description: Path of the AppManifest file, relative to the .velocitas.json
 </span></span><span style="display:flex;"><span>                required: <span style="color:#204a87">true</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup -p
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup -p
 </span></span><span style="display:flex;"><span>/home/vscode/.velocitas/packages/devenv-devcontainer-setup/v1.1.7
 </span></span></code></pre></div><h3 id="velocitas-exec">velocitas exec</h3>
 <p>Executes a script contained in one of your installed components.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas <span style="color:#204a87">exec</span> runtime-local run-vehicledatabroker
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas <span style="color:#204a87">exec</span> runtime-local run-vehicledatabroker
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#######################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">### Running Databroker                              ###</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#######################################################</span>
@@ -3671,10 +3718,10 @@ Set environment variable via system settings GITHUB_API_TOKEN=&lt;your_api_token
 <p>After you have set the ENV consider to restart VS Code.</p>
 <p>It is important that VS Code has access to this ENV during the <code>postCreateCommand</code> inside the devcontainer.
 If you experienced this error and the devcontainer still has started correctly please run either:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ ./.devcontainer/scripts/postCreateCommand.sh
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ ./.devcontainer/scripts/postCreateCommand.sh
 </span></span></code></pre></div><p>or</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
-</span></span><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas sync
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
+</span></span><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas sync
 </span></span></code></pre></div>
 </div>
 
@@ -3905,6 +3952,7 @@ If you experienced this error and the devcontainer still has started correctly p
 
    
    
+   
 <ul class="nav nav-tabs" id="tabs-1" role="tablist">
   <li class="nav-item">
       <a class="nav-link active"
@@ -3916,6 +3964,12 @@ If you experienced this error and the devcontainer still has started correctly p
       <a class="nav-link"
           id="tabs-01-01-tab" data-toggle="tab" href="#tabs-01-01" role="tab"
           aria-controls="tabs-01-01" aria-selected="false">
+        Velocitas CLI create
+      </a>
+    </li><li class="nav-item">
+      <a class="nav-link"
+          id="tabs-01-02-tab" data-toggle="tab" href="#tabs-01-02" role="tab"
+          aria-controls="tabs-01-02" aria-selected="false">
         digital.auto
       </a>
     </li>
@@ -3934,6 +3988,16 @@ If you experienced this error and the devcontainer still has started correctly p
     </div>
     <div class="tab-body tab-pane fade"
         id="tabs-01-01" role="tabpanel" aria-labelled-by="tabs-01-01-tab">
+        <p>Create your Vehicle App project via our <a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas_cli/#velocitas-create">Velocitas CLI create command</a> from within <a href="https://github.com/eclipse-velocitas/vehicle-app-template" target="_blank" rel="noopener">vehicle-app-template&rsquo;s</a> devcontainer:</p>
+<ul>
+<li><code>velocitas create</code> interactive mode.</li>
+<li><code>velocitas create -n MyApp -l python</code> for a skeleton vehicle application.</li>
+<li><code>velocitas create -n MyApp -l python -e seat-adjuster</code> for a vehicle application based on the <a href="/velocitas-docs/docs/about/use_cases/seat_adjuster/">seat adjuster example</a>.</li>
+</ul>
+
+    </div>
+    <div class="tab-body tab-pane fade"
+        id="tabs-01-02" role="tabpanel" aria-labelled-by="tabs-01-02-tab">
         <p>To learn how to start prototyping with the playground of digital.auto and integrate it into Velocitas please take a look <a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto.md">here</a>.</p>
 
     </div>
@@ -4760,7 +4824,7 @@ A detailed explanation of the use case and the example is available <a href="/ve
 
 <h2 id="setting-up-the-basic-skeleton-of-your-app">Setting up the basic skeleton of your app</h2>
 <p>At first, you have to create the main Python script called <code>main.py</code> in <code>/app/src</code>. All the relevant code for your new <em>Vehicle App</em> goes there.</p>
-<p>If you&rsquo;ve created your app development repository from our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python template repository</a> or via <a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto">digital.auto prototyping</a> a file with this name is already present and can be adjusted to your needs.</p>
+<p>If you&rsquo;ve created your app development repository from our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python template repository</a>, the <a href="/velocitas-docs/docs/concepts/lifecycle_management/velocitas_cli/#velocitas-create">Velocitas CLI create command</a> or via <a href="/velocitas-docs/docs/tutorials/prototyping/digital_auto">digital.auto prototyping</a> a file with this name is already present and can be adjusted to your needs.</p>
 <p>Setting up the basic skeleton of an app consists of the following steps:</p>
 <ol>
 <li><a href="#manage-your-imports">Manage your imports</a></li>

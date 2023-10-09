@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.ac6e53d6559e02dc98d743bc7ac464a2.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.dd63c5d8a5a7f900d6b148a3defc2338.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -117,7 +117,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.ac6e53d6559e02dc98d743bc7ac464a2.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.dd63c5d8a5a7f900d6b148a3defc2338.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -442,7 +442,7 @@
     <li><a href="#structure">Structure</a>
       <ul>
         <li><a href="#properties">Properties</a></li>
-        <li><a href="#interfaces">interfaces</a></li>
+        <li><a href="#interfaces">Interfaces</a></li>
         <li><a href="#visualization">Visualization</a></li>
         <li><a href="#functional-interface-types-supported-by-velocitas">Functional interface types supported by Velocitas</a></li>
       </ul>
@@ -590,7 +590,7 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MoveComponent&#34;</span> <span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;pubsub&#34;</span><span style="color:#000;font-weight:bold">,</span>
@@ -599,7 +599,8 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;writes&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;sampleapp/currentSpeed&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;sampleapp/getSpeed/response&#34;</span> <span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#a40000">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>The <em>VehicleApp</em> above has an:</p>
 <ul>
 <li>
@@ -653,7 +654,7 @@
 </table>
 
 
-<h3 id="interfaces">interfaces</h3>
+<h3 id="interfaces">Interfaces</h3>
 <h4 id="properties-1">Properties</h4>
 
 
@@ -686,13 +687,13 @@
 </table>
 
 
-<h4 id="config">config</h4>
+<h4 id="config">Config</h4>
 <p>The configuration of the functional interface type. Content may vary between all types.</p>
 <p>Refer to the <a href="https://json-schema.org/" target="_blank" rel="noopener">JSON Schema</a> of the current <em>AppManifest</em> <a href="./manifest.v3.schema.json">here</a>.</p>
 <h3 id="visualization">Visualization</h3>
 <div class="mermaid">
 graph TD
-    manifest(manifest.json)
+    manifest(AppManifest.json)
     manifest --> manifestVersion[manifestVersion]
     manifest --> name[name]
     manifest -.-> interfaces[interfaces]
@@ -704,7 +705,7 @@ graph TD
 <h3 id="functional-interface-types-supported-by-velocitas">Functional interface types supported by Velocitas</h3>
 <p>Here is a list of functional interface types directly supported by the Velocitas toolchain and which Velocitas CLI packages are exposing the support:</p>
 <ul>
-<li><a href="./interfaces/vehicle_model/">Vehicle Model</a></li>
+<li><a href="./interfaces/vehicle_signal_interface/">Vehicle Signal Interface</a></li>
 <li><a href="./interfaces/grpc_interface/">gRPC interface</a></li>
 <li><a href="./interfaces/pubsub/">Publish and subscribe</a></li>
 </ul>
@@ -744,7 +745,7 @@ graph TD
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified August 15, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/f370892fdc6c02459b1cad2b99b1bda8d8dc922a">Feature: Document AppManifest version 3 design (#107) (f370892)</a>
+  Last modified October 9, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/6b5f057b65e1733de4666037635bf71b5ebb6e64">Add velocitas create command additions (#113) (6b5f057)</a>
 </div>
 
 </div>

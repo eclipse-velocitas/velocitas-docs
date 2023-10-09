@@ -40,12 +40,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas-docs/docs/concepts/development_model/vehicle_app_manifest/interfaces/grpc_interface/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-08-09T00:00:00+01:00" />
-<meta property="article:modified_time" content="2023-08-15T13:22:41+02:00" />
+<meta property="article:modified_time" content="2023-10-09T16:28:46+02:00" />
 <meta itemprop="name" content="gRPC Service Interface">
 <meta itemprop="description" content="The functional interface for supporting remote procedure calls via gRPC.
 "><meta itemprop="datePublished" content="2023-08-09T00:00:00+01:00" />
-<meta itemprop="dateModified" content="2023-08-15T13:22:41+02:00" />
-<meta itemprop="wordCount" content="304">
+<meta itemprop="dateModified" content="2023-10-09T16:28:46+02:00" />
+<meta itemprop="wordCount" content="309">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="gRPC Service Interface"/>
 <meta name="twitter:description" content="The functional interface for supporting remote procedure calls via gRPC.
@@ -94,7 +94,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.ac6e53d6559e02dc98d743bc7ac464a2.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.dd63c5d8a5a7f900d6b148a3defc2338.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +120,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.ac6e53d6559e02dc98d743bc7ac464a2.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.dd63c5d8a5a7f900d6b148a3defc2338.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -554,6 +554,7 @@
 <thead>
 <tr>
 <th>Attribute</th>
+<th>Type</th>
 <th>Example value</th>
 <th>Description</th>
 </tr>
@@ -561,21 +562,25 @@
 <tbody>
 <tr>
 <td><code>src</code></td>
+<td>string</td>
 <td><code>&quot;https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&quot;</code></td>
 <td>URI of the used protobuf specification of the service. URI may point to a local file or to a file provided by a server. It is generally recommended that a <strong>stable</strong> proto file is used. I.e. one that is already released under a proper tag rather than an in-development proto file. </td>
 </tr>
 <tr>
 <td><code>required.methods</code></td>
-<td></td>
+<td>array</td>
 <td>Array of service&rsquo;s methods that are accessed by the application. In addition to access control the methods attribute may be used to determine backward or forward compatibility i.e. if semantics of a service&rsquo;s interface did not change but methods were added or removed in a future version.</td>
+<td></td>
 </tr>
 <tr>
 <td><code>required.methods.[].name</code></td>
+<td>string</td>
 <td><code>&quot;Move&quot;</code>, <code>&quot;MoveComponent&quot;</code></td>
 <td>Name of the method that the application would like to access</td>
 </tr>
 <tr>
 <td><code>provided</code></td>
+<td>object</td>
 <td><code>{}</code></td>
 <td>Reserved object indicating that the interface is provided. Might be filled with further configuration values.</td>
 </tr>
@@ -585,21 +590,21 @@
 
 <h2 id="example">Example</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MoveComponent&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MoveComponent&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified August 15, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/f370892fdc6c02459b1cad2b99b1bda8d8dc922a">Feature: Document AppManifest version 3 design (#107) (f370892)</a>
+  Last modified October 9, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/6b5f057b65e1733de4666037635bf71b5ebb6e64">Add velocitas create command additions (#113) (6b5f057)</a>
 </div>
 
 </div>
