@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.378afe60271d62541bc5a03ea52acddf.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.000f5c3e6bf8ce155683c4ca0c52afdb.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -313,9 +313,33 @@ This is the multi-page printable view of this section.
 <h2 id="commands">Commands</h2>
 <p>You can find all information about available commands <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#commands" target="_blank" rel="noopener">here</a>.</p>
 <h3 id="cli-flow-examples">CLI Flow examples</h3>
-<h3 id="velocitas-init">velocitas init</h3>
+<h3 id="velocitas-create">velocitas create</h3>
+<p>Create a new Velocitas Vehicle App project.
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    <code>velocitas create</code> needs to be executed inside our generic <a href="https://github.com/eclipse-velocitas/vehicle-app-template" target="_blank" rel="noopener">vehicle-app-template</a> (inside the devcontainer) where a so called <a href="https://github.com/eclipse-velocitas/vehicle-app-template/blob/main/package-index.json" target="_blank" rel="noopener"><code>package-index.json</code></a> is located for now, which is a central place of defining our extension and core packages with their respective exposed interfaces.
+
+</div>
+</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas create
+</span></span><span style="display:flex;"><span>Interactive project creation started
+</span></span><span style="display:flex;"><span>&gt; What is the name of your project? MyApp
+</span></span><span style="display:flex;"><span>&gt; Which programming language would you like to use <span style="color:#204a87;font-weight:bold">for</span> your project? <span style="color:#ce5c00;font-weight:bold">(</span>Use arrow keys<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>❯ python
+</span></span><span style="display:flex;"><span>  cpp
+</span></span><span style="display:flex;"><span>&gt; Would you like to use a provided example? No
+</span></span><span style="display:flex;"><span>&gt; Which functional interfaces does your application have? <span style="color:#ce5c00;font-weight:bold">(</span>Press &lt;space&gt; to <span style="color:#204a87;font-weight:bold">select</span>, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection, and &lt;enter&gt; to proceed<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>❯◉ Vehicle Signal Interface based on VSS and KUKSA Databroker
+</span></span><span style="display:flex;"><span> ◯ gRPC service contract based on a proto interface description
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>Config <span style="color:#4e9a06">&#39;src&#39;</span> <span style="color:#204a87;font-weight:bold">for</span> interface <span style="color:#4e9a06">&#39;vehicle-signal-interface&#39;</span>: URI or path to VSS json <span style="color:#ce5c00;font-weight:bold">(</span>Leave empty <span style="color:#204a87;font-weight:bold">for</span> default: v3.0<span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h3 id="velocitas-init">velocitas init</h3>
 <p>Download packages configured in your <code>.velocitas.json</code> to <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory" target="_blank" rel="noopener">VELOCITAS_HOME</a></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
 </span></span><span style="display:flex;"><span>Initializing Velocitas packages ...
 </span></span><span style="display:flex;"><span>... Downloading package: <span style="color:#4e9a06">&#39;devenv-runtimes:v1.0.1&#39;</span>
 </span></span><span style="display:flex;"><span>... Downloading package: <span style="color:#4e9a06">&#39;devenv-github-workflows:v2.0.4&#39;</span>
@@ -335,14 +359,14 @@ This is the multi-page printable view of this section.
 
 </div>
 </p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas sync
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas sync
 </span></span><span style="display:flex;"><span>Syncing Velocitas components!
 </span></span><span style="display:flex;"><span>... syncing <span style="color:#4e9a06">&#39;devenv-github-workflows&#39;</span>
 </span></span><span style="display:flex;"><span>... syncing <span style="color:#4e9a06">&#39;devenv-github-templates&#39;</span>
 </span></span><span style="display:flex;"><span>... syncing <span style="color:#4e9a06">&#39;devenv-devcontainer-setup&#39;</span>
 </span></span></code></pre></div><h3 id="velocitas-upgrade">velocitas upgrade</h3>
 <p>Updates Velocitas components.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas upgrade --dry-run
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas upgrade --dry-run
 </span></span><span style="display:flex;"><span>Checking <span style="color:#204a87;font-weight:bold">for</span> updates!
 </span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-runtimes&#39;</span> is up to date!
 </span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-github-workflows&#39;</span> is up to date!
@@ -351,7 +375,7 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span>... Do you wish to <span style="color:#204a87;font-weight:bold">continue</span>? <span style="color:#ce5c00;font-weight:bold">[</span>y/n<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>y<span style="color:#ce5c00;font-weight:bold">]</span>: y
 </span></span></code></pre></div><h3 id="velocitas-package">velocitas package</h3>
 <p>Prints information about packages.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup
 </span></span><span style="display:flex;"><span>devenv-devcontainer-setup
 </span></span><span style="display:flex;"><span>    version: v1.1.7
 </span></span><span style="display:flex;"><span>    components:
@@ -370,11 +394,11 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span>                type: string
 </span></span><span style="display:flex;"><span>                description: Path of the AppManifest file, relative to the .velocitas.json
 </span></span><span style="display:flex;"><span>                required: <span style="color:#204a87">true</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup -p
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup -p
 </span></span><span style="display:flex;"><span>/home/vscode/.velocitas/packages/devenv-devcontainer-setup/v1.1.7
 </span></span></code></pre></div><h3 id="velocitas-exec">velocitas exec</h3>
 <p>Executes a script contained in one of your installed components.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas <span style="color:#204a87">exec</span> runtime-local run-vehicledatabroker
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas <span style="color:#204a87">exec</span> runtime-local run-vehicledatabroker
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#######################################################</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">### Running Databroker                              ###</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#######################################################</span>
@@ -863,10 +887,10 @@ Set environment variable via system settings GITHUB_API_TOKEN=&lt;your_api_token
 <p>After you have set the ENV consider to restart VS Code.</p>
 <p>It is important that VS Code has access to this ENV during the <code>postCreateCommand</code> inside the devcontainer.
 If you experienced this error and the devcontainer still has started correctly please run either:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ ./.devcontainer/scripts/postCreateCommand.sh
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ ./.devcontainer/scripts/postCreateCommand.sh
 </span></span></code></pre></div><p>or</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
-</span></span><span style="display:flex;"><span>vscode ➜ /workspaces/eclipse-vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas sync
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
+</span></span><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas sync
 </span></span></code></pre></div>
 </div>
 
