@@ -91,7 +91,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.dd63c5d8a5a7f900d6b148a3defc2338.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.149d494f268b7648549a881078dc5720.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -1339,6 +1339,10 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 <p>For more advanced usage you can also try to modify existing services. Check out <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">the seat service</a> for example, modify it and integrate it into your <em>Vehicle App</em> repository.</p>
 <h3 id="create-your-own-services">Create your own services</h3>
 <p>If you want to create your own service the <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a> contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to <em>KUKSA.VAL</em> listening to changes of a <em>target value</em> of some VSS data point and then do whatever you want. You can achieve this by using the <em>KUKSA.VAL</em> <a href="https://github.com/eclipse/kuksa.val/tree/master/proto/kuksa/val/v1" target="_blank" rel="noopener">gRPC API</a> with any programming language of your choice (learn more about <a href="https://grpc.io" target="_blank" rel="noopener">gRPC</a>).</p>
+<h3 id="mock-service-and-mock-service-integration">Mock Service and Mock Service Integration</h3>
+<p><a href="https://github.com/eclipse/kuksa.val.services/tree/main/mock_service" target="_blank" rel="noopener">The Vehicle Mock Service</a> is a dummy service allowing to control all specified actuator- and sensor-signals via a configuration file. These configuration files are expressed in a Python-based domain-specific language (DSL).
+The default behavior is predefined in <a href="https://github.com/eclipse/kuksa.val.services/blob/main/mock_service/mock.py" target="_blank" rel="noopener">mock.py</a></p>
+<p>Mock Service is already integrated in all our <a href="/velocitas-docs/docs/tutorials/vehicle_app_runtime">Vehicle Runtimes</a>. To be able to configure integrated Mock Service, you need only to add custom <code>mock.py</code> into the root of the Vehicle App Project, created based on one of our Velocitas Templates.</p>
 
 </div>
 
