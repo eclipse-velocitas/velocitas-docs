@@ -23,4 +23,4 @@ If you want to create your own service the [KUKSA.VAL Services repository](https
 [The Vehicle Mock Service](https://github.com/eclipse/kuksa.val.services/tree/main/mock_service) is a dummy service allowing to control all specified actuator- and sensor-signals via a configuration file. These configuration files are expressed in a Python-based domain-specific language (DSL).
 The default behavior is predefined in [mock.py](https://github.com/eclipse/kuksa.val.services/blob/main/mock_service/mock.py)
 
-Mock Service is already integrated in all our [Vehicle Runtimes](/docs/tutorials/vehicle_app_runtime). To be able to configure integrated Mock Service, you need only to add custom `mock.py` into the root of the Vehicle App Project, created based on one of our Velocitas Templates.
+The Mock Service is already integrated in all our [Vehicle Runtimes](/docs/tutorials/vehicle_app_runtime). To be able to configure it, you need to add a custom `mock.py` in the root of your Vehicle App Project. The Mock Service Container will pick it up automatically.
