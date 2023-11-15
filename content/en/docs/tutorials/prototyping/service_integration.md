@@ -17,3 +17,10 @@ For more advanced usage you can also try to modify existing services. Check out 
 ### Create your own services
 
 If you want to create your own service the [KUKSA.VAL Services repository](https://github.com/eclipse/kuksa.val.services/) contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to _KUKSA.VAL_ listening to changes of a _target value_ of some VSS data point and then do whatever you want. You can achieve this by using the _KUKSA.VAL_ [gRPC API](https://github.com/eclipse/kuksa.val/tree/master/proto/kuksa/val/v1) with any programming language of your choice (learn more about [gRPC](https://grpc.io)).
+
+### Mock Service and Mock Service Integration
+
+[The Vehicle Mock Service](https://github.com/eclipse/kuksa.val.services/tree/main/mock_service) is a dummy service allowing to control all specified actuator- and sensor-signals via a configuration file. These configuration files are expressed in a Python-based domain-specific language (DSL).
+The default behavior is predefined in [mock.py](https://github.com/eclipse/kuksa.val.services/blob/main/mock_service/mock.py)
+
+The Mock Service is already integrated in all our [Vehicle Runtimes](/docs/tutorials/vehicle_app_runtime). To be able to configure it, you need to add a custom `mock.py` in the root of your Vehicle App Project. The Mock Service Container will pick it up automatically.
