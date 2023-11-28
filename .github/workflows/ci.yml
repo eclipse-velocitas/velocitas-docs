@@ -28,12 +28,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup python
-        uses: actions/setup-python@v4
-
-      - name: Run linters
-        uses: pre-commit/action@v3.0.0
-
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2.6.0
         with:
