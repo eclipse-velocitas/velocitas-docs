@@ -53,4 +53,6 @@ Eclipse _Velocitas™_ is an open source project providing an end-to-end, scalab
 | digital.auto integration           | +      |     |
 {{</table>}}
 
+## Feature Support
+
 ## Concepts
