@@ -51,6 +51,15 @@ Create your own repository copy from the template repository of your choice:
 by clicking the green button <kbd>Use this template</kbd>. You don't have to include all branches. For more information on Template Repositories take a look at this [GitHub Tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template#creating-a-repository-from-a-template).
 
    {{% /tab %}}
+   {{% tab header="Velocitas CLI create" %}}
+
+Create your Vehicle App project via our [Velocitas CLI create command](/docs/concepts/lifecycle_management/velocitas_cli/#velocitas-create) from within [vehicle-app-template's](https://github.com/eclipse-velocitas/vehicle-app-template) devcontainer:
+
+- `velocitas create` interactive mode.
+- `velocitas create -n MyApp -l python` for a skeleton vehicle application.
+- `velocitas create -n MyApp -l python -e seat-adjuster` for a vehicle application based on the [seat adjuster example](/docs/about/use_cases/seat_adjuster/).
+
+   {{% /tab %}}
    {{% tab header="digital.auto" %}}
    To learn how to start prototyping with the playground of digital.auto and integrate it into Velocitas please take a look [here](/docs/tutorials/prototyping/digital_auto.md).
    {{% /tab %}}
@@ -116,7 +125,7 @@ You can find more information about the _Vehicle App_ development in the [respec
 
 The runtime services (like _KUKSA Data Broker_ or _Vehicle Services_) are required to develop _Vehicle Apps_ and run integration tests.
 
-Currently, the supported options to run these services is either locally or in a Kubernetes (K3D) cluster.
+Currently, the supported options to run these services is either [locally](/docs/tutorials/vehicle_app_runtime/local_runtime), in a [Kubernetes (K3D) cluster](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime) or via the [Kanto runtime](/docs/tutorials/vehicle_app_runtime/kanto_runtime).
 
 {{< tabpane text=true >}}
    {{% tab header="Local Runtime" %}}
@@ -170,7 +179,34 @@ Hint: Log files can be found in your workspace's logs directory
 ```
 
 {{% pageinfo color="primary" %}}
-   You need to perform task `K3D Runtime - Down` to properly stop runtime activities.
+   You need to perform the task `K3D Runtime - Down` to properly stop all runtime activities.
+{{% /pageinfo %}}
+
+{{% /tab %}}
+   {{% tab header="Kanto Runtime" %}}
+
+A VS Code task called `Kanto Runtime - Up` is available to start all necessary services in the correct order.
+
+1. Press <kbd>F1</kbd>
+2. Select command `Tasks: Run Task`
+3. Select `Kanto Runtime - Up`
+
+You should see the task `Kanto Runtime - Up` being executed on a separate VS Code terminal with the following content:
+
+```bash
+$ velocitas exec runtime-kanto up
+
+Hint: Log files can be found in your workspace's logs directory
+> Checking Kanto registry... registry already exists.
+> Checking Kanto registry... starting registry.
+> Checking Kanto registry... started.
+✅ Configuring controlplane for Kanto...
+⠇ Starting Kanto...waiting
+✅ Kanto is ready to use!
+```
+
+{{% pageinfo color="primary" %}}
+To stop the runtime simply press `Ctrl + C` or execute the task `Kanto Runtime - Down`.
 {{% /pageinfo %}}
 
 {{% /tab %}}

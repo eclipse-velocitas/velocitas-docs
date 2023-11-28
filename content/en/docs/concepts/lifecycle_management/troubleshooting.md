@@ -1,7 +1,7 @@
 ---
 title: "Troubleshooting"
 date: 2023-02-13T09:43:25+05:30
-weight: 4
+weight: 99
 description: >
   Known issues and fixes.
 ---
@@ -29,12 +29,12 @@ It is important that VS Code has access to this ENV during the `postCreateComman
 If you experienced this error and the devcontainer still has started correctly please run either:
 
 ```bash
-vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ ./.devcontainer/scripts/postCreateCommand.sh
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ ./.devcontainer/scripts/postCreateCommand.sh
 ```
 
 or
 
 ```bash
-vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas init
-vscode ➜ /workspaces/eclipse-vehicle-app-python-template (main) $ velocitas sync
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas init
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas sync
 ```
