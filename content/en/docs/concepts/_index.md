@@ -5,4 +5,3 @@ weight: 20
 description: >
   Overview of Velocitas Concepts.
 ---
-
