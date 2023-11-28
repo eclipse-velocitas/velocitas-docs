@@ -24,13 +24,13 @@ jobs:
     lint-job:
         runs-on: ubuntu-latest
         name: "Run linters"
-        
+
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
-            
+
             - name: Setup python
               uses: actions/setup-python@v4
-    
+
             - name: Run linters
               uses: pre-commit/action@v3.0.0
