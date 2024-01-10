@@ -1,7 +1,9 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
 <link rel="stylesheet" type="text/css" href="/velocitas/css/overwrite.css" />
@@ -40,12 +42,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/concepts/lifecycle_management/velocitas_cli/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-02-13T09:43:25+05:30" />
-<meta property="article:modified_time" content="2023-11-15T12:41:26+01:00" />
+<meta property="article:modified_time" content="2024-01-10T15:03:33+01:00" />
 <meta itemprop="name" content="Velocitas CLI">
 <meta itemprop="description" content="Learn everything about the Velocitas CLI.
 "><meta itemprop="datePublished" content="2023-02-13T09:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-11-15T12:41:26+01:00" />
-<meta itemprop="wordCount" content="573">
+<meta itemprop="dateModified" content="2024-01-10T15:03:33+01:00" />
+<meta itemprop="wordCount" content="577">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Velocitas CLI"/>
 <meta name="twitter:description" content="Learn everything about the Velocitas CLI.
@@ -77,9 +79,6 @@
         <a class="nav-link active" href="/velocitas/docs/"><span class="active">Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/velocitas/community/"><span>Community</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -94,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -530,9 +529,15 @@
 		
 	</header>    
 	<h2 id="background">Background</h2>
-<p>Our <a href="https://github.com/eclipse-velocitas/cli" target="_blank" rel="noopener">Velocitas CLI</a> is introduced to support the process of the lifecycle of a <em>Vehicle App</em> as a project manager.</p>
+<p>Our 
+
+<a href="https://github.com/eclipse-velocitas/cli" target="_blank" rel="noopener">Velocitas CLI</a>
+ is introduced to support the process of the lifecycle of a <em>Vehicle App</em> as a project manager.</p>
 <h2 id="commands">Commands</h2>
-<p>You can find all information about available commands <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#commands" target="_blank" rel="noopener">here</a>.</p>
+<p>You can find all information about available commands 
+
+<a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#commands" target="_blank" rel="noopener">here</a>
+.</p>
 <h3 id="cli-flow-examples">CLI Flow examples</h3>
 <h3 id="velocitas-create">velocitas create</h3>
 <p>Create a new Velocitas Vehicle App project.
@@ -541,7 +546,12 @@
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    <code>velocitas create</code> needs to be executed inside our generic <a href="https://github.com/eclipse-velocitas/vehicle-app-template" target="_blank" rel="noopener">vehicle-app-template</a> (inside the devcontainer) where a so called <a href="https://github.com/eclipse-velocitas/vehicle-app-template/blob/main/package-index.json" target="_blank" rel="noopener"><code>package-index.json</code></a> is located for now, which is a central place of defining our extension and core packages with their respective exposed interfaces.
+    <p><code>velocitas create</code> needs to be executed inside our generic 
+<p><a href="https://github.com/eclipse-velocitas/vehicle-app-template" target="_blank" rel="noopener">vehicle-app-template</a>
+(inside the devcontainer) where a so called</p>
+<p><a href="https://github.com/eclipse-velocitas/vehicle-app-template/blob/main/package-index.json" target="_blank" rel="noopener"><code>package-index.json</code></a>
+is located for now, which is a central place of defining our extension and core packages with their respective exposed interfaces.</p></p>
+
 
 </div>
 </p>
@@ -559,7 +569,10 @@
 </span></span><span style="display:flex;"><span>Config <span style="color:#4e9a06">&#39;src&#39;</span> <span style="color:#204a87;font-weight:bold">for</span> interface <span style="color:#4e9a06">&#39;vehicle-signal-interface&#39;</span>: URI or path to VSS json <span style="color:#ce5c00;font-weight:bold">(</span>Leave empty <span style="color:#204a87;font-weight:bold">for</span> default: v3.0<span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div><h3 id="velocitas-init">velocitas init</h3>
-<p>Download packages configured in your <code>.velocitas.json</code> to <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory" target="_blank" rel="noopener">VELOCITAS_HOME</a></p>
+<p>Download packages configured in your <code>.velocitas.json</code> to 
+
+<a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory" target="_blank" rel="noopener">VELOCITAS_HOME</a>
+</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
 </span></span><span style="display:flex;"><span>Initializing Velocitas packages ...
 </span></span><span style="display:flex;"><span>... Downloading package: <span style="color:#4e9a06">&#39;devenv-runtimes:v1.0.1&#39;</span>
@@ -624,16 +637,24 @@
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">### Running Databroker                              ###</span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#######################################################</span>
 </span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><p>More detailed usage can be found at the <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md" target="_blank" rel="noopener">Velocitas CLI README</a>.</p>
+</span></span></code></pre></div><p>More detailed usage can be found at the 
+
+<a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md" target="_blank" rel="noopener">Velocitas CLI README</a>
+.</p>
 <h2 id="additional-information">Additional Information</h2>
 <h3 id="cache-usage">Cache Usage</h3>
 <p>The Velocitas CLI supports caching data for a <em>Vehicle App</em> project.
 <br/>
 The cache data makes it easy for any script/program of a component to read from or write to.
 <br/>
-More detailed information about the <em>Project Cache</em> can be found <a href="https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PROJECT-CACHE.md" target="_blank" rel="noopener">here</a>.</p>
+More detailed information about the <em>Project Cache</em> can be found 
+
+<a href="https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PROJECT-CACHE.md" target="_blank" rel="noopener">here</a>
+.</p>
 <h3 id="built-in-variables">Built-In Variables</h3>
 <p>The Velocitas CLI also creates default environment variables which are available to every script/program.</p>
+
+
 
 
 
@@ -667,16 +688,22 @@ More detailed information about the <em>Project Cache</em> can be found <a href=
 </table>
 
 
-<p>More detailed information about <em>Built-In Variables</em> can be found <a href="https://github.com/eclipse-velocitas/cli/blob/main/docs/features/VARIABLES.md" target="_blank" rel="noopener">here</a>.</p>
+<p>More detailed information about <em>Built-In Variables</em> can be found 
+
+<a href="https://github.com/eclipse-velocitas/cli/blob/main/docs/features/VARIABLES.md" target="_blank" rel="noopener">here</a>
+.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Lifecycle Management: <a href="/velocitas/docs/concepts/lifecycle_management/troubleshooting/">Troubleshooting</a></li>
+<li>Lifecycle Management: 
+
+<a href="/velocitas/docs/concepts/lifecycle_management/troubleshooting/">Troubleshooting</a>
+</li>
 </ul>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 15, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/c255d651f9d2d9a3f58d79a7b87d8cb068151452">Added initial documentations (#114) (c255d65)</a>
+  Last modified January 10, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/023700d73ce8410663b48703c24524e0a5e5ed4f">Setup license headers (#115) (023700d)</a>
 </div>
 
 </div>
@@ -686,6 +713,8 @@ More detailed information about the <em>Project Cache</em> can be found <a href=
         </div>
       </div>
       
+
+
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
@@ -748,7 +777,7 @@ More detailed information about the <em>Project Cache</em> can be found <a href=
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2024 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -823,6 +852,7 @@ More detailed information about the <em>Project Cache</em> can be found <a href=
       </div>
   </div>
 </footer>
+
 
 
     </div>

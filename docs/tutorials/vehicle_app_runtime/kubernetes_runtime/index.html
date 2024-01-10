@@ -1,7 +1,9 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
 <link rel="stylesheet" type="text/css" href="/velocitas/css/overwrite.css" />
@@ -40,12 +42,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2023-11-15T12:41:26+01:00" />
+<meta property="article:modified_time" content="2024-01-10T15:03:33+01:00" />
 <meta itemprop="name" content="Kubernetes Runtime">
 <meta itemprop="description" content="Learn how to run the _Vehicle App_ Runtime Services in Kubernetes.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-11-15T12:41:26+01:00" />
-<meta itemprop="wordCount" content="544">
+<meta itemprop="dateModified" content="2024-01-10T15:03:33+01:00" />
+<meta itemprop="wordCount" content="546">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kubernetes Runtime"/>
 <meta name="twitter:description" content="Learn how to run the _Vehicle App_ Runtime Services in Kubernetes.
@@ -77,9 +79,6 @@
         <a class="nav-link active" href="/velocitas/docs/"><span class="active">Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/velocitas/community/"><span>Community</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -94,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -516,7 +515,13 @@
 
 		
 	</header>    
-	<p>Besides <a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime">local execution</a> of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>.</p>
+	<p>Besides 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime">local execution</a>
+ of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found 
+
+<a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>
+.</p>
 <p><strong>Quick Start:</strong> Each step has a task that is defined in <code>/.vscode/tasks.json</code>:</p>
 <ul>
 <li>Core tasks (dependent on each other in the given order):
@@ -543,7 +548,10 @@
 <p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task. More detailed logs can be found inside your workspace&rsquo;s logs directory <code>./logs/*</code></p>
 <h2 id="uploading-files-to-persistentvolume">Uploading files to persistentVolume</h2>
 <p>Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
-All the files that are located in <code>[./config/feedercan](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main/config/feedercan)</code> will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/runtime/deployment/config/helm/templates/persistentVolume.yaml" target="_blank" rel="noopener"><code>runtime-k3d/src/runtime/deployment/config/helm/templates/persistentVolume.yaml</code></a>.</p>
+All the files that are located in <code>[./config/feedercan](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main/config/feedercan)</code> will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: 
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/runtime/deployment/config/helm/templates/persistentVolume.yaml" target="_blank" rel="noopener"><code>runtime-k3d/src/runtime/deployment/config/helm/templates/persistentVolume.yaml</code></a>
+.</p>
 <p>Changes in <code>./config/feedercan</code> are automatically reflected in PersistentVolume.</p>
 <h3 id="uploading-custom-candump-file-to-feedercan">Uploading custom candump file to FeederCAN</h3>
 <p>FeederCAN requires a candump file. A pre-defined candump file is already part of our delivery, however, if necessary, there is an option to upload a custom file by:</p>
@@ -551,21 +559,42 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <li>Creating/updating candump file with the name <code>candumpDefault.log</code> in <code>./config/feedercan</code></li>
 <li>Recreating the feedercan pod: <code>kubectl delete pods -l app=feedercan</code></li>
 </ol>
-<p>More information about FeederCan can be found <a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">here</a></p>
+<p>More information about FeederCan can be found 
+
+<a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">here</a>
+</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment_model">Deployment Model</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment_model/vehicle_app_releases">Build and release process</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime">Start runtime services locally</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime">Deploy a <em>Vehicle App</em> with Kanto</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/quickstart.md">Quickstart</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a Python <em>Vehicle App</em> with Helm</a></li>
+<li>Concept: 
+
+<a href="/velocitas/docs/concepts/deployment_model">Deployment Model</a>
+</li>
+<li>Concept: 
+
+<a href="/velocitas/docs/concepts/deployment_model/vehicle_app_releases">Build and release process</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime">Start runtime services locally</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime">Deploy a <em>Vehicle App</em> with Kanto</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas/docs/tutorials/quickstart.md">Quickstart</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a Python <em>Vehicle App</em> with Helm</a>
+</li>
 </ul>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 15, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/c255d651f9d2d9a3f58d79a7b87d8cb068151452">Added initial documentations (#114) (c255d65)</a>
+  Last modified January 10, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/023700d73ce8410663b48703c24524e0a5e5ed4f">Setup license headers (#115) (023700d)</a>
 </div>
 
 </div>
@@ -575,6 +604,8 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
         </div>
       </div>
       
+
+
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
@@ -637,7 +668,7 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2024 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -712,6 +743,7 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
       </div>
   </div>
 </footer>
+
 
 
     </div>

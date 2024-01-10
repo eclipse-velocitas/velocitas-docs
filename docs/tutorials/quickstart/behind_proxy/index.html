@@ -1,7 +1,9 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
 <link rel="stylesheet" type="text/css" href="/velocitas/css/overwrite.css" />
@@ -40,12 +42,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/quickstart/behind_proxy/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-08-19T17:46:21+05:30" />
-<meta property="article:modified_time" content="2023-11-15T12:41:26+01:00" />
+<meta property="article:modified_time" content="2024-01-10T15:03:33+01:00" />
 <meta itemprop="name" content="Working behind proxy">
 <meta itemprop="description" content="Learn how to setup your docker desktop and Visual Studio Code behind a corporate proxy.
 "><meta itemprop="datePublished" content="2022-08-19T17:46:21+05:30" />
-<meta itemprop="dateModified" content="2023-11-15T12:41:26+01:00" />
-<meta itemprop="wordCount" content="702">
+<meta itemprop="dateModified" content="2024-01-10T15:03:33+01:00" />
+<meta itemprop="wordCount" content="705">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Working behind proxy"/>
 <meta name="twitter:description" content="Learn how to setup your docker desktop and Visual Studio Code behind a corporate proxy.
@@ -77,9 +79,6 @@
         <a class="nav-link active" href="/velocitas/docs/"><span class="active">Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/velocitas/community/"><span>Community</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -94,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -524,14 +523,26 @@
 	<p>We know what a pain and how time consuming it can be to setup your environment behind a cooperate proxy. This guide will help you to set it up correctly.</p>
 <p>Be aware that correct proxy configuration depends on the setup of your organization and of course of your personal development environment (hardware, OS, virtualization setup, &hellip;). So, we most probably do not cover all issues out there in the developers world. So, we encourage you to share hints and improvements with us.</p>
 <h2 id="https-proxy-server">HTTP(s) proxy server</h2>
-<p>Install and configure the proxy server as recommended or required by your company. For example you could use <a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>, which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: <a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>)</p>
+<p>Install and configure the proxy server as recommended or required by your company. For example you could use 
+
+<a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>
+, which is a HTTP(s) proxy server that allows applications to authenticate through an NTLM or Kerberos proxy server, typically used in corporate deployments, without having to deal with the actual handshake. Px leverages Windows SSPI or single sign-on and automatically authenticates using the currently logged in Windows user account. It is also possible to run Px on Windows, Linux and MacOS without single sign-on by configuring the domain, username and password to authenticate with. (Source: 
+
+<a href="https://github.com/genotrance/px" target="_blank" rel="noopener">PX</a>
+)</p>
 <ul>
 <li>Install your HTTP(s) proxy server</li>
 <li>Start your HTTP(s) proxy server</li>
 </ul>
 <h2 id="docker-desktop">Docker Desktop</h2>
-<p>You need to install <a href="https://www.docker.com/get-started/" target="_blank" rel="noopener">Docker Desktop</a> using the right version.
-As we recognized a proxy issue in Docker Desktop <a href="https://github.com/docker/for-win/issues/12672" target="_blank" rel="noopener">#12672</a> we strongly recommend to use a Docker Desktop version &gt;= 4.8.2. In case you have an older version on your machine please update to the current version.</p>
+<p>You need to install 
+
+<a href="https://www.docker.com/get-started/" target="_blank" rel="noopener">Docker Desktop</a>
+ using the right version.
+As we recognized a proxy issue in Docker Desktop 
+
+<a href="https://github.com/docker/for-win/issues/12672" target="_blank" rel="noopener">#12672</a>
+ we strongly recommend to use a Docker Desktop version &gt;= 4.8.2. In case you have an older version on your machine please update to the current version.</p>
 <p>In the next step you need to enter your proxy settings:</p>
 <ul>
 <li>Open Docker Desktop and go to the Settings</li>
@@ -616,7 +627,10 @@ As we recognized a proxy issue in Docker Desktop <a href="https://github.com/doc
     </div>
 </div>
 
-<p>For more details see: <a href="https://docs.docker.com/network/proxy/" target="_blank" rel="noopener">Docker Documentation</a></p>
+<p>For more details see: 
+
+<a href="https://docs.docker.com/network/proxy/" target="_blank" rel="noopener">Docker Documentation</a>
+</p>
 <h2 id="environment-variables">Environment Variables</h2>
 <p>It is required to set the following environment variables:</p>
 <ul>
@@ -688,8 +702,14 @@ normally.</p>
 is/are missing. So, you need to find a way to install those into the (dev) container you want to execute.</p>
 <p>See (one of) those articles to get how to achieve that:</p>
 <ul>
-<li><a href="https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers" target="_blank" rel="noopener">Overcoming Proxy Issues with Docker Containers</a></li>
-<li><a href="https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/" target="_blank" rel="noopener">Docker behind SSL intercepting proxy</a></li>
+<li>
+
+<a href="https://www.c2labs.com/post/overcoming-proxy-issues-with-docker-containers" target="_blank" rel="noopener">Overcoming Proxy Issues with Docker Containers</a>
+</li>
+<li>
+
+<a href="https://technotes.shemyak.com/posts/docker-behind-ssl-proxy/" target="_blank" rel="noopener">Docker behind SSL intercepting proxy</a>
+</li>
 </ul>
 <h3 id="initial-devcontainer-build-issue">Initial DevContainer build issue</h3>
 <p>If you experience issues during initial DevContainer build, clean all images and volumes otherwise cache might be used:</p>
@@ -698,12 +718,15 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
 <li>From <code>Troubleshooting</code> choose <code>Clean / Purge data</code></li>
 </ul>
 <h3 id="github-rate-limit-exceeded">GitHub rate limit exceeded</h3>
-<p>How to fix can be found at <a href="/velocitas/docs/concepts/lifecycle_management/troubleshooting/#github-rate-limit-exceeded">Lifecycle Management Troubleshooting</a>.</p>
+<p>How to fix can be found at 
+
+<a href="/velocitas/docs/concepts/lifecycle_management/troubleshooting/#github-rate-limit-exceeded">Lifecycle Management Troubleshooting</a>
+.</p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 15, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/c255d651f9d2d9a3f58d79a7b87d8cb068151452">Added initial documentations (#114) (c255d65)</a>
+  Last modified January 10, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/023700d73ce8410663b48703c24524e0a5e5ed4f">Setup license headers (#115) (023700d)</a>
 </div>
 
 </div>
@@ -713,6 +736,8 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
         </div>
       </div>
       
+
+
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
@@ -775,7 +800,7 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2024 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -850,6 +875,7 @@ is/are missing. So, you need to find a way to install those into the (dev) conta
       </div>
   </div>
 </footer>
+
 
 
     </div>

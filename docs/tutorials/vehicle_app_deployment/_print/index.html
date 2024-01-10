@@ -1,7 +1,9 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
 <link rel="stylesheet" type="text/css" href="/velocitas/css/overwrite.css" />
@@ -74,9 +76,6 @@
         <a class="nav-link active" href="/velocitas/docs/"><span class="active">Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/velocitas/community/"><span>Community</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -91,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -186,10 +185,22 @@ This is the multi-page printable view of this section.
 </ul>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>Complete the tutorial <a href="/velocitas/docs/tutorials/vehicle_app_development">How to create a <em>Vehicle App</em></a>.</li>
+<li>Complete the tutorial 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_development">How to create a <em>Vehicle App</em></a>
+.</li>
 </ul>
 <h2 id="use-the-sample-podspecs">Use the sample PodSpecs</h2>
-<p>If the <em>Vehicle App</em> has been created from one of our template repositories, a sample PodSpec is already available inside our maintained <code>runtime-k3d</code> of the <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package at <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/podspec/</code></a> and can be used as it is without any modification. Another example can also be found in the <a href="https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/" target="_blank" rel="noopener">documentation of Leda</a>.</p>
+<p>If the <em>Vehicle App</em> has been created from one of our template repositories, a sample PodSpec is already available inside our maintained <code>runtime-k3d</code> of the 
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a>
+ package at 
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/podspec/vehicleapp.yaml" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/podspec/</code></a>
+ and can be used as it is without any modification. Another example can also be found in the 
+
+<a href="https://eclipse-leda.github.io/leda/docs/app-deployment/velocitas/" target="_blank" rel="noopener">documentation of Leda</a>
+.</p>
 <h3 id="content">Content</h3>
 <p>Looking at the content of the sample PodSpec, it is starting with some general information about the app and the Dapr configuration. You can define e.g. the app-port and the log-level. You could also add more labels to your app, which might help to identify the app for later usages.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">apiVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">v1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -204,7 +215,10 @@ This is the multi-page printable view of this section.
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">dapr.io/log-level</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">info</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">labels</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">app</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sampleapp</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><p>Afterwards the configuration of the container is specified. Please be aware that <code>containerPort</code> should match the <code>app-port</code> from the Dapr configuration above. In the example the app-id of the Vehicle Data Broker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see <a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">here</a> for details).</p>
+</span></span></span></code></pre></div><p>Afterwards the configuration of the container is specified. Please be aware that <code>containerPort</code> should match the <code>app-port</code> from the Dapr configuration above. In the example the app-id of the Vehicle Data Broker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">here</a>
+ for details).</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">spec</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">containers</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">sampleapp</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -220,7 +234,9 @@ This is the multi-page printable view of this section.
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    <p>Please make sure that you have already pushed your image to the local registry before trying to deploy it. If you used the provided task (see <a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">here</a> for details) to build your app, you can use this command:</p>
+    <p>Please make sure that you have already pushed your image to the local registry before trying to deploy it. If you used the provided task (see 
+<p><a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">here</a>
+for details) to build your app, you can use this command:</p></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker push localhost:12345/sampleapp:local
 </span></span></code></pre></div>
 
@@ -229,13 +245,19 @@ This is the multi-page printable view of this section.
 <h3 id="local-registry-or-remote-registry">Local registry or remote registry</h3>
 <p>In the example above we used the local registry, but you can also define a remote registry in the image tag, e.g.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">image</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">ghcr.io/eclipse-velocitas/vehicle-app-python-template/sampleapp:0.1.0</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span></code></pre></div><p>If the used registry requires an authentication, you can add the needed secrets to your Kubernets configuration, see the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials" target="_blank" rel="noopener">official documentation</a> for details. Afterwards you have to add the secrets also to the PodSpec:</p>
+</span></span></span></code></pre></div><p>If the used registry requires an authentication, you can add the needed secrets to your Kubernets configuration, see the 
+
+<a href="https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials" target="_blank" rel="noopener">official documentation</a>
+ for details. Afterwards you have to add the secrets also to the PodSpec:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">imagePullSecrets</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">regcred</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><h2 id="deploy-your-_vehicle-app_-to-local-k3d">Deploy your <em>Vehicle App</em> to local K3D</h2>
 <h3 id="prerequisites-1">Prerequisites</h3>
 <ul>
-<li>A local K3D installation must be available. For how to setup K3D, check out this <a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">tutorial</a>.</li>
+<li>A local K3D installation must be available. For how to setup K3D, check out this 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">tutorial</a>
+.</li>
 </ul>
 
 
@@ -251,8 +273,14 @@ This is the multi-page printable view of this section.
 <p>In parallel you can check with K9S if the deployment is working correctly.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Start runtime services in Kubernetes</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment_model/vehicle_app_releases">Build and release process</a></li>
+<li>Tutorial: 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Start runtime services in Kubernetes</a>
+</li>
+<li>Concept: 
+
+<a href="/velocitas/docs/concepts/deployment_model/vehicle_app_releases">Build and release process</a>
+</li>
 </ul>
 
 </div>
@@ -279,19 +307,34 @@ This is the multi-page printable view of this section.
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li><code>Devcontainer</code> is up and running.</li>
-<li>Complete the tutorial <a href="/velocitas/docs/tutorials/vehicle_app_development">How to create a <em>Vehicle App</em></a>.</li>
+<li>Complete the tutorial 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_development">How to create a <em>Vehicle App</em></a>
+.</li>
 </ul>
 <h2 id="use-the-sample-helm-chart">Use the sample Helm chart</h2>
-<p>If the <em>Vehicle App</em> has been created from one of our template repositories, a sample Helm chart is already available inside our maintained <code>runtime-k3d</code> of the <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a> package at <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/</code></a> and can be used as it is without any modification.
-This sample chart is using the values from <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/values.yaml" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/values.yaml</code></a> file.</p>
+<p>If the <em>Vehicle App</em> has been created from one of our template repositories, a sample Helm chart is already available inside our maintained <code>runtime-k3d</code> of the 
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a>
+ package at 
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/</code></a>
+ and can be used as it is without any modification.
+This sample chart is using the values from 
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/app_deployment/config/helm/values.yaml" target="_blank" rel="noopener"><code>./runtime-k3d/src/app_deployment/config/helm/values.yaml</code></a>
+ file.</p>
 
 
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    The same app name as defined in <code>./app/AppManifest.json</code> will be used for the deployment
+    <p>The same app name as defined in <code>./app/AppManifest.json</code> will be used for the deployment
 </br>
-The app port is configurable as <code>vehicleAppPort</code> inside your <code>.velocitas.json</code> variables section. If not set there, the default value is <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json#L204" target="_blank" rel="noopener">50008 - as defined in manifest.json</a> of the devenv-runtimes package.
+The app port is configurable as <code>vehicleAppPort</code> inside your <code>.velocitas.json</code> variables section. If not set there, the default value is 
+<p><a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json#L204" target="_blank" rel="noopener">50008 - as defined in manifest.json</a>
+of the devenv-runtimes package.</p></p>
+
 
 </div>
 
@@ -305,7 +348,10 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 <p>Create a new folder <code>my_vehicle_app</code> under <code>deploy</code></p>
 </li>
 <li>
-<p>Copy all files from the <a href="https://github.com/eclipse-velocitas/devenv-runtimes/tree/main/runtime-k3d/src/app_deployment/config/helm" target="_blank" rel="noopener">devenv-runtimes/runtime-k3d/src/app_deployment/config/helm</a> folder to the new folder <code>deploy/my_vehicle_app</code>.</p>
+<p>Copy all files from the 
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes/tree/main/runtime-k3d/src/app_deployment/config/helm" target="_blank" rel="noopener">devenv-runtimes/runtime-k3d/src/app_deployment/config/helm</a>
+ folder to the new folder <code>deploy/my_vehicle_app</code>.</p>
 </li>
 <li>
 <p>Rename the file <code>deploy/my_vehicle_app/helm/templates/vehicleapp.yaml</code> to <code>deploy/my_vehicle_app/helm/templates/my_vehicle_app.yaml</code></p>
@@ -394,7 +440,10 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 </span></span></code></pre></div><h2 id="deploy-your-_vehicle-app_-to-the-local-k3d-cluster">Deploy your <em>Vehicle App</em> to the local K3D cluster</h2>
 <h3 id="prerequisites-1">Prerequisites</h3>
 <ul>
-<li>A local K3D installation must be available. For how to setup K3D, check out this <a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">tutorial</a>.</li>
+<li>A local K3D installation must be available. For how to setup K3D, check out this 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">tutorial</a>
+.</li>
 </ul>
 <p>After the Helm chart has been prepared, you can deploy it to the local K3D cluster by following the steps:</p>
 <ol>
@@ -412,8 +461,14 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm uninstall my-vapp-chart
 </span></span></code></pre></div><h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Start runtime services in Kubernetes</a></li>
-<li>Concept: <a href="/velocitas/docs/concepts/deployment_model/vehicle_app_releases">Build and release process</a></li>
+<li>Tutorial: 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Start runtime services in Kubernetes</a>
+</li>
+<li>Concept: 
+
+<a href="/velocitas/docs/concepts/deployment_model/vehicle_app_releases">Build and release process</a>
+</li>
 </ul>
 
 </div>
@@ -430,6 +485,8 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
         </div>
       </div>
       
+
+
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
@@ -492,7 +549,7 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2024 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -567,6 +624,7 @@ The app port is configurable as <code>vehicleAppPort</code> inside your <code>.v
       </div>
   </div>
 </footer>
+
 
 
     </div>

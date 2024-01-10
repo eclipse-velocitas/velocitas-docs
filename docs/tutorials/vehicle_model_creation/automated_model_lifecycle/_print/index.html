@@ -1,7 +1,9 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
 <link rel="stylesheet" type="text/css" href="/velocitas/css/overwrite.css" />
@@ -74,9 +76,6 @@
         <a class="nav-link active" href="/velocitas/docs/"><span class="active">Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/velocitas/community/"><span>Community</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -91,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -147,7 +146,9 @@ This is the multi-page printable view of this section.
 
     <p>This article describes our new model lifecycle approach released on Friday, 2023-03-03. With that, the model is now automatically generated with the instantiation of the devContainer. It is generated from the vehicle model source file referenced in the AppManifest.</p>
 <p>For the time being, the integration of services is not supported by the new approach.</p>
-<p>The previous approach, using pre-generated model repositories, is now deprecated. But it is still available and <a href="../manual_model_creation">described here</a>.</p>
+<p>The previous approach, using pre-generated model repositories, is now deprecated. But it is still available and 
+<p><a href="../manual_model_creation">described here</a>
+.</p></p>
 
 
 </div>
@@ -206,10 +207,16 @@ This is the multi-page printable view of this section.
 <h2 id="model-creation">Model Creation</h2>
 <p>The generation of the model is taking place:</p>
 <ul>
-<li>through a <a href="/velocitas/docs/concepts/lifecycle_management/packages/usage/#installation">onPostInit hook</a> when <code>velocitas init</code> is called:
+<li>through a 
+
+<a href="/velocitas/docs/concepts/lifecycle_management/packages/usage/#installation">onPostInit hook</a>
+ when <code>velocitas init</code> is called:
 <ul>
 <li>either triggered manually or</li>
-<li>automatically during the instantiation of the devContainer through our <a href="/velocitas/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>, or</li>
+<li>automatically during the instantiation of the devContainer through our 
+
+<a href="/velocitas/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>
+, or</li>
 </ul>
 </li>
 <li>when you trigger the VS Code task <code>(Re-)generate vehicle model</code> explicitly.</li>
@@ -221,9 +228,18 @@ This is the multi-page printable view of this section.
 <li>The model code is generated and installed.</li>
 </ol>
 <p><img src="./model_lifecycle.drawio.svg" alt="Model lifecycle overview"></p>
-<p>The model is generated using our <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">Velocitas vehicle-model-generator</a>.
+<p>The model is generated using our 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">Velocitas vehicle-model-generator</a>
+.
 The used version and also the repository of the generator can be altered via the <code>variables</code> section of the project configuration in the <code>.velocitas.json</code>.
-The default values for those are defined in the <a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json" target="_blank" rel="noopener"><code>manifest.json</code></a> of the <a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup" target="_blank" rel="noopener">devContainer setup package</a>.
+The default values for those are defined in the 
+
+<a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json" target="_blank" rel="noopener"><code>manifest.json</code></a>
+ of the 
+
+<a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup" target="_blank" rel="noopener">devContainer setup package</a>
+.
 Also, the target folder for the generated model source code is specified here:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;variables&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
@@ -235,9 +251,18 @@ Also, the target folder for the generated model source code is specified here:</
 </span></span></code></pre></div><p>In Python template based projects the generated model is finally installed in the site-packages folder, while in C++ projects it is made available as a CMake include folder.</p>
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Concept: <a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk.md">SDK Overview</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/quickstart">Quickstart</a></li>
-<li>Tutorial: <a href="/velocitas/docs/tutorials/vehicle_app_development">Create a <em>Vehicle App</em></a></li>
+<li>Concept: 
+
+<a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk.md">SDK Overview</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas/docs/tutorials/quickstart">Quickstart</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas/docs/tutorials/vehicle_app_development">Create a <em>Vehicle App</em></a>
+</li>
 </ul>
 
 </div>
@@ -260,6 +285,8 @@ Also, the target folder for the generated model source code is specified here:</
         </div>
       </div>
       
+
+
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
@@ -322,7 +349,7 @@ Also, the target folder for the generated model source code is specified here:</
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2024 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -397,6 +424,7 @@ Also, the target folder for the generated model source code is specified here:</
       </div>
   </div>
 </footer>
+
 
 
     </div>

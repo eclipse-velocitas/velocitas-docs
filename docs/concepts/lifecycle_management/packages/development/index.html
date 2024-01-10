@@ -1,7 +1,9 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
 <link rel="stylesheet" type="text/css" href="/velocitas/css/overwrite.css" />
@@ -40,12 +42,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/concepts/lifecycle_management/packages/development/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2023-11-15T12:41:26+01:00" />
+<meta property="article:modified_time" content="2024-01-10T15:03:33+01:00" />
 <meta itemprop="name" content="Development">
 <meta itemprop="description" content="Learn how to develop an own package.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-11-15T12:41:26+01:00" />
-<meta itemprop="wordCount" content="494">
+<meta itemprop="dateModified" content="2024-01-10T15:03:33+01:00" />
+<meta itemprop="wordCount" content="497">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Development"/>
 <meta name="twitter:description" content="Learn how to develop an own package.
@@ -77,9 +79,6 @@
         <a class="nav-link active" href="/velocitas/docs/"><span class="active">Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/velocitas/community/"><span>Community</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -94,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -528,15 +527,41 @@
 <p>Every <em>Package</em> repository needs a <code>manifest.json</code> at their root. The <code>manifest.json</code> is the package configuration and holds package relevant information and its behaviour.</p>
 <p>Here are examples of this configuration:</p>
 <ul>
-<li><a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json" target="_blank" rel="noopener">devenv-runtimes manifest</a></li>
-<li><a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json" target="_blank" rel="noopener">devenv-devcontainer-setup manifest</a></li>
+<li>
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json" target="_blank" rel="noopener">devenv-runtimes manifest</a>
+</li>
+<li>
+
+<a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json" target="_blank" rel="noopener">devenv-devcontainer-setup manifest</a>
+</li>
 </ul>
 <p>The manifest of a package describes a list of components. They are a collection of programs or files that serve a similar purpose or are inheritly connected. I.e. they provide a single runtime, a deployment for a runtime or add configuration required for Github Workflows or the devcontainer.
 <br/></p>
-<p>More detailed information and explanation about configuration fields of the <code>manifest.json</code> and package development can be found <a href="https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PACKAGES.md" target="_blank" rel="noopener">here</a>.</p>
+<p>More detailed information and explanation about configuration fields of the <code>manifest.json</code> and package development can be found 
+
+<a href="https://github.com/eclipse-velocitas/cli/blob/main/docs/features/PACKAGES.md" target="_blank" rel="noopener">here</a>
+.</p>
 <h2 id="configuration-of-runtime-packages">Configuration of Runtime Packages</h2>
-<p>If you want to add a new service, adapt <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json" target="_blank" rel="noopener"><code>runtime.json</code></a> and <a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json" target="_blank" rel="noopener"><code>manifest.json</code></a>. In order to use a newly created or updated service, new changes on <a href="https://github.com/eclipse-velocitas/devenv-runtimes/tree/main" target="_blank" rel="noopener">devenv-runtimes</a> need to be tagged and referenced inside <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> of the respective package version via a tag or branch name of the repository. When a version is changed in your <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> you have to initialize it through <code>velocitas init</code> from the terminal so the new package version will be installed. A new service can be started by using velocitas cli command <code>velocitas exec runtime-local &lt;service_id&gt; &lt;args&gt;</code> which can be also configured inside your <code>./.vscode/tasks.json</code>.</p>
+<p>If you want to add a new service, adapt 
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json" target="_blank" rel="noopener"><code>runtime.json</code></a>
+ and 
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/manifest.json" target="_blank" rel="noopener"><code>manifest.json</code></a>
+. In order to use a newly created or updated service, new changes on 
+
+<a href="https://github.com/eclipse-velocitas/devenv-runtimes/tree/main" target="_blank" rel="noopener">devenv-runtimes</a>
+ need to be tagged and referenced inside 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a>
+ of the respective package version via a tag or branch name of the repository. When a version is changed in your 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a>
+ you have to initialize it through <code>velocitas init</code> from the terminal so the new package version will be installed. A new service can be started by using velocitas cli command <code>velocitas exec runtime-local &lt;service_id&gt; &lt;args&gt;</code> which can be also configured inside your <code>./.vscode/tasks.json</code>.</p>
 <p>If you plan to develop a <em>Package</em> with the purpose of managing the runtime used together with your <em>Vehicle App</em> the package needs a <code>runtime.json</code> at their root. The <code>runtime.json</code> is the runtime configuration containing all information for the relevant service dependencies with the following three required attributes:</p>
+
+
 
 
 
@@ -567,6 +592,8 @@
 
 
 <h2 id="supported-config-keys-of-a-service">Supported config keys of a service</h2>
+
+
 
 
 
@@ -649,7 +676,13 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>In order to use a newly created or updated service, changes on the respective <em>Package</em> need to be tagged and referenced inside the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a> of your <em>Vehicle App</em> repository via a tag or branch name of the repository. More info about installation: <a href="/velocitas/docs/concepts/lifecycle_management/packages/usage/#installation">Usage</a>.</p>
+</span></span></code></pre></div><p>In order to use a newly created or updated service, changes on the respective <em>Package</em> need to be tagged and referenced inside the 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a>
+ of your <em>Vehicle App</em> repository via a tag or branch name of the repository. More info about installation: 
+
+<a href="/velocitas/docs/concepts/lifecycle_management/packages/usage/#installation">Usage</a>
+.</p>
 
 
 <div class="alert alert-primary" role="alert">
@@ -662,13 +695,16 @@
 
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Lifecycle Management: <a href="/velocitas/docs/concepts/lifecycle_management/velocitas_cli/">Velocitas CLI</a></li>
+<li>Lifecycle Management: 
+
+<a href="/velocitas/docs/concepts/lifecycle_management/velocitas_cli/">Velocitas CLI</a>
+</li>
 </ul>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 15, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/c255d651f9d2d9a3f58d79a7b87d8cb068151452">Added initial documentations (#114) (c255d65)</a>
+  Last modified January 10, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/023700d73ce8410663b48703c24524e0a5e5ed4f">Setup license headers (#115) (023700d)</a>
 </div>
 
 </div>
@@ -678,6 +714,8 @@
         </div>
       </div>
       
+
+
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
@@ -740,7 +778,7 @@
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2024 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -815,6 +853,7 @@
       </div>
   </div>
 </footer>
+
 
 
     </div>

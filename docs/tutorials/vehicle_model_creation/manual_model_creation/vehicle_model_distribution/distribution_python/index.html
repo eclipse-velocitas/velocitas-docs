@@ -1,7 +1,9 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
 <link rel="stylesheet" type="text/css" href="/velocitas/css/overwrite.css" />
@@ -40,12 +42,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/vehicle_model_creation/manual_model_creation/vehicle_model_distribution/distribution_python/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2023-11-15T12:41:26+01:00" />
+<meta property="article:modified_time" content="2024-01-10T15:03:33+01:00" />
 <meta itemprop="name" content="Python Vehicle Model Distribution">
 <meta itemprop="description" content="Learn how to distribute a Vehicle Model written in Python.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2023-11-15T12:41:26+01:00" />
-<meta itemprop="wordCount" content="322">
+<meta itemprop="dateModified" content="2024-01-10T15:03:33+01:00" />
+<meta itemprop="wordCount" content="324">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python Vehicle Model Distribution"/>
 <meta name="twitter:description" content="Learn how to distribute a Vehicle Model written in Python.
@@ -77,9 +79,6 @@
         <a class="nav-link active" href="/velocitas/docs/"><span class="active">Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/velocitas/community/"><span>Community</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -94,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.dfcf00e91a7b2374a8029256b36e43a9.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -519,7 +518,10 @@
 
 		
 	</header>    
-	<p>Now you a have a Python package containing your first Python <em>Vehicle Model</em> and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the <a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener">Python Packaging User Guide</a> to learn more about packaging and package distribution in Python.</p>
+	<p>Now you a have a Python package containing your first Python <em>Vehicle Model</em> and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the 
+
+<a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener">Python Packaging User Guide</a>
+ to learn more about packaging and package distribution in Python.</p>
 <h2 id="distribute-to-single-_vehicle-app_">Distribute to single <em>Vehicle App</em></h2>
 <p>If you want to distribute your Python <em>Vehicle Model</em> to a single <em>Vehicle App</em>, you can do so by copying the entire folder <code>my_vehicle_model</code> under the <code>/app/src</code> folder of your <em>Vehicle App</em> repository and treat it as a sub-package of the <em>Vehicle App</em>.</p>
 <ol>
@@ -553,13 +555,19 @@
 </li>
 </ol>
 <h2 id="distribute-publicly-as-open-source">Distribute publicly as open source</h2>
-<p>If you want to distribute your Python <em>Vehicle Model</em> publicly, you can do so by creating a Python package and distributing it on the <a href="https://pypi.org/" target="_blank" rel="noopener">Python Package Index (PyPI)</a>. PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the <code>pip</code> command, you are already using PyPI.</p>
-<p>Detailed instructions on how to make a Python package available on PyPI can be found <a href="https://packaging.python.org/tutorials/packaging-projects/" target="_blank" rel="noopener">here</a>.</p>
+<p>If you want to distribute your Python <em>Vehicle Model</em> publicly, you can do so by creating a Python package and distributing it on the 
+
+<a href="https://pypi.org/" target="_blank" rel="noopener">Python Package Index (PyPI)</a>
+. PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the <code>pip</code> command, you are already using PyPI.</p>
+<p>Detailed instructions on how to make a Python package available on PyPI can be found 
+
+<a href="https://packaging.python.org/tutorials/packaging-projects/" target="_blank" rel="noopener">here</a>
+.</p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 15, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/c255d651f9d2d9a3f58d79a7b87d8cb068151452">Added initial documentations (#114) (c255d65)</a>
+  Last modified January 10, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/023700d73ce8410663b48703c24524e0a5e5ed4f">Setup license headers (#115) (023700d)</a>
 </div>
 
 </div>
@@ -569,6 +577,8 @@
         </div>
       </div>
       
+
+
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
@@ -631,7 +641,7 @@
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2024 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -706,6 +716,7 @@
       </div>
   </div>
 </footer>
+
 
 
     </div>
