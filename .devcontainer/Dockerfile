@@ -1,3 +1,17 @@
+# Copyright (c) 2023 Contributors to the Eclipse Foundation
+#
+# This program and the accompanying materials are made available under the
+# terms of the Apache License, Version 2.0 which is available at
+# https://www.apache.org/licenses/LICENSE-2.0.
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # Update the NODE_VERSION arg in docker-compose.yml to pick a Node version: 18, 16, 14
 ARG NODE_VERSION=18
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${NODE_VERSION}
@@ -8,7 +22,7 @@ ARG VARIANT=hugo
 ARG VERSION=latest
 
 # Download Hugo
-RUN apt-get update && apt-get install -y ca-certificates openssl git curl golang && \
+RUN apt-get update && apt-get install -y ca-certificates openssl git curl golang python pip && \
     rm -rf /var/lib/apt/lists/* && \
     case ${VERSION} in \
     latest) \

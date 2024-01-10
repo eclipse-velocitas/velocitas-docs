@@ -1,4 +1,4 @@
-# Copyright (c) 2023 Contributors to the Eclipse Foundation
+# Copyright (c) 2022-2023 Contributors to the Eclipse Foundation
 #
 # This program and the accompanying materials are made available under the
 # terms of the Apache License, Version 2.0 which is available at
@@ -12,20 +12,25 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-name: ❓ Question or general issue
-description: Approach us with a question
-title: "[Q]: "
-labels:
-  - question
-body:
-  - type: markdown
-    attributes:
-      value: |
-        **We are happy that you have a question to ask!**
-  - type: textarea
-    validations:
-      required: true
-    attributes:
-      label: Question
-      description: Feel free to ask us if you need assistance
-      placeholder: How can I create a repository based on your template?
+name: CI workflow
+
+on:
+    workflow_dispatch:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    lint-job:
+        runs-on: ubuntu-latest
+        name: "Run linters"
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Setup python
+              uses: actions/setup-python@v4
+
+            - name: Run linters
+              uses: pre-commit/action@v3.0.0
