@@ -37,10 +37,9 @@
 	"forwardPorts": [
 		1313
 	],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "node",
+	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": ".devcontainer/scripts/postCreateCommand.sh",
 	"postStartCommand": "hugo server -b http://localhost/velocitas -w"
 }
