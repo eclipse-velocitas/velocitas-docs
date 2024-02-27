@@ -23,7 +23,7 @@ npm install
 hugo mod get -u github.com/google/docsy@v0.6.0
 
 # install pre-commit
-pip install pre-commit==3.5.0
+pip install pre-commit==3.6.0 --break-system-packages
 
 # add repo to git safe.directory & fix hugo issue with server start
 REPO=$(pwd)
