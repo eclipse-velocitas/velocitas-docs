@@ -1,10 +1,12 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
-<link rel="stylesheet" type="text/css" href="/velocitas-docs/css/overwrite.css" />
+<link rel="stylesheet" type="text/css" href="/velocitas-docs//css/overwrite.css" />
 <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
 
 <script>
@@ -16,7 +18,7 @@
 </script>
 
 
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.123.3">
 <meta name="robots" content="index, follow">
 
 
@@ -40,14 +42,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/prototyping/digital_auto/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-11-02T10:09:25+05:30" />
-<meta property="article:modified_time" content="2023-11-14T11:18:06+00:00" />
+<meta property="article:modified_time" content="2024-02-27T05:44:07+01:00" />
+
 <meta itemprop="name" content="digital.auto">
 <meta itemprop="description" content="Learn how to start a _Vehicle App_ prototype with the playground of digital.auto and integrate it into Velocitas.
 "><meta itemprop="datePublished" content="2022-11-02T10:09:25+05:30" />
-<meta itemprop="dateModified" content="2023-11-14T11:18:06+00:00" />
-<meta itemprop="wordCount" content="832">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="digital.auto"/>
+<meta itemprop="dateModified" content="2024-02-27T05:44:07+01:00" />
+<meta itemprop="wordCount" content="837">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="digital.auto"/>
 <meta name="twitter:description" content="Learn how to start a _Vehicle App_ prototype with the playground of digital.auto and integrate it into Velocitas.
 "/>
 
@@ -77,9 +79,6 @@
         <a class="nav-link active" href="/velocitas-docs/docs/"><span class="active">Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/velocitas-docs/community/"><span>Community</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -94,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.149d494f268b7648549a881078dc5720.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.55197f087906bba38d74901107396d10.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -120,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.149d494f268b7648549a881078dc5720.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.55197f087906bba38d74901107396d10.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -518,27 +517,48 @@
 
 		
 	</header>    
-	<p>The open and web based <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> offers a rapid prototyping environment to explore and validate ideas of a <em>Vehicle App</em>.
+	<p>The open and web based 
+
+<a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a>
+ offers a rapid prototyping environment to explore and validate ideas of a <em>Vehicle App</em>.
 </br>
-<a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> interacts with different vehicle sensors and actuators via standardized APIs specified by the COVESA <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a> without custom setup requirements.
+
+
+<a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a>
+ interacts with different vehicle sensors and actuators via standardized APIs specified by the COVESA 
+
+<a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a>
+ without custom setup requirements.
 </br>
 Within the platform you can:</p>
 <ul>
-<li>browse, navigate and enhance vehicle signals (sensors, actuators and branches) in the <a href="https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list" target="_blank" rel="noopener">Vehicle API Catalogue</a> mapped to a 3D model of the vehicle.</li>
+<li>browse, navigate and enhance vehicle signals (sensors, actuators and branches) in the 
+
+<a href="https://digitalauto.netlify.app/model/STLWzk1WyqVVLbfymb4f/cvi/list" target="_blank" rel="noopener">Vehicle API Catalogue</a>
+ mapped to a 3D model of the vehicle.</li>
 <li>build <em>Vehicle App</em> prototypes in the browser using Python and the Vehicle API Catalogue.</li>
 <li>test the <em>Vehicle App</em> prototype in a dashboard with 3D animation for API calls.</li>
 <li>create new plugins, which usually represent UX widgets or remote server communication to enhance the vehicle mockup experience in the playground.</li>
 <li>collect and evaluate user feedback to prioritize your development portfolio.</li>
 </ul>
 <h2 id="start-the-journey-of-a-_vehicle-app_">Start the journey of a <em>Vehicle App</em></h2>
-<p>As first step open <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a>, select <a href="https://digitalauto.netlify.app/model" target="_blank" rel="noopener"><em>Get Started</em></a> in the prototyping section of the landing page and use the Vehicle Model of your choice.</p>
+<p>As first step open 
+
+<a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a>
+, select 
+
+<a href="https://digitalauto.netlify.app/model" target="_blank" rel="noopener"><em>Get Started</em></a>
+ in the prototyping section of the landing page and use the Vehicle Model of your choice.</p>
 <p><img src="../digital-auto.png" alt="digital.auto">
 <img src="../vehicle-models.png" alt="vehicle-models"></p>
 <p>You now have the possibility to browse existing vehicle signals for the selected vehicle model which you can use for prototyping your <em>Vehicle App</em> by clicking on <em>Vehicle APIs</em>.</p>
 <p><img src="../selected-model.png" alt="selected-model">
 <img src="../cvi-catalogue.png" alt="cvi-catalogue"></p>
 <h3 id="add-additional-_vehicle-apis_">Add additional <em>Vehicle APIs</em></h3>
-<p>If the ideation of your <em>Vehicle App</em> prototype comes with any new Vehicle API which is not part of the standard <a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">VSS</a> you also have the option to include it into your pre-selected model by clicking the <em>+ New Wishlist API</em> button. After filling out all required fields, simply click the <em>create</em> button - this will commit the new API to the existing model.</p>
+<p>If the ideation of your <em>Vehicle App</em> prototype comes with any new Vehicle API which is not part of the standard 
+
+<a href="https://covesa.github.io/vehicle_signal_specification/introduction/" target="_blank" rel="noopener">VSS</a>
+ you also have the option to include it into your pre-selected model by clicking the <em>+ New Wishlist API</em> button. After filling out all required fields, simply click the <em>create</em> button - this will commit the new API to the existing model.</p>
 
 
 <div class="alert alert-primary" role="alert">
@@ -574,26 +594,52 @@ The <em>Run</em> button executes all your prototype code from top to bottom. The
 <h2 id="transfer-your-prototype-into-a-velocitas-_vehicle-app_">Transfer your prototype into a Velocitas <em>Vehicle App</em></h2>
 <p>In the previous steps you started with envisioning and prototyping your <em>Vehicle App</em> idea and tested it against mocked vehicle components in digital.auto.
 </br>
-The Velocitas team provides a project generator to transfer the prototype from <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> into your own development environment where you are able to test it with real <a href="/velocitas-docs/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>.
+The Velocitas team provides a project generator to transfer the prototype from 
+
+<a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a>
+ into your own development environment where you are able to test it with real 
+
+<a href="/velocitas-docs//docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>
+.
 </br>
-The generator creates a <em>Vehicle App</em> GitHub repository using your prototype code based on our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a>.
+The generator creates a <em>Vehicle App</em> GitHub repository using your prototype code based on our 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a>
+.
 </br>
-In the &lsquo;Code&rsquo; section of your prototype in <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> you have the button &lsquo;Create Eclipse Velocitas Project&rsquo;.</p>
+In the &lsquo;Code&rsquo; section of your prototype in 
+
+<a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a>
+ you have the button &lsquo;Create Eclipse Velocitas Project&rsquo;.</p>
 <p><img src="../generate.png" alt="generate"></p>
-<p>After pressing the button you will be forwarded to <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>.
+<p>After pressing the button you will be forwarded to 
+
+<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+.
 </br>
-Login with your GitHub Account and authorize <a href="https://github.com/eclipse-velocitas/velocitas-project-generator-npm" target="_blank" rel="noopener">velocitas-project-generator</a> to create the repository for you.
+Login with your GitHub Account and authorize 
+
+<a href="https://github.com/eclipse-velocitas/velocitas-project-generator-npm" target="_blank" rel="noopener">velocitas-project-generator</a>
+ to create the repository for you.
 </br>
-You will be redirected to <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a> and asked for a repository name (equals to the name of the <em>Vehicle App</em>).
+You will be redirected to 
+
+<a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a>
+ and asked for a repository name (equals to the name of the <em>Vehicle App</em>).
 </br>
 By clicking on &ldquo;Create repository&rdquo;:</p>
 <ul>
 <li>the project generator takes over your prototype code.</li>
-<li>the code is adapted to the structure in the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a>.</li>
+<li>the code is adapted to the structure in the 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">vehicle-app-python-template</a>
+.</li>
 <li>a new private repository under your specified GitHub User will be created.</li>
 </ul>
 <p>A successful generation of the repository is followed by a pop-up dialogue with the URL of your repository.</p>
 <p>Among other things the newly created repository will contain:</p>
+
+
 
 
 
@@ -629,7 +675,10 @@ By clicking on &ldquo;Create repository&rdquo;:</p>
 </tr>
 <tr>
 <td><em>/gen/vehicle_model/</em></td>
-<td>The generated model classes. If your prototype includes any exceptional API you added beforehand our <a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a> takes care of handling the custom VSS vspec file coming from digital.auto and generates a vehicle_model when starting the devContainer</td>
+<td>The generated model classes. If your prototype includes any exceptional API you added beforehand our 
+
+<a href="/velocitas-docs//docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a>
+ takes care of handling the custom VSS vspec file coming from digital.auto and generates a vehicle_model when starting the devContainer</td>
 </tr>
 </tbody>
 </table>
@@ -640,14 +689,20 @@ By clicking on &ldquo;Create repository&rdquo;:</p>
 Clone your newly created repository and open the <em>Vehicle App</em> in Microsoft Visual Studio Code and start to extend it.</p>
 <p>You can proceed with the following topics:</p>
 <ul>
-<li><a href="/velocitas-docs/docs/tutorials/quickstart/#starting-development-environment">Starting development environment</a></li>
-<li><a href="/velocitas-docs/docs/tutorials/vehicle_app_development/python_development.md"><em>Vehicle App</em> Development</a></li>
+<li>
+
+<a href="/velocitas-docs//docs/tutorials/quickstart/#starting-development-environment">Starting development environment</a>
+</li>
+<li>
+
+<a href="/velocitas-docs//docs/tutorials/vehicle_app_development/python_development.md"><em>Vehicle App</em> Development</a>
+</li>
 </ul>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 14, 2023: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/15eeebc66fa3231aca41f334ab83d1c8e28e6ca0">Added initial documentations (15eeebc)</a>
+  Last modified February 27, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/383f29a4d4b5cf87e794b07485ab36b9b0f8cb1b">Version fixes and removal of strange header of rendered page (#117) (383f29a)</a>
 </div>
 
 </div>
@@ -657,6 +712,8 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
         </div>
       </div>
       
+
+
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
@@ -719,7 +776,7 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2024 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -796,9 +853,10 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 </footer>
 
 
+
     </div>
     
-  <script src="/velocitas-docs/js/main.min.2aff983e9d0d8ecff9ed53e14b657216e2d8d2aff059bf4a5651283020995f1b.js" integrity="sha256-Kv&#43;YPp0Njs/57VPhS2VyFuLY0q/wWb9KVlEoMCCZXxs=" crossorigin="anonymous"></script>
+  <script src="/velocitas-docs/js/main.min.11dd0d4300ec82ff369d87764bc4d1000f19606ec0279c97f26dacab57607268.js" integrity="sha256-Ed0NQwDsgv82nYd2S8TRAA8ZYG7AJ5yX8m2sq1dgcmg=" crossorigin="anonymous"></script>
 <script src='/velocitas-docs/js/tabpane-persist.js'></script>
 
   </body>

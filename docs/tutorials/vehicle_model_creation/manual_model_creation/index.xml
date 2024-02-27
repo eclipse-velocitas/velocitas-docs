@@ -4,6 +4,7 @@
     <link>/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/</link>
     <description>Recent content in Manual Vehicle Model Creation on Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Mon, 09 May 2022 13:43:25 +0530</lastBuildDate>
     
 	  <atom:link href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/index.xml" rel="self" type="application/rss+xml" />
@@ -193,7 +194,13 @@ Successfully installed my-vehicle-model-0.1
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Copy your proto file under &lt;code&gt;my_vehicle_model/my_vehicle_model/proto&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;As example you could use the protocol buffers message definition &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seats.proto&lt;/a&gt; provided by the KUKSA.VAL services which describes a &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat control service&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As example you could use the protocol buffers message definition 
+
+&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seats.proto&lt;/a&gt;
+ provided by the KUKSA.VAL services which describes a 
+
+&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat control service&lt;/a&gt;
+.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Install the grpcio tools including mypy types to generate the Python classes out of the proto-file:&lt;/p&gt;

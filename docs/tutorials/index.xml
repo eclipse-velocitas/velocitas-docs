@@ -4,6 +4,7 @@
     <link>/velocitas-docs/docs/tutorials/</link>
     <description>Recent content in Tutorials on Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Mon, 09 May 2022 13:43:25 +0530</lastBuildDate>
     
 	  <atom:link href="/velocitas-docs/docs/tutorials/index.xml" rel="self" type="application/rss+xml" />
@@ -49,7 +50,10 @@
       <description>
         
         
-        &lt;p&gt;Please visit first &lt;a href=&#34;/velocitas-docs/velocitas-docs/docs/tutorials/quickstart/&#34;&gt;Getting Started page&lt;/a&gt; if you don&amp;rsquo;t know where to start.&lt;/p&gt;
+        &lt;p&gt;Please visit first 
+
+&lt;a href=&#34;/velocitas-docs/velocitas-docs//docs/tutorials/quickstart/&#34;&gt;Getting Started page&lt;/a&gt;
+ if you don&amp;rsquo;t know where to start.&lt;/p&gt;
 
       </description>
     </item>
@@ -68,13 +72,27 @@
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Info&lt;/h4&gt;
 
-    On Friday, 2023-03-03 we released our new &lt;a href=&#34;automated_model_lifecycle/&#34;&gt;model lifecycle approach&lt;/a&gt;. With the update of the documentation the previous content of this page can be found in the section &lt;a href=&#34;manual_model_creation/&#34;&gt;Manual Vehicle Model Creation&lt;/a&gt; now.
+    &lt;p&gt;On Friday, 2023-03-03 we released our new 
+&lt;p&gt;&lt;a href=&#34;automated_model_lifecycle/&#34;&gt;model lifecycle approach&lt;/a&gt;
+. With the update of the documentation the previous content of this page can be found in the section&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;manual_model_creation/&#34;&gt;Manual Vehicle Model Creation&lt;/a&gt;
+now.&lt;/p&gt;&lt;/p&gt;
+
 
 &lt;/div&gt;
 
-&lt;p&gt;A &lt;em&gt;Vehicle Model&lt;/em&gt; makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against &lt;em&gt;Vehicle Services&lt;/em&gt; and other &lt;em&gt;Vehicle Apps&lt;/em&gt;. It is generated from the underlying semantic models based e.g. on the &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;COVESA Vehicle Signal Specification (VSS)&lt;/a&gt;. The model is generated for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library providing vehicle abstraction &amp;ldquo;on code level&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;By default our app templates now generate the vehicle model during the devContainer initialization - managed by the Velocitas life cycle management. The respective VSS-based model source is referenced in the app manifest allowing to freely choose the model being used in your project. You will find more details about this in section &lt;a href=&#34;automated_model_lifecycle/&#34;&gt;Automated Model Lifecycle&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The previous approach, using pre-generated model repositories, is deprecated as of now. But is still available and is described in section &lt;a href=&#34;manual_model_creation/&#34;&gt;Manual Vehicle Model Creation&lt;/a&gt;. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;Vehicle Model&lt;/em&gt; makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against &lt;em&gt;Vehicle Services&lt;/em&gt; and other &lt;em&gt;Vehicle Apps&lt;/em&gt;. It is generated from the underlying semantic models based e.g. on the 
+
+&lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;COVESA Vehicle Signal Specification (VSS)&lt;/a&gt;
+. The model is generated for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library providing vehicle abstraction &amp;ldquo;on code level&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;By default our app templates now generate the vehicle model during the devContainer initialization - managed by the Velocitas life cycle management. The respective VSS-based model source is referenced in the app manifest allowing to freely choose the model being used in your project. You will find more details about this in section 
+
+&lt;a href=&#34;automated_model_lifecycle/&#34;&gt;Automated Model Lifecycle&lt;/a&gt;
+.&lt;/p&gt;
+&lt;p&gt;The previous approach, using pre-generated model repositories, is deprecated as of now. But is still available and is described in section 
+
+&lt;a href=&#34;manual_model_creation/&#34;&gt;Manual Vehicle Model Creation&lt;/a&gt;
+. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.&lt;/p&gt;
 
       </description>
     </item>

@@ -1,10 +1,12 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
-<link rel="stylesheet" type="text/css" href="/velocitas-docs/css/overwrite.css" />
+<link rel="stylesheet" type="text/css" href="/velocitas-docs//css/overwrite.css" />
 <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
 
 <script>
@@ -16,7 +18,7 @@
 </script>
 
 
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.123.3">
 <link rel="canonical" type="text/html" href="/velocitas-docs/docs/concepts/deployment_model/">
 <link rel="alternate" type="application/rss&#43;xml" href="/velocitas-docs/docs/concepts/deployment_model/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -41,10 +43,10 @@
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas-docs/docs/concepts/deployment_model/" />
+
 <meta itemprop="name" content="Deployment Model">
 <meta itemprop="description" content="Learn more about our deployment model and guiding principles.
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Deployment Model"/>
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Deployment Model"/>
 <meta name="twitter:description" content="Learn more about our deployment model and guiding principles.
 "/>
 
@@ -74,9 +76,6 @@
         <a class="nav-link active" href="/velocitas-docs/docs/"><span class="active">Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/velocitas-docs/community/"><span>Community</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -91,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.149d494f268b7648549a881078dc5720.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.55197f087906bba38d74901107396d10.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -159,7 +158,10 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <p>The Velocitas project uses a common deployment model. It uses <a href="https://opencontainers.org/" target="_blank" rel="noopener">OCI-compliant</a> containers to increase the flexibility for the support of different programming languages and runtimes, which accelerates innovation and development. OCI-compliant containers also allow for a standardized yet flexible deployment process, which increases the ease of operation. Using OCI-compliant is portable to different architectures as long as there is support for OCI-compliant containers on the desired platform (e.g., like a container runtime for arm32, arm64 or amd64).</p>
+      <p>The Velocitas project uses a common deployment model. It uses 
+
+<a href="https://opencontainers.org/" target="_blank" rel="noopener">OCI-compliant</a>
+ containers to increase the flexibility for the support of different programming languages and runtimes, which accelerates innovation and development. OCI-compliant containers also allow for a standardized yet flexible deployment process, which increases the ease of operation. Using OCI-compliant is portable to different architectures as long as there is support for OCI-compliant containers on the desired platform (e.g., like a container runtime for arm32, arm64 or amd64).</p>
 <h2 id="guiding-principles">Guiding principles</h2>
 <p>The deployment model is guided by the following principles</p>
 <ul>
@@ -169,7 +171,13 @@ This is the multi-page printable view of this section.
 </ul>
 <p>The template projects provided come with a pre-configured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation of all required artifacts needed to follow the <em>Velocitas</em> principles.</p>
 <h2 id="testing-your-container-during-development">Testing your container during development</h2>
-<p>The <em>Velocitas</em> project provides for developers a repository template and devcontainer that contains everything to build a containerized version of your app locally and test it. Check out our <a href="/velocitas-docs/docs/tutorials/">tutorial</a> e.g., for the <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python template</a> to learn more.</p>
+<p>The <em>Velocitas</em> project provides for developers a repository template and devcontainer that contains everything to build a containerized version of your app locally and test it. Check out our 
+
+<a href="/velocitas-docs//docs/tutorials/">tutorial</a>
+ e.g., for the 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python template</a>
+ to learn more.</p>
 <h2 id="automated-container-image-builds">Automated container image builds</h2>
 <p><em>Velocitas</em> uses GitHub workflows to automate the creation of your containerized application. A workflow is started with every increment of your application code that you push to your GitHub repository. The workflow creates a containerized version of your application and stores this container image in a registry. Further actions are carried out using this container (e.g., integration tests).</p>
 <p>The workflows are set up to support multi-platform container creation and generate container images for amd64 and arm64 out of the box. This provides a great starting point for developers and lets you add additional support for further platforms easily.</p>
@@ -201,7 +209,10 @@ This is the multi-page printable view of this section.
 <ul>
 <li>
 <p><strong>Stage 1 - Build &amp; Test</strong>
-On every new push to the <code>main</code> branch or every update to a pull request, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts for future reference with a <a href="https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization" target="_blank" rel="noopener">default retention period of 90 days</a>.</p>
+On every new push to the <code>main</code> branch or every update to a pull request, a GitHub workflow is automatically executed to build your application as a container (optionally for different platforms), runs automated tests and code quality checks, and stores all results as GitHub artifacts for future reference with a 
+
+<a href="https://docs.github.com/en/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization" target="_blank" rel="noopener">default retention period of 90 days</a>
+.</p>
 <p>The workflow provides a quick feedback during development and improves efficient collaboration.</p>
 </li>
 <li>
@@ -212,7 +223,10 @@ Once the application is ready to be released in a new version, a dedicated relea
 </ul>
 <p>The drawing below illustrates the different workflows, actions and artifacts that are automatically created for you. All workflows are intended as a sensible baseline and can be extended and adapted to the needs of your own project.</p>
 <p><img src="./publish_container.png" alt="Workflows"></p>
-<h2 id="ci-workflow-ciymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsciyml">CI Workflow (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">ci.yml</a>)</h2>
+<h2 id="ci-workflow-ciymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsciyml">CI Workflow (
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">ci.yml</a>
+)</h2>
 <p>The <code>Continuous Integration (CI) workflow</code> is triggered on every commit to the main branch or when creating/updating a pull request and contains a set of actions to achieve the following objectives:</p>
 <ul>
 <li><strong>Building a container for the <em>Vehicle App</em></strong> - actions create a containerized version of the <em>Vehicle App</em>.</li>
@@ -221,8 +235,14 @@ Once the application is ready to be released in a new version, a dedicated relea
 <li><strong>Running unit tests &amp; code coverage</strong> - actions run unit tests and calculate code coverage for your application, in case of errors or unsatisfactory code coverage, the workflow will be marked as &ldquo;failed&rdquo;.</li>
 <li><strong>Storing scan &amp; test results as GitHub action artifacts</strong> - actions store results from the previously mentioned actions for further reference or download as Github Action Artifacts.</li>
 </ul>
-<p>Check out the example GitHub workflows in our <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">template repository for Python</a></p>
-<h2 id="build-multi-arch-image-workflow-build-multiarch-imageymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsbuild-multiarch-imageyml">Build multi-arch image Workflow (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/build-multiarch-image.yml" target="_blank" rel="noopener">build-multiarch-image.yml</a>)</h2>
+<p>Check out the example GitHub workflows in our 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">template repository for Python</a>
+</p>
+<h2 id="build-multi-arch-image-workflow-build-multiarch-imageymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsbuild-multiarch-imageyml">Build multi-arch image Workflow (
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/build-multiarch-image.yml" target="_blank" rel="noopener">build-multiarch-image.yml</a>
+)</h2>
 <p>The <code>Build multi-arch image workflow</code> is triggered on every commit to the main branch and contains a set of actions to achieve the following objectives:</p>
 <ul>
 <li><strong>Building a multi-arch container for the app</strong> - actions create a containerized version of the <em>Vehicle App</em> for multiple architectures (currently AMD64 and ARM64).</li>
@@ -230,7 +250,10 @@ Once the application is ready to be released in a new version, a dedicated relea
 <li><strong>Storing container images to GitHub action artifacts</strong> - at the end of the workflow, the container image created is stored in a Github Action Artifacts so that it can be referenced by the Release Workflow later.</li>
 <li><strong>Generate Deployment Files</strong> - actions generate a PodSpec-file and HelmCharts to ease the deployment of the <em>Vehicle App</em> and the runtime services.</li>
 </ul>
-<h2 id="release-workflow-releaseymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsreleaseyml">Release Workflow (<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/release.yml" target="_blank" rel="noopener">release.yml</a>)</h2>
+<h2 id="release-workflow-releaseymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsreleaseyml">Release Workflow (
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/release.yml" target="_blank" rel="noopener">release.yml</a>
+)</h2>
 <p>The <code>Release workflow</code> is triggered as soon as the <code>main</code> branch is ready for release and the <em>Vehicle App</em> developer creates a new GitHub release. This can be done manually through the GitHub UI.</p>
 <p>On creating a new release with a specific new version, GitHub creates a tag and automatically runs the <code>Release workflow</code> defined in <code>.github/workflows/release.yml</code>, given that <code>CI workflow</code> has run successfully for the current commit on the main branch.</p>
 <p>The set of actions included in the <code>Release workflow</code> cover the objective:</p>
@@ -238,16 +261,25 @@ Once the application is ready to be released in a new version, a dedicated relea
 <li><strong>Generating and publishing QA information</strong> - actions load the QA information from GitHub artifacts stored for the same commit reference and verify it. Additionally, release documentation is generated and added to the GitHub release. If there is no information available for the current commit, the release workflow will fail.</li>
 <li><strong>Publish as GitHub pages</strong> - all information from the release together with the project documentation is built as a static page using hugo. The result is pushed to a separate branch and can be published as a GitHub page in your repository.</li>
 <li><strong>Pull &amp; label container image</strong> - actions pull the <em>Vehicle App</em> container image based on the current commit hash from the GitHub artifacts and label it with the specified tag version. If the image cannot be found, the workflow will fail.</li>
-<li><strong>Push container image to ghcr.io</strong> - finally the labeled container image is pushed to the <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank" rel="noopener">GitHub container registry</a> and can be used as a deployment source.</li>
+<li><strong>Push container image to ghcr.io</strong> - finally the labeled container image is pushed to the 
+
+<a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank" rel="noopener">GitHub container registry</a>
+ and can be used as a deployment source.</li>
 </ul>
 <h2 id="github-actions-artifacts">GitHub Actions artifacts</h2>
 <p><strong>GitHub Actions artifacts</strong> are used for storing data, which is generated by the <code>CI workflow</code> and referenced by the <code>Release workflow</code>. This saves time during workflow runs because we don&rsquo;t have to create artifacts multiple times.</p>
 <p>GitHub Actions artifacts always have a retention period, which is 90 days by default. This may be configured differently in the specific GitHub organization. After this period, the QA info gets purged automatically. In this case, a re-run of the CI workflow would be required to regenerate all QA info needed for creating a release.</p>
 <h2 id="container-registry">Container Registry</h2>
-<p>The <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank" rel="noopener">GitHub container registry</a> is used for storing container images pushed by the <code>Release workflow</code>. These images can easily be used for a deployment and don&rsquo;t have a retention period.
+<p>The 
+
+<a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" target="_blank" rel="noopener">GitHub container registry</a>
+ is used for storing container images pushed by the <code>Release workflow</code>. These images can easily be used for a deployment and don&rsquo;t have a retention period.
 Since the registry does not have an automatic cleanup, it keeps container images as long as they are not deleted. It is recommended that you automate the removal of older images to limit storage size and costs.</p>
 <h2 id="versioning">Versioning</h2>
-<p><em>Vehicle App</em> image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of <a href="https://semver.org/" target="_blank" rel="noopener">semantic versions</a> is recommended.</p>
+<p><em>Vehicle App</em> image versions are set to the Git tag name during release. Though any versioning scheme can be adopted, the usage of 
+
+<a href="https://semver.org/" target="_blank" rel="noopener">semantic versions</a>
+ is recommended.</p>
 <p>If the tag name contains a semantic version, the leading <code>v</code> will be trimmed.
 <strong>Example:</strong> A tag name of <code>v1.0.0</code> will lead to version <code>1.0.0</code> of the <em>Vehicle App</em> container.</p>
 <h3 id="maintaining-multiple-versions">Maintaining multiple versions</h3>
@@ -255,9 +287,18 @@ Since the registry does not have an automatic cleanup, it keeps container images
 <p>The release process would be the same as described in the overview, except that a release branch (e.g., <code>release/v1.0</code>) is created before the release step and the GitHub release is based on the <code>release</code> branch rather than the <code>main</code> branch. For hotfixes, release branches may be created retroactively from the release tag, if needed.</p>
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development/integration_tests">How to write integration tests</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a <em>Vehicle App</em> with Helm</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_deployment/podspecs_deployment.md">Deploy a <em>Vehicle App</em> with PodSpecs</a></li>
+<li>Tutorial: 
+
+<a href="/velocitas-docs//docs/tutorials/vehicle_app_development/integration_tests">How to write integration tests</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a <em>Vehicle App</em> with Helm</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/podspecs_deployment.md">Deploy a <em>Vehicle App</em> with PodSpecs</a>
+</li>
 </ul>
 
 </div>
@@ -286,6 +327,8 @@ Since the registry does not have an automatic cleanup, it keeps container images
         </div>
       </div>
       
+
+
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
@@ -348,7 +391,7 @@ Since the registry does not have an automatic cleanup, it keeps container images
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2024 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -425,9 +468,10 @@ Since the registry does not have an automatic cleanup, it keeps container images
 </footer>
 
 
+
     </div>
     
-  <script src="/velocitas-docs/js/main.min.2aff983e9d0d8ecff9ed53e14b657216e2d8d2aff059bf4a5651283020995f1b.js" integrity="sha256-Kv&#43;YPp0Njs/57VPhS2VyFuLY0q/wWb9KVlEoMCCZXxs=" crossorigin="anonymous"></script>
+  <script src="/velocitas-docs/js/main.min.11dd0d4300ec82ff369d87764bc4d1000f19606ec0279c97f26dacab57607268.js" integrity="sha256-Ed0NQwDsgv82nYd2S8TRAA8ZYG7AJ5yX8m2sq1dgcmg=" crossorigin="anonymous"></script>
 <script src='/velocitas-docs/js/tabpane-persist.js'></script>
 
   </body>

@@ -1,10 +1,12 @@
 <!doctype html>
 <html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
   <head>
-    <meta charset="utf-8">
+    
+
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
-<link rel="stylesheet" type="text/css" href="/velocitas-docs/css/overwrite.css" />
+<link rel="stylesheet" type="text/css" href="/velocitas-docs//css/overwrite.css" />
 <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
 
 <script>
@@ -16,7 +18,7 @@
 </script>
 
 
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.123.3">
 <link rel="canonical" type="text/html" href="/velocitas-docs/docs/tutorials/vehicle_model_creation/">
 <link rel="alternate" type="application/rss&#43;xml" href="/velocitas-docs/docs/tutorials/vehicle_model_creation/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -41,10 +43,10 @@
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/vehicle_model_creation/" />
+
 <meta itemprop="name" content="Vehicle Model Creation">
 <meta itemprop="description" content="Learn how creation of vehicle models work and how to adapt it to your needs.
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Vehicle Model Creation"/>
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Vehicle Model Creation"/>
 <meta name="twitter:description" content="Learn how creation of vehicle models work and how to adapt it to your needs.
 "/>
 
@@ -74,9 +76,6 @@
         <a class="nav-link active" href="/velocitas-docs/docs/"><span class="active">Documentation</span></a>
       </li>
       <li class="nav-item mr-4 mb-2 mb-lg-0">
-        <a class="nav-link" href="/velocitas-docs/community/"><span>Community</span></a>
-      </li>
-      <li class="nav-item mr-4 mb-2 mb-lg-0">
         <a class="nav-link" href="https://github.com/eclipse-velocitas" target="_blank"><span>GitHub</span></a>
       </li>
       </ul>
@@ -91,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.149d494f268b7648549a881078dc5720.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.55197f087906bba38d74901107396d10.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -234,13 +233,27 @@ This is the multi-page printable view of this section.
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Info</h4>
 
-    On Friday, 2023-03-03 we released our new <a href="automated_model_lifecycle/">model lifecycle approach</a>. With the update of the documentation the previous content of this page can be found in the section <a href="manual_model_creation/">Manual Vehicle Model Creation</a> now.
+    <p>On Friday, 2023-03-03 we released our new 
+<p><a href="automated_model_lifecycle/">model lifecycle approach</a>
+. With the update of the documentation the previous content of this page can be found in the section</p>
+<p><a href="manual_model_creation/">Manual Vehicle Model Creation</a>
+now.</p></p>
+
 
 </div>
 
-<p>A <em>Vehicle Model</em> makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against <em>Vehicle Services</em> and other <em>Vehicle Apps</em>. It is generated from the underlying semantic models based e.g. on the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>. The model is generated for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library providing vehicle abstraction &ldquo;on code level&rdquo;.</p>
-<p>By default our app templates now generate the vehicle model during the devContainer initialization - managed by the Velocitas life cycle management. The respective VSS-based model source is referenced in the app manifest allowing to freely choose the model being used in your project. You will find more details about this in section <a href="automated_model_lifecycle/">Automated Model Lifecycle</a>.</p>
-<p>The previous approach, using pre-generated model repositories, is deprecated as of now. But is still available and is described in section <a href="manual_model_creation/">Manual Vehicle Model Creation</a>. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.</p>
+<p>A <em>Vehicle Model</em> makes it possible to easily get vehicle data from the KUKSA Data Broker and to execute remote procedure calls over gRPC against <em>Vehicle Services</em> and other <em>Vehicle Apps</em>. It is generated from the underlying semantic models based e.g. on the 
+
+<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>
+. The model is generated for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library providing vehicle abstraction &ldquo;on code level&rdquo;.</p>
+<p>By default our app templates now generate the vehicle model during the devContainer initialization - managed by the Velocitas life cycle management. The respective VSS-based model source is referenced in the app manifest allowing to freely choose the model being used in your project. You will find more details about this in section 
+
+<a href="automated_model_lifecycle/">Automated Model Lifecycle</a>
+.</p>
+<p>The previous approach, using pre-generated model repositories, is deprecated as of now. But is still available and is described in section 
+
+<a href="manual_model_creation/">Manual Vehicle Model Creation</a>
+. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.</p>
 
 </div>
 </div>
@@ -271,7 +284,9 @@ This is the multi-page printable view of this section.
 
     <p>This article describes our new model lifecycle approach released on Friday, 2023-03-03. With that, the model is now automatically generated with the instantiation of the devContainer. It is generated from the vehicle model source file referenced in the AppManifest.</p>
 <p>For the time being, the integration of services is not supported by the new approach.</p>
-<p>The previous approach, using pre-generated model repositories, is now deprecated. But it is still available and <a href="../manual_model_creation">described here</a>.</p>
+<p>The previous approach, using pre-generated model repositories, is now deprecated. But it is still available and 
+<p><a href="../manual_model_creation">described here</a>
+.</p></p>
 
 
 </div>
@@ -330,10 +345,16 @@ This is the multi-page printable view of this section.
 <h2 id="model-creation">Model Creation</h2>
 <p>The generation of the model is taking place:</p>
 <ul>
-<li>through a <a href="/velocitas-docs/docs/concepts/lifecycle_management/packages/usage/#installation">onPostInit hook</a> when <code>velocitas init</code> is called:
+<li>through a 
+
+<a href="/velocitas-docs//docs/concepts/lifecycle_management/packages/usage/#installation">onPostInit hook</a>
+ when <code>velocitas init</code> is called:
 <ul>
 <li>either triggered manually or</li>
-<li>automatically during the instantiation of the devContainer through our <a href="/velocitas-docs/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>, or</li>
+<li>automatically during the instantiation of the devContainer through our 
+
+<a href="/velocitas-docs//docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>
+, or</li>
 </ul>
 </li>
 <li>when you trigger the VS Code task <code>(Re-)generate vehicle model</code> explicitly.</li>
@@ -345,9 +366,18 @@ This is the multi-page printable view of this section.
 <li>The model code is generated and installed.</li>
 </ol>
 <p><img src="./model_lifecycle.drawio.svg" alt="Model lifecycle overview"></p>
-<p>The model is generated using our <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">Velocitas vehicle-model-generator</a>.
+<p>The model is generated using our 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">Velocitas vehicle-model-generator</a>
+.
 The used version and also the repository of the generator can be altered via the <code>variables</code> section of the project configuration in the <code>.velocitas.json</code>.
-The default values for those are defined in the <a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json" target="_blank" rel="noopener"><code>manifest.json</code></a> of the <a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup" target="_blank" rel="noopener">devContainer setup package</a>.
+The default values for those are defined in the 
+
+<a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup/blob/main/manifest.json" target="_blank" rel="noopener"><code>manifest.json</code></a>
+ of the 
+
+<a href="https://github.com/eclipse-velocitas/devenv-devcontainer-setup" target="_blank" rel="noopener">devContainer setup package</a>
+.
 Also, the target folder for the generated model source code is specified here:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;variables&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
@@ -359,9 +389,18 @@ Also, the target folder for the generated model source code is specified here:</
 </span></span></code></pre></div><p>In Python template based projects the generated model is finally installed in the site-packages folder, while in C++ projects it is made available as a CMake include folder.</p>
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk.md">SDK Overview</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Quickstart</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development">Create a <em>Vehicle App</em></a></li>
+<li>Concept: 
+
+<a href="/velocitas-docs//docs/concepts/development_model/vehicle_app_sdk.md">SDK Overview</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas-docs//docs/tutorials/quickstart">Quickstart</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas-docs//docs/tutorials/vehicle_app_development">Create a <em>Vehicle App</em></a>
+</li>
 </ul>
 
 </div>
@@ -397,7 +436,9 @@ Also, the target folder for the generated model source code is specified here:</
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Info</h4>
 
-    <p>With the release of our new <a href="../automated_model_lifecycle">model lifecycle approach</a> on Friday, 2023-03-03, the model is now automatically generated with the instantiation of the devContainer from a model source referenced in the app manifest.</p>
+    <p>With the release of our new 
+<p><a href="../automated_model_lifecycle">model lifecycle approach</a>
+on Friday, 2023-03-03, the model is now automatically generated with the instantiation of the devContainer from a model source referenced in the app manifest.</p></p>
 <p>The approach described here, using pre-generated model repositories, is deprecated as of now. But it is still available and must be used if you need access to vehicle services. Please be aware, that you would either have to use template versions before the above mentioned release, or you need to adapt the newer versions of the template using the old approach.</p>
 
 
@@ -415,25 +456,46 @@ Also, the target folder for the generated model source code is specified here:</
 <h4 class="alert-heading">Note</h4>
 
     <p>A <em>Vehicle Model</em> should be defined in its own package. This makes it possible to distribute the <em>Vehicle Model</em> later as a standalone package and to use it in different <em>Vehicle App</em> projects.</p>
-<p>The creation of a new vehicle model is only required if the vehicle signals (like sensors and actuators) defined in the current version of the <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification</a> (VSS) is not sufficient for the definition of your vehicle API. Otherwise you could use the default vehicle model we already generated for you, see <a href="https://github.com/eclipse-velocitas/vehicle-model-python" target="_blank" rel="noopener">Python Vehicle Model</a> and <a href="https://github.com/eclipse-velocitas/vehicle-model-cpp" target="_blank" rel="noopener">C++ Vehicle Model</a>.</p>
+<p>The creation of a new vehicle model is only required if the vehicle signals (like sensors and actuators) defined in the current version of the 
+<p><a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification</a>
+(VSS) is not sufficient for the definition of your vehicle API. Otherwise you could use the default vehicle model we already generated for you, see</p>
+<p><a href="https://github.com/eclipse-velocitas/vehicle-model-python" target="_blank" rel="noopener">Python Vehicle Model</a>
+and</p>
+<p><a href="https://github.com/eclipse-velocitas/vehicle-model-cpp" target="_blank" rel="noopener">C++ Vehicle Model</a>
+.</p></p>
 
 
 </div>
 
 <h2 id="create-a-vehicle-model-from-vss-specification">Create a Vehicle Model from VSS specification</h2>
-<p>A <em>Vehicle Model</em> can be generated from a <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification</a> (VSS). VSS introduces a domain taxonomy for vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data. The Velocitas <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> creates a <em>Vehicle Model</em> from the given specification and generates a package for use in <em>Vehicle App</em> projects.</p>
+<p>A <em>Vehicle Model</em> can be generated from a 
+
+<a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification</a>
+ (VSS). VSS introduces a domain taxonomy for vehicle signals, in the sense of classical attributes, sensors and actuators with the raw data communicated over vehicle buses and data. The Velocitas 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a>
+ creates a <em>Vehicle Model</em> from the given specification and generates a package for use in <em>Vehicle App</em> projects.</p>
 <p>Follow the steps to generate a <em>Vehicle Model</em>.</p>
 <ol>
 <li>
-<p>Clone the <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> repository in a container volume.</p>
+<p>Clone the 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a>
+ repository in a container volume.</p>
 </li>
 <li>
-<p>In this container volume, clone the <a href="https://github.com/COVESA/vehicle_signal_specification" target="_blank" rel="noopener">vehicle-signal-specification</a> repository and if required checkout a particular branch:</p>
+<p>In this container volume, clone the 
+
+<a href="https://github.com/COVESA/vehicle_signal_specification" target="_blank" rel="noopener">vehicle-signal-specification</a>
+ repository and if required checkout a particular branch:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/COVESA/vehicle_signal_specification
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87">cd</span> vehicle_signal_specification
 </span></span><span style="display:flex;"><span>git checkout &lt;branch-name&gt;
-</span></span></code></pre></div><p>In case the VSS vspec doesn&rsquo;t contain the required signals, you can create a vspec using the <a href="https://covesa.github.io/vehicle_signal_specification/rule_set/" target="_blank" rel="noopener">VSS Rule Set</a>.</p>
+</span></span></code></pre></div><p>In case the VSS vspec doesn&rsquo;t contain the required signals, you can create a vspec using the 
+
+<a href="https://covesa.github.io/vehicle_signal_specification/rule_set/" target="_blank" rel="noopener">VSS Rule Set</a>
+.</p>
 </li>
 <li>
 <p>Execute the command</p>
@@ -460,31 +522,55 @@ Also, the target folder for the generated model source code is specified here:</
 </tr>
 </tbody>
 </table>
-<p>To have a custom model name, refer to README of <a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a> repository.</p>
+<p>To have a custom model name, refer to README of 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-model-generator" target="_blank" rel="noopener">vehicle-model-generator</a>
+ repository.</p>
 </li>
 <li>
 <p>For Python: Change the version of package in <code>setup.py</code> manually (defaults to 0.1.0).</p>
 </li>
 <li>
-<p>Now the newly generated <code>sdv_model</code> can be used for distribution. (See <a href="vehicle_model_distribution">Distributing your Vehicle Model</a>)</p>
+<p>Now the newly generated <code>sdv_model</code> can be used for distribution. (See 
+
+<a href="vehicle_model_distribution">Distributing your Vehicle Model</a>
+)</p>
 </li>
 </ol>
 <h2 id="create-a-vehicle-model-manually">Create a Vehicle Model Manually</h2>
 <p>Alternative to the generation from a VSS specification you could create the <em>Vehicle Model</em> manually. The following sections describing the required steps.</p>
 <ul>
-<li><a href="/velocitas-docs/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/">Python</a></li>
+<li>
+
+<a href="/velocitas-docs//docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/">Python</a>
+</li>
 </ul>
 <h2 id="distributing-your-vehicle-model">Distributing your Vehicle Model</h2>
 <p>Once you have created your Vehicle Model either manually or via the Vehicle Model Generator, you need to distribute your model to use it in an application. Follow the links below for language specific tutorials on how to distribute your freshly created Vehicle Model.</p>
 <ul>
-<li><a href="vehicle_model_distribution/distribution_python">Python</a></li>
-<li><a href="vehicle_model_distribution/distribution_cpp">C++</a></li>
+<li>
+
+<a href="vehicle_model_distribution/distribution_python">Python</a>
+</li>
+<li>
+
+<a href="vehicle_model_distribution/distribution_cpp">C++</a>
+</li>
 </ul>
 <h2 id="further-information">Further information</h2>
 <ul>
-<li>Concept: <a href="/velocitas-docs/docs/concepts/development_model/vehicle_app_sdk.md">SDK Overview</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/quickstart">Quickstart</a></li>
-<li>Tutorial: <a href="/velocitas-docs/docs/tutorials/vehicle_app_development">Create a <em>Vehicle App</em></a></li>
+<li>Concept: 
+
+<a href="/velocitas-docs//docs/concepts/development_model/vehicle_app_sdk.md">SDK Overview</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas-docs//docs/tutorials/quickstart">Quickstart</a>
+</li>
+<li>Tutorial: 
+
+<a href="/velocitas-docs//docs/tutorials/vehicle_app_development">Create a <em>Vehicle App</em></a>
+</li>
 </ul>
 
 </div>
@@ -685,7 +771,13 @@ Successfully installed my-vehicle-model-0.1
 </li>
 <li>
 <p>Copy your proto file under <code>my_vehicle_model/my_vehicle_model/proto</code></p>
-<p>As example you could use the protocol buffers message definition <a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a> provided by the KUKSA.VAL services which describes a <a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>.</p>
+<p>As example you could use the protocol buffers message definition 
+
+<a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a>
+ provided by the KUKSA.VAL services which describes a 
+
+<a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>
+.</p>
 </li>
 <li>
 <p>Install the grpcio tools including mypy types to generate the Python classes out of the proto-file:</p>
@@ -806,7 +898,10 @@ shown above:</p>
 <h2 id="using-a-git-submodule">Using a git submodule</h2>
 <p>A similar approach to the one above but a bit more difficult to set up is to create a git repository for the created model. The advantage of this approach is that you can share the same model between multiple <em>Vehicle Apps</em> without any manual effort.</p>
 <ol>
-<li>Create a new git repository on i.e. <a href="https://github.com" target="_blank" rel="noopener">Github</a></li>
+<li>Create a new git repository on i.e. 
+
+<a href="https://github.com" target="_blank" rel="noopener">Github</a>
+</li>
 <li>Clone it locally, add the created <code>vehicle_model</code> folder to the git repository</li>
 <li>Commit everything and push the branch</li>
 </ol>
@@ -831,7 +926,10 @@ shown above:</p>
     
 	<h1 id="pg-3e85be65611fe1e1cf9f1d5cda3e3deb">2.3.2 - Python Vehicle Model Distribution</h1>
     <div class="lead">Learn how to distribute a Vehicle Model written in Python.</div>
-	<p>Now you a have a Python package containing your first Python <em>Vehicle Model</em> and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the <a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener">Python Packaging User Guide</a> to learn more about packaging and package distribution in Python.</p>
+	<p>Now you a have a Python package containing your first Python <em>Vehicle Model</em> and it is time to distribute it. There is nothing special about the distribution of this package, since it is just an ordinary Python package. Check out the 
+
+<a href="https://packaging.python.org/en/latest/" target="_blank" rel="noopener">Python Packaging User Guide</a>
+ to learn more about packaging and package distribution in Python.</p>
 <h2 id="distribute-to-single-_vehicle-app_">Distribute to single <em>Vehicle App</em></h2>
 <p>If you want to distribute your Python <em>Vehicle Model</em> to a single <em>Vehicle App</em>, you can do so by copying the entire folder <code>my_vehicle_model</code> under the <code>/app/src</code> folder of your <em>Vehicle App</em> repository and treat it as a sub-package of the <em>Vehicle App</em>.</p>
 <ol>
@@ -865,8 +963,14 @@ shown above:</p>
 </li>
 </ol>
 <h2 id="distribute-publicly-as-open-source">Distribute publicly as open source</h2>
-<p>If you want to distribute your Python <em>Vehicle Model</em> publicly, you can do so by creating a Python package and distributing it on the <a href="https://pypi.org/" target="_blank" rel="noopener">Python Package Index (PyPI)</a>. PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the <code>pip</code> command, you are already using PyPI.</p>
-<p>Detailed instructions on how to make a Python package available on PyPI can be found <a href="https://packaging.python.org/tutorials/packaging-projects/" target="_blank" rel="noopener">here</a>.</p>
+<p>If you want to distribute your Python <em>Vehicle Model</em> publicly, you can do so by creating a Python package and distributing it on the 
+
+<a href="https://pypi.org/" target="_blank" rel="noopener">Python Package Index (PyPI)</a>
+. PyPi is a repository of software for the Python programming language and helps you find and install software developed and shared by the Python community. If you use the <code>pip</code> command, you are already using PyPI.</p>
+<p>Detailed instructions on how to make a Python package available on PyPI can be found 
+
+<a href="https://packaging.python.org/tutorials/packaging-projects/" target="_blank" rel="noopener">here</a>
+.</p>
 
 </div>
 
@@ -890,6 +994,8 @@ shown above:</p>
         </div>
       </div>
       
+
+
 <footer class="bg-dark py-5 row d-print-none">
   <div class="container-fluid mx-sm-5">
     <div class="row">
@@ -952,7 +1058,7 @@ shown above:</p>
         
       </div>
       <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2023 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
+        <small class="text-white">&copy; 2024 The Eclipse Velocitas™ Project. All Rights Reserved.</small>
         
         
       </div>
@@ -1029,9 +1135,10 @@ shown above:</p>
 </footer>
 
 
+
     </div>
     
-  <script src="/velocitas-docs/js/main.min.2aff983e9d0d8ecff9ed53e14b657216e2d8d2aff059bf4a5651283020995f1b.js" integrity="sha256-Kv&#43;YPp0Njs/57VPhS2VyFuLY0q/wWb9KVlEoMCCZXxs=" crossorigin="anonymous"></script>
+  <script src="/velocitas-docs/js/main.min.11dd0d4300ec82ff369d87764bc4d1000f19606ec0279c97f26dacab57607268.js" integrity="sha256-Ed0NQwDsgv82nYd2S8TRAA8ZYG7AJ5yX8m2sq1dgcmg=" crossorigin="anonymous"></script>
 <script src='/velocitas-docs/js/tabpane-persist.js'></script>
 
   </body>
