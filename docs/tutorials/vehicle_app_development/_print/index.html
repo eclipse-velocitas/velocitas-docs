@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
-<link rel="stylesheet" type="text/css" href="/velocitas/css/overwrite.css" />
+<link rel="stylesheet" type="text/css" href="/velocitas//css/overwrite.css" />
 <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
 
 <script>
@@ -18,7 +18,7 @@
 </script>
 
 
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.123.3">
 <link rel="canonical" type="text/html" href="/velocitas/docs/tutorials/vehicle_app_development/">
 <link rel="alternate" type="application/rss&#43;xml" href="/velocitas/docs/tutorials/vehicle_app_development/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -43,10 +43,10 @@
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas/docs/tutorials/vehicle_app_development/" />
+
 <meta itemprop="name" content="Vehicle App Development">
 <meta itemprop="description" content="Learn how to develop a new _Vehicle App_.
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Vehicle App Development"/>
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Vehicle App Development"/>
 <meta name="twitter:description" content="Learn how to develop a new _Vehicle App_.
 "/>
 
@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.6fa77d49529ed451d494c9026e2f1197.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -165,7 +165,7 @@ This is the multi-page printable view of this section.
 <div class="content">
       <p>Please visit first 
 
-<a href="/velocitas/docs/tutorials/quickstart/">Getting Started page</a>
+<a href="/velocitas//docs/tutorials/quickstart/">Getting Started page</a>
  if you don&rsquo;t know where to start.</p>
 
 </div>
@@ -193,7 +193,7 @@ This is the multi-page printable view of this section.
 	<blockquote>
 <p>We recommend that you make yourself familiar with the 
 
-<a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk.md"><em>Vehicle App</em> SDK</a>
+<a href="/velocitas//docs/concepts/development_model/vehicle_app_sdk.md"><em>Vehicle App</em> SDK</a>
  first, before going through this tutorial.</p>
 </blockquote>
 <p>The following information describes how to develop and test the sample <em>Vehicle App</em> that is included in the 
@@ -206,7 +206,7 @@ This is the multi-page printable view of this section.
 <ul>
 <li>
 
-<a href="/velocitas/docs/tutorials/quickstart.md">Quickstart</a>
+<a href="/velocitas//docs/tutorials/quickstart.md">Quickstart</a>
 </li>
 </ul>
 <p>Once you have established your development environment, you will be able to start developing your first <em>Vehicle App</em>.</p>
@@ -217,7 +217,7 @@ This is the multi-page printable view of this section.
 The <em>Vehicle App</em> allows to change the position of the driver&rsquo;s seat in the car and also provides its current positions to other applications.
 A detailed explanation of the use case and the example is available 
 
-<a href="/velocitas/docs/about/use_cases/seat_adjuster.md">here</a>
+<a href="/velocitas//docs/about/use_cases/seat_adjuster.md">here</a>
 .</p>
 
 
@@ -227,7 +227,7 @@ A detailed explanation of the use case and the example is available
     <p>If you don&rsquo;t like to do the following steps by yourself, you can use the <code>Import example app from SDK</code> task within VS Code to get a working copy of this example into your repository.
 <br>
 (For details about the import of an example from the SDK look 
-<p><a href="/velocitas/docs/tutorials/quickstart/import_examples">here</a>
+<p><a href="/velocitas//docs/tutorials/quickstart/import_examples">here</a>
 .)</p></p>
 
 
@@ -240,10 +240,10 @@ A detailed explanation of the use case and the example is available
 <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template" target="_blank" rel="noopener">Python template repository</a>
 , the 
 
-<a href="/velocitas/docs/concepts/lifecycle_management/velocitas_cli/#velocitas-create">Velocitas CLI create command</a>
+<a href="/velocitas//docs/concepts/lifecycle_management/velocitas_cli/#velocitas-create">Velocitas CLI create command</a>
  or via 
 
-<a href="/velocitas/docs/tutorials/prototyping/digital_auto">digital.auto prototyping</a>
+<a href="/velocitas//docs/tutorials/prototyping/digital_auto">digital.auto prototyping</a>
  a file with this name is already present and can be adjusted to your needs.</p>
 <p>Setting up the basic skeleton of an app consists of the following steps:</p>
 <ol>
@@ -311,12 +311,12 @@ A detailed explanation of the use case and the example is available
 <h2 id="vehicle-model-access">Vehicle Model Access</h2>
 <p>In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check 
 
-<a href="/velocitas/docs/tutorials/vehicle_model_creation">tutorial about creating models</a>
+<a href="/velocitas//docs/tutorials/vehicle_model_creation">tutorial about creating models</a>
  for more details about this topic. In this section, the focus is on using the model.</p>
 <p>The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model installed as a Python package named <code>vehicle</code>. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.</p>
 <p>If you want to access a single 
 
-<a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/#datapoint">DataPoint</a>
+<a href="/velocitas//docs/concepts/development_model/vehicle_app_sdk/#datapoint">DataPoint</a>
  e.g. for the vehicle speed, this can be done via</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">vehicle_speed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
 </span></span></code></pre></div><p>As the <code>get()</code> method of the DataPoint-class there is a coroutine you have to use the <code>await</code> keyword when using it.</p>
@@ -349,7 +349,7 @@ Therefore the <code>on_seat_position_changed</code> callback function needs to b
 <h2 id="services">Services</h2>
 <p>Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them 
 
-<a href="/velocitas/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service">here</a>
+<a href="/velocitas//docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service">here</a>
 .</p>
 
 
@@ -357,9 +357,9 @@ Therefore the <code>on_seat_position_changed</code> callback function needs to b
 <h4 class="alert-heading">Note</h4>
 
     <p>Services are not supported by our 
-<p><a href="/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a>
+<p><a href="/velocitas//docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a>
 for the time being. If you need access to services please read</p>
-<p><a href="/velocitas/docs/tutorials/vehicle_model_creation/manual_model_creation">here</a>
+<p><a href="/velocitas//docs/tutorials/vehicle_model_creation/manual_model_creation">here</a>
 how you can create a model and add services to it manually.</p></p>
 
 
@@ -381,7 +381,7 @@ how you can create a model and add services to it manually.</p></p>
 .</p>
 <p>In the 
 
-<a href="/velocitas/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_">quickstart section</a>
+<a href="/velocitas//docs/tutorials/quickstart/#how-to-debug-_vehicle-app_">quickstart section</a>
  about the <em>Vehicle App</em>, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use <code>Vehicle Models</code>, <code>DataPoints</code> and <code>Services</code>. In this section, you will learn how to combine them with MQTT.</p>
 <p>In order to receive and process MQTT messages inside your app, simply use the <code>@subscribe_topic</code> annotations from the SDK for an additional method <code>on_set_position_request_received()</code> you have to implement:</p>
@@ -448,7 +448,7 @@ After creating the mock, you can test the method and check the response. Use ass
 <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a>
  (which should be the default) and the runtime is up and running. Read more about it in the 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime">run runtime services</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/local_runtime">run runtime services</a>
  section.</p>
 <p>Now chose one of the options to start the VehicleApp under development (including Dapr sidecar if middleware type is Dapr):</p>
 <ol>
@@ -463,7 +463,7 @@ After creating the mock, you can test the method and check the response. Use ass
 <h3 id="debug-your-_vehicle-app_">Debug your <em>Vehicle App</em></h3>
 <p>In the 
 
-<a href="/velocitas/docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_">introduction about debugging</a>
+<a href="/velocitas//docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_">introduction about debugging</a>
 , you saw how to start a debugging session. In this section, you will learn what is happening in the background.</p>
 <p>The debug session launch settings are already prepared for the <code>VehicleApp</code> in <code>/.vscode/launch.json</code>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;configurations&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">[</span>
@@ -532,31 +532,31 @@ After creating the mock, you can test the method and check the response. Use ass
 <ul>
 <li>Concept: 
 
-<a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a>
+<a href="/velocitas//docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Deploy runtime services in Kubernetes</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Deploy runtime services in Kubernetes</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime">Start runtime services locally</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/local_runtime">Start runtime services locally</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_model_creation">Creating a Python Vehicle Model</a>
+<a href="/velocitas//docs/tutorials/vehicle_model_creation">Creating a Python Vehicle Model</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_development/integration_tests">Develop and run integration tests for a <em>Vehicle App</em></a>
+<a href="/velocitas//docs/tutorials/vehicle_app_development/integration_tests">Develop and run integration tests for a <em>Vehicle App</em></a>
 </li>
 <li>Concept: 
 
-<a href="/velocitas/docs/concepts/deployment_model/">Deployment Model</a>
+<a href="/velocitas//docs/concepts/deployment_model/">Deployment Model</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a Python <em>Vehicle App</em> with Helm</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a Python <em>Vehicle App</em> with Helm</a>
 </li>
 </ul>
 
@@ -579,7 +579,7 @@ After creating the mock, you can test the method and check the response. Use ass
 	<blockquote>
 <p>We recommend that you make yourself familiar with the 
 
-<a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk"><em>Vehicle App</em> SDK</a>
+<a href="/velocitas//docs/concepts/development_model/vehicle_app_sdk"><em>Vehicle App</em> SDK</a>
  first, before going through this tutorial.</p>
 </blockquote>
 <p>The following information describes how to develop and test the sample <em>Vehicle App</em> that is included in the 
@@ -592,7 +592,7 @@ After creating the mock, you can test the method and check the response. Use ass
 <ul>
 <li>
 
-<a href="/velocitas/docs/tutorials/quickstart.md">Quickstart</a>
+<a href="/velocitas//docs/tutorials/quickstart.md">Quickstart</a>
 </li>
 </ul>
 <p>For this tutorial, you will recreate the <em>Vehicle App</em> that is included in the 
@@ -602,7 +602,7 @@ After creating the mock, you can test the method and check the response. Use ass
 The <em>Vehicle App</em> allows you to change the position of the driver&rsquo;s seat in the car and also provides its current positions to other applications.
 A detailed explanation of the use case and the example is available 
 
-<a href="/velocitas/docs/about/use_cases/seat_adjuster.md">here</a>
+<a href="/velocitas//docs/about/use_cases/seat_adjuster.md">here</a>
 .</p>
 <h2 id="setting-up-the-basic-skeleton-of-your-app">Setting up the basic skeleton of your app</h2>
 <p>At first, you have to create the main C++ file which we will call <code>App.cpp</code> in <code>/app/src</code>. All the relevant code for your new <em>Vehicle App</em> goes there. Afterwards, there are several steps you need to consider when developing the app:</p>
@@ -672,12 +672,12 @@ A detailed explanation of the use case and the example is available
 <h2 id="vehicle-model-access">Vehicle Model Access</h2>
 <p>In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check the 
 
-<a href="/velocitas/docs/tutorials/vehicle_model_creation">tutorial about creating models</a>
+<a href="/velocitas//docs/tutorials/vehicle_model_creation">tutorial about creating models</a>
  for more details. In this section, the focus is on using the model.</p>
 <p>The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model in the folder <code>app/vehicle_model/include/</code>. This folder is already configured as &ldquo;include folder&rdquo; of the CMake tooling. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.</p>
 <p>If you want to access a single 
 
-<a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/#datapoint">DataPoint</a>
+<a href="/velocitas//docs/concepts/development_model/vehicle_app_sdk/#datapoint">DataPoint</a>
  e.g. for the vehicle speed, this can be done via</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeedBlocking</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
 </span></span></code></pre></div><p>or</p>
@@ -705,7 +705,7 @@ A detailed explanation of the use case and the example is available
 <h2 id="services">Services</h2>
 <p>Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them 
 
-<a href="/velocitas/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service">here</a>
+<a href="/velocitas//docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service">here</a>
 .</p>
 
 
@@ -713,9 +713,9 @@ A detailed explanation of the use case and the example is available
 <h4 class="alert-heading">Note</h4>
 
     <p>Services are not supported by our 
-<p><a href="/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a>
+<p><a href="/velocitas//docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a>
 for the time being. If you need access to services please read</p>
-<p><a href="/velocitas/docs/tutorials/vehicle_model_creation/manual_model_creation">here</a>
+<p><a href="/velocitas//docs/tutorials/vehicle_model_creation/manual_model_creation">here</a>
 how you can create a model and add services to it manually.</p></p>
 
 
@@ -733,11 +733,11 @@ how you can create a model and add services to it manually.</p></p>
 <h3 id="mqtt">MQTT</h3>
 <p>Interaction with other <em>Vehicle Apps</em> or with the cloud is enabled by using the Mosquitto MQTT Broker. When using the provided template repository you can start a MQTT Broker as part the local runtime. More information can be found 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime">here</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/local_runtime">here</a>
 .</p>
 <p>In the 
 
-<a href="/velocitas/docs/tutorials/quickstart.md">quickstart section</a>
+<a href="/velocitas//docs/tutorials/quickstart.md">quickstart section</a>
  about the <em>Vehicle App</em>, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use <code>Vehicle Models</code>, <code>DataPoints</code> and <code>GRPC Services</code>. In this section, you will learn how to combine them with MQTT.</p>
 <p>In order to receive and process MQTT messages inside your app, simply use the <code>VehicleApp::subscribeTopic(&lt;topic&gt;)</code> method provided by the SDK:</p>
@@ -781,7 +781,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <a href="https://github.com/eclipse-velocitas/vehicle-app-cpp-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a>
  (which should be the default) and the runtime is up and running. Read more about it in the 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime">run runtime services</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/local_runtime">run runtime services</a>
  section.</p>
 <p>Now chose one of the options to start the VehicleApp under development (including Dapr sidecar):</p>
 <ol>
@@ -796,7 +796,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <h3 id="debug-your-_vehicle-app_">Debug your <em>Vehicle App</em></h3>
 <p>In the 
 
-<a href="/velocitas/docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_">introduction about debugging</a>
+<a href="/velocitas//docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_">introduction about debugging</a>
 , you saw how to start a debugging session. In this section, you will learn what is happening in the background.</p>
 <p>The debug session launch settings are already prepared for the <code>VehicleApp</code>.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
@@ -862,31 +862,31 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <ul>
 <li>Concept: 
 
-<a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a>
+<a href="/velocitas//docs/concepts/development_model/vehicle_app_sdk">SDK Overview</a>
 </li>
 <li>Concept: 
 
-<a href="/velocitas/docs/concepts/deployment_model">Deployment Model</a>
+<a href="/velocitas//docs/concepts/deployment_model">Deployment Model</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Deploy runtime services in Kubernetes</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Deploy runtime services in Kubernetes</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime">Start runtime services locally</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/local_runtime">Start runtime services locally</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_model_creation">Creating a Vehicle Model</a>
+<a href="/velocitas//docs/tutorials/vehicle_model_creation">Creating a Vehicle Model</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_development/integration_tests">Develop and run integration tests for a Vehicle App</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_development/integration_tests">Develop and run integration tests for a Vehicle App</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a <em>Vehicle App</em> with Helm</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a <em>Vehicle App</em> with Helm</a>
 </li>
 </ul>
 
@@ -948,7 +948,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <ul>
 <li><code>register_datapoint</code>: registers a new data point with given name and type (
 
-<a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/#typed-datapoint-classes">here</a>
+<a href="/velocitas//docs/concepts/development_model/vehicle_app_sdk/#typed-datapoint-classes">here</a>
  you can find more information about the available types)</li>
 <li><code>set_..._datapoint</code>: set the given value for the data point with the given name (with given type). If the data point does not exist, it will be registered.</li>
 </ul>
@@ -970,21 +970,21 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <ul>
 <li>
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime/"><strong>Local execution:</strong></a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/local_runtime/"><strong>Local execution:</strong></a>
  components are running locally in the development environment</li>
 <li>
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/"><strong>Kubernetes execution:</strong></a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime/"><strong>Kubernetes execution:</strong></a>
  components (and application) are deployed and running in a Kubernetes control plane (e.g. K3D)</li>
 <li>
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime/"><strong>Kanto execution:</strong></a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/kanto_runtime/"><strong>Kanto execution:</strong></a>
  components (and application) are deployed and running in a Kanto control plane</li>
 </ul>
 <h3 id="local-execution">Local execution</h3>
 <p>First, make sure that the runtime services are configured and running like described 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime">here</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/local_runtime">here</a>
 .</p>
 <p>The application itself can be executed by using a Visual Studio Launch Config (by pressing <kbd>F5</kbd>) or by executing the provided task <code>Local Runtime - Run VehicleApp</code>.</p>
 <p>When the runtime services and the application are running, integration tests can be executed locally via</p>
@@ -993,7 +993,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <h3 id="kanto-runtime">Kanto runtime</h3>
 <p>First, make sure that the runtime and the services are up and running, like described 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime">here</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/kanto_runtime">here</a>
 .</p>
 <p>The application itself can be deployed by executing the provided task <code>Kanto Runtime - Deploy VehicleApp</code> or <code>Kanto Runtime - Deploy VehicleApp (without rebuild)</code>. Depending on whether your app is already available as a container or not.</p>
 <p>When the runtime services and the application are running, integration tests can be executed locally via</p>
@@ -1002,7 +1002,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <h3 id="kubernetes-execution-k3d">Kubernetes execution (K3D)</h3>
 <p>If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime">documentation</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime">documentation</a>
 . Local ports for <em>Mosquitto</em> and <em>KUKSA Data Broker</em> are <code>1883</code> and <code>55555</code>. In Kubernetes mode, these ports are exposed as nodeports <code>31883</code> and <code>30555</code> respectively (see 
 
 <a href="https://k3d.io/v5.0.1/usage/exposing_services/#2-via-nodeport" target="_blank" rel="noopener">here</a>
@@ -1042,15 +1042,15 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <ul>
 <li>Concept: 
 
-<a href="/velocitas/docs/concepts/deployment_model/">Deployment Model</a>
+<a href="/velocitas//docs/concepts/deployment_model/">Deployment Model</a>
 </li>
 <li>Concept: 
 
-<a href="/velocitas/docs/concepts/deployment_model/vehicle_app_releases/">Build and release process</a>
+<a href="/velocitas//docs/concepts/deployment_model/vehicle_app_releases/">Build and release process</a>
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a Python <em>Vehicle App</em> with Helm</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a Python <em>Vehicle App</em> with Helm</a>
 </li>
 </ul>
 
@@ -1212,7 +1212,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 
     </div>
     
-  <script src="/velocitas/js/main.min.2aff983e9d0d8ecff9ed53e14b657216e2d8d2aff059bf4a5651283020995f1b.js" integrity="sha256-Kv&#43;YPp0Njs/57VPhS2VyFuLY0q/wWb9KVlEoMCCZXxs=" crossorigin="anonymous"></script>
+  <script src="/velocitas/js/main.min.11dd0d4300ec82ff369d87764bc4d1000f19606ec0279c97f26dacab57607268.js" integrity="sha256-Ed0NQwDsgv82nYd2S8TRAA8ZYG7AJ5yX8m2sq1dgcmg=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>

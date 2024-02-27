@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" type="text/css" href="//www.eclipse.org/eclipse.org-common/themes/solstice/public/stylesheets/vendor/cookieconsent/cookieconsent.min.css" />
-<link rel="stylesheet" type="text/css" href="/velocitas/css/overwrite.css" />
+<link rel="stylesheet" type="text/css" href="/velocitas//css/overwrite.css" />
 <script src="//www.eclipse.org/eclipse.org-common/themes/solstice/public/javascript/vendor/cookieconsent/default.min.js"></script>
 
 <script>
@@ -18,7 +18,7 @@
 </script>
 
 
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.123.3">
 <link rel="canonical" type="text/html" href="/velocitas/docs/tutorials/prototyping/">
 <link rel="alternate" type="application/rss&#43;xml" href="/velocitas/docs/tutorials/prototyping/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -43,10 +43,10 @@
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas/docs/tutorials/prototyping/" />
+
 <meta itemprop="name" content="Prototyping">
 <meta itemprop="description" content="Learn how to start your _Vehicle App_ development with a prototype created in the playground of digital.auto and how to set up and customize _Vehicle Services_/_Data Providers_.
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Prototyping"/>
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Prototyping"/>
 <meta name="twitter:description" content="Learn how to start your _Vehicle App_ development with a prototype created in the playground of digital.auto and how to set up and customize _Vehicle Services_/_Data Providers_.
 "/>
 
@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.d3a2ed84d46439109a75e276aba35d0e.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.6fa77d49529ed451d494c9026e2f1197.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -260,7 +260,7 @@ The Velocitas team provides a project generator to transfer the prototype from
 <a href="https://digitalauto.netlify.app/" target="_blank" rel="noopener">digital.auto</a>
  into your own development environment where you are able to test it with real 
 
-<a href="/velocitas/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>
+<a href="/velocitas//docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>
 .
 </br>
 The generator creates a <em>Vehicle App</em> GitHub repository using your prototype code based on our 
@@ -338,7 +338,7 @@ By clicking on &ldquo;Create repository&rdquo;:</p>
 <td><em>/gen/vehicle_model/</em></td>
 <td>The generated model classes. If your prototype includes any exceptional API you added beforehand our 
 
-<a href="/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a>
+<a href="/velocitas//docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a>
  takes care of handling the custom VSS vspec file coming from digital.auto and generates a vehicle_model when starting the devContainer</td>
 </tr>
 </tbody>
@@ -352,11 +352,11 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
 <ul>
 <li>
 
-<a href="/velocitas/docs/tutorials/quickstart/#starting-development-environment">Starting development environment</a>
+<a href="/velocitas//docs/tutorials/quickstart/#starting-development-environment">Starting development environment</a>
 </li>
 <li>
 
-<a href="/velocitas/docs/tutorials/vehicle_app_development/python_development.md"><em>Vehicle App</em> Development</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_development/python_development.md"><em>Vehicle App</em> Development</a>
 </li>
 </ul>
 
@@ -378,17 +378,17 @@ Clone your newly created repository and open the <em>Vehicle App</em> in Microso
     <div class="lead">Learn how to integrate a <em>Vehicle Service</em> that executes the request of your <em>Vehicle App</em> on vehicle side</div>
 	<p>Services can make sure, that when you write a VSS data point, something is actually happening. Eclipse Velocitas has an example seat or hvac service. If your <em>Vehicle App</em> makes use of e.g. <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> or other seat/hvac specific data points you are in for some real action. To learn more, visit 
 
-<a href="/velocitas/docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>
+<a href="/velocitas//docs/concepts/development_model/val/#vehicle-services"><em>Vehicle Services</em></a>
 .</p>
 <p>Our maintained 
 
 <a href="https://github.com/eclipse-velocitas/devenv-runtimes" target="_blank" rel="noopener"><code>devenv-runtimes</code></a>
  package (
 
-<a href="/velocitas/docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>
+<a href="/velocitas//docs/concepts/lifecycle_management">Velocitas Lifecycle Management</a>
 ) comes with the support of adding further <em>Vehicle Services</em> to the <code>runtime.json</code> of a package. More information 
 
-<a href="/velocitas/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages">here</a>
+<a href="/velocitas//docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages">here</a>
 . (A general vehicle <em>mock service</em> is also coming soon!)</p>
 <h3 id="modify-existing-services">Modify existing services</h3>
 <p>For more advanced usage you can also try to modify existing services. Check out 
@@ -417,7 +417,7 @@ The default behavior is predefined in
 </p>
 <p>The Mock Service is already integrated in all our 
 
-<a href="/velocitas/docs/tutorials/vehicle_app_runtime">Vehicle Runtimes</a>
+<a href="/velocitas//docs/tutorials/vehicle_app_runtime">Vehicle Runtimes</a>
 . To be able to configure it, you need to add a custom <code>mock.py</code> in the root of your Vehicle App Project. The Mock Service Container will pick it up automatically.</p>
 
 </div>
@@ -578,7 +578,7 @@ The default behavior is predefined in
 
     </div>
     
-  <script src="/velocitas/js/main.min.2aff983e9d0d8ecff9ed53e14b657216e2d8d2aff059bf4a5651283020995f1b.js" integrity="sha256-Kv&#43;YPp0Njs/57VPhS2VyFuLY0q/wWb9KVlEoMCCZXxs=" crossorigin="anonymous"></script>
+  <script src="/velocitas/js/main.min.11dd0d4300ec82ff369d87764bc4d1000f19606ec0279c97f26dacab57607268.js" integrity="sha256-Ed0NQwDsgv82nYd2S8TRAA8ZYG7AJ5yX8m2sq1dgcmg=" crossorigin="anonymous"></script>
 <script src='/velocitas/js/tabpane-persist.js'></script>
 
   </body>

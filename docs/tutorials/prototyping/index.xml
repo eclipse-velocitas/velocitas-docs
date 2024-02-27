@@ -4,6 +4,7 @@
     <link>/velocitas/docs/tutorials/prototyping/</link>
     <description>Recent content in Prototyping on Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Wed, 02 Nov 2022 10:09:25 +0530</lastBuildDate>
     
 	  <atom:link href="/velocitas/docs/tutorials/prototyping/index.xml" rel="self" type="application/rss+xml" />
@@ -105,7 +106,7 @@ The Velocitas team provides a project generator to transfer the prototype from
 &lt;a href=&#34;https://digitalauto.netlify.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;digital.auto&lt;/a&gt;
  into your own development environment where you are able to test it with real 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/concepts/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/concepts/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt;
 .
 &lt;/br&gt;
 The generator creates a &lt;em&gt;Vehicle App&lt;/em&gt; GitHub repository using your prototype code based on our 
@@ -183,7 +184,7 @@ By clicking on &amp;ldquo;Create repository&amp;rdquo;:&lt;/p&gt;
 &lt;td&gt;&lt;em&gt;/gen/vehicle_model/&lt;/em&gt;&lt;/td&gt;
 &lt;td&gt;The generated model classes. If your prototype includes any exceptional API you added beforehand our 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_model_creation/automated_model_lifecycle&#34;&gt;automated vehicle model lifecycle&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_model_creation/automated_model_lifecycle&#34;&gt;automated vehicle model lifecycle&lt;/a&gt;
  takes care of handling the custom VSS vspec file coming from digital.auto and generates a vehicle_model when starting the devContainer&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -197,11 +198,11 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
 &lt;ul&gt;
 &lt;li&gt;
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/quickstart/#starting-development-environment&#34;&gt;Starting development environment&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/quickstart/#starting-development-environment&#34;&gt;Starting development environment&lt;/a&gt;
 &lt;/li&gt;
 &lt;li&gt;
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_development/python_development.md&#34;&gt;&lt;em&gt;Vehicle App&lt;/em&gt; Development&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_development/python_development.md&#34;&gt;&lt;em&gt;Vehicle App&lt;/em&gt; Development&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -219,17 +220,17 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
         
         &lt;p&gt;Services can make sure, that when you write a VSS data point, something is actually happening. Eclipse Velocitas has an example seat or hvac service. If your &lt;em&gt;Vehicle App&lt;/em&gt; makes use of e.g. &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; or other seat/hvac specific data points you are in for some real action. To learn more, visit 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/concepts/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/concepts/development_model/val/#vehicle-services&#34;&gt;&lt;em&gt;Vehicle Services&lt;/em&gt;&lt;/a&gt;
 .&lt;/p&gt;
 &lt;p&gt;Our maintained 
 
 &lt;a href=&#34;https://github.com/eclipse-velocitas/devenv-runtimes&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;devenv-runtimes&lt;/code&gt;&lt;/a&gt;
  package (
 
-&lt;a href=&#34;/velocitas/velocitas/docs/concepts/lifecycle_management&#34;&gt;Velocitas Lifecycle Management&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/concepts/lifecycle_management&#34;&gt;Velocitas Lifecycle Management&lt;/a&gt;
 ) comes with the support of adding further &lt;em&gt;Vehicle Services&lt;/em&gt; to the &lt;code&gt;runtime.json&lt;/code&gt; of a package. More information 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages&#34;&gt;here&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages&#34;&gt;here&lt;/a&gt;
 . (A general vehicle &lt;em&gt;mock service&lt;/em&gt; is also coming soon!)&lt;/p&gt;
 &lt;h3 id=&#34;modify-existing-services&#34;&gt;Modify existing services&lt;/h3&gt;
 &lt;p&gt;For more advanced usage you can also try to modify existing services. Check out 
@@ -258,7 +259,7 @@ The default behavior is predefined in
 &lt;/p&gt;
 &lt;p&gt;The Mock Service is already integrated in all our 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime&#34;&gt;Vehicle Runtimes&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_runtime&#34;&gt;Vehicle Runtimes&lt;/a&gt;
 . To be able to configure it, you need to add a custom &lt;code&gt;mock.py&lt;/code&gt; in the root of your Vehicle App Project. The Mock Service Container will pick it up automatically.&lt;/p&gt;
 
       </description>

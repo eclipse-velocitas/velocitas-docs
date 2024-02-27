@@ -4,6 +4,7 @@
     <link>/velocitas/docs/tutorials/vehicle_app_deployment/</link>
     <description>Recent content in Vehicle App Deployment on Velocitas</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Thu, 22 Jun 2023 09:43:25 +0530</lastBuildDate>
     
 	  <atom:link href="/velocitas/docs/tutorials/vehicle_app_deployment/index.xml" rel="self" type="application/rss+xml" />
@@ -32,7 +33,7 @@
 &lt;ul&gt;
 &lt;li&gt;Complete the tutorial 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_development&#34;&gt;How to create a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_development&#34;&gt;How to create a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/a&gt;
 .&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;use-the-sample-podspecs&#34;&gt;Use the sample PodSpecs&lt;/h2&gt;
@@ -62,7 +63,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;app&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;sampleapp&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Afterwards the configuration of the container is specified. Please be aware that &lt;code&gt;containerPort&lt;/code&gt; should match the &lt;code&gt;app-port&lt;/code&gt; from the Dapr configuration above. In the example the app-id of the Vehicle Data Broker is also specified, since the app wants to connect to it. Last but not least the image is defined which should be used for the deployment. In this example the local registry is used, which is created during the configuration of the controlplane (see 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;here&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;here&lt;/a&gt;
  for details).&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;containers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -80,7 +81,7 @@
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
     &lt;p&gt;Please make sure that you have already pushed your image to the local registry before trying to deploy it. If you used the provided task (see 
-&lt;p&gt;&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;here&lt;/a&gt;
+&lt;p&gt;&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;here&lt;/a&gt;
 for details) to build your app, you can use this command:&lt;/p&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker push localhost:12345/sampleapp:local
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -101,7 +102,7 @@ for details) to build your app, you can use this command:&lt;/p&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;tutorial&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;tutorial&lt;/a&gt;
 .&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -120,11 +121,11 @@ for details) to build your app, you can use this command:&lt;/p&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Tutorial: 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;Start runtime services in Kubernetes&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;Start runtime services in Kubernetes&lt;/a&gt;
 &lt;/li&gt;
 &lt;li&gt;Concept: 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/concepts/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -150,7 +151,7 @@ for details) to build your app, you can use this command:&lt;/p&gt;&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;Devcontainer&lt;/code&gt; is up and running.&lt;/li&gt;
 &lt;li&gt;Complete the tutorial 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_development&#34;&gt;How to create a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_development&#34;&gt;How to create a &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/a&gt;
 .&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;use-the-sample-helm-chart&#34;&gt;Use the sample Helm chart&lt;/h2&gt;
@@ -283,7 +284,7 @@ of the devenv-runtimes package.&lt;/p&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A local K3D installation must be available. For how to setup K3D, check out this 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;tutorial&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;tutorial&lt;/a&gt;
 .&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After the Helm chart has been prepared, you can deploy it to the local K3D cluster by following the steps:&lt;/p&gt;
@@ -304,11 +305,11 @@ of the devenv-runtimes package.&lt;/p&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Tutorial: 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;Start runtime services in Kubernetes&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime&#34;&gt;Start runtime services in Kubernetes&lt;/a&gt;
 &lt;/li&gt;
 &lt;li&gt;Concept: 
 
-&lt;a href=&#34;/velocitas/velocitas/docs/concepts/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/concepts/deployment_model/vehicle_app_releases&#34;&gt;Build and release process&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
