@@ -7,7 +7,7 @@ aliases:
   - /docs/tutorials/vehicle_app_runtime/kanto_runtime
 ---
 
-Besides starting the vehicle runtime components [locally](/docs/tutorials/vehicle_app_runtime/local_runtime) and in [Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime), another way is to deploy them as containers using [Kanto](https://eclipse.dev/kanto/) as a container runtime. To start the runtime, we provide VS Code _Tasks_, a feature of Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
+Besides starting the vehicle runtime components [locally](/docs/tutorials/vehicle_app_runtime/local_runtime), another way is to deploy them as containers using [Kanto](https://eclipse.dev/kanto/) as a container runtime. To start the runtime, we provide VS Code _Tasks_, a feature of Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
 
 **Quick Start:** Each step has a task that is defined in `/.vscode/tasks.json`:
 
@@ -57,5 +57,4 @@ More information about FeederCan can be found [here](https://github.com/eclipse/
 * Concept: [Deployment Model](/docs/concepts/deployment_model)
 * Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases)
 * Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
-* Tutorial: [Start runtime services in Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
 * Tutorial: [Quickstart](/docs/tutorials/quickstart.md)

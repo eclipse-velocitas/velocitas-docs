@@ -63,12 +63,10 @@ A new service can be easily started by calling it from bash script, however rest
 
 ### Codespaces
 
-If you are using Codespaces, remember that you are working on a remote agent. That's why it could happen that the tasks are already running in the background. If that's the case a new start of the tasks will fail, since the ports are already in use. In the Dapr-tab of the sidebar you can check if there are already tasks running. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit `F1` and enter `View: Toggle Ports`).
+If you are using Codespaces, remember that you are working on a remote agent. That's why it could happen that the tasks are already running in the background. If that's the case a new start of the tasks will fail, since the ports are already in use. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit `F1` and enter `View: Toggle Ports`).
 
 ## Next steps
 
-- Tutorial: [Deploy runtime services in local Kubernetes cluster](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
 - Tutorial: [Quickstart](/docs/tutorials/quickstart)
 - Concept: [Deployment Model](/docs/concepts/deployment_model/)
 - Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases/)
-- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)
