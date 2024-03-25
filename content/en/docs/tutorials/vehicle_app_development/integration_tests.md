@@ -47,13 +47,10 @@ To write an integration test, you should check the sample that comes with the te
 
   This class can be initialized with a given port. If no port is specified, the environment variable `VDB_PORT` will be checked. If this is not possible either, the default value of `55555` will be used. **It's recommended to specify no port when initializing that class as it will locally use the default port `55555` and in CI the port is set by the environment variable `VDB_PORT`. This will prevent a check-in in the wrong port during local development.**
 
-> **Please make sure that you don't check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).**
-
 ## Runtime components
 
 To be able to test the _Vehicle App_ in an integrated way, the following components should be running:
 
-- Dapr
 - Mosquitto
 - Data Broker
 - Vehicle Services
@@ -61,7 +58,6 @@ To be able to test the _Vehicle App_ in an integrated way, the following compone
 We distinguish between two environments for executing the _Vehicle App_ and the runtime components:
 
 - [**Local execution:**](/docs/tutorials/vehicle_app_runtime/local_runtime/) components are running locally in the development environment
-- [**Kubernetes execution:**](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/) components (and application) are deployed and running in a Kubernetes control plane (e.g. K3D)
 - [**Kanto execution:**](/docs/tutorials/vehicle_app_runtime/kanto_runtime/) components (and application) are deployed and running in a Kanto control plane
 
 ### Local execution
@@ -92,20 +88,11 @@ When the runtime services and the application are running, integration tests can
 
 or using the testing tab in the sidebar to the left.
 
-### Kubernetes execution (K3D)
-
-If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the [documentation](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime). Local ports for _Mosquitto_ and _KUKSA Data Broker_ are `1883` and `55555`. In Kubernetes mode, these ports are exposed as nodeports `31883` and `30555` respectively (see [here](https://k3d.io/v5.0.1/usage/exposing_services/#2-via-nodeport) for details). To ensure that the tests connect to correct ports of the containers, please execute the following commands in a new bash terminal:
-
-```bash
-  export MQTT_PORT=31883 && export VDB_PORT=30555
-  pytest ./app/tests/integration
-```
-
 ## Integration Tests in CI pipeline
 
-The tests will be discovered and executed automatically in the provided [CI pipeline](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml). The job `Run Integration Tests` contains all steps to set up and execute all integration tests in Kubernetes mode. Basically it is doing the same steps as you saw above:
+The tests will be discovered and executed automatically in the provided [CI pipeline](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml). The job `Run Integration Tests` contains all steps to set up and execute all integration tests in Kanto mode. Basically it is doing the same steps as you saw above:
 
-1. start the K3D runtime
+1. start the Kanto runtime
 1. deploy the _Vehicle App_ container
 1. set the correct MQTT and Databroker ports
 1. execute the integration tests
@@ -114,24 +101,19 @@ Finally the test results are collected and published as artifacts of the workflo
 
 ## Troubleshooting
 
-### Check if the services are registered correctly in Dapr
-
-- Dapr extension is available as VS Code extension and gives overview of all running Dapr services.
-
 ### Troubleshoot IntTestHelper
 
 - Make sure that the _KUKSA Data Broker_ is up and running by checking the task log.
-- Make sure that you are using the right ports for local/Kubernetes execution.
+- Make sure that you are using the right ports for local execution.
 - Make sure that you installed the correct version of the SDK (_SDV_-package).
 
 ### Troubleshoot Mosquitto (MQTT Broker)
 
 - Make sure that _Mosquitto_ is up and running by checking the task log.
-- Make sure that you are using the right ports for local/Kubernetes execution.
-- Use VsMqtt extension to connect to MQTT broker locally (`localhost:1883`) or in a Kubernetes cluster (`localhost:31883`) to monitor topics in MQTT broker by subscribing to all topics using `#`.
+- Make sure that you are using the right ports.
+- Use VsMqtt extension to connect to MQTT broker locally (`localhost:1883`) to monitor topics in MQTT broker by subscribing to all topics using `#`.
 
 ## Next steps
 
 - Concept: [Deployment Model](/docs/concepts/deployment_model/)
 - Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases/)
-- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)

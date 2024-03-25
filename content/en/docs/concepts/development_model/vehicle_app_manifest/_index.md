@@ -48,7 +48,7 @@ To fully understand the _AppManifest_, let's have a look at **who** interacts wi
 * Description of your applications **functional interfaces**(VehicleModel, services, APIs, ...)
 * Enable **loose coupling** of functional interface descriptions and the Velocitas toolchain. Some parts of the toolchain are responsible for reading the file and acting upon it, depending on the type of functional interface
 * Providing an **extendable** syntax to enable custom functional interface types which may not provided by the Velocitas toolchain itself, but by a third party
-* Providing a **single source of truth** for generation of deployment specifications (i.e. Helm-Charts, Kanto spec, etc...)
+* Providing a **single source of truth** for generation of deployment specifications (i.e. Kanto spec, etc...)
 
 ## Example
 

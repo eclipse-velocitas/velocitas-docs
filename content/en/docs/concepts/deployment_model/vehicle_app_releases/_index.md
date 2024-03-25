@@ -43,7 +43,6 @@ The `Build multi-arch image workflow` is triggered on every commit to the main b
 - **Building a multi-arch container for the app** - actions create a containerized version of the _Vehicle App_ for multiple architectures (currently AMD64 and ARM64).
 - **Scanning for vulnerabilities** - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as "failed".
 - **Storing container images to GitHub action artifacts** - at the end of the workflow, the container image created is stored in a Github Action Artifacts so that it can be referenced by the Release Workflow later.
-- **Generate Deployment Files** - actions generate a PodSpec-file and HelmCharts to ease the deployment of the _Vehicle App_ and the runtime services.
 
 ## Release Workflow ([release.yml](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/release.yml))
 
@@ -85,5 +84,3 @@ The release process would be the same as described in the overview, except that 
 ## Further information
 
 - Tutorial: [How to write integration tests](/docs/tutorials/vehicle_app_development/integration_tests)
-- Tutorial: [Deploy a _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)
-- Tutorial: [Deploy a _Vehicle App_ with PodSpecs](/docs/tutorials/vehicle_app_deployment/podspecs_deployment.md)

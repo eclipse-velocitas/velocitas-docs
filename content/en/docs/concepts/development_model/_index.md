@@ -54,14 +54,9 @@ The Velocitas SDK is using [VSS](https://covesa.github.io/vehicle_signal_specifi
 
 Asynchronous communication between [_Vehicle Apps_](#vehicle-apps) and other vehicle components, as well as cloud connectivity, is facilitated through [MQTT](https://mqtt.org/) messaging. Direct, synchronous communication between [_Vehicle Apps_](#vehicle-apps), [Vehicle Services](#vehicle-services) and the [Data Broker](#data-broker) is based on the [gRPC](https://grpc.io/) protocol.
 
-### Middleware Abstraction
-
-Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
-By default, Velocitas leverages [Dapr](https://dapr.io) for gRPC service discovery, Open Telemetry tracing and the [publish/subscribe building block](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/).
-
 ### Vehicle Edge Operating System
 
-[_Vehicle Apps_](#vehicle-apps) are expected to run on a [Linux](https://www.linux.org/)-based operating system. An OCI-compliant container runtime is required to host the _Vehicle App_ containers and the Dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., [Eclipse Mosquitto](https://mosquitto.org/)).
+[_Vehicle Apps_](#vehicle-apps) are expected to run on a [Linux](https://www.linux.org/)-based operating system. An OCI-compliant container runtime is required to host the _Vehicle App_ containers. For publish/subscribe messaging a MQTT broker must be available (e.g., [Eclipse Mosquitto](https://mosquitto.org/)).
 
 ## _Vehicle App_ Characteristics
 
