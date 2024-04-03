@@ -90,7 +90,7 @@ or using the testing tab in the sidebar to the left.
 
 ## Integration Tests in CI pipeline
 
-The tests will be discovered and executed automatically in the provided [CI pipeline](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml). The job `Run Integration Tests` contains all steps to set up and execute all integration tests in Kanto mode. Basically it is doing the same steps as you saw above:
+The tests will be discovered and executed automatically in the provided [CI pipeline](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml). The job `Run Integration Tests` contains all steps to set up and execute all integration tests in the Kanto runtime. Basically it is doing the same steps as you saw above:
 
 1. start the Kanto runtime
 1. deploy the _Vehicle App_ container
@@ -104,7 +104,7 @@ Finally the test results are collected and published as artifacts of the workflo
 ### Troubleshoot IntTestHelper
 
 - Make sure that the _KUKSA Data Broker_ is up and running by checking the task log.
-- Make sure that you are using the right ports for local execution.
+- Make sure that you are using the right ports.
 - Make sure that you installed the correct version of the SDK (_SDV_-package).
 
 ### Troubleshoot Mosquitto (MQTT Broker)
