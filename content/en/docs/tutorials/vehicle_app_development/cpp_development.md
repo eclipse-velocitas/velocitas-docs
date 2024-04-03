@@ -279,6 +279,7 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 - Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk)
 - Concept: [Deployment Model](/docs/concepts/deployment_model)
+- Tutorial: [Deploy runtime services in Kanto](/docs/tutorials/vehicle_app_runtime/kanto_runtime)
 - Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
 - Tutorial: [Creating a Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/vehicle_app_development/integration_tests)
