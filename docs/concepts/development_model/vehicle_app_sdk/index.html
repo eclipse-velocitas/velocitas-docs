@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.6fa77d49529ed451d494c9026e2f1197.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -116,7 +116,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.6fa77d49529ed451d494c9026e2f1197.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -382,27 +382,12 @@
   <input type="checkbox" id="m-velocitasdocstutorialsvehicle_app_runtimekanto_runtime-check"/>
   <label for="m-velocitasdocstutorialsvehicle_app_runtimekanto_runtime-check"><a href="/velocitas/docs/tutorials/vehicle_app_runtime/kanto_runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle_app_runtimekanto_runtime"><span class="">Kanto Runtime</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsvehicle_app_runtimekubernetes_runtime-li">
-  <input type="checkbox" id="m-velocitasdocstutorialsvehicle_app_runtimekubernetes_runtime-check"/>
-  <label for="m-velocitasdocstutorialsvehicle_app_runtimekubernetes_runtime-check"><a href="/velocitas/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle_app_runtimekubernetes_runtime"><span class="">Kubernetes Runtime</span></a></label>
-  
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocstutorialsvehicle_app_deployment-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsvehicle_app_deployment-li">
   <input type="checkbox" id="m-velocitasdocstutorialsvehicle_app_deployment-check"/>
   <label for="m-velocitasdocstutorialsvehicle_app_deployment-check"><a href="/velocitas/docs/tutorials/vehicle_app_deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocstutorialsvehicle_app_deployment"><span class="">Vehicle App Deployment</span></a></label>
   
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsvehicle_app_deploymentpodspecs_deployment-li">
-  <input type="checkbox" id="m-velocitasdocstutorialsvehicle_app_deploymentpodspecs_deployment-check"/>
-  <label for="m-velocitasdocstutorialsvehicle_app_deploymentpodspecs_deployment-check"><a href="/velocitas/docs/tutorials/vehicle_app_deployment/podspecs_deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle_app_deploymentpodspecs_deployment"><span class="">PodSpecs Deployment</span></a></label>
-  
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocstutorialsvehicle_app_deploymenthelm_deployment-li">
-  <input type="checkbox" id="m-velocitasdocstutorialsvehicle_app_deploymenthelm_deployment-check"/>
-  <label for="m-velocitasdocstutorialsvehicle_app_deploymenthelm_deployment-check"><a href="/velocitas/docs/tutorials/vehicle_app_deployment/helm_deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocstutorialsvehicle_app_deploymenthelm_deployment"><span class="">Helm Deployment</span></a></label>
-  
-</li>
-  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocscontribution-guidelines-li">
@@ -447,7 +432,6 @@
       <ul>
         <li><a href="#grpc-services">gRPC Services</a></li>
         <li><a href="#model-integration">Model integration</a></li>
-        <li><a href="#service-discovery">Service discovery</a></li>
       </ul>
     </li>
     <li><a href="#fluent-query--rule-construction">Fluent query &amp; rule construction</a>
@@ -551,13 +535,7 @@
 <p><strong>
 
 <a href="#middleware-integration">Middleware integration</a>
-:</strong> Vehicle Models can contain gRPC stubs to communicate with <em>Vehicle Services</em>. gRPC communication is integrated with the 
-
-<a href="https://dapr.io" target="_blank" rel="noopener">Dapr</a>
- middleware for service discovery and 
-
-<a href="https://opentelemetry.io" target="_blank" rel="noopener">OpenTelemetry</a>
- logging and tracing.</p>
+:</strong> Vehicle Models can contain gRPC stubs to communicate with <em>Vehicle Services</em>. gRPC communication is integrated natively.</p>
 </li>
 <li>
 <p><strong>
@@ -895,8 +873,6 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
     </div>
 </div>
 
-<h3 id="service-discovery">Service discovery</h3>
-<p>The underlying gRPC channel is provided and managed by the <code>Service</code> base class of the SDK. It is also responsible for routing the method invocation to the service through the Dapr middleware. As a result, a <code>dapr-app-id</code> has to be assigned to every <code>Service</code>, so that Dapr can discover the corresponding <em>Vehicle Services</em>. This <code>dapr-app-id</code> has to be specified as an environment variable named <code>&lt;service_name&gt;_DAPR_APP_ID</code>.</p>
 <h2 id="fluent-query--rule-construction">Fluent query &amp; rule construction</h2>
 <p>A set of query methods like <code>get()</code>, <code>where()</code>, <code>join()</code> etc. are provided through the <code>Model</code> and <code>DataPoint</code> base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Data Broker.</p>
 <h3 id="query-examples">Query examples</h3>
@@ -1098,7 +1074,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </div>
 
 <h2 id="publish--subscribe-messaging">Publish &amp; subscribe messaging</h2>
-<p>The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. By leveraging the Dapr pub/sub building block for this purpose, the low-level MQTT communication is abstracted away from the <em>Vehicle App</em> developer. Especially the physical address and port of the MQTT broker is no longer configured in the <em>Vehicle App</em> itself, but rather is part of the Dapr configuration, which is outside of the <em>Vehicle App</em>.</p>
+<p>The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. Using the Velocitas SDK, the low-level MQTT communication is abstracted away from the <em>Vehicle App</em> developer. Especially the physical address and port of the MQTT broker is no longer configured in the <em>Vehicle App</em> itself, but rather is set as an environment variable, which is outside of the <em>Vehicle App</em>.</p>
 <h3 id="publish-mqtt-messages">Publish MQTT Messages</h3>
 <p>MQTT messages can be published easily with the <code>publish_mqtt_event()</code> method, inherited from <code>VehicleApp</code> base class:</p>
 
@@ -1174,42 +1150,6 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
     </div>
 </div>
 
-<p>Under the hood, the <em>Vehicle App</em> creates a gRPC endpoint on port <code>50008</code>, which is exposed to the Dapr middleware. The Dapr middleware will then subscribe to the MQTT broker and forward the messages to the <em>Vehicle App</em>.</p>
-<p>To change the app port, set it in the <code>main()</code> method of the app:</p>
-
-
-
-<ul class="nav nav-tabs" id="tabs-11" role="tablist">
-  <li class="nav-item">
-      <a class="nav-link active persistLang-Python"
-          id="tabs-11-00-tab" data-toggle="tab" href="#tabs-11-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-11-00" aria-selected="false">
-        Python
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link persistLang-C--"
-          id="tabs-11-01-tab" data-toggle="tab" href="#tabs-11-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-11-01" aria-selected="false">
-        C++
-      </a>
-    </li>
-</ul>
-
-<div class="tab-content" id="tabs-11-content">
-    <div class="tab-pane fade show active"
-        id="tabs-11-00" role="tabpanel" aria-labelled-by="tabs-11-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">conf</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">():</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">conf</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DAPR_APP_PORT</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">your</span> <span style="color:#000">port</span><span style="color:#ce5c00;font-weight:bold">&gt;</span></span></span></code></pre></div>
-    </div>
-    <div class="tab-pane fade"
-        id="tabs-11-01" role="tabpanel" aria-labelled-by="tabs-11-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// C++ does not use Dapr for Pub/Sub messaging at this point
-</span></span></span></code></pre></div>
-    </div>
-</div>
-
 <h2 id="vehicle-app-abstraction">Vehicle App abstraction</h2>
 <p><em>Vehicle Apps</em> are inherited from the <code>VehicleApp</code> base class. This enables the <em>Vehicle App</em> to use the Publish &amp; Subscribe messaging and to connect to the KUKSA Data Broker.</p>
 <p>The <code>Vehicle Model</code> instance is passed to the constructor of the <code>VehicleApp</code> class and should be stored in a member variable (e.g. <code>self.vehicle</code> for Python, <code>std::shared_ptr&lt;Vehicle&gt; m_vehicle;</code> for C++), to be used by all methods within the application.</p>
@@ -1227,25 +1167,25 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 
 
-<ul class="nav nav-tabs" id="tabs-13" role="tablist">
+<ul class="nav nav-tabs" id="tabs-12" role="tablist">
   <li class="nav-item">
       <a class="nav-link active persistLang-Python"
-          id="tabs-13-00-tab" data-toggle="tab" href="#tabs-13-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-13-00" aria-selected="false">
+          id="tabs-12-00-tab" data-toggle="tab" href="#tabs-12-00" role="tab"
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-12-00" aria-selected="false">
         Python
       </a>
     </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
-          id="tabs-13-01-tab" data-toggle="tab" href="#tabs-13-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-13-01" aria-selected="false">
+          id="tabs-12-01-tab" data-toggle="tab" href="#tabs-12-01" role="tab"
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-12-01" aria-selected="false">
         C++
       </a>
     </li>
 </ul>
 
-<div class="tab-content" id="tabs-13-content">
+<div class="tab-content" id="tabs-12-content">
     <div class="tab-pane fade show active"
-        id="tabs-13-00" role="tabpanel" aria-labelled-by="tabs-13-00-tab">
+        id="tabs-12-00" role="tabpanel" aria-labelled-by="tabs-12-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatAdjusterApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">()</span>
@@ -1263,7 +1203,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">close</span><span style="color:#000;font-weight:bold">()</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
-        id="tabs-13-01" role="tabpanel" aria-labelled-by="tabs-13-01-tab">
+        id="tabs-12-01" role="tabpanel" aria-labelled-by="tabs-12-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/VehicleApp.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;vehicle/Vehicle.hpp&#34;</span><span style="color:#8f5902;font-style:italic">
@@ -1323,7 +1263,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified February 27, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/383f29a4d4b5cf87e794b07485ab36b9b0f8cb1b">Version fixes and removal of strange header of rendered page (#117) (383f29a)</a>
+  Last modified April 4, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/741097f72b3e4e55c669ceece2ec64e11dc68a6e">Remove dapr and k3d (#119) (741097f)</a>
 </div>
 
 </div>

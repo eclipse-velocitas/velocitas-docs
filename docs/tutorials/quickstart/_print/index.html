@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.6fa77d49529ed451d494c9026e2f1197.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -419,9 +419,6 @@ You can either try it out directly in the browser or also use it inside VS Code.
 <p>Currently, the supported options to run these services is either 
 
 <a href="/velocitas//docs/tutorials/vehicle_app_runtime/local_runtime">locally</a>
-, in a 
-
-<a href="/velocitas//docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Kubernetes (K3D) cluster</a>
  or via the 
 
 <a href="/velocitas//docs/tutorials/vehicle_app_runtime/kanto_runtime">Kanto runtime</a>
@@ -429,7 +426,7 @@ You can either try it out directly in the browser or also use it inside VS Code.
 
    
 
-   
+
 <ul class="nav nav-tabs" id="tabs-3" role="tablist">
   <li class="nav-item">
       <a class="nav-link active"
@@ -441,12 +438,6 @@ You can either try it out directly in the browser or also use it inside VS Code.
       <a class="nav-link"
           id="tabs-03-01-tab" data-toggle="tab" href="#tabs-03-01" role="tab"
           aria-controls="tabs-03-01" aria-selected="false">
-        K3D Runtime
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link"
-          id="tabs-03-02-tab" data-toggle="tab" href="#tabs-03-02" role="tab"
-          aria-controls="tabs-03-02" aria-selected="false">
         Kanto Runtime
       </a>
     </li>
@@ -477,31 +468,6 @@ You can either try it out directly in the browser or also use it inside VS Code.
     </div>
     <div class="tab-body tab-pane fade"
         id="tabs-03-01" role="tabpanel" aria-labelled-by="tabs-03-01-tab">
-        <p>A VS Code task called <code>K3D Runtime - Up</code> is available to start all necessary services in the correct order.</p>
-<ol>
-<li>Press <kbd>F1</kbd></li>
-<li>Select command <code>Tasks: Run Task</code></li>
-<li>Select <code>K3D Runtime - Up</code></li>
-</ol>
-<p>You should see the task <code>K3D Runtime - Up</code> being executed on a separate VS Code terminal with the following content:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ velocitas <span style="color:#204a87">exec</span> runtime-k3d up
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Hint: Log files can be found in your workspace<span style="color:#a40000">&#39;</span>s logs directory
-</span></span><span style="display:flex;"><span>&gt; Checking K3D registry... created.
-</span></span><span style="display:flex;"><span>&gt; Creating cluster with proxy configuration.
-</span></span><span style="display:flex;"><span>&gt; Checking K3D cluster... created.
-</span></span><span style="display:flex;"><span>&gt; Checking zipkin deployment... deployed.
-</span></span><span style="display:flex;"><span>&gt; Checking dapr... initialized.
-</span></span><span style="display:flex;"><span>✅ Configuring controlplane <span style="color:#204a87;font-weight:bold">for</span> k3d...
-</span></span><span style="display:flex;"><span>&gt; Deploying runtime... installed.
-</span></span><span style="display:flex;"><span>✅ Starting k3d runtime...
-</span></span></code></pre></div><div class="pageinfo pageinfo-primary">
-<p>You need to perform the task <code>K3D Runtime - Down</code> to properly stop all runtime activities.</p>
-</div>
-
-    </div>
-    <div class="tab-body tab-pane fade"
-        id="tabs-03-02" role="tabpanel" aria-labelled-by="tabs-03-02-tab">
         <p>A VS Code task called <code>Kanto Runtime - Up</code> is available to start all necessary services in the correct order.</p>
 <ol>
 <li>Press <kbd>F1</kbd></li>

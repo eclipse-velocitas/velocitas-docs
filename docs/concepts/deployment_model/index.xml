@@ -67,7 +67,6 @@ Once the application is ready to be released in a new version, a dedicated relea
 &lt;li&gt;&lt;strong&gt;Building a multi-arch container for the app&lt;/strong&gt; - actions create a containerized version of the &lt;em&gt;Vehicle App&lt;/em&gt; for multiple architectures (currently AMD64 and ARM64).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Scanning for vulnerabilities&lt;/strong&gt; - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &amp;ldquo;failed&amp;rdquo;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Storing container images to GitHub action artifacts&lt;/strong&gt; - at the end of the workflow, the container image created is stored in a Github Action Artifacts so that it can be referenced by the Release Workflow later.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Generate Deployment Files&lt;/strong&gt; - actions generate a PodSpec-file and HelmCharts to ease the deployment of the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime services.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;release-workflow-releaseymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsreleaseyml&#34;&gt;Release Workflow (
 
@@ -109,14 +108,6 @@ Since the registry does not have an automatic cleanup, it keeps container images
 &lt;li&gt;Tutorial: 
 
 &lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_development/integration_tests&#34;&gt;How to write integration tests&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;Tutorial: 
-
-&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_deployment/helm_deployment.md&#34;&gt;Deploy a &lt;em&gt;Vehicle App&lt;/em&gt; with Helm&lt;/a&gt;
-&lt;/li&gt;
-&lt;li&gt;Tutorial: 
-
-&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_deployment/podspecs_deployment.md&#34;&gt;Deploy a &lt;em&gt;Vehicle App&lt;/em&gt; with PodSpecs&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
