@@ -281,7 +281,7 @@ Once the implementation is done, it is time to run and debug the app.
 
 In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) (which should be the default) and the runtime is up and running. Read more about it in the [run runtime services](/docs/tutorials/vehicle_app_runtime/local_runtime) section.
 
-Now chose one of the options to start the VehicleApp under development (including Dapr sidecar if middleware type is Dapr):
+Now chose one of the options to start the VehicleApp under development:
 
 1. Press <kbd>F5</kbd>
 
@@ -298,74 +298,26 @@ In the [introduction about debugging](/docs/tutorials/quickstart/quickstart/#how
 The debug session launch settings are already prepared for the `VehicleApp` in `/.vscode/launch.json`.
 
 ```JSON
-"configurations": [
-    {
-        "type": "python",
-        "justMyCode": false,
-        "request": "launch",
-        "name": "VehicleApp",
-        "program": "${workspaceFolder}/app/src/main.py",
-        "console": "integratedTerminal",
-        "preLaunchTask": "dapr-sidecar-start",
-        "postDebugTask": "dapr-sidecar-stop",
-        "env": {
-            "APP_PORT": "50008",
-            "DAPR_HTTP_PORT": "3500",
-            "DAPR_GRPC_PORT": "50001",
-            "VEHICLEDATABROKER_DAPR_APP_ID": "vehicledatabroker"
-        }
-    }
-]
-```
-
-We specify which python-script to run using the `program` key. With the `preLaunchTask` and `postDebugTask` keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks to find in `/.vscode/tasks.json`.
-
-```JSON
-  {
-   "label": "dapr-sidecar-start",
-   "detail": "Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).",
-   "type": "shell",
-   "command": "velocitas exec runtime-local run-dapr-sidecar vehicleapp --app-port 50008 --dapr-grpc-port 50001 --dapr-http-port 3500",
-   "group": "none",
-   "isBackground": true,
-   "presentation": {
-    "close": true,
-    "reveal": "never"
-   },
-   "problemMatcher": {
-    "pattern": [
-     {
-      "regexp": ".",
-      "file": 1,
-      "location": 2,
-      "message": 3
-     }
-    ],
-    "background": {
-     "activeOnStart": true,
-     "beginsPattern": "^You're up and running! Dapr logs will appear here.",
-     "endsPattern": "."
-    }
-   },
-   "hide": true
-  }
-```
-
-```JSON
 {
-    "label": "dapr-sidecar-stop",
-    "detail": "Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).",
-    "type": "shell",
-    "command": [
-        "dapr stop --app-id vehicleapp"
-    ],
-    "presentation": {
-        "close": true,
-        "reveal": "never"
-    },
-    "hide": true
-},
+    "configurations": [
+        {
+            "type": "python",
+            "justMyCode": false,
+            "request": "launch",
+            "name": "VehicleApp",
+            "program": "${workspaceFolder}/app/src/main.py",
+            "console": "integratedTerminal",
+            "env": {
+                "SDV_MIDDLEWARE_TYPE": "native",
+                "SDV_VEHICLEDATABROKER_ADDRESS": "grpc://127.0.0.1:55555",
+                "SDV_MQTT_ADDRESS": "mqtt://127.0.0.1:1883"
+            }
+        }
+    ]
+}
 ```
+
+We specify which python-script to run using the `program` key.
 
 You can adapt the configuration in `/.vscode/launch.json` and in `/.vscode/tasks.json` to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another _Vehicle App_.
 
@@ -374,9 +326,8 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 ## Next steps
 
 - Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk)
-- Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
+- Tutorial: [Deploy runtime services in Kanto](/docs/tutorials/vehicle_app_runtime/kanto_runtime)
 - Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Develop and run integration tests for a _Vehicle App_](/docs/tutorials/vehicle_app_development/integration_tests)
 - Concept: [Deployment Model](/docs/concepts/deployment_model/)
-- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)

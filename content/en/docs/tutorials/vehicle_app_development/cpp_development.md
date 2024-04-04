@@ -66,7 +66,7 @@ In your constructor, you have to choose which implementations to use for the Veh
 
 ```Cpp
 MyVehicleApp()
-    : VehicleApp(IVehicleDataBrokerClient::createInstance("vehicledatabroker"), // this is the dapr-app-id of the KUKSA Databroker in the VAL.
+    : VehicleApp(IVehicleDataBrokerClient::createInstance("vehicledatabroker"), // this is the app-id of the KUKSA Databroker in the VAL.
                  IPubSubClient::createInstance("MyVehicleApp")) // the clientId identifies the client at the pub/sub broker
     {}
 {}
@@ -221,7 +221,7 @@ If this is your first time building, you might have to run `install_dependencies
 
 In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-cpp-template/blob/main/.velocitas.json) (which should be the default) and the runtime is up and running. Read more about it in the [run runtime services](/docs/tutorials/vehicle_app_runtime/local_runtime) section.
 
-Now chose one of the options to start the VehicleApp under development (including Dapr sidecar):
+Now chose one of the options to start the VehicleApp under development:
 
 1. Press <kbd>F5</kbd>
 
@@ -241,7 +241,7 @@ The debug session launch settings are already prepared for the `VehicleApp`.
 {
     "configurations": [
         {
-            "name": "VehicleApp - Debug (dapr run)",
+            "name": "VehicleApp - Debug (Native)",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/bin/app",
@@ -250,60 +250,27 @@ The debug session launch settings are already prepared for the `VehicleApp`.
             "cwd": "${workspaceFolder}",
             "environment": [
                 {
-                    "name": "DAPR_HTTP_PORT",
-                    "value": "3500"
+                    "name": "SDV_MIDDLEWARE_TYPE",
+                    "value": "native"
                 },
                 {
-                    "name": "DAPR_GRPC_PORT",
-                    "value": "50001"
+                    "name": "SDV_VEHICLEDATABROKER_ADDRESS",
+                    "value": "127.0.0.1:55555"
                 },
                 {
-                    "name": "VEHICLEDATABROKER_DAPR_APP_ID",
-                    "value": "vehicledatabroker"
+                    "name": "SDV_MQTT_ADDRESS",
+                    "value": "127.0.0.1:1883"
                 }
             ],
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [ ],
-            "preLaunchTask": "dapr-sidecar-start",
-            "postDebugTask": "dapr-sidecar-stop",
         }
     ]
 }
 ```
 
-We specify which binary to run using the `program` key. In the `environment` you can specify all needed environment variables. With the `preLaunchTask` and `postDebugTask` keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks.
-
-```JSON
-{
-    "label": "dapr-sidecar-start",
-    "detail": "Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).",
-    "type": "shell",
-    "command": "velocitas exec runtime-local run-dapr-sidecar vehicleapp --dapr-grpc-port 50001 --dapr-http-port 3500",
-    "group": "none",
-    "isBackground": true,
-    "presentation": {
-        "close": true,
-        "reveal": "never"
-    }
-}
-```
-
-```JSON
-{
-    "label": "dapr-sidecar-stop",
-    "detail": "Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).",
-    "type": "shell",
-    "command": [
-        "dapr stop --app-id vehicleapp"
-    ],
-    "presentation": {
-        "close": true,
-        "reveal": "never"
-    }
-}
-```
-
+We specify which binary to run using the `program` key. In the `environment` you can specify all needed environment variables.
 You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another _Vehicle App_.
 
 Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your _Vehicle App_.
@@ -312,8 +279,7 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 - Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk)
 - Concept: [Deployment Model](/docs/concepts/deployment_model)
-- Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
+- Tutorial: [Deploy runtime services in Kanto](/docs/tutorials/vehicle_app_runtime/kanto_runtime)
 - Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
 - Tutorial: [Creating a Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/vehicle_app_development/integration_tests)
-- Tutorial: [Deploy a _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)

@@ -56,12 +56,13 @@ Asynchronous communication between [_Vehicle Apps_](#vehicle-apps) and other veh
 
 ### Middleware Abstraction
 
-Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
-By default, Velocitas leverages [Dapr](https://dapr.io) for gRPC service discovery, Open Telemetry tracing and the [publish/subscribe building block](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/).
+Velocitas basically provides middleware abstraction interfaces for service discovery, pubsub messaging, and other cross-cutting functionalites.
+At the moment, Velocitas just offers a (what we call) "native middleware" implementation, which does not provide (gRPC) service discovery. Instead, addresses and port number of services need to be provided via environment variables to an app; e.g. SDV_VEHICLEDATABROKER_ADDRESS=grpc://localhost:55555.
+The support of Dapr as middleware has recently been removed.
 
 ### Vehicle Edge Operating System
 
-[_Vehicle Apps_](#vehicle-apps) are expected to run on a [Linux](https://www.linux.org/)-based operating system. An OCI-compliant container runtime is required to host the _Vehicle App_ containers and the Dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., [Eclipse Mosquitto](https://mosquitto.org/)).
+[_Vehicle Apps_](#vehicle-apps) are expected to run on a [Linux](https://www.linux.org/)-based operating system. An OCI-compliant container runtime is required to host the _Vehicle App_ containers. For publish/subscribe messaging a MQTT broker must be available (e.g., [Eclipse Mosquitto](https://mosquitto.org/)).
 
 ## _Vehicle App_ Characteristics
 
