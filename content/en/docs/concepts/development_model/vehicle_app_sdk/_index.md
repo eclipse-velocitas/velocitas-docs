@@ -91,8 +91,8 @@ from sdv import (
 )
 
 class Seat(Model):
-    def **init**(self, name, parent):
-        super().**init**(parent)
+    def __init__(self, name, parent):
+        super().__init__(parent)
         self.name = name
         self.Position = DataPointBool("Position", self)
         self.IsOccupied = DataPointBool("IsOccupied", self)
@@ -101,15 +101,15 @@ class Seat(Model):
         self.Recline = DataPointInt32("Recline", self)
 
 class Cabin(Model):
-    def **init**(self, name, parent):
-        super().**init**(parent)
+    def __init__(self, name, parent):
+        super().__init__(parent)
         self.name = name
         self.DriverPosition = DataPointInt32("DriverPosition", self)
         self.Seat = SeatCollection("Seat", self)
 
 class SeatCollection(Model):
-    def **init**(self, name, parent):
-        super().**init**(parent)
+    def __init__(self, name, parent):
+        super().__init__(parent)
         self.name = name
         self.Row1 = self.RowType("Row1", self)
         self.Row2 = self.RowType("Row2", self)
@@ -142,15 +142,15 @@ class SeatCollection(Model):
             return _options.get(index)
 
 class VehicleIdentification(Model):
-    def **init**(self, name, parent):
-        super().**init**(parent)
+    def __init__(self, name, parent):
+        super().__init__(parent)
         self.name = name
         self.VIN = DataPointString("VIN", self)
         self.Model = DataPointString("Model", self)
 
 class CurrentLocation(Model):
-    def **init**(self, name, parent):
-        super().**init**(parent)
+    def __init__(self, name, parent):
+        super().__init__(parent)
         self.name = name
         self.Latitude = DataPointDouble("Latitude", self)
         self.Longitude = DataPointDouble("Longitude", self)
@@ -158,8 +158,8 @@ class CurrentLocation(Model):
         self.Altitude = DataPointDouble("Altitude", self)
 
 class Vehicle(Model):
-    def **init**(self, name, parent):
-        super().**init**(parent)
+    def __init__(self, name, parent):
+        super().__init__(parent)
         self.name = name
         self.Speed = DataPointFloat("Speed", self)
         self.CurrentLocation = CurrentLocation("CurrentLocation", self)
@@ -170,9 +170,9 @@ vehicle = Vehicle("Vehicle")
 {{< /tab >}}
 {{< tab "C++" >}}
 
-# include "sdk/DataPoint.h"
+#include "sdk/DataPoint.h"
 
-# include "sdk/Model.h"
+#include "sdk/Model.h"
 
 using namespace velocitas;
 
@@ -261,8 +261,8 @@ The convenience layer of C++ is a bit more extensive than in Python. The complex
 {{< tab "Python">}}
 
 class SeatService(Service):
-    def **init**(self):
-        super().**init**()
+    def __init__(self):
+        super().__init__()
         self._stub = SeatsStub(self.channel)
 
     async def Move(self, seat: Seat):
@@ -459,9 +459,9 @@ async def on_set_position_request_received(self, data: str) -> None:
 {{< /tab >}}
 {{< tab "C++" >}}
 
-# include <fmt/core.h>
+#include <fmt/core.h>
 
-# include <nlohmann/json.hpp>
+#include <nlohmann/json.hpp>
 
 subscribeToTopic("seatadjuster/setPosition/request")->onItem([this](auto&& item){
     const auto jsonData = nlohmann::json::parse(item);
@@ -487,8 +487,8 @@ A typical skeleton of a _Vehicle App_ looks like this:
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
 class SeatAdjusterApp(VehicleApp):
-    def **init**(self, vehicle: Vehicle):
-        super().**init**()
+    def __init__(self, vehicle: Vehicle):
+        super().__init__()
         self.vehicle = vehicle
 
 async def main():
@@ -504,9 +504,9 @@ LOOP.close()
 {{< /tab >}}
 {{< tab "C++" >}}
 
-# include "sdk/VehicleApp.h"
+#include "sdk/VehicleApp.h"
 
-# include "vehicle/Vehicle.hpp"
+#include "vehicle/Vehicle.hpp"
 
 using namespace velocitas;
 
