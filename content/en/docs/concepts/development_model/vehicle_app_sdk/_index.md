@@ -19,7 +19,7 @@ The _Vehicle App_ SDK consists of the following building blocks:
 
 - **[Middleware integration](#middleware-integration):** Vehicle Models can contain gRPC stubs to communicate with _Vehicle Services_. gRPC communication is integrated natively.
 
-- **[Fluent query & rule construction](#fluent-query--rule-construction):** Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.
+- **[Fluent query & rule construction](#fluent-query--rule-construction):** Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Databroker to access the real values of the data points that are defined in the vehicle model.
 
 - **[Publish & subscribe messaging](#publish--subscribe-messaging):** The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.
 
@@ -91,8 +91,8 @@ from sdv import (
 )
 
 class Seat(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.Position = DataPointBool("Position", self)
         self.IsOccupied = DataPointBool("IsOccupied", self)
@@ -101,15 +101,15 @@ class Seat(Model):
         self.Recline = DataPointInt32("Recline", self)
 
 class Cabin(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.DriverPosition = DataPointInt32("DriverPosition", self)
         self.Seat = SeatCollection("Seat", self)
 
 class SeatCollection(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.Row1 = self.RowType("Row1", self)
         self.Row2 = self.RowType("Row2", self)
@@ -142,15 +142,15 @@ class SeatCollection(Model):
             return _options.get(index)
 
 class VehicleIdentification(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.VIN = DataPointString("VIN", self)
         self.Model = DataPointString("Model", self)
 
 class CurrentLocation(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.Latitude = DataPointDouble("Latitude", self)
         self.Longitude = DataPointDouble("Longitude", self)
@@ -158,8 +158,8 @@ class CurrentLocation(Model):
         self.Altitude = DataPointDouble("Altitude", self)
 
 class Vehicle(Model):
-    def __init__(self, name, parent):
-        super().__init__(parent)
+    def **init**(self, name, parent):
+        super().**init**(parent)
         self.name = name
         self.Speed = DataPointFloat("Speed", self)
         self.CurrentLocation = CurrentLocation("CurrentLocation", self)
@@ -170,9 +170,9 @@ vehicle = Vehicle("Vehicle")
 {{< /tab >}}
 {{< tab "C++" >}}
 
-#include "sdk/DataPoint.h"
+# include "sdk/DataPoint.h"
 
-#include "sdk/Model.h"
+# include "sdk/Model.h"
 
 using namespace velocitas;
 
@@ -261,8 +261,8 @@ The convenience layer of C++ is a bit more extensive than in Python. The complex
 {{< tab "Python">}}
 
 class SeatService(Service):
-    def __init__(self):
-        super().__init__()
+    def **init**(self):
+        super().**init**()
         self._stub = SeatsStub(self.channel)
 
     async def Move(self, seat: Seat):
@@ -305,7 +305,7 @@ private:
 
 ## Fluent query & rule construction
 
-A set of query methods like `get()`, `where()`, `join()` etc. are provided through the `Model` and `DataPoint` base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Data Broker.
+A set of query methods like `get()`, `where()`, `join()` etc. are provided through the `Model` and `DataPoint` base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Databroker.
 
 ### Query examples
 
@@ -459,9 +459,9 @@ async def on_set_position_request_received(self, data: str) -> None:
 {{< /tab >}}
 {{< tab "C++" >}}
 
-#include <fmt/core.h>
+# include <fmt/core.h>
 
-#include <nlohmann/json.hpp>
+# include <nlohmann/json.hpp>
 
 subscribeToTopic("seatadjuster/setPosition/request")->onItem([this](auto&& item){
     const auto jsonData = nlohmann::json::parse(item);
@@ -472,11 +472,11 @@ subscribeToTopic("seatadjuster/setPosition/request")->onItem([this](auto&& item)
 
 ## Vehicle App abstraction
 
-_Vehicle Apps_ are inherited from the `VehicleApp` base class. This enables the _Vehicle App_ to use the Publish & Subscribe messaging and to connect to the KUKSA Data Broker.
+_Vehicle Apps_ are inherited from the `VehicleApp` base class. This enables the _Vehicle App_ to use the Publish & Subscribe messaging and to connect to the KUKSA Databroker.
 
 The `Vehicle Model` instance is passed to the constructor of the `VehicleApp` class and should be stored in a member variable (e.g. `self.vehicle` for Python, `std::shared_ptr<Vehicle> m_vehicle;` for C++), to be used by all methods within the application.
 
-Finally, the `run()` method of the `VehicleApp` class is called to start the _Vehicle App_ and register all MQTT topic and Data Broker subscriptions.
+Finally, the `run()` method of the `VehicleApp` class is called to start the _Vehicle App_ and register all MQTT topic and Databroker subscriptions.
 
 {{% alert title="Implementation detail" color="warning" %}}
 In Python, the subscriptions are based on `asyncio`, which makes it necessary to call the `run()` method with an active `asyncio event_loop`.
@@ -487,8 +487,8 @@ A typical skeleton of a _Vehicle App_ looks like this:
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
 class SeatAdjusterApp(VehicleApp):
-    def __init__(self, vehicle: Vehicle):
-        super().__init__()
+    def **init**(self, vehicle: Vehicle):
+        super().**init**()
         self.vehicle = vehicle
 
 async def main():
@@ -504,9 +504,9 @@ LOOP.close()
 {{< /tab >}}
 {{< tab "C++" >}}
 
-#include "sdk/VehicleApp.h"
+# include "sdk/VehicleApp.h"
 
-#include "vehicle/Vehicle.hpp"
+# include "vehicle/Vehicle.hpp"
 
 using namespace velocitas;
 

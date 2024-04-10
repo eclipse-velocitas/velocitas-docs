@@ -123,7 +123,7 @@ You can find more information about the _Vehicle App_ development in the [respec
 
 ## How to start the runtime services?
 
-The runtime services (like _KUKSA Data Broker_ or _Vehicle Services_) are required to develop _Vehicle Apps_ and run integration tests.
+The runtime services (like _KUKSA Databroker_ or _Vehicle Services_) are required to develop _Vehicle Apps_ and run integration tests.
 
 Currently, the supported options to run these services is either [locally](/docs/tutorials/vehicle_app_runtime/local_runtime) or via the [Kanto runtime](/docs/tutorials/vehicle_app_runtime/kanto_runtime).
 

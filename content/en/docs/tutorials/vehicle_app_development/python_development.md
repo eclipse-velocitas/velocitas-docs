@@ -145,7 +145,7 @@ If you want to get notified about changes of a specific `DataPoint`, you can sub
 ```
 
 Every `DataPoint` provides a _.subscribe()_ method that allows for providing a callback function which will be invoked on every data point update. Subscribed data is available in the respective _DataPointReply_ object and need to be accessed via the reference to the subscribed data point. The returned object is of type `TypedDataPointResult` which holds the `value` of the data point
-and the `timestamp` at which the value was captured by the data broker.
+and the `timestamp` at which the value was captured by the Databroker.
 Therefore the `on_seat_position_changed` callback function needs to be implemented like this:
 
 ```Python

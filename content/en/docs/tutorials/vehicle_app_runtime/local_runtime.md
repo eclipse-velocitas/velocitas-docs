@@ -10,7 +10,7 @@ aliases:
 
 ## Using tasks in Visual Studio Code
 
-**Overview:** If you are developing in Visual Studio Code, the runtime components (like _KUKSA Data Broker_ or _Vehicle Services_) are available for local execution coming from our _devenv-runtimes_ package and are accessible as _Tasks_, a feature of the Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
+**Overview:** If you are developing in Visual Studio Code, the runtime components (like _KUKSA Databroker_ or _Vehicle Services_) are available for local execution coming from our _devenv-runtimes_ package and are accessible as _Tasks_, a feature of the Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
 
 **Start local runtime:** To start local runtime, a task called `Local Runtime - Up` is available. This task runs the runtime services in the correct order. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `Local Runtime - Up`.
 
@@ -23,9 +23,9 @@ aliases:
 The configuration for services of our provided local runtime are defined in the [`runtime.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json) at the root of the repository [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main).
 For a more detailed view on how to change or add runtime service configuration, please visit: [Lifecycle Management Package Development](/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages)
 
-## Using KUKSA Data Broker CLI
+## Using KUKSA Databroker CLI
 
-A CLI tool is provided for interacting with a running instance of the KUKSA Data Broker. It can be started by running the task `Local Runtime - VehicleDataBroker CLI`(by pressing _F1_, type _Run Task_ followed by `Local Runtime - VehicleDataBroker CLI`). The _Runtime Local_ needs to be running for you to be able to use the tool.
+A CLI tool is provided for interacting with a running instance of the KUKSA Databroker. It can be started by running the task `Local Runtime - VehicleDataBroker CLI`(by pressing _F1_, type _Run Task_ followed by `Local Runtime - VehicleDataBroker CLI`). The _Runtime Local_ needs to be running for you to be able to use the tool.
 
 ## Integrating a new runtime service into Visual Studio Code Task
 
