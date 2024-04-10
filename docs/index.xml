@@ -219,7 +219,7 @@ Clone your newly created repository and open the &lt;em&gt;Vehicle App&lt;/em&gt
         
         
         &lt;h2 id=&#34;using-tasks-in-visual-studio-code&#34;&gt;Using tasks in Visual Studio Code&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Overview:&lt;/strong&gt; If you are developing in Visual Studio Code, the runtime components (like &lt;em&gt;KUKSA Data Broker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are available for local execution coming from our &lt;em&gt;devenv-runtimes&lt;/em&gt; package and are accessible as &lt;em&gt;Tasks&lt;/em&gt;, a feature of the Visual Studio Code. Additional information on tasks can be found 
+&lt;p&gt;&lt;strong&gt;Overview:&lt;/strong&gt; If you are developing in Visual Studio Code, the runtime components (like &lt;em&gt;KUKSA Databroker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are available for local execution coming from our &lt;em&gt;devenv-runtimes&lt;/em&gt; package and are accessible as &lt;em&gt;Tasks&lt;/em&gt;, a feature of the Visual Studio Code. Additional information on tasks can be found 
 
 &lt;a href=&#34;https://code.visualstudio.com/docs/editor/tasks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;
 .&lt;/p&gt;
@@ -238,8 +238,8 @@ For a more detailed view on how to change or add runtime service configuration, 
 
 &lt;a href=&#34;/velocitas/velocitas//docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages&#34;&gt;Lifecycle Management Package Development&lt;/a&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;using-kuksa-data-broker-cli&#34;&gt;Using KUKSA Data Broker CLI&lt;/h2&gt;
-&lt;p&gt;A CLI tool is provided for interacting with a running instance of the KUKSA Data Broker. It can be started by running the task &lt;code&gt;Local Runtime - VehicleDataBroker CLI&lt;/code&gt;(by pressing &lt;em&gt;F1&lt;/em&gt;, type &lt;em&gt;Run Task&lt;/em&gt; followed by &lt;code&gt;Local Runtime - VehicleDataBroker CLI&lt;/code&gt;). The &lt;em&gt;Runtime Local&lt;/em&gt; needs to be running for you to be able to use the tool.&lt;/p&gt;
+&lt;h2 id=&#34;using-kuksa-databroker-cli&#34;&gt;Using KUKSA Databroker CLI&lt;/h2&gt;
+&lt;p&gt;A CLI tool is provided for interacting with a running instance of the KUKSA Databroker. It can be started by running the task &lt;code&gt;Local Runtime - VehicleDataBroker CLI&lt;/code&gt;(by pressing &lt;em&gt;F1&lt;/em&gt;, type &lt;em&gt;Run Task&lt;/em&gt; followed by &lt;code&gt;Local Runtime - VehicleDataBroker CLI&lt;/code&gt;). The &lt;em&gt;Runtime Local&lt;/em&gt; needs to be running for you to be able to use the tool.&lt;/p&gt;
 &lt;h2 id=&#34;integrating-a-new-runtime-service-into-visual-studio-code-task&#34;&gt;Integrating a new runtime service into Visual Studio Code Task&lt;/h2&gt;
 &lt;p&gt;Integration of a new runtime service can be done by duplicating one of the existing tasks.&lt;/p&gt;
 &lt;ul&gt;
@@ -440,7 +440,7 @@ A detailed explanation of the use case and the example is available
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;on_seat_position_changed&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Every &lt;code&gt;DataPoint&lt;/code&gt; provides a &lt;em&gt;.subscribe()&lt;/em&gt; method that allows for providing a callback function which will be invoked on every data point update. Subscribed data is available in the respective &lt;em&gt;DataPointReply&lt;/em&gt; object and need to be accessed via the reference to the subscribed data point. The returned object is of type &lt;code&gt;TypedDataPointResult&lt;/code&gt; which holds the &lt;code&gt;value&lt;/code&gt; of the data point
-and the &lt;code&gt;timestamp&lt;/code&gt; at which the value was captured by the data broker.
+and the &lt;code&gt;timestamp&lt;/code&gt; at which the value was captured by the Databroker.
 Therefore the &lt;code&gt;on_seat_position_changed&lt;/code&gt; callback function needs to be implemented like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;on_seat_position_changed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;data&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;DataPointReply&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# handle the event here&lt;/span&gt;
@@ -857,7 +857,7 @@ You can either try it out directly in the browser or also use it inside VS Code.
 &lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_development&#34;&gt;respective pages&lt;/a&gt;
 .&lt;/p&gt;
 &lt;h2 id=&#34;how-to-start-the-runtime-services&#34;&gt;How to start the runtime services?&lt;/h2&gt;
-&lt;p&gt;The runtime services (like &lt;em&gt;KUKSA Data Broker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are required to develop &lt;em&gt;Vehicle Apps&lt;/em&gt; and run integration tests.&lt;/p&gt;
+&lt;p&gt;The runtime services (like &lt;em&gt;KUKSA Databroker&lt;/em&gt; or &lt;em&gt;Vehicle Services&lt;/em&gt;) are required to develop &lt;em&gt;Vehicle Apps&lt;/em&gt; and run integration tests.&lt;/p&gt;
 &lt;p&gt;Currently, the supported options to run these services is either 
 
 &lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_runtime/local_runtime&#34;&gt;locally&lt;/a&gt;
@@ -1653,7 +1653,7 @@ A detailed explanation of the use case and the example is available
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;dataPoint&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;());&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// do something with the data point value
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;VehicleApp&lt;/code&gt; class provides the &lt;code&gt;subscribeDataPoints()&lt;/code&gt; method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via &lt;code&gt;AsyncSubscription::onItem()&lt;/code&gt; is called. Conversely, the callback registered via &lt;code&gt;AsyncSubscription::onError()&lt;/code&gt; is called once there is any error during communication with the KUKSA data broker.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;VehicleApp&lt;/code&gt; class provides the &lt;code&gt;subscribeDataPoints()&lt;/code&gt; method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via &lt;code&gt;AsyncSubscription::onItem()&lt;/code&gt; is called. Conversely, the callback registered via &lt;code&gt;AsyncSubscription::onError()&lt;/code&gt; is called once there is any error during communication with the KUKSA Databroker.&lt;/p&gt;
 &lt;p&gt;The result passed to the callback registered via &lt;code&gt;onItem()&lt;/code&gt; is an object of type &lt;code&gt;DataPointsResult&lt;/code&gt; which holds all data points that have changed. Individual data points can be accessed directly by their reference: &lt;code&gt;result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)&lt;/code&gt;)&lt;/p&gt;
 &lt;h2 id=&#34;services&#34;&gt;Services&lt;/h2&gt;
 &lt;p&gt;Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them 
@@ -2030,7 +2030,7 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 ) comes with the support of adding further &lt;em&gt;Vehicle Services&lt;/em&gt; to the &lt;code&gt;runtime.json&lt;/code&gt; of a package. More information 
 
 &lt;a href=&#34;/velocitas/velocitas//docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages&#34;&gt;here&lt;/a&gt;
-. (A general vehicle &lt;em&gt;mock service&lt;/em&gt; is also coming soon!)&lt;/p&gt;
+.&lt;/p&gt;
 &lt;h3 id=&#34;modify-existing-services&#34;&gt;Modify existing services&lt;/h3&gt;
 &lt;p&gt;For more advanced usage you can also try to modify existing services. Check out 
 
@@ -2042,24 +2042,24 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA.VAL Services repository&lt;/a&gt;
  contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to &lt;em&gt;KUKSA.VAL&lt;/em&gt; listening to changes of a &lt;em&gt;target value&lt;/em&gt; of some VSS data point and then do whatever you want. You can achieve this by using the &lt;em&gt;KUKSA.VAL&lt;/em&gt; 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/proto/kuksa/val/v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC API&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-databroker/tree/main/proto/kuksa/val/v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC API&lt;/a&gt;
  with any programming language of your choice (learn more about 
 
 &lt;a href=&#34;https://grpc.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC&lt;/a&gt;
 ).&lt;/p&gt;
-&lt;h3 id=&#34;mock-service-and-mock-service-integration&#34;&gt;Mock Service and Mock Service Integration&lt;/h3&gt;
+&lt;h3 id=&#34;mock-provider-and-mock-provider-integration&#34;&gt;Mock Provider and Mock Provider Integration&lt;/h3&gt;
 &lt;p&gt;
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/mock_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Vehicle Mock Service&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-mock-provider&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Vehicle Mock Provider&lt;/a&gt;
  is a dummy service allowing to control all specified actuator- and sensor-signals via a configuration file. These configuration files are expressed in a Python-based domain-specific language (DSL).
 The default behavior is predefined in 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/mock_service/mock.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mock.py&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-mock-provider/blob/main/mock/mock.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mock.py&lt;/a&gt;
 &lt;/p&gt;
-&lt;p&gt;The Mock Service is already integrated in all our 
+&lt;p&gt;The Mock Provider is already integrated in all our 
 
 &lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_app_runtime&#34;&gt;Vehicle Runtimes&lt;/a&gt;
-. To be able to configure it, you need to add a custom &lt;code&gt;mock.py&lt;/code&gt; in the root of your Vehicle App Project. The Mock Service Container will pick it up automatically.&lt;/p&gt;
+. To be able to configure it, you need to add a custom &lt;code&gt;mock.py&lt;/code&gt; in the root of your Vehicle App Project. The Mock Provider Container will pick it up automatically.&lt;/p&gt;
 
       </description>
     </item>
@@ -2103,8 +2103,8 @@ The default behavior is predefined in
 &lt;p&gt;If a &lt;em&gt;Vehicle App&lt;/em&gt; requires a &lt;code&gt;vehicle-signal-interface&lt;/code&gt;, it will act as a consumer of datapoints already available in the system. If, on the other hand, a &lt;em&gt;Vehicle App&lt;/em&gt; provides a &lt;code&gt;vehicle-signal-interface&lt;/code&gt;, it will act as a provider (formerly feeder in KUKSA terms) of the declared datapoints.&lt;/p&gt;
 &lt;p&gt;Furthermore, in the source code generated by this functional interface, a connection to 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kuksa Databroker&lt;/a&gt;
- will be established via the configured Velocitas middleware. It uses the &lt;code&gt;broker.proto&lt;/code&gt; if provided by the Kuksa Databroker to connect via gRPC. A seperate declaration of a &lt;code&gt;grpc-interface&lt;/code&gt; for the databroker is &lt;strong&gt;NOT&lt;/strong&gt; required.&lt;/p&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-databroker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA Databroker&lt;/a&gt;
+ will be established via the configured Velocitas middleware. It uses the &lt;code&gt;broker.proto&lt;/code&gt; if provided by the KUKSA Databroker to connect via gRPC. A seperate declaration of a &lt;code&gt;grpc-interface&lt;/code&gt; for the databroker is &lt;strong&gt;NOT&lt;/strong&gt; required.&lt;/p&gt;
 &lt;p&gt;More information: 
 
 &lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_model_creation/&#34;&gt;Vehicle Model Creation&lt;/a&gt;
@@ -2328,7 +2328,7 @@ The default behavior is predefined in
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;src&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;string&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;&amp;quot;https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;quot;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&amp;quot;&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;URI of the used protobuf specification of the service. URI may point to a local file or to a file provided by a server. It is generally recommended that a &lt;strong&gt;stable&lt;/strong&gt; proto file is used. I.e. one that is already released under a proper tag rather than an in-development proto file. &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -2357,7 +2357,7 @@ The default behavior is predefined in
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;grpc-interface&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;required&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;methods&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Move&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;MoveComponent&amp;#34;&lt;/span&gt;
@@ -2810,7 +2810,7 @@ More detailed information about the &lt;em&gt;Project Cache&lt;/em&gt; can be fo
       <description>
         
         
-        &lt;p&gt;To be sure that a newly created &lt;em&gt;Vehicle App&lt;/em&gt; will run together with the &lt;em&gt;KUKSA Data Broker&lt;/em&gt; and potentially other dependant &lt;em&gt;Vehicle Services&lt;/em&gt; or &lt;em&gt;Vehicle Apps&lt;/em&gt;, it&amp;rsquo;s essential to write integration tests along with developing the app.&lt;/p&gt;
+        &lt;p&gt;To be sure that a newly created &lt;em&gt;Vehicle App&lt;/em&gt; will run together with the &lt;em&gt;KUKSA Databroker&lt;/em&gt; and potentially other dependant &lt;em&gt;Vehicle Services&lt;/em&gt; or &lt;em&gt;Vehicle Apps&lt;/em&gt;, it&amp;rsquo;s essential to write integration tests along with developing the app.&lt;/p&gt;
 &lt;p&gt;To execute an integration test, the dependant components need to be running and be accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.&lt;/p&gt;
 
 
@@ -2825,7 +2825,7 @@ More detailed information about the &lt;em&gt;Project Cache&lt;/em&gt; can be fo
 &lt;p&gt;To write an integration test, you should check the sample that comes with the template (
 
 &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;/app/tests/integration/integration_test.py&lt;/code&gt;&lt;/a&gt;
-). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for data points), there are two classes present in Python SDK that will help:&lt;/p&gt;
+). To support interacting with the MQTT broker and the KUKSA Databroker (to get and set values for data points), there are two classes present in Python SDK that will help:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;MqttClient&lt;/code&gt;: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:&lt;/p&gt;
@@ -2848,7 +2848,7 @@ More detailed information about the &lt;em&gt;Project Cache&lt;/em&gt; can be fo
 &lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;1883&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;1883&lt;/code&gt; and in CI the port is set by the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt;. This will prevent a check-in in the wrong port during local development.&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;IntTestHelper&lt;/code&gt;: this class provides functionality to interact with the &lt;em&gt;KUKSA Data Broker&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;IntTestHelper&lt;/code&gt;: this class provides functionality to interact with the &lt;em&gt;KUKSA Databroker&lt;/em&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;register_datapoint&lt;/code&gt;: registers a new data point with given name and type (
 
@@ -2863,8 +2863,8 @@ More detailed information about the &lt;em&gt;Project Cache&lt;/em&gt; can be fo
 &lt;p&gt;To be able to test the &lt;em&gt;Vehicle App&lt;/em&gt; in an integrated way, the following components should be running:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Mosquitto&lt;/li&gt;
-&lt;li&gt;Data Broker&lt;/li&gt;
-&lt;li&gt;Vehicle Mock Service&lt;/li&gt;
+&lt;li&gt;Databroker&lt;/li&gt;
+&lt;li&gt;Vehicle Mock Provider&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
 &lt;ul&gt;
@@ -2910,7 +2910,7 @@ More detailed information about the &lt;em&gt;Project Cache&lt;/em&gt; can be fo
 &lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
 &lt;h3 id=&#34;troubleshoot-inttesthelper&#34;&gt;Troubleshoot IntTestHelper&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Make sure that the &lt;em&gt;KUKSA Data Broker&lt;/em&gt; is up and running by checking the task log.&lt;/li&gt;
+&lt;li&gt;Make sure that the &lt;em&gt;KUKSA Databroker&lt;/em&gt; is up and running by checking the task log.&lt;/li&gt;
 &lt;li&gt;Make sure that you are using the right ports.&lt;/li&gt;
 &lt;li&gt;Make sure that you installed the correct version of the SDK (&lt;em&gt;SDV&lt;/em&gt;-package).&lt;/li&gt;
 &lt;/ul&gt;
@@ -3092,7 +3092,7 @@ Successfully installed my-vehicle-model-0.1
 &lt;p&gt;The root model of the &lt;em&gt;Vehicle Model&lt;/em&gt; tree should be called &lt;em&gt;Vehicle&lt;/em&gt; by convention and is specified, by setting parent to &lt;code&gt;None&lt;/code&gt;. For all other models a parent model must be specified as the 2nd argument of the &lt;code&gt;Model&lt;/code&gt; constructor, as can be seen by the &lt;code&gt;Cabin&lt;/code&gt; and the &lt;code&gt;Seat&lt;/code&gt; models above.&lt;/p&gt;
 &lt;p&gt;A singleton instance of the &lt;em&gt;Vehicle Model&lt;/em&gt; called &lt;code&gt;vehicle&lt;/code&gt; is created at the end of the file. This instance is supposed to be used in the &lt;em&gt;Vehicle Apps&lt;/em&gt;. Creating multiple instances of the &lt;em&gt;Vehicle Model&lt;/em&gt; should be avoided for performance reasons.&lt;/p&gt;
 &lt;h3 id=&#34;add-a-vehicle-service&#34;&gt;Add a Vehicle Service&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;Vehicle Services&lt;/em&gt; provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. &lt;em&gt;Vehicle Services&lt;/em&gt; may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by &lt;em&gt;Vehicle Apps&lt;/em&gt; over a &lt;em&gt;Vehicle Model&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Vehicle Services&lt;/em&gt; provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. &lt;em&gt;Vehicle Services&lt;/em&gt; may feed data to the Databroker and may expose gRPC endpoints, which can be invoked by &lt;em&gt;Vehicle Apps&lt;/em&gt; over a &lt;em&gt;Vehicle Model&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;In this section, we add a &lt;em&gt;Vehicle Service&lt;/em&gt; to the &lt;em&gt;Vehicle Model&lt;/em&gt;.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -3102,10 +3102,10 @@ Successfully installed my-vehicle-model-0.1
 &lt;p&gt;Copy your proto file under &lt;code&gt;my_vehicle_model/my_vehicle_model/proto&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;As example you could use the protocol buffers message definition 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seats.proto&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-incubation/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seats.proto&lt;/a&gt;
  provided by the KUKSA.VAL services which describes a 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat control service&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-incubation/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat control service&lt;/a&gt;
 .&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -3433,9 +3433,9 @@ All the files that are located in &lt;code&gt;[./config/feedercan](https://githu
 &lt;li&gt;Creating/updating candump file with the name &lt;code&gt;candumpDefault.log&lt;/code&gt; in &lt;code&gt;./config/feedercan&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Restarting Kanto (execute the tasks &lt;code&gt;Kanto - Runtime Down&lt;/code&gt; and &lt;code&gt;Kanto - Runtime Up&lt;/code&gt;)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;More information about FeederCan can be found 
+&lt;p&gt;More information about the CAN Provider can be found 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-can-provider&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;next-steps&#34;&gt;Next steps&lt;/h2&gt;
 &lt;ul&gt;

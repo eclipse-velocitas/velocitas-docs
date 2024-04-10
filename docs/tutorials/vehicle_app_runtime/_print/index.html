@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -179,7 +179,7 @@ This is the multi-page printable view of this section.
 	<h1 id="pg-44ca6840573dae4b9f14986612e7147f">1 - Local Runtime</h1>
     <div class="lead">Learn how to run the <em>Vehicle App</em> Runtime Services locally.</div>
 	<h2 id="using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</h2>
-<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are available for local execution coming from our <em>devenv-runtimes</em> package and are accessible as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found 
+<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Databroker</em> or <em>Vehicle Services</em>) are available for local execution coming from our <em>devenv-runtimes</em> package and are accessible as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found 
 
 <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>
 .</p>
@@ -198,8 +198,8 @@ For a more detailed view on how to change or add runtime service configuration, 
 
 <a href="/velocitas//docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages">Lifecycle Management Package Development</a>
 </p>
-<h2 id="using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</h2>
-<p>A CLI tool is provided for interacting with a running instance of the KUKSA Data Broker. It can be started by running the task <code>Local Runtime - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local Runtime - VehicleDataBroker CLI</code>). The <em>Runtime Local</em> needs to be running for you to be able to use the tool.</p>
+<h2 id="using-kuksa-databroker-cli">Using KUKSA Databroker CLI</h2>
+<p>A CLI tool is provided for interacting with a running instance of the KUKSA Databroker. It can be started by running the task <code>Local Runtime - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local Runtime - VehicleDataBroker CLI</code>). The <em>Runtime Local</em> needs to be running for you to be able to use the tool.</p>
 <h2 id="integrating-a-new-runtime-service-into-visual-studio-code-task">Integrating a new runtime service into Visual Studio Code Task</h2>
 <p>Integration of a new runtime service can be done by duplicating one of the existing tasks.</p>
 <ul>
@@ -318,9 +318,9 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <li>Creating/updating candump file with the name <code>candumpDefault.log</code> in <code>./config/feedercan</code></li>
 <li>Restarting Kanto (execute the tasks <code>Kanto - Runtime Down</code> and <code>Kanto - Runtime Up</code>)</li>
 </ol>
-<p>More information about FeederCan can be found 
+<p>More information about the CAN Provider can be found 
 
-<a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">here</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-can-provider" target="_blank" rel="noopener">here</a>
 </p>
 <h2 id="next-steps">Next steps</h2>
 <ul>

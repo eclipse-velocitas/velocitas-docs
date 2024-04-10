@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -388,7 +388,7 @@ This is the multi-page printable view of this section.
 	<h1 id="pg-14994cdfceb19b97cd58870a0d746743">1.1 - Seat Adjuster</h1>
     <div class="lead">Provides option to request a new seat position and to publish the current seat position</div>
 	<p>In the scenario of a car sharing company, the goal is to provide the functionality of automatically adjusting the driver&rsquo;s seat position based on their preferred settings stored in their profile. When the driver unlocks the car, a request is sent to the vehicle to retrieve the preferred seat position. This is where your implementation begins.</p>
-<p>The <em>Seat Adjuster Vehicle App</em> receives a MQTT message containing the seat position, which then triggers a seat adjustment command through the <em>Seat Service</em> to change the seat position. Additionally, to ensure convenience for future trips, the car sharing company saves the driver&rsquo;s preferred seat position and utilizes it accordingly. <em>The Seat Adjuster Vehicle App</em> subscribes to the seat position, receiving updates from the <em>Data Broker</em>, which streams data from the <em>Seat Service</em>.</p>
+<p>The <em>Seat Adjuster Vehicle App</em> receives a MQTT message containing the seat position, which then triggers a seat adjustment command through the <em>Seat Service</em> to change the seat position. Additionally, to ensure convenience for future trips, the car sharing company saves the driver&rsquo;s preferred seat position and utilizes it accordingly. <em>The Seat Adjuster Vehicle App</em> subscribes to the seat position, receiving updates from the <em>Databroker</em>, which streams data from the <em>Seat Service</em>.</p>
 <h2 id="requesting-new-seat-position">Requesting new seat position</h2>
 <p><img src="./seat_adjuster_dataflow_1.png" alt="seat_adjuster_dataflow_1"></p>
 <ol>
@@ -400,7 +400,7 @@ This is the multi-page printable view of this section.
 <p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> that has subscribed to this topic, receives the request to change the seat position as a MQTT message.</p>
 </li>
 <li>
-<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> gets the current vehicle speed from the data broker, which is fed by the <strong>CAN Feeder (KUKSA DBC Feeder)</strong>.</p>
+<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> gets the current vehicle speed from the Databroker, which is fed by the <strong>CAN Provider (KUKSA CAN Provider)</strong>.</p>
 </li>
 <li>
 <p>With the support of the <strong><em>Vehicle App</em> SDK</strong>, the <strong>Seat Adjuster <em>Vehicle App</em></strong> triggers a seat adjustment command of the <strong>Seat Service</strong> via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.</p>
@@ -428,10 +428,10 @@ This is the multi-page printable view of this section.
 <p>If the seat position will be changed by the driver, the new seat position will be sent to the <strong>Seat Service</strong> via CAN.</p>
 </li>
 <li>
-<p>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>KUKSA Data Broker</strong> since it was registered beforehand.</p>
+<p>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>KUKSA Databroker</strong> since it was registered beforehand.</p>
 </li>
 <li>
-<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> that subscribed to the seat position receives the new seat position from the <strong>KUKSA Data Broker</strong> as a result.</p>
+<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> that subscribed to the seat position receives the new seat position from the <strong>KUKSA Databroker</strong> as a result.</p>
 </li>
 <li>
 <p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> publishes this on topic <code>seatadjuster/currentPosition</code> with the payload:</p>
@@ -589,12 +589,12 @@ This is the multi-page printable view of this section.
 <tr>
 <td>
 
-<a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">kuksa.val</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-databroker" target="_blank" rel="noopener">kuksa-databroker</a>
 </td>
 <td>Is a part of the <em>Vehicle Abstraction Layer (VAL)</em> of the 
 
-<a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>
- and provides the KUKSA Data Broker (aka Vehicle Data Broker). The KUKSA Data Broker offers data points available in the vehicle to the <em>Vehicle Apps</em> semantically aligned to a data model like the 
+<a href="https://github.com/eclipse-kuksa" target="_blank" rel="noopener">Eclipse KUKSA project</a>
+ and provides the KUKSA Databroker. The KUKSA Databroker offers data points available in the vehicle to the <em>Vehicle Apps</em> semantically aligned to a data model like the 
 
 <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">Vehicle Signal Specification (VSS)</a>
 .</td>
@@ -602,12 +602,12 @@ This is the multi-page printable view of this section.
 <tr>
 <td>
 
-<a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">kuksa.val.feeders</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-can-provider" target="_blank" rel="noopener">kuksa-can-provider</a>
 </td>
-<td>The KUKSA DBC Feeder is a generic data feeder that reads data from the vehicle&rsquo;s 
+<td>The KUKSA CAN Provider is a generic data feeder that reads data from the vehicle&rsquo;s 
 
 <a href="https://en.wikipedia.org/wiki/CAN_bus" target="_blank" rel="noopener">CAN bus</a>
- defined by a DBC file, maps them to a set of data points (e.g. according to the VSS) and feeds it into the Data Broker.</td>
+ defined by a DBC file, maps them to a set of data points (e.g. according to the VSS) and feeds it into the Databroker.</td>
 </tr>
 <tr>
 <td>

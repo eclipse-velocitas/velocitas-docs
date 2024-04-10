@@ -42,13 +42,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/vehicle_app_runtime/local_runtime/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2024-04-04T12:56:18+02:00" />
+<meta property="article:modified_time" content="2024-04-10T10:31:18+02:00" />
 
 <meta itemprop="name" content="Local Runtime">
 <meta itemprop="description" content="Learn how to run the _Vehicle App_ Runtime Services locally.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2024-04-04T12:56:18+02:00" />
-<meta itemprop="wordCount" content="585">
+<meta itemprop="dateModified" content="2024-04-10T10:31:18+02:00" />
+<meta itemprop="wordCount" content="582">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Local Runtime"/>
 <meta name="twitter:description" content="Learn how to run the _Vehicle App_ Runtime Services locally.
 "/>
@@ -93,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -119,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -422,7 +422,7 @@
   <ul>
     <li><a href="#using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</a></li>
     <li><a href="#addchange-runtime-service-configuration">Add/Change runtime service configuration</a></li>
-    <li><a href="#using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</a></li>
+    <li><a href="#using-kuksa-databroker-cli">Using KUKSA Databroker CLI</a></li>
     <li><a href="#integrating-a-new-runtime-service-into-visual-studio-code-task">Integrating a new runtime service into Visual Studio Code Task</a>
       <ul>
         <li><a href="#task-codeblock-helper">Task CodeBlock helper</a></li>
@@ -509,7 +509,7 @@
 		
 	</header>    
 	<h2 id="using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</h2>
-<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are available for local execution coming from our <em>devenv-runtimes</em> package and are accessible as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found 
+<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Databroker</em> or <em>Vehicle Services</em>) are available for local execution coming from our <em>devenv-runtimes</em> package and are accessible as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found 
 
 <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>
 .</p>
@@ -528,8 +528,8 @@ For a more detailed view on how to change or add runtime service configuration, 
 
 <a href="/velocitas//docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages">Lifecycle Management Package Development</a>
 </p>
-<h2 id="using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</h2>
-<p>A CLI tool is provided for interacting with a running instance of the KUKSA Data Broker. It can be started by running the task <code>Local Runtime - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local Runtime - VehicleDataBroker CLI</code>). The <em>Runtime Local</em> needs to be running for you to be able to use the tool.</p>
+<h2 id="using-kuksa-databroker-cli">Using KUKSA Databroker CLI</h2>
+<p>A CLI tool is provided for interacting with a running instance of the KUKSA Databroker. It can be started by running the task <code>Local Runtime - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local Runtime - VehicleDataBroker CLI</code>). The <em>Runtime Local</em> needs to be running for you to be able to use the tool.</p>
 <h2 id="integrating-a-new-runtime-service-into-visual-studio-code-task">Integrating a new runtime service into Visual Studio Code Task</h2>
 <p>Integration of a new runtime service can be done by duplicating one of the existing tasks.</p>
 <ul>
@@ -581,7 +581,7 @@ A new service can be easily started by calling it from bash script, however rest
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified April 4, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/741097f72b3e4e55c669ceece2ec64e11dc68a6e">Remove dapr and k3d (#119) (741097f)</a>
+  Last modified April 10, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/d2a1b104603f155e949486b5b03d5aca8df39141">adapt to new kuksa repos (#120) (d2a1b10)</a>
 </div>
 
 </div>

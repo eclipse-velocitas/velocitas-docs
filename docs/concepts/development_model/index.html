@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -116,7 +116,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -423,7 +423,7 @@
         <li><a href="#vehicle-models">Vehicle Models</a></li>
         <li><a href="#sdks">SDKs</a></li>
         <li><a href="#vehicle-services">Vehicle Services</a></li>
-        <li><a href="#data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</a></li>
+        <li><a href="#kuksa-databroker">KUKSA Databroker</a></li>
         <li><a href="#semantic-models">Semantic models</a></li>
         <li><a href="#communication-protocols">Communication Protocols</a></li>
         <li><a href="#middleware-abstraction">Middleware Abstraction</a></li>
@@ -528,7 +528,7 @@
 <h3 id="vehicle-models">Vehicle Models</h3>
 <p>A Vehicle Model makes it possible to easily get vehicle data from the 
 
-<a href="#data-broker">Data Broker</a>
+<a href="#kuksa-databroker">Databroker</a>
  and to execute remote procedure calls over gRPC against 
 
 <a href="#vehicle-services">Vehicle Services</a>
@@ -548,7 +548,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 <h3 id="vehicle-services">Vehicle Services</h3>
 <p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the 
 
-<a href="#data-broker">Data Broker</a>
+<a href="#kuksa-databroker">Databroker</a>
  and may expose gRPC endpoints, which can be invoked by 
 
 <a href="#vehicle-apps"><em>Vehicle Apps</em></a>
@@ -556,8 +556,8 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 
 <a href="#vehicle-models">Vehicle Model</a>
 .</p>
-<h3 id="data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
-<p>Vehicle data is stored in the KUKSA Data Broker conforming to an underlying 
+<h3 id="kuksa-databroker">KUKSA Databroker</h3>
+<p>Vehicle data is stored in the KUKSA Databroker conforming to an underlying 
 
 <a href="#semantic-models">Semantic Model</a>
  like 
@@ -571,7 +571,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 <p>The Vehicle Signal Specification (
 
 <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>
-) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between <em>Vehicle Apps</em> and the Data Broker.</p>
+) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between <em>Vehicle Apps</em> and the Databroker.</p>
 <p>The Vehicle Service Catalog (
 
 <a href="https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog" target="_blank" rel="noopener">VSC</a>
@@ -602,7 +602,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 <a href="#vehicle-services">Vehicle Services</a>
  and the 
 
-<a href="#data-broker">Data Broker</a>
+<a href="#kuksa-databroker">Databroker</a>
  is based on the 
 
 <a href="https://grpc.io/" target="_blank" rel="noopener">gRPC</a>
@@ -708,7 +708,7 @@ Favor fast startup and support graceful shutdowns to leave the system in a corre
                 </h5>
                 <p>Learn about the main concepts and components of the vehicle abstraction and how it relates to the 
 
-<a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>
+<a href="https://github.com/eclipse-kuksa" target="_blank" rel="noopener">Eclipse KUKSA project</a>
 .</p>
             </div>
         
@@ -726,7 +726,7 @@ Favor fast startup and support graceful shutdowns to leave the system in a corre
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified April 4, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/741097f72b3e4e55c669ceece2ec64e11dc68a6e">Remove dapr and k3d (#119) (741097f)</a>
+  Last modified April 10, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/d2a1b104603f155e949486b5b03d5aca8df39141">adapt to new kuksa repos (#120) (d2a1b10)</a>
 </div>
 
 </div>

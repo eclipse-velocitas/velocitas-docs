@@ -42,13 +42,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/vehicle_app_development/cpp_development/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-05-09T13:43:25+05:30" />
-<meta property="article:modified_time" content="2024-04-04T12:56:18+02:00" />
+<meta property="article:modified_time" content="2024-04-10T10:31:18+02:00" />
 
 <meta itemprop="name" content="C&#43;&#43; Vehicle App Development">
 <meta itemprop="description" content="Learn how to develop and test a _Vehicle App_ using C&#43;&#43;.
 "><meta itemprop="datePublished" content="2022-05-09T13:43:25+05:30" />
-<meta itemprop="dateModified" content="2024-04-04T12:56:18+02:00" />
-<meta itemprop="wordCount" content="1734">
+<meta itemprop="dateModified" content="2024-04-10T10:31:18+02:00" />
+<meta itemprop="wordCount" content="1733">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="C&#43;&#43; Vehicle App Development"/>
 <meta name="twitter:description" content="Learn how to develop and test a _Vehicle App_ using C&#43;&#43;.
 "/>
@@ -93,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -119,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -641,7 +641,7 @@ A detailed explanation of the use case and the example is available
 </span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">dataPoint</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">());</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// do something with the data point value
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>The <code>VehicleApp</code> class provides the <code>subscribeDataPoints()</code> method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via <code>AsyncSubscription::onItem()</code> is called. Conversely, the callback registered via <code>AsyncSubscription::onError()</code> is called once there is any error during communication with the KUKSA data broker.</p>
+</span></span></code></pre></div><p>The <code>VehicleApp</code> class provides the <code>subscribeDataPoints()</code> method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via <code>AsyncSubscription::onItem()</code> is called. Conversely, the callback registered via <code>AsyncSubscription::onError()</code> is called once there is any error during communication with the KUKSA Databroker.</p>
 <p>The result passed to the callback registered via <code>onItem()</code> is an object of type <code>DataPointsResult</code> which holds all data points that have changed. Individual data points can be accessed directly by their reference: <code>result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)</code>)</p>
 <h2 id="services">Services</h2>
 <p>Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them 
@@ -804,7 +804,7 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified April 4, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/741097f72b3e4e55c669ceece2ec64e11dc68a6e">Remove dapr and k3d (#119) (741097f)</a>
+  Last modified April 10, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/d2a1b104603f155e949486b5b03d5aca8df39141">adapt to new kuksa repos (#120) (d2a1b10)</a>
 </div>
 
 </div>

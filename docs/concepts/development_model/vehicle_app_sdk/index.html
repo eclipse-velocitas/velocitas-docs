@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -116,7 +116,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -541,7 +541,7 @@
 <p><strong>
 
 <a href="#fluent-query--rule-construction">Fluent query &amp; rule construction</a>
-:</strong> Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.</p>
+:</strong> Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Databroker to access the real values of the data points that are defined in the vehicle model.</p>
 </li>
 <li>
 <p><strong>
@@ -874,7 +874,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </div>
 
 <h2 id="fluent-query--rule-construction">Fluent query &amp; rule construction</h2>
-<p>A set of query methods like <code>get()</code>, <code>where()</code>, <code>join()</code> etc. are provided through the <code>Model</code> and <code>DataPoint</code> base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Data Broker.</p>
+<p>A set of query methods like <code>get()</code>, <code>where()</code>, <code>join()</code> etc. are provided through the <code>Model</code> and <code>DataPoint</code> base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Databroker.</p>
 <h3 id="query-examples">Query examples</h3>
 <p>The following examples show you how to query data points.</p>
 <h4 id="get-single-data-point">Get single data point</h4>
@@ -1151,9 +1151,9 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </div>
 
 <h2 id="vehicle-app-abstraction">Vehicle App abstraction</h2>
-<p><em>Vehicle Apps</em> are inherited from the <code>VehicleApp</code> base class. This enables the <em>Vehicle App</em> to use the Publish &amp; Subscribe messaging and to connect to the KUKSA Data Broker.</p>
+<p><em>Vehicle Apps</em> are inherited from the <code>VehicleApp</code> base class. This enables the <em>Vehicle App</em> to use the Publish &amp; Subscribe messaging and to connect to the KUKSA Databroker.</p>
 <p>The <code>Vehicle Model</code> instance is passed to the constructor of the <code>VehicleApp</code> class and should be stored in a member variable (e.g. <code>self.vehicle</code> for Python, <code>std::shared_ptr&lt;Vehicle&gt; m_vehicle;</code> for C++), to be used by all methods within the application.</p>
-<p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <em>Vehicle App</em> and register all MQTT topic and Data Broker subscriptions.</p>
+<p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <em>Vehicle App</em> and register all MQTT topic and Databroker subscriptions.</p>
 
 
 <div class="alert alert-warning" role="alert">
@@ -1263,7 +1263,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified April 4, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/741097f72b3e4e55c669ceece2ec64e11dc68a6e">Remove dapr and k3d (#119) (741097f)</a>
+  Last modified April 10, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/d2a1b104603f155e949486b5b03d5aca8df39141">adapt to new kuksa repos (#120) (d2a1b10)</a>
 </div>
 
 </div>

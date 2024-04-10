@@ -164,7 +164,7 @@ A detailed explanation of the use case and the example is available
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;on_seat_position_changed&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Every &lt;code&gt;DataPoint&lt;/code&gt; provides a &lt;em&gt;.subscribe()&lt;/em&gt; method that allows for providing a callback function which will be invoked on every data point update. Subscribed data is available in the respective &lt;em&gt;DataPointReply&lt;/em&gt; object and need to be accessed via the reference to the subscribed data point. The returned object is of type &lt;code&gt;TypedDataPointResult&lt;/code&gt; which holds the &lt;code&gt;value&lt;/code&gt; of the data point
-and the &lt;code&gt;timestamp&lt;/code&gt; at which the value was captured by the data broker.
+and the &lt;code&gt;timestamp&lt;/code&gt; at which the value was captured by the Databroker.
 Therefore the &lt;code&gt;on_seat_position_changed&lt;/code&gt; callback function needs to be implemented like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;on_seat_position_changed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;data&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;DataPointReply&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# handle the event here&lt;/span&gt;
@@ -484,7 +484,7 @@ A detailed explanation of the use case and the example is available
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;dataPoint&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;());&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// do something with the data point value
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;VehicleApp&lt;/code&gt; class provides the &lt;code&gt;subscribeDataPoints()&lt;/code&gt; method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via &lt;code&gt;AsyncSubscription::onItem()&lt;/code&gt; is called. Conversely, the callback registered via &lt;code&gt;AsyncSubscription::onError()&lt;/code&gt; is called once there is any error during communication with the KUKSA data broker.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;VehicleApp&lt;/code&gt; class provides the &lt;code&gt;subscribeDataPoints()&lt;/code&gt; method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via &lt;code&gt;AsyncSubscription::onItem()&lt;/code&gt; is called. Conversely, the callback registered via &lt;code&gt;AsyncSubscription::onError()&lt;/code&gt; is called once there is any error during communication with the KUKSA Databroker.&lt;/p&gt;
 &lt;p&gt;The result passed to the callback registered via &lt;code&gt;onItem()&lt;/code&gt; is an object of type &lt;code&gt;DataPointsResult&lt;/code&gt; which holds all data points that have changed. Individual data points can be accessed directly by their reference: &lt;code&gt;result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)&lt;/code&gt;)&lt;/p&gt;
 &lt;h2 id=&#34;services&#34;&gt;Services&lt;/h2&gt;
 &lt;p&gt;Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them 
@@ -656,7 +656,7 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
       <description>
         
         
-        &lt;p&gt;To be sure that a newly created &lt;em&gt;Vehicle App&lt;/em&gt; will run together with the &lt;em&gt;KUKSA Data Broker&lt;/em&gt; and potentially other dependant &lt;em&gt;Vehicle Services&lt;/em&gt; or &lt;em&gt;Vehicle Apps&lt;/em&gt;, it&amp;rsquo;s essential to write integration tests along with developing the app.&lt;/p&gt;
+        &lt;p&gt;To be sure that a newly created &lt;em&gt;Vehicle App&lt;/em&gt; will run together with the &lt;em&gt;KUKSA Databroker&lt;/em&gt; and potentially other dependant &lt;em&gt;Vehicle Services&lt;/em&gt; or &lt;em&gt;Vehicle Apps&lt;/em&gt;, it&amp;rsquo;s essential to write integration tests along with developing the app.&lt;/p&gt;
 &lt;p&gt;To execute an integration test, the dependant components need to be running and be accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.&lt;/p&gt;
 
 
@@ -671,7 +671,7 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 &lt;p&gt;To write an integration test, you should check the sample that comes with the template (
 
 &lt;a href=&#34;https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;/app/tests/integration/integration_test.py&lt;/code&gt;&lt;/a&gt;
-). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for data points), there are two classes present in Python SDK that will help:&lt;/p&gt;
+). To support interacting with the MQTT broker and the KUKSA Databroker (to get and set values for data points), there are two classes present in Python SDK that will help:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;MqttClient&lt;/code&gt;: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:&lt;/p&gt;
@@ -694,7 +694,7 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 &lt;p&gt;This class can be initialized with a given port. If no port is specified, the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt; will be checked. If this is not possible either, the default value of &lt;code&gt;1883&lt;/code&gt; will be used. &lt;strong&gt;It&amp;rsquo;s recommended to specify no port when initializing that class as it will locally use the default port &lt;code&gt;1883&lt;/code&gt; and in CI the port is set by the environment variable &lt;code&gt;MQTT_PORT&lt;/code&gt;. This will prevent a check-in in the wrong port during local development.&lt;/strong&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code&gt;IntTestHelper&lt;/code&gt;: this class provides functionality to interact with the &lt;em&gt;KUKSA Data Broker&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;IntTestHelper&lt;/code&gt;: this class provides functionality to interact with the &lt;em&gt;KUKSA Databroker&lt;/em&gt;.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;register_datapoint&lt;/code&gt;: registers a new data point with given name and type (
 
@@ -709,8 +709,8 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 &lt;p&gt;To be able to test the &lt;em&gt;Vehicle App&lt;/em&gt; in an integrated way, the following components should be running:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Mosquitto&lt;/li&gt;
-&lt;li&gt;Data Broker&lt;/li&gt;
-&lt;li&gt;Vehicle Mock Service&lt;/li&gt;
+&lt;li&gt;Databroker&lt;/li&gt;
+&lt;li&gt;Vehicle Mock Provider&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;We distinguish between two environments for executing the &lt;em&gt;Vehicle App&lt;/em&gt; and the runtime components:&lt;/p&gt;
 &lt;ul&gt;
@@ -756,7 +756,7 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 &lt;h2 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h2&gt;
 &lt;h3 id=&#34;troubleshoot-inttesthelper&#34;&gt;Troubleshoot IntTestHelper&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Make sure that the &lt;em&gt;KUKSA Data Broker&lt;/em&gt; is up and running by checking the task log.&lt;/li&gt;
+&lt;li&gt;Make sure that the &lt;em&gt;KUKSA Databroker&lt;/em&gt; is up and running by checking the task log.&lt;/li&gt;
 &lt;li&gt;Make sure that you are using the right ports.&lt;/li&gt;
 &lt;li&gt;Make sure that you installed the correct version of the SDK (&lt;em&gt;SDV&lt;/em&gt;-package).&lt;/li&gt;
 &lt;/ul&gt;

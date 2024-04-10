@@ -48,7 +48,7 @@
 &lt;h3 id=&#34;vehicle-models&#34;&gt;Vehicle Models&lt;/h3&gt;
 &lt;p&gt;A Vehicle Model makes it possible to easily get vehicle data from the 
 
-&lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt;
+&lt;a href=&#34;#kuksa-databroker&#34;&gt;Databroker&lt;/a&gt;
  and to execute remote procedure calls over gRPC against 
 
 &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt;
@@ -68,7 +68,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 &lt;h3 id=&#34;vehicle-services&#34;&gt;Vehicle Services&lt;/h3&gt;
 &lt;p&gt;Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the 
 
-&lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt;
+&lt;a href=&#34;#kuksa-databroker&#34;&gt;Databroker&lt;/a&gt;
  and may expose gRPC endpoints, which can be invoked by 
 
 &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt;
@@ -76,8 +76,8 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 
 &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt;
 .&lt;/p&gt;
-&lt;h3 id=&#34;data-broker&#34;&gt;KUKSA Data Broker (aka Vehicle Data Broker)&lt;/h3&gt;
-&lt;p&gt;Vehicle data is stored in the KUKSA Data Broker conforming to an underlying 
+&lt;h3 id=&#34;kuksa-databroker&#34;&gt;KUKSA Databroker&lt;/h3&gt;
+&lt;p&gt;Vehicle data is stored in the KUKSA Databroker conforming to an underlying 
 
 &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt;
  like 
@@ -91,7 +91,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 &lt;p&gt;The Vehicle Signal Specification (
 
 &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt;
-) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between &lt;em&gt;Vehicle Apps&lt;/em&gt; and the Data Broker.&lt;/p&gt;
+) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between &lt;em&gt;Vehicle Apps&lt;/em&gt; and the Databroker.&lt;/p&gt;
 &lt;p&gt;The Vehicle Service Catalog (
 
 &lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSC&lt;/a&gt;
@@ -122,7 +122,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt;
  and the 
 
-&lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt;
+&lt;a href=&#34;#kuksa-databroker&#34;&gt;Databroker&lt;/a&gt;
  is based on the 
 
 &lt;a href=&#34;https://grpc.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC&lt;/a&gt;

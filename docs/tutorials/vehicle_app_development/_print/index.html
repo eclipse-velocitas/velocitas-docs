@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.17a5a01bd76e16fbc9f199131880d86c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5f172fb641fc37271019919cc6a1d47a.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -330,7 +330,7 @@ A detailed explanation of the use case and the example is available
 </span></span><span style="display:flex;"><span>            <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">on_seat_position_changed</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
 </span></span></code></pre></div><p>Every <code>DataPoint</code> provides a <em>.subscribe()</em> method that allows for providing a callback function which will be invoked on every data point update. Subscribed data is available in the respective <em>DataPointReply</em> object and need to be accessed via the reference to the subscribed data point. The returned object is of type <code>TypedDataPointResult</code> which holds the <code>value</code> of the data point
-and the <code>timestamp</code> at which the value was captured by the data broker.
+and the <code>timestamp</code> at which the value was captured by the Databroker.
 Therefore the <code>on_seat_position_changed</code> callback function needs to be implemented like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># handle the event here</span>
@@ -654,7 +654,7 @@ A detailed explanation of the use case and the example is available
 </span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">dataPoint</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">());</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// do something with the data point value
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>The <code>VehicleApp</code> class provides the <code>subscribeDataPoints()</code> method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via <code>AsyncSubscription::onItem()</code> is called. Conversely, the callback registered via <code>AsyncSubscription::onError()</code> is called once there is any error during communication with the KUKSA data broker.</p>
+</span></span></code></pre></div><p>The <code>VehicleApp</code> class provides the <code>subscribeDataPoints()</code> method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via <code>AsyncSubscription::onItem()</code> is called. Conversely, the callback registered via <code>AsyncSubscription::onError()</code> is called once there is any error during communication with the KUKSA Databroker.</p>
 <p>The result passed to the callback registered via <code>onItem()</code> is an object of type <code>DataPointsResult</code> which holds all data points that have changed. Individual data points can be accessed directly by their reference: <code>result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)</code>)</p>
 <h2 id="services">Services</h2>
 <p>Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them 
@@ -829,8 +829,8 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c3bd4917d50ac579e189843e1a261e63">3 - Vehicle App Integration Testing</h1>
-    <div class="lead">Learn how to test that a <em>Vehicle App</em> together with the KUKSA Data Broker and potentially other dependant Vehicle Services or <em>Vehicle Apps</em> runs as expected.</div>
-	<p>To be sure that a newly created <em>Vehicle App</em> will run together with the <em>KUKSA Data Broker</em> and potentially other dependant <em>Vehicle Services</em> or <em>Vehicle Apps</em>, it&rsquo;s essential to write integration tests along with developing the app.</p>
+    <div class="lead">Learn how to test that a <em>Vehicle App</em> together with the KUKSA Databroker and potentially other dependant Vehicle Services or <em>Vehicle Apps</em> runs as expected.</div>
+	<p>To be sure that a newly created <em>Vehicle App</em> will run together with the <em>KUKSA Databroker</em> and potentially other dependant <em>Vehicle Services</em> or <em>Vehicle Apps</em>, it&rsquo;s essential to write integration tests along with developing the app.</p>
 <p>To execute an integration test, the dependant components need to be running and be accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.</p>
 
 
@@ -845,7 +845,7 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 <p>To write an integration test, you should check the sample that comes with the template (
 
 <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py" target="_blank" rel="noopener"><code>/app/tests/integration/integration_test.py</code></a>
-). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for data points), there are two classes present in Python SDK that will help:</p>
+). To support interacting with the MQTT broker and the KUKSA Databroker (to get and set values for data points), there are two classes present in Python SDK that will help:</p>
 <ul>
 <li>
 <p><code>MqttClient</code>: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:</p>
@@ -868,7 +868,7 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 <p>This class can be initialized with a given port. If no port is specified, the environment variable <code>MQTT_PORT</code> will be checked. If this is not possible either, the default value of <code>1883</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>1883</code> and in CI the port is set by the environment variable <code>MQTT_PORT</code>. This will prevent a check-in in the wrong port during local development.</strong></p>
 </li>
 <li>
-<p><code>IntTestHelper</code>: this class provides functionality to interact with the <em>KUKSA Data Broker</em>.</p>
+<p><code>IntTestHelper</code>: this class provides functionality to interact with the <em>KUKSA Databroker</em>.</p>
 <ul>
 <li><code>register_datapoint</code>: registers a new data point with given name and type (
 
@@ -883,8 +883,8 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 <p>To be able to test the <em>Vehicle App</em> in an integrated way, the following components should be running:</p>
 <ul>
 <li>Mosquitto</li>
-<li>Data Broker</li>
-<li>Vehicle Mock Service</li>
+<li>Databroker</li>
+<li>Vehicle Mock Provider</li>
 </ul>
 <p>We distinguish between two environments for executing the <em>Vehicle App</em> and the runtime components:</p>
 <ul>
@@ -930,7 +930,7 @@ You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or 
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h3 id="troubleshoot-inttesthelper">Troubleshoot IntTestHelper</h3>
 <ul>
-<li>Make sure that the <em>KUKSA Data Broker</em> is up and running by checking the task log.</li>
+<li>Make sure that the <em>KUKSA Databroker</em> is up and running by checking the task log.</li>
 <li>Make sure that you are using the right ports.</li>
 <li>Make sure that you installed the correct version of the SDK (<em>SDV</em>-package).</li>
 </ul>
