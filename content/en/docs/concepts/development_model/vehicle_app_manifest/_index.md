@@ -81,7 +81,7 @@ To fully understand the _AppManifest_, let's have a look at **who** interacts wi
     {
         "type": "grpc-interface",
         "config": {
-            "src": "https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto",
+            "src": "https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto",
             "required": {
                 "methods": [ "Move", "MoveComponent" ]
             },

@@ -25,7 +25,7 @@ The Vehicle Applications (_Vehicle Apps_) contain the business logic that needs 
 
 ### Vehicle Models
 
-A Vehicle Model makes it possible to easily get vehicle data from the [Data Broker](#data-broker) and to execute remote procedure calls over gRPC against [Vehicle Services](#vehicle-services) and other [_Vehicle Apps_](#vehicle-apps). It is generated from the underlying [semantic models](#semantic-models) for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the [SDKs](#sdks).
+A Vehicle Model makes it possible to easily get vehicle data from the [Databroker](#kuksa-databroker) and to execute remote procedure calls over gRPC against [Vehicle Services](#vehicle-services) and other [_Vehicle Apps_](#vehicle-apps). It is generated from the underlying [semantic models](#semantic-models) for a concrete programming language as a graph-based, strongly-typed, intellisense-enabled library. The elements of the vehicle models are defined by the [SDKs](#sdks).
 
 ### SDKs
 
@@ -34,15 +34,15 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 
 ### Vehicle Services
 
-Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the [Data Broker](#data-broker) and may expose gRPC endpoints, which can be invoked by [_Vehicle Apps_](#vehicle-apps) over a [Vehicle Model](#vehicle-models).
+Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the [Databroker](#kuksa-databroker) and may expose gRPC endpoints, which can be invoked by [_Vehicle Apps_](#vehicle-apps) over a [Vehicle Model](#vehicle-models).
 
-### KUKSA Data Broker (aka Vehicle Data Broker) {#data-broker}
+### KUKSA Databroker
 
-Vehicle data is stored in the KUKSA Data Broker conforming to an underlying [Semantic Model](#semantic-models) like [VSS](https://covesa.github.io/vehicle_signal_specification/). [_Vehicle Apps_](#vehicle-apps) can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the _Vehicle App_.
+Vehicle data is stored in the KUKSA Databroker conforming to an underlying [Semantic Model](#semantic-models) like [VSS](https://covesa.github.io/vehicle_signal_specification/). [_Vehicle Apps_](#vehicle-apps) can either pull this data or subscribe for updates. In addition, it supports rule-based access to reduce the number of updates sent to the _Vehicle App_.
 
 ### Semantic models
 
-The Vehicle Signal Specification ([VSS](https://covesa.github.io/vehicle_signal_specification/)) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between _Vehicle Apps_ and the Data Broker.
+The Vehicle Signal Specification ([VSS](https://covesa.github.io/vehicle_signal_specification/)) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between _Vehicle Apps_ and the Databroker.
 
 The Vehicle Service Catalog ([VSC](https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog)) extends VSS with functional remote procedure call definitions and semantically defines the gRPC interfaces of Vehicle Services and _Vehicle Apps_.
 
@@ -52,7 +52,7 @@ The Velocitas SDK is using [VSS](https://covesa.github.io/vehicle_signal_specifi
 
 ### Communication Protocols
 
-Asynchronous communication between [_Vehicle Apps_](#vehicle-apps) and other vehicle components, as well as cloud connectivity, is facilitated through [MQTT](https://mqtt.org/) messaging. Direct, synchronous communication between [_Vehicle Apps_](#vehicle-apps), [Vehicle Services](#vehicle-services) and the [Data Broker](#data-broker) is based on the [gRPC](https://grpc.io/) protocol.
+Asynchronous communication between [_Vehicle Apps_](#vehicle-apps) and other vehicle components, as well as cloud connectivity, is facilitated through [MQTT](https://mqtt.org/) messaging. Direct, synchronous communication between [_Vehicle Apps_](#vehicle-apps), [Vehicle Services](#vehicle-services) and the [Databroker](#kuksa-databroker) is based on the [gRPC](https://grpc.io/) protocol.
 
 ### Middleware Abstraction
 

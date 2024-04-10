@@ -184,14 +184,14 @@ description: >
 
 ### Add a Vehicle Service
 
-_Vehicle Services_ provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. _Vehicle Services_ may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by _Vehicle Apps_ over a _Vehicle Model_.
+_Vehicle Services_ provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. _Vehicle Services_ may feed data to the Databroker and may expose gRPC endpoints, which can be invoked by _Vehicle Apps_ over a _Vehicle Model_.
 
 In this section, we add a _Vehicle Service_ to the _Vehicle Model_.
 
 1. Create a new folder `proto` under `my_vehicle_model/my_vehicle_model`.
 2. Copy your proto file under `my_vehicle_model/my_vehicle_model/proto`
 
-   As example you could use the protocol buffers message definition [seats.proto](https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto) provided by the KUKSA.VAL services which describes a [seat control service](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service).
+   As example you could use the protocol buffers message definition [seats.proto](https://github.com/eclipse-kuksa/kuksa-incubation/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto) provided by the KUKSA.VAL services which describes a [seat control service](https://github.com/eclipse-kuksa/kuksa-incubation/tree/main/seat_service).
 
 3. Install the grpcio tools including mypy types to generate the Python classes out of the proto-file:
 

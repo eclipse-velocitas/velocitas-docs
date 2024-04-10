@@ -141,7 +141,7 @@ void onSeatPositionChanged(const DataPointsResult& result) {
 
 ```
 
-The `VehicleApp` class provides the `subscribeDataPoints()` method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via `AsyncSubscription::onItem()` is called. Conversely, the callback registered via `AsyncSubscription::onError()` is called once there is any error during communication with the KUKSA data broker.
+The `VehicleApp` class provides the `subscribeDataPoints()` method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via `AsyncSubscription::onItem()` is called. Conversely, the callback registered via `AsyncSubscription::onError()` is called once there is any error during communication with the KUKSA Databroker.
 
 The result passed to the callback registered via `onItem()` is an object of type `DataPointsResult` which holds all data points that have changed. Individual data points can be accessed directly by their reference: `result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)`)
 
