@@ -50,7 +50,7 @@ FeederCAN requires a candump file. A pre-defined candump file is already part of
 1. Creating/updating candump file with the name `candumpDefault.log` in `./config/feedercan`
 1. Restarting Kanto (execute the tasks ```Kanto - Runtime Down``` and ```Kanto - Runtime Up```)
 
-More information about FeederCan can be found [here](https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val)
+More information about the CAN Provider can be found [here](https://github.com/eclipse-kuksa/kuksa-can-provider)
 
 ## Next steps
 

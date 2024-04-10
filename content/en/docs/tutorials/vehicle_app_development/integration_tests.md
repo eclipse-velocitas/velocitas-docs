@@ -53,7 +53,7 @@ To be able to test the _Vehicle App_ in an integrated way, the following compone
 
 - Mosquitto
 - Data Broker
-- Vehicle Mock Service
+- Vehicle Mock Provider
 
 We distinguish between two environments for executing the _Vehicle App_ and the runtime components:
 
