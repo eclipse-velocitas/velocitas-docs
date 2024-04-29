@@ -43,7 +43,7 @@ Config 'src' for interface 'vehicle-signal-interface': URI or path to VSS json (
 
 ### velocitas init
 
-Download packages configured in your `.velocitas.json` to [VELOCITAS_HOME](https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory)
+#### Download packages configured in your `.velocitas.json` to [VELOCITAS_HOME](https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory)
 
 ```bash
 vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas init
@@ -54,6 +54,19 @@ Initializing Velocitas packages ...
 ... Downloading package: 'devenv-devcontainer-setup:v1.1.7'
 Running post init hook for model-generator
 Running 'install-deps'
+...
+```
+
+#### Dynamically initialize packages NOT configured in `.velocitas.json`
+
+Packages which are not part of `.velocitas.json` can easily be initialized using the _package parameter_ `-p / --package` and the _specifier parameter_ `-s / --specifier`. The _specifier parameter_ can be either a git tag or a git hash. If the _specifier parameter_ is omitted the latest version of the specified package will be used automatically. After initialisation the package and it's resolved version will be written to `.velocitas.json`. If the package is already part of `.velocitas.json`, however the version is different the version will be automatically adapted to reflect the specified version.
+
+```bash
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas init -p devenv-runtimes -s v3.0.0
+Initializing Velocitas packages ...
+... Package 'devenv-runtimes:v3.0.0' added to .velocitas.json
+... Downloading package: 'devenv-runtimes:v3.0.0'
+... > Running post init hook for ...
 ...
 ```
 
