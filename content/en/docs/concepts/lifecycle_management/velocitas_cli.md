@@ -57,9 +57,9 @@ Running 'install-deps'
 ...
 ```
 
-#### Dynamically initialize packages NOT configured in `.velocitas.json`
+#### Single Package Init
 
-Packages which are not part of `.velocitas.json` can easily be initialized using the _package parameter_ `-p / --package` and the _specifier parameter_ `-s / --specifier`. The _specifier parameter_ can be either a git tag or a git hash. If the _specifier parameter_ is omitted the latest version of the specified package will be used automatically. After initialisation the package and it's resolved version will be written to `.velocitas.json`. If the package is already part of `.velocitas.json`, however the version is different the version will be automatically adapted to reflect the specified version.
+Single packages can also easily be initialized or re-initialized using the _package parameter_ `-p / --package` and the _specifier parameter_ `-s / --specifier`. The _specifier parameter_ can be either a git tag or a git hash. If the _specifier parameter_ is omitted either the version defined in `.velocitas.json` resp. the latest version of the specified package will be used automatically. After initialisation the package and it's resolved version will be written to `.velocitas.json`. If the package already exists in `.velocitas.json`, however the versions differ it will be automatically updated to the specified version. If no components from the specified package are added to `.velocitas.json` all components from this package are automatically written to it.
 
 ```bash
 vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas init -p devenv-runtimes -s v3.0.0
