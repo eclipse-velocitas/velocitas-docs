@@ -38,3 +38,20 @@ or
 vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas init
 vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas sync
 ```
+
+### Debugging inside installed packages
+
+Open up a seperate VScode window where you can debug installed toolchain packages.
+
+```bash
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ code ~/.velocitas/packages
+```
+
+### Solution to (almost) all problems
+
+The following would clean up the [VELOCITAS_HOME](/docs/concepts/lifecycle_management/packages/usage/#velocitas-home-directory) but afterwards a new project initialization is required.
+
+```bash
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ rm -rf ~/.velocitas
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas init
+```
