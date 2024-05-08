@@ -14,6 +14,8 @@ aliases:
 
 **Start local runtime:** To start local runtime, a task called `Local Runtime - Up` is available. This task runs the runtime services in the correct order. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `Local Runtime - Up`.
 
+**Stop local runtime:** To stop local runtime, a task called `Local Runtime - Down` is available. This task stops running runtime services gracefully. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `Local Runtime - Down`.
+
 **Tasks Management:** Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/... You can access them by pressing F1 and typing `task`. A list with available task commands will appear.
 
 **Logging:** Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task. More detailed logs can be found inside your workspace's logs directory `./logs/*`

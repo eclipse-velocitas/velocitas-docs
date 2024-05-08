@@ -8,26 +8,31 @@ aliases:
   - /docs/concepts/lifecycle_management/project_configuration.md
 ---
 
-Every _Vehicle App_ repo comes with a [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) which is the project configuration of your app. It holds references to the packages and their respective versions you are using in your project.
+Every _Vehicle App_ repo comes with a [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) which is the project configuration of your app. It holds references to the packages and their respective versions as well as components you are using in your project.
 
 Here is an example of this configuration:
 
 ```json
 {
-  "packages": [
-    {
-      "name": "devenv-devcontainer-setup",
-      "version": "v1.0.0"
+    "packages": {
+        "devenv-runtimes": "v3.1.0",
+        "devenv-devcontainer-setup": "v2.1.0"
     },
-    {
-      "name": "devenv-runtimes",
-      "version": "v1.0.0"
-    }
-  ],
-  "variables": {
-    "foo": "bar",
-    "baz": 2
-  }
+    "components": [
+        "runtime-local",
+        "devcontainer-setup",
+        "vehicle-signal-interface",
+        "sdk-installer",
+        "grpc-interface-support"
+    ],
+    "variables": {
+        "language": "python",
+        "repoType": "app",
+        "appManifestPath": "app/AppManifest.json",
+        "githubRepoId": "eclipse-velocitas/vehicle-app-python-template",
+        "generatedModelPath": "./gen/vehicle_model"
+    },
+    "cliVersion": "v0.9.0"
 }
 ```
 

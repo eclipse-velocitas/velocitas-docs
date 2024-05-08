@@ -90,13 +90,12 @@ Syncing Velocitas components!
 Updates Velocitas components.
 
 ```bash
-vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas upgrade --dry-run
-Checking for updates!
-... 'devenv-runtimes' is up to date!
-... 'devenv-github-workflows' is up to date!
-... 'devenv-github-templates' is up to date!
-... 'devenv-devcontainer-setup' is currently at v1.1.6, can be updated to v1.1.7
-... Do you wish to continue? [y/n] [y]: y
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas upgrade --dry-run [--ignore-bounds]
+Checking .velocitas.json for updates!
+... devenv-devcontainer-setup:vx.x.x → up to date!
+... devenv-runtimes:vx.x.x → vx.x.x
+... devenv-github-templates:vx.x.x → up to date!
+... devenv-github-workflows:vx.x.x → up to date!
 ```
 
 ### velocitas package

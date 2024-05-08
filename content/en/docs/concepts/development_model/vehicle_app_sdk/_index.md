@@ -434,11 +434,11 @@ The SDK supports publishing messages to a MQTT broker and subscribing to topics 
 
 ### Publish MQTT Messages
 
-MQTT messages can be published easily with the `publish_mqtt_event()` method, inherited from `VehicleApp` base class:
+MQTT messages can be published easily with the `publish_event()` method, inherited from `VehicleApp` base class:
 
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
-await self.publish_mqtt_event(
+await self.publish_event(
     "seatadjuster/currentPosition", json.dumps(req_data))
 {{< /tab >}}
 {{< tab "C++" >}}
