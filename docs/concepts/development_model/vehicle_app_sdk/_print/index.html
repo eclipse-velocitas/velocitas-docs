@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.1ab1ef95f413b665b40b9b1823c8164c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.66f5a01d85de90ac6947264ae8299551.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -693,7 +693,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <h2 id="publish--subscribe-messaging">Publish &amp; subscribe messaging</h2>
 <p>The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. Using the Velocitas SDK, the low-level MQTT communication is abstracted away from the <em>Vehicle App</em> developer. Especially the physical address and port of the MQTT broker is no longer configured in the <em>Vehicle App</em> itself, but rather is set as an environment variable, which is outside of the <em>Vehicle App</em>.</p>
 <h3 id="publish-mqtt-messages">Publish MQTT Messages</h3>
-<p>MQTT messages can be published easily with the <code>publish_mqtt_event()</code> method, inherited from <code>VehicleApp</code> base class:</p>
+<p>MQTT messages can be published easily with the <code>publish_event()</code> method, inherited from <code>VehicleApp</code> base class:</p>
 
 
 
@@ -716,7 +716,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <div class="tab-content" id="tabs-9-content">
     <div class="tab-pane fade show active"
         id="tabs-09-00" role="tabpanel" aria-labelled-by="tabs-09-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">req_data</span><span style="color:#000;font-weight:bold">))</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"

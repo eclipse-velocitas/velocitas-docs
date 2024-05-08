@@ -42,13 +42,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/concepts/lifecycle_management/velocitas_cli/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-02-13T09:43:25+05:30" />
-<meta property="article:modified_time" content="2024-04-29T14:34:36+02:00" />
+<meta property="article:modified_time" content="2024-05-08T10:25:29+02:00" />
 
 <meta itemprop="name" content="Velocitas CLI">
 <meta itemprop="description" content="Learn everything about the Velocitas CLI.
 "><meta itemprop="datePublished" content="2023-02-13T09:43:25+05:30" />
-<meta itemprop="dateModified" content="2024-04-29T14:34:36+02:00" />
-<meta itemprop="wordCount" content="728">
+<meta itemprop="dateModified" content="2024-05-08T10:25:29+02:00" />
+<meta itemprop="wordCount" content="714">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Velocitas CLI"/>
 <meta name="twitter:description" content="Learn everything about the Velocitas CLI.
 "/>
@@ -93,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.1ab1ef95f413b665b40b9b1823c8164c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.66f5a01d85de90ac6947264ae8299551.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -119,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.1ab1ef95f413b665b40b9b1823c8164c.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.66f5a01d85de90ac6947264ae8299551.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -593,13 +593,12 @@ is located for now, which is a central place of defining our extension and core 
 </span></span><span style="display:flex;"><span>... syncing <span style="color:#4e9a06">&#39;devenv-devcontainer-setup&#39;</span>
 </span></span></code></pre></div><h3 id="velocitas-upgrade">velocitas upgrade</h3>
 <p>Updates Velocitas components.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas upgrade --dry-run
-</span></span><span style="display:flex;"><span>Checking <span style="color:#204a87;font-weight:bold">for</span> updates!
-</span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-runtimes&#39;</span> is up to date!
-</span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-github-workflows&#39;</span> is up to date!
-</span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-github-templates&#39;</span> is up to date!
-</span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-devcontainer-setup&#39;</span> is currently at v1.1.6, can be updated to v1.1.7
-</span></span><span style="display:flex;"><span>... Do you wish to <span style="color:#204a87;font-weight:bold">continue</span>? <span style="color:#ce5c00;font-weight:bold">[</span>y/n<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>y<span style="color:#ce5c00;font-weight:bold">]</span>: y
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas upgrade --dry-run <span style="color:#ce5c00;font-weight:bold">[</span>--ignore-bounds<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Checking .velocitas.json <span style="color:#204a87;font-weight:bold">for</span> updates!
+</span></span><span style="display:flex;"><span>... devenv-devcontainer-setup:vx.x.x → up to date!
+</span></span><span style="display:flex;"><span>... devenv-runtimes:vx.x.x → vx.x.x
+</span></span><span style="display:flex;"><span>... devenv-github-templates:vx.x.x → up to date!
+</span></span><span style="display:flex;"><span>... devenv-github-workflows:vx.x.x → up to date!
 </span></span></code></pre></div><h3 id="velocitas-package">velocitas package</h3>
 <p>Prints information about packages.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup
@@ -696,7 +695,7 @@ More detailed information about the <em>Project Cache</em> can be found
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified April 29, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/b0ccef7d84853328bc4c4d0595dc7d8db34c186e">Add Section about &#39;velocitas init&#39; with package parameter (#121) (b0ccef7)</a>
+  Last modified May 8, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/28f3b437f421ce4c95b14eb4d0b82f97d6da7633">Update seat adjuster development and lifecycle management section (#123) (28f3b43)</a>
 </div>
 
 </div>

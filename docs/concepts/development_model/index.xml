@@ -578,7 +578,7 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;h2 id=&#34;publish--subscribe-messaging&#34;&gt;Publish &amp;amp; subscribe messaging&lt;/h2&gt;
 &lt;p&gt;The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. Using the Velocitas SDK, the low-level MQTT communication is abstracted away from the &lt;em&gt;Vehicle App&lt;/em&gt; developer. Especially the physical address and port of the MQTT broker is no longer configured in the &lt;em&gt;Vehicle App&lt;/em&gt; itself, but rather is set as an environment variable, which is outside of the &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;publish-mqtt-messages&#34;&gt;Publish MQTT Messages&lt;/h3&gt;
-&lt;p&gt;MQTT messages can be published easily with the &lt;code&gt;publish_mqtt_event()&lt;/code&gt; method, inherited from &lt;code&gt;VehicleApp&lt;/code&gt; base class:&lt;/p&gt;
+&lt;p&gt;MQTT messages can be published easily with the &lt;code&gt;publish_event()&lt;/code&gt; method, inherited from &lt;code&gt;VehicleApp&lt;/code&gt; base class:&lt;/p&gt;
 
 
 
@@ -601,7 +601,7 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;div class=&#34;tab-content&#34; id=&#34;tabs-9-content&#34;&gt;
     &lt;div class=&#34;tab-pane fade show active&#34;
         id=&#34;tabs-09-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-09-00-tab&#34;&gt;
-        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;publish_mqtt_event&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;publish_event&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;seatadjuster/currentPosition&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;json&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;dumps&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;req_data&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&#34;tab-pane fade&#34;
