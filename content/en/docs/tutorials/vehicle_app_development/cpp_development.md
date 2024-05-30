@@ -184,12 +184,23 @@ If you use the asynchroneous variant, the callback passed to `onError` is just c
 
 ## Failure Reasons
 
+There are two levels where errors accessing signal/data points might occure.
+
+### Communication with the Data Broker (IPC Level)
+
+The data broker might be (temporarly) unavailable because
+* it's not yet started up,
+* temporary "stopped" due to a crash or a "live update",
+* some temporary network issues (if running on a different hardware node),
+* ...
+
+Errors on the IPC level between the application and the data broker will be reported either via
+* an `AsyncException` thrown by the `await()` function of the `AsyncResult` class or
+* calling the function passed to the `onError` function of the `AsyncResult`/`AsyncSubscription` class.
+
+### Signal / Data Point Level
+
 The reasons why a valid value of signal/data point can be missing are explained here:
-* The data broker might be temporarly unavailable because
-  * it's not yet started up,
-  * temporary "stopped" due to a crash or a "live update",
-  * some temporary network issues (if running on a different hardware node),
-  * ...
 * The addressed signal/data point might be "unknown" on the system (`Failure::UNKNOWN_DATAPOINT`). This can be a hint for a misconfiguration of the overall system, because no provider is installed in that system which will provide this signal. It can be acceptable, if an application does just "optionally" require access to that signal and would work properly without it being present.
 * The application might have not the necessary access rights to the addressed signal/data point (`Failure::ACCESS_DENIED`). This can be a hint for a misconfiguration of the overall system, but could be also a "normal" situation if the user of the vehicle blocks access to certain signals for that application.
 * The addressed signal/data point might be temporary not available (`Failure::NOT_AVAILABLE`). This is a normal situation which will arise, while the provider of that signal is
