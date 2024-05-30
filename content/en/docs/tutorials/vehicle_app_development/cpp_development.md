@@ -108,7 +108,7 @@ Lets have a look, what this line contains:
 * The term `Vehicle.Speed` addresses the signal we like to query, i.e. the current speed of the vehicle.
 * The term `.get()` tells that we want to get/read the current state of that signal from the Data Broker.
   Behind the scenes this triggers an request-response flow via IPC with the Data Broker.
-* The term `->await()` causes the executiom to block until the response was received.
+* The term `->await()` blocks the execution until the response was received.
 * Finally, the term `.value()` tries to access the returned speed value.
 
 The `get()` returns a `shared_ptr` to an `AsyncResult` which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use `await()` and block the calling thread until a result is available or use `onResult(...)` which allows us to inject a function pointer or a lambda which is called once the result is available:
@@ -119,7 +119,7 @@ Vehicle.Speed.get()
         logger().info("Got speed!");
     })
     ->onError(auto status){
-        logger().info("Something went wrong!");
+        logger().info("Something went wrong communicating to the data broker!");
     });
 ```
 
@@ -151,11 +151,13 @@ There are two ways to handle the failure situations:
 try {
     auto vehicleSpeed = Vehicle.Speed.get()->await().value();
     // use the speed value
+} catch (AsyncException& e) {
+    // thrown by the await(): Something went wrong on communication level with the data broker
 } catch (InvalidValueException& e) {
-    // Do your failure handling here
+    // thrown by .value(): The vehicle speed signal does not contain a valid value, currently
 }
 ```
-* Or you first check the `.isValid()` is returning true before calling `.value()` (which is a convenience function for checking `.getFailure() == Failure::NONE`).
+* Throwing the `InvalidValueException`can be avoided if you first check that `.isValid()` returns true before calling `.value()`: 
 ```Cpp
 auto vehicleSpeed = Vehicle.Speed.get()->await();
 if (vehicleSpeed.isValid())
@@ -174,6 +176,11 @@ if (vehicleSpeed.isValid())
     }
 }
 ```
+(`isValid()` is a convenience function for checking `.getFailure() == Failure::NONE`.)
+
+{{% alert title="Note" %}
+If you use the asynchroneous variant, the callback passed to `onError` is just called to report errors on communication level with the data broker. The validity of the returned signal's/data point's value needs to be checked separatly (e.g. via 'isValid()')!
+{{% alert %}
 
 ## Failure Reasons
 
