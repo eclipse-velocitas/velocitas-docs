@@ -96,9 +96,9 @@ With this your app can now be started. In order to provide some meaningful behav
 
 In order to facilitate the implementation, the whole set of vehicle signal is abstracted into model classes. Please check the [tutorial about creating models](/docs/tutorials/vehicle_model_creation) for more details. In this section, the focus is on using the model.
 
-The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model #TODO# in the folder `app/vehicle_model/include/`. This folder is already configured as "include folder" of the CMake tooling. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.
+The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model as a Conan source package. The library is already referenced as "include folder" in the CMake files. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.  In your source code the model is included via `#include "vehicle/Vehicle.hpp"` (as shown above).
 
-If you want to read a single [DataPoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) e.g. for the vehicle speed, the simplest way is to do it via a blocking call and directly accessing the value of the speed:
+If you want to read a single [signal/data point](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) e.g. for the vehicle speed, the simplest way is to do it via a blocking call and directly accessing the value of the speed:
 
 ```Cpp
 auto vehicleSpeed = Vehicle.Speed.get()->await().value();
@@ -129,7 +129,7 @@ If you want to get deeper inside to the vehicle, to access a single seat for exa
 auto driverSeatPosition = Vehicle.Cabin.Seat.Row1.Pos1.Position.get()->await();
 ```
 
-## Class TypedDataPointValue
+### Class TypedDataPointValue
 
 If you have a detailed look at the `AsyncResult` class, you will observe that the object returned by the `await()` or passed to the `onResult` callback is not directly the current value of the signal, but instead an object of type `TypedDataPointValue`. This object does not only contains the current value of the signal but also some additional metadata accessible via these functions:
 * `getPath()` provides the signal name, i.e. the complete path,
@@ -141,7 +141,7 @@ If you have a detailed look at the `AsyncResult` class, you will observe that th
 
 The latter three points lead us to
 
-## Failure Handling and Reasoning
+### Failure Handling
 
 As indicated above, there might be reasons/situations why the get operation is not able to deliver a valid value for the requested signal. Those shall be handled properly by any application (that wants "to be more" than a prototype).
 
@@ -174,6 +174,8 @@ if (vehicleSpeed.isValid())
     }
 }
 ```
+
+## Failure Reasons
 
 The reasons why a valid value of signal/data point can be missing are explained here:
 * The data broker might be temporarly unavailable because
@@ -212,16 +214,26 @@ void onSeatPositionChanged(const DataPointsResult& result) {
 
 ```
 
-The `VehicleApp` class provides the `subscribeDataPoints()` method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via `AsyncSubscription::onItem()` is called. Conversely, the callback registered via `AsyncSubscription::onError()` is called once there is any error during communication with the KUKSA Databroker.
+The `VehicleApp` class provides the `subscribeDataPoints()` method which allows to listen for changes on one or multiple data points. Once a change in any of the data points is registered, the callback registered via `AsyncSubscription::onItem()` is called. Conversely, the callback registered via `AsyncSubscription::onError()` is called once there is an error during communication with the KUKSA Databroker.
 
-The result passed to the callback registered via `onItem()` is an object of type `DataPointsResult` which holds all data points that have changed. Individual data points can be accessed directly by their reference: `result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)`)
+The result passed to the callback registered via `onItem()` is an object of type `DataPointsResult` which holds the current state of all data points that were part if the respective subscription. The state of individual data points can be accessed by their reference: `result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)`)
+
+{{% alert title="Note" %}
+If you select multiple signals/data pints in a single subscription be aware that:
+1. The update notification will not only contain those data points whose states were updated, but the state of all data points selected in the belonging subscription. If you don't want this behaviour, you must subscribe to change notifications for each signal/data points separately.
+2. A possible failure state will be reported individually per signal/data point. The reason is, that each signal/data point might come from a different provider, has individual access rights, and individual reasons to become invalid. This is also true, if requesting multiple signal/data point states via a single get call.
+{{% /alert %}}
 
 ## Services
 
 Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
 
 {{% alert title="Note" %}}
-Services are not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for the time being. If you need access to services please read [here](/docs/tutorials/vehicle_model_creation/manual_model_creation) how you can create a model and add services to it manually.
+This description is outdated!
+
+Services were not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for some time and could be made available via the [description](/docs/tutorials/vehicle_model_creation/manual_model_creation) how you can create a model and add services to it manually.
+
+In-between we provide a way to refer gRPC based services by referencing the required proto files from the AppManifest and auto-generated the language-specific stubs. The necessary steps need being described here.
 {{% /alert %}}
 
 The following code snippet shows how to use the `moveComponent()` method of the `SeatService` from the vehicle model:
