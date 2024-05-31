@@ -180,7 +180,7 @@ if (vehicleSpeed.isValid())
 
 {{% alert title="Note" %}}
 If you use the asynchroneous variant, the callback passed to `onError` is just called to report errors on communication level with the data broker. The validity of the returned signal's/data point's value needs to be checked separatly (e.g. via 'isValid()')!
-{{% alert %}}
+{{% /alert %}}
 
 ## Failure Reasons
 
