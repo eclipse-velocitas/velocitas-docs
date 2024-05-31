@@ -37,19 +37,13 @@
 &lt;p&gt;&lt;strong&gt;
 
 &lt;a href=&#34;#middleware-integration&#34;&gt;Middleware integration&lt;/a&gt;
-:&lt;/strong&gt; Vehicle Models can contain gRPC stubs to communicate with &lt;em&gt;Vehicle Services&lt;/em&gt;. gRPC communication is integrated with the 
-
-&lt;a href=&#34;https://dapr.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dapr&lt;/a&gt;
- middleware for service discovery and 
-
-&lt;a href=&#34;https://opentelemetry.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenTelemetry&lt;/a&gt;
- logging and tracing.&lt;/p&gt;
+:&lt;/strong&gt; Vehicle Models can contain gRPC stubs to communicate with &lt;em&gt;Vehicle Services&lt;/em&gt;. gRPC communication is integrated natively.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;
 
 &lt;a href=&#34;#fluent-query--rule-construction&#34;&gt;Fluent query &amp;amp; rule construction&lt;/a&gt;
-:&lt;/strong&gt; Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.&lt;/p&gt;
+:&lt;/strong&gt; Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Databroker to access the real values of the data points that are defined in the vehicle model.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;
@@ -381,10 +375,8 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&#34;service-discovery&#34;&gt;Service discovery&lt;/h3&gt;
-&lt;p&gt;The underlying gRPC channel is provided and managed by the &lt;code&gt;Service&lt;/code&gt; base class of the SDK. It is also responsible for routing the method invocation to the service through the Dapr middleware. As a result, a &lt;code&gt;dapr-app-id&lt;/code&gt; has to be assigned to every &lt;code&gt;Service&lt;/code&gt;, so that Dapr can discover the corresponding &lt;em&gt;Vehicle Services&lt;/em&gt;. This &lt;code&gt;dapr-app-id&lt;/code&gt; has to be specified as an environment variable named &lt;code&gt;&amp;lt;service_name&amp;gt;_DAPR_APP_ID&lt;/code&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;fluent-query--rule-construction&#34;&gt;Fluent query &amp;amp; rule construction&lt;/h2&gt;
-&lt;p&gt;A set of query methods like &lt;code&gt;get()&lt;/code&gt;, &lt;code&gt;where()&lt;/code&gt;, &lt;code&gt;join()&lt;/code&gt; etc. are provided through the &lt;code&gt;Model&lt;/code&gt; and &lt;code&gt;DataPoint&lt;/code&gt; base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Data Broker.&lt;/p&gt;
+&lt;p&gt;A set of query methods like &lt;code&gt;get()&lt;/code&gt;, &lt;code&gt;where()&lt;/code&gt;, &lt;code&gt;join()&lt;/code&gt; etc. are provided through the &lt;code&gt;Model&lt;/code&gt; and &lt;code&gt;DataPoint&lt;/code&gt; base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Databroker.&lt;/p&gt;
 &lt;h3 id=&#34;query-examples&#34;&gt;Query examples&lt;/h3&gt;
 &lt;p&gt;The following examples show you how to query data points.&lt;/p&gt;
 &lt;h4 id=&#34;get-single-data-point&#34;&gt;Get single data point&lt;/h4&gt;
@@ -584,9 +576,9 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;/div&gt;
 
 &lt;h2 id=&#34;publish--subscribe-messaging&#34;&gt;Publish &amp;amp; subscribe messaging&lt;/h2&gt;
-&lt;p&gt;The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. By leveraging the Dapr pub/sub building block for this purpose, the low-level MQTT communication is abstracted away from the &lt;em&gt;Vehicle App&lt;/em&gt; developer. Especially the physical address and port of the MQTT broker is no longer configured in the &lt;em&gt;Vehicle App&lt;/em&gt; itself, but rather is part of the Dapr configuration, which is outside of the &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. Using the Velocitas SDK, the low-level MQTT communication is abstracted away from the &lt;em&gt;Vehicle App&lt;/em&gt; developer. Especially the physical address and port of the MQTT broker is no longer configured in the &lt;em&gt;Vehicle App&lt;/em&gt; itself, but rather is set as an environment variable, which is outside of the &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;publish-mqtt-messages&#34;&gt;Publish MQTT Messages&lt;/h3&gt;
-&lt;p&gt;MQTT messages can be published easily with the &lt;code&gt;publish_mqtt_event()&lt;/code&gt; method, inherited from &lt;code&gt;VehicleApp&lt;/code&gt; base class:&lt;/p&gt;
+&lt;p&gt;MQTT messages can be published easily with the &lt;code&gt;publish_event()&lt;/code&gt; method, inherited from &lt;code&gt;VehicleApp&lt;/code&gt; base class:&lt;/p&gt;
 
 
 
@@ -609,7 +601,7 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;div class=&#34;tab-content&#34; id=&#34;tabs-9-content&#34;&gt;
     &lt;div class=&#34;tab-pane fade show active&#34;
         id=&#34;tabs-09-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-09-00-tab&#34;&gt;
-        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;publish_mqtt_event&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
+        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;publish_event&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;seatadjuster/currentPosition&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;json&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;dumps&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;req_data&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&#34;tab-pane fade&#34;
@@ -660,46 +652,10 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
     &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Under the hood, the &lt;em&gt;Vehicle App&lt;/em&gt; creates a gRPC endpoint on port &lt;code&gt;50008&lt;/code&gt;, which is exposed to the Dapr middleware. The Dapr middleware will then subscribe to the MQTT broker and forward the messages to the &lt;em&gt;Vehicle App&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;To change the app port, set it in the &lt;code&gt;main()&lt;/code&gt; method of the app:&lt;/p&gt;
-
-
-
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-11&#34; role=&#34;tablist&#34;&gt;
-  &lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link active persistLang-Python&#34;
-          id=&#34;tabs-11-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-11-00&#34; role=&#34;tab&#34;
-          onclick=&#34;persistLang(&amp;#34;Python&amp;#34;);&#34;aria-controls=&#34;tabs-11-00&#34; aria-selected=&#34;false&#34;&gt;
-        Python
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link persistLang-C--&#34;
-          id=&#34;tabs-11-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-11-01&#34; role=&#34;tab&#34;
-          onclick=&#34;persistLang(&amp;#34;C--&amp;#34;);&#34;aria-controls=&#34;tabs-11-01&#34; aria-selected=&#34;false&#34;&gt;
-        C++
-      &lt;/a&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-11-content&#34;&gt;
-    &lt;div class=&#34;tab-pane fade show active&#34;
-        id=&#34;tabs-11-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-11-00-tab&#34;&gt;
-        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;sdv&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;conf&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;():&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;conf&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;DAPR_APP_PORT&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;your&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;tab-pane fade&#34;
-        id=&#34;tabs-11-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-11-01-tab&#34;&gt;
-        &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// C++ does not use Dapr for Pub/Sub messaging at this point
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-
 &lt;h2 id=&#34;vehicle-app-abstraction&#34;&gt;Vehicle App abstraction&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt; are inherited from the &lt;code&gt;VehicleApp&lt;/code&gt; base class. This enables the &lt;em&gt;Vehicle App&lt;/em&gt; to use the Publish &amp;amp; Subscribe messaging and to connect to the KUKSA Data Broker.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt; are inherited from the &lt;code&gt;VehicleApp&lt;/code&gt; base class. This enables the &lt;em&gt;Vehicle App&lt;/em&gt; to use the Publish &amp;amp; Subscribe messaging and to connect to the KUKSA Databroker.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;Vehicle Model&lt;/code&gt; instance is passed to the constructor of the &lt;code&gt;VehicleApp&lt;/code&gt; class and should be stored in a member variable (e.g. &lt;code&gt;self.vehicle&lt;/code&gt; for Python, &lt;code&gt;std::shared_ptr&amp;lt;Vehicle&amp;gt; m_vehicle;&lt;/code&gt; for C++), to be used by all methods within the application.&lt;/p&gt;
-&lt;p&gt;Finally, the &lt;code&gt;run()&lt;/code&gt; method of the &lt;code&gt;VehicleApp&lt;/code&gt; class is called to start the &lt;em&gt;Vehicle App&lt;/em&gt; and register all MQTT topic and Data Broker subscriptions.&lt;/p&gt;
+&lt;p&gt;Finally, the &lt;code&gt;run()&lt;/code&gt; method of the &lt;code&gt;VehicleApp&lt;/code&gt; class is called to start the &lt;em&gt;Vehicle App&lt;/em&gt; and register all MQTT topic and Databroker subscriptions.&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
@@ -713,25 +669,25 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 
 
 
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-13&#34; role=&#34;tablist&#34;&gt;
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-12&#34; role=&#34;tablist&#34;&gt;
   &lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link active persistLang-Python&#34;
-          id=&#34;tabs-13-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-13-00&#34; role=&#34;tab&#34;
-          onclick=&#34;persistLang(&amp;#34;Python&amp;#34;);&#34;aria-controls=&#34;tabs-13-00&#34; aria-selected=&#34;false&#34;&gt;
+          id=&#34;tabs-12-00-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-12-00&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;Python&amp;#34;);&#34;aria-controls=&#34;tabs-12-00&#34; aria-selected=&#34;false&#34;&gt;
         Python
       &lt;/a&gt;
     &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
       &lt;a class=&#34;nav-link persistLang-C--&#34;
-          id=&#34;tabs-13-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-13-01&#34; role=&#34;tab&#34;
-          onclick=&#34;persistLang(&amp;#34;C--&amp;#34;);&#34;aria-controls=&#34;tabs-13-01&#34; aria-selected=&#34;false&#34;&gt;
+          id=&#34;tabs-12-01-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-12-01&#34; role=&#34;tab&#34;
+          onclick=&#34;persistLang(&amp;#34;C--&amp;#34;);&#34;aria-controls=&#34;tabs-12-01&#34; aria-selected=&#34;false&#34;&gt;
         C++
       &lt;/a&gt;
     &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-13-content&#34;&gt;
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-12-content&#34;&gt;
     &lt;div class=&#34;tab-pane fade show active&#34;
-        id=&#34;tabs-13-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-13-00-tab&#34;&gt;
+        id=&#34;tabs-12-00&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-12-00-tab&#34;&gt;
         &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Python&#34; data-lang=&#34;Python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;SeatAdjusterApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;VehicleApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#3465a4&#34;&gt;self&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;):&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87&#34;&gt;super&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;__init__&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
@@ -749,7 +705,7 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;LOOP&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;close&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&#34;tab-pane fade&#34;
-        id=&#34;tabs-13-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-13-01-tab&#34;&gt;
+        id=&#34;tabs-12-01&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-12-01-tab&#34;&gt;
         &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-C++&#34; data-lang=&#34;C++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;#34;sdk/VehicleApp.h&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;#34;vehicle/Vehicle.hpp&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
@@ -814,11 +770,11 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 The &lt;em&gt;Vehicle API&lt;/em&gt; eliminates the need to know the source, destination, and format of signals for the vehicle system.&lt;/p&gt;
 &lt;p&gt;The Eclipse Velocitas project is using the VAL of the 
 
-&lt;a href=&#34;https://www.eclipse.org/kuksa/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Eclipse KUKSA project&lt;/em&gt;&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Eclipse KUKSA project&lt;/em&gt;&lt;/a&gt;
 , also called &lt;em&gt;KUKSA.VAL&lt;/em&gt;.
 KUKSA.VAL does not provide a concrete VAL. That&amp;rsquo;s up to you as an OEM (vehicle manufacturer) or as a supplier.
 But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an &lt;em&gt;Vehicle App&lt;/em&gt; or Service.&lt;/p&gt;
-&lt;p&gt;KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the &lt;em&gt;KUKSA Data Broker&lt;/em&gt; and the generic &lt;em&gt;Data Providers&lt;/em&gt; (aka &lt;em&gt;Data Feeders&lt;/em&gt;).
+&lt;p&gt;KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the &lt;em&gt;KUKSA Databroker&lt;/em&gt; and the generic &lt;em&gt;Data Providers&lt;/em&gt; (aka &lt;em&gt;Data Feeders&lt;/em&gt;).
 It also provides you reference implementations of certain &lt;em&gt;Vehicle Services&lt;/em&gt;, like the &lt;em&gt;Seat Service&lt;/em&gt; and the &lt;em&gt;HVAC Service&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
 &lt;p&gt;The image below shows the main components of the VAL and its relation to the 
@@ -826,10 +782,10 @@ It also provides you reference implementations of certain &lt;em&gt;Vehicle Serv
 &lt;a href=&#34;/velocitas-docs/velocitas-docs//docs/concepts/development_model.md&#34;&gt;Velocitas Development Model&lt;/a&gt;
 .&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./val_overview.drawio.svg&#34; alt=&#34;Overview of the VAL architecture&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;kuksa-data-broker-aka-vehicle-data-broker&#34;&gt;KUKSA Data Broker (aka Vehicle Data Broker)&lt;/h3&gt;
+&lt;h3 id=&#34;kuksa-databroker&#34;&gt;KUKSA Databroker&lt;/h3&gt;
 &lt;p&gt;The 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA Data Broker&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-databroker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA Databroker&lt;/a&gt;
  is a gRPC service acting as a broker of vehicle data / signals also called &lt;em&gt;data points&lt;/em&gt; in the following.
 It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the COVESA VSS or others. But this is not a must, it is also possible to use your own (proprietary) vehicle model or to extend the COVESA VSS with your specific extensions via 
 
@@ -840,24 +796,24 @@ It provides central access to vehicle data points arranged in a - preferably sta
 
 &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/introduction/overview/#example&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this example&lt;/a&gt;
  on the COVESA VSS site).&lt;/p&gt;
-&lt;p&gt;The KUKSA Data Broker is implemented in Rust, can run in a container and provides services to get data points, update data points and for subscribing to automatic notifications on data point changes.
+&lt;p&gt;The KUKSA Databroker is implemented in Rust, can run in a container and provides services to get data points, update data points and for subscribing to automatic notifications on data point changes.
 Filter- and rule-based subscriptions of data points can be used to reduce the number of updates sent to the subscriber.&lt;/p&gt;
 &lt;h3 id=&#34;data-providers--data-feeders&#34;&gt;Data Providers / Data Feeders&lt;/h3&gt;
-&lt;p&gt;Conceptually, a data provider is the responsible to take care for a certain set of data points: It provides updates of sensor data from the vehicle to the data broker and forwards updates of actuator values to the vehicle. The set of data points a data provider maintains may depend on the network interface (e.g. CAN bus) via that those data is accessible or it can depend on a certain use case the provider is responsible for (like seat control).&lt;/p&gt;
+&lt;p&gt;Conceptually, a data provider is the responsible to take care for a certain set of data points: It provides updates of sensor data from the vehicle to the Databroker and forwards updates of actuator values to the vehicle. The set of data points a data provider maintains may depend on the network interface (e.g. CAN bus) via that those data is accessible or it can depend on a certain use case the provider is responsible for (like seat control).&lt;/p&gt;
 &lt;p&gt;Eclipse KUKSA provides several &lt;em&gt;generic&lt;/em&gt; 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Data Providers&lt;/em&gt;&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa#providers-exchanging-data-with-databrokerserver&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Data Providers&lt;/em&gt;&lt;/a&gt;
  for different datasources.
 As of today, Eclipse Velocitas only utilizes the generic 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CAN feeder (KUKSA DBC Feeder)&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-can-provider&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CAN Provider (KUKSA CAN Provider)&lt;/a&gt;
  implemented in Python, which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
-The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the data broker using its &lt;code&gt;Collector&lt;/code&gt; gRPC interface.
-The feeder automatically reconnects to the data broker in the event that the connection is lost.&lt;/p&gt;
+The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the Databroker using its &lt;code&gt;Collector&lt;/code&gt; gRPC interface.
+The feeder automatically reconnects to the Databroker in the event that the connection is lost.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-services&#34;&gt;Vehicle Services&lt;/h3&gt;
 &lt;p&gt;A vehicle service offers a &lt;em&gt;Vehicle App&lt;/em&gt; to interact with the vehicle systems on a RPC-like basis.
 It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
-It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.&lt;/p&gt;
+It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the Databroker.&lt;/p&gt;
 &lt;p&gt;The 
 
 &lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA.VAL Services repository&lt;/a&gt;
@@ -866,7 +822,7 @@ It communicates with the Hardware Abstraction to execute the underlying services
 &lt;p&gt;Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
 The reference implementation relies on &lt;strong&gt;SocketCAN&lt;/strong&gt; and &lt;strong&gt;vxcan&lt;/strong&gt;, see 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val.feeders&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-can-provider&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA CAN Provider&lt;/a&gt;
 .
 The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.&lt;/p&gt;
 
@@ -890,16 +846,16 @@ The hardware abstraction may offer replaying (e.g., CAN) data from a file (can d
 &lt;h2 id=&#34;information-flow&#34;&gt;Information Flow&lt;/h2&gt;
 &lt;p&gt;The VAL offers an information flow between vehicle networks and vehicle services.
 The data that can flow is ultimately limited to the data available through the Hardware Abstraction, which is platform/project-specific.
-The KUKSA Data Broker offers read/subscribe access to data points based on a gRPC service. The data points which are actually available are defined by the set of feeders providing the data into the broker.
+The KUKSA Databroker offers read/subscribe access to data points based on a gRPC service. The data points which are actually available are defined by the set of feeders providing the data into the broker.
 Services (like the 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat service&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-incubation/tree/main/seat_service&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;seat service&lt;/a&gt;
 ) define which CAN signals they listen to and which CAN signals they send themselves, see 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-incubation/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation&lt;/a&gt;
 .
-Service implementations may also interact as feeders with the data broker.&lt;/p&gt;
-&lt;h3 id=&#34;data-flow-when-a-_vehicle-app_-uses-the-kuksa-data-broker&#34;&gt;Data flow when a &lt;em&gt;Vehicle App&lt;/em&gt; uses the KUKSA Data Broker&lt;/h3&gt;
+Service implementations may also interact as feeders with the Databroker.&lt;/p&gt;
+&lt;h3 id=&#34;data-flow-when-a-_vehicle-app_-uses-the-kuksa-databroker&#34;&gt;Data flow when a &lt;em&gt;Vehicle App&lt;/em&gt; uses the KUKSA Databroker&lt;/h3&gt;
 
 
 
@@ -912,7 +868,7 @@ Service implementations may also interact as feeders with the data broker.&lt;/p
 	
 	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;
-  Architectural representation of the KUKSA data broker data flow
+  Architectural representation of the KUKSA Databroker data flow
 &lt;/p&gt;
 	&lt;/figcaption&gt;
 	
@@ -938,19 +894,19 @@ Service implementations may also interact as feeders with the data broker.&lt;/p
 &lt;/figure&gt;
 
 &lt;h2 id=&#34;source-code&#34;&gt;Source Code&lt;/h2&gt;
-&lt;p&gt;Source code and build instructions are available in the respective KUKSA.VAL repositories:&lt;/p&gt;
+&lt;p&gt;Source code and build instructions are available in the respective KUKSA repositories:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA Data Broker&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-databroker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA Databroker&lt;/a&gt;
 &lt;/li&gt;
 &lt;li&gt;
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA DBC Feeder&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-can-provider&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA CAN Provider&lt;/a&gt;
 &lt;/li&gt;
 &lt;li&gt;
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA example services&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa#providers-exchanging-data-with-databrokerserver&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA example providers&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;guidelines&#34;&gt;Guidelines&lt;/h2&gt;
@@ -1005,7 +961,7 @@ Service implementations may also interact as feeders with the data broker.&lt;/p
 &lt;li&gt;Description of your applications &lt;strong&gt;functional interfaces&lt;/strong&gt;(VehicleModel, services, APIs, &amp;hellip;)&lt;/li&gt;
 &lt;li&gt;Enable &lt;strong&gt;loose coupling&lt;/strong&gt; of functional interface descriptions and the Velocitas toolchain. Some parts of the toolchain are responsible for reading the file and acting upon it, depending on the type of functional interface&lt;/li&gt;
 &lt;li&gt;Providing an &lt;strong&gt;extendable&lt;/strong&gt; syntax to enable custom functional interface types which may not provided by the Velocitas toolchain itself, but by a third party&lt;/li&gt;
-&lt;li&gt;Providing a &lt;strong&gt;single source of truth&lt;/strong&gt; for generation of deployment specifications (i.e. Helm-Charts, Kanto spec, etc&amp;hellip;)&lt;/li&gt;
+&lt;li&gt;Providing a &lt;strong&gt;single source of truth&lt;/strong&gt; for generation of deployment specifications (i.e. Kanto spec, etc&amp;hellip;)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// AppManifest.json
@@ -1036,7 +992,7 @@ Service implementations may also interact as feeders with the data broker.&lt;/p
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;grpc-interface&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;config&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;src&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;required&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;methods&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Move&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;MoveComponent&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;

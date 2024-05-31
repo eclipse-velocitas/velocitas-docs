@@ -53,8 +53,8 @@
 
 
 
-<link rel="preload" href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" as="style">
-<link href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" as="style">
+<link href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas-docs/js/jquery-3.6.0.min.js
@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.55197f087906bba38d74901107396d10.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.b9de75ab8ed72d4d7a8d8ab3558d3364.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -520,7 +520,7 @@ Successfully installed my-vehicle-model-0.1
 <p>The root model of the <em>Vehicle Model</em> tree should be called <em>Vehicle</em> by convention and is specified, by setting parent to <code>None</code>. For all other models a parent model must be specified as the 2nd argument of the <code>Model</code> constructor, as can be seen by the <code>Cabin</code> and the <code>Seat</code> models above.</p>
 <p>A singleton instance of the <em>Vehicle Model</em> called <code>vehicle</code> is created at the end of the file. This instance is supposed to be used in the <em>Vehicle Apps</em>. Creating multiple instances of the <em>Vehicle Model</em> should be avoided for performance reasons.</p>
 <h3 id="add-a-vehicle-service">Add a Vehicle Service</h3>
-<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Data Broker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
+<p><em>Vehicle Services</em> provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. <em>Vehicle Services</em> may feed data to the Databroker and may expose gRPC endpoints, which can be invoked by <em>Vehicle Apps</em> over a <em>Vehicle Model</em>.</p>
 <p>In this section, we add a <em>Vehicle Service</em> to the <em>Vehicle Model</em>.</p>
 <ol>
 <li>
@@ -530,10 +530,10 @@ Successfully installed my-vehicle-model-0.1
 <p>Copy your proto file under <code>my_vehicle_model/my_vehicle_model/proto</code></p>
 <p>As example you could use the protocol buffers message definition 
 
-<a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-incubation/blob/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">seats.proto</a>
  provided by the KUKSA.VAL services which describes a 
 
-<a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-incubation/tree/main/seat_service" target="_blank" rel="noopener">seat control service</a>
 .</p>
 </li>
 <li>

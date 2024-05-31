@@ -53,8 +53,8 @@
 
 
 
-<link rel="preload" href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" as="style">
-<link href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" as="style">
+<link href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas-docs/js/jquery-3.6.0.min.js
@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.55197f087906bba38d74901107396d10.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.b9de75ab8ed72d4d7a8d8ab3558d3364.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -166,8 +166,7 @@ This is the multi-page printable view of this section.
 <p>The deployment model is guided by the following principles</p>
 <ul>
 <li>Applications are provided as OCI-compliant container images.</li>
-<li>The container runtime offers a Kubernetes-compatible control plane and API to manage the container lifecycle.</li>
-<li>Helm charts are used as deployment descriptor specification.</li>
+<li>The container runtime offers a control plane and API to manage the container lifecycle.</li>
 </ul>
 <p>The template projects provided come with a pre-configured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation of all required artifacts needed to follow the <em>Velocitas</em> principles.</p>
 <h2 id="testing-your-container-during-development">Testing your container during development</h2>
@@ -248,7 +247,6 @@ Once the application is ready to be released in a new version, a dedicated relea
 <li><strong>Building a multi-arch container for the app</strong> - actions create a containerized version of the <em>Vehicle App</em> for multiple architectures (currently AMD64 and ARM64).</li>
 <li><strong>Scanning for vulnerabilities</strong> - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &ldquo;failed&rdquo;.</li>
 <li><strong>Storing container images to GitHub action artifacts</strong> - at the end of the workflow, the container image created is stored in a Github Action Artifacts so that it can be referenced by the Release Workflow later.</li>
-<li><strong>Generate Deployment Files</strong> - actions generate a PodSpec-file and HelmCharts to ease the deployment of the <em>Vehicle App</em> and the runtime services.</li>
 </ul>
 <h2 id="release-workflow-releaseymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsreleaseyml">Release Workflow (
 
@@ -290,14 +288,6 @@ Since the registry does not have an automatic cleanup, it keeps container images
 <li>Tutorial: 
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_app_development/integration_tests">How to write integration tests</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a <em>Vehicle App</em> with Helm</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/podspecs_deployment.md">Deploy a <em>Vehicle App</em> with PodSpecs</a>
 </li>
 </ul>
 

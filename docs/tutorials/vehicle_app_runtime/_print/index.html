@@ -36,25 +36,25 @@
 <link rel="icon" type="image/png" href="/velocitas-docs/favicons/android-192x192.png" sizes="192x192">
 
 <title>Vehicle App Runtime | Velocitas</title>
-<meta name="description" content="Learn how to run the _Vehicle App_ Runtime Services locally or in Kubernetes.
+<meta name="description" content="Learn how to run the _Vehicle App_ Runtime Services locally or in Kanto.
 ">
 <meta property="og:title" content="Vehicle App Runtime" />
-<meta property="og:description" content="Learn how to run the _Vehicle App_ Runtime Services locally or in Kubernetes.
+<meta property="og:description" content="Learn how to run the _Vehicle App_ Runtime Services locally or in Kanto.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/velocitas-docs/docs/tutorials/vehicle_app_runtime/" />
 
 <meta itemprop="name" content="Vehicle App Runtime">
-<meta itemprop="description" content="Learn how to run the _Vehicle App_ Runtime Services locally or in Kubernetes.
+<meta itemprop="description" content="Learn how to run the _Vehicle App_ Runtime Services locally or in Kanto.
 "><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Vehicle App Runtime"/>
-<meta name="twitter:description" content="Learn how to run the _Vehicle App_ Runtime Services locally or in Kubernetes.
+<meta name="twitter:description" content="Learn how to run the _Vehicle App_ Runtime Services locally or in Kanto.
 "/>
 
 
 
 
-<link rel="preload" href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" as="style">
-<link href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" as="style">
+<link href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas-docs/js/jquery-3.6.0.min.js
@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.55197f087906bba38d74901107396d10.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.b9de75ab8ed72d4d7a8d8ab3558d3364.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -121,7 +121,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Vehicle App Runtime</h1>
-<div class="lead">Learn how to run the <em>Vehicle App</em> Runtime Services locally or in Kubernetes.</div>
+<div class="lead">Learn how to run the <em>Vehicle App</em> Runtime Services locally or in Kanto.</div>
 
 
 
@@ -146,14 +146,6 @@ This is the multi-page printable view of this section.
     
 	
 <li>2: <a href="#pg-0d0fd518cf2cdea564f214d39b8fff54">Kanto Runtime</a></li>
-
-
-    
-  
-    
-    
-	
-<li>3: <a href="#pg-e7dcbdf2cc144b93c11d41733514f396">Kubernetes Runtime</a></li>
 
 
     
@@ -187,11 +179,12 @@ This is the multi-page printable view of this section.
 	<h1 id="pg-44ca6840573dae4b9f14986612e7147f">1 - Local Runtime</h1>
     <div class="lead">Learn how to run the <em>Vehicle App</em> Runtime Services locally.</div>
 	<h2 id="using-tasks-in-visual-studio-code">Using tasks in Visual Studio Code</h2>
-<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Data Broker</em> or <em>Vehicle Services</em>) are available for local execution coming from our <em>devenv-runtimes</em> package and are accessible as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found 
+<p><strong>Overview:</strong> If you are developing in Visual Studio Code, the runtime components (like <em>KUKSA Databroker</em> or <em>Vehicle Services</em>) are available for local execution coming from our <em>devenv-runtimes</em> package and are accessible as <em>Tasks</em>, a feature of the Visual Studio Code. Additional information on tasks can be found 
 
 <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>
 .</p>
 <p><strong>Start local runtime:</strong> To start local runtime, a task called <code>Local Runtime - Up</code> is available. This task runs the runtime services in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Local Runtime - Up</code>.</p>
+<p><strong>Stop local runtime:</strong> To stop local runtime, a task called <code>Local Runtime - Down</code> is available. This task stops running runtime services gracefully. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>Local Runtime - Down</code>.</p>
 <p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
 <p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task. More detailed logs can be found inside your workspace&rsquo;s logs directory <code>./logs/*</code></p>
 <h2 id="addchange-runtime-service-configuration">Add/Change runtime service configuration</h2>
@@ -206,8 +199,8 @@ For a more detailed view on how to change or add runtime service configuration, 
 
 <a href="/velocitas-docs//docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages">Lifecycle Management Package Development</a>
 </p>
-<h2 id="using-kuksa-data-broker-cli">Using KUKSA Data Broker CLI</h2>
-<p>A CLI tool is provided for interacting with a running instance of the KUKSA Data Broker. It can be started by running the task <code>Local Runtime - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local Runtime - VehicleDataBroker CLI</code>). The <em>Runtime Local</em> needs to be running for you to be able to use the tool.</p>
+<h2 id="using-kuksa-databroker-cli">Using KUKSA Databroker CLI</h2>
+<p>A CLI tool is provided for interacting with a running instance of the KUKSA Databroker. It can be started by running the task <code>Local Runtime - VehicleDataBroker CLI</code>(by pressing <em>F1</em>, type <em>Run Task</em> followed by <code>Local Runtime - VehicleDataBroker CLI</code>). The <em>Runtime Local</em> needs to be running for you to be able to use the tool.</p>
 <h2 id="integrating-a-new-runtime-service-into-visual-studio-code-task">Integrating a new runtime service into Visual Studio Code Task</h2>
 <p>Integration of a new runtime service can be done by duplicating one of the existing tasks.</p>
 <ul>
@@ -239,13 +232,9 @@ For a more detailed view on how to change or add runtime service configuration, 
 <p><strong>Problem description:</strong> When integrating new services into an existing dev environment, it is highly recommended to use the Visual Studio Code Task Feature.
 A new service can be easily started by calling it from bash script, however restarting the same service might lead to port conflicts (GRPC Port or APP port). That can be easily avoided by using the Visual Studio Code Task Feature.</p>
 <h3 id="codespaces">Codespaces</h3>
-<p>If you are using Codespaces, remember that you are working on a remote agent. That&rsquo;s why it could happen that the tasks are already running in the background. If that&rsquo;s the case a new start of the tasks will fail, since the ports are already in use. In the Dapr-tab of the sidebar you can check if there are already tasks running. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit <code>F1</code> and enter <code>View: Toggle Ports</code>).</p>
+<p>If you are using Codespaces, remember that you are working on a remote agent. That&rsquo;s why it could happen that the tasks are already running in the background. If that&rsquo;s the case a new start of the tasks will fail, since the ports are already in use. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit <code>F1</code> and enter <code>View: Toggle Ports</code>).</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Deploy runtime services in local Kubernetes cluster</a>
-</li>
 <li>Tutorial: 
 
 <a href="/velocitas-docs//docs/tutorials/quickstart">Quickstart</a>
@@ -257,10 +246,6 @@ A new service can be easily started by calling it from bash script, however rest
 <li>Concept: 
 
 <a href="/velocitas-docs//docs/concepts/deployment_model/vehicle_app_releases/">Build and release process</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a Python <em>Vehicle App</em> with Helm</a>
 </li>
 </ul>
 
@@ -283,13 +268,10 @@ A new service can be easily started by calling it from bash script, however rest
 	<p>Besides starting the vehicle runtime components 
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/local_runtime">locally</a>
- and in 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Kubernetes</a>
 , another way is to deploy them as containers using 
 
 <a href="https://eclipse.dev/kanto/" target="_blank" rel="noopener">Kanto</a>
- as a container runtime. To start the runtime, we provide VS Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found 
+. To start the runtime, we provide VS Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found 
 
 <a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>
 .</p>
@@ -337,9 +319,9 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 <li>Creating/updating candump file with the name <code>candumpDefault.log</code> in <code>./config/feedercan</code></li>
 <li>Restarting Kanto (execute the tasks <code>Kanto - Runtime Down</code> and <code>Kanto - Runtime Up</code>)</li>
 </ol>
-<p>More information about FeederCan can be found 
+<p>More information about the CAN Provider can be found 
 
-<a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">here</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-can-provider" target="_blank" rel="noopener">here</a>
 </p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
@@ -357,103 +339,7 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Start runtime services in Kubernetes</a>
-</li>
-<li>Tutorial: 
-
 <a href="/velocitas-docs//docs/tutorials/quickstart.md">Quickstart</a>
-</li>
-</ul>
-
-</div>
-
-
-
-    
-	
-  
-    
-    
-	
-    
-
-<div class="td-content" style="page-break-before: always">
-    
-	<h1 id="pg-e7dcbdf2cc144b93c11d41733514f396">3 - Kubernetes Runtime</h1>
-    <div class="lead">Learn how to run the <em>Vehicle App</em> Runtime Services in Kubernetes.</div>
-	<p>Besides 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/local_runtime">local execution</a>
- of the vehicle runtime components, another way is to deploy them as containers in a Kubernetes control plane (like K3D). To create a K3D instance, we provide Visual Studio Code <em>Tasks</em>, a feature of Visual Studio Code. Additional information on tasks can be found 
-
-<a href="https://code.visualstudio.com/docs/editor/tasks" target="_blank" rel="noopener">here</a>
-.</p>
-<p><strong>Quick Start:</strong> Each step has a task that is defined in <code>/.vscode/tasks.json</code>:</p>
-<ul>
-<li>Core tasks (dependent on each other in the given order):
-<ul>
-<li><code>K3D - Runtime Up</code>: Starts up the K3D runtime (Including configuring control plane and initializing Dapr).</li>
-<li><code>K3D - Build VehicleApp</code>: Builds the VehicleApp.</li>
-<li><code>K3D - Deploy VehicleApp</code>: Deploys the VehicleApp via Helm to the K3D cluster.</li>
-</ul>
-</li>
-</ul>
-<p>Each task has the required dependencies defined. If you want to run the runtime in K3D, the task <code>K3D - Deploy VehicleApp</code> will create and configure everything. So it&rsquo;s enough to run that task.</p>
-<ul>
-<li>Optional helper tasks:
-<ul>
-<li><code>K3D - Deploy VehicleApp (without rebuild)</code>: Deploys the VehicleApp via Helm to the K3D cluster (without rebuilding it). That requires, that the task <code>K3D - Build VehicleApp</code> has been executed once before.</li>
-<li><code>K3D - Runtime Down</code>: Uninstalls and removes K3D runtime configuration.</li>
-</ul>
-</li>
-</ul>
-<p>K3D is configured so that <em>Mosquitto</em> and the <em>KUKSA Data Broker</em> can be reached from outside the container over the ports <code>31883</code> (Mosquitto) and <code>30555</code>(KUKSA Data Broker). The test runner, that is running outside of the cluster, can interact with these services over those ports.</p>
-<p>To check the status of your K3D instance (running pods, containers, logs, &hellip;) you can either use the <code>kubectl</code> utility or start <em>K9s</em> in a terminal window to have a terminal UI for interacting with the cluster.</p>
-<p><strong>Run as Bundle:</strong> To orchestrate these tasks, you can use the task <code>K3D - Deploy VehicleApp</code>. This task runs the other tasks in the correct order. You can run this task by clicking <code>F1</code> and choose <code>Tasks: Run task</code>, then select <code>K3D - Deploy VehicleApp</code>.</p>
-<p><strong>Tasks Management:</strong> Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/&hellip; You can access them by pressing F1 and typing <code>task</code>. A list with available task commands will appear.</p>
-<p><strong>Logging:</strong> Running tasks appear in the Terminals View of Visual Studio Code. From there, you can see the logs of each running task. More detailed logs can be found inside your workspace&rsquo;s logs directory <code>./logs/*</code></p>
-<h2 id="uploading-files-to-persistentvolume">Uploading files to persistentVolume</h2>
-<p>Some applications (e.g. FeederCAN) might make it necessary to load custom files from mounted volume. For that reason, persistentVolume is created in k3d cluster.
-All the files that are located in <code>[./config/feedercan](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main/config/feedercan)</code> will be uploaded to the k3d cluster dynamically. In order to mount files to the directory that is accessible by the application, please refer to the deployment configuration file: 
-
-<a href="https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime-k3d/src/runtime/deployment/config/helm/templates/persistentVolume.yaml" target="_blank" rel="noopener"><code>runtime-k3d/src/runtime/deployment/config/helm/templates/persistentVolume.yaml</code></a>
-.</p>
-<p>Changes in <code>./config/feedercan</code> are automatically reflected in PersistentVolume.</p>
-<h3 id="uploading-custom-candump-file-to-feedercan">Uploading custom candump file to FeederCAN</h3>
-<p>FeederCAN requires a candump file. A pre-defined candump file is already part of our delivery, however, if necessary, there is an option to upload a custom file by:</p>
-<ol>
-<li>Creating/updating candump file with the name <code>candumpDefault.log</code> in <code>./config/feedercan</code></li>
-<li>Recreating the feedercan pod: <code>kubectl delete pods -l app=feedercan</code></li>
-</ol>
-<p>More information about FeederCan can be found 
-
-<a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">here</a>
-</p>
-<h2 id="next-steps">Next steps</h2>
-<ul>
-<li>Concept: 
-
-<a href="/velocitas-docs//docs/concepts/deployment_model">Deployment Model</a>
-</li>
-<li>Concept: 
-
-<a href="/velocitas-docs//docs/concepts/deployment_model/vehicle_app_releases">Build and release process</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/local_runtime">Start runtime services locally</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kanto_runtime">Deploy a <em>Vehicle App</em> with Kanto</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/quickstart.md">Quickstart</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a Python <em>Vehicle App</em> with Helm</a>
 </li>
 </ul>
 

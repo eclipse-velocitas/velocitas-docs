@@ -48,7 +48,7 @@
 &lt;h3 id=&#34;vehicle-models&#34;&gt;Vehicle Models&lt;/h3&gt;
 &lt;p&gt;A Vehicle Model makes it possible to easily get vehicle data from the 
 
-&lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt;
+&lt;a href=&#34;#kuksa-databroker&#34;&gt;Databroker&lt;/a&gt;
  and to execute remote procedure calls over gRPC against 
 
 &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt;
@@ -68,7 +68,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 &lt;h3 id=&#34;vehicle-services&#34;&gt;Vehicle Services&lt;/h3&gt;
 &lt;p&gt;Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the 
 
-&lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt;
+&lt;a href=&#34;#kuksa-databroker&#34;&gt;Databroker&lt;/a&gt;
  and may expose gRPC endpoints, which can be invoked by 
 
 &lt;a href=&#34;#vehicle-apps&#34;&gt;&lt;em&gt;Vehicle Apps&lt;/em&gt;&lt;/a&gt;
@@ -76,8 +76,8 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 
 &lt;a href=&#34;#vehicle-models&#34;&gt;Vehicle Model&lt;/a&gt;
 .&lt;/p&gt;
-&lt;h3 id=&#34;data-broker&#34;&gt;KUKSA Data Broker (aka Vehicle Data Broker)&lt;/h3&gt;
-&lt;p&gt;Vehicle data is stored in the KUKSA Data Broker conforming to an underlying 
+&lt;h3 id=&#34;kuksa-databroker&#34;&gt;KUKSA Databroker&lt;/h3&gt;
+&lt;p&gt;Vehicle data is stored in the KUKSA Databroker conforming to an underlying 
 
 &lt;a href=&#34;#semantic-models&#34;&gt;Semantic Model&lt;/a&gt;
  like 
@@ -91,7 +91,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 &lt;p&gt;The Vehicle Signal Specification (
 
 &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSS&lt;/a&gt;
-) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between &lt;em&gt;Vehicle Apps&lt;/em&gt; and the Data Broker.&lt;/p&gt;
+) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between &lt;em&gt;Vehicle Apps&lt;/em&gt; and the Databroker.&lt;/p&gt;
 &lt;p&gt;The Vehicle Service Catalog (
 
 &lt;a href=&#34;https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;VSC&lt;/a&gt;
@@ -122,20 +122,15 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 &lt;a href=&#34;#vehicle-services&#34;&gt;Vehicle Services&lt;/a&gt;
  and the 
 
-&lt;a href=&#34;#data-broker&#34;&gt;Data Broker&lt;/a&gt;
+&lt;a href=&#34;#kuksa-databroker&#34;&gt;Databroker&lt;/a&gt;
  is based on the 
 
 &lt;a href=&#34;https://grpc.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;gRPC&lt;/a&gt;
  protocol.&lt;/p&gt;
 &lt;h3 id=&#34;middleware-abstraction&#34;&gt;Middleware Abstraction&lt;/h3&gt;
-&lt;p&gt;Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
-By default, Velocitas leverages 
-
-&lt;a href=&#34;https://dapr.io&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dapr&lt;/a&gt;
- for gRPC service discovery, Open Telemetry tracing and the 
-
-&lt;a href=&#34;https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;publish/subscribe building block&lt;/a&gt;
-.&lt;/p&gt;
+&lt;p&gt;Velocitas basically provides middleware abstraction interfaces for service discovery, pubsub messaging, and other cross-cutting functionalites.
+At the moment, Velocitas just offers a (what we call) &amp;ldquo;native middleware&amp;rdquo; implementation, which does not provide (gRPC) service discovery. Instead, addresses and port number of services need to be provided via environment variables to an app; e.g. SDV_VEHICLEDATABROKER_ADDRESS=grpc://localhost:55555.
+The support of Dapr as middleware has recently been removed.&lt;/p&gt;
 &lt;h3 id=&#34;vehicle-edge-operating-system&#34;&gt;Vehicle Edge Operating System&lt;/h3&gt;
 &lt;p&gt;
 
@@ -143,7 +138,7 @@ By default, Velocitas leverages
  are expected to run on a 
 
 &lt;a href=&#34;https://www.linux.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux&lt;/a&gt;
--based operating system. An OCI-compliant container runtime is required to host the &lt;em&gt;Vehicle App&lt;/em&gt; containers and the Dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., 
+-based operating system. An OCI-compliant container runtime is required to host the &lt;em&gt;Vehicle App&lt;/em&gt; containers. For publish/subscribe messaging a MQTT broker must be available (e.g., 
 
 &lt;a href=&#34;https://mosquitto.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Eclipse Mosquitto&lt;/a&gt;
 ).&lt;/p&gt;
@@ -227,8 +222,7 @@ Favor fast startup and support graceful shutdowns to leave the system in a corre
 &lt;p&gt;The deployment model is guided by the following principles&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Applications are provided as OCI-compliant container images.&lt;/li&gt;
-&lt;li&gt;The container runtime offers a Kubernetes-compatible control plane and API to manage the container lifecycle.&lt;/li&gt;
-&lt;li&gt;Helm charts are used as deployment descriptor specification.&lt;/li&gt;
+&lt;li&gt;The container runtime offers a control plane and API to manage the container lifecycle.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The template projects provided come with a pre-configured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation of all required artifacts needed to follow the &lt;em&gt;Velocitas&lt;/em&gt; principles.&lt;/p&gt;
 &lt;h2 id=&#34;testing-your-container-during-development&#34;&gt;Testing your container during development&lt;/h2&gt;

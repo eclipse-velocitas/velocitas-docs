@@ -53,8 +53,8 @@
 
 
 
-<link rel="preload" href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" as="style">
-<link href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" as="style">
+<link href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas-docs/js/jquery-3.6.0.min.js
@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.55197f087906bba38d74901107396d10.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.b9de75ab8ed72d4d7a8d8ab3558d3364.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -208,7 +208,7 @@ This is the multi-page printable view of this section.
 	<h1 id="pg-14994cdfceb19b97cd58870a0d746743">1 - Seat Adjuster</h1>
     <div class="lead">Provides option to request a new seat position and to publish the current seat position</div>
 	<p>In the scenario of a car sharing company, the goal is to provide the functionality of automatically adjusting the driver&rsquo;s seat position based on their preferred settings stored in their profile. When the driver unlocks the car, a request is sent to the vehicle to retrieve the preferred seat position. This is where your implementation begins.</p>
-<p>The <em>Seat Adjuster Vehicle App</em> receives a MQTT message containing the seat position, which then triggers a seat adjustment command through the <em>Seat Service</em> to change the seat position. Additionally, to ensure convenience for future trips, the car sharing company saves the driver&rsquo;s preferred seat position and utilizes it accordingly. <em>The Seat Adjuster Vehicle App</em> subscribes to the seat position, receiving updates from the <em>Data Broker</em>, which streams data from the <em>Seat Service</em>.</p>
+<p>The <em>Seat Adjuster Vehicle App</em> receives a MQTT message containing the seat position, which then triggers a seat adjustment command through the <em>Seat Service</em> to change the seat position. Additionally, to ensure convenience for future trips, the car sharing company saves the driver&rsquo;s preferred seat position and utilizes it accordingly. <em>The Seat Adjuster Vehicle App</em> subscribes to the seat position, receiving updates from the <em>Databroker</em>, which streams data from the <em>Seat Service</em>.</p>
 <h2 id="requesting-new-seat-position">Requesting new seat position</h2>
 <p><img src="./seat_adjuster_dataflow_1.png" alt="seat_adjuster_dataflow_1"></p>
 <ol>
@@ -220,7 +220,7 @@ This is the multi-page printable view of this section.
 <p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> that has subscribed to this topic, receives the request to change the seat position as a MQTT message.</p>
 </li>
 <li>
-<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> gets the current vehicle speed from the data broker, which is fed by the <strong>CAN Feeder (KUKSA DBC Feeder)</strong>.</p>
+<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> gets the current vehicle speed from the Databroker, which is fed by the <strong>CAN Provider (KUKSA CAN Provider)</strong>.</p>
 </li>
 <li>
 <p>With the support of the <strong><em>Vehicle App</em> SDK</strong>, the <strong>Seat Adjuster <em>Vehicle App</em></strong> triggers a seat adjustment command of the <strong>Seat Service</strong> via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.</p>
@@ -248,10 +248,10 @@ This is the multi-page printable view of this section.
 <p>If the seat position will be changed by the driver, the new seat position will be sent to the <strong>Seat Service</strong> via CAN.</p>
 </li>
 <li>
-<p>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>KUKSA Data Broker</strong> since it was registered beforehand.</p>
+<p>The <strong>Seat Service</strong> streams the seat position via gRPC to the <strong>KUKSA Databroker</strong> since it was registered beforehand.</p>
 </li>
 <li>
-<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> that subscribed to the seat position receives the new seat position from the <strong>KUKSA Data Broker</strong> as a result.</p>
+<p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> that subscribed to the seat position receives the new seat position from the <strong>KUKSA Databroker</strong> as a result.</p>
 </li>
 <li>
 <p>The <strong>Seat Adjuster <em>Vehicle App</em></strong> publishes this on topic <code>seatadjuster/currentPosition</code> with the payload:</p>

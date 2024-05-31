@@ -53,8 +53,8 @@
 
 
 
-<link rel="preload" href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" as="style">
-<link href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" as="style">
+<link href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas-docs/js/jquery-3.6.0.min.js
@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.55197f087906bba38d74901107396d10.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.b9de75ab8ed72d4d7a8d8ab3558d3364.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -226,9 +226,9 @@ A detailed explanation of the use case and the example is available
 
     <p>If you don&rsquo;t like to do the following steps by yourself, you can use the <code>Import example app from SDK</code> task within VS Code to get a working copy of this example into your repository.
 <br>
-(For details about the import of an example from the SDK look 
-<p><a href="/velocitas-docs//docs/tutorials/quickstart/import_examples">here</a>
-.)</p></p>
+For details about the import of an example from the SDK look 
+<p><a href="/velocitas-docs//docs/tutorials/quickstart/import_examples">here</a></p>
+</p>
 
 
 </div>
@@ -271,12 +271,12 @@ A detailed explanation of the use case and the example is available
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">logging</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">signal</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.util.log</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">velocitas_sdk.util.log</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">get_opentelemetry_log_factory</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">get_opentelemetry_log_format</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.vdb.reply</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">DataPointReply</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv.vehicle_app</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">subscribe_topic</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">velocitas_sdk.vdb.reply</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">DataPointReply</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">velocitas_sdk.vehicle_app</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">subscribe_topic</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">vehicle</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
 </span></span></code></pre></div><h3 id="enable-logging">Enable logging</h3>
 <p>The following logging configuration applies the default log format provided by the SDK and sets the log level to INFO:</p>
@@ -318,40 +318,43 @@ A detailed explanation of the use case and the example is available
 
 <a href="/velocitas-docs//docs/concepts/development_model/vehicle_app_sdk/#datapoint">DataPoint</a>
  e.g. for the vehicle speed, this can be done via</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">vehicle_speed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
-</span></span></code></pre></div><p>As the <code>get()</code> method of the DataPoint-class there is a coroutine you have to use the <code>await</code> keyword when using it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">vehicle_speed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">())</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
+</span></span></code></pre></div><p>As the <code>get()</code> method of the DataPoint-class there is a coroutine you have to use the <code>await</code> keyword when using it and access its <code>.value</code>.</p>
 <p>If you want to get deeper inside the vehicle, to access a single seat for example, you just have to go the model-chain down:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DriverSeatPosition</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">vehicle_client</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DriverSeatPosition</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DriverSide</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
 </span></span></code></pre></div><h2 id="subscription-to-data-points">Subscription to Data Points</h2>
 <p>If you want to get notified about changes of a specific <code>DataPoint</code>, you can subscribe to this event, e.g. as part of the <code>on_start()</code> method in your app.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_start</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;&#34;&#34;Run when the vehicle app starts&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DriverSide</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">subscribe</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">on_seat_position_changed</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
 </span></span></code></pre></div><p>Every <code>DataPoint</code> provides a <em>.subscribe()</em> method that allows for providing a callback function which will be invoked on every data point update. Subscribed data is available in the respective <em>DataPointReply</em> object and need to be accessed via the reference to the subscribed data point. The returned object is of type <code>TypedDataPointResult</code> which holds the <code>value</code> of the data point
-and the <code>timestamp</code> at which the value was captured by the data broker.
+and the <code>timestamp</code> at which the value was captured by the Databroker.
 Therefore the <code>on_seat_position_changed</code> callback function needs to be implemented like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># handle the event here</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DriverSide</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># ...</span>
 </span></span></code></pre></div><h2 id="subscription-using-annotations">Subscription using Annotations</h2>
-<p>The Python SDK also supports annotations for subscribing to data point changes with <code>@subscribe_data_points</code> defined by the whole path to the <code>DataPoint</code> of interest.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@subscribe_data_points</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.Pos1.Position&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_vehicle_seat_change</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
+<p>The Python SDK also supports annotations for subscribing to data point changes with <code>@subscribe_data_points</code> defined by the whole path to the <code>DataPoint</code> of interest. This would replace the implementation of the 
+
+<a href="#subscription-to-data-points">Subscription to Data Points</a>
+</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#5c35cc;font-weight:bold">@subscribe_data_points</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Vehicle.Cabin.Seat.Row1.DriverSide.Position&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">response_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DriverSide</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response_data</span><span style="color:#000;font-weight:bold">))</span>
 </span></span></code></pre></div><p>Similarly, subscribed data is available in the respective <em>DataPointReply</em> object and needs to be accessed via the reference to the subscribed data point.</p>
 <h2 id="services">Services</h2>
 <p>Services are used to communicate with other parts of the vehicle via remote function calls (RPC). Please read the basics about them 
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service">here</a>
 .</p>
-
+<p>
 
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
@@ -365,7 +368,12 @@ how you can create a model and add services to it manually.</p></p>
 
 </div>
 
-<p>The following code snippet shows how to use the <code>MoveComponent()</code> method of the <code>SeatService</code> from the vehicle model:</p>
+You can ignore the following step if you would like to reach the final implementation of the 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster" target="_blank" rel="noopener">example</a>
+.
+</br>
+The following code snippet shows how to use the <code>MoveComponent()</code> method of the <code>SeatService</code> from the vehicle model:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#000">location</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">SeatLocation</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">row</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">vehicle_client</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">SeatService</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">MoveComponent</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">location</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">BASE</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">]</span>
@@ -381,23 +389,24 @@ how you can create a model and add services to it manually.</p></p>
 .</p>
 <p>In the 
 
-<a href="/velocitas-docs//docs/tutorials/quickstart/#how-to-debug-_vehicle-app_">quickstart section</a>
+<a href="/velocitas-docs//docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_">quickstart section</a>
  about the <em>Vehicle App</em>, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use <code>Vehicle Models</code>, <code>DataPoints</code> and <code>Services</code>. In this section, you will learn how to combine them with MQTT.</p>
 <p>In order to receive and process MQTT messages inside your app, simply use the <code>@subscribe_topic</code> annotations from the SDK for an additional method <code>on_set_position_request_received()</code> you have to implement:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#5c35cc;font-weight:bold">@subscribe_topic</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;seatadjuster/setPosition/request&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_set_position_request_received</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data_str</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87;font-weight:bold">None</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">logger</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Got message: </span><span style="color:#4e9a06">{</span><span style="color:#000">data_str</span><span style="color:#4e9a06">!r}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">loads</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data_str</span><span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/setPosition/response&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response_data</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#4e9a06">&#34;result&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{}}</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#8f5902;font-style:italic"># ...</span>
 </span></span></code></pre></div><p>The <code>on_set_position_request_received</code> method will now be invoked every time a message is published to the subscribed topic <code>&quot;seatadjuster/setPosition/response&quot;</code>. The message data (string) is provided as parameter. In the example above the data is parsed from json (<code>data = json.loads(data_str)</code>).</p>
-<p>In order to publish data to topics, the SDK provides the appropriate convenience method: <code>self.publish_mqtt_event()</code> which will be added to the <code>on_seat_position_changed</code> callback function from before.</p>
+<p>In order to publish data to topics, the SDK provides the appropriate convenience method: <code>self.publish_event()</code> which will be added to the <code>on_seat_position_changed</code> callback function from before.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">on_seat_position_changed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">DataPointReply</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000">response_topic</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Vehicle</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DriverSide</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">value</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000">response_topic</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">({</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">position</span><span style="color:#000;font-weight:bold">}),</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
@@ -428,9 +437,9 @@ First, you have to import the relevant packages for unit testing and everything 
 </span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic"># Disable no-value-for-parameter, seems to be false positive with mock lib</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">with</span> <span style="color:#000">mock</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">patch</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">object</span><span style="color:#000;font-weight:bold">(</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;publish_mqtt_event&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">new_callable</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">mock</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">AsyncMock</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">return_value</span><span style="color:#ce5c00;font-weight:bold">=-</span><span style="color:#0000cf;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;publish_event&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">new_callable</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">mock</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">AsyncMock</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">return_value</span><span style="color:#ce5c00;font-weight:bold">=-</span><span style="color:#0000cf;font-weight:bold">1</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">):</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#000">VehicleApp</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">await</span> <span style="color:#000">VehicleApp</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;sampleTopic&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">get_sample_request_data</span><span style="color:#000;font-weight:bold">()</span>  <span style="color:#8f5902;font-style:italic"># type: ignore</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">assert</span> <span style="color:#000">response</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span>
@@ -439,18 +448,37 @@ First, you have to import the relevant packages for unit testing and everything 
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">get_sample_request_data</span><span style="color:#000;font-weight:bold">():</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#34;position&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">330</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;requestId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">123</span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>Looking at a test you notice the annotation <code>@pytest.mark.asyncio</code>. This is required if the test is defined as a coroutine. The next step is to create a mock from all the external dependencies. The method takes 4 arguments: first is the object to be mocked, second the method for which you want to modify the return value, third a callable and the last argument is the return value.
-After creating the mock, you can test the method and check the response. Use asserts to make your test fail if the response does not match.</p>
+After creating the mock, you can test the method and check the response. Use asserts to make your test fail if the response does not match.
+Check the 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/main/examples/seat-adjuster/tests/unit/test_run.py" target="_blank" rel="noopener"><code>seat-adjuster</code> unit tests</a>
+ to see a more detailed implementation.</p>
 <h2 id="see-the-results">See the results</h2>
 <p>Once the implementation is done, it is time to run and debug the app.</p>
 <h3 id="run-your-app">Run your App</h3>
-<p>In order to run the app make sure the <code>devenv-runtimes</code> package is part of your 
+<p>In order to run the app:</p>
+<ul>
+<li>Make sure the <code>devenv-runtimes</code> &amp; <code>devenv-devcontainer-setup</code> packages are part of your 
 
 <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a>
- (which should be the default) and the runtime is up and running. Read more about it in the 
+ (which should be the default).</li>
+<li>Have a correctly configured 
+
+<a href="https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/main/examples/seat-adjuster/AppManifest.json" target="_blank" rel="noopener"><code>app/AppManifest.json</code></a>
+. 
+
+<a href="/velocitas-docs//docs/concepts/development_model/vehicle_app_manifest/">See more</a>
+</li>
+<li>Trigger our 
+
+<a href="/velocitas-docs//docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a>
+. (e. g. <code>velocitas init</code>)</li>
+<li>A runtime needs to be up and running. Read more about it in the 
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/local_runtime">run runtime services</a>
- section.</p>
-<p>Now chose one of the options to start the VehicleApp under development (including Dapr sidecar if middleware type is Dapr):</p>
+ section.</li>
+</ul>
+<p>Now chose one of the options to start the VehicleApp under development:</p>
 <ol>
 <li>Press <kbd>F5</kbd></li>
 </ol>
@@ -466,67 +494,25 @@ After creating the mock, you can test the method and check the response. Use ass
 <a href="/velocitas-docs//docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_">introduction about debugging</a>
 , you saw how to start a debugging session. In this section, you will learn what is happening in the background.</p>
 <p>The debug session launch settings are already prepared for the <code>VehicleApp</code> in <code>/.vscode/launch.json</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#4e9a06">&#34;configurations&#34;</span><span style="color:#a40000">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;python&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;justMyCode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;request&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;launch&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VehicleApp&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;program&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}/app/src/main.py&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;console&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;integratedTerminal&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;preLaunchTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;postDebugTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;APP_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;50008&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;DAPR_HTTP_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;3500&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;50001&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;VEHICLEDATABROKER_DAPR_APP_ID&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;configurations&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;python&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;justMyCode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;request&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;launch&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VehicleApp&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;program&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}/app/src/main.py&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;console&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;integratedTerminal&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;env&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;SDV_MIDDLEWARE_TYPE&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;native&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;SDV_VEHICLEDATABROKER_ADDRESS&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc://127.0.0.1:55555&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;SDV_MQTT_ADDRESS&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;mqtt://127.0.0.1:1883&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">]</span>
-</span></span></code></pre></div><p>We specify which python-script to run using the <code>program</code> key. With the <code>preLaunchTask</code> and <code>postDebugTask</code> keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks to find in <code>/.vscode/tasks.json</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;velocitas exec runtime-local run-dapr-sidecar vehicleapp --app-port 50008 --dapr-grpc-port 50001 --dapr-http-port 3500&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;isBackground&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;problemMatcher&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;pattern&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;regexp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;file&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;location&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;message&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;background&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#204a87;font-weight:bold">&#34;activeOnStart&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#204a87;font-weight:bold">&#34;beginsPattern&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;^You&#39;re up and running! Dapr logs will appear here.&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#204a87;font-weight:bold">&#34;endsPattern&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;.&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#204a87;font-weight:bold">&#34;hide&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;dapr stop --app-id vehicleapp&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;hide&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span><span style="color:#a40000">,</span>
-</span></span></code></pre></div><p>You can adapt the configuration in <code>/.vscode/launch.json</code> and in <code>/.vscode/tasks.json</code> to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another <em>Vehicle App</em>.</p>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>We specify which python-script to run using the <code>program</code> key.</p>
+<p>You can adapt the configuration in <code>/.vscode/launch.json</code> and in <code>/.vscode/tasks.json</code> to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another <em>Vehicle App</em>.</p>
 <p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your <em>Vehicle App</em>.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
@@ -536,7 +522,7 @@ After creating the mock, you can test the method and check the response. Use ass
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Deploy runtime services in Kubernetes</a>
+<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kanto_runtime">Deploy runtime services in Kanto</a>
 </li>
 <li>Tutorial: 
 
@@ -553,10 +539,6 @@ After creating the mock, you can test the method and check the response. Use ass
 <li>Concept: 
 
 <a href="/velocitas-docs//docs/concepts/deployment_model/">Deployment Model</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a Python <em>Vehicle App</em> with Helm</a>
 </li>
 </ul>
 
@@ -641,11 +623,11 @@ A detailed explanation of the use case and the example is available
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">public</span><span style="color:#ce5c00;font-weight:bold">:</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// &lt;remaining code in this tutorial goes here&gt;
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">private</span><span style="color:#ce5c00;font-weight:bold">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Vehicle</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">// this member exists to provide simple access to the vehicle model
+</span></span><span style="display:flex;"><span>    <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Vehicle</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">// this member exists to provide simple access to the vehicle model
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>In your constructor, you have to choose which implementations to use for the VehicleDataBrokerClient and the PubSubClient. By default we suggest you use the factory methods to generate the default implementations: <code>IVehicleDataBrokerClient::createInstance</code> and <code>IPubSubClient::createInstance</code>. These will create a VehicleDataBrokerClient which connects to the VAL via gRPC and an MQTT-based pub-sub client.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#000">MyVehicleApp</span><span style="color:#000;font-weight:bold">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">IVehicleDataBrokerClient</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">createInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#8f5902;font-style:italic">// this is the dapr-app-id of the KUKSA Databroker in the VAL.
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">IVehicleDataBrokerClient</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">createInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#8f5902;font-style:italic">// this is the app-id of the KUKSA Databroker in the VAL.
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>                 <span style="color:#000">IPubSubClient</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">createInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;MyVehicleApp&#34;</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#8f5902;font-style:italic">// the clientId identifies the client at the pub/sub broker
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000;font-weight:bold">{}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{}</span>
@@ -654,9 +636,7 @@ A detailed explanation of the use case and the example is available
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    <p>The middleware abstraction of the C++ SDK is incomplete: Pub/sub abstraction is just supporting MQTT (but no Dapr pub/sub), currently.</p>
-<p>The URI of the MQTT broker is by default <code>localhost:1883</code> and can be set to another address via the environment variable <code>SDV_MQTT_ADDRESS</code> (beginning with C++ SDK v0.3.3) or <code>MQTT_BROKER_URI</code> (SDKs before v0.3.3).</p>
-
+    The URI of the MQTT broker is by default <code>localhost:1883</code> and can be set to another address via the environment variable <code>SDV_MQTT_ADDRESS</code> (beginning with C++ SDK v0.3.3) or <code>MQTT_BROKER_URI</code> (SDKs before v0.3.3).
 
 </div>
 
@@ -670,24 +650,159 @@ A detailed explanation of the use case and the example is available
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>With this your app can now be started. In order to provide some meaningful behaviour of the app, we will enhance it with more features in the next sections.</p>
 <h2 id="vehicle-model-access">Vehicle Model Access</h2>
-<p>In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check the 
+<p>In order to facilitate the implementation, the whole set of vehicle signals is abstracted into model classes. Please check the 
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_model_creation">tutorial about creating models</a>
  for more details. In this section, the focus is on using the model.</p>
-<p>The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model in the folder <code>app/vehicle_model/include/</code>. This folder is already configured as &ldquo;include folder&rdquo; of the CMake tooling. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.</p>
-<p>If you want to access a single 
+<p>The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model as a Conan source package. The library is already referenced as &ldquo;include folder&rdquo; in the CMake files. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above. In your source code the model is included via <code>#include &quot;vehicle/Vehicle.hpp&quot;</code> (as shown above).</p>
+<p>If you want to read a single 
 
-<a href="/velocitas-docs//docs/concepts/development_model/vehicle_app_sdk/#datapoint">DataPoint</a>
- e.g. for the vehicle speed, this can be done via</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeedBlocking</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
-</span></span></code></pre></div><p>or</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onResult</span><span style="color:#000;font-weight:bold">([](</span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeed</span><span style="color:#000;font-weight:bold">){</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Got speed!&#34;</span><span style="color:#000;font-weight:bold">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">})</span>
-</span></span></code></pre></div><p><code>getDataPoint()</code> returns a <code>shared_ptr</code> to an <code>AsyncResult</code> which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use <code>await()</code> and block the calling thread until a result is available or use <code>onResult(...)</code> which allows us to inject a function pointer or a lambda which is called once the result is available.</p>
-<p>If you want to get deeper inside to the vehicle, to access a single seat for example, you just have to go the model-chain down:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">driverSeatPosition</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getDataPoint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
-</span></span></code></pre></div><h2 id="subscription-to-datapoints">Subscription to DataPoints</h2>
+<a href="/velocitas-docs//docs/concepts/development_model/vehicle_app_sdk/#datapoint">signal/data point</a>
+ e.g. for the vehicle speed, the simplest way is to do it via a blocking call and directly accessing the value of the speed:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">();</span>
+</span></span></code></pre></div><p>Lets have a look, what this line contains:</p>
+<ul>
+<li>The term <code>Vehicle.Speed</code> addresses the signal we like to query, i.e. the current speed of the vehicle.</li>
+<li>The term <code>.get()</code> tells that we want to get/read the current state of that signal from the Data Broker.
+Behind the scenes this triggers a request-response flow via IPC with the Data Broker.</li>
+<li>The term <code>-&gt;await()</code> blocks the execution until the response was received.</li>
+<li>Finally, the term <code>.value()</code> tries to access the returned speed value.</li>
+</ul>
+<p>The <code>get()</code> returns a <code>shared_ptr</code> to an <code>AsyncResult</code> which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use <code>await()</code> and block the calling thread until a result is available or use <code>onResult(...)</code> which allows us to inject a function pointer or a lambda which is called once the result is available:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onResult</span><span style="color:#000;font-weight:bold">([](</span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeed</span><span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Got speed!&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">})</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">onError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">status</span><span style="color:#000;font-weight:bold">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Something went wrong communicating to the data broker!&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">});</span>
+</span></span></code></pre></div><p>If you want to get deeper inside to the vehicle, to access a single seat for example, you just have to go the model-chain down:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">driverSeatPosition</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
+</span></span></code></pre></div><h3 id="class-typeddatapointvalue">Class TypedDataPointValue</h3>
+<p>If you have a detailed look at the <code>AsyncResult</code> class, you will observe that the object returned by the <code>await()</code> or passed to the <code>onResult</code> callback is not directly the current value of the signal, but instead an object of type <code>TypedDataPointValue</code>. This object does not only contain the current value of the signal but also some additional metadata accessible via these functions:</p>
+<ul>
+<li><code>getPath()</code> provides the signal name, i.e. the complete path,</li>
+<li><code>getType()</code> provides the data type of the signal,</li>
+<li><code>getTimeStamp()</code> provides the timestamp when the current state was received by the data broker,</li>
+<li><code>isValid()</code> returns <code>true</code> if the current state represents a valid value of the signal or <code>false</code> otherwise,</li>
+<li><code>getFailure()</code> returns the reason, why the current state does <strong>not</strong> represent a valid value (it returns <code>NONE</code> if the value is valid),</li>
+<li><code>getValue()</code> returns the a valid current value. It will throw an <code>InvalidValueException</code> if the current value is invalid for whatever reason.</li>
+</ul>
+<p>The latter three points lead us to the next chapter.</p>
+<h3 id="failure-handling">Failure Handling</h3>
+<p>As indicated above, there might be reasons/situations why the get operation is not able to deliver a valid value for the requested signal. Those shall be handled properly by any application (that wants &ldquo;to be more&rdquo; than a prototype).</p>
+<p>There are two ways to handle the failure situations:</p>
+<ul>
+<li>Either you can catch the exception thrown by the <code>.value()</code> function:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">try</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// use the speed value
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">AsyncException</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">e</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// thrown by the await(): Something went wrong on communication level with the data broker
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">catch</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">InvalidValueException</span><span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#000">e</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// thrown by .value(): The vehicle speed signal does not contain a valid value, currently
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><ul>
+<li>Throwing the <code>InvalidValueException</code> can be avoided if you first check that <code>.isValid()</code> returns true before calling <code>.value()</code>:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">vehicleSpeed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Speed</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">vehicleSpeed</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">isValid</span><span style="color:#000;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// Accessing .value() now wont throw an exception
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">speed</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vehicleSpeed</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// Do your failure handling here
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">switch</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">vehicleSpeed</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getFailure</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000">Failure</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#f57900">INVALID_VALUE</span><span style="color:#000;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">default</span><span style="color:#ce5c00;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#000;font-weight:bold">...</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>(<code>isValid()</code> is a convenience function for checking <code>.getFailure() == Failure::NONE</code>.)</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    If you use the asynchroneous variant, the callback passed to <code>onError</code> is just called to report errors on communication level with the data broker. The validity of the returned signal&rsquo;s/data point&rsquo;s value needs to be checked separatly (e.g. via &lsquo;isValid()&rsquo;)!
+
+</div>
+
+<h2 id="failure-reasons">Failure Reasons</h2>
+<p>There are two levels where errors accessing signal/data points might occure.</p>
+<h3 id="communication-with-the-data-broker-ipc-level">Communication with the Data Broker (IPC Level)</h3>
+<p>The data broker might be (temporarly) unavailable because</p>
+<ul>
+<li>it&rsquo;s not yet started up,</li>
+<li>temporary &ldquo;stopped&rdquo; due to a crash or a &ldquo;live update&rdquo;,</li>
+<li>some temporary network issues (if running on a different hardware node),</li>
+<li>&hellip;</li>
+</ul>
+<p>Errors on the IPC level between the application and the data broker will be reported either via</p>
+<ul>
+<li>an <code>AsyncException</code> thrown by the <code>await()</code> function of the <code>AsyncResult</code> class or</li>
+<li>calling the function passed to the <code>onError</code> function of the <code>AsyncResult</code>/<code>AsyncSubscription</code> class.</li>
+</ul>
+<p>Errors on this level always make the overall call fail: If getting/setting multiple data points in a single call, the overall operation will fail. In case of setting multiple signals/data points, this means that none of the signals/data points are set. In case of an error on a subscription, this means that the overall subscription could not be established or is terminated now.</p>
+<h3 id="signal--data-point-level">Signal / Data Point Level</h3>
+<p>Failures on signal/data point level are always reported individually per signal/data point. If accessing multiple signals/data points in a single call, getting or setting some certain signal might be successfully done but another one will report an error or failure.</p>
+<p>The reasons why a valid value of signal/data point can be missing are explained here:
+
+
+
+
+
+
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Reported failure</th>
+<th>Reason</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Failure::UNKNOWN_DATAPOINT</code></td>
+<td>The addressed signal/data point is &ldquo;unknown&rdquo; on the system.</td>
+<td>This can be a hint for a misconfiguration of the overall system, because no provider is installed in that system which will provide this signal. It can be acceptable, if an application does just &ldquo;optionally&rdquo; require access to that signal and would work properly without it being present.</td>
+</tr>
+<tr>
+<td><code>Failure::ACCESS_DENIED</code></td>
+<td>The application does not have the necessary access rights to the addressed signal/data point.</td>
+<td>This can be a hint for a misconfiguration of the overall system, but could be also a &ldquo;normal&rdquo; situation if the user of the vehicle blocks access to certain signals for that application.</td>
+</tr>
+<tr>
+<td><code>Failure::NOT_AVAILABLE</code></td>
+<td>The addressed signal/data point is temporary not available.</td>
+<td>This is a normal situation which will arise, while the provider of that signal is <br> - not yet started up or has not yet passed a value to the data broker, <br> - temporary &ldquo;stopped&rdquo; due to a crash or a &ldquo;live update&rdquo;, <br> - some temporary network issues (e.g. if the provider is running on a different hardware node), <br> - &hellip;</td>
+</tr>
+<tr>
+<td><code>Failure::INVALID_VALUE</code></td>
+<td>The addressed signal/data point might currently not represent a valid value.</td>
+<td>This situation means, that the signal is currently provided but just the value itself is not representable, e.g. because the hardware sensor delivers implausible values.</td>
+</tr>
+<tr>
+<td><code>Failure::INTERNAL_ERROR</code></td>
+<td>The value is missing because of some internal issue in the data broker.</td>
+<td>This typically points out some misbehaviour within the broker&rsquo;s implementation - call it &ldquo;bug&rdquo;.</td>
+</tr>
+<tr>
+<td><code>Failure::NONE</code></td>
+<td>No failure state - a valid value is provided.</td>
+<td>This &ldquo;failure&rdquo; reason is used to represent a signal state where a valid value is provided.</td>
+</tr>
+</tbody>
+</table>
+
+</p>
+<p>It is the application developer&rsquo;s decision if it makes sense to distinguish between the different failure reasons or if some or all of them can be handled as &ldquo;just one&rdquo;.</p>
+<h2 id="subscription-to-datapoints">Subscription to DataPoints</h2>
 <p>If you want to get notified about changes of a specific <code>DataPoint</code>, you can subscribe to this event, e.g. as part of the <code>onStart()</code> method in your app:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Cpp" data-lang="Cpp"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">onStart</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000">subscribeDataPoints</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">QueryBuilder</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">select</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Pos1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">build</span><span style="color:#000;font-weight:bold">())</span>
@@ -700,8 +815,21 @@ A detailed explanation of the use case and the example is available
 </span></span><span style="display:flex;"><span>    <span style="color:#000">logger</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">info</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">dataPoint</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">());</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// do something with the data point value
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>The <code>VehicleApp</code> class provides the <code>subscribeDataPoints()</code> method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via <code>AsyncSubscription::onItem()</code> is called. Conversely, the callback registered via <code>AsyncSubscription::onError()</code> is called once there is any error during communication with the KUKSA data broker.</p>
-<p>The result passed to the callback registered via <code>onItem()</code> is an object of type <code>DataPointsResult</code> which holds all data points that have changed. Individual data points can be accessed directly by their reference: <code>result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)</code>)</p>
+</span></span></code></pre></div><p>The <code>VehicleApp</code> class provides the <code>subscribeDataPoints()</code> method which allows to listen for changes on one or multiple data points. Once a change in any of the data points is registered, the callback registered via <code>AsyncSubscription::onItem()</code> is called. Conversely, the callback registered via <code>AsyncSubscription::onError()</code> is called once there is an error during communication with the KUKSA Databroker.</p>
+<p>The result passed to the callback registered via <code>onItem()</code> is an object of type <code>DataPointsResult</code> which holds the current state of all data points that were part of the respective subscription. The state of individual data points can be accessed by their reference: <code>result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)</code>)</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    <p>If you select multiple signals/data points in a single subscription be aware that:</p>
+<ol>
+<li>The update notification will not only contain those data points whose states were updated, but the state of all data points selected in the belonging subscription. If you don&rsquo;t want this behaviour, you must subscribe to change notifications for each signal/data point separately.</li>
+<li>A possible failure state will be reported individually per signal/data point. The reason is, that each signal/data point might come from a different provider, has individual access rights and individual reasons to become invalid. This is also true, if requesting multiple signal/data point states via a single get call.</li>
+</ol>
+
+</div>
+
 <h2 id="services">Services</h2>
 <p>Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them 
 
@@ -712,11 +840,13 @@ A detailed explanation of the use case and the example is available
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Note</h4>
 
-    <p>Services are not supported by our 
+    <p>This description is outdated!</p>
+<p>Services were not supported by our 
 <p><a href="/velocitas-docs//docs/tutorials/vehicle_model_creation/automated_model_lifecycle">automated vehicle model lifecycle</a>
-for the time being. If you need access to services please read</p>
-<p><a href="/velocitas-docs//docs/tutorials/vehicle_model_creation/manual_model_creation">here</a>
+for some time and could be made available via the</p>
+<p><a href="/velocitas-docs//docs/tutorials/vehicle_model_creation/manual_model_creation">description</a>
 how you can create a model and add services to it manually.</p></p>
+<p>In-between we provide a way to refer gRPC based services by referencing the required proto files from the AppManifest and auto-generated the language-specific stubs. The necessary steps need being described here.</p>
 
 
 </div>
@@ -783,7 +913,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/local_runtime">run runtime services</a>
  section.</p>
-<p>Now chose one of the options to start the VehicleApp under development (including Dapr sidecar):</p>
+<p>Now chose one of the options to start the VehicleApp under development:</p>
 <ol>
 <li>Press <kbd>F5</kbd></li>
 </ol>
@@ -802,7 +932,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;configurations&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VehicleApp - Debug (dapr run)&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VehicleApp - Debug (Native)&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;cppdbg&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;request&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;launch&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;program&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}/build/bin/app&#34;</span><span style="color:#000;font-weight:bold">,</span>
@@ -811,52 +941,26 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;cwd&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;${workspaceFolder}&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;environment&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DAPR_HTTP_PORT&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;3500&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;SDV_MIDDLEWARE_TYPE&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;native&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;DAPR_GRPC_PORT&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;50001&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;SDV_VEHICLEDATABROKER_ADDRESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;127.0.0.1:55555&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">},</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;VEHICLEDATABROKER_DAPR_APP_ID&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;SDV_MQTT_ADDRESS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;127.0.0.1:1883&#34;</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">],</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;externalConsole&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;MIMode&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;gdb&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;setupCommands&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;preLaunchTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;postDebugTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>We specify which binary to run using the <code>program</code> key. In the <code>environment</code> you can specify all needed environment variables. With the <code>preLaunchTask</code> and <code>postDebugTask</code> keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-start&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;velocitas exec runtime-local run-dapr-sidecar vehicleapp --dapr-grpc-port 50001 --dapr-http-port 3500&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;group&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;none&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;isBackground&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-JSON" data-lang="JSON"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;label&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dapr-sidecar-stop&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;detail&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;shell&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;command&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;dapr stop --app-id vehicleapp&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;presentation&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;close&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;reveal&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;never&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><p>You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another <em>Vehicle App</em>.</p>
+</span></span></code></pre></div><p>We specify which binary to run using the <code>program</code> key. In the <code>environment</code> you can specify all needed environment variables.
+You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another <em>Vehicle App</em>.</p>
 <p>Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your <em>Vehicle App</em>.</p>
 <h2 id="next-steps">Next steps</h2>
 <ul>
@@ -870,7 +974,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 </li>
 <li>Tutorial: 
 
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kubernetes_runtime">Deploy runtime services in Kubernetes</a>
+<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kanto_runtime">Deploy runtime services in Kanto</a>
 </li>
 <li>Tutorial: 
 
@@ -883,10 +987,6 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <li>Tutorial: 
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_app_development/integration_tests">Develop and run integration tests for a Vehicle App</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a <em>Vehicle App</em> with Helm</a>
 </li>
 </ul>
 
@@ -905,8 +1005,8 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <div class="td-content" style="page-break-before: always">
     
 	<h1 id="pg-c3bd4917d50ac579e189843e1a261e63">3 - Vehicle App Integration Testing</h1>
-    <div class="lead">Learn how to test that a <em>Vehicle App</em> together with the KUKSA Data Broker and potentially other dependant Vehicle Services or <em>Vehicle Apps</em> runs as expected.</div>
-	<p>To be sure that a newly created <em>Vehicle App</em> will run together with the <em>KUKSA Data Broker</em> and potentially other dependant <em>Vehicle Services</em> or <em>Vehicle Apps</em>, it&rsquo;s essential to write integration tests along with developing the app.</p>
+    <div class="lead">Learn how to test that a <em>Vehicle App</em> together with the KUKSA Databroker and potentially other dependant Vehicle Services or <em>Vehicle Apps</em> runs as expected.</div>
+	<p>To be sure that a newly created <em>Vehicle App</em> will run together with the <em>KUKSA Databroker</em> and potentially other dependant <em>Vehicle Services</em> or <em>Vehicle Apps</em>, it&rsquo;s essential to write integration tests along with developing the app.</p>
 <p>To execute an integration test, the dependant components need to be running and be accessible from the test runner. This guide will describe how integration tests can be written and integrated in the CI pipeline so that they are executed automatically when building the application.</p>
 
 
@@ -921,7 +1021,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <p>To write an integration test, you should check the sample that comes with the template (
 
 <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/app/tests/integration/integration_test.py" target="_blank" rel="noopener"><code>/app/tests/integration/integration_test.py</code></a>
-). To support interacting with the MQTT broker and the KUKSA Data Broker (to get and set values for data points), there are two classes present in Python SDK that will help:</p>
+). To support interacting with the MQTT broker and the KUKSA Databroker (to get and set values for data points), there are two classes present in Python SDK that will help:</p>
 <ul>
 <li>
 <p><code>MqttClient</code>: this class provides methods for interacting with the MQTT broker. Currently, the following methods are available:</p>
@@ -944,7 +1044,7 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <p>This class can be initialized with a given port. If no port is specified, the environment variable <code>MQTT_PORT</code> will be checked. If this is not possible either, the default value of <code>1883</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>1883</code> and in CI the port is set by the environment variable <code>MQTT_PORT</code>. This will prevent a check-in in the wrong port during local development.</strong></p>
 </li>
 <li>
-<p><code>IntTestHelper</code>: this class provides functionality to interact with the <em>KUKSA Data Broker</em>.</p>
+<p><code>IntTestHelper</code>: this class provides functionality to interact with the <em>KUKSA Databroker</em>.</p>
 <ul>
 <li><code>register_datapoint</code>: registers a new data point with given name and type (
 
@@ -955,16 +1055,12 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <p>This class can be initialized with a given port. If no port is specified, the environment variable <code>VDB_PORT</code> will be checked. If this is not possible either, the default value of <code>55555</code> will be used. <strong>It&rsquo;s recommended to specify no port when initializing that class as it will locally use the default port <code>55555</code> and in CI the port is set by the environment variable <code>VDB_PORT</code>. This will prevent a check-in in the wrong port during local development.</strong></p>
 </li>
 </ul>
-<blockquote>
-<p><strong>Please make sure that you don&rsquo;t check in the test classes with using local ports because then the execution in the CI workflow will fail (as the CI workflow uses Kubernetes execution for running integration tests).</strong></p>
-</blockquote>
 <h2 id="runtime-components">Runtime components</h2>
 <p>To be able to test the <em>Vehicle App</em> in an integrated way, the following components should be running:</p>
 <ul>
-<li>Dapr</li>
 <li>Mosquitto</li>
-<li>Data Broker</li>
-<li>Vehicle Services</li>
+<li>Databroker</li>
+<li>Vehicle Mock Provider</li>
 </ul>
 <p>We distinguish between two environments for executing the <em>Vehicle App</em> and the runtime components:</p>
 <ul>
@@ -972,10 +1068,6 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/local_runtime/"><strong>Local execution:</strong></a>
  components are running locally in the development environment</li>
-<li>
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kubernetes_runtime/"><strong>Kubernetes execution:</strong></a>
- components (and application) are deployed and running in a Kubernetes control plane (e.g. K3D)</li>
 <li>
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kanto_runtime/"><strong>Kanto execution:</strong></a>
@@ -999,44 +1091,30 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <p>When the runtime services and the application are running, integration tests can be executed locally via</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  pytest ./app/tests/integration
 </span></span></code></pre></div><p>or using the testing tab in the sidebar to the left.</p>
-<h3 id="kubernetes-execution-k3d">Kubernetes execution (K3D)</h3>
-<p>If you want to execute the integration tests in Kubernetes mode, make sure that K3D is up and running according to the 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kubernetes_runtime">documentation</a>
-. Local ports for <em>Mosquitto</em> and <em>KUKSA Data Broker</em> are <code>1883</code> and <code>55555</code>. In Kubernetes mode, these ports are exposed as nodeports <code>31883</code> and <code>30555</code> respectively (see 
-
-<a href="https://k3d.io/v5.0.1/usage/exposing_services/#2-via-nodeport" target="_blank" rel="noopener">here</a>
- for details). To ensure that the tests connect to correct ports of the containers, please execute the following commands in a new bash terminal:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  <span style="color:#204a87">export</span> <span style="color:#000">MQTT_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">31883</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#204a87">export</span> <span style="color:#000">VDB_PORT</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">30555</span>
-</span></span><span style="display:flex;"><span>  pytest ./app/tests/integration
-</span></span></code></pre></div><h2 id="integration-tests-in-ci-pipeline">Integration Tests in CI pipeline</h2>
+<h2 id="integration-tests-in-ci-pipeline">Integration Tests in CI pipeline</h2>
 <p>The tests will be discovered and executed automatically in the provided 
 
 <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.github/workflows/ci.yml" target="_blank" rel="noopener">CI pipeline</a>
-. The job <code>Run Integration Tests</code> contains all steps to set up and execute all integration tests in Kubernetes mode. Basically it is doing the same steps as you saw above:</p>
+. The job <code>Run Integration Tests</code> contains all steps to set up and execute all integration tests in the Kanto runtime. Basically it is doing the same steps as you saw above:</p>
 <ol>
-<li>start the K3D runtime</li>
+<li>start the Kanto runtime</li>
 <li>deploy the <em>Vehicle App</em> container</li>
 <li>set the correct MQTT and Databroker ports</li>
 <li>execute the integration tests</li>
 </ol>
 <p>Finally the test results are collected and published as artifacts of the workflow.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
-<h3 id="check-if-the-services-are-registered-correctly-in-dapr">Check if the services are registered correctly in Dapr</h3>
-<ul>
-<li>Dapr extension is available as VS Code extension and gives overview of all running Dapr services.</li>
-</ul>
 <h3 id="troubleshoot-inttesthelper">Troubleshoot IntTestHelper</h3>
 <ul>
-<li>Make sure that the <em>KUKSA Data Broker</em> is up and running by checking the task log.</li>
-<li>Make sure that you are using the right ports for local/Kubernetes execution.</li>
+<li>Make sure that the <em>KUKSA Databroker</em> is up and running by checking the task log.</li>
+<li>Make sure that you are using the right ports.</li>
 <li>Make sure that you installed the correct version of the SDK (<em>SDV</em>-package).</li>
 </ul>
 <h3 id="troubleshoot-mosquitto-mqtt-broker">Troubleshoot Mosquitto (MQTT Broker)</h3>
 <ul>
 <li>Make sure that <em>Mosquitto</em> is up and running by checking the task log.</li>
-<li>Make sure that you are using the right ports for local/Kubernetes execution.</li>
-<li>Use VsMqtt extension to connect to MQTT broker locally (<code>localhost:1883</code>) or in a Kubernetes cluster (<code>localhost:31883</code>) to monitor topics in MQTT broker by subscribing to all topics using <code>#</code>.</li>
+<li>Make sure that you are using the right ports.</li>
+<li>Use VsMqtt extension to connect to MQTT broker locally (<code>localhost:1883</code>) to monitor topics in MQTT broker by subscribing to all topics using <code>#</code>.</li>
 </ul>
 <h2 id="next-steps">Next steps</h2>
 <ul>
@@ -1047,10 +1125,6 @@ In the previous sections, you generally saw how to use <code>Vehicle Models</cod
 <li>Concept: 
 
 <a href="/velocitas-docs//docs/concepts/deployment_model/vehicle_app_releases/">Build and release process</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a Python <em>Vehicle App</em> with Helm</a>
 </li>
 </ul>
 

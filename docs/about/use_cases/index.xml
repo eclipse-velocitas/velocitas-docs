@@ -25,7 +25,7 @@
         
         
         &lt;p&gt;In the scenario of a car sharing company, the goal is to provide the functionality of automatically adjusting the driver&amp;rsquo;s seat position based on their preferred settings stored in their profile. When the driver unlocks the car, a request is sent to the vehicle to retrieve the preferred seat position. This is where your implementation begins.&lt;/p&gt;
-&lt;p&gt;The &lt;em&gt;Seat Adjuster Vehicle App&lt;/em&gt; receives a MQTT message containing the seat position, which then triggers a seat adjustment command through the &lt;em&gt;Seat Service&lt;/em&gt; to change the seat position. Additionally, to ensure convenience for future trips, the car sharing company saves the driver&amp;rsquo;s preferred seat position and utilizes it accordingly. &lt;em&gt;The Seat Adjuster Vehicle App&lt;/em&gt; subscribes to the seat position, receiving updates from the &lt;em&gt;Data Broker&lt;/em&gt;, which streams data from the &lt;em&gt;Seat Service&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;Seat Adjuster Vehicle App&lt;/em&gt; receives a MQTT message containing the seat position, which then triggers a seat adjustment command through the &lt;em&gt;Seat Service&lt;/em&gt; to change the seat position. Additionally, to ensure convenience for future trips, the car sharing company saves the driver&amp;rsquo;s preferred seat position and utilizes it accordingly. &lt;em&gt;The Seat Adjuster Vehicle App&lt;/em&gt; subscribes to the seat position, receiving updates from the &lt;em&gt;Databroker&lt;/em&gt;, which streams data from the &lt;em&gt;Seat Service&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;requesting-new-seat-position&#34;&gt;Requesting new seat position&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;./seat_adjuster_dataflow_1.png&#34; alt=&#34;seat_adjuster_dataflow_1&#34;&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -37,7 +37,7 @@
 &lt;p&gt;The &lt;strong&gt;Seat Adjuster &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/strong&gt; that has subscribed to this topic, receives the request to change the seat position as a MQTT message.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;The &lt;strong&gt;Seat Adjuster &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/strong&gt; gets the current vehicle speed from the data broker, which is fed by the &lt;strong&gt;CAN Feeder (KUKSA DBC Feeder)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Seat Adjuster &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/strong&gt; gets the current vehicle speed from the Databroker, which is fed by the &lt;strong&gt;CAN Provider (KUKSA CAN Provider)&lt;/strong&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;With the support of the &lt;strong&gt;&lt;em&gt;Vehicle App&lt;/em&gt; SDK&lt;/strong&gt;, the &lt;strong&gt;Seat Adjuster &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/strong&gt; triggers a seat adjustment command of the &lt;strong&gt;Seat Service&lt;/strong&gt; via gRPC in the event that the speed is equal to zero. Hint: This is a helpful convenience check but not a safety check.&lt;/p&gt;
@@ -65,10 +65,10 @@
 &lt;p&gt;If the seat position will be changed by the driver, the new seat position will be sent to the &lt;strong&gt;Seat Service&lt;/strong&gt; via CAN.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; streams the seat position via gRPC to the &lt;strong&gt;KUKSA Data Broker&lt;/strong&gt; since it was registered beforehand.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Seat Service&lt;/strong&gt; streams the seat position via gRPC to the &lt;strong&gt;KUKSA Databroker&lt;/strong&gt; since it was registered beforehand.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;The &lt;strong&gt;Seat Adjuster &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/strong&gt; that subscribed to the seat position receives the new seat position from the &lt;strong&gt;KUKSA Data Broker&lt;/strong&gt; as a result.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Seat Adjuster &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/strong&gt; that subscribed to the seat position receives the new seat position from the &lt;strong&gt;KUKSA Databroker&lt;/strong&gt; as a result.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;The &lt;strong&gt;Seat Adjuster &lt;em&gt;Vehicle App&lt;/em&gt;&lt;/strong&gt; publishes this on topic &lt;code&gt;seatadjuster/currentPosition&lt;/code&gt; with the payload:&lt;/p&gt;

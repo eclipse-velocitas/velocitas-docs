@@ -53,8 +53,8 @@
 
 
 
-<link rel="preload" href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" as="style">
-<link href="/velocitas-docs/scss/main.min.4ebaddcfde6fc9e0acc62443eeb47c0964bcde6cb0949e7c6116262523aabe94.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" as="style">
+<link href="/velocitas-docs/scss/main.min.b71603ee60329cd2b2d1483afdc897215eeae83b9a59331f20357707fc7c9481.css" rel="stylesheet" integrity="">
 
 <script
   src=/velocitas-docs/js/jquery-3.6.0.min.js
@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.55197f087906bba38d74901107396d10.json"
+    data-offline-search-index-json-src="/velocitas-docs/offline-search-index.b9de75ab8ed72d4d7a8d8ab3558d3364.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -456,7 +456,7 @@ This is the multi-page printable view of this section.
 <h3 id="vehicle-models">Vehicle Models</h3>
 <p>A Vehicle Model makes it possible to easily get vehicle data from the 
 
-<a href="#data-broker">Data Broker</a>
+<a href="#kuksa-databroker">Databroker</a>
  and to execute remote procedure calls over gRPC against 
 
 <a href="#vehicle-services">Vehicle Services</a>
@@ -476,7 +476,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 <h3 id="vehicle-services">Vehicle Services</h3>
 <p>Vehicle Services provide service interfaces to control actuators or to trigger (complex) actions. E.g. they communicate with the vehicle internal networks like CAN or Ethernet, which are connected to actuators, electronic control units (ECUs) and other vehicle computers (VCs). They may provide a simulation mode to run without a network interface. Vehicle services may feed data to the 
 
-<a href="#data-broker">Data Broker</a>
+<a href="#kuksa-databroker">Databroker</a>
  and may expose gRPC endpoints, which can be invoked by 
 
 <a href="#vehicle-apps"><em>Vehicle Apps</em></a>
@@ -484,8 +484,8 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 
 <a href="#vehicle-models">Vehicle Model</a>
 .</p>
-<h3 id="data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
-<p>Vehicle data is stored in the KUKSA Data Broker conforming to an underlying 
+<h3 id="kuksa-databroker">KUKSA Databroker</h3>
+<p>Vehicle data is stored in the KUKSA Databroker conforming to an underlying 
 
 <a href="#semantic-models">Semantic Model</a>
  like 
@@ -499,7 +499,7 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 <p>The Vehicle Signal Specification (
 
 <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">VSS</a>
-) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between <em>Vehicle Apps</em> and the Data Broker.</p>
+) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between <em>Vehicle Apps</em> and the Databroker.</p>
 <p>The Vehicle Service Catalog (
 
 <a href="https://github.com/COVESA/vehicle_service_catalog#vehicle-service-catalog" target="_blank" rel="noopener">VSC</a>
@@ -530,20 +530,15 @@ SDKs are available for Python and C++, currently. Further SDKs for Rust and C ar
 <a href="#vehicle-services">Vehicle Services</a>
  and the 
 
-<a href="#data-broker">Data Broker</a>
+<a href="#kuksa-databroker">Databroker</a>
  is based on the 
 
 <a href="https://grpc.io/" target="_blank" rel="noopener">gRPC</a>
  protocol.</p>
 <h3 id="middleware-abstraction">Middleware Abstraction</h3>
-<p>Velocitas provides middleware abstraction interfaces for Service Discovery, PubSub Messaging Protocol and other cross-cutting functionality.
-By default, Velocitas leverages 
-
-<a href="https://dapr.io" target="_blank" rel="noopener">Dapr</a>
- for gRPC service discovery, Open Telemetry tracing and the 
-
-<a href="https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/" target="_blank" rel="noopener">publish/subscribe building block</a>
-.</p>
+<p>Velocitas basically provides middleware abstraction interfaces for service discovery, pubsub messaging, and other cross-cutting functionalites.
+At the moment, Velocitas just offers a (what we call) &ldquo;native middleware&rdquo; implementation, which does not provide (gRPC) service discovery. Instead, addresses and port number of services need to be provided via environment variables to an app; e.g. SDV_VEHICLEDATABROKER_ADDRESS=grpc://localhost:55555.
+The support of Dapr as middleware has recently been removed.</p>
 <h3 id="vehicle-edge-operating-system">Vehicle Edge Operating System</h3>
 <p>
 
@@ -551,7 +546,7 @@ By default, Velocitas leverages
  are expected to run on a 
 
 <a href="https://www.linux.org/" target="_blank" rel="noopener">Linux</a>
--based operating system. An OCI-compliant container runtime is required to host the <em>Vehicle App</em> containers and the Dapr middleware mandates a Kubernetes control plane. For publish/subscribe messaging a MQTT broker must be available (e.g., 
+-based operating system. An OCI-compliant container runtime is required to host the <em>Vehicle App</em> containers. For publish/subscribe messaging a MQTT broker must be available (e.g., 
 
 <a href="https://mosquitto.org/" target="_blank" rel="noopener">Eclipse Mosquitto</a>
 ).</p>
@@ -652,19 +647,13 @@ Favor fast startup and support graceful shutdowns to leave the system in a corre
 <p><strong>
 
 <a href="#middleware-integration">Middleware integration</a>
-:</strong> Vehicle Models can contain gRPC stubs to communicate with <em>Vehicle Services</em>. gRPC communication is integrated with the 
-
-<a href="https://dapr.io" target="_blank" rel="noopener">Dapr</a>
- middleware for service discovery and 
-
-<a href="https://opentelemetry.io" target="_blank" rel="noopener">OpenTelemetry</a>
- logging and tracing.</p>
+:</strong> Vehicle Models can contain gRPC stubs to communicate with <em>Vehicle Services</em>. gRPC communication is integrated natively.</p>
 </li>
 <li>
 <p><strong>
 
 <a href="#fluent-query--rule-construction">Fluent query &amp; rule construction</a>
-:</strong> Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.</p>
+:</strong> Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Databroker to access the real values of the data points that are defined in the vehicle model.</p>
 </li>
 <li>
 <p><strong>
@@ -996,10 +985,8 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
     </div>
 </div>
 
-<h3 id="service-discovery">Service discovery</h3>
-<p>The underlying gRPC channel is provided and managed by the <code>Service</code> base class of the SDK. It is also responsible for routing the method invocation to the service through the Dapr middleware. As a result, a <code>dapr-app-id</code> has to be assigned to every <code>Service</code>, so that Dapr can discover the corresponding <em>Vehicle Services</em>. This <code>dapr-app-id</code> has to be specified as an environment variable named <code>&lt;service_name&gt;_DAPR_APP_ID</code>.</p>
 <h2 id="fluent-query--rule-construction">Fluent query &amp; rule construction</h2>
-<p>A set of query methods like <code>get()</code>, <code>where()</code>, <code>join()</code> etc. are provided through the <code>Model</code> and <code>DataPoint</code> base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Data Broker.</p>
+<p>A set of query methods like <code>get()</code>, <code>where()</code>, <code>join()</code> etc. are provided through the <code>Model</code> and <code>DataPoint</code> base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Databroker.</p>
 <h3 id="query-examples">Query examples</h3>
 <p>The following examples show you how to query data points.</p>
 <h4 id="get-single-data-point">Get single data point</h4>
@@ -1199,9 +1186,9 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </div>
 
 <h2 id="publish--subscribe-messaging">Publish &amp; subscribe messaging</h2>
-<p>The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. By leveraging the Dapr pub/sub building block for this purpose, the low-level MQTT communication is abstracted away from the <em>Vehicle App</em> developer. Especially the physical address and port of the MQTT broker is no longer configured in the <em>Vehicle App</em> itself, but rather is part of the Dapr configuration, which is outside of the <em>Vehicle App</em>.</p>
+<p>The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. Using the Velocitas SDK, the low-level MQTT communication is abstracted away from the <em>Vehicle App</em> developer. Especially the physical address and port of the MQTT broker is no longer configured in the <em>Vehicle App</em> itself, but rather is set as an environment variable, which is outside of the <em>Vehicle App</em>.</p>
 <h3 id="publish-mqtt-messages">Publish MQTT Messages</h3>
-<p>MQTT messages can be published easily with the <code>publish_mqtt_event()</code> method, inherited from <code>VehicleApp</code> base class:</p>
+<p>MQTT messages can be published easily with the <code>publish_event()</code> method, inherited from <code>VehicleApp</code> base class:</p>
 
 
 
@@ -1224,7 +1211,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 <div class="tab-content" id="tabs-9-content">
     <div class="tab-pane fade show active"
         id="tabs-09-00" role="tabpanel" aria-labelled-by="tabs-09-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_mqtt_event</span><span style="color:#000;font-weight:bold">(</span>
+        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">await</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">publish_event</span><span style="color:#000;font-weight:bold">(</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#4e9a06">&#34;seatadjuster/currentPosition&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">dumps</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">req_data</span><span style="color:#000;font-weight:bold">))</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
@@ -1275,46 +1262,10 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
     </div>
 </div>
 
-<p>Under the hood, the <em>Vehicle App</em> creates a gRPC endpoint on port <code>50008</code>, which is exposed to the Dapr middleware. The Dapr middleware will then subscribe to the MQTT broker and forward the messages to the <em>Vehicle App</em>.</p>
-<p>To change the app port, set it in the <code>main()</code> method of the app:</p>
-
-
-
-<ul class="nav nav-tabs" id="tabs-11" role="tablist">
-  <li class="nav-item">
-      <a class="nav-link active persistLang-Python"
-          id="tabs-11-00-tab" data-toggle="tab" href="#tabs-11-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-11-00" aria-selected="false">
-        Python
-      </a>
-    </li><li class="nav-item">
-      <a class="nav-link persistLang-C--"
-          id="tabs-11-01-tab" data-toggle="tab" href="#tabs-11-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-11-01" aria-selected="false">
-        C++
-      </a>
-    </li>
-</ul>
-
-<div class="tab-content" id="tabs-11-content">
-    <div class="tab-pane fade show active"
-        id="tabs-11-00" role="tabpanel" aria-labelled-by="tabs-11-00-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">sdv</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">conf</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">async</span> <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">():</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000">conf</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">DAPR_APP_PORT</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">your</span> <span style="color:#000">port</span><span style="color:#ce5c00;font-weight:bold">&gt;</span></span></span></code></pre></div>
-    </div>
-    <div class="tab-pane fade"
-        id="tabs-11-01" role="tabpanel" aria-labelled-by="tabs-11-01-tab">
-        <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// C++ does not use Dapr for Pub/Sub messaging at this point
-</span></span></span></code></pre></div>
-    </div>
-</div>
-
 <h2 id="vehicle-app-abstraction">Vehicle App abstraction</h2>
-<p><em>Vehicle Apps</em> are inherited from the <code>VehicleApp</code> base class. This enables the <em>Vehicle App</em> to use the Publish &amp; Subscribe messaging and to connect to the KUKSA Data Broker.</p>
+<p><em>Vehicle Apps</em> are inherited from the <code>VehicleApp</code> base class. This enables the <em>Vehicle App</em> to use the Publish &amp; Subscribe messaging and to connect to the KUKSA Databroker.</p>
 <p>The <code>Vehicle Model</code> instance is passed to the constructor of the <code>VehicleApp</code> class and should be stored in a member variable (e.g. <code>self.vehicle</code> for Python, <code>std::shared_ptr&lt;Vehicle&gt; m_vehicle;</code> for C++), to be used by all methods within the application.</p>
-<p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <em>Vehicle App</em> and register all MQTT topic and Data Broker subscriptions.</p>
+<p>Finally, the <code>run()</code> method of the <code>VehicleApp</code> class is called to start the <em>Vehicle App</em> and register all MQTT topic and Databroker subscriptions.</p>
 
 
 <div class="alert alert-warning" role="alert">
@@ -1328,25 +1279,25 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 
 
 
-<ul class="nav nav-tabs" id="tabs-13" role="tablist">
+<ul class="nav nav-tabs" id="tabs-12" role="tablist">
   <li class="nav-item">
       <a class="nav-link active persistLang-Python"
-          id="tabs-13-00-tab" data-toggle="tab" href="#tabs-13-00" role="tab"
-          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-13-00" aria-selected="false">
+          id="tabs-12-00-tab" data-toggle="tab" href="#tabs-12-00" role="tab"
+          onclick="persistLang(&#34;Python&#34;);"aria-controls="tabs-12-00" aria-selected="false">
         Python
       </a>
     </li><li class="nav-item">
       <a class="nav-link persistLang-C--"
-          id="tabs-13-01-tab" data-toggle="tab" href="#tabs-13-01" role="tab"
-          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-13-01" aria-selected="false">
+          id="tabs-12-01-tab" data-toggle="tab" href="#tabs-12-01" role="tab"
+          onclick="persistLang(&#34;C--&#34;);"aria-controls="tabs-12-01" aria-selected="false">
         C++
       </a>
     </li>
 </ul>
 
-<div class="tab-content" id="tabs-13-content">
+<div class="tab-content" id="tabs-12-content">
     <div class="tab-pane fade show active"
-        id="tabs-13-00" role="tabpanel" aria-labelled-by="tabs-13-00-tab">
+        id="tabs-12-00" role="tabpanel" aria-labelled-by="tabs-12-00-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">SeatAdjusterApp</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">VehicleApp</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vehicle</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">):</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87">super</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">()</span>
@@ -1364,7 +1315,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 </span></span><span style="display:flex;"><span><span style="color:#000">LOOP</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">close</span><span style="color:#000;font-weight:bold">()</span></span></span></code></pre></div>
     </div>
     <div class="tab-pane fade"
-        id="tabs-13-01" role="tabpanel" aria-labelled-by="tabs-13-01-tab">
+        id="tabs-12-01" role="tabpanel" aria-labelled-by="tabs-12-01-tab">
         <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;sdk/VehicleApp.h&#34;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;vehicle/Vehicle.hpp&#34;</span><span style="color:#8f5902;font-style:italic">
@@ -1438,7 +1389,7 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 	<h1 id="pg-56b42987d464402649a2b538a1b4da6e">1.2 - Vehicle Abstraction Layer (VAL)</h1>
     <div class="lead">Learn about the main concepts and components of the vehicle abstraction and how it relates to the 
 
-<a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener">Eclipse KUKSA project</a>
+<a href="https://github.com/eclipse-kuksa" target="_blank" rel="noopener">Eclipse KUKSA project</a>
 .</div>
 	<h2 id="introduction">Introduction</h2>
 <p>The Vehicle Abstraction Layer (VAL) enables access to the systems and functions of a vehicle via a unified - or even better - a standardized <em>Vehicle API</em> abstracting from the details of the end-to-end architecture of the vehicle. The unified API enables <em>Vehicle Apps</em> to run on different vehicle architectures of a single OEM. <em>Vehicle Apps</em> can be even implemented OEM-agnostic, if using an API based on a standard like the 
@@ -1448,11 +1399,11 @@ The gRPC stubs are wrapped by a <strong>convenience layer</strong> class derived
 The <em>Vehicle API</em> eliminates the need to know the source, destination, and format of signals for the vehicle system.</p>
 <p>The Eclipse Velocitas project is using the VAL of the 
 
-<a href="https://www.eclipse.org/kuksa/" target="_blank" rel="noopener"><em>Eclipse KUKSA project</em></a>
+<a href="https://github.com/eclipse-kuksa" target="_blank" rel="noopener"><em>Eclipse KUKSA project</em></a>
 , also called <em>KUKSA.VAL</em>.
 KUKSA.VAL does not provide a concrete VAL. That&rsquo;s up to you as an OEM (vehicle manufacturer) or as a supplier.
 But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an <em>Vehicle App</em> or Service.</p>
-<p>KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the <em>KUKSA Data Broker</em> and the generic <em>Data Providers</em> (aka <em>Data Feeders</em>).
+<p>KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the <em>KUKSA Databroker</em> and the generic <em>Data Providers</em> (aka <em>Data Feeders</em>).
 It also provides you reference implementations of certain <em>Vehicle Services</em>, like the <em>Seat Service</em> and the <em>HVAC Service</em>.</p>
 <h2 id="architecture">Architecture</h2>
 <p>The image below shows the main components of the VAL and its relation to the 
@@ -1460,10 +1411,10 @@ It also provides you reference implementations of certain <em>Vehicle Services</
 <a href="/velocitas-docs//docs/concepts/development_model.md">Velocitas Development Model</a>
 .</p>
 <p><img src="./val_overview.drawio.svg" alt="Overview of the VAL architecture"></p>
-<h3 id="kuksa-data-broker-aka-vehicle-data-broker">KUKSA Data Broker (aka Vehicle Data Broker)</h3>
+<h3 id="kuksa-databroker">KUKSA Databroker</h3>
 <p>The 
 
-<a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">KUKSA Data Broker</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-databroker" target="_blank" rel="noopener">KUKSA Databroker</a>
  is a gRPC service acting as a broker of vehicle data / signals also called <em>data points</em> in the following.
 It provides central access to vehicle data points arranged in a - preferably standardized - vehicle data model like the COVESA VSS or others. But this is not a must, it is also possible to use your own (proprietary) vehicle model or to extend the COVESA VSS with your specific extensions via 
 
@@ -1474,24 +1425,24 @@ It provides central access to vehicle data points arranged in a - preferably sta
 
 <a href="https://covesa.github.io/vehicle_signal_specification/introduction/overview/#example" target="_blank" rel="noopener">this example</a>
  on the COVESA VSS site).</p>
-<p>The KUKSA Data Broker is implemented in Rust, can run in a container and provides services to get data points, update data points and for subscribing to automatic notifications on data point changes.
+<p>The KUKSA Databroker is implemented in Rust, can run in a container and provides services to get data points, update data points and for subscribing to automatic notifications on data point changes.
 Filter- and rule-based subscriptions of data points can be used to reduce the number of updates sent to the subscriber.</p>
 <h3 id="data-providers--data-feeders">Data Providers / Data Feeders</h3>
-<p>Conceptually, a data provider is the responsible to take care for a certain set of data points: It provides updates of sensor data from the vehicle to the data broker and forwards updates of actuator values to the vehicle. The set of data points a data provider maintains may depend on the network interface (e.g. CAN bus) via that those data is accessible or it can depend on a certain use case the provider is responsible for (like seat control).</p>
+<p>Conceptually, a data provider is the responsible to take care for a certain set of data points: It provides updates of sensor data from the vehicle to the Databroker and forwards updates of actuator values to the vehicle. The set of data points a data provider maintains may depend on the network interface (e.g. CAN bus) via that those data is accessible or it can depend on a certain use case the provider is responsible for (like seat control).</p>
 <p>Eclipse KUKSA provides several <em>generic</em> 
 
-<a href="https://github.com/eclipse/kuksa.val.feeders" target="_blank" rel="noopener"><em>Data Providers</em></a>
+<a href="https://github.com/eclipse-kuksa#providers-exchanging-data-with-databrokerserver" target="_blank" rel="noopener"><em>Data Providers</em></a>
  for different datasources.
 As of today, Eclipse Velocitas only utilizes the generic 
 
-<a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">CAN feeder (KUKSA DBC Feeder)</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-can-provider" target="_blank" rel="noopener">CAN Provider (KUKSA CAN Provider)</a>
  implemented in Python, which reads data from a CAN bus based on mappings specified in e.g. a CAN network description (dbc) file.
-The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the data broker using its <code>Collector</code> gRPC interface.
-The feeder automatically reconnects to the data broker in the event that the connection is lost.</p>
+The feeder uses a mapping file and data point metadata to convert the source data to data points and injects them into the Databroker using its <code>Collector</code> gRPC interface.
+The feeder automatically reconnects to the Databroker in the event that the connection is lost.</p>
 <h3 id="vehicle-services">Vehicle Services</h3>
 <p>A vehicle service offers a <em>Vehicle App</em> to interact with the vehicle systems on a RPC-like basis.
 It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
-It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the data broker.</p>
+It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the Databroker.</p>
 <p>The 
 
 <a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a>
@@ -1500,7 +1451,7 @@ It communicates with the Hardware Abstraction to execute the underlying services
 <p>Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
 The reference implementation relies on <strong>SocketCAN</strong> and <strong>vxcan</strong>, see 
 
-<a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">kuksa.val.feeders</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-can-provider" target="_blank" rel="noopener">KUKSA CAN Provider</a>
 .
 The hardware abstraction may offer replaying (e.g., CAN) data from a file (can dump file) when the respective data source (e.g., CAN) is not available.</p>
 
@@ -1524,16 +1475,16 @@ The hardware abstraction may offer replaying (e.g., CAN) data from a file (can d
 <h2 id="information-flow">Information Flow</h2>
 <p>The VAL offers an information flow between vehicle networks and vehicle services.
 The data that can flow is ultimately limited to the data available through the Hardware Abstraction, which is platform/project-specific.
-The KUKSA Data Broker offers read/subscribe access to data points based on a gRPC service. The data points which are actually available are defined by the set of feeders providing the data into the broker.
+The KUKSA Databroker offers read/subscribe access to data points based on a gRPC service. The data points which are actually available are defined by the set of feeders providing the data into the broker.
 Services (like the 
 
-<a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">seat service</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-incubation/tree/main/seat_service" target="_blank" rel="noopener">seat service</a>
 ) define which CAN signals they listen to and which CAN signals they send themselves, see 
 
-<a href="https://github.com/eclipse/kuksa.val.services/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md" target="_blank" rel="noopener">documentation</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-incubation/blob/main/seat_service/src/lib/seat_adjuster/seat_controller/README.md" target="_blank" rel="noopener">documentation</a>
 .
-Service implementations may also interact as feeders with the data broker.</p>
-<h3 id="data-flow-when-a-_vehicle-app_-uses-the-kuksa-data-broker">Data flow when a <em>Vehicle App</em> uses the KUKSA Data Broker</h3>
+Service implementations may also interact as feeders with the Databroker.</p>
+<h3 id="data-flow-when-a-_vehicle-app_-uses-the-kuksa-databroker">Data flow when a <em>Vehicle App</em> uses the KUKSA Databroker</h3>
 
 
 
@@ -1546,7 +1497,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 	
 	<figcaption class="card-body px-0 pt-2 pb-0">
 		<p class="card-text">
-  Architectural representation of the KUKSA data broker data flow
+  Architectural representation of the KUKSA Databroker data flow
 </p>
 	</figcaption>
 	
@@ -1572,19 +1523,19 @@ Service implementations may also interact as feeders with the data broker.</p>
 </figure>
 
 <h2 id="source-code">Source Code</h2>
-<p>Source code and build instructions are available in the respective KUKSA.VAL repositories:</p>
+<p>Source code and build instructions are available in the respective KUKSA repositories:</p>
 <ul>
 <li>
 
-<a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">KUKSA Data Broker</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-databroker" target="_blank" rel="noopener">KUKSA Databroker</a>
 </li>
 <li>
 
-<a href="https://github.com/eclipse/kuksa.val.feeders/tree/main/dbc2val" target="_blank" rel="noopener">KUKSA DBC Feeder</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-can-provider" target="_blank" rel="noopener">KUKSA CAN Provider</a>
 </li>
 <li>
 
-<a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA example services</a>
+<a href="https://github.com/eclipse-kuksa#providers-exchanging-data-with-databrokerserver" target="_blank" rel="noopener">KUKSA example providers</a>
 </li>
 </ul>
 <h2 id="guidelines">Guidelines</h2>
@@ -1655,7 +1606,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 <li>Description of your applications <strong>functional interfaces</strong>(VehicleModel, services, APIs, &hellip;)</li>
 <li>Enable <strong>loose coupling</strong> of functional interface descriptions and the Velocitas toolchain. Some parts of the toolchain are responsible for reading the file and acting upon it, depending on the type of functional interface</li>
 <li>Providing an <strong>extendable</strong> syntax to enable custom functional interface types which may not provided by the Velocitas toolchain itself, but by a third party</li>
-<li>Providing a <strong>single source of truth</strong> for generation of deployment specifications (i.e. Helm-Charts, Kanto spec, etc&hellip;)</li>
+<li>Providing a <strong>single source of truth</strong> for generation of deployment specifications (i.e. Kanto spec, etc&hellip;)</li>
 </ul>
 <h2 id="example">Example</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">// AppManifest.json
@@ -1686,7 +1637,7 @@ Service implementations may also interact as feeders with the data broker.</p>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://raw.githubusercontent.com/eclipse/kuksa.val.services/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span> <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MoveComponent&#34;</span> <span style="color:#000;font-weight:bold">]</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#000;font-weight:bold">},</span>
@@ -1942,8 +1893,8 @@ graph TD
 <p>If a <em>Vehicle App</em> requires a <code>vehicle-signal-interface</code>, it will act as a consumer of datapoints already available in the system. If, on the other hand, a <em>Vehicle App</em> provides a <code>vehicle-signal-interface</code>, it will act as a provider (formerly feeder in KUKSA terms) of the declared datapoints.</p>
 <p>Furthermore, in the source code generated by this functional interface, a connection to 
 
-<a href="https://github.com/eclipse/kuksa.val/tree/master/kuksa_databroker" target="_blank" rel="noopener">Kuksa Databroker</a>
- will be established via the configured Velocitas middleware. It uses the <code>broker.proto</code> if provided by the Kuksa Databroker to connect via gRPC. A seperate declaration of a <code>grpc-interface</code> for the databroker is <strong>NOT</strong> required.</p>
+<a href="https://github.com/eclipse-kuksa/kuksa-databroker" target="_blank" rel="noopener">KUKSA Databroker</a>
+ will be established via the configured Velocitas middleware. It uses the <code>broker.proto</code> if provided by the KUKSA Databroker to connect via gRPC. A seperate declaration of a <code>grpc-interface</code> for the databroker is <strong>NOT</strong> required.</p>
 <p>More information: 
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_model_creation/">Vehicle Model Creation</a>
@@ -2108,7 +2059,7 @@ graph TD
 <tr>
 <td><code>src</code></td>
 <td>string</td>
-<td><code>&quot;https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&quot;</code></td>
+<td><code>&quot;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&quot;</code></td>
 <td>URI of the used protobuf specification of the service. URI may point to a local file or to a file provided by a server. It is generally recommended that a <strong>stable</strong> proto file is used. I.e. one that is already released under a proper tag rather than an in-development proto file. </td>
 </tr>
 <tr>
@@ -2137,7 +2088,7 @@ graph TD
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://raw.githubusercontent.com/eclipse/kuksa.val.services/v0.2.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MoveComponent&#34;</span>
@@ -2268,8 +2219,7 @@ graph TD
 <p>The deployment model is guided by the following principles</p>
 <ul>
 <li>Applications are provided as OCI-compliant container images.</li>
-<li>The container runtime offers a Kubernetes-compatible control plane and API to manage the container lifecycle.</li>
-<li>Helm charts are used as deployment descriptor specification.</li>
+<li>The container runtime offers a control plane and API to manage the container lifecycle.</li>
 </ul>
 <p>The template projects provided come with a pre-configured developer toolchain that accelerates the development process. The developer toolchain ensures an easy creation through a high-degree of automation of all required artifacts needed to follow the <em>Velocitas</em> principles.</p>
 <h2 id="testing-your-container-during-development">Testing your container during development</h2>
@@ -2352,7 +2302,6 @@ Once the application is ready to be released in a new version, a dedicated relea
 <li><strong>Building a multi-arch container for the app</strong> - actions create a containerized version of the <em>Vehicle App</em> for multiple architectures (currently AMD64 and ARM64).</li>
 <li><strong>Scanning for vulnerabilities</strong> - actions scan your code and container for vulnerabilities and in case of findings the workflow will be marked as &ldquo;failed&rdquo;.</li>
 <li><strong>Storing container images to GitHub action artifacts</strong> - at the end of the workflow, the container image created is stored in a Github Action Artifacts so that it can be referenced by the Release Workflow later.</li>
-<li><strong>Generate Deployment Files</strong> - actions generate a PodSpec-file and HelmCharts to ease the deployment of the <em>Vehicle App</em> and the runtime services.</li>
 </ul>
 <h2 id="release-workflow-releaseymlhttpsgithubcomeclipse-velocitasvehicle-app-python-templateblobmaingithubworkflowsreleaseyml">Release Workflow (
 
@@ -2394,14 +2343,6 @@ Since the registry does not have an automatic cleanup, it keeps container images
 <li>Tutorial: 
 
 <a href="/velocitas-docs//docs/tutorials/vehicle_app_development/integration_tests">How to write integration tests</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/helm_deployment.md">Deploy a <em>Vehicle App</em> with Helm</a>
-</li>
-<li>Tutorial: 
-
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_deployment/podspecs_deployment.md">Deploy a <em>Vehicle App</em> with PodSpecs</a>
 </li>
 </ul>
 
@@ -2495,23 +2436,28 @@ Since the registry does not have an automatic cleanup, it keeps container images
 	<p>Every <em>Vehicle App</em> repo comes with a 
 
 <a href="https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json" target="_blank" rel="noopener"><code>.velocitas.json</code></a>
- which is the project configuration of your app. It holds references to the packages and their respective versions you are using in your project.</p>
+ which is the project configuration of your app. It holds references to the packages and their respective versions as well as components you are using in your project.</p>
 <p>Here is an example of this configuration:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;packages&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;devenv-devcontainer-setup&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v1.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;packages&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;devenv-runtimes&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v3.1.0&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;devenv-devcontainer-setup&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v2.1.0&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;name&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;devenv-runtimes&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;version&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v1.0.0&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">],</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;variables&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;foo&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;bar&#34;</span><span style="color:#000;font-weight:bold">,</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;baz&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;runtime-local&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;devcontainer-setup&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;vehicle-signal-interface&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;sdk-installer&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#4e9a06">&#34;grpc-interface-support&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;variables&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;language&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;python&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;repoType&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;app&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;appManifestPath&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;app/AppManifest.json&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;githubRepoId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;eclipse-velocitas/vehicle-app-python-template&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;generatedModelPath&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./gen/vehicle_model&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;cliVersion&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v0.9.0&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>More detailed information and explanation about the project configuration and fields of the <code>.velocitas.json</code> can be found 
 
@@ -2586,10 +2532,10 @@ is located for now, which is a central place of defining our extension and core 
 </span></span><span style="display:flex;"><span>Config <span style="color:#4e9a06">&#39;src&#39;</span> <span style="color:#204a87;font-weight:bold">for</span> interface <span style="color:#4e9a06">&#39;vehicle-signal-interface&#39;</span>: URI or path to VSS json <span style="color:#ce5c00;font-weight:bold">(</span>Leave empty <span style="color:#204a87;font-weight:bold">for</span> default: v3.0<span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div><h3 id="velocitas-init">velocitas init</h3>
-<p>Download packages configured in your <code>.velocitas.json</code> to 
+<h4 id="download-packages-configured-in-your-velocitasjson-to-velocitas_homehttpsgithubcomeclipse-velocitascliblobmainreadmemdchanging-default-velocitas_home-directory">Download packages configured in your <code>.velocitas.json</code> to 
 
 <a href="https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory" target="_blank" rel="noopener">VELOCITAS_HOME</a>
-</p>
+</h4>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
 </span></span><span style="display:flex;"><span>Initializing Velocitas packages ...
 </span></span><span style="display:flex;"><span>... Downloading package: <span style="color:#4e9a06">&#39;devenv-runtimes:v1.0.1&#39;</span>
@@ -2598,6 +2544,14 @@ is located for now, which is a central place of defining our extension and core 
 </span></span><span style="display:flex;"><span>... Downloading package: <span style="color:#4e9a06">&#39;devenv-devcontainer-setup:v1.1.7&#39;</span>
 </span></span><span style="display:flex;"><span>Running post init hook <span style="color:#204a87;font-weight:bold">for</span> model-generator
 </span></span><span style="display:flex;"><span>Running <span style="color:#4e9a06">&#39;install-deps&#39;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h4 id="single-package-init">Single Package Init</h4>
+<p>Single packages can also easily be initialized or re-initialized using the <em>package parameter</em> <code>-p / --package</code> and the <em>specifier parameter</em> <code>-s / --specifier</code>. The <em>specifier parameter</em> can be either a git tag or a git hash. If the <em>specifier parameter</em> is omitted either the version defined in <code>.velocitas.json</code> resp. the latest version of the specified package will be used automatically. After initialisation the package and it&rsquo;s resolved version will be written to <code>.velocitas.json</code>. If the package already exists in <code>.velocitas.json</code>, however the versions differ it will be automatically updated to the specified version. If no components from the specified package are added to <code>.velocitas.json</code> all components from this package are automatically written to it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init -p devenv-runtimes -s v3.0.0
+</span></span><span style="display:flex;"><span>Initializing Velocitas packages ...
+</span></span><span style="display:flex;"><span>... Package <span style="color:#4e9a06">&#39;devenv-runtimes:v3.0.0&#39;</span> added to .velocitas.json
+</span></span><span style="display:flex;"><span>... Downloading package: <span style="color:#4e9a06">&#39;devenv-runtimes:v3.0.0&#39;</span>
+</span></span><span style="display:flex;"><span>... &gt; Running post init hook <span style="color:#204a87;font-weight:bold">for</span> ...
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div><h3 id="velocitas-sync">velocitas sync</h3>
 <p>If any package provides files they will be synchronized into your repository.
@@ -2617,13 +2571,12 @@ is located for now, which is a central place of defining our extension and core 
 </span></span><span style="display:flex;"><span>... syncing <span style="color:#4e9a06">&#39;devenv-devcontainer-setup&#39;</span>
 </span></span></code></pre></div><h3 id="velocitas-upgrade">velocitas upgrade</h3>
 <p>Updates Velocitas components.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas upgrade --dry-run
-</span></span><span style="display:flex;"><span>Checking <span style="color:#204a87;font-weight:bold">for</span> updates!
-</span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-runtimes&#39;</span> is up to date!
-</span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-github-workflows&#39;</span> is up to date!
-</span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-github-templates&#39;</span> is up to date!
-</span></span><span style="display:flex;"><span>... <span style="color:#4e9a06">&#39;devenv-devcontainer-setup&#39;</span> is currently at v1.1.6, can be updated to v1.1.7
-</span></span><span style="display:flex;"><span>... Do you wish to <span style="color:#204a87;font-weight:bold">continue</span>? <span style="color:#ce5c00;font-weight:bold">[</span>y/n<span style="color:#ce5c00;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">[</span>y<span style="color:#ce5c00;font-weight:bold">]</span>: y
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas upgrade --dry-run <span style="color:#ce5c00;font-weight:bold">[</span>--ignore-bounds<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>Checking .velocitas.json <span style="color:#204a87;font-weight:bold">for</span> updates!
+</span></span><span style="display:flex;"><span>... devenv-devcontainer-setup:vx.x.x → up to date!
+</span></span><span style="display:flex;"><span>... devenv-runtimes:vx.x.x → vx.x.x
+</span></span><span style="display:flex;"><span>... devenv-github-templates:vx.x.x → up to date!
+</span></span><span style="display:flex;"><span>... devenv-github-workflows:vx.x.x → up to date!
 </span></span></code></pre></div><h3 id="velocitas-package">velocitas package</h3>
 <p>Prints information about packages.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas package devenv-devcontainer-setup
@@ -2900,7 +2853,7 @@ More detailed information about the <em>Project Cache</em> can be found
 <a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/local_runtime/">Local</a>
  and 
 
-<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kubernetes_runtime/">Kubernetes</a>
+<a href="/velocitas-docs//docs/tutorials/vehicle_app_runtime/kanto_runtime/">Kanto</a>
  Runtime Services</td>
 </tr>
 <tr>
@@ -3258,6 +3211,16 @@ If you experienced this error and the devcontainer still has started correctly p
 </span></span></code></pre></div><p>or</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
 </span></span><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas sync
+</span></span></code></pre></div><h3 id="debugging-inside-installed-packages">Debugging inside installed packages</h3>
+<p>Open up a seperate VScode window where you can debug installed toolchain packages.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ code ~/.velocitas/packages
+</span></span></code></pre></div><h3 id="solution-to-almost-all-problems">Solution to (almost) all problems</h3>
+<p>The following would clean up the 
+
+<a href="/velocitas-docs//docs/concepts/lifecycle_management/packages/usage/#velocitas-home-directory">VELOCITAS_HOME</a>
+ but afterwards a new project initialization is required.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ rm -rf ~/.velocitas
+</span></span><span style="display:flex;"><span>vscode ➜ /workspaces/vehicle-app-python-template <span style="color:#ce5c00;font-weight:bold">(</span>main<span style="color:#ce5c00;font-weight:bold">)</span> $ velocitas init
 </span></span></code></pre></div>
 </div>
 
