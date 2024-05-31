@@ -453,7 +453,7 @@ A detailed explanation of the use case and the example is available
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;public&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// &amp;lt;remaining code in this tutorial goes here&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;private&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// this member exists to provide simple access to the vehicle model
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;vehicle&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// this member exists to provide simple access to the vehicle model
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In your constructor, you have to choose which implementations to use for the VehicleDataBrokerClient and the PubSubClient. By default we suggest you use the factory methods to generate the default implementations: &lt;code&gt;IVehicleDataBrokerClient::createInstance&lt;/code&gt; and &lt;code&gt;IPubSubClient::createInstance&lt;/code&gt;. These will create a VehicleDataBrokerClient which connects to the VAL via gRPC and an MQTT-based pub-sub client.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;MyVehicleApp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
@@ -466,9 +466,7 @@ A detailed explanation of the use case and the example is available
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
-    &lt;p&gt;The middleware abstraction of the C++ SDK is incomplete: Pub/sub abstraction is just supporting MQTT (but no Dapr pub/sub), currently.&lt;/p&gt;
-&lt;p&gt;The URI of the MQTT broker is by default &lt;code&gt;localhost:1883&lt;/code&gt; and can be set to another address via the environment variable &lt;code&gt;SDV_MQTT_ADDRESS&lt;/code&gt; (beginning with C++ SDK v0.3.3) or &lt;code&gt;MQTT_BROKER_URI&lt;/code&gt; (SDKs before v0.3.3).&lt;/p&gt;
-
+    The URI of the MQTT broker is by default &lt;code&gt;localhost:1883&lt;/code&gt; and can be set to another address via the environment variable &lt;code&gt;SDV_MQTT_ADDRESS&lt;/code&gt; (beginning with C++ SDK v0.3.3) or &lt;code&gt;MQTT_BROKER_URI&lt;/code&gt; (SDKs before v0.3.3).
 
 &lt;/div&gt;
 
@@ -482,24 +480,159 @@ A detailed explanation of the use case and the example is available
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With this your app can now be started. In order to provide some meaningful behaviour of the app, we will enhance it with more features in the next sections.&lt;/p&gt;
 &lt;h2 id=&#34;vehicle-model-access&#34;&gt;Vehicle Model Access&lt;/h2&gt;
-&lt;p&gt;In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check the 
+&lt;p&gt;In order to facilitate the implementation, the whole set of vehicle signals is abstracted into model classes. Please check the 
 
 &lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_model_creation&#34;&gt;tutorial about creating models&lt;/a&gt;
  for more details. In this section, the focus is on using the model.&lt;/p&gt;
-&lt;p&gt;The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model in the folder &lt;code&gt;app/vehicle_model/include/&lt;/code&gt;. This folder is already configured as &amp;ldquo;include folder&amp;rdquo; of the CMake tooling. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.&lt;/p&gt;
-&lt;p&gt;If you want to access a single 
+&lt;p&gt;The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model as a Conan source package. The library is already referenced as &amp;ldquo;include folder&amp;rdquo; in the CMake files. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above. In your source code the model is included via &lt;code&gt;#include &amp;quot;vehicle/Vehicle.hpp&amp;quot;&lt;/code&gt; (as shown above).&lt;/p&gt;
+&lt;p&gt;If you want to read a single 
 
-&lt;a href=&#34;/velocitas/velocitas//docs/concepts/development_model/vehicle_app_sdk/#datapoint&#34;&gt;DataPoint&lt;/a&gt;
- e.g. for the vehicle speed, this can be done via&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicleSpeedBlocking&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;getDataPoint&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Speed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;await&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;or&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;getDataPoint&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Speed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;onResult&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;([](&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicleSpeed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;){&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Got speed!&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;getDataPoint()&lt;/code&gt; returns a &lt;code&gt;shared_ptr&lt;/code&gt; to an &lt;code&gt;AsyncResult&lt;/code&gt; which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use &lt;code&gt;await()&lt;/code&gt; and block the calling thread until a result is available or use &lt;code&gt;onResult(...)&lt;/code&gt; which allows us to inject a function pointer or a lambda which is called once the result is available.&lt;/p&gt;
-&lt;p&gt;If you want to get deeper inside to the vehicle, to access a single seat for example, you just have to go the model-chain down:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;driverSeatPosition&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;getDataPoint&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Cabin&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Seat&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Row1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Pos1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Position&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;await&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;subscription-to-datapoints&#34;&gt;Subscription to DataPoints&lt;/h2&gt;
+&lt;a href=&#34;/velocitas/velocitas//docs/concepts/development_model/vehicle_app_sdk/#datapoint&#34;&gt;signal/data point&lt;/a&gt;
+ e.g. for the vehicle speed, the simplest way is to do it via a blocking call and directly accessing the value of the speed:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicleSpeed&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Speed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;await&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Lets have a look, what this line contains:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The term &lt;code&gt;Vehicle.Speed&lt;/code&gt; addresses the signal we like to query, i.e. the current speed of the vehicle.&lt;/li&gt;
+&lt;li&gt;The term &lt;code&gt;.get()&lt;/code&gt; tells that we want to get/read the current state of that signal from the Data Broker.
+Behind the scenes this triggers a request-response flow via IPC with the Data Broker.&lt;/li&gt;
+&lt;li&gt;The term &lt;code&gt;-&amp;gt;await()&lt;/code&gt; blocks the execution until the response was received.&lt;/li&gt;
+&lt;li&gt;Finally, the term &lt;code&gt;.value()&lt;/code&gt; tries to access the returned speed value.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The &lt;code&gt;get()&lt;/code&gt; returns a &lt;code&gt;shared_ptr&lt;/code&gt; to an &lt;code&gt;AsyncResult&lt;/code&gt; which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use &lt;code&gt;await()&lt;/code&gt; and block the calling thread until a result is available or use &lt;code&gt;onResult(...)&lt;/code&gt; which allows us to inject a function pointer or a lambda which is called once the result is available:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Speed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;onResult&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;([](&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicleSpeed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Got speed!&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;onError&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Something went wrong communicating to the data broker!&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you want to get deeper inside to the vehicle, to access a single seat for example, you just have to go the model-chain down:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;driverSeatPosition&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Cabin&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Seat&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Row1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Pos1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Position&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;await&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;class-typeddatapointvalue&#34;&gt;Class TypedDataPointValue&lt;/h3&gt;
+&lt;p&gt;If you have a detailed look at the &lt;code&gt;AsyncResult&lt;/code&gt; class, you will observe that the object returned by the &lt;code&gt;await()&lt;/code&gt; or passed to the &lt;code&gt;onResult&lt;/code&gt; callback is not directly the current value of the signal, but instead an object of type &lt;code&gt;TypedDataPointValue&lt;/code&gt;. This object does not only contain the current value of the signal but also some additional metadata accessible via these functions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getPath()&lt;/code&gt; provides the signal name, i.e. the complete path,&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getType()&lt;/code&gt; provides the data type of the signal,&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getTimeStamp()&lt;/code&gt; provides the timestamp when the current state was received by the data broker,&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;isValid()&lt;/code&gt; returns &lt;code&gt;true&lt;/code&gt; if the current state represents a valid value of the signal or &lt;code&gt;false&lt;/code&gt; otherwise,&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getFailure()&lt;/code&gt; returns the reason, why the current state does &lt;strong&gt;not&lt;/strong&gt; represent a valid value (it returns &lt;code&gt;NONE&lt;/code&gt; if the value is valid),&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getValue()&lt;/code&gt; returns the a valid current value. It will throw an &lt;code&gt;InvalidValueException&lt;/code&gt; if the current value is invalid for whatever reason.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The latter three points lead us to the next chapter.&lt;/p&gt;
+&lt;h3 id=&#34;failure-handling&#34;&gt;Failure Handling&lt;/h3&gt;
+&lt;p&gt;As indicated above, there might be reasons/situations why the get operation is not able to deliver a valid value for the requested signal. Those shall be handled properly by any application (that wants &amp;ldquo;to be more&amp;rdquo; than a prototype).&lt;/p&gt;
+&lt;p&gt;There are two ways to handle the failure situations:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Either you can catch the exception thrown by the &lt;code&gt;.value()&lt;/code&gt; function:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicleSpeed&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Speed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;await&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// use the speed value
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;AsyncException&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// thrown by the await(): Something went wrong on communication level with the data broker
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;InvalidValueException&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;e&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// thrown by .value(): The vehicle speed signal does not contain a valid value, currently
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Throwing the &lt;code&gt;InvalidValueException&lt;/code&gt; can be avoided if you first check that &lt;code&gt;.isValid()&lt;/code&gt; returns true before calling &lt;code&gt;.value()&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicleSpeed&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Speed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;await&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicleSpeed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;isValid&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Accessing .value() now wont throw an exception
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;speed&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;vehicleSpeed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// Do your failure handling here
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;switch&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;vehicleSpeed&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;getFailure&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;Failure&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#f57900&#34;&gt;INVALID_VALUE&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;break&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;case&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;default&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;         &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(&lt;code&gt;isValid()&lt;/code&gt; is a convenience function for checking &lt;code&gt;.getFailure() == Failure::NONE&lt;/code&gt;.)&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    If you use the asynchroneous variant, the callback passed to &lt;code&gt;onError&lt;/code&gt; is just called to report errors on communication level with the data broker. The validity of the returned signal&amp;rsquo;s/data point&amp;rsquo;s value needs to be checked separatly (e.g. via &amp;lsquo;isValid()&amp;rsquo;)!
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;failure-reasons&#34;&gt;Failure Reasons&lt;/h2&gt;
+&lt;p&gt;There are two levels where errors accessing signal/data points might occure.&lt;/p&gt;
+&lt;h3 id=&#34;communication-with-the-data-broker-ipc-level&#34;&gt;Communication with the Data Broker (IPC Level)&lt;/h3&gt;
+&lt;p&gt;The data broker might be (temporarly) unavailable because&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;it&amp;rsquo;s not yet started up,&lt;/li&gt;
+&lt;li&gt;temporary &amp;ldquo;stopped&amp;rdquo; due to a crash or a &amp;ldquo;live update&amp;rdquo;,&lt;/li&gt;
+&lt;li&gt;some temporary network issues (if running on a different hardware node),&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Errors on the IPC level between the application and the data broker will be reported either via&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;an &lt;code&gt;AsyncException&lt;/code&gt; thrown by the &lt;code&gt;await()&lt;/code&gt; function of the &lt;code&gt;AsyncResult&lt;/code&gt; class or&lt;/li&gt;
+&lt;li&gt;calling the function passed to the &lt;code&gt;onError&lt;/code&gt; function of the &lt;code&gt;AsyncResult&lt;/code&gt;/&lt;code&gt;AsyncSubscription&lt;/code&gt; class.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Errors on this level always make the overall call fail: If getting/setting multiple data points in a single call, the overall operation will fail. In case of setting multiple signals/data points, this means that none of the signals/data points are set. In case of an error on a subscription, this means that the overall subscription could not be established or is terminated now.&lt;/p&gt;
+&lt;h3 id=&#34;signal--data-point-level&#34;&gt;Signal / Data Point Level&lt;/h3&gt;
+&lt;p&gt;Failures on signal/data point level are always reported individually per signal/data point. If accessing multiple signals/data points in a single call, getting or setting some certain signal might be successfully done but another one will report an error or failure.&lt;/p&gt;
+&lt;p&gt;The reasons why a valid value of signal/data point can be missing are explained here:
+
+
+
+
+
+
+
+&lt;table class=&#34;table table-bordered&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Reported failure&lt;/th&gt;
+&lt;th&gt;Reason&lt;/th&gt;
+&lt;th&gt;Explanation&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Failure::UNKNOWN_DATAPOINT&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The addressed signal/data point is &amp;ldquo;unknown&amp;rdquo; on the system.&lt;/td&gt;
+&lt;td&gt;This can be a hint for a misconfiguration of the overall system, because no provider is installed in that system which will provide this signal. It can be acceptable, if an application does just &amp;ldquo;optionally&amp;rdquo; require access to that signal and would work properly without it being present.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Failure::ACCESS_DENIED&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The application does not have the necessary access rights to the addressed signal/data point.&lt;/td&gt;
+&lt;td&gt;This can be a hint for a misconfiguration of the overall system, but could be also a &amp;ldquo;normal&amp;rdquo; situation if the user of the vehicle blocks access to certain signals for that application.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Failure::NOT_AVAILABLE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The addressed signal/data point is temporary not available.&lt;/td&gt;
+&lt;td&gt;This is a normal situation which will arise, while the provider of that signal is &lt;br&gt; - not yet started up or has not yet passed a value to the data broker, &lt;br&gt; - temporary &amp;ldquo;stopped&amp;rdquo; due to a crash or a &amp;ldquo;live update&amp;rdquo;, &lt;br&gt; - some temporary network issues (e.g. if the provider is running on a different hardware node), &lt;br&gt; - &amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Failure::INVALID_VALUE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The addressed signal/data point might currently not represent a valid value.&lt;/td&gt;
+&lt;td&gt;This situation means, that the signal is currently provided but just the value itself is not representable, e.g. because the hardware sensor delivers implausible values.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Failure::INTERNAL_ERROR&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;The value is missing because of some internal issue in the data broker.&lt;/td&gt;
+&lt;td&gt;This typically points out some misbehaviour within the broker&amp;rsquo;s implementation - call it &amp;ldquo;bug&amp;rdquo;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Failure::NONE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;No failure state - a valid value is provided.&lt;/td&gt;
+&lt;td&gt;This &amp;ldquo;failure&amp;rdquo; reason is used to represent a signal state where a valid value is provided.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;/p&gt;
+&lt;p&gt;It is the application developer&amp;rsquo;s decision if it makes sense to distinguish between the different failure reasons or if some or all of them can be handled as &amp;ldquo;just one&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;subscription-to-datapoints&#34;&gt;Subscription to DataPoints&lt;/h2&gt;
 &lt;p&gt;If you want to get notified about changes of a specific &lt;code&gt;DataPoint&lt;/code&gt;, you can subscribe to this event, e.g. as part of the &lt;code&gt;onStart()&lt;/code&gt; method in your app:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Cpp&#34; data-lang=&#34;Cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;onStart&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;subscribeDataPoints&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;QueryBuilder&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;select&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Vehicle&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Cabin&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Seat&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Row1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Pos1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Position&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;build&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;())&lt;/span&gt;
@@ -512,8 +645,21 @@ A detailed explanation of the use case and the example is available
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000&#34;&gt;logger&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;().&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;info&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;dataPoint&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;value&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;());&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;// do something with the data point value
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;VehicleApp&lt;/code&gt; class provides the &lt;code&gt;subscribeDataPoints()&lt;/code&gt; method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via &lt;code&gt;AsyncSubscription::onItem()&lt;/code&gt; is called. Conversely, the callback registered via &lt;code&gt;AsyncSubscription::onError()&lt;/code&gt; is called once there is any error during communication with the KUKSA Databroker.&lt;/p&gt;
-&lt;p&gt;The result passed to the callback registered via &lt;code&gt;onItem()&lt;/code&gt; is an object of type &lt;code&gt;DataPointsResult&lt;/code&gt; which holds all data points that have changed. Individual data points can be accessed directly by their reference: &lt;code&gt;result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)&lt;/code&gt;)&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The &lt;code&gt;VehicleApp&lt;/code&gt; class provides the &lt;code&gt;subscribeDataPoints()&lt;/code&gt; method which allows to listen for changes on one or multiple data points. Once a change in any of the data points is registered, the callback registered via &lt;code&gt;AsyncSubscription::onItem()&lt;/code&gt; is called. Conversely, the callback registered via &lt;code&gt;AsyncSubscription::onError()&lt;/code&gt; is called once there is an error during communication with the KUKSA Databroker.&lt;/p&gt;
+&lt;p&gt;The result passed to the callback registered via &lt;code&gt;onItem()&lt;/code&gt; is an object of type &lt;code&gt;DataPointsResult&lt;/code&gt; which holds the current state of all data points that were part of the respective subscription. The state of individual data points can be accessed by their reference: &lt;code&gt;result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)&lt;/code&gt;)&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+
+    &lt;p&gt;If you select multiple signals/data points in a single subscription be aware that:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The update notification will not only contain those data points whose states were updated, but the state of all data points selected in the belonging subscription. If you don&amp;rsquo;t want this behaviour, you must subscribe to change notifications for each signal/data point separately.&lt;/li&gt;
+&lt;li&gt;A possible failure state will be reported individually per signal/data point. The reason is, that each signal/data point might come from a different provider, has individual access rights and individual reasons to become invalid. This is also true, if requesting multiple signal/data point states via a single get call.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/div&gt;
+
 &lt;h2 id=&#34;services&#34;&gt;Services&lt;/h2&gt;
 &lt;p&gt;Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them 
 
@@ -524,11 +670,13 @@ A detailed explanation of the use case and the example is available
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
 
-    &lt;p&gt;Services are not supported by our 
+    &lt;p&gt;This description is outdated!&lt;/p&gt;
+&lt;p&gt;Services were not supported by our 
 &lt;p&gt;&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_model_creation/automated_model_lifecycle&#34;&gt;automated vehicle model lifecycle&lt;/a&gt;
-for the time being. If you need access to services please read&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_model_creation/manual_model_creation&#34;&gt;here&lt;/a&gt;
+for some time and could be made available via the&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/velocitas/velocitas//docs/tutorials/vehicle_model_creation/manual_model_creation&#34;&gt;description&lt;/a&gt;
 how you can create a model and add services to it manually.&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;In-between we provide a way to refer gRPC based services by referencing the required proto files from the AppManifest and auto-generated the language-specific stubs. The necessary steps need being described here.&lt;/p&gt;
 
 
 &lt;/div&gt;
