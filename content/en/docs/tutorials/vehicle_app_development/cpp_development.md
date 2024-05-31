@@ -94,9 +94,9 @@ With this your app can now be started. In order to provide some meaningful behav
 
 ## Vehicle Model Access
 
-In order to facilitate the implementation, the whole set of vehicle signal is abstracted into model classes. Please check the [tutorial about creating models](/docs/tutorials/vehicle_model_creation) for more details. In this section, the focus is on using the model.
+In order to facilitate the implementation, the whole set of vehicle signals is abstracted into model classes. Please check the [tutorial about creating models](/docs/tutorials/vehicle_model_creation) for more details. In this section, the focus is on using the model.
 
-The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model as a Conan source package. The library is already referenced as "include folder" in the CMake files. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.  In your source code the model is included via `#include "vehicle/Vehicle.hpp"` (as shown above).
+The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model as a Conan source package. The library is already referenced as "include folder" in the CMake files. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above. In your source code the model is included via `#include "vehicle/Vehicle.hpp"` (as shown above).
 
 If you want to read a single [signal/data point](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) e.g. for the vehicle speed, the simplest way is to do it via a blocking call and directly accessing the value of the speed:
 
@@ -107,7 +107,7 @@ auto vehicleSpeed = Vehicle.Speed.get()->await().value();
 Lets have a look, what this line contains:
 * The term `Vehicle.Speed` addresses the signal we like to query, i.e. the current speed of the vehicle.
 * The term `.get()` tells that we want to get/read the current state of that signal from the Data Broker.
-  Behind the scenes this triggers an request-response flow via IPC with the Data Broker.
+  Behind the scenes this triggers a request-response flow via IPC with the Data Broker.
 * The term `->await()` blocks the execution until the response was received.
 * Finally, the term `.value()` tries to access the returned speed value.
 
@@ -131,15 +131,15 @@ auto driverSeatPosition = Vehicle.Cabin.Seat.Row1.Pos1.Position.get()->await();
 
 ### Class TypedDataPointValue
 
-If you have a detailed look at the `AsyncResult` class, you will observe that the object returned by the `await()` or passed to the `onResult` callback is not directly the current value of the signal, but instead an object of type `TypedDataPointValue`. This object does not only contains the current value of the signal but also some additional metadata accessible via these functions:
+If you have a detailed look at the `AsyncResult` class, you will observe that the object returned by the `await()` or passed to the `onResult` callback is not directly the current value of the signal, but instead an object of type `TypedDataPointValue`. This object does not only contain the current value of the signal but also some additional metadata accessible via these functions:
 * `getPath()` provides the signal name, i.e. the complete path,
 * `getType()` provides the data type of the signal,
 * `getTimeStamp()` provides the timestamp when the current state was received by the data broker,
-* `isValid()` returns `true` if the current state repesents a valid value of the signal or `false` otherwise,
+* `isValid()` returns `true` if the current state represents a valid value of the signal or `false` otherwise,
 * `getFailure()` returns the reason, why the current state does **not** represent a valid value (it returns `NONE` if the value is valid),
 * `getValue()` returns the a valid current value. It will throw an `InvalidValueException` if the current value is invalid for whatever reason.
 
-The latter three points lead us to
+The latter three points lead us to the next chapter.
 
 ### Failure Handling
 
@@ -209,9 +209,9 @@ The reasons why a valid value of signal/data point can be missing are explained 
   * some temporary network issues (if the provider is running on a different hardware node),
   * ...
 * The addressed signal/data point might currently not represent a valid value (`Failure::INVALID_VALUE`). This situation means, that the signal is currently provided but just the value itself is not representable, e.g. because the hardware sensor delivers implausible values.
-* The value of is missing because of some internal issue in the data broker (`Failure::INTERNAL_ERROR`). This typically points out some misbehaviour within the broker's implementation - call it "bug".
+* The value is missing because of some internal issue in the data broker (`Failure::INTERNAL_ERROR`). This typically points out some misbehaviour within the broker's implementation - call it "bug".
 
-It is the application implementer's decision if it makes sense to distinguish between the different failure reasons or if some or all of them can be handled as "just one".
+It is the application developer's decision if it makes sense to distinguish between the different failure reasons or if some or all of them can be handled as "just one".
 
 ## Subscription to DataPoints
 
@@ -234,12 +234,12 @@ void onSeatPositionChanged(const DataPointsResult& result) {
 
 The `VehicleApp` class provides the `subscribeDataPoints()` method which allows to listen for changes on one or multiple data points. Once a change in any of the data points is registered, the callback registered via `AsyncSubscription::onItem()` is called. Conversely, the callback registered via `AsyncSubscription::onError()` is called once there is an error during communication with the KUKSA Databroker.
 
-The result passed to the callback registered via `onItem()` is an object of type `DataPointsResult` which holds the current state of all data points that were part if the respective subscription. The state of individual data points can be accessed by their reference: `result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)`)
+The result passed to the callback registered via `onItem()` is an object of type `DataPointsResult` which holds the current state of all data points that were part of the respective subscription. The state of individual data points can be accessed by their reference: `result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)`)
 
 {{% alert title="Note" %}
-If you select multiple signals/data pints in a single subscription be aware that:
-1. The update notification will not only contain those data points whose states were updated, but the state of all data points selected in the belonging subscription. If you don't want this behaviour, you must subscribe to change notifications for each signal/data points separately.
-2. A possible failure state will be reported individually per signal/data point. The reason is, that each signal/data point might come from a different provider, has individual access rights, and individual reasons to become invalid. This is also true, if requesting multiple signal/data point states via a single get call.
+If you select multiple signals/data points in a single subscription be aware that:
+1. The update notification will not only contain those data points whose states were updated, but the state of all data points selected in the belonging subscription. If you don't want this behaviour, you must subscribe to change notifications for each signal/data point separately.
+2. A possible failure state will be reported individually per signal/data point. The reason is, that each signal/data point might come from a different provider, has individual access rights and individual reasons to become invalid. This is also true, if requesting multiple signal/data point states via a single get call.
 {{% /alert %}}
 
 ## Services
