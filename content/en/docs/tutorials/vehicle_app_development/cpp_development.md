@@ -178,9 +178,9 @@ if (vehicleSpeed.isValid())
 ```
 (`isValid()` is a convenience function for checking `.getFailure() == Failure::NONE`.)
 
-{{% alert title="Note" %}
+{{% alert title="Note" %}}
 If you use the asynchroneous variant, the callback passed to `onError` is just called to report errors on communication level with the data broker. The validity of the returned signal's/data point's value needs to be checked separatly (e.g. via 'isValid()')!
-{{% alert %}
+{{% alert %}}
 
 ## Failure Reasons
 
@@ -241,7 +241,7 @@ The `VehicleApp` class provides the `subscribeDataPoints()` method which allows 
 
 The result passed to the callback registered via `onItem()` is an object of type `DataPointsResult` which holds the current state of all data points that were part of the respective subscription. The state of individual data points can be accessed by their reference: `result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)`)
 
-{{% alert title="Note" %}
+{{% alert title="Note" %}}
 If you select multiple signals/data points in a single subscription be aware that:
 1. The update notification will not only contain those data points whose states were updated, but the state of all data points selected in the belonging subscription. If you don't want this behaviour, you must subscribe to change notifications for each signal/data point separately.
 2. A possible failure state will be reported individually per signal/data point. The reason is, that each signal/data point might come from a different provider, has individual access rights and individual reasons to become invalid. This is also true, if requesting multiple signal/data point states via a single get call.
