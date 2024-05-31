@@ -198,18 +198,27 @@ Errors on the IPC level between the application and the data broker will be repo
 * an `AsyncException` thrown by the `await()` function of the `AsyncResult` class or
 * calling the function passed to the `onError` function of the `AsyncResult`/`AsyncSubscription` class.
 
+Errors on this level always make the overall call fail: If getting/setting multiple data points in a single call, the overall operation will fail. In case of setting multiple signals/data points, this means that none of the signals/data points are set. In case of an error on a subscription, this means that the overall subscription could not be established or is terminated now.
+
 ### Signal / Data Point Level
 
+Failures on signal/data point level are always reported individually per signal/data point. If accessing multiple signals/data points in a single call, getting or setting some certain signal might be successfully done but another one will report an error or failure.
+
 The reasons why a valid value of signal/data point can be missing are explained here:
-* The addressed signal/data point might be "unknown" on the system (`Failure::UNKNOWN_DATAPOINT`). This can be a hint for a misconfiguration of the overall system, because no provider is installed in that system which will provide this signal. It can be acceptable, if an application does just "optionally" require access to that signal and would work properly without it being present.
-* The application might have not the necessary access rights to the addressed signal/data point (`Failure::ACCESS_DENIED`). This can be a hint for a misconfiguration of the overall system, but could be also a "normal" situation if the user of the vehicle blocks access to certain signals for that application.
-* The addressed signal/data point might be temporary not available (`Failure::NOT_AVAILABLE`). This is a normal situation which will arise, while the provider of that signal is
+{{<table "table table-bordered">}}
+| Reported failure                   | Reason | Explanation |
+|------------------------------------|--------|-----|
+| `Failure::UNKNOWN_DATAPOINT`       | The addressed signal/data point is "unknown" on the system. | This can be a hint for a misconfiguration of the overall system, because no provider is installed in that system which will provide this signal. It can be acceptable, if an application does just "optionally" require access to that signal and would work properly without it being present.
+| `Failure::ACCESS_DENIED`           | The application does not have the necessary access rights to the addressed signal/data point. | This can be a hint for a misconfiguration of the overall system, but could be also a "normal" situation if the user of the vehicle blocks access to certain signals for that application.
+| `Failure::NOT_AVAILABLE`    | The addressed signal/data point is temporary not available.      | This is a normal situation which will arise, while the provider of that signal is
   * not yet started up or not yet passed a value to the data broker,
   * temporary "stopped" due to a crash or a "live update",
   * some temporary network issues (if the provider is running on a different hardware node),
   * ...
-* The addressed signal/data point might currently not represent a valid value (`Failure::INVALID_VALUE`). This situation means, that the signal is currently provided but just the value itself is not representable, e.g. because the hardware sensor delivers implausible values.
-* The value is missing because of some internal issue in the data broker (`Failure::INTERNAL_ERROR`). This typically points out some misbehaviour within the broker's implementation - call it "bug".
+| `Failure::INVALID_VALUE` | The addressed signal/data point might currently not represent a valid value. | This situation means, that the signal is currently provided but just the value itself is not representable, e.g. because the hardware sensor delivers implausible values.
+| `Failure::INTERNAL_ERROR` | The value is missing because of some internal issue in the data broker. | This typically points out some misbehaviour within the broker's implementation - call it "bug".
+| `Failure::NONE`        | No failure - a valid value is provided. | This "failure" reason is used to represent a signal state where a valid value is provided.
+{{</table>}}
 
 It is the application developer's decision if it makes sense to distinguish between the different failure reasons or if some or all of them can be handled as "just one".
 
