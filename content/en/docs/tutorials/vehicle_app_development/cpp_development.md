@@ -206,18 +206,14 @@ Failures on signal/data point level are always reported individually per signal/
 
 The reasons why a valid value of signal/data point can be missing are explained here:
 {{<table "table table-bordered">}}
-| Reported failure                   | Reason | Explanation |
-|------------------------------------|--------|-----|
-| `Failure::UNKNOWN_DATAPOINT`       | The addressed signal/data point is "unknown" on the system. | This can be a hint for a misconfiguration of the overall system, because no provider is installed in that system which will provide this signal. It can be acceptable, if an application does just "optionally" require access to that signal and would work properly without it being present.
-| `Failure::ACCESS_DENIED`           | The application does not have the necessary access rights to the addressed signal/data point. | This can be a hint for a misconfiguration of the overall system, but could be also a "normal" situation if the user of the vehicle blocks access to certain signals for that application.
-| `Failure::NOT_AVAILABLE`    | The addressed signal/data point is temporary not available.      | This is a normal situation which will arise, while the provider of that signal is
-  * not yet started up or not yet passed a value to the data broker,
-  * temporary "stopped" due to a crash or a "live update",
-  * some temporary network issues (if the provider is running on a different hardware node),
-  * ...
-| `Failure::INVALID_VALUE` | The addressed signal/data point might currently not represent a valid value. | This situation means, that the signal is currently provided but just the value itself is not representable, e.g. because the hardware sensor delivers implausible values.
-| `Failure::INTERNAL_ERROR` | The value is missing because of some internal issue in the data broker. | This typically points out some misbehaviour within the broker's implementation - call it "bug".
-| `Failure::NONE`        | No failure - a valid value is provided. | This "failure" reason is used to represent a signal state where a valid value is provided.
+| Reported failure             | Reason | Explanation |
+|------------------------------|--------|-------------|
+| `Failure::UNKNOWN_DATAPOINT` | The addressed signal/data point is "unknown" on the system. | This can be a hint for a misconfiguration of the overall system, because no provider is installed in that system which will provide this signal. It can be acceptable, if an application does just "optionally" require access to that signal and would work properly without it being present.
+| `Failure::ACCESS_DENIED`     | The application does not have the necessary access rights to the addressed signal/data point. | This can be a hint for a misconfiguration of the overall system, but could be also a "normal" situation if the user of the vehicle blocks access to certain signals for that application.
+| `Failure::NOT_AVAILABLE`     | The addressed signal/data point is temporary not available. | This is a normal situation which will arise, while the provider of that signal is <br> - not yet started up or has not yet passed a value to the data broker, <br> - temporary "stopped" due to a crash or a "live update", <br> - some temporary network issues (e.g. if the provider is running on a different hardware node), <br> - ...
+| `Failure::INVALID_VALUE`     | The addressed signal/data point might currently not represent a valid value. | This situation means, that the signal is currently provided but just the value itself is not representable, e.g. because the hardware sensor delivers implausible values.
+| `Failure::INTERNAL_ERROR`    | The value is missing because of some internal issue in the data broker. | This typically points out some misbehaviour within the broker's implementation - call it "bug".
+| `Failure::NONE`              | No failure state - a valid value is provided. | This "failure" reason is used to represent a signal state where a valid value is provided. |
 {{</table>}}
 
 It is the application developer's decision if it makes sense to distinguish between the different failure reasons or if some or all of them can be handled as "just one".
