@@ -157,7 +157,7 @@ try {
     // thrown by .value(): The vehicle speed signal does not contain a valid value, currently
 }
 ```
-* Throwing the `InvalidValueException`can be avoided if you first check that `.isValid()` returns true before calling `.value()`: 
+* Throwing the `InvalidValueException` can be avoided if you first check that `.isValid()` returns true before calling `.value()`: 
 ```Cpp
 auto vehicleSpeed = Vehicle.Speed.get()->await();
 if (vehicleSpeed.isValid())
