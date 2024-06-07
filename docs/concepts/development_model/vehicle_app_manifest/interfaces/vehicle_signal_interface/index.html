@@ -42,13 +42,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/concepts/development_model/vehicle_app_manifest/interfaces/vehicle_signal_interface/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2023-08-09T00:00:00+01:00" />
-<meta property="article:modified_time" content="2024-05-31T12:04:36+02:00" />
+<meta property="article:modified_time" content="2024-06-07T13:12:10+02:00" />
 
 <meta itemprop="name" content="Vehicle Signal Interface">
 <meta itemprop="description" content="The functional interface for providing vehicle signal access via VSS specification.
 "><meta itemprop="datePublished" content="2023-08-09T00:00:00+01:00" />
-<meta itemprop="dateModified" content="2024-05-31T12:04:36+02:00" />
-<meta itemprop="wordCount" content="300">
+<meta itemprop="dateModified" content="2024-06-07T13:12:10+02:00" />
+<meta itemprop="wordCount" content="404">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Vehicle Signal Interface"/>
 <meta name="twitter:description" content="The functional interface for providing vehicle signal access via VSS specification.
 "/>
@@ -93,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.f15cec2b2743cd8a2a1e3b835dff7cbf.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.e8713c4a50ccab8e9cbef629a0d89d0b.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -119,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.f15cec2b2743cd8a2a1e3b835dff7cbf.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.e8713c4a50ccab8e9cbef629a0d89d0b.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -422,6 +422,7 @@
   <ul>
     <li><a href="#configuration-structure">Configuration structure</a></li>
     <li><a href="#example">Example</a></li>
+    <li><a href="#different-vss-versions">Different VSS versions</a></li>
   </ul>
 </nav>
       </div>
@@ -563,6 +564,15 @@
 <td>URI of the used COVESA Vehicle Signal Specification JSON export. URI may point to a local file or to a file provided by a server. </td>
 </tr>
 <tr>
+<td><code>unit_src</code></td>
+<td>string</td>
+<td><code>[&quot;abs_path_unit_file_1&quot;, &quot;abs_path_unit_file_2&quot;, &quot;uri_unit_file_3&quot;]</code></td>
+<td>An array of URI&rsquo;s/absolute path&rsquo;s of the used COVESA Vehicle Signal Specification unit file(s) in yaml format. URI may point to a local file or to a file provided by a server. If none is provided a default one will be used (
+
+<a href="https://github.com/COVESA/vehicle_signal_specification/blob/v4.0/spec/units.yaml%29" target="_blank" rel="noopener">https://github.com/COVESA/vehicle_signal_specification/blob/v4.0/spec/units.yaml)</a>
+. </td>
+</tr>
+<tr>
 <td><code>datapoints</code></td>
 <td>object</td>
 <td>Object containing both required and provided datapoints.</td>
@@ -633,11 +643,13 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="different-vss-versions">Different VSS versions</h2>
+<p>The model generation is supported for VSS versions up to v4.0. There are some changes for some paths from v3.0 to v4.0. For example <code>Vehicle.Cabin.Seat.Row1.Pos1.Position</code> in v3.0 is <code>Vehicle.Cabin.Seat.Row1.DriverSide.Position</code> in v4.0. If you are using the mock provider you would need to take that into account when you sepcify your mock.py.</p>
+
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified May 31, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/1aed30661feb65d2bc91f50457a2e151d03d9d3c">Another fix of cpp_development.md (#126) (1aed306)</a>
+  Last modified June 7, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/2c3fc8061c41a24c07a8be405011eb90a1a51a06">Update vehicle-signal-interface configuration options (#122) (2c3fc80)</a>
 </div>
 
 </div>

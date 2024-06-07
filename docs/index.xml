@@ -2311,6 +2311,15 @@ The default behavior is predefined in
 &lt;td&gt;URI of the used COVESA Vehicle Signal Specification JSON export. URI may point to a local file or to a file provided by a server. &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;&lt;code&gt;unit_src&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;[&amp;quot;abs_path_unit_file_1&amp;quot;, &amp;quot;abs_path_unit_file_2&amp;quot;, &amp;quot;uri_unit_file_3&amp;quot;]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;An array of URI&amp;rsquo;s/absolute path&amp;rsquo;s of the used COVESA Vehicle Signal Specification unit file(s) in yaml format. URI may point to a local file or to a file provided by a server. If none is provided a default one will be used (
+
+&lt;a href=&#34;https://github.com/COVESA/vehicle_signal_specification/blob/v4.0/spec/units.yaml%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/COVESA/vehicle_signal_specification/blob/v4.0/spec/units.yaml)&lt;/a&gt;
+. &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;&lt;code&gt;datapoints&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;object&lt;/td&gt;
 &lt;td&gt;Object containing both required and provided datapoints.&lt;/td&gt;
@@ -2381,7 +2390,9 @@ The default behavior is predefined in
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;different-vss-versions&#34;&gt;Different VSS versions&lt;/h2&gt;
+&lt;p&gt;The model generation is supported for VSS versions up to v4.0. There are some changes for some paths from v3.0 to v4.0. For example &lt;code&gt;Vehicle.Cabin.Seat.Row1.Pos1.Position&lt;/code&gt; in v3.0 is &lt;code&gt;Vehicle.Cabin.Seat.Row1.DriverSide.Position&lt;/code&gt; in v4.0. If you are using the mock provider you would need to take that into account when you sepcify your mock.py.&lt;/p&gt;
+
       </description>
     </item>
     
