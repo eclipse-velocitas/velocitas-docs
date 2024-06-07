@@ -67,4 +67,5 @@ More information: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creatio
 ```
 
 ## Different VSS versions
+
 The model generation is supported for VSS versions up to v4.0. There are some changes for some paths from v3.0 to v4.0. For example `Vehicle.Cabin.Seat.Row1.Pos1.Position` in v3.0 is `Vehicle.Cabin.Seat.Row1.DriverSide.Position` in v4.0. If you are using the mock provider you would need to take that into account when you sepcify your mock.py.
