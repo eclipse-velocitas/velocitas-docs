@@ -32,8 +32,12 @@ If a _Vehicle App_ provides a `grpc-interface` - a server stub embedded into the
 | `provided` | object | `{}` | Reserved object indicating that the interface is provided. Might be filled with further configuration values.
 {{</table>}}
 
-## Example
+## Execution
+`velocitas init`
+**or**
+`velocitas exec grpc-interface-support generate-sdk`
 
+## Project configuration
 ```json
 {
   "type": "grpc-interface",
@@ -45,5 +49,22 @@ If a _Vehicle App_ provides a `grpc-interface` - a server stub embedded into the
         ]
       }
   }
+}
+```
+
+If you want to have server and client code that is generated you need to add `"provided": { }`.
+
+You need to specify `devenv-devcontainer-setup` > `v2.3.0` in your project configuration. Therefore your `.veloitas.json` should look similair to this example:
+
+```json
+{
+  "packages": {
+    "devenv-devcontainer-setup": "v2.3.0"
+  },
+  "components": [
+    {
+      "id": "grpc-interface-support", 
+    }
+  ],
 }
 ```
