@@ -27,6 +27,7 @@ More information: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creatio
 | Attribute | Type | Example value | Description |
 |-|-|-|-|
 | `src` | string | `"https://github.com/COVESA/vehicle_signal_specification/releases/download/v3.0/vss_rel_3.0.json"` | URI of the used COVESA Vehicle Signal Specification JSON export. URI may point to a local file or to a file provided by a server. |
+| `unit_src` | string | `["abs_path_unit_file_1", "abs_path_unit_file_2", "uri_unit_file_3"]` | An array of URI's/absolute path's of the used COVESA Vehicle Signal Specification unit file(s) in yaml format. URI may point to a local file or to a file provided by a server. If none is provided a default one will be used (https://github.com/COVESA/vehicle_signal_specification/blob/v4.0/spec/units.yaml). |
 | `datapoints` | object | Object containing both required and provided datapoints. |
 | `datapoints.required` | array | Array of required datapoints. |
 | `datapoints.required.[].path` | string | `Vehicle.Speed` | Path of the VSS datapoint. |
@@ -64,3 +65,7 @@ More information: [Vehicle Model Creation](/docs/tutorials/vehicle_model_creatio
     }
 }
 ```
+
+## Different VSS versions
+
+The model generation is supported for VSS versions up to v4.0. There are some changes for some paths from v3.0 to v4.0. For example `Vehicle.Cabin.Seat.Row1.Pos1.Position` in v3.0 is `Vehicle.Cabin.Seat.Row1.DriverSide.Position` in v4.0. If you are using the mock provider you would need to take that into account when you sepcify your mock.py.
