@@ -47,19 +47,18 @@ If a _Vehicle App_ provides a `grpc-interface` - a server stub embedded into the
         "methods": [
           "Move", "MoveComponent"
         ]
-      }
+      },
+      "provided": { }
   }
 }
 ```
 
-If you want to have server and client code that is generated you need to add `"provided": { }`.
-
-You need to specify `devenv-devcontainer-setup` > `v2.3.0` in your project configuration. Therefore your `.veloitas.json` should look similair to this example:
+You need to specify `devenv-devcontainer-setup` >= `v2.4.2` in your project configuration. Therefore your `.veloitas.json` should look similair to this example:
 
 ```json
 {
   "packages": {
-    "devenv-devcontainer-setup": "v2.3.0"
+    "devenv-devcontainer-setup": "v2.4.2"
   },
   "components": [
     {
@@ -68,3 +67,5 @@ You need to specify `devenv-devcontainer-setup` > `v2.3.0` in your project confi
   ],
 }
 ```
+
+To do that you can run `velocitas component add grpc-interface-support` when your package is above or equal to v2.4.2
