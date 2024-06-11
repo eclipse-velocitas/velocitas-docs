@@ -6,10 +6,18 @@ description: >
   Learn how to generate and fill your own gRPC services.
 ---
 
-{{< tabpane text=true right=true >}}
-{{% tab header="Configuration" %}}
-
 This tutorial shows how to generate a basic gRPC service like a seat service. For this example the proto file under <https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto> is taken.
+
+All files included from `services/seats` are auto-generated and added to the app project as Conan dependency.
+For writing a complete gRPC service you need two velocitas apps/projects.
+One is implementing a client and the other one is for providing the server.
+To complete the server implementation you have to fill the generated `*ServiceImpl.cpp`.
+Have a look at the other tabs for a tutorial how it would be done for a SeatService leveraging <https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto>.
+
+To run the example you need to start the velocitas app for the server first and then the second velocitas app for the client.
+
+{{< tabpane text=true right=true >}}
+{{% tab header="Create a client" %}}
 
 ## App configuration
 
@@ -24,8 +32,6 @@ This tutorial shows how to generate a basic gRPC service like a seat service. Fo
           "Move", "CurrentPosition"
         ]
       },
-      // "provided" indicates you want to implement the server business logic for the service
-      "provided": { }
   }
 }
 ```
@@ -49,16 +55,7 @@ You need to specify `devenv-devcontainer-setup` >= `v2.4.2` in your project conf
 
 To do that you can run `velocitas component add grpc-interface-support` when your package is above or equal to v2.4.2
 
-All files included from `services/seats` are auto-generated and added to the app project as Conan dependency.
-For writing a complete gRPC service you need two velocitas apps/projects.
-One is implementing a client and the other one is for providing the server.
-To complete the server implementation you have to fill the generated `*ServiceImpl.cpp`.
-Have a look at the other tabs for a tutorial how it would be done for a SeatService leveraging <https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto>.
-
-To run the example you need to start the velocitas app for the server first and then the second velocitas app for the client.
-
-{{% /tab %}}
-{{% tab header="Create a client" %}}
+## Example code
 
 To create a client we use the generated `SeatsServiceClientFactory.h` and `seats.grpc.pb.h`. These define request and resposne types and the operations that are available. An example implementation for the SeatService follows:
 
@@ -124,6 +121,38 @@ int main(int argc, char** argv) {
 
 {{% /tab %}}
 {{% tab header="Create a server" %}}
+
+## App configuration
+
+```json
+{
+  "type": "grpc-interface",
+  "config": {
+      "src": "https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto",
+      // "provided" indicates you want to implement the server business logic for the service
+      "provided": { }
+  }
+}
+```
+
+## Project configuration
+
+You need to specify `devenv-devcontainer-setup` >= `v2.4.2` in your project configuration. Therefore your `.veloitas.json` should look similair to this example:
+
+```json
+{
+  "packages": {
+    "devenv-devcontainer-setup": "v2.4.2"
+  },
+  "components": [
+    {
+      "id": "grpc-interface-support", 
+    }
+  ],
+}
+```
+
+To do that you can run `velocitas component add grpc-interface-support` when your package is above or equal to v2.4.2
 
 To create a server that is providing the gRPC service we are leveraging the generated `SeatsServiceImpl.h` and `SeatsServiceServerFactory.h`. The `SeatsServiceImpl.cpp` needs to be filled with the actual implementation of the service. A quick example for a SeatService is described in the following:
 
