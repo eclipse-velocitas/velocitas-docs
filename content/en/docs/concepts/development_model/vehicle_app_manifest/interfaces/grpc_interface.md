@@ -32,8 +32,12 @@ If a _Vehicle App_ provides a `grpc-interface` - a server stub embedded into the
 | `provided` | object | `{}` | Reserved object indicating that the interface is provided. Might be filled with further configuration values.
 {{</table>}}
 
-## Example
+## Execution
+`velocitas init`
+**or**
+`velocitas exec grpc-interface-support generate-sdk`
 
+## Project configuration
 ```json
 {
   "type": "grpc-interface",
@@ -43,7 +47,25 @@ If a _Vehicle App_ provides a `grpc-interface` - a server stub embedded into the
         "methods": [
           "Move", "MoveComponent"
         ]
-      }
+      },
+      "provided": { }
   }
 }
 ```
+
+You need to specify `devenv-devcontainer-setup` >= `v2.4.2` in your project configuration. Therefore your `.veloitas.json` should look similair to this example:
+
+```json
+{
+  "packages": {
+    "devenv-devcontainer-setup": "v2.4.2"
+  },
+  "components": [
+    {
+      "id": "grpc-interface-support", 
+    }
+  ],
+}
+```
+
+To do that you can run `velocitas component add grpc-interface-support` when your package is above or equal to v2.4.2
