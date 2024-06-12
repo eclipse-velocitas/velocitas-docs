@@ -86,7 +86,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.e8713c4a50ccab8e9cbef629a0d89d0b.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.d790185167de3e2f61931543117b20ba.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -804,7 +804,42 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.6: <a href="#pg-87442a73ec5a13dc82823fe25b2105d6">Vehicle App Deployment</a></li>
+<li>3.6: <a href="#pg-68e631b1dd1b322012c9d302a542e24d">gRPC service generation</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.6.1: <a href="#pg-b722dae253f4894783e6d445959bc8c0">Create a client</a></li>
+
+
+    
+  
+    
+    
+	
+<li>3.6.2: <a href="#pg-897cdbf91f70f82bfc4621234c28a548">Create a server</a></li>
+
+
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.7: <a href="#pg-87442a73ec5a13dc82823fe25b2105d6">Vehicle App Deployment</a></li>
 
 
     
@@ -3103,7 +3138,11 @@ graph TD
 </table>
 
 
-<h2 id="example">Example</h2>
+<h2 id="execution">Execution</h2>
+<p><code>velocitas init</code>
+<strong>or</strong>
+<code>velocitas exec grpc-interface-support generate-sdk</code></p>
+<h2 id="project-configuration">Project configuration</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
@@ -3112,10 +3151,23 @@ graph TD
 </span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;MoveComponent&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;provided&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>You need to specify <code>devenv-devcontainer-setup</code> &gt;= <code>v2.4.2</code> in your project configuration. Therefore your <code>.veloitas.json</code> should look similair to this example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;packages&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;devenv-devcontainer-setup&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v2.4.2&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface-support&#34;</span><span style="color:#000;font-weight:bold">,</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>To do that you can run <code>velocitas component add grpc-interface-support</code> when your package is above or equal to v2.4.2</p>
+
 </div>
 
 
@@ -7478,7 +7530,271 @@ All the files that are located in <code>[./config/feedercan](https://github.com/
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-87442a73ec5a13dc82823fe25b2105d6">3.6 - Vehicle App Deployment</h1>
+	<h1 id="pg-68e631b1dd1b322012c9d302a542e24d">3.6 - gRPC service generation</h1>
+    <div class="lead">Learn how to generate and fill your own gRPC services.</div>
+	<p>This tutorial shows how to generate a basic gRPC service like a seat service. For this example the proto file under 
+
+<a href="https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto</a>
+ is taken.</p>
+<p>All files included from <code>services/seats</code> are auto-generated and added to the app project as Conan dependency.
+For writing a complete gRPC service you need two velocitas apps/projects.
+One is implementing a client and the other one is for providing the server.
+To complete the server implementation you have to fill the generated <code>*ServiceImpl.cpp</code>.
+Have a look at the linked content beneath for a tutorial how it would be done for a SeatService leveraging 
+
+<a href="https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto" target="_blank" rel="noopener">https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto</a>
+.</p>
+<p>To run the example you need to start the velocitas app for the server first and then the second velocitas app for the client.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-b722dae253f4894783e6d445959bc8c0">3.6.1 - Create a client</h1>
+    <div class="lead">Learn how to create a client for a service definition.</div>
+	<h2 id="app-configuration">App configuration</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#8f5902;font-style:italic">// &#34;required&#34; indicates you are trying to write a client for the service
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#204a87;font-weight:bold">&#34;required&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&#34;methods&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#4e9a06">&#34;Move&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;CurrentPosition&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="project-configuration">Project configuration</h2>
+<p>You need to specify <code>devenv-devcontainer-setup</code> &gt;= <code>v2.4.2</code> in your project configuration. Therefore your <code>.veloitas.json</code> should look similair to this example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;packages&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;devenv-devcontainer-setup&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v2.4.2&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface-support&#34;</span><span style="color:#000;font-weight:bold">,</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>To do that you can run <code>velocitas component add grpc-interface-support</code> when your package is above or equal to v2.4.2</p>
+<h2 id="example-code">Example code</h2>
+<p>To create a client we use the generated <code>SeatsServiceClientFactory.h</code> and <code>seats.grpc.pb.h</code>. These define request and response types and the operations that are available. An example implementation for the SeatService follows:</p>
+<h3 id="maincpp">main.cpp</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;sdk/middleware/Middleware.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;services/seats/SeatsServiceClientFactory.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;services/seats/seats.grpc.pb.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;iostream&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">velocitas</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">**</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">serviceClient</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">SeatsServiceClientFactory</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">create</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Middleware</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">getInstance</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ClientContext</span>                        <span style="color:#000">context</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MoveRequest</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MoveReply</span>   <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Seat</span> <span style="color:#000">seat</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">SeatLocation</span> <span style="color:#000">seat_location</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">seat_location</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set_row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">seat_location</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set_index</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Position</span> <span style="color:#000">seat_position</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// we only set base here to keep the example simple
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// extend here if yu want to set lumbar etc.
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">seat_position</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set_base</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1000</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set_allocated_location</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">seat_location</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set_allocated_position</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">seat_position</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set_allocated_seat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">seat</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">status</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">serviceClient</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">Move</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">cout</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;gRPC Server returned code: &#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">status</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">error_code</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">endl</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">cout</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;gRPC error message: &#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">status</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">error_message</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">c_str</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">endl</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">status</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">error_code</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StatusCode</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">UNIMPLEMENTED</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ClientContext</span>                                   <span style="color:#000">context</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">CurrentPositionRequest</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">CurrentPositionReply</span>   <span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set_row</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">request</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set_index</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">status_curr_pos</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">seatService</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">CurrentPosition</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">cout</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;current Position:&#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">seat</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">position</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">base</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">endl</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">cout</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;gRPC Server returned code: &#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">status_curr_pos</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">error_code</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">endl</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">cout</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#4e9a06">&#34;gRPC error message: &#34;</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">status_curr_pos</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">error_message</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">c_str</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">endl</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-897cdbf91f70f82bfc4621234c28a548">3.6.2 - Create a server</h1>
+    <div class="lead">Learn how to create a server for a service definition.</div>
+	<h2 id="app-configuration">App configuration</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;type&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;config&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;src&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#8f5902;font-style:italic">// &#34;provided&#34; indicates you want to implement the server business logic for the service
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#204a87;font-weight:bold">&#34;provided&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="project-configuration">Project configuration</h2>
+<p>You need to specify <code>devenv-devcontainer-setup</code> &gt;= <code>v2.4.2</code> in your project configuration. Therefore your <code>.veloitas.json</code> should look similair to this example:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;packages&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&#34;devenv-devcontainer-setup&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v2.4.2&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;components&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;grpc-interface-support&#34;</span><span style="color:#000;font-weight:bold">,</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">],</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>To do that you can run <code>velocitas component add grpc-interface-support</code> when your package is above or equal to v2.4.2</p>
+<p>To create a server that is providing the gRPC service we are leveraging the generated <code>SeatsServiceImpl.h</code> and <code>SeatsServiceServerFactory.h</code>. The <code>SeatsServiceImpl.cpp</code> needs to be filled with the actual implementation of the service. A quick example for a SeatService is described in the following:</p>
+<h3 id="maincpp">main.cpp</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;sdk/middleware/Middleware.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;services/seats/SeatsServiceServerFactory.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;SeatsServiceImpl.h&#34;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;memory&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">velocitas</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">argc</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">char</span><span style="color:#ce5c00;font-weight:bold">**</span> <span style="color:#000">argv</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">seatsImpl</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">make_shared</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">SeatsService</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">velocitas</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">VehicleModelContext</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">getInstance</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">setVdbc</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">velocitas</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">IVehicleDataBrokerClient</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">createInstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;vehicledatabroker&#34;</span><span style="color:#000;font-weight:bold">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">seatServer</span> <span style="color:#ce5c00;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000">SeatsServiceServerFactory</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">create</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Middleware</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">getInstance</span><span style="color:#000;font-weight:bold">(),</span> <span style="color:#000">seatsImpl</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">seatServer</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">Wait</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h3 id="seatsserviceimplcpp">SeatsServiceImpl.cpp</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&#34;SeatsServiceImpl.h&#34;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;sdk/VehicleApp.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;sdk/VehicleModelContext.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;sdk/vdb/IVehicleDataBrokerClient.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;vehicle/Vehicle.hpp&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;grpc/grpc.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;services/seats/seats.grpc.pb.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">namespace</span> <span style="color:#000">velocitas</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Status</span> <span style="color:#000">SeatsService</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Move</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ServerContext</span><span style="color:#ce5c00;font-weight:bold">*</span>                              <span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                                  <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MoveRequest</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                                  <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MoveReply</span><span style="color:#ce5c00;font-weight:bold">*</span>         <span style="color:#000">response</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Vehicle</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">seat</span>     <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">request</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">seat</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">location</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">location</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">row</span>      <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">location</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">row</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">pos</span>      <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">location</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// you would need to extend this to add support for lumbar etc.
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// Vehicle.Cabin.Seat.Row(row).Pos(pos).Position.set(seat-&gt;position()-&gt;xxxxxx())-&gt;await();
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">status</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DriverSide</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">position</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">base</span><span style="color:#000;font-weight:bold">())</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">status</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">ok</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Status</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StatusCode</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">OK</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span> <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Status</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StatusCode</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">CANCELLED</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">status</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">errorMessage</span><span style="color:#000;font-weight:bold">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Status</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">SeatsService</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MoveComponent</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ServerContext</span><span style="color:#ce5c00;font-weight:bold">*</span>                                       <span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MoveComponentRequest</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>                            <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">MoveComponentReply</span><span style="color:#ce5c00;font-weight:bold">*</span>         <span style="color:#000">response</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">request</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">response</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Status</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StatusCode</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">UNIMPLEMENTED</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Status</span> <span style="color:#000">SeatsService</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">CurrentPosition</span><span style="color:#000;font-weight:bold">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">ServerContext</span><span style="color:#ce5c00;font-weight:bold">*</span>                                         <span style="color:#000">context</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">CurrentPositionRequest</span><span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">request</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">sdv</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">edge</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">comfort</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">seats</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">v1</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">CurrentPositionReply</span><span style="color:#ce5c00;font-weight:bold">*</span>         <span style="color:#000">response</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">context</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">void</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">request</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">vehicle</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Vehicle</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span>             <span style="color:#000">seat</span>          <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">response</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">mutable_seat</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span>             <span style="color:#000">seat_position</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">seat</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">mutable_position</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">auto</span> <span style="color:#000">seatPos</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Vehicle</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Cabin</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Seat</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Row1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">DriverSide</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Position</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">await</span><span style="color:#000;font-weight:bold">().</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// we only set base here to keep the example simple
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// extend here if yu want to set lumbar etc.
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">seat_position</span><span style="color:#ce5c00;font-weight:bold">-&gt;</span><span style="color:#000">set_base</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">seatPos</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">Status</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">grpc</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">StatusCode</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">OK</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span> <span style="color:#8f5902;font-style:italic">// namespace velocitas
+</span></span></span></code></pre></div>
+</div>
+
+
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-87442a73ec5a13dc82823fe25b2105d6">3.7 - Vehicle App Deployment</h1>
     <div class="lead">Learn how to deploy the <em>Vehicle App</em> to currently supported infrastructure targets.</div>
 	<p>See the 
 
