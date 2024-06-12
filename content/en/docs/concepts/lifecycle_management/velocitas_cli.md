@@ -43,7 +43,7 @@ Config 'src' for interface 'vehicle-signal-interface': URI or path to VSS json (
 
 ### velocitas init
 
-Download packages configured in your `.velocitas.json` to [VELOCITAS_HOME](https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory)
+#### Download packages configured in your `.velocitas.json` to [VELOCITAS_HOME](https://github.com/eclipse-velocitas/cli/blob/main/README.md#changing-default-velocitas_home-directory)
 
 ```bash
 vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas init
@@ -54,6 +54,19 @@ Initializing Velocitas packages ...
 ... Downloading package: 'devenv-devcontainer-setup:v1.1.7'
 Running post init hook for model-generator
 Running 'install-deps'
+...
+```
+
+#### Single Package Init
+
+Single packages can also easily be initialized or re-initialized using the _package parameter_ `-p / --package` and the _specifier parameter_ `-s / --specifier`. The _specifier parameter_ can be either a git tag or a git hash. If the _specifier parameter_ is omitted either the version defined in `.velocitas.json` resp. the latest version of the specified package will be used automatically. After initialisation the package and it's resolved version will be written to `.velocitas.json`. If the package already exists in `.velocitas.json`, however the versions differ it will be automatically updated to the specified version. If no components from the specified package are added to `.velocitas.json` all components from this package are automatically written to it.
+
+```bash
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas init -p devenv-runtimes -s v3.0.0
+Initializing Velocitas packages ...
+... Package 'devenv-runtimes:v3.0.0' added to .velocitas.json
+... Downloading package: 'devenv-runtimes:v3.0.0'
+... > Running post init hook for ...
 ...
 ```
 
@@ -77,13 +90,12 @@ Syncing Velocitas components!
 Updates Velocitas components.
 
 ```bash
-vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas upgrade --dry-run
-Checking for updates!
-... 'devenv-runtimes' is up to date!
-... 'devenv-github-workflows' is up to date!
-... 'devenv-github-templates' is up to date!
-... 'devenv-devcontainer-setup' is currently at v1.1.6, can be updated to v1.1.7
-... Do you wish to continue? [y/n] [y]: y
+vscode ➜ /workspaces/vehicle-app-python-template (main) $ velocitas upgrade --dry-run [--ignore-bounds]
+Checking .velocitas.json for updates!
+... devenv-devcontainer-setup:vx.x.x → up to date!
+... devenv-runtimes:vx.x.x → vx.x.x
+... devenv-github-templates:vx.x.x → up to date!
+... devenv-github-workflows:vx.x.x → up to date!
 ```
 
 ### velocitas package

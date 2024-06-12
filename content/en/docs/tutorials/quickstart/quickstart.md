@@ -123,9 +123,9 @@ You can find more information about the _Vehicle App_ development in the [respec
 
 ## How to start the runtime services?
 
-The runtime services (like _KUKSA Data Broker_ or _Vehicle Services_) are required to develop _Vehicle Apps_ and run integration tests.
+The runtime services (like _KUKSA Databroker_ or _Vehicle Services_) are required to develop _Vehicle Apps_ and run integration tests.
 
-Currently, the supported options to run these services is either [locally](/docs/tutorials/vehicle_app_runtime/local_runtime), in a [Kubernetes (K3D) cluster](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime) or via the [Kanto runtime](/docs/tutorials/vehicle_app_runtime/kanto_runtime).
+Currently, the supported options to run these services is either [locally](/docs/tutorials/vehicle_app_runtime/local_runtime) or via the [Kanto runtime](/docs/tutorials/vehicle_app_runtime/kanto_runtime).
 
 {{< tabpane text=true >}}
    {{% tab header="Local Runtime" %}}
@@ -154,36 +154,8 @@ To stop the runtime simply press `Ctrl + C`.
 {{% /pageinfo %}}
 
 {{% /tab %}}
-{{% tab header="K3D Runtime" %}}
 
-A VS Code task called `K3D Runtime - Up` is available to start all necessary services in the correct order.
-
-1. Press <kbd>F1</kbd>
-2. Select command `Tasks: Run Task`
-3. Select `K3D Runtime - Up`
-
-You should see the task `K3D Runtime - Up` being executed on a separate VS Code terminal with the following content:
-
-```bash
-$ velocitas exec runtime-k3d up
-
-Hint: Log files can be found in your workspace's logs directory
-> Checking K3D registry... created.
-> Creating cluster with proxy configuration.
-> Checking K3D cluster... created.
-> Checking zipkin deployment... deployed.
-> Checking dapr... initialized.
-✅ Configuring controlplane for k3d...
-> Deploying runtime... installed.
-✅ Starting k3d runtime...
-```
-
-{{% pageinfo color="primary" %}}
-   You need to perform the task `K3D Runtime - Down` to properly stop all runtime activities.
-{{% /pageinfo %}}
-
-{{% /tab %}}
-   {{% tab header="Kanto Runtime" %}}
+{{% tab header="Kanto Runtime" %}}
 
 A VS Code task called `Kanto Runtime - Up` is available to start all necessary services in the correct order.
 

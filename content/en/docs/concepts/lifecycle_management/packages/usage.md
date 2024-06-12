@@ -17,7 +17,7 @@ Currently, the packages provided by the _Velocitas_ team are the following:
 {{<table "table table-bordered">}}
 | name | description |
 |:--------|:---------------|
-|[devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes)| Containing scripts and configuration for [Local](/docs/tutorials/vehicle_app_runtime/local_runtime/) and [Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime/) Runtime Services |
+|[devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes)| Containing scripts and configuration for [Local](/docs/tutorials/vehicle_app_runtime/local_runtime/) and [Kanto](/docs/tutorials/vehicle_app_runtime/kanto_runtime/) Runtime Services |
 |[devenv-devcontainer-setup](https://github.com/eclipse-velocitas/devenv-devcontainer-setup)| Basic configuration for the devcontainer, like proxy configuration, post create scripts, entry points for the lifecycle management. |
 |[devenv-github-workflows](https://github.com/eclipse-velocitas/devenv-github-workflows)| Containing github workflow files used by velocitas repositories |
 |[devenv-github-templates](https://github.com/eclipse-velocitas/devenv-github-templates)| Containing github templates used by velocitas repositories |

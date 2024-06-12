@@ -26,7 +26,7 @@ If a _Vehicle App_ provides a `grpc-interface` - a server stub embedded into the
 {{<table "table table-bordered">}}
 | Attribute | Type | Example value | Description |
 |-|-|-|-|
-| `src` | string | `"https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto"` | URI of the used protobuf specification of the service. URI may point to a local file or to a file provided by a server. It is generally recommended that a **stable** proto file is used. I.e. one that is already released under a proper tag rather than an in-development proto file. |
+| `src` | string | `"https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto"` | URI of the used protobuf specification of the service. URI may point to a local file or to a file provided by a server. It is generally recommended that a **stable** proto file is used. I.e. one that is already released under a proper tag rather than an in-development proto file. |
 | `required.methods` | array | Array of service's methods that are accessed by the application. In addition to access control the methods attribute may be used to determine backward or forward compatibility i.e. if semantics of a service's interface did not change but methods were added or removed in a future version. |
 | `required.methods.[].name` | string | `"Move"`, `"MoveComponent"` | Name of the method that the application would like to access |
 | `provided` | object | `{}` | Reserved object indicating that the interface is provided. Might be filled with further configuration values.
@@ -42,7 +42,7 @@ If a _Vehicle App_ provides a `grpc-interface` - a server stub embedded into the
 {
   "type": "grpc-interface",
   "config": {
-      "src": "https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto",
+      "src": "https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto",
       "required": {
         "methods": [
           "Move", "MoveComponent"

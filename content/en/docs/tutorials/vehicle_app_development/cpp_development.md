@@ -58,7 +58,7 @@ class MyVehicleApp : public VehicleApp {
 public:
     // <remaining code in this tutorial goes here>
 private:
-    ::Vehicle Vehicle; // this member exists to provide simple access to the vehicle model
+    vehicle::Vehicle Vehicle; // this member exists to provide simple access to the vehicle model
 }
 ```
 
@@ -66,15 +66,13 @@ In your constructor, you have to choose which implementations to use for the Veh
 
 ```Cpp
 MyVehicleApp()
-    : VehicleApp(IVehicleDataBrokerClient::createInstance("vehicledatabroker"), // this is the dapr-app-id of the KUKSA Databroker in the VAL.
+    : VehicleApp(IVehicleDataBrokerClient::createInstance("vehicledatabroker"), // this is the app-id of the KUKSA Databroker in the VAL.
                  IPubSubClient::createInstance("MyVehicleApp")) // the clientId identifies the client at the pub/sub broker
     {}
 {}
 ```
 
 {{% alert title="Note" %}}
-The middleware abstraction of the C++ SDK is incomplete: Pub/sub abstraction is just supporting MQTT (but no Dapr pub/sub), currently.
-
 The URI of the MQTT broker is by default `localhost:1883` and can be set to another address via the environment variable `SDV_MQTT_ADDRESS` (beginning with C++ SDK v0.3.3) or `MQTT_BROKER_URI` (SDKs before v0.3.3).
 {{% /alert %}}
 
@@ -96,31 +94,129 @@ With this your app can now be started. In order to provide some meaningful behav
 
 ## Vehicle Model Access
 
-In order to facilitate the implementation, the whole vehicle is abstracted into model classes. Please check the [tutorial about creating models](/docs/tutorials/vehicle_model_creation) for more details. In this section, the focus is on using the model.
+In order to facilitate the implementation, the whole set of vehicle signals is abstracted into model classes. Please check the [tutorial about creating models](/docs/tutorials/vehicle_model_creation) for more details. In this section, the focus is on using the model.
 
-The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model in the folder `app/vehicle_model/include/`. This folder is already configured as "include folder" of the CMake tooling. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above.
+The first thing you need to do is to get access to the Vehicle Model. If you derived your project repository from our template, we already provide a generated model as a Conan source package. The library is already referenced as "include folder" in the CMake files. Hence, in most cases no additional setup is necessary. How to tailor the model to your needs or how you could get access to vehicle services is described in the tutorial linked above. In your source code the model is included via `#include "vehicle/Vehicle.hpp"` (as shown above).
 
-If you want to access a single [DataPoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) e.g. for the vehicle speed, this can be done via
-
-```Cpp
-auto vehicleSpeedBlocking = getDataPoint(Vehicle.Speed)->await();
-```
-
-or
+If you want to read a single [signal/data point](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) e.g. for the vehicle speed, the simplest way is to do it via a blocking call and directly accessing the value of the speed:
 
 ```Cpp
-getDataPoint(Vehicle.Speed)->onResult([](auto vehicleSpeed){
-    logger().info("Got speed!");
-})
+auto vehicleSpeed = Vehicle.Speed.get()->await().value();
 ```
 
-`getDataPoint()` returns a `shared_ptr` to an `AsyncResult` which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use `await()` and block the calling thread until a result is available or use `onResult(...)` which allows us to inject a function pointer or a lambda which is called once the result is available.
+Lets have a look, what this line contains:
+* The term `Vehicle.Speed` addresses the signal we like to query, i.e. the current speed of the vehicle.
+* The term `.get()` tells that we want to get/read the current state of that signal from the Data Broker.
+  Behind the scenes this triggers a request-response flow via IPC with the Data Broker.
+* The term `->await()` blocks the execution until the response was received.
+* Finally, the term `.value()` tries to access the returned speed value.
+
+The `get()` returns a `shared_ptr` to an `AsyncResult` which, as the name implies, is the result of an asynchronous operation. We have two options to access the value of the asynchronous result. First we can use `await()` and block the calling thread until a result is available or use `onResult(...)` which allows us to inject a function pointer or a lambda which is called once the result is available:
+
+```Cpp
+Vehicle.Speed.get()
+    ->onResult([](auto vehicleSpeed){
+        logger().info("Got speed!");
+    })
+    ->onError(auto status){
+        logger().info("Something went wrong communicating to the data broker!");
+    });
+```
 
 If you want to get deeper inside to the vehicle, to access a single seat for example, you just have to go the model-chain down:
 
 ```Cpp
-auto driverSeatPosition = getDataPoint(Vehicle.Cabin.Seat.Row1.Pos1.Position)->await();
+auto driverSeatPosition = Vehicle.Cabin.Seat.Row1.Pos1.Position.get()->await();
 ```
+
+### Class TypedDataPointValue
+
+If you have a detailed look at the `AsyncResult` class, you will observe that the object returned by the `await()` or passed to the `onResult` callback is not directly the current value of the signal, but instead an object of type `TypedDataPointValue`. This object does not only contain the current value of the signal but also some additional metadata accessible via these functions:
+* `getPath()` provides the signal name, i.e. the complete path,
+* `getType()` provides the data type of the signal,
+* `getTimeStamp()` provides the timestamp when the current state was received by the data broker,
+* `isValid()` returns `true` if the current state represents a valid value of the signal or `false` otherwise,
+* `getFailure()` returns the reason, why the current state does **not** represent a valid value (it returns `NONE` if the value is valid),
+* `getValue()` returns the a valid current value. It will throw an `InvalidValueException` if the current value is invalid for whatever reason.
+
+The latter three points lead us to the next chapter.
+
+### Failure Handling
+
+As indicated above, there might be reasons/situations why the get operation is not able to deliver a valid value for the requested signal. Those shall be handled properly by any application (that wants "to be more" than a prototype).
+
+There are two ways to handle the failure situations:
+* Either you can catch the exception thrown by the `.value()` function:
+```Cpp
+try {
+    auto vehicleSpeed = Vehicle.Speed.get()->await().value();
+    // use the speed value
+} catch (AsyncException& e) {
+    // thrown by the await(): Something went wrong on communication level with the data broker
+} catch (InvalidValueException& e) {
+    // thrown by .value(): The vehicle speed signal does not contain a valid value, currently
+}
+```
+* Throwing the `InvalidValueException` can be avoided if you first check that `.isValid()` returns true before calling `.value()`: 
+```Cpp
+auto vehicleSpeed = Vehicle.Speed.get()->await();
+if (vehicleSpeed.isValid())
+    // Accessing .value() now wont throw an exception
+    auto speed = vehicleSpeed.value()
+    ...
+} else {
+    // Do your failure handling here
+    switch (vehicleSpeed.getFailure()) {
+    case Failure::INVALID_VALUE:
+        ...
+        break;
+    case ...
+    default:
+         ...
+    }
+}
+```
+(`isValid()` is a convenience function for checking `.getFailure() == Failure::NONE`.)
+
+{{% alert title="Note" %}}
+If you use the asynchroneous variant, the callback passed to `onError` is just called to report errors on communication level with the data broker. The validity of the returned signal's/data point's value needs to be checked separatly (e.g. via 'isValid()')!
+{{% /alert %}}
+
+## Failure Reasons
+
+There are two levels where errors accessing signal/data points might occure.
+
+### Communication with the Data Broker (IPC Level)
+
+The data broker might be (temporarly) unavailable because
+* it's not yet started up,
+* temporary "stopped" due to a crash or a "live update",
+* some temporary network issues (if running on a different hardware node),
+* ...
+
+Errors on the IPC level between the application and the data broker will be reported either via
+* an `AsyncException` thrown by the `await()` function of the `AsyncResult` class or
+* calling the function passed to the `onError` function of the `AsyncResult`/`AsyncSubscription` class.
+
+Errors on this level always make the overall call fail: If getting/setting multiple data points in a single call, the overall operation will fail. In case of setting multiple signals/data points, this means that none of the signals/data points are set. In case of an error on a subscription, this means that the overall subscription could not be established or is terminated now.
+
+### Signal / Data Point Level
+
+Failures on signal/data point level are always reported individually per signal/data point. If accessing multiple signals/data points in a single call, getting or setting some certain signal might be successfully done but another one will report an error or failure.
+
+The reasons why a valid value of signal/data point can be missing are explained here:
+{{<table "table table-bordered">}}
+| Reported failure             | Reason | Explanation |
+|------------------------------|--------|-------------|
+| `Failure::UNKNOWN_DATAPOINT` | The addressed signal/data point is "unknown" on the system. | This can be a hint for a misconfiguration of the overall system, because no provider is installed in that system which will provide this signal. It can be acceptable, if an application does just "optionally" require access to that signal and would work properly without it being present.
+| `Failure::ACCESS_DENIED`     | The application does not have the necessary access rights to the addressed signal/data point. | This can be a hint for a misconfiguration of the overall system, but could be also a "normal" situation if the user of the vehicle blocks access to certain signals for that application.
+| `Failure::NOT_AVAILABLE`     | The addressed signal/data point is temporary not available. | This is a normal situation which will arise, while the provider of that signal is <br> - not yet started up or has not yet passed a value to the data broker, <br> - temporary "stopped" due to a crash or a "live update", <br> - some temporary network issues (e.g. if the provider is running on a different hardware node), <br> - ...
+| `Failure::INVALID_VALUE`     | The addressed signal/data point might currently not represent a valid value. | This situation means, that the signal is currently provided but just the value itself is not representable, e.g. because the hardware sensor delivers implausible values.
+| `Failure::INTERNAL_ERROR`    | The value is missing because of some internal issue in the data broker. | This typically points out some misbehaviour within the broker's implementation - call it "bug".
+| `Failure::NONE`              | No failure state - a valid value is provided. | This "failure" reason is used to represent a signal state where a valid value is provided. |
+{{</table>}}
+
+It is the application developer's decision if it makes sense to distinguish between the different failure reasons or if some or all of them can be handled as "just one".
 
 ## Subscription to DataPoints
 
@@ -141,16 +237,26 @@ void onSeatPositionChanged(const DataPointsResult& result) {
 
 ```
 
-The `VehicleApp` class provides the `subscribeDataPoints()` method which allows to listen for changes on one or many data points. Once a change in any of the data points is registered, the callback registered via `AsyncSubscription::onItem()` is called. Conversely, the callback registered via `AsyncSubscription::onError()` is called once there is any error during communication with the KUKSA data broker.
+The `VehicleApp` class provides the `subscribeDataPoints()` method which allows to listen for changes on one or multiple data points. Once a change in any of the data points is registered, the callback registered via `AsyncSubscription::onItem()` is called. Conversely, the callback registered via `AsyncSubscription::onError()` is called once there is an error during communication with the KUKSA Databroker.
 
-The result passed to the callback registered via `onItem()` is an object of type `DataPointsResult` which holds all data points that have changed. Individual data points can be accessed directly by their reference: `result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)`)
+The result passed to the callback registered via `onItem()` is an object of type `DataPointsResult` which holds the current state of all data points that were part of the respective subscription. The state of individual data points can be accessed by their reference: `result.get(Vehicle.Cabin.Seat.Row1.Pos1.Position)`)
+
+{{% alert title="Note" %}}
+If you select multiple signals/data points in a single subscription be aware that:
+1. The update notification will not only contain those data points whose states were updated, but the state of all data points selected in the belonging subscription. If you don't want this behaviour, you must subscribe to change notifications for each signal/data point separately.
+2. A possible failure state will be reported individually per signal/data point. The reason is, that each signal/data point might come from a different provider, has individual access rights and individual reasons to become invalid. This is also true, if requesting multiple signal/data point states via a single get call.
+{{% /alert %}}
 
 ## Services
 
 Services are used to communicate with other parts of the vehicle via remote procedure calls (RPC). Please read the basics about them [here](/docs/tutorials/vehicle_model_creation/manual_model_creation/manual_creation_python/#add-a-vehicle-service).
 
 {{% alert title="Note" %}}
-Services are not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for the time being. If you need access to services please read [here](/docs/tutorials/vehicle_model_creation/manual_model_creation) how you can create a model and add services to it manually.
+This description is outdated!
+
+Services were not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for some time and could be made available via the [description](/docs/tutorials/vehicle_model_creation/manual_model_creation) how you can create a model and add services to it manually.
+
+In-between we provide a way to refer gRPC based services by referencing the required proto files from the AppManifest and auto-generated the language-specific stubs. The necessary steps need being described here.
 {{% /alert %}}
 
 The following code snippet shows how to use the `moveComponent()` method of the `SeatService` from the vehicle model:
@@ -221,7 +327,7 @@ If this is your first time building, you might have to run `install_dependencies
 
 In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-cpp-template/blob/main/.velocitas.json) (which should be the default) and the runtime is up and running. Read more about it in the [run runtime services](/docs/tutorials/vehicle_app_runtime/local_runtime) section.
 
-Now chose one of the options to start the VehicleApp under development (including Dapr sidecar):
+Now chose one of the options to start the VehicleApp under development:
 
 1. Press <kbd>F5</kbd>
 
@@ -241,7 +347,7 @@ The debug session launch settings are already prepared for the `VehicleApp`.
 {
     "configurations": [
         {
-            "name": "VehicleApp - Debug (dapr run)",
+            "name": "VehicleApp - Debug (Native)",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/bin/app",
@@ -250,60 +356,27 @@ The debug session launch settings are already prepared for the `VehicleApp`.
             "cwd": "${workspaceFolder}",
             "environment": [
                 {
-                    "name": "DAPR_HTTP_PORT",
-                    "value": "3500"
+                    "name": "SDV_MIDDLEWARE_TYPE",
+                    "value": "native"
                 },
                 {
-                    "name": "DAPR_GRPC_PORT",
-                    "value": "50001"
+                    "name": "SDV_VEHICLEDATABROKER_ADDRESS",
+                    "value": "127.0.0.1:55555"
                 },
                 {
-                    "name": "VEHICLEDATABROKER_DAPR_APP_ID",
-                    "value": "vehicledatabroker"
+                    "name": "SDV_MQTT_ADDRESS",
+                    "value": "127.0.0.1:1883"
                 }
             ],
             "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [ ],
-            "preLaunchTask": "dapr-sidecar-start",
-            "postDebugTask": "dapr-sidecar-stop",
         }
     ]
 }
 ```
 
-We specify which binary to run using the `program` key. In the `environment` you can specify all needed environment variables. With the `preLaunchTask` and `postDebugTask` keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks.
-
-```JSON
-{
-    "label": "dapr-sidecar-start",
-    "detail": "Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).",
-    "type": "shell",
-    "command": "velocitas exec runtime-local run-dapr-sidecar vehicleapp --dapr-grpc-port 50001 --dapr-http-port 3500",
-    "group": "none",
-    "isBackground": true,
-    "presentation": {
-        "close": true,
-        "reveal": "never"
-    }
-}
-```
-
-```JSON
-{
-    "label": "dapr-sidecar-stop",
-    "detail": "Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).",
-    "type": "shell",
-    "command": [
-        "dapr stop --app-id vehicleapp"
-    ],
-    "presentation": {
-        "close": true,
-        "reveal": "never"
-    }
-}
-```
-
+We specify which binary to run using the `program` key. In the `environment` you can specify all needed environment variables.
 You can adapt the JSON to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another _Vehicle App_.
 
 Once you are done, you have to switch to the debugging tab (sidebar on the left) and select your configuration using the dropdown on the top. You can now start the debug session by clicking the play button or <kbd>F5</kbd>. Debugging is now as simple as in every other IDE, just place your breakpoints and follow the flow of your _Vehicle App_.
@@ -312,8 +385,7 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 
 - Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk)
 - Concept: [Deployment Model](/docs/concepts/deployment_model)
-- Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
+- Tutorial: [Deploy runtime services in Kanto](/docs/tutorials/vehicle_app_runtime/kanto_runtime)
 - Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
 - Tutorial: [Creating a Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Develop and run integration tests for a Vehicle App](/docs/tutorials/vehicle_app_development/integration_tests)
-- Tutorial: [Deploy a _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)

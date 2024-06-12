@@ -29,7 +29,7 @@ A detailed explanation of the use case and the example is available [here](/docs
 {{% alert title="Note" %}}
 If you don't like to do the following steps by yourself, you can use the `Import example app from SDK` task within VS Code to get a working copy of this example into your repository.
 <br>
-(For details about the import of an example from the SDK look [here](/docs/tutorials/quickstart/import_examples).)
+For details about the import of an example from the SDK look [here](/docs/tutorials/quickstart/import_examples)
 {{% /alert %}}
 
 ## Setting up the basic skeleton of your app
@@ -55,12 +55,12 @@ import json
 import logging
 import signal
 
-from sdv.util.log import (  # type: ignore
+from velocitas_sdk.util.log import (  # type: ignore
     get_opentelemetry_log_factory,
     get_opentelemetry_log_format,
 )
-from sdv.vdb.reply import DataPointReply
-from sdv.vehicle_app import VehicleApp, subscribe_topic
+from velocitas_sdk.vdb.reply import DataPointReply
+from velocitas_sdk.vehicle_app import VehicleApp, subscribe_topic
 from vehicle import Vehicle, vehicle  # type: ignore
 ```
 
@@ -121,15 +121,15 @@ The first thing you need to do is to get access to the Vehicle Model. If you der
 If you want to access a single [DataPoint](/docs/concepts/development_model/vehicle_app_sdk/#datapoint) e.g. for the vehicle speed, this can be done via
 
 ```Python
-vehicle_speed = await self.Vehicle.Speed.get()
+vehicle_speed = (await self.Vehicle.Speed.get()).value
 ```
 
-As the `get()` method of the DataPoint-class there is a coroutine you have to use the `await` keyword when using it.
+As the `get()` method of the DataPoint-class there is a coroutine you have to use the `await` keyword when using it and access its `.value`.
 
 If you want to get deeper inside the vehicle, to access a single seat for example, you just have to go the model-chain down:
 
 ```Python
-self.DriverSeatPosition = await self.vehicle_client.Cabin.Seat.Row1.Pos1.Position.get()
+self.DriverSeatPosition = await self.Vehicle.Cabin.Seat.Row1.DriverSide.Position.get()
 ```
 
 ## Subscription to Data Points
@@ -139,34 +139,34 @@ If you want to get notified about changes of a specific `DataPoint`, you can sub
 ```Python
     async def on_start(self):
         """Run when the vehicle app starts"""
-        await self.Vehicle.Cabin.Seat.Row1.Pos1.Position.subscribe(
+        await self.Vehicle.Cabin.Seat.Row1.DriverSide.Position.subscribe(
             self.on_seat_position_changed
         )
 ```
 
 Every `DataPoint` provides a _.subscribe()_ method that allows for providing a callback function which will be invoked on every data point update. Subscribed data is available in the respective _DataPointReply_ object and need to be accessed via the reference to the subscribed data point. The returned object is of type `TypedDataPointResult` which holds the `value` of the data point
-and the `timestamp` at which the value was captured by the data broker.
+and the `timestamp` at which the value was captured by the Databroker.
 Therefore the `on_seat_position_changed` callback function needs to be implemented like this:
 
 ```Python
     async def on_seat_position_changed(self, data: DataPointReply):
         # handle the event here
         response_topic = "seatadjuster/currentPosition"
-        position = data.get(self.Vehicle.Cabin.Seat.Row1.Pos1.Position).value
+        position = data.get(self.Vehicle.Cabin.Seat.Row1.DriverSide.Position).value
         # ...
 ```
 
 ## Subscription using Annotations
 
-The Python SDK also supports annotations for subscribing to data point changes with `@subscribe_data_points` defined by the whole path to the `DataPoint` of interest.
+The Python SDK also supports annotations for subscribing to data point changes with `@subscribe_data_points` defined by the whole path to the `DataPoint` of interest. This would replace the implementation of the [Subscription to Data Points](#subscription-to-data-points)
 
 ```Python
-@subscribe_data_points("Vehicle.Cabin.Seat.Row1.Pos1.Position")
-async def on_vehicle_seat_change(self, data: DataPointReply):
+@subscribe_data_points("Vehicle.Cabin.Seat.Row1.DriverSide.Position")
+async def on_seat_position_changed(self, data: DataPointReply):
     response_topic = "seatadjuster/currentPosition"
-    response_data = {"position": data.get(self.Vehicle.Cabin.Seat.Row1.Pos1.Position).value}
+    response_data = {"position": data.get(self.Vehicle.Cabin.Seat.Row1.DriverSide.Position).value}
 
-    await self.publish_mqtt_event(response_topic, json.dumps(response_data))
+    await self.publish_event(response_topic, json.dumps(response_data))
 ```
 
 Similarly, subscribed data is available in the respective _DataPointReply_ object and needs to be accessed via the reference to the subscribed data point.
@@ -178,7 +178,8 @@ Services are used to communicate with other parts of the vehicle via remote func
 {{% alert title="Note" %}}
 Services are not supported by our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle) for the time being. If you need access to services please read [here](/docs/tutorials/vehicle_model_creation/manual_model_creation) how you can create a model and add services to it manually.
 {{% /alert %}}
-
+You can ignore the following step if you would like to reach the final implementation of the [example](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/tree/main/examples/seat-adjuster).
+</br>
 The following code snippet shows how to use the `MoveComponent()` method of the `SeatService` from the vehicle model:
 
 ```Python
@@ -196,7 +197,7 @@ In order to define which seat you like to move, you have to pass a `SeatLocation
 
 Interaction with other _Vehicle Apps_ or with the cloud is enabled by using the Mosquitto MQTT Broker. The MQTT broker runs inside a docker container, which is started as part of one of our [predefined runtimes](../../vehicle_app_runtime/).
 
-In the [quickstart section](/docs/tutorials/quickstart/#how-to-debug-_vehicle-app_) about the _Vehicle App_, you already tested sending MQTT messages to the app.
+In the [quickstart section](/docs/tutorials/quickstart/quickstart/#how-to-debug-your-_vehicle-app_) about the _Vehicle App_, you already tested sending MQTT messages to the app.
 In the previous sections, you generally saw how to use `Vehicle Models`, `DataPoints` and `Services`. In this section, you will learn how to combine them with MQTT.
 
 In order to receive and process MQTT messages inside your app, simply use the `@subscribe_topic` annotations from the SDK for an additional method `on_set_position_request_received()` you have to implement:
@@ -204,6 +205,7 @@ In order to receive and process MQTT messages inside your app, simply use the `@
 ```Python
     @subscribe_topic("seatadjuster/setPosition/request")
     async def on_set_position_request_received(self, data_str: str) -> None:
+        logger.info(f"Got message: {data_str!r}")
         data = json.loads(data_str)
         response_topic = "seatadjuster/setPosition/response"
         response_data = {"requestId": data["requestId"], "result": {}}
@@ -213,13 +215,13 @@ In order to receive and process MQTT messages inside your app, simply use the `@
 
 The `on_set_position_request_received` method will now be invoked every time a message is published to the subscribed topic `"seatadjuster/setPosition/response"`. The message data (string) is provided as parameter. In the example above the data is parsed from json (`data = json.loads(data_str)`).
 
-In order to publish data to topics, the SDK provides the appropriate convenience method: `self.publish_mqtt_event()` which will be added to the `on_seat_position_changed` callback function from before.
+In order to publish data to topics, the SDK provides the appropriate convenience method: `self.publish_event()` which will be added to the `on_seat_position_changed` callback function from before.
 
 ```Python
     async def on_seat_position_changed(self, data: DataPointReply):
         response_topic = "seatadjuster/currentPosition"
-        position = data.get(self.Vehicle.Cabin.Seat.Row1.Pos1.Position).value
-        await self.publish_mqtt_event(
+        position = data.get(self.Vehicle.Cabin.Seat.Row1.DriverSide.Position).value
+        await self.publish_event(
             response_topic,
             json.dumps({"position": position}),
         )
@@ -258,9 +260,9 @@ async def test_for_publish_to_topic():
     # Disable no-value-for-parameter, seems to be false positive with mock lib
 
     with mock.patch.object(
-        VehicleApp, "publish_mqtt_event", new_callable=mock.AsyncMock, return_value=-1
+        VehicleApp, "publish_event", new_callable=mock.AsyncMock, return_value=-1
     ):
-        response = await VehicleApp.publish_mqtt_event(
+        response = await VehicleApp.publish_event(
             str("sampleTopic"), get_sample_request_data()  # type: ignore
         )
         assert response == -1
@@ -272,6 +274,7 @@ def get_sample_request_data():
 
 Looking at a test you notice the annotation `@pytest.mark.asyncio`. This is required if the test is defined as a coroutine. The next step is to create a mock from all the external dependencies. The method takes 4 arguments: first is the object to be mocked, second the method for which you want to modify the return value, third a callable and the last argument is the return value.
 After creating the mock, you can test the method and check the response. Use asserts to make your test fail if the response does not match.
+Check the [`seat-adjuster` unit tests](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/main/examples/seat-adjuster/tests/unit/test_run.py) to see a more detailed implementation.
 
 ## See the results
 
@@ -279,9 +282,14 @@ Once the implementation is done, it is time to run and debug the app.
 
 ### Run your App
 
-In order to run the app make sure the `devenv-runtimes` package is part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) (which should be the default) and the runtime is up and running. Read more about it in the [run runtime services](/docs/tutorials/vehicle_app_runtime/local_runtime) section.
+In order to run the app:
 
-Now chose one of the options to start the VehicleApp under development (including Dapr sidecar if middleware type is Dapr):
+- Make sure the `devenv-runtimes` & `devenv-devcontainer-setup` packages are part of your [`.velocitas.json`](https://github.com/eclipse-velocitas/vehicle-app-python-template/blob/main/.velocitas.json) (which should be the default).
+- Have a correctly configured [`app/AppManifest.json`](https://github.com/eclipse-velocitas/vehicle-app-python-sdk/blob/main/examples/seat-adjuster/AppManifest.json). [See more](/docs/concepts/development_model/vehicle_app_manifest/)
+- Trigger our [automated vehicle model lifecycle](/docs/tutorials/vehicle_model_creation/automated_model_lifecycle). (e. g. `velocitas init`)
+- A runtime needs to be up and running. Read more about it in the [run runtime services](/docs/tutorials/vehicle_app_runtime/local_runtime) section.
+
+Now chose one of the options to start the VehicleApp under development:
 
 1. Press <kbd>F5</kbd>
 
@@ -298,74 +306,26 @@ In the [introduction about debugging](/docs/tutorials/quickstart/quickstart/#how
 The debug session launch settings are already prepared for the `VehicleApp` in `/.vscode/launch.json`.
 
 ```JSON
-"configurations": [
-    {
-        "type": "python",
-        "justMyCode": false,
-        "request": "launch",
-        "name": "VehicleApp",
-        "program": "${workspaceFolder}/app/src/main.py",
-        "console": "integratedTerminal",
-        "preLaunchTask": "dapr-sidecar-start",
-        "postDebugTask": "dapr-sidecar-stop",
-        "env": {
-            "APP_PORT": "50008",
-            "DAPR_HTTP_PORT": "3500",
-            "DAPR_GRPC_PORT": "50001",
-            "VEHICLEDATABROKER_DAPR_APP_ID": "vehicledatabroker"
-        }
-    }
-]
-```
-
-We specify which python-script to run using the `program` key. With the `preLaunchTask` and `postDebugTask` keys, you can also specify tasks to run before or after debugging. In this example, DAPR is set up to start the app before and stop it again after debugging. Below you can see the 2 tasks to find in `/.vscode/tasks.json`.
-
-```JSON
-  {
-   "label": "dapr-sidecar-start",
-   "detail": "Start Dapr sidecar (with dapr run) to be present for debugging the VehicleApp (used by launch config).",
-   "type": "shell",
-   "command": "velocitas exec runtime-local run-dapr-sidecar vehicleapp --app-port 50008 --dapr-grpc-port 50001 --dapr-http-port 3500",
-   "group": "none",
-   "isBackground": true,
-   "presentation": {
-    "close": true,
-    "reveal": "never"
-   },
-   "problemMatcher": {
-    "pattern": [
-     {
-      "regexp": ".",
-      "file": 1,
-      "location": 2,
-      "message": 3
-     }
-    ],
-    "background": {
-     "activeOnStart": true,
-     "beginsPattern": "^You're up and running! Dapr logs will appear here.",
-     "endsPattern": "."
-    }
-   },
-   "hide": true
-  }
-```
-
-```JSON
 {
-    "label": "dapr-sidecar-stop",
-    "detail": "Stop Dapr sidecar after finish debugging the VehicleApp (used by launch config).",
-    "type": "shell",
-    "command": [
-        "dapr stop --app-id vehicleapp"
-    ],
-    "presentation": {
-        "close": true,
-        "reveal": "never"
-    },
-    "hide": true
-},
+    "configurations": [
+        {
+            "type": "python",
+            "justMyCode": false,
+            "request": "launch",
+            "name": "VehicleApp",
+            "program": "${workspaceFolder}/app/src/main.py",
+            "console": "integratedTerminal",
+            "env": {
+                "SDV_MIDDLEWARE_TYPE": "native",
+                "SDV_VEHICLEDATABROKER_ADDRESS": "grpc://127.0.0.1:55555",
+                "SDV_MQTT_ADDRESS": "mqtt://127.0.0.1:1883"
+            }
+        }
+    ]
+}
 ```
+
+We specify which python-script to run using the `program` key.
 
 You can adapt the configuration in `/.vscode/launch.json` and in `/.vscode/tasks.json` to your needs (e.g., change the ports, add new tasks) or even add a completely new configuration for another _Vehicle App_.
 
@@ -374,9 +334,8 @@ Once you are done, you have to switch to the debugging tab (sidebar on the left)
 ## Next steps
 
 - Concept: [SDK Overview](/docs/concepts/development_model/vehicle_app_sdk)
-- Tutorial: [Deploy runtime services in Kubernetes](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
+- Tutorial: [Deploy runtime services in Kanto](/docs/tutorials/vehicle_app_runtime/kanto_runtime)
 - Tutorial: [Start runtime services locally](/docs/tutorials/vehicle_app_runtime/local_runtime)
 - Tutorial: [Creating a Python Vehicle Model](/docs/tutorials/vehicle_model_creation)
 - Tutorial: [Develop and run integration tests for a _Vehicle App_](/docs/tutorials/vehicle_app_development/integration_tests)
 - Concept: [Deployment Model](/docs/concepts/deployment_model/)
-- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)

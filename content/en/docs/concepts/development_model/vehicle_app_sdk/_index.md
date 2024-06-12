@@ -17,9 +17,9 @@ The _Vehicle App_ SDK consists of the following building blocks:
 
 - **[Vehicle Model Ontology](#vehicle-model-ontology):** The SDK provides a set of model base classes for the creation of vehicle models.
 
-- **[Middleware integration](#middleware-integration):** Vehicle Models can contain gRPC stubs to communicate with _Vehicle Services_. gRPC communication is integrated with the [Dapr](https://dapr.io) middleware for service discovery and [OpenTelemetry](https://opentelemetry.io) logging and tracing.
+- **[Middleware integration](#middleware-integration):** Vehicle Models can contain gRPC stubs to communicate with _Vehicle Services_. gRPC communication is integrated natively.
 
-- **[Fluent query & rule construction](#fluent-query--rule-construction):** Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Data Broker to access the real values of the data points that are defined in the vehicle model.
+- **[Fluent query & rule construction](#fluent-query--rule-construction):** Based on a concrete Vehicle Model, the SDK is able to generate queries and rules against the KUKSA Databroker to access the real values of the data points that are defined in the vehicle model.
 
 - **[Publish & subscribe messaging](#publish--subscribe-messaging):** The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker.
 
@@ -303,13 +303,9 @@ private:
 {{< /tab >}}
 {{< /tabpane >}}
 
-### Service discovery
-
-The underlying gRPC channel is provided and managed by the `Service` base class of the SDK. It is also responsible for routing the method invocation to the service through the Dapr middleware. As a result, a `dapr-app-id` has to be assigned to every `Service`, so that Dapr can discover the corresponding _Vehicle Services_. This `dapr-app-id` has to be specified as an environment variable named `<service_name>_DAPR_APP_ID`.
-
 ## Fluent query & rule construction
 
-A set of query methods like `get()`, `where()`, `join()` etc. are provided through the `Model` and `DataPoint` base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Data Broker.
+A set of query methods like `get()`, `where()`, `join()` etc. are provided through the `Model` and `DataPoint` base classes. These functions make it possible to construct SQL-like queries and subscriptions in a fluent language, which are then transmitted through the gRPC interface to the KUKSA Databroker.
 
 ### Query examples
 
@@ -434,15 +430,15 @@ void onSeatPositionChanged(const DataPointMap_t datapoints) {
 
 ## Publish & subscribe messaging
 
-The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. By leveraging the Dapr pub/sub building block for this purpose, the low-level MQTT communication is abstracted away from the _Vehicle App_ developer. Especially the physical address and port of the MQTT broker is no longer configured in the _Vehicle App_ itself, but rather is part of the Dapr configuration, which is outside of the _Vehicle App_.
+The SDK supports publishing messages to a MQTT broker and subscribing to topics of a MQTT broker. Using the Velocitas SDK, the low-level MQTT communication is abstracted away from the _Vehicle App_ developer. Especially the physical address and port of the MQTT broker is no longer configured in the _Vehicle App_ itself, but rather is set as an environment variable, which is outside of the _Vehicle App_.
 
 ### Publish MQTT Messages
 
-MQTT messages can be published easily with the `publish_mqtt_event()` method, inherited from `VehicleApp` base class:
+MQTT messages can be published easily with the `publish_event()` method, inherited from `VehicleApp` base class:
 
 {{< tabpane langEqualsHeader=true >}}
 {{< tab "Python" >}}
-await self.publish_mqtt_event(
+await self.publish_event(
     "seatadjuster/currentPosition", json.dumps(req_data))
 {{< /tab >}}
 {{< tab "C++" >}}
@@ -474,29 +470,13 @@ subscribeToTopic("seatadjuster/setPosition/request")->onItem([this](auto&& item)
 {{< /tab >}}
 {{< /tabpane >}}
 
-Under the hood, the _Vehicle App_ creates a gRPC endpoint on port `50008`, which is exposed to the Dapr middleware. The Dapr middleware will then subscribe to the MQTT broker and forward the messages to the _Vehicle App_.
-
-To change the app port, set it in the `main()` method of the app:
-
-{{< tabpane langEqualsHeader=true >}}
-{{< tab "Python" >}}
-from sdv import conf
-
-async def main():
-    conf.DAPR_APP_PORT = <your port>
-{{< /tab >}}
-{{< tab "C++" >}}
-// C++ does not use Dapr for Pub/Sub messaging at this point
-{{< /tab >}}
-{{< /tabpane >}}
-
 ## Vehicle App abstraction
 
-_Vehicle Apps_ are inherited from the `VehicleApp` base class. This enables the _Vehicle App_ to use the Publish & Subscribe messaging and to connect to the KUKSA Data Broker.
+_Vehicle Apps_ are inherited from the `VehicleApp` base class. This enables the _Vehicle App_ to use the Publish & Subscribe messaging and to connect to the KUKSA Databroker.
 
 The `Vehicle Model` instance is passed to the constructor of the `VehicleApp` class and should be stored in a member variable (e.g. `self.vehicle` for Python, `std::shared_ptr<Vehicle> m_vehicle;` for C++), to be used by all methods within the application.
 
-Finally, the `run()` method of the `VehicleApp` class is called to start the _Vehicle App_ and register all MQTT topic and Data Broker subscriptions.
+Finally, the `run()` method of the `VehicleApp` class is called to start the _Vehicle App_ and register all MQTT topic and Databroker subscriptions.
 
 {{% alert title="Implementation detail" color="warning" %}}
 In Python, the subscriptions are based on `asyncio`, which makes it necessary to call the `run()` method with an active `asyncio event_loop`.

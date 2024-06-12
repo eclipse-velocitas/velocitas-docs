@@ -10,9 +10,11 @@ aliases:
 
 ## Using tasks in Visual Studio Code
 
-**Overview:** If you are developing in Visual Studio Code, the runtime components (like _KUKSA Data Broker_ or _Vehicle Services_) are available for local execution coming from our _devenv-runtimes_ package and are accessible as _Tasks_, a feature of the Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
+**Overview:** If you are developing in Visual Studio Code, the runtime components (like _KUKSA Databroker_ or _Vehicle Services_) are available for local execution coming from our _devenv-runtimes_ package and are accessible as _Tasks_, a feature of the Visual Studio Code. Additional information on tasks can be found [here](https://code.visualstudio.com/docs/editor/tasks).
 
 **Start local runtime:** To start local runtime, a task called `Local Runtime - Up` is available. This task runs the runtime services in the correct order. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `Local Runtime - Up`.
+
+**Stop local runtime:** To stop local runtime, a task called `Local Runtime - Down` is available. This task stops running runtime services gracefully. You can run this task by clicking `F1` and choose `Tasks: Run task`, then select `Local Runtime - Down`.
 
 **Tasks Management:** Visual Studio Code offers various other commands concerning tasks like Start/Terminate/Restart/... You can access them by pressing F1 and typing `task`. A list with available task commands will appear.
 
@@ -23,9 +25,9 @@ aliases:
 The configuration for services of our provided local runtime are defined in the [`runtime.json`](https://github.com/eclipse-velocitas/devenv-runtimes/blob/main/runtime.json) at the root of the repository [devenv-runtimes](https://github.com/eclipse-velocitas/devenv-runtimes/tree/main).
 For a more detailed view on how to change or add runtime service configuration, please visit: [Lifecycle Management Package Development](/docs/concepts/lifecycle_management/packages/development/#configuration-of-runtime-packages)
 
-## Using KUKSA Data Broker CLI
+## Using KUKSA Databroker CLI
 
-A CLI tool is provided for interacting with a running instance of the KUKSA Data Broker. It can be started by running the task `Local Runtime - VehicleDataBroker CLI`(by pressing _F1_, type _Run Task_ followed by `Local Runtime - VehicleDataBroker CLI`). The _Runtime Local_ needs to be running for you to be able to use the tool.
+A CLI tool is provided for interacting with a running instance of the KUKSA Databroker. It can be started by running the task `Local Runtime - VehicleDataBroker CLI`(by pressing _F1_, type _Run Task_ followed by `Local Runtime - VehicleDataBroker CLI`). The _Runtime Local_ needs to be running for you to be able to use the tool.
 
 ## Integrating a new runtime service into Visual Studio Code Task
 
@@ -63,12 +65,10 @@ A new service can be easily started by calling it from bash script, however rest
 
 ### Codespaces
 
-If you are using Codespaces, remember that you are working on a remote agent. That's why it could happen that the tasks are already running in the background. If that's the case a new start of the tasks will fail, since the ports are already in use. In the Dapr-tab of the sidebar you can check if there are already tasks running. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit `F1` and enter `View: Toggle Ports`).
+If you are using Codespaces, remember that you are working on a remote agent. That's why it could happen that the tasks are already running in the background. If that's the case a new start of the tasks will fail, since the ports are already in use. Another possibility to check if the processes are already running, is to check which ports are already open. Check the Ports-tab to view all open ports (if not already open, hit `F1` and enter `View: Toggle Ports`).
 
 ## Next steps
 
-- Tutorial: [Deploy runtime services in local Kubernetes cluster](/docs/tutorials/vehicle_app_runtime/kubernetes_runtime)
 - Tutorial: [Quickstart](/docs/tutorials/quickstart)
 - Concept: [Deployment Model](/docs/concepts/deployment_model/)
 - Concept: [Build and release process](/docs/concepts/deployment_model/vehicle_app_releases/)
-- Tutorial: [Deploy a Python _Vehicle App_ with Helm](/docs/tutorials/vehicle_app_deployment/helm_deployment.md)
