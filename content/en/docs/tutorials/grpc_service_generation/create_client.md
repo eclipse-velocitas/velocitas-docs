@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
     std::cout << "gRPC error message: " << status.error_message().c_str() << std::endl;
 
     if (status.error_code() == ::grpc::StatusCode::UNIMPLEMENTED) {
-        return 0;
+        return 1;
     } else {
         ::grpc::ClientContext                                   context;
         ::sdv::edge::comfort::seats::v1::CurrentPositionRequest request;

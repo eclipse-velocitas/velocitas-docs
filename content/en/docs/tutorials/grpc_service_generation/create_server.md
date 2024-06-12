@@ -44,8 +44,8 @@ To create a server that is providing the gRPC service we are leveraging the gene
 ### main.cpp
 
 ``` cpp
-#include "sdk/middleware/Middleware.h"
-#include "services/seats/SeatsServiceServerFactory.h"
+#include <sdk/middleware/Middleware.h>
+#include <services/seats/SeatsServiceServerFactory.h>
 #include "SeatsServiceImpl.h"
 
 #include <memory>
@@ -69,10 +69,10 @@ int main(int argc, char** argv) {
 
 ``` cpp
 #include "SeatsServiceImpl.h"
-#include "sdk/VehicleApp.h"
-#include "sdk/VehicleModelContext.h"
-#include "sdk/vdb/IVehicleDataBrokerClient.h"
-#include "vehicle/Vehicle.hpp"
+#include <sdk/VehicleApp.h>
+#include <sdk/VehicleModelContext.h>
+#include <sdk/vdb/IVehicleDataBrokerClient.h>
+#include <vehicle/Vehicle.hpp>
 #include <grpc/grpc.h>
 #include <services/seats/seats.grpc.pb.h>
 
