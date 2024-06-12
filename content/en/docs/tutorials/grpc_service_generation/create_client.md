@@ -13,7 +13,7 @@ description: >
 {
   "type": "grpc-interface",
   "config": {
-      "src": "https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/main/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto",
+      "src": "https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto",
       // "required" indicates you are trying to write a client for the service
       "required": {
         "methods": [
