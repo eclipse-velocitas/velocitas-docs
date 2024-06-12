@@ -50,7 +50,7 @@ To create a client we use the generated `SeatsServiceClientFactory.h` and `seats
 ### main.cpp
 
 ``` cpp
-#include "sdk/middleware/Middleware.h"
+#include <sdk/middleware/Middleware.h>
 #include <services/seats/SeatsServiceClientFactory.h>
 #include <services/seats/seats.grpc.pb.h>
 
