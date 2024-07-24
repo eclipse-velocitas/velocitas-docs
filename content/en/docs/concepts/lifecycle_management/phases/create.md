@@ -47,14 +47,12 @@ MyApp
 > 3. Which API dependencies does your project have?
 [x] gRPC service
 [ ] uProtocol service
-[x] Vehicle Service Catalogue
 
 > 4. Add an API dependency (y/n)?
 y
 
 > 5. What type of dependency?
 [x] gRPC-IF
-[ ] VSC-IF
 
 > 6. URI of the .proto file?
 https://some-url/if.proto
@@ -73,7 +71,6 @@ $ velocitas create \
     --name MyApp \
     --lang cpp \
     --package grpc-service-support \
-    --package vsc-support \
     --require grpc-interface:https://some-url/if.proto
 
 > Project created!

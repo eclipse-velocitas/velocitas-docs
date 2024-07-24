@@ -37,7 +37,7 @@ The Vehicle Model Ontology consists of the following classes:
 
 ### Model
 
-A model contains services, data points and other models. It corresponds to branch entries in VSS, interfaces in DTDL or namespaces in VSC.
+A model contains services, data points and other models.
 
 ### ModelCollection
 
