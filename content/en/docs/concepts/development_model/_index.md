@@ -45,6 +45,7 @@ Vehicle data is stored in the KUKSA Databroker conforming to an underlying [Sema
 The Vehicle Signal Specification ([VSS](https://covesa.github.io/vehicle_signal_specification/)) provides a domain taxonomy for vehicle signals and defines the vehicle data semantically, which is exchanged between _Vehicle Apps_ and the Databroker.
 
 The Velocitas SDK is using [VSS](https://covesa.github.io/vehicle_signal_specification/) as the semantic model for the Vehicle Model.
+Vehicle Service models can be defined with [Protobuf service definitions](vehicle_app_manifest/interfaces/grpc_interface/).
 
 ### Communication Protocols
 

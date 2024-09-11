@@ -12,7 +12,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-name: Preview
+name: Publish Documentation
 
 on:
   workflow_dispatch:
@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2.6.0
+        uses: peaceiris/actions-hugo@v3.0.0
         with:
           hugo-version: "0.123.3"
           extended: true
@@ -45,10 +45,13 @@ jobs:
       - name: Check for broken links
         continue-on-error: true
         run: |
-          echo $(docker run -v $(pwd)/public:/public -v $(pwd)/.htmltest.yml:/.htmltest.yml --rm wjdp/htmltest -s /public -c /.htmltest.yml) >> $GITHUB_STEP_SUMMARY
+          echo -e "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          # Test below broken?
+          docker run -v $(pwd)/public:/public -v $(pwd)/.htmltest.yml:/.htmltest.yml --rm wjdp/htmltest -s /public -c /.htmltest.yml >> $GITHUB_STEP_SUMMARY || true
+          echo -e "\`\`\`" >> $GITHUB_STEP_SUMMARY
 
       - name: Publish to docs branch
-        uses: peaceiris/actions-gh-pages@v3.9.0
+        uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public

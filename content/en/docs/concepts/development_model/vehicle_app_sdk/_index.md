@@ -37,7 +37,7 @@ The Vehicle Model Ontology consists of the following classes:
 
 ### Model
 
-A model contains services, data points and other models.
+A model contains data points (leaves) and other models (branches).
 
 ### ModelCollection
 
