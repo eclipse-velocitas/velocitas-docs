@@ -90,7 +90,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.d790185167de3e2f61931543117b20ba.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5e5eb88389a045f41b578b64b5e7c9f6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -116,7 +116,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.d790185167de3e2f61931543117b20ba.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5e5eb88389a045f41b578b64b5e7c9f6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -172,10 +172,17 @@
   <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk-check"/>
   <label for="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk-check"><a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk"><span class="">Vehicle App SDK</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-velocitasdocsconceptsdevelopment_modelval-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-velocitasdocsconceptsdevelopment_modelval-li">
   <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_modelval-check" checked/>
   <label for="m-velocitasdocsconceptsdevelopment_modelval-check"><a href="/velocitas/docs/concepts/development_model/val/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_modelval"><span class="td-sidebar-nav-active-item">Vehicle Abstraction Layer (VAL)</span></a></label>
   
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptsdevelopment_modelvalgrpc_style_guide-li">
+  <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_modelvalgrpc_style_guide-check"/>
+  <label for="m-velocitasdocsconceptsdevelopment_modelvalgrpc_style_guide-check"><a href="/velocitas/docs/concepts/development_model/val/grpc_style_guide/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptsdevelopment_modelvalgrpc_style_guide"><span class="">GRPC Interface Style Guide</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_manifest-li">
   <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_manifest-check"/>
   <label for="m-velocitasdocsconceptsdevelopment_modelvehicle_app_manifest-check"><a href="/velocitas/docs/concepts/development_model/vehicle_app_manifest/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_manifest"><span class="">Vehicle App Manifest</span></a></label>
@@ -448,7 +455,7 @@
       </ul>
     </li>
     <li><a href="#source-code">Source Code</a></li>
-    <li><a href="#guidelines">Guidelines</a></li>
+    <li><a href="#grpc-interface-style-guide">GRPC Interface Style Guide</a></li>
   </ul>
 </nav>
       </div>
@@ -532,13 +539,13 @@
 <a href="https://covesa.github.io/vehicle_signal_specification/" target="_blank" rel="noopener">COVESA Vehicle Signal Specification (VSS)</a>
 .
 The <em>Vehicle API</em> eliminates the need to know the source, destination, and format of signals for the vehicle system.</p>
-<p>The Eclipse Velocitas project is using the VAL of the 
+<p>The Eclipse Velocitas project is using the 
 
 <a href="https://github.com/eclipse-kuksa" target="_blank" rel="noopener"><em>Eclipse KUKSA project</em></a>
-, also called <em>KUKSA.VAL</em>.
-KUKSA.VAL does not provide a concrete VAL. That&rsquo;s up to you as an OEM (vehicle manufacturer) or as a supplier.
-But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an <em>Vehicle App</em> or Service.</p>
-<p>KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the <em>KUKSA Databroker</em> and the generic <em>Data Providers</em> (aka <em>Data Feeders</em>).
+.
+KUKSA does not provide a concrete VAL. That&rsquo;s up to you as an OEM (vehicle manufacturer) or as a supplier.
+But KUKSA provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an <em>Vehicle App</em> or Service.</p>
+<p>KUKSA provides you with ready-to-use generic components for the signal-based access to the vehicle, like the <em>KUKSA Databroker</em> and the generic <em>Data Providers</em> (aka <em>Data Feeders</em>).
 It also provides you reference implementations of certain <em>Vehicle Services</em>, like the <em>Seat Service</em> and the <em>HVAC Service</em>.</p>
 <h2 id="architecture">Architecture</h2>
 <p>The image below shows the main components of the VAL and its relation to the 
@@ -580,7 +587,7 @@ It can provide service interfaces to control actuators or to trigger (complex) a
 It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the Databroker.</p>
 <p>The 
 
-<a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-incubation" target="_blank" rel="noopener">KUKSA Incubation repository</a>
  contains examples illustrating how such kind of vehicle services can be built.</p>
 <h3 id="hardware-abstraction">Hardware Abstraction</h3>
 <p>Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
@@ -673,13 +680,11 @@ Service implementations may also interact as feeders with the Databroker.</p>
 <a href="https://github.com/eclipse-kuksa#providers-exchanging-data-with-databrokerserver" target="_blank" rel="noopener">KUKSA example providers</a>
 </li>
 </ul>
-<h2 id="guidelines">Guidelines</h2>
-<ul>
-<li>Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the 
+<h2 id="grpc-interface-style-guide">GRPC Interface Style Guide</h2>
+<p>A style guide is available in the 
 
-<a href="https://github.com/eclipse/kuksa.val.services/tree/main/docs" target="_blank" rel="noopener">kuksa.val.services repository</a>
-.</li>
-</ul>
+<a href="grpc_style_guide.md">GRPC Interface Style Guide</a>
+</p>
 
         <div class="section-index">
     
@@ -690,13 +695,23 @@ Service implementations may also interact as feeders with the Databroker.</p>
     
     
     
+    <hr class="panel-line">
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/velocitas/docs/concepts/development_model/val/grpc_style_guide/">GRPC Interface Style Guide</a>
+                </h5>
+                <p></p>
+            </div>
+        
     
 </div>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 12, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/58471b19254817f31fbd26db5dc5da9cbf7a2ef2">Add tutorial and docs for grpc interface (#127) (58471b1)</a>
+  Last modified September 12, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/e8ca8f3290206304f55cb00e31f4a73c5e2c427c">Remove kuksa.val and VSC references (#128) (e8ca8f3)</a>
 </div>
 
 </div>

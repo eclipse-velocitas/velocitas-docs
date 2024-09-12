@@ -42,12 +42,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/velocitas/docs/tutorials/prototyping/service_integration/" /><meta property="article:section" content="docs" />
 <meta property="article:published_time" content="2022-11-02T10:09:25+05:30" />
-<meta property="article:modified_time" content="2024-06-12T10:42:11+02:00" />
+<meta property="article:modified_time" content="2024-09-12T08:10:31+02:00" />
 
 <meta itemprop="name" content="Service Integration">
 <meta itemprop="description" content="Learn how to integrate a _Vehicle Service_ that executes the request of your _Vehicle App_ on vehicle side
 "><meta itemprop="datePublished" content="2022-11-02T10:09:25+05:30" />
-<meta itemprop="dateModified" content="2024-06-12T10:42:11+02:00" />
+<meta itemprop="dateModified" content="2024-09-12T08:10:31+02:00" />
 <meta itemprop="wordCount" content="278">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Service Integration"/>
 <meta name="twitter:description" content="Learn how to integrate a _Vehicle Service_ that executes the request of your _Vehicle App_ on vehicle side
@@ -93,7 +93,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.d790185167de3e2f61931543117b20ba.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5e5eb88389a045f41b578b64b5e7c9f6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -119,7 +119,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/velocitas/offline-search-index.d790185167de3e2f61931543117b20ba.json"
+    data-offline-search-index-json-src="/velocitas/offline-search-index.5e5eb88389a045f41b578b64b5e7c9f6.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -175,10 +175,17 @@
   <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk-check"/>
   <label for="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk-check"><a href="/velocitas/docs/concepts/development_model/vehicle_app_sdk/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_sdk"><span class="">Vehicle App SDK</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptsdevelopment_modelval-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocsconceptsdevelopment_modelval-li">
   <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_modelval-check"/>
   <label for="m-velocitasdocsconceptsdevelopment_modelval-check"><a href="/velocitas/docs/concepts/development_model/val/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_modelval"><span class="">Vehicle Abstraction Layer (VAL)</span></a></label>
   
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-velocitasdocsconceptsdevelopment_modelvalgrpc_style_guide-li">
+  <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_modelvalgrpc_style_guide-check"/>
+  <label for="m-velocitasdocsconceptsdevelopment_modelvalgrpc_style_guide-check"><a href="/velocitas/docs/concepts/development_model/val/grpc_style_guide/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-velocitasdocsconceptsdevelopment_modelvalgrpc_style_guide"><span class="">GRPC Interface Style Guide</span></a></label>
+  
+</li>
+  </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_manifest-li">
   <input type="checkbox" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_manifest-check"/>
   <label for="m-velocitasdocsconceptsdevelopment_modelvehicle_app_manifest-check"><a href="/velocitas/docs/concepts/development_model/vehicle_app_manifest/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-velocitasdocsconceptsdevelopment_modelvehicle_app_manifest"><span class="">Vehicle App Manifest</span></a></label>
@@ -533,13 +540,13 @@
 <h3 id="modify-existing-services">Modify existing services</h3>
 <p>For more advanced usage you can also try to modify existing services. Check out 
 
-<a href="https://github.com/eclipse/kuksa.val.services/tree/main/seat_service" target="_blank" rel="noopener">the seat service</a>
+<a href="https://github.com/eclipse-kuksa/kuksa-incubation/tree/main/seat_service" target="_blank" rel="noopener">the seat service</a>
  for example, modify it and integrate it into your <em>Vehicle App</em> repository.</p>
 <h3 id="create-your-own-services">Create your own services</h3>
 <p>If you want to create your own service the 
 
-<a href="https://github.com/eclipse/kuksa.val.services/" target="_blank" rel="noopener">KUKSA.VAL Services repository</a>
- contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to <em>KUKSA.VAL</em> listening to changes of a <em>target value</em> of some VSS data point and then do whatever you want. You can achieve this by using the <em>KUKSA.VAL</em> 
+<a href="https://github.com/eclipse-kuksa/kuksa-incubation" target="_blank" rel="noopener">KUKSA Incubation repository</a>
+ contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to <em>KUKSA</em> listening to changes of a <em>target value</em> of some VSS data point and then do whatever you want. You can achieve this by using the <em>KUKSA</em> 
 
 <a href="https://github.com/eclipse-kuksa/kuksa-databroker/tree/main/proto/kuksa/val/v1" target="_blank" rel="noopener">gRPC API</a>
  with any programming language of your choice (learn more about 
@@ -563,7 +570,7 @@ The default behavior is predefined in
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 12, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/58471b19254817f31fbd26db5dc5da9cbf7a2ef2">Add tutorial and docs for grpc interface (#127) (58471b1)</a>
+  Last modified September 12, 2024: <a href="https://github.com/eclipse-velocitas/velocitas-docs/commit/e8ca8f3290206304f55cb00e31f4a73c5e2c427c">Remove kuksa.val and VSC references (#128) (e8ca8f3)</a>
 </div>
 
 </div>

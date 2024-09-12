@@ -64,7 +64,7 @@
 &lt;p&gt;The Vehicle Model is a tree-based model where every branch in the tree, including the root, is derived from the &lt;code&gt;Model&lt;/code&gt; base class provided by the SDK.&lt;/p&gt;
 &lt;p&gt;The Vehicle Model Ontology consists of the following classes:&lt;/p&gt;
 &lt;h3 id=&#34;model&#34;&gt;Model&lt;/h3&gt;
-&lt;p&gt;A model contains services, data points and other models. It corresponds to branch entries in VSS, interfaces in DTDL or namespaces in VSC.&lt;/p&gt;
+&lt;p&gt;A model contains data points (leaves) and other models (branches).&lt;/p&gt;
 &lt;h3 id=&#34;modelcollection&#34;&gt;ModelCollection&lt;/h3&gt;
 
 
@@ -768,13 +768,13 @@ The gRPC stubs are wrapped by a &lt;strong&gt;convenience layer&lt;/strong&gt; c
 &lt;a href=&#34;https://covesa.github.io/vehicle_signal_specification/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;COVESA Vehicle Signal Specification (VSS)&lt;/a&gt;
 .
 The &lt;em&gt;Vehicle API&lt;/em&gt; eliminates the need to know the source, destination, and format of signals for the vehicle system.&lt;/p&gt;
-&lt;p&gt;The Eclipse Velocitas project is using the VAL of the 
+&lt;p&gt;The Eclipse Velocitas project is using the 
 
 &lt;a href=&#34;https://github.com/eclipse-kuksa&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Eclipse KUKSA project&lt;/em&gt;&lt;/a&gt;
-, also called &lt;em&gt;KUKSA.VAL&lt;/em&gt;.
-KUKSA.VAL does not provide a concrete VAL. That&amp;rsquo;s up to you as an OEM (vehicle manufacturer) or as a supplier.
-But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an &lt;em&gt;Vehicle App&lt;/em&gt; or Service.&lt;/p&gt;
-&lt;p&gt;KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the &lt;em&gt;KUKSA Databroker&lt;/em&gt; and the generic &lt;em&gt;Data Providers&lt;/em&gt; (aka &lt;em&gt;Data Feeders&lt;/em&gt;).
+.
+KUKSA does not provide a concrete VAL. That&amp;rsquo;s up to you as an OEM (vehicle manufacturer) or as a supplier.
+But KUKSA provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an &lt;em&gt;Vehicle App&lt;/em&gt; or Service.&lt;/p&gt;
+&lt;p&gt;KUKSA provides you with ready-to-use generic components for the signal-based access to the vehicle, like the &lt;em&gt;KUKSA Databroker&lt;/em&gt; and the generic &lt;em&gt;Data Providers&lt;/em&gt; (aka &lt;em&gt;Data Feeders&lt;/em&gt;).
 It also provides you reference implementations of certain &lt;em&gt;Vehicle Services&lt;/em&gt;, like the &lt;em&gt;Seat Service&lt;/em&gt; and the &lt;em&gt;HVAC Service&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
 &lt;p&gt;The image below shows the main components of the VAL and its relation to the 
@@ -816,7 +816,7 @@ It can provide service interfaces to control actuators or to trigger (complex) a
 It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the Databroker.&lt;/p&gt;
 &lt;p&gt;The 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA.VAL Services repository&lt;/a&gt;
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-incubation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA Incubation repository&lt;/a&gt;
  contains examples illustrating how such kind of vehicle services can be built.&lt;/p&gt;
 &lt;h3 id=&#34;hardware-abstraction&#34;&gt;Hardware Abstraction&lt;/h3&gt;
 &lt;p&gt;Data feeders rely on hardware abstraction. Hardware abstraction is project/platform specific.
@@ -909,13 +909,11 @@ Service implementations may also interact as feeders with the Databroker.&lt;/p&
 &lt;a href=&#34;https://github.com/eclipse-kuksa#providers-exchanging-data-with-databrokerserver&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;KUKSA example providers&lt;/a&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;guidelines&#34;&gt;Guidelines&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the 
+&lt;h2 id=&#34;grpc-interface-style-guide&#34;&gt;GRPC Interface Style Guide&lt;/h2&gt;
+&lt;p&gt;A style guide is available in the 
 
-&lt;a href=&#34;https://github.com/eclipse/kuksa.val.services/tree/main/docs&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;kuksa.val.services repository&lt;/a&gt;
-.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;a href=&#34;grpc_style_guide.md&#34;&gt;GRPC Interface Style Guide&lt;/a&gt;
+&lt;/p&gt;
 
       </description>
     </item>
