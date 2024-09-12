@@ -12,11 +12,11 @@ Our maintained [`devenv-runtimes`](https://github.com/eclipse-velocitas/devenv-r
 
 ### Modify existing services
 
-For more advanced usage you can also try to modify existing services. Check out [the seat service](https://github.com/eclipse/kuksa.val.services/tree/main/seat_service) for example, modify it and integrate it into your _Vehicle App_ repository.
+For more advanced usage you can also try to modify existing services. Check out [the seat service](https://github.com/eclipse-kuksa/kuksa-incubation/tree/main/seat_service) for example, modify it and integrate it into your _Vehicle App_ repository.
 
 ### Create your own services
 
-If you want to create your own service the [KUKSA.VAL Services repository](https://github.com/eclipse/kuksa.val.services/) contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to _KUKSA.VAL_ listening to changes of a _target value_ of some VSS data point and then do whatever you want. You can achieve this by using the _KUKSA.VAL_ [gRPC API](https://github.com/eclipse-kuksa/kuksa-databroker/tree/main/proto/kuksa/val/v1) with any programming language of your choice (learn more about [gRPC](https://grpc.io)).
+If you want to create your own service the [KUKSA Incubation repository](https://github.com/eclipse-kuksa/kuksa-incubation) contains examples illustrating how such kind of vehicle services can be built. You need to write an application that talks to _KUKSA_ listening to changes of a _target value_ of some VSS data point and then do whatever you want. You can achieve this by using the _KUKSA_ [gRPC API](https://github.com/eclipse-kuksa/kuksa-databroker/tree/main/proto/kuksa/val/v1) with any programming language of your choice (learn more about [gRPC](https://grpc.io)).
 
 ### Mock Provider and Mock Provider Integration
 

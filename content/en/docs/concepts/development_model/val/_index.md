@@ -16,11 +16,11 @@ description: >
 The Vehicle Abstraction Layer (VAL) enables access to the systems and functions of a vehicle via a unified - or even better - a standardized _Vehicle API_ abstracting from the details of the end-to-end architecture of the vehicle. The unified API enables _Vehicle Apps_ to run on different vehicle architectures of a single OEM. _Vehicle Apps_ can be even implemented OEM-agnostic, if using an API based on a standard like the [COVESA Vehicle Signal Specification (VSS)](https://covesa.github.io/vehicle_signal_specification/).
 The _Vehicle API_ eliminates the need to know the source, destination, and format of signals for the vehicle system.
 
-The Eclipse Velocitas project is using the VAL of the [_Eclipse KUKSA project_](https://github.com/eclipse-kuksa), also called _KUKSA.VAL_.
-KUKSA.VAL does not provide a concrete VAL. That's up to you as an OEM (vehicle manufacturer) or as a supplier.
-But KUKSA.VAL provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an _Vehicle App_ or Service.
+The Eclipse Velocitas project is using the [_Eclipse KUKSA project_](https://github.com/eclipse-kuksa).
+KUKSA does not provide a concrete VAL. That's up to you as an OEM (vehicle manufacturer) or as a supplier.
+But KUKSA provides the components and tools that helps you to implement a VAL for your chosen end-to-end architecture. Also, it can support you to simulate the vehicle hardware during the development phase of an _Vehicle App_ or Service.
 
-KUKSA.VAL provides you with ready-to-use generic components for the signal-based access to the vehicle, like the _KUKSA Databroker_ and the generic _Data Providers_ (aka _Data Feeders_).
+KUKSA provides you with ready-to-use generic components for the signal-based access to the vehicle, like the _KUKSA Databroker_ and the generic _Data Providers_ (aka _Data Feeders_).
 It also provides you reference implementations of certain _Vehicle Services_, like the _Seat Service_ and the _HVAC Service_.
 
 ## Architecture
@@ -56,7 +56,7 @@ A vehicle service offers a _Vehicle App_ to interact with the vehicle systems on
 It can provide service interfaces to control actuators or to trigger (complex) actions, or provide interfaces to get data.
 It communicates with the Hardware Abstraction to execute the underlying services, but may also interact with the Databroker.
 
-The [KUKSA.VAL Services repository](https://github.com/eclipse/kuksa.val.services/) contains examples illustrating how such kind of vehicle services can be built.
+The [KUKSA Incubation repository](https://github.com/eclipse-kuksa/kuksa-incubation) contains examples illustrating how such kind of vehicle services can be built.
 
 ### Hardware Abstraction
 
@@ -96,6 +96,7 @@ Source code and build instructions are available in the respective KUKSA reposit
 * [KUKSA CAN Provider](https://github.com/eclipse-kuksa/kuksa-can-provider)
 * [KUKSA example providers](https://github.com/eclipse-kuksa#providers-exchanging-data-with-databrokerserver)
 
-## Guidelines
 
-* Guidelines for best practices on how to specify a gRPC-based service interface and on how to implement a vehicle service can be found in the [kuksa.val.services repository](https://github.com/eclipse/kuksa.val.services/tree/main/docs).
+## GRPC Interface Style Guide
+
+A style guide is available in the [GRPC Interface Style Guide](grpc_style_guide.md)

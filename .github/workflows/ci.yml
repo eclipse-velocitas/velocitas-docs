@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2.6.0
+        uses: peaceiris/actions-hugo@v3.0.0
         with:
           hugo-version: "0.123.3"
           extended: true
@@ -48,10 +48,15 @@ jobs:
       - name: Check
         continue-on-error: true
         run: |
-          echo $(docker run -v $(pwd)/public:/public -v $(pwd)/.htmltest.yml:/.htmltest.yml --rm wjdp/htmltest -s /public -c /.htmltest.yml) >> $GITHUB_STEP_SUMMARY
+          echo -e "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          docker run -v $(pwd)/public:/public -v $(pwd)/.htmltest.yml:/.htmltest.yml --rm wjdp/htmltest -s /public -c /.htmltest.yml >> $GITHUB_STEP_SUMMARY || true
+          echo -e "\`\`\`" >> $GITHUB_STEP_SUMMARY
 
       - name: Publish to GH Pages
-        uses: peaceiris/actions-gh-pages@v3.9.0
+        # Note that gh_pages isnt published to https://eclipse-velocitas.github.io/velocitas-docs/
+        # or the alias https://eclipse.dev/velocitas/
+        # So this basically just check if there are errors :-)
+        uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
