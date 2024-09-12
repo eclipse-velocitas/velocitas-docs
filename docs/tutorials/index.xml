@@ -111,6 +111,32 @@ now.&lt;/p&gt;&lt;/p&gt;
     </item>
     
     <item>
+      <title>Docs: gRPC service generation</title>
+      <link>/velocitas-docs/docs/tutorials/grpc_service_generation/</link>
+      <pubDate>Fri, 07 Jun 2024 14:02:00 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/tutorials/grpc_service_generation/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This tutorial shows how to generate a basic gRPC service like a seat service. For this example the proto file under 
+
+&lt;a href=&#34;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&lt;/a&gt;
+ is taken.&lt;/p&gt;
+&lt;p&gt;All files included from &lt;code&gt;services/seats&lt;/code&gt; are auto-generated and added to the app project as Conan dependency.
+For writing a complete gRPC service you need two velocitas apps/projects.
+One is implementing a client and the other one is for providing the server.
+To complete the server implementation you have to fill the generated &lt;code&gt;*ServiceImpl.cpp&lt;/code&gt;.
+Have a look at the linked content beneath for a tutorial how it would be done for a SeatService leveraging 
+
+&lt;a href=&#34;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/eclipse-kuksa/kuksa-incubation/0.4.0/seat_service/proto/sdv/edge/comfort/seats/v1/seats.proto&lt;/a&gt;
+.&lt;/p&gt;
+&lt;p&gt;To run the example you need to start the velocitas app for the server first and then the second velocitas app for the client.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Vehicle App Deployment</title>
       <link>/velocitas-docs/docs/tutorials/vehicle_app_deployment/</link>
       <pubDate>Thu, 22 Jun 2023 09:43:25 +0530</pubDate>

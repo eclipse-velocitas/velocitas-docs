@@ -15,5 +15,286 @@
       
     
     
+    <item>
+      <title>Docs: GRPC Interface Style Guide</title>
+      <link>/velocitas-docs/docs/concepts/development_model/val/grpc_style_guide/</link>
+      <pubDate>Mon, 09 May 2022 14:24:56 +0530</pubDate>
+      
+      <guid>/velocitas-docs/docs/concepts/development_model/val/grpc_style_guide/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This provides a style guide for .proto files. By following these conventions, you&amp;rsquo;ll make your protocol buffer message definitions and their corresponding classes consistent and easy to read.
+Unless otherwise indicated, this style guide is based on the style guide from 
+
+&lt;a href=&#34;https://developers.google.com/protocol-buffers/docs/style&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;google protocol-buffers style&lt;/a&gt;
+ under Apache 2.0 License &amp;amp; Creative Commons Attribution 4.0 License.&lt;/p&gt;
+&lt;p&gt;Note that protocol buffer style can evolve over time, so it is likely that you will see .proto files written in different conventions or styles. Please respect the existing style when you modify these files. Consistency is key. However, it is best to adopt the current best style when you are creating a new .proto file.&lt;/p&gt;
+&lt;h3 id=&#34;standard-file-formatting&#34;&gt;Standard file formatting&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Keep the line length to 80 characters.&lt;/li&gt;
+&lt;li&gt;Use an indent of 2 spaces.&lt;/li&gt;
+&lt;li&gt;Prefer the use of double quotes for strings.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;file-structure&#34;&gt;File structure&lt;/h3&gt;
+&lt;p&gt;Files should be named lower_snake_case.proto&lt;/p&gt;
+&lt;p&gt;All files should be ordered in the following manner:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;License header&lt;/li&gt;
+&lt;li&gt;File overview&lt;/li&gt;
+&lt;li&gt;Syntax&lt;/li&gt;
+&lt;li&gt;Package&lt;/li&gt;
+&lt;li&gt;Imports (sorted)&lt;/li&gt;
+&lt;li&gt;File options&lt;/li&gt;
+&lt;li&gt;Everything else&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;directory-structure&#34;&gt;Directory Structure&lt;/h3&gt;
+&lt;p&gt;Files should be stored in a directory structure that matches their package sub-names. All files
+in a given directory should be in the same package.
+Below is an example based on the 
+
+&lt;a href=&#34;https://github.com/eclipse-kuksa/kuksa-databroker/tree/main/proto/sdv/databroker/v1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;proto files&lt;/a&gt;
+ in the kuksa.-databroker repository.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|   proto/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|   └── sdv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|       └── databroker
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|           └── v1                  // package sdv.databroker.broker.v1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|               ├── broker.proto    // service Broker in sdv.databroker.broker.v1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|               ├── collector.proto // service Collector in sdv.databroker.broker.v1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|               └── types.proto     // type definition and import of  in sdv.databroker.broker.v1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The proposed structure shown above is adapted from 
+
+&lt;a href=&#34;https://raw.githubusercontent.com/uber/prototool/dev/style/README.md&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Uber Protobuf Style Guide V2&lt;/a&gt;
+ under MIT License.&lt;/p&gt;
+&lt;h3 id=&#34;packages&#34;&gt;Packages&lt;/h3&gt;
+&lt;p&gt;Package names should be in lowercase. Package names should have unique names based on the project name, and possibly based on the path of the file containing the protocol buffer type definitions.&lt;/p&gt;
+&lt;h3 id=&#34;message-and-field-names&#34;&gt;Message and field names&lt;/h3&gt;
+&lt;p&gt;Use PascalCase (CamelCase with an initial capital) for message names – for example, SongServerRequest. Use underscore_separated_names for field names (including oneof field and extension names) – for example, song_name.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;message SongServerRequest {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   optional string song_name = 1;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Using this naming convention for field names gives you accessors like the following:&lt;/p&gt;
+&lt;p&gt;C++:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;song_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;set_song_name&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;string&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;x&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If your field name contains a number, the number should appear after the letter instead of after the underscore. For example, use song_name1 instead of song_name_1
+Repeated fields&lt;/p&gt;
+&lt;p&gt;Use pluralized names for repeated fields.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-proto&#34; data-lang=&#34;proto&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repeated&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;keys&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;repeated&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;MyMessage&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;accounts&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;17&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;enums&#34;&gt;Enums&lt;/h3&gt;
+&lt;p&gt;Use PascalCase (with an initial capital) for enum type names and CAPITALS_WITH_UNDERSCORES for value names:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enum&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;FooBar&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#000&#34;&gt;FOO_BAR_UNSPECIFIED&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#000&#34;&gt;FOO_BAR_FIRST_VALUE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#000&#34;&gt;FOO_BAR_SECOND_VALUE&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Each enum value should end with a semicolon, not a comma. The zero value enum should have the suffix UNSPECIFIED.&lt;/p&gt;
+&lt;h3 id=&#34;services&#34;&gt;Services&lt;/h3&gt;
+&lt;p&gt;If your .proto defines an RPC service, you should use PascalCase (with an initial capital) for both the service name and any RPC method names:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-proto&#34; data-lang=&#34;proto&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;service&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;FooService&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;rpc&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;GetSomething&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;GetSomethingRequest&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;returns&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;GetSomethingResponse&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;rpc&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ListSomething&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ListSomethingRequest&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;returns&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ListSomethingResponse&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a40000&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;grpc-interface-versioning&#34;&gt;GRPC Interface Versioning&lt;/h3&gt;
+&lt;p&gt;All API interfaces must provide a major version number, which is encoded at the end of the protobuf package.
+If an API introduces a breaking change, such as removing or renaming a field, it must increment its API version number to ensure that existing user code does not suddenly break.
+Note: The use of the term &amp;ldquo;major version number&amp;rdquo; above is taken from semantic versioning. However, unlike in traditional semantic versioning, APIs must not expose minor or patch version numbers.
+For example, APIs use v1, not v1.0, v1.1, or v1.4.2. From a user&amp;rsquo;s perspective, minor versions are updated in place, and users receive new functionality without migration.&lt;/p&gt;
+&lt;p&gt;A new major version of an API must not depend on a previous major version of the same API. An API may depend on other APIs, with an expectation that the caller understands the dependency and stability risk associated with those APIs. In this scenario, a stable API version must only depend on stable versions of other APIs.&lt;/p&gt;
+&lt;p&gt;Different versions of the same API should preferably be able to work at the same time within a single client application for a reasonable transition period. This time period allows the client to transition smoothly to the newer version. An older version must go through a reasonable, well-communicated deprecation period before being shut down.&lt;/p&gt;
+&lt;p&gt;For releases that have alpha or beta stability, APIs must append the stability level after the major version number in the protobuf package.&lt;/p&gt;
+&lt;h4 id=&#34;release-based-versioning&#34;&gt;Release-based versioning&lt;/h4&gt;
+&lt;p&gt;An individual release is an alpha or beta release that is expected to be available for a limited time period before its functionality is incorporated into the stable channel, after which the individual release will be shut down.
+When using release-based versioning strategy, an API may have any number of individual releases at each stability level.&lt;/p&gt;
+&lt;p&gt;Alpha and beta releases must have their stability level appended to the version, followed by an incrementing release number. For example, v1beta1 or v1alpha5. APIs should document the chronological order of these versions in their documentation (such as comments).
+Each alpha or beta release may be updated in place with backwards-compatible changes. For beta releases, backwards-incompatible updates should be made by incrementing the release number and publishing a new release with the change. For example, if the current version is v1beta1, then v1beta2 is released next.&lt;/p&gt;
+&lt;p&gt;Adapted from 
+
+&lt;a href=&#34;https://cloud.google.com/apis/design/versioning?hl=en#release-based_versioning&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;google release-based_versioning&lt;/a&gt;
+ under Apache 2.0 License &amp;amp; Creative Commons Attribution 4.0 License&lt;/p&gt;
+&lt;h3 id=&#34;backwards-compatibility&#34;&gt;Backwards compatibility&lt;/h3&gt;
+&lt;p&gt;The gRPC protocol is designed to support services that change over time. Generally, additions to gRPC services and methods are non-breaking. Non-breaking changes allow existing clients to continue working without changes. Changing or deleting gRPC services are breaking changes. When gRPC services have breaking changes, clients using that service have to be updated and redeployed.&lt;/p&gt;
+&lt;p&gt;Making non-breaking changes to a service has a number of benefits:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Existing clients continue to run.&lt;/li&gt;
+&lt;li&gt;Avoids work involved with notifying clients of breaking changes, and updating them.&lt;/li&gt;
+&lt;li&gt;Only one version of the service needs to be documented and maintained.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;non-breaking-changes&#34;&gt;Non-breaking changes&lt;/h3&gt;
+&lt;p&gt;These changes are non-breaking at a gRPC protocol level and binary level.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Adding a new service&lt;/li&gt;
+&lt;li&gt;Adding a new method to a service&lt;/li&gt;
+&lt;li&gt;Adding a field to a request message - Fields added to a request message are deserialized with the default value on the server when not set. To be a non-breaking change, the service must succeed when the new field isn&amp;rsquo;t set by older clients.&lt;/li&gt;
+&lt;li&gt;Adding a field to a response message - Fields added to a response message are deserialized into the message&amp;rsquo;s unknown fields collection on the client.&lt;/li&gt;
+&lt;li&gt;Adding a value to an enum - Enums are serialized as a numeric value. New enum values are deserialized on the client to the enum value without an enum name. To be a non-breaking change, older clients must run correctly when receiving the new enum value.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;binary-breaking-changes&#34;&gt;Binary breaking changes&lt;/h3&gt;
+&lt;p&gt;The following changes are non-breaking at a gRPC protocol level, but the client needs to be updated if it upgrades to the latest .proto contract. Binary compatibility is important if you plan to publish a gRPC library.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Removing a field - Values from a removed field are deserialized to a message&amp;rsquo;s unknown fields. This isn&amp;rsquo;t a gRPC protocol breaking change, but the client needs to be updated if it upgrades to the latest contract. It&amp;rsquo;s important that a removed field number isn&amp;rsquo;t accidentally reused in the future. To ensure this doesn&amp;rsquo;t happen, specify deleted field numbers and names on the message using Protobuf&amp;rsquo;s reserved keyword.&lt;/li&gt;
+&lt;li&gt;Renaming a message - Message names aren&amp;rsquo;t typically sent on the network, so this isn&amp;rsquo;t a gRPC protocol breaking change. The client will need to be updated if it upgrades to the latest contract. One situation where message names are sent on the network is with Any fields, when the message name is used to identify the message type.&lt;/li&gt;
+&lt;li&gt;Nesting or unnesting a message - Message types can be nested. Nesting or unnesting a message changes its message name. Changing how a message type is nested has the same impact on compatibility as renaming.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;protocol-breaking-changes&#34;&gt;Protocol breaking changes&lt;/h3&gt;
+&lt;p&gt;The following items are protocol and binary breaking changes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Renaming a field - With Protobuf content, the field names are only used in generated code. The field number is used to identify fields on the network. Renaming a field isn&amp;rsquo;t a protocol breaking change for Protobuf. However, if a server is using JSON content, then renaming a field is a breaking change.&lt;/li&gt;
+&lt;li&gt;Changing a field data type - Changing a field&amp;rsquo;s data type to an incompatible type will cause errors when deserializing the message. Even if the new data type is compatible, it&amp;rsquo;s likely the client needs to be updated to support the new type if it upgrades to the latest contract.&lt;/li&gt;
+&lt;li&gt;Changing a field number - With Protobuf payloads, the field number is used to identify fields on the network.&lt;/li&gt;
+&lt;li&gt;Renaming a package, service or method - gRPC uses the package name, service name, and method name to build the URL. The client gets an UNIMPLEMENTED status from the server.&lt;/li&gt;
+&lt;li&gt;Removing a service or method - The client gets an UNIMPLEMENTED status from the server when calling the removed method.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;behavior-breaking-changes&#34;&gt;Behavior breaking changes&lt;/h3&gt;
+&lt;p&gt;When making non-breaking changes, you must also consider whether older clients can continue working with the new service behavior. For example, adding a new field to a request message:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Isn&amp;rsquo;t a protocol breaking change.&lt;/li&gt;
+&lt;li&gt;Returning an error status on the server if the new field isn&amp;rsquo;t set makes it a breaking change for old clients.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Behavior compatibility is determined by your app-specific code.&lt;/p&gt;
+&lt;p&gt;Adapted from 
+
+&lt;a href=&#34;https://docs.microsoft.com/en-us/aspnet/core/grpc/versioning?view=aspnetcore-6.0&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Versioning gRPC services&lt;/a&gt;
+ under Creative Commons Attribution 4.0 License&lt;/p&gt;
+&lt;h2 id=&#34;grpc-error-handling&#34;&gt;gRPC Error Handling&lt;/h2&gt;
+&lt;p&gt;In gRPC, a large set of error codes has been 
+
+&lt;a href=&#34;https://grpc.github.io/grpc/cpp/md_doc_statuscodes.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;defined&lt;/a&gt;
+
+As a general rule, SDV should use relevant gRPC error codes,
+as described in 
+
+&lt;a href=&#34;https://stackoverflow.com/questions/59094839/whats-the-correct-way-to-return-a-not-found-response-from-a-grpc-c-server-i&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this thread&lt;/a&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;grpc&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Status&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;grpc&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;StatusCode&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;NOT_FOUND&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;error details here&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Available constructor:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#000&#34;&gt;grpc&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Status&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Status&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;StatusCode&lt;/span&gt;  &lt;span style=&#34;color:#000&#34;&gt;code&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;error_message&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;std&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;error_details&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The framework for drafting error messages could be useful as a later improvement. This could e.g., be used to specify which unit created the error message and to assure the same structure on all messages. The latter two may e.g., depend on debug settings, e.g., error details only in debug-builds to avoid leaks of sensitive information. A global function like below or similar could handle that and also possibly convert between internal error codes and gRPC codes.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#000&#34;&gt;grpc&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;Status&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;status&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;CreateStatusMessage&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;PERMISSION_DENIED&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;DataBroker&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Rule access rights violated&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;sdv-error-handling-for-grpc-interfaces-eg-val-vehicles-services&#34;&gt;SDV error handling for gRPC interfaces (e.g., VAL vehicles services)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Use gRPC error codes as base&lt;/li&gt;
+&lt;li&gt;Document in proto files (as comments) which error codes that the service implementation can emit and the meaning of them. (Errors that only are emitted by the gRPC framework do not need to be listed.)&lt;/li&gt;
+&lt;li&gt;Do not - unless there are special reasons - add explicit error/status fields to rpc return messages.&lt;/li&gt;
+&lt;li&gt;Additional error information can be given by free text fields in gRPC error codes. Note, however, that sensitive information like &lt;code&gt;Given password ABCD does not match expected password EFGH&lt;/code&gt; should not be passed in an unprotected/unencrypted manner.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sdv-handling-of-grpc-error-codes&#34;&gt;SDV handling of gRPC error codes&lt;/h3&gt;
+&lt;p&gt;The table below gives error code guidelines for each gRPC on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If it is relevant for a client to retry the call or not when receiving the error code. Retry is only relevant if the error is of a temporary nature.&lt;/li&gt;
+&lt;li&gt;When to use the error code when implementing a service.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table border=&#34;1&#34;&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;gRPC error code&lt;/th&gt;
+      &lt;th&gt;Retry Relevant?&lt;/th&gt;
+      &lt;th&gt;Recommended SDV usage&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;OK&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Mandatory error code if operation succeeded. Shall never be used if operation failed.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CANCELLED&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;No explicit use case on server side in SDV identified&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;UNKNOWN&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;To be used in default-statements when converting errors from e.g., Broker-errors to SDV/gRPC errors&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;INVALID_ARGUMENT&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;E.g., Rule syntax with errors&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DEADLINE_EXCEEDED&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Only applicable for asynchronous services, i.e. services which wait for completion before the result is returned. The behavior if an operation cannot finish within expected time must be defined. Two options exist. One is to return this error after e.g., X seconds. Another is that the server never gives up, but rather waits for the client to cancel the operation.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NOT_FOUND&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Long term situation that likely not will change in the near future. &lt;br/&gt; Example: SDV can not find the specified resource (e.g., no path to get data for specified seat) &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ALREADY_EXISTS&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;No explicit use case on server side in SDV identified&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PERMISSION_DENIED&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Operation rejected due to permission denied&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RESOURCE_EXHAUSTED&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Possibly if e.g., malloc fails or similar errors.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;FAILED_PRECONDITION&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Could be returned if e.g., operation is rejected due to safety reasons. (E.g., vehicle moving)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;ABORTED&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;Could e.g., be returned if service does not support concurrent requests, and there is already either a related operation ongoing or the operation is aborted due to a newer request received. Could also be used if an operation is aborted on user/driver request, e.g., physical button in vehicle pressed.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;OUT_OF_RANGE&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;E.g., Arguments out of range&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;UNIMPLEMENTED&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;To be used if certain use-cases of the service are not implemented, e.g., if recline cannot be adjusted&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;INTERNAL&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;Internal errors, like exceptions, unexpected null pointers and similar&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;UNAVAILABLE&lt;/td&gt;
+      &lt;td&gt;Yes&lt;/td&gt;
+      &lt;td&gt;To be used if the service is temporarily unavailable, e.g., during system startup.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DATA_LOSS&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;No explicit use case identified on server side in SDV.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;UNAUTHENTICATED&lt;/td&gt;
+      &lt;td&gt;No&lt;/td&gt;
+      &lt;td&gt;No explicit use case identified on server side in SDV.&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;other-references&#34;&gt;Other references&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+
+&lt;a href=&#34;https://stackoverflow.com/questions/48748745/pattern-for-rich-error-handling-in-grpc&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pattern for rich error handling in gRPC&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+
+&lt;a href=&#34;https://jbrandhorst.com/post/grpc-errors/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Advanced gRPC Error Usage&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>
