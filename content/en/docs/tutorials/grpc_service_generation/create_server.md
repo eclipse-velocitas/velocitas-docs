@@ -29,7 +29,7 @@ Below is the minimum set needed in `.velocitas.json` if deploying Databroker on 
 ## App configuration
 
 In the `AppManifest.json` you need to specify that your server will provide the interfaces defined in the proto file.
-If it require access to signals in Databroker it must also be specified.
+If it requires access to signals from the Databroker, they must also be specified.
 In this example the server declares to provide the interfaces from the Seats service defined in `seats.proto` and that it needs write access to the VSS signal `Vehicle.Cabin.Seat.Row1.DriverSide.Position`.
 
 ```json
