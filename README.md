@@ -21,7 +21,7 @@ If you update source pages the local server will be automatically updated.
 
 `Web Server is available at http://localhost:1313/velocitas/ (bind address 127.0.0.1)`
 
-### Using Native Envioronment
+### Using Native Environment
 
 It is also possible to build and run the documentation outside the Devcontainer. If using Debian you could install Hugo like this:
 
@@ -40,6 +40,17 @@ If you update source pages the local server will be automatically updated.
 The Velocitas Documentation Site is not automatically updated when something is merged to main.
 Instead a Velocitas committer needs to manually run the `Publish Documentation` workflow.
 That results in that the `docs` branch is updated and triggers the `pages-build-deployment` workflow that publishes the new version to the Velocitas Documentation Site.
+
+### Release Testing
+
+Before deploying the official documentation by triggering the `Publish Documentation` workflow the following actions must be performed:
+
+* Run the hugo server on localhost and verify that appearance is similar to the [currently deployed official version](https://eclipse.dev/velocitas/)
+  and that links are working as expected.
+* Upload the new `main` to a fork that you control with GitHub Pages enabled and verify that you can run the `Publish Documentation` workflow
+  and that the results is published to your pages. Use a GitHub Pages configuration where the `docs` branch is used and where the result will be available at
+  `https://<your userid or organization>.github.io/velocitas-docs/`.
+* After triggering `Publish Documentation` workflow on the official `velocitas-docs`repository verify that results looks like expected.
 
 ## Theme Upgrade
 
