@@ -62,7 +62,7 @@ You need to specify `devenv-devcontainer-setup` >= `v2.4.2` in your project conf
   },
   "components": [
     {
-      "id": "grpc-interface-support", 
+      "id": "grpc-interface-support",
     }
   ],
 }
