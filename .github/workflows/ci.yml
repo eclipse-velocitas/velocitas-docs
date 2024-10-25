@@ -35,7 +35,7 @@ jobs:
           hugo-version: "0.123.3"
           extended: true
 
-      - name: Build devcontainer and run automated tests
+      - name: Build devcontainer and do a sanity check that it starts
         uses: devcontainers/ci@v0.3
         with:
           runCmd: |

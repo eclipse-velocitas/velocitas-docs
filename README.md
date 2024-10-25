@@ -44,8 +44,8 @@ That results in that the `docs` branch is updated and triggers the `pages-build-
 ## Theme Upgrade
 
 Velocitas-docs use the [Docsy Theme](https://github.com/google/docsy).
-To upgrade change version in [postCreateCommand.sh](.devcontainer/scripts/postCreateCommand.sh). Then rebuild the devcontainer.
-This will result in that `go.mod`and `go.sum` gets updated.
+To upgrade you need to change the docsy version in [postCreateCommand.sh](.devcontainer/scripts/postCreateCommand.sh) and rebuild the devcontainer.
+This will result in updated versions of `go.mod`and `go.sum`.
 
 ## Community
 

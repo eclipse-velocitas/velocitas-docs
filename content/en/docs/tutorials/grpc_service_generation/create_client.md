@@ -13,7 +13,7 @@ The example files can also be found in the [Github repository](https://github.co
 
 # Velocitas components
 
-Dependning on how you intend to deploy the Application and Databroker the number of Velocitas components required varies.
+Depending on how you intend to deploy the Application and Databroker the number of Velocitas components required varies.
 Below is the minimum set needed in `.velocitas.json` if deploying Databroker on localhost.
 
 ```json
@@ -59,9 +59,8 @@ You can also regenerate the SDK with the `(Re-)generate gRPC SDKs` task.
 
 ## Launcher.cpp
 
-You need to have a file that implements the client behavior,
-in this example we modify the file `Launcher.cpp` that already exist in the [template](https://github.com/eclipse-velocitas/vehicle-app-cpp-template).
-
+You need to have a file that implements the client behavior.
+In this example we modify the file `Launcher.cpp` that already exist in the [template](https://github.com/eclipse-velocitas/vehicle-app-cpp-template).
 The logic of the example client is simple. It tries to set the target position for the seat and if it
 succeeds it tries to read current position.
 
@@ -132,21 +131,22 @@ int main(int argc, char** argv) {
 ## Building and Running
 
 To (re-)build the App after changing the code you can use the [build script](https://github.com/eclipse-velocitas/vehicle-app-cpp-template/blob/main/build.sh).
-As preparation for running you must also set an environment variables to define the address/port of the server.
+As preparation for running the client you must also set an environment variable to define the address/port of the server.
+The environment variable needs to be set in the same terminal as used for starting the application.
 
 ```bash
 ./build.sh
 export SDV_SEATS_ADDRESS=grpc://127.0.0.1:5555
 ```
 
-If Databroker and the Server is running and has a current value for the wanted signal, then everthing shall work when the client is started.
+If Databroker and the Server are running and have a valid value for the wanted signal, everything should work when the client is started.
 Output similar to below is expected.
 
 ```bash
 vscode ➜ /workspaces/erik_vapp_241018 (main) $ build/bin/app
-Starting 
+Starting
 gRPC Server returned code: 0
-gRPC error message: 
+gRPC error message:
 gRPC Server returned code: 0
-gRPC error message: 
+gRPC error message:
 ```

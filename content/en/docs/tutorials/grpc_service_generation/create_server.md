@@ -6,10 +6,9 @@ description: >
   Learn how to create a server for a service definition.
 ---
 
-
 # Introduction
 
-This example assumes that you have used the [Velocitas App C++ Template](https://github.com/eclipse-velocitas/vehicle-app-cpp-template) to create a new repository and now want to modify it to be a grpc service client.
+This example assumes that you have used the [Velocitas App C++ Template](https://github.com/eclipse-velocitas/vehicle-app-cpp-template) to create a new repository and now want to modify it to be a grpc service server.
 The example files can also be found in the [Github repository](https://github.com/eclipse-velocitas/velocitas-docs/examples/grpc_server).
 
 ## Velocitas components
@@ -29,9 +28,9 @@ Below is the minimum set needed in `.velocitas.json` if deploying Databroker on 
 
 ## App configuration
 
-In the `AppManifest.json` file you need to specify which interfaces your server will provide.
+In the `AppManifest.json` you need to specify that your server will provide the interfaces defined in the proto file.
 If it require access to signals in Databroker it must also be specified.
-In this case it declares to implement everything from the Seats service defined in `seats.proto` and that it needs write access to the VSS signal `Vehicle.Cabin.Seat.Row1.DriverSide.Position`.
+In this example the server declares to provide the interfaces from the Seats service defined in `seats.proto` and that it needs write access to the VSS signal `Vehicle.Cabin.Seat.Row1.DriverSide.Position`.
 
 ```json
 
@@ -74,8 +73,7 @@ They contain the stubs for the server. You still need to fill in the actual impl
 
 ## SeatsServiceImpl.h
 
-The service will access the vehicle model, in this tutorial we manage that by adding a private class variable `vehicle`
-to the file `SeatsServiceImpl.h`
+The service will access the vehicle model, in this tutorial we manage that by adding a private class variable `vehicle` to the file `SeatsServiceImpl.h`.
 
 ```cpp
 #ifndef VELOCITAS_SERVICE_IMPL_Seats_H
@@ -242,8 +240,6 @@ int main(int argc, char** argv) {
     velocitas::VehicleModelContext::getInstance().setVdbc(
         velocitas::IVehicleDataBrokerClient::createInstance("vehicledatabroker"));
 
-    vehicle::Vehicle vehicle;
-
     auto seatServer = SeatsServiceServerFactory::create(Middleware::getInstance(), seatsImpl);
 
     seatServer->Wait();
@@ -256,8 +252,8 @@ int main(int argc, char** argv) {
 ## Building and Running
 
 To (re-)build the App after changing the code you can use the [build script](https://github.com/eclipse-velocitas/vehicle-app-cpp-template/blob/main/build.sh).
-As preparation for running you must also set two environment variables to define where the address/port of the
-server and the Databroker.
+As preparation for running you must also set two environment variables to define where the address/port of the server and the Databroker.
+The environment variable needs to be set in the same terminal as used for starting the application.
 
 ```bash
 ./build.sh
