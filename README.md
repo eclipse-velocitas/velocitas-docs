@@ -45,11 +45,10 @@ That results in that the `docs` branch is updated and triggers the `pages-build-
 
 Before deploying the official documentation by triggering the `Publish Documentation` workflow the following actions must be performed:
 
-* Run the hugo server on localhost and verify that appearance is similar to the [currently deployed official version](https://eclipse.dev/velocitas/)
-  and that links are working as expected.
-* Upload the new `main` to a fork that you control with GitHub Pages enabled and verify that you can run the `Publish Documentation` workflow
-  and that the results is published to your pages. Use a GitHub Pages configuration where the `docs` branch is used and where the result will be available at
-  `https://<your userid or organization>.github.io/velocitas-docs/`.
+* Run the hugo server on localhost
+* Verify that appearance is similar to the [currently deployed official version](https://eclipse.dev/velocitas/) and links are working as expected.
+* Upload the new `main` to a fork that you control with GitHub Pages enabled
+* Verify that you can run the `Publish Documentation` workflow and that the result is published to your pages. Use a GitHub Pages configuration where the `docs` branch is used and where the result will be available at `https://<your userid or organization>.github.io/velocitas-docs/`.
 * After triggering `Publish Documentation` workflow on the official `velocitas-docs`repository verify that results looks like expected.
 
 ## Theme Upgrade

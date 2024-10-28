@@ -27,7 +27,7 @@ Below is the minimum set needed in `.velocitas.json` if deploying Databroker on 
 
 ## App configuration
 
-In the `AppManifest.json` file you need to specify which interfaces your App wants to use or provide.
+In the `AppManifest.json` file you need to specify which interfaces your App wants to use.
 In this case it declares that it wants to use `Move` and `CurrentPosition` from the Seats service defined in `seats.proto`.
 
 
@@ -53,16 +53,14 @@ In this case it declares that it wants to use `Move` and `CurrentPosition` from 
 
 ## File Generation
 
-When rebuilding the devcontainer with the configuration no new files will appear in your repository,
-but the SDK has been updated in the background so you can use it in the file containing `main()`.
+When rebuilding the devcontainer with the configuration no new files will appear in your repository, but the SDK has been updated in the background so you can use it in the file containing `main()`.
 You can also regenerate the SDK with the `(Re-)generate gRPC SDKs` task.
 
 ## Launcher.cpp
 
 You need to have a file that implements the client behavior.
-In this example we modify the file `Launcher.cpp` that already exist in the [template](https://github.com/eclipse-velocitas/vehicle-app-cpp-template).
-The logic of the example client is simple. It tries to set the target position for the seat and if it
-succeeds it tries to read current position.
+In this example we modify the file `Launcher.cpp` that already exists in the [template](https://github.com/eclipse-velocitas/vehicle-app-cpp-template).
+The logic of the example client is simple. It tries to set the target position for the seat and if it succeeds it tries to read current position.
 
 ``` cpp
 #include <sdk/middleware/Middleware.h>
