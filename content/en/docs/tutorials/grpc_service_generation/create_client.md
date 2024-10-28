@@ -9,7 +9,7 @@ description: >
 # Introduction
 
 This example assumes that you have used the [Velocitas App C++ Template](https://github.com/eclipse-velocitas/vehicle-app-cpp-template) to create a new repository and now want to modify it to be a grpc service client.
-The example files can also be found in the [Github repository](https://github.com/eclipse-velocitas/velocitas-docs/examples/grpc_client).
+The example files can also be found in the [Vehicle App C++ SDK Github repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk/tree/main/examples/grpc_client).
 
 # Velocitas components
 

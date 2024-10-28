@@ -9,7 +9,7 @@ description: >
 # Introduction
 
 This example assumes that you have used the [Velocitas App C++ Template](https://github.com/eclipse-velocitas/vehicle-app-cpp-template) to create a new repository and now want to modify it to be a grpc service server.
-The example files can also be found in the [Github repository](https://github.com/eclipse-velocitas/velocitas-docs/examples/grpc_server).
+The example files can also be found in the [Vehicle App C++ SDK Github repository](https://github.com/eclipse-velocitas/vehicle-app-cpp-sdk/tree/main/examples/grpc_server).
 
 ## Velocitas components
 
@@ -267,7 +267,7 @@ Output similar to below is expected when client has run once.
 ```bash
 vscode ➜ /workspaces/erik_server_241021 (main) $ build/bin/app
 2024-10-22 09:51:41, INFO  : Connecting to data broker service 'vehicledatabroker' via '127.0.0.1:55555'
-2024-10-22 09:51:41, INFO  : Server sdv::edge::comfort::seats::v1::Seats listening on 127.0.0.1:5556
+2024-10-22 09:51:41, INFO  : Server sdv::edge::comfort::seats::v1::Seats listening on 127.0.0.1:5555
 Got Move Request!
 OK!
 Got CurrentPosition Request!

@@ -42,6 +42,8 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": ".devcontainer/scripts/postCreateCommand.sh",
 	// Hugo needs to run in the background as otherwise postStartCommand will never finish
-	//
-	"postStartCommand": "nohup bash -c 'hugo server -b http://localhost/velocitas -w &'"
+	"postStartCommand":  {
+		"Information":"echo Starting documentation server at http://localhost:1313/velocitas/, see nohup.out for detailed information.",
+		"Running Hugo Server":"nohup bash -c 'hugo server -b http://localhost/velocitas -w &'"
+    }
 }
