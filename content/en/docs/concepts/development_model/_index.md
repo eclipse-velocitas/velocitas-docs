@@ -86,9 +86,6 @@ The following aspects are important characteristics for [_Vehicle Apps_](#vehicl
 - **Observability:**
   _Vehicle Apps_ provide traces, metrics and logs of every part of the application using _Open Telemetry_.
 
-- **Over-the-air update capability:**
-  _Vehicle Apps_ can be deployed via cloud backends like [Pantaris](https://www.etas.com/en/products/pantaris-over-the-air-services.php) and updated in vehicles frequently over the air through [NextGen OTA updates](https://www.etas.com/en/support/webinars-nextgen-ota-updates-empowering-software-defined-vehicles-from-an-end-to-end-perspective.php).
-
 ## Development Process
 
 The starting point for developing [_Vehicle Apps_](#vehicle-apps) is a [Semantic Model](#semantic-models) of the vehicle data and vehicle services. Based on the Semantic Model, language-specific [Vehicle Models](#vehicle-models) are generated. Vehicle Models are then distributed as packages to the respective package manager of the chosen programming language (e.g. pip, cargo, npm, ...).
